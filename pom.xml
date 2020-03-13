@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.openmrs.contrib</groupId>
+    <artifactId>qaframework</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <name>OpenMRS QA Framework</name>
+    <description>OpenMRS QA framework</description>
+    <url>https://wiki.openmrs.org</url>
+    <organization>
+        <name>OpenMRS</name>
+        <url>http://openmrs.org</url>
+    </organization>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <cucumber.version>1.2.5</cucumber.version>
+        <uitestframework.version>2.4.0-SNAPSHOT</uitestframework.version>
+        <refappuitests.version>2.8.0</refappuitests.version>
+        <selenium.version>0.8.1</selenium.version>
+        <formatter.version>0.4</formatter.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>${cucumber.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>info.cukes</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.contrib</groupId>
+            <artifactId>uitestframework</artifactId>
+            <version>${uitestframework.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.openmrs.distro</groupId>
+            <artifactId>referenceapplication-ui-tests</artifactId>
+            <version>${refappuitests.version}</version>
+            <type>test-jar</type>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.googlecode.maven-java-formatter-plugin</groupId>
+                <artifactId>maven-java-formatter-plugin</artifactId>
+                <version>${formatter.version}</version>
+                <executions> 
+                   <execution>
+                       <goals>
+                         <goal>format</goal>
+                      </goals>
+                   </execution>
+                </executions>
+             </plugin>
+        </plugins>
+    </build>
+</project>

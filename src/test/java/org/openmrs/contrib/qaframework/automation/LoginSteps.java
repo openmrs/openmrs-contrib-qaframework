@@ -35,23 +35,31 @@ public class LoginSteps extends Steps {
 	@When("User enters " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
 			+ " username")
 	public void anyUsername(String username) {
-    	enterUsername(username);
+		if("setupUser".equals(username)) {
+			username = testProperties.getUsername();
+		}
+		enterUsername(username);
 	}
 
 	@And("User enters " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
 			+ " password")
 	public void anyPassword(String password) {
+		if("setupPass".equals(password)) {
+			password = testProperties.getPassword();
+		}
 		enterPassword(password);
 	}
 
 	@And("User Selects " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
 			+ " Login Location")
 	public void selectLoginLocatuon(String loginLocation) {
-		if("anyLocation".equals(loginLocation)) {
+		if ("anyLocation".equals(loginLocation)) {
 			driver.findElement(By.cssSelector("#sessionLocation li")).click();
-		} else if("noLocation".equals(loginLocation)) {
+		} else if ("noLocation".equals(loginLocation)) {
 			getLoginButton().click();
 			Assert.assertNotNull(getLoginButton());
+		} else if("setupLocation".equals(loginLocation)) {
+			elementClickOn(By.id(testProperties.getLocation()));
 		} else {
 			elementClickOn(By.id(loginLocation));
 		}
@@ -65,15 +73,25 @@ public class LoginSteps extends Steps {
 	@Then("System Evaluates Login "
 			+ CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING)
 	public void evaluateLogin(String status) {
-		if(status.trim().endsWith("true")) {
+		if (status.trim().endsWith("true")) {
 			Assert.assertNull(getLoginButton());
-		} else if(status.trim().endsWith("false")) {
+		} else if (status.trim().endsWith("false")) {
 			Assert.assertNotNull(getLoginButton());
 		}
 	}
 
 	@And("System Closes browser")
 	public void closeBrowser() {
-       quitBrowser();
+		quitBrowser();
+	}
+
+	@When("setup user rightly logs in")
+	public void setupRightLogin() {
+		getLoginPage().login(testProperties.getUsername(), testProperties.getPassword(), testProperties.getLocation());
+	}
+
+	@Then("System logs in user")
+	public void evaluateLogin() {
+		Assert.assertNull(getLoginButton());
 	}
 }

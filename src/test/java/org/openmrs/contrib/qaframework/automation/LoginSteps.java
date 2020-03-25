@@ -35,7 +35,7 @@ public class LoginSteps extends Steps {
 	@When("User enters " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
 			+ " username")
 	public void anyUsername(String username) {
-		if("setupUser".equals(username)) {
+		if ("setupUser".equals(username)) {
 			username = testProperties.getUsername();
 		}
 		enterUsername(username);
@@ -44,7 +44,7 @@ public class LoginSteps extends Steps {
 	@And("User enters " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
 			+ " password")
 	public void anyPassword(String password) {
-		if("setupPass".equals(password)) {
+		if ("setupPass".equals(password)) {
 			password = testProperties.getPassword();
 		}
 		enterPassword(password);
@@ -52,13 +52,13 @@ public class LoginSteps extends Steps {
 
 	@And("User Selects " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
 			+ " Login Location")
-	public void selectLoginLocatuon(String loginLocation) {
+	public void selectLoginLocation(String loginLocation) {
 		if ("anyLocation".equals(loginLocation)) {
 			driver.findElement(By.cssSelector("#sessionLocation li")).click();
 		} else if ("noLocation".equals(loginLocation)) {
 			getLoginButton().click();
 			Assert.assertNotNull(getLoginButton());
-		} else if("setupLocation".equals(loginLocation)) {
+		} else if ("setupLocation".equals(loginLocation)) {
 			elementClickOn(By.id(testProperties.getLocation()));
 		} else {
 			elementClickOn(By.id(loginLocation));
@@ -87,7 +87,8 @@ public class LoginSteps extends Steps {
 
 	@When("setup user rightly logs in")
 	public void setupRightLogin() {
-		getLoginPage().login(testProperties.getUsername(), testProperties.getPassword(), testProperties.getLocation());
+		getLoginPage().login(testProperties.getUsername(),
+				testProperties.getPassword(), testProperties.getLocation());
 	}
 
 	@Then("System logs in user")

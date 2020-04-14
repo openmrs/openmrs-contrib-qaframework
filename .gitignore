@@ -1,0 +1,7 @@
+.classpath
+.project
+.settings/
+.vscode/
+.idea/
+qaframework.iml
+target/

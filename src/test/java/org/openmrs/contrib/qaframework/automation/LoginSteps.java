@@ -1,7 +1,8 @@
 package org.openmrs.contrib.qaframework.automation;
 
 import cucumber.api.java.en.Given;
-import org.junit.Assert;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertNotNull;
 import org.openmrs.contrib.qaframework.CucumberProperties;
 
 import cucumber.api.java.en.And;
@@ -13,12 +14,10 @@ import org.openqa.selenium.WebElement;
 public class LoginSteps extends Steps {
 
 	private void enterUsername(String username) {
-		driver.findElement(By.id("username")).click();
 		driver.findElement(By.id("username")).sendKeys(username);
 	}
 
 	private void enterPassword(String password) {
-		driver.findElement(By.id("password")).click();
 		driver.findElement(By.id("password")).sendKeys(password);
 	}
 
@@ -57,7 +56,7 @@ public class LoginSteps extends Steps {
 			driver.findElement(By.cssSelector("#sessionLocation li")).click();
 		} else if ("noLocation".equals(loginLocation)) {
 			getLoginButton().click();
-			Assert.assertNotNull(getLoginButton());
+			assertNotNull(getLoginButton());
 		} else if ("setupLocation".equals(loginLocation)) {
 			elementClickOn(By.id(testProperties.getLocation()));
 		} else {
@@ -74,18 +73,14 @@ public class LoginSteps extends Steps {
 			+ CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING)
 	public void evaluateLogin(String status) {
 		if (status.trim().endsWith("true")) {
-			Assert.assertNull(getLoginButton());
+			assertNull(getLoginButton());
 		} else if (status.trim().endsWith("false")) {
-			Assert.assertNotNull(getLoginButton());
+			assertNotNull(getLoginButton());
 		}
-	}
-
-	@And("System Closes browser")
-	public void closeBrowser() {
 		quitBrowser();
 	}
 
-	@When("setup user rightly logs in")
+	@When("Setup user rightly logs in")
 	public void setupRightLogin() {
 		getLoginPage().login(testProperties.getUsername(),
 				testProperties.getPassword(), testProperties.getLocation());
@@ -93,7 +88,8 @@ public class LoginSteps extends Steps {
 
 	@Then("System logs in user")
 	public void evaluateLogin() {
-		Assert.assertNull(getLoginButton());
-		Assert.assertNotNull(By.className("homeList"));
+		assertNull(getLoginButton());
+		assertNotNull(By.className("homeList"));
+		quitBrowser();
 	}
 }

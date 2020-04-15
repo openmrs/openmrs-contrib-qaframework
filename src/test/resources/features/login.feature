@@ -1,4 +1,4 @@
-Feature: Login Testing
+Feature: Login
 
   Background:
     Given User visits login page
@@ -9,7 +9,6 @@ Feature: Login Testing
     And User Selects "<location>" Login Location
     And User Logs in
     Then System Evaluates Login "<status>"
-    And System Closes browser
     Examples:
       | username| password | location    | status |
       | admin   | wrongPas | anyLocation | false  |
@@ -19,6 +18,5 @@ Feature: Login Testing
       |setupUser| setupPass|setupLocation| true   |
 
   Scenario:
-    When setup user rightly logs in
+    When Setup user rightly logs in
     Then System logs in user
-    And System Closes browser

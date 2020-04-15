@@ -94,5 +94,6 @@ public class LoginSteps extends Steps {
 	@Then("System logs in user")
 	public void evaluateLogin() {
 		Assert.assertNull(getLoginButton());
+		Assert.assertNotNull(By.className("homeList"));
 	}
 }

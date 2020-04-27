@@ -24,7 +24,8 @@ public class FindPatientSteps extends Steps {
 		startWebDriver();
 		goToLoginPage();
 		loginPage = getLoginPage();
-		loginPage.login(testProperties.getUsername(), testProperties.getPassword(), "Registration Desk");
+		loginPage.login(testProperties.getUsername(),
+				testProperties.getPassword(), "Registration Desk");
 	}
 
 	@And("User clicks on Find Patient App")
@@ -33,12 +34,10 @@ public class FindPatientSteps extends Steps {
 		findPatientPage = homePage.goToFindPatientRecord();
 	}
 
-
 	@And("User enters missing patient")
 	public void enterMissingPatient() throws InterruptedException {
 		findPatientPage.enterPatient("MissingPatient");
 	}
-
 
 	@Then("Search Page returns no patients")
 	public void noPatients() throws InterruptedException {
@@ -51,10 +50,9 @@ public class FindPatientSteps extends Steps {
 		findPatientPage.enterPatient("John");
 	}
 
-
 	@Then("Search Page returns patients")
 	public void returnResults() throws InterruptedException {
-		firstPatientIdentifier = findPatientPage.getFirstPatientName();
+		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
 		assertNotNull(firstPatientIdentifier);
 	}
 
@@ -65,7 +63,20 @@ public class FindPatientSteps extends Steps {
 
 	@Then("System loads patient dashboard")
 	public void loadPatientDashboard() throws InterruptedException {
-		assertEquals(firstPatientIdentifier, By.cssSelector("div.identifiers > span"));
+		String id = getElement(By.cssSelector("div.identifiers > span"))
+				.getText();
+		trimPatientId(id);
+		assertEquals(firstPatientIdentifier, id);
 		quitBrowser();
+	}
+
+	private void trimPatientId(String id) {
+		if(firstPatientIdentifier.indexOf("[") > 0 && id.indexOf("[") > 0) {
+			firstPatientIdentifier = firstPatientIdentifier.split("\\[")[0];
+			id = id.split("\\[")[0];
+		}
+		if(firstPatientIdentifier.indexOf(" ") > 0) {
+			firstPatientIdentifier = firstPatientIdentifier.split(" ")[0];
+		}
 	}
 }

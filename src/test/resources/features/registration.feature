@@ -1,6 +1,6 @@
-Feature: Registration
+Feature: Patient Registration
 
-  Scenario Outline:
+  Scenario Outline: Failing or Succeeding to register a patient
     Given Registration user rightly logs in
     And User clicks on Registration App
     And User enters "<validity>" patient details

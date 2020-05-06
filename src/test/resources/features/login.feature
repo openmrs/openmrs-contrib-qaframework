@@ -1,9 +1,9 @@
-Feature: Login
+Feature: User Login
 
   Background:
     Given User visits login page
 
-  Scenario Outline:
+  Scenario Outline: Failing or Succeeding to Login
     When User enters "<username>" username
     And User enters "<password>" password
     And User Selects "<location>" Login Location
@@ -17,6 +17,6 @@ Feature: Login
       | admin   | Admin123 | noLocation  | false  |
       |setupUser| setupPass|setupLocation| true   |
 
-  Scenario:
+  Scenario: Right Login
     When Setup user rightly logs in
     Then System logs in user

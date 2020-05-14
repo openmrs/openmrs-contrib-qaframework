@@ -27,7 +27,6 @@ public class LoginSteps extends Steps {
 
 	@Given("User visits login page")
 	public void visitLoginPage() throws Exception {
-		startWebDriver();
 		goToLoginPage();
 	}
 
@@ -82,14 +81,14 @@ public class LoginSteps extends Steps {
 
 	@When("Setup user rightly logs in")
 	public void setupRightLogin() {
-		getLoginPage().login(testProperties.getUsername(),
+		loginPage.login(testProperties.getUsername(),
 				testProperties.getPassword(), testProperties.getLocation());
 	}
 
 	@Then("System logs in user")
 	public void evaluateLogin() {
 		assertNull(getLoginButton());
-		assertNotNull(By.className("homeList"));
+		assertNotNull(getElement(By.className("homeList")));
 		quitBrowser();
 	}
 }

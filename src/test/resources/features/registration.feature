@@ -10,6 +10,3 @@ Feature: Patient Registration
       | right      | successful |
       | wrong      |unsuccessful|
       | incomplete | inactive   |
-
-
-

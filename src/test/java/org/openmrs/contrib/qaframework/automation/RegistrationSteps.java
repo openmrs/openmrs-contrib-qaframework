@@ -24,7 +24,6 @@ public class RegistrationSteps extends Steps {
 
 	@When("Registration user rightly logs in")
 	public void registrationLogin() throws Exception {
-		startWebDriver();
 		goToLoginPage();
 		loginPage = getLoginPage();
 		loginPage.login("clerk", "Clerk123", "Registration Desk");

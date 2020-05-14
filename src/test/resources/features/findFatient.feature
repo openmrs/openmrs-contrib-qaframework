@@ -13,6 +13,3 @@ Feature: Patient Search
     Then Search Page returns patients
     And User clicks on first patient
     Then System loads patient dashboard
-
-
-

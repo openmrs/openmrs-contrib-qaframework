@@ -10,12 +10,12 @@ Feature: User Login
     And User Logs in
     Then System Evaluates Login "<status>"
     Examples:
-      | username| password | location    | status |
-      | admin   | wrongPas | anyLocation | false  |
-      |wrongUser| Admin123 | anyLocation | false  |
-      |wrongUser| wrongPas | anyLocation | false  |
-      | admin   | Admin123 | noLocation  | false  |
-      |setupUser| setupPass|setupLocation| true   |
+      | username  | password  | location      | status |
+      | admin     | wrongPas  | anyLocation   | false  |
+      | wrongUser | Admin123  | anyLocation   | false  |
+      | wrongUser | wrongPas  | anyLocation   | false  |
+      | admin     | Admin123  | noLocation    | false  |
+      | setupUser | setupPass | setupLocation | true   |
 
   Scenario: Right Login
     When Setup user rightly logs in

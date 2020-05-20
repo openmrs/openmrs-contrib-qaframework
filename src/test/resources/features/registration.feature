@@ -6,7 +6,7 @@ Feature: Patient Registration
     And User enters "<validity>" patient details
     Then User's patient registration is "<status>"
     Examples:
-      | validity   | status     |
-      | right      | successful |
-      | wrong      |unsuccessful|
-      | incomplete | inactive   |
+      | validity   | status       |
+      | right      | successful   |
+      | wrong      | unsuccessful |
+      | incomplete | inactive     |

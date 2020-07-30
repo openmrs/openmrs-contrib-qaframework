@@ -12,36 +12,36 @@ import org.openqa.selenium.WebElement;
 import static org.junit.Assert.fail;
 
 public class Steps extends ReferenceApplicationTestBase {
-    protected TestProperties testProperties = TestProperties.instance();
-    protected LoginPage loginPage;
-    protected FindPatientPage findPatientPage;
-    protected String firstPatientIdentifier;
-    protected ClinicianFacingPatientDashboardPage dashboardPage;
-    protected By patientHeaderId = By.cssSelector("div.identifiers > span");
+	protected TestProperties testProperties = TestProperties.instance();
+	protected LoginPage loginPage;
+	protected FindPatientPage findPatientPage;
+	protected String firstPatientIdentifier;
+	protected ClinicianFacingPatientDashboardPage dashboardPage;
+	protected By patientHeaderId = By.cssSelector("div.identifiers > span");
 
-    public Steps() {
-        try {
-            startWebDriver();
-            loginPage = getLoginPage();
-        } catch (Exception e) {
-            fail(e.getMessage());
-        }
-    }
+	public Steps() {
+		try {
+			startWebDriver();
+			loginPage = getLoginPage();
+		} catch (Exception e) {
+			fail(e.getMessage());
+		}
+	}
 
-    protected void elementClickOn(By elementBy) {
-        driver.findElement(elementBy).click();
-    }
+	protected void elementClickOn(By elementBy) {
+		driver.findElement(elementBy).click();
+	}
 
-    protected WebElement getElement(By elementBy) {
-        try {
-            return driver.findElement(elementBy);
-        } catch (NoSuchElementException e) {
-            return null;
-        }
-    }
+	protected WebElement getElement(By elementBy) {
+		try {
+			return driver.findElement(elementBy);
+		} catch (NoSuchElementException e) {
+			return null;
+		}
+	}
 
-    protected void quitBrowser() {
-        driver.quit();
-        driver = null;
-    }
+	protected void quitBrowser() {
+		driver.quit();
+		driver = null;
+	}
 }

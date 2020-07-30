@@ -18,7 +18,6 @@
         <cucumber.version>1.2.5</cucumber.version>
         <uitestframework.version>2.4.0-SNAPSHOT</uitestframework.version>
         <refappuitests.version>2.10.0</refappuitests.version>
-        <selenium.version>0.8.1</selenium.version>
         <formatter.version>0.4</formatter.version>
     </properties>
     <dependencies>
@@ -47,6 +46,11 @@
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.5.6</version>
+        </dependency>
     </dependencies>
     <build>
         <plugins>
@@ -56,7 +60,7 @@
                 <version>1.8</version>
                 <executions>
                     <execution>
-                        <id>make-mac-chromedrive-executable</id>
+                        <id>make-mac-chromedriver-executable</id>
                         <phase>process-test-classes</phase>
                         <configuration>
                             <target>
@@ -68,11 +72,23 @@
                         </goals>
                     </execution>
                     <execution>
-                        <id>make-linux-chromedrive-executable</id>
+                        <id>make-linux-chromedriver-executable</id>
                         <phase>process-test-classes</phase>
                         <configuration>
                             <target>
                                 <chmod file="target/test-classes/chromedriver/linux/chromedriver" perm="755"/>
+                            </target>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>make-mac-firefoxdriver-executable</id>
+                        <phase>process-test-classes</phase>
+                        <configuration>
+                            <target>
+                                <chmod file="target/test-classes/firefoxdriver/mac/geckodriver" perm="755"/>
                             </target>
                         </configuration>
                         <goals>

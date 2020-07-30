@@ -5,5 +5,3 @@
 .idea/
 qaframework.iml
 target/
-src/test/resources/chromedriver/mac
-src/test/resources/firefoxdriver/mac

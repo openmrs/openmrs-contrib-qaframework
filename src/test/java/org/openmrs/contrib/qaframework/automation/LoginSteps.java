@@ -25,6 +25,10 @@ public class LoginSteps extends Steps {
 		return getElement(By.id("loginButton"));
 	}
 
+	private WebElement getLogOutLink() {
+		return getElement(By.className("logout"));
+	}
+
 	@Given("User visits login page")
 	public void visitLoginPage() throws Exception {
 		goToLoginPage();
@@ -72,7 +76,7 @@ public class LoginSteps extends Steps {
 			+ CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING)
 	public void evaluateLogin(String status) {
 		if (status.trim().endsWith("true")) {
-			assertNull(getLoginButton());
+			assertNotNull(getLogOutLink());
 		} else if (status.trim().endsWith("false")) {
 			assertNotNull(getLoginButton());
 		}
@@ -87,7 +91,7 @@ public class LoginSteps extends Steps {
 
 	@Then("System logs in user")
 	public void evaluateLogin() {
-		assertNull(getLoginButton());
+		assertNotNull(getLogOutLink());
 		assertNotNull(getElement(By.className("homeList")));
 		quitBrowser();
 	}

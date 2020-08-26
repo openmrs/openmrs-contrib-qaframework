@@ -6,15 +6,21 @@ import org.openmrs.uitestframework.page.Page;
 import org.openqa.selenium.By;
 
 public class StylesGuidePage extends Page {
-    public static By stylesGuideLink = By.className("icon-magic");
+	public static By STYLES_GUIDE_LINK = By.className("icon-magic");
 
-    public StylesGuidePage(SystemAdministrationPage systemAdministrationPage) {
-        super(systemAdministrationPage);
-    }
+	public static By STYLES_GUIDE_HEADER = By.id("style-guide-header");
 
-    @Override
-    public String getPageUrl() {
-        return "/referenceapplication/home.page";
-    }
+	public StylesGuidePage(SystemAdministrationPage systemAdministrationPage) {
+		super(systemAdministrationPage);
+	}
+
+	public void pressBack() {
+		driver.navigate().back();
+	}
+
+	@Override
+	public String getPageUrl() {
+		return "/referenceapplication/home.page";
+	}
 
 }

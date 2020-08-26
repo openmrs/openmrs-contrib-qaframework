@@ -5,41 +5,55 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
+import org.openmrs.contrib.qaframework.page.StylesGuidePage;
 import org.openmrs.reference.page.HomePage;
+import org.openmrs.reference.page.SystemAdministrationPage;
 import org.openqa.selenium.By;
 
 public class StylesGuideSteps extends Steps {
-    @Given("a user logins into the system")
-    public void loginForStyles() {
-        loginPage.login(testProperties.getUsername(),
-                testProperties.getPassword(), testProperties.getLocation());
-    }
+	private SystemAdministrationPage systemAdministrationPage;
 
-    @And("user navigates to the systems admin page")
-    public void navigateToSystemsPage() {
-        elementClickOn(By.id("coreapps-systemadministration-homepageLink-coreapps-systemadministration-homepageLink-extension"));
-    }
+	private StylesGuidePage stylesGuidePage;
 
+	@Given("a user logins into the system")
+	public void loginForStyles() {
+		goToLoginPage();
+		loginPage.login(testProperties.getUsername(),
+				testProperties.getPassword(), testProperties.getLocation());
+		homePage = new HomePage(loginPage);
+	}
 
-    @When("user presses the styles guide link")
-    public void loadStylesGuide() {
-        elementClickOn(By.className("icon-magic"));
-    }
+	@And("user navigates to the systems admin page")
+	public void navigateToSystemsPage() {
+		elementClickOn(By
+				.id("coreapps-systemadministration-homepageLink-coreapps-systemadministration-homepageLink-extension"));
+		systemAdministrationPage = new SystemAdministrationPage(homePage);
+	}
 
-    @Then("system should load the styles guide page")
-    public void validatePage() {
-        Assert.assertNotNull(getElement(By.id("style-guide-header")));
-    }
+	@When("user presses the styles guide link")
+	public void loadStylesGuide() {
+		elementClickOn(StylesGuidePage.STYLES_GUIDE_LINK);
+		stylesGuidePage = new StylesGuidePage(systemAdministrationPage);
+	}
 
-    @And("user clicks back")
-    public void back() {
-        driver.navigate().back();
-    }
+	@Then("system should load the styles guide page")
+	public void validatePage() {
+		Assert.assertNotNull(getElement(StylesGuidePage.STYLES_GUIDE_HEADER));
+	}
 
-    @Then("system should return to the previous page")
-    public void validateReturn() {
-        Assert.assertNotNull(getElement(By.id("icon-magic")));
-    }
+	@And("user clicks back")
+	public void back() {
+		stylesGuidePage.pressBack();
+	}
+
+	@Then("system should return to the previous page")
+	public void validateReturn() {
+		Assert.assertNotNull(StylesGuidePage.STYLES_GUIDE_LINK);
+	}
+
+	@And("Close styles browser instance")
+	public void quit() {
+		quitBrowser();
+	}
 
 }
-

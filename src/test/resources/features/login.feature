@@ -3,6 +3,7 @@ Feature: User Login
   Background:
     Given User visits login page
 
+  @run
   Scenario Outline: Failing or Succeeding to Login
     When User enters "<username>" username
     And User enters "<password>" password
@@ -17,6 +18,7 @@ Feature: User Login
       | admin     | Admin123  | noLocation    | false  |
       | setupUser | setupPass | setupLocation | true   |
 
+  @run
   Scenario: Right Login
     When Setup user rightly logs in
     Then System logs in user

@@ -2,8 +2,11 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.uitestframework.page.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
-public class AddNewConditionPage extends Page {
+import java.util.List;
+
+public class ConditionPage extends Page {
 	private static final By CANCEL = By.className("cancel");
 	public static final By SAVE = By.id("addConditionBtn");
 	private static final By CONDITION = By.id("conceptId-input");
@@ -16,7 +19,7 @@ public class AddNewConditionPage extends Page {
 	private static final By FIRST_CONDITION = By
 			.cssSelector(".dropdown-menu:first-of-type li a:first-of-type");
 
-	public AddNewConditionPage(ConditionsPage conditionsPage) {
+	public ConditionPage(ConditionsPage conditionsPage) {
 		super(conditionsPage);
 	}
 
@@ -46,7 +49,10 @@ public class AddNewConditionPage extends Page {
 
 	public void clickOnInActive() {
 		clickOn(INACTIVE);
-		clickOn(ICON_CALENDAR);
-		clickOn(ICON_CALENDAR_TODATE);
+		List<WebElement> elements = findElements(ICON_CALENDAR);
+		for (int i = 0; i < elements.size(); i++) {
+			elements.get(i).click();
+			findElements(ICON_CALENDAR_TODATE).get(i).click();
+		}
 	}
 }

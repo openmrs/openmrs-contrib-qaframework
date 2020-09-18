@@ -1,6 +1,5 @@
 package org.openmrs.contrib.qaframework.page;
 
-import org.openmrs.reference.page.HomePage;
 import org.openmrs.reference.page.SystemAdministrationPage;
 import org.openmrs.uitestframework.page.Page;
 import org.openqa.selenium.By;

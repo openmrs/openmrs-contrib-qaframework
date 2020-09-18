@@ -1,5 +1,6 @@
 Feature: loading styles guide
 
+  @run
   Scenario: Loading the styles page
     Given a user logins into the system
     And user navigates to the systems admin page

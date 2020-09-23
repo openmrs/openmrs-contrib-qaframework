@@ -7,18 +7,18 @@ import org.openqa.selenium.By;
 public class ConditionsPage extends Page {
 	public static final By MANAGE_CONDITIONS_ENDPOINT = By
 			.cssSelector(".conditions .info-header i.right");
-	private static final By RETURN = By.cssSelector(".actions .cancel");
 	public static final By ADD_NEW_CONDITION = By
 			.id("conditionui-addNewCondition");
+	public static final By SET_ACTIVE = By
+			.xpath("//button[text()='Set Active']");
+	public static final By SET_INACTIVE = By
+			.xpath("//button[text()='Set Inactive']");
+	private static final By RETURN = By.cssSelector(".actions .cancel");
 	private static final By TAB_ACTIVE = By.cssSelector("a[href='#ACTIVE']");
 	private static final By TAB_INACTIVE = By
 			.cssSelector("a[href='#INACTIVE']");
 	private static final By FIRST_CONDITION_NAME = By
 			.xpath("//table/tbody[2]/tr[1]/td[1]");
-	public static final By SET_ACTIVE = By
-			.xpath("//button[text()='Set Active']");
-	public static final By SET_INACTIVE = By
-			.xpath("//button[text()='Set Inactive']");
 	private static final By EDIT = By
 			.cssSelector("i[title='Edit Condition: ']");
 	private static final By DELETE = By.cssSelector("i[title='Delete']");

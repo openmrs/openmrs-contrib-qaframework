@@ -1,18 +1,15 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import org.apache.commons.lang3.StringUtils;
-import org.openmrs.contrib.qaframework.CucumberProperties;
 import org.openmrs.contrib.qaframework.page.ConditionPage;
 import org.openmrs.contrib.qaframework.page.ConditionsPage;
 import org.openmrs.reference.page.HomePage;
 import org.openqa.selenium.By;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
+import static org.junit.Assert.*;
 
 public class ConditionsSteps extends Steps {
 	private ConditionsPage conditionsPage;
@@ -74,8 +71,7 @@ public class ConditionsSteps extends Steps {
 		conditionPage.clickSave();
 	}
 
-	@And("User enters " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
-			+ " existing condition")
+	@And("User enters {string} existing condition")
 	public void enterExistingCondition(String activity) {
 		if ("active".equals(activity)) {
 			conditionPage.typeInCondition("Diarrhe");
@@ -86,8 +82,7 @@ public class ConditionsSteps extends Steps {
 		}
 	}
 
-	@Then("Then System on "
-			+ CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING + " Page")
+	@Then("Then System on {string} Page")
 	public void persist(String page) {
 		if ("parent".equals(page)) {
 			assertNotNull(getElement(addNewCondition));

@@ -1,10 +1,9 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.openmrs.contrib.qaframework.CucumberProperties;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -33,8 +32,7 @@ public class LoginSteps extends Steps {
 		goToLoginPage();
 	}
 
-	@When("User enters " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
-			+ " username")
+	@When("User enters {string} username")
 	public void anyUsername(String username) {
 		if ("setupUser".equals(username)) {
 			username = testProperties.getUsername();
@@ -42,8 +40,7 @@ public class LoginSteps extends Steps {
 		enterUsername(username);
 	}
 
-	@And("User enters " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
-			+ " password")
+	@And("User enters {string} password")
 	public void anyPassword(String password) {
 		if ("setupPass".equals(password)) {
 			password = testProperties.getPassword();
@@ -51,8 +48,7 @@ public class LoginSteps extends Steps {
 		enterPassword(password);
 	}
 
-	@And("User Selects " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
-			+ " Login Location")
+	@And("User Selects {string} Login Location")
 	public void selectLoginLocation(String loginLocation) {
 		if ("anyLocation".equals(loginLocation)) {
 			driver.findElement(By.cssSelector("#sessionLocation li")).click();
@@ -71,8 +67,7 @@ public class LoginSteps extends Steps {
 		getLoginButton().click();
 	}
 
-	@Then("System Evaluates Login "
-			+ CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING)
+	@Then("System Evaluates Login {string}")
 	public void evaluateLogin(String status) {
 		if (status.trim().endsWith("true")) {
 			assertNotNull(getLogOutLink());

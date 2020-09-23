@@ -1,4 +1,4 @@
-Feature: loading styles guide
+Feature: Loading styles guide
 
   @run
   Scenario: Loading the styles page

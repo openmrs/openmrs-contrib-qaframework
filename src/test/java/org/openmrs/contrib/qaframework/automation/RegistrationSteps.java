@@ -1,9 +1,8 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import cucumber.api.java.en.And;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
-import org.openmrs.contrib.qaframework.CucumberProperties;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openmrs.reference.helper.PatientGenerator;
 import org.openmrs.reference.helper.TestPatient;
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
@@ -35,8 +34,7 @@ public class RegistrationSteps extends Steps {
 		registrationPage = homePage.goToRegisterPatientApp();
 	}
 
-	@And("User enters " + CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING
-			+ " patient details")
+	@And("User enters {string} patient details")
 	public void userEntersPatient(String validity) throws InterruptedException {
 		patient = PatientGenerator.generateTestPatient();
 		if ("wrong".equals(validity)) {
@@ -56,8 +54,7 @@ public class RegistrationSteps extends Steps {
 		}
 	}
 
-	@Then("User's patient registration is "
-			+ CucumberProperties.REGEX_UNDER_DOUBLE_QUOTES_STRING)
+	@Then("User's patient registration is {string}")
 	public void registering(String status) throws InterruptedException {
 		if ("successful".equals(status)) {
 			dashboardPage = registrationPage.confirmPatient();

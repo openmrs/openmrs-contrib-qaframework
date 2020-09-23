@@ -14,9 +14,9 @@ Feature: Patient's Conditions
     Then System on Add New Condition Page
     And Quit browser
     Examples:
-      | activity   |
-      | active     |
-      | inactive   |
+      | activity |
+      | active   |
+      | inactive |
 
   @ignore
   Scenario: Set first condition to inactive
@@ -26,15 +26,15 @@ Feature: Patient's Conditions
 
   @ignore
   Scenario: Set first condition to active
-      And User clicks on set active button
-      Then System should move condition to active section
-      And Quit browser
+    And User clicks on set active button
+    Then System should move condition to active section
+    And Quit browser
 
   @ignore
   Scenario: Edit first active condition
-      And User edits active
-      Then System should edit all active adjustable fields
-      And Quit browser
+    And User edits active
+    Then System should edit all active adjustable fields
+    And Quit browser
 
   @ignore
   Scenario: Edit first inactive condition

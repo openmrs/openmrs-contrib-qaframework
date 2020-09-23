@@ -7,8 +7,8 @@ import org.openqa.selenium.WebElement;
 import java.util.List;
 
 public class ConditionPage extends Page {
-	private static final By CANCEL = By.className("cancel");
 	public static final By SAVE = By.id("addConditionBtn");
+	private static final By CANCEL = By.className("cancel");
 	private static final By CONDITION = By.id("conceptId-input");
 	private static final By ICON_CALENDAR = By
 			.cssSelector(".date .icon-calendar");

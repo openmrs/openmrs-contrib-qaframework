@@ -17,7 +17,7 @@ public class Steps extends ReferenceApplicationTestBase {
 	protected FindPatientPage findPatientPage;
 	protected String firstPatientIdentifier;
 	protected ClinicianFacingPatientDashboardPage dashboardPage;
-	protected By patientHeaderId = By.cssSelector("div.identifiers > span");
+	protected By patientHeaderId = By.cssSelector("div.identifiers span");
 
 	public Steps() {
 		try {

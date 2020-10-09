@@ -23,17 +23,16 @@ Feature: allergies feature
   Scenario: No known allergies
     And user clicks on No known allergy button
     Then No known  allergies should be registered in the table
-    
-   @run 
-   Scenario: List, Edit, delete allergies
-   Then A list of added allergies should apear in a table 
-   And user clicks on edit icon in the Actions colum of an entry 
-   Then system loads allergies page
-   And user makes any changes 
-   And user clicks save 
-   Then List of allergies should appear with the changes made 
-   And user clicks delete icon in Actions column 
-   Then promp to remove allergy appears 
-   And user clicks yes
-   Then allergy entry is deleted  
-   
+
+  @run
+  Scenario: List, Edit, delete allergies
+    Then A list of added allergies should apear in a table
+    And user clicks on edit icon in the Actions colum of an entry
+    Then system loads allergies page
+    And user makes any changes
+    And user clicks save
+    Then List of allergies should appear with the changes made
+    And user clicks delete icon in Actions column
+    Then promp to remove allergy appears
+    And user clicks yes
+    Then allergy entry is deleted

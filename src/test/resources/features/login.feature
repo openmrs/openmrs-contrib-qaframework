@@ -21,4 +21,4 @@ Feature: User Login
   @run
   Scenario: Right Login
     When Setup user rightly logs in
-    Then System logs in usero
+    Then System logs in user

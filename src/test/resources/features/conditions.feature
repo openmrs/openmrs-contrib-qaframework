@@ -12,7 +12,7 @@ Feature: Patient's Conditions
     And User enters "<activity>" existing condition
     And User clicks save
     Then System on Add New Condition Page
-    And Quit browserhttps://youtu.be/NYB2-3PQiX0
+    And Quit browser
     Examples:
       | activity |
       | active   |

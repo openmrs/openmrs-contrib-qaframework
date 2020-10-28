@@ -11,13 +11,20 @@ Feature: allergies feature
     Given User selects one of the three allergen Types options
     Then corresponding allergens should appear
     And User selects an allergen
-    And user selects the reactions , enters severity and a comment
-    And clicks Save button
+    And user selects the reactions
+    And user  enters severity
+    And user enters comment
+    And user clicks Save button
     Then System should show the allergies of the patient in a table
 
   Scenario: No known allergies
     And user clicks on No known allergy button
     Then No known  allergies should be registered in the table
+
+  Scenario: Revert No known allergies
+    Given user has registered No known allergies
+    And user clicks on the X near the registered No known allergies in the table
+    Then No known allergies is removed from the table
 
   Scenario: List allergies
     Then A list of added allergies should apear in a table
@@ -25,9 +32,11 @@ Feature: allergies feature
   Scenario: Edit allergies
     And user clicks on edit icon in the Actions colum of an entry
     Then system loads Edit allergy page
-    And user makes any changes
+    And user selects diffrent reactions like Cough and Rash 
+    And user selects Severity as Mild
     And user clicks save
     Then List of allergies should appear with the changes made
+        
 
   Scenario: delete allergies
     And user clicks delete icon in Actions column

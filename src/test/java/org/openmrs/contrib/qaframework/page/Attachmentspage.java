@@ -9,11 +9,10 @@ public class Attachmentspage extends Page {
 
     public static final By ATTACHEMENT = By.id("attachments.attachments.visitActions.default");
     public static final By CLICKORDROPAFILE = By.id("visit-documents-dropzone");
-    public static final By CAPTION = By.xpath("//*[@id=\"att-page-main\"]/div[1]/att-file-upload/div[2]/div/div[2]/textarea");
-    public static final By CLEARFORMS = By.xpath("//*[@id=\"att-page-main\"]/div[1]/att-file-upload/div[2]/div/div[2]/span/button[2]");
-    public static final By UPLOAD = By.xpath("//*[@id=\"att-page-main\"]/div[1]/att-file-upload/div[2]/div/div[2]/span/button[1]");
-    public static final By LISTOFFILE = By.xpath("//*[@id=\"att-page-main\"]/div[2]/att-gallery/div/div");
-
+    public static final By CAPTION = By.xpath("//textarea[contains(@placeholder, 'Enter a caption')]");
+    public static final By CLEARFORMS = By.xpath("//button[@type='submit' and contains(.,'Clear forms')]");
+    public static final By UPLOAD = By.xpath("//button[@type='submit' and contains(.,'Upload file')]");
+    public static final By LISTOFFILE = By.xpath("//att-thumbnail");
 
     public Attachmentspage(Page parent) {
         super(parent);
@@ -44,7 +43,6 @@ public class Attachmentspage extends Page {
     public List<WebElement> getListOfFile(){
         return driver.findElements(LISTOFFILE);
     }
-
 
     public String getPageUrl() {
         return "attachments/attachments.page?";

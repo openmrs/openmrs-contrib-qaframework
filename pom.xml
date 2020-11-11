@@ -17,7 +17,7 @@
         <java.version>1.8</java.version>
         <cucumber.version>6.7.0</cucumber.version>
         <uitestframework.version>2.4.0-SNAPSHOT</uitestframework.version>
-        <refappuitests.version>2.10.0</refappuitests.version>
+        <refappuitests.version>2.10.0-SNAPSHOT</refappuitests.version>
         <formatter.version>0.4</formatter.version>
     </properties>
     <dependencies>

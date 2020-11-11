@@ -44,4 +44,9 @@ public class Steps extends ReferenceApplicationTestBase {
 		driver.quit();
 		driver = null;
 	}
+
+	protected boolean textExists(String text) {
+		return driver.findElements(
+				By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
+	}
 }

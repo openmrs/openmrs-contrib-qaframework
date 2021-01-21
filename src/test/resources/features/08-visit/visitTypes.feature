@@ -1,0 +1,1 @@
+Feature: Visit types Management

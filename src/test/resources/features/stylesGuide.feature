@@ -8,4 +8,3 @@ Feature: Loading styles guide
     Then system should load the styles guide page
     And user clicks back
     Then system should return to the previous page
-    And Close styles browser instance

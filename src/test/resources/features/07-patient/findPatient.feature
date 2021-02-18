@@ -8,7 +8,6 @@ Feature: Patient Search
   Scenario: Searching missing a patient
     And User enters missing patient
     Then Search Page returns no patients
-    And End browser
 
   @selenium
   Scenario: Searching an existing patient
@@ -16,4 +15,3 @@ Feature: Patient Search
     Then Search Page returns patients
     And User clicks on first patient
     Then System loads patient dashboard
-    And End browser

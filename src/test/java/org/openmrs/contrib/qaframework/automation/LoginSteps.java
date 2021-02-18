@@ -1,5 +1,6 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,6 +11,11 @@ import org.openqa.selenium.WebElement;
 import static org.junit.Assert.assertNotNull;
 
 public class LoginSteps extends Steps {
+
+	@After("@selenium")
+	public void destroy() {
+		quit();
+	}
 
 	private void enterUsername(String username) {
 		driver.findElement(By.id("username")).sendKeys(username);
@@ -51,7 +57,7 @@ public class LoginSteps extends Steps {
 	@And("User Selects {string} Login Location")
 	public void selectLoginLocation(String loginLocation) {
 		if ("firstLocation".equals(loginLocation)) {
-			driver.findElement(By.cssSelector("#sessionLocation li:first"))
+			driver.findElement(By.cssSelector("#sessionLocation li"))
 					.click();
 		} else if ("noLocation".equals(loginLocation)) {
 			getLoginButton().click();
@@ -75,7 +81,6 @@ public class LoginSteps extends Steps {
 		} else if (status.trim().endsWith("false")) {
 			assertNotNull(getLoginButton());
 		}
-		quitBrowser();
 	}
 
 	@When("Setup user rightly logs in")
@@ -88,6 +93,5 @@ public class LoginSteps extends Steps {
 	public void evaluateLogin() {
 		assertNotNull(getLogOutLink());
 		assertNotNull(getElement(By.className("homeList")));
-		quitBrowser();
 	}
 }

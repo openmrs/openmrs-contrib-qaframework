@@ -4,6 +4,10 @@ beforeEach(() => {
   cy.initiateExceptionsLogger();
 });
 
+afterEach(() => {
+  cy.end();
+});
+
 Given('User visits login page', () => {
   cy.visitUrl('/login.htm');
 });

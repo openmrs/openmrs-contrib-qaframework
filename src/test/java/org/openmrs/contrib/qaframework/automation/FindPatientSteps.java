@@ -18,58 +18,57 @@ public class FindPatientSteps extends Steps {
     }
 
     @When("Search user rightly logs in")
-    public void patientSearchLogin() throws Exception {
+    public void patientSearchLogin() {
         goToLoginPage();
         loginPage.login(testProperties.getUsername(),
                 testProperties.getPassword(), "Registration Desk");
     }
 
     @And("User clicks on Find Patient App")
-    public void visitFindPatientPage() throws InterruptedException {
+    public void visitFindPatientPage() {
         homePage = new HomePage(loginPage);
         findPatientPage = homePage.goToFindPatientRecord();
     }
 
     @And("User enters missing patient")
-    public void enterMissingPatient() throws InterruptedException {
+    public void enterMissingPatient() {
         findPatientPage.enterPatient("MissingPatient");
     }
 
     @Then("Search Page returns no patients")
-    public void noPatients() throws InterruptedException {
+    public void noPatients() {
         assertNotNull(getElement(By.className("dataTables_empty")));
     }
 
     @And("User enters John")
-    public void enterJohn() throws InterruptedException {
+    public void enterJohn() {
         findPatientPage.enterPatient("John");
     }
 
     @Then("Search Page returns patients")
-    public void returnResults() throws InterruptedException {
+    public void returnResults() {
         firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
         assertNotNull(firstPatientIdentifier);
     }
 
     @And("User clicks on first patient")
-    public void clickFirstPatient() throws InterruptedException {
+    public void clickFirstPatient() {
         dashboardPage = findPatientPage.clickOnFirstPatient();
     }
 
     @Then("System loads patient dashboard")
-    public void loadPatientDashboard() throws InterruptedException {
+    public void loadPatientDashboard() {
         String id = getElement(patientHeaderId).getText();
-        trimPatientId(id);
-        assertEquals(firstPatientIdentifier, id);
+        assertEquals(trimPatientId(firstPatientIdentifier), trimPatientId(id));
     }
 
-    private void trimPatientId(String id) {
-        if (firstPatientIdentifier.indexOf("[") > 0 && id.indexOf("[") > 0) {
-            firstPatientIdentifier = firstPatientIdentifier.split("\\[")[0];
+    private String trimPatientId(String id) {
+        if (id.indexOf("[") > 0) {
             id = id.split("\\[")[0];
         }
-        if (firstPatientIdentifier.indexOf(" ") > 0) {
-            firstPatientIdentifier = firstPatientIdentifier.split(" ")[0];
+        if (id.indexOf(" ") > 0) {
+            id = id.split(" ")[0];
         }
+        return id;
     }
 }

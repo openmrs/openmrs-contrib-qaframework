@@ -140,7 +140,7 @@
                         <goals>
                             <goal>npm</goal>
                         </goals>
-                        <phase>test</phase>
+                        <phase>pre-clean</phase>
                         <configuration>
                             <arguments>test</arguments>
                             <workingDirectory>./</workingDirectory>

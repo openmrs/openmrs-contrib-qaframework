@@ -25,8 +25,7 @@ public class ConditionsSteps extends Steps {
 
     @Given("User logs in, searches John and visits first patient dashboard")
     public void visitFirstJohnsDashboard() {
-        goToLoginPage().login(testProperties.getUsername(),
-                testProperties.getPassword(), testProperties.getLocation());
+        configuredUserLogin();
         homePage = new HomePage(loginPage);
         findPatientPage = homePage.goToFindPatientRecord();
         findPatientPage.enterPatient("John");

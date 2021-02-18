@@ -20,8 +20,7 @@ public class AllergiesSteps extends Steps {
 
     @Given("a user logs in, searches John and visits his dashboard")
     public void loadJohnDashboard() {
-        goToLoginPage().login(testProperties.getUsername(),
-                testProperties.getPassword(), testProperties.getLocation());
+        configuredUserLogin();
         homePage = new HomePage(loginPage);
         findPatientPage = homePage.goToFindPatientRecord();
         findPatientPage.enterPatient("John");

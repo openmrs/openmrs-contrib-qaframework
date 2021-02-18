@@ -54,4 +54,9 @@ public class Steps extends ReferenceApplicationTestBase {
         return driver.findElements(
                 By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
     }
+
+    protected void configuredUserLogin() {
+        goToLoginPage().login(testProperties.getUsername(),
+                testProperties.getPassword(), testProperties.getLocation());
+    }
 }

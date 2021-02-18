@@ -131,7 +131,7 @@
                         </goals>
                         <phase>generate-resources</phase>
                         <configuration>
-                            <arguments>install --save-dev</arguments>
+                            <arguments>install --save-dev --force</arguments>
                             <workingDirectory>./</workingDirectory>
                         </configuration>
                     </execution>

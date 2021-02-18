@@ -10,8 +10,7 @@ public class AttachmentsPage extends Page {
 	
 	private static final By ATTACHMENTS_LINK = By.cssSelector("i.right:nth-child(1)");
 	private static final By ATTACH_FILE = By.cssSelector(".dz-default");
-	private static final By ADD_CAPTION = By
-	        .xpath("/html/body/div/div[3]/div[3]/div[1]/att-file-upload/div[2]/div/div[2]/textarea");
+	private static final By ADD_CAPTION = By.xpath("/html/body/div/div[3]/div[3]/div[1]/att-file-upload/div[2]/div/div[2]/textarea");
 	private static final By UPLOAD_FILE = By.cssSelector("button.confirm:nth-child(1)");
 	private static final By CLEAR_FORMS = By.cssSelector("button.ng-binding:nth-child(2)");
 	protected Scanner userInput = new Scanner(System.in);

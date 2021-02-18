@@ -50,8 +50,9 @@ public class LoginSteps extends Steps {
 
 	@And("User Selects {string} Login Location")
 	public void selectLoginLocation(String loginLocation) {
-		if ("anyLocation".equals(loginLocation)) {
-			driver.findElement(By.cssSelector("#sessionLocation li")).click();
+		if ("firstLocation".equals(loginLocation)) {
+			driver.findElement(By.cssSelector("#sessionLocation li:first"))
+					.click();
 		} else if ("noLocation".equals(loginLocation)) {
 			getLoginButton().click();
 			assertNotNull(getLoginButton());

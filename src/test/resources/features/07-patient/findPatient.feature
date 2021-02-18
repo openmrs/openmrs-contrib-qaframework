@@ -4,13 +4,13 @@ Feature: Patient Search
     Given Search user rightly logs in
     And User clicks on Find Patient App
 
-  @run
+  @selenium
   Scenario: Searching missing a patient
     And User enters missing patient
     Then Search Page returns no patients
     And End browser
 
-  @run
+  @selenium
   Scenario: Searching an existing patient
     And User enters John
     Then Search Page returns patients

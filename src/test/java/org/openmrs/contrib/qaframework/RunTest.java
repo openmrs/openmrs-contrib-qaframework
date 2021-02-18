@@ -12,6 +12,6 @@ features = {"src/test/resources/features"},
 glue = "org.openmrs.contrib.qaframework.automation", plugin = {
 		"html:target/index.html", "message:target/cucumber.ndjson"}, monochrome = true,
 // only scenarios tagged here are executed
-tags = "@run")
+tags = "@selenium")
 public class RunTest {
 }

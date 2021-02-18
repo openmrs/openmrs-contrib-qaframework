@@ -1,6 +1,6 @@
 Feature: Patient Registration
 
-  @run
+  @selenium
   Scenario Outline: Failing or Succeeding to register a patient
     Given Registration user rightly logs in
     And User clicks on Registration App

@@ -12,12 +12,12 @@ Feature: User Login
     And User Logs in
     Then System Evaluates Login "<status>"
     Examples:
-      | username  | password  | location        | status |
-      | admin     | wrongPas  | firstLocation   | false  |
-      | wrongUser | Admin123  | firstLocation   | false  |
-      | wrongUser | wrongPas  | firstLocation   | false  |
-      | admin     | Admin123  | noLocation      | false  |
-      | setupUser | setupPass | setupLocation   | true   |
+      | username  | password  | location      | status |
+      | admin     | wrongPas  | firstLocation | false  |
+      | wrongUser | Admin123  | firstLocation | false  |
+      | wrongUser | wrongPas  | firstLocation | false  |
+      | admin     | Admin123  | noLocation    | false  |
+      | setupUser | setupPass | setupLocation | true   |
 
   @selenium
   Scenario: Right Login

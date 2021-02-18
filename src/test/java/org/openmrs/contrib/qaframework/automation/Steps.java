@@ -12,46 +12,46 @@ import org.openqa.selenium.WebElement;
 import static org.junit.Assert.fail;
 
 public class Steps extends ReferenceApplicationTestBase {
-	protected TestProperties testProperties = TestProperties.instance();
-	protected LoginPage loginPage;
-	protected FindPatientPage findPatientPage;
-	protected String firstPatientIdentifier;
-	protected ClinicianFacingPatientDashboardPage dashboardPage;
-	protected By patientHeaderId = By.cssSelector("div.identifiers span");
+    protected TestProperties testProperties = TestProperties.instance();
+    protected LoginPage loginPage;
+    protected FindPatientPage findPatientPage;
+    protected String firstPatientIdentifier;
+    protected ClinicianFacingPatientDashboardPage dashboardPage;
+    protected By patientHeaderId = By.cssSelector("div.identifiers span");
 
-	public Steps() {
-		try {
-			startWebDriver();
-			loginPage = getLoginPage();
-		} catch (Exception e) {
-			fail(e.getMessage());
-		}
-	}
+    public Steps() {
+        try {
+            startWebDriver();
+            loginPage = getLoginPage();
+        } catch (Exception e) {
+            fail(e.getMessage());
+        }
+    }
 
-	protected void quit() {
-		quitBrowser();
-	}
+    protected void quit() {
+        quitBrowser();
+    }
 
-	protected void elementClickOn(By elementBy) {
-		driver.findElement(elementBy).click();
-	}
+    protected void elementClickOn(By elementBy) {
+        driver.findElement(elementBy).click();
+    }
 
-	protected WebElement getElement(By elementBy) {
-		try {
-			return driver.findElement(elementBy);
-		} catch (NoSuchElementException e) {
-			return null;
-		}
-	}
+    protected WebElement getElement(By elementBy) {
+        try {
+            return driver.findElement(elementBy);
+        } catch (NoSuchElementException e) {
+            return null;
+        }
+    }
 
-	private void quitBrowser() {
-		if(driver != null) {
-			driver.quit();
-		}
-	}
+    private void quitBrowser() {
+        if (driver != null) {
+            driver.quit();
+        }
+    }
 
-	protected boolean textExists(String text) {
-		return driver.findElements(
-				By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
-	}
+    protected boolean textExists(String text) {
+        return driver.findElements(
+                By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
+    }
 }

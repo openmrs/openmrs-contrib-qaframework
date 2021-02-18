@@ -12,8 +12,7 @@ Cypress.Commands.add('runAndAwait', (callable, method='GET', addArtificialWait=f
     // disable eslint warning because we're intentionally waiting
     // eslint-disable-next-line cypress/no-unnecessary-waiting
     if (addArtificialWait) cy.wait(8000);
-  }
-);
+  });
 
 Cypress.Commands.add('initiateExceptionsLogger', () => {
     Cypress.on('uncaught:exception', (err, runnable) => {
@@ -21,4 +20,3 @@ Cypress.Commands.add('initiateExceptionsLogger', () => {
     	return false;
     });
 });
-}

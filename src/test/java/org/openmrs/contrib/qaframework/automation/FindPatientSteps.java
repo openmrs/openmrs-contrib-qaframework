@@ -1,5 +1,6 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -10,6 +11,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class FindPatientSteps extends Steps {
+
+	@After("@selenium")
+	public void destroy() {
+		quit();
+	}
 
 	@When("Search user rightly logs in")
 	public void patientSearchLogin() throws Exception {
@@ -55,11 +61,6 @@ public class FindPatientSteps extends Steps {
 		String id = getElement(patientHeaderId).getText();
 		trimPatientId(id);
 		assertEquals(firstPatientIdentifier, id);
-	}
-
-	@And("End browser")
-	public void quit() {
-		quitBrowser();
 	}
 
 	private void trimPatientId(String id) {

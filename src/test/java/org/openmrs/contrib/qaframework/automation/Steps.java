@@ -28,6 +28,10 @@ public class Steps extends ReferenceApplicationTestBase {
 		}
 	}
 
+	protected void quit() {
+		quitBrowser();
+	}
+
 	protected void elementClickOn(By elementBy) {
 		driver.findElement(elementBy).click();
 	}
@@ -40,9 +44,10 @@ public class Steps extends ReferenceApplicationTestBase {
 		}
 	}
 
-	protected void quitBrowser() {
-		driver.quit();
-		driver = null;
+	private void quitBrowser() {
+		if(driver != null) {
+			driver.quit();
+		}
 	}
 
 	protected boolean textExists(String text) {

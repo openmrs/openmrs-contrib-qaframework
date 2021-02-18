@@ -5,21 +5,21 @@ import org.openmrs.uitestframework.page.Page;
 import org.openqa.selenium.By;
 
 public class StylesGuidePage extends Page {
-	public static By STYLES_GUIDE_LINK = By.className("icon-magic");
+    public static By STYLES_GUIDE_LINK = By.className("icon-magic");
 
-	public static By STYLES_GUIDE_HEADER = By.id("style-guide-header");
+    public static By STYLES_GUIDE_HEADER = By.id("style-guide-header");
 
-	public StylesGuidePage(SystemAdministrationPage systemAdministrationPage) {
-		super(systemAdministrationPage);
-	}
+    public StylesGuidePage(SystemAdministrationPage systemAdministrationPage) {
+        super(systemAdministrationPage);
+    }
 
-	public void pressBack() {
-		driver.navigate().back();
-	}
+    public void pressBack() {
+        driver.navigate().back();
+    }
 
-	@Override
-	public String getPageUrl() {
-		return "/referenceapplication/home.page";
-	}
+    @Override
+    public String getPageUrl() {
+        return "/referenceapplication/home.page";
+    }
 
 }

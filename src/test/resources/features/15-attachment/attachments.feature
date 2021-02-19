@@ -15,5 +15,4 @@
    Scenario: Removing un intended Attachement 
      And a user attaches a file or enters a caption
      And a user clicks clear forms button
-     Then the system clears the form
-     And close browser 
+     Then the system clears the form 

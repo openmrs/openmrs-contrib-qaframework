@@ -16,3 +16,9 @@
      And a user attaches a file or enters a caption
      And a user clicks clear forms button
      Then the system clears the form 
+     
+   Scenario: Capturing an image
+     And a user clicks in camera icon
+     Then the system enables capturing the photo
+     And a user clicks save button
+     Then the system saves the captured photo

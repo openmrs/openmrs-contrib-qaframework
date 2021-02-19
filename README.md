@@ -4,5 +4,12 @@
 
 OpenMRS [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) QA framework, Currently containing reference application end to end tests
 
-## Compile & Run
-`mvn clean test`
+## Building without running tests
+- `mvn clean install -DskipTests=true`
+
+## Running selenium tests
+- `mvn clean test`
+
+## Running cypress tests
+- `npm install`
+- `npm test`

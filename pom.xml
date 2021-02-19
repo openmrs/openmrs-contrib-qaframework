@@ -123,17 +123,6 @@
                             <installDirectory>./</installDirectory>
                         </configuration>
                     </execution>
-                    <execution>
-                        <id>npm install packages.json</id>
-                        <goals>
-                            <goal>npm</goal>
-                        </goals>
-                        <phase>generate-resources</phase>
-                        <configuration>
-                            <arguments>install --save-dev --force</arguments>
-                            <workingDirectory>./</workingDirectory>
-                        </configuration>
-                    </execution>
                 </executions>
             </plugin>
         </plugins>

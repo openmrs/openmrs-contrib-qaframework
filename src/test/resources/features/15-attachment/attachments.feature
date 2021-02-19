@@ -20,5 +20,6 @@
    Scenario: Capturing an image
      And a user clicks in camera icon
      Then the system enables capturing the photo
+     And a user focuses in the camera
      And a user clicks save button
      Then the system saves the captured photo

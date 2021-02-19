@@ -10,14 +10,11 @@
     "test": "./node_modules/.bin/cypress-tags run -eTAGS=@cypress"
   },
   "devDependencies": {
-    "@cypress/webpack-preprocessor": "^5.5.0",
-    "@testing-library/cypress": "^5.3.1",
-    "@types/uuid": "^3.4.7",
-    "cypress": "^6.5.0",
-    "cypress-cucumber-preprocessor": "^4.0.1",
-    "eslint": "^7.19.0",
-    "eslint-plugin-cypress": "^2.11.2",
-    "properties-reader": "2.2.0"
+    "@types/uuid": "3.4.7",
+    "properties-reader": "2.2.0",
+    "cypress": "6.5.0",
+    "@testing-library/cypress": "7.0.3",
+    "cypress-cucumber-preprocessor": "4.0.1"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/integration/cucumber/step_definitions"

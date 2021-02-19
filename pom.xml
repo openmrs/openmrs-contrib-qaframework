@@ -134,6 +134,17 @@
                             <workingDirectory>./</workingDirectory>
                         </configuration>
                     </execution>
+                    <execution>
+                        <id>run cypress tests</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>process-resources</phase>
+                        <configuration>
+                            <arguments>test</arguments>
+                            <workingDirectory>./</workingDirectory>
+                        </configuration>
+                    </execution>
                 </executions>
             </plugin>
         </plugins>

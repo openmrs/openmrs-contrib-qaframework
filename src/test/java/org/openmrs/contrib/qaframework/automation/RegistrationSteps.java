@@ -1,5 +1,6 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -20,6 +21,11 @@ public class RegistrationSteps extends Steps {
 	RegistrationPage registrationPage;
 	TestPatient patient;
 	ClinicianFacingPatientDashboardPage dashboardPage;
+
+	@After("@selenium")
+	public void destroy() {
+		quit();
+	}
 
 	@When("Registration user rightly logs in")
 	public void registrationLogin() throws Exception {
@@ -66,6 +72,5 @@ public class RegistrationSteps extends Steps {
 		} else {
 			assertNotNull(RegistrationPage.FIELD_ERROR);
 		}
-		quitBrowser();
 	}
 }

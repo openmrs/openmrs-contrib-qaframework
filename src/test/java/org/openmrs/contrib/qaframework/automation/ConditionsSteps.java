@@ -1,5 +1,6 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -17,10 +18,14 @@ public class ConditionsSteps extends Steps {
 	private By addNewCondition = By.id("conditionui-addNewCondition");
 	private ConditionPage conditionPage;
 
+	@After("@selenium")
+	public void destroy() {
+		quit();
+	}
+
 	@Given("User logs in, searches John and visits first patient dashboard")
 	public void visitFirstJohnsDashboard() {
-		goToLoginPage().login(testProperties.getUsername(),
-				testProperties.getPassword(), testProperties.getLocation());
+		configuredUserLogin();
 		homePage = new HomePage(loginPage);
 		findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient("John");
@@ -89,11 +94,6 @@ public class ConditionsSteps extends Steps {
 		} else if ("current".equals(page)) {
 			assertNotNull(getElement(ConditionPage.SAVE));
 		}
-	}
-
-	@And("Quit browser")
-	public void quit() {
-		quitBrowser();
 	}
 
 	@And("User clicks on set inactive button")

@@ -5,7 +5,7 @@ Feature: Allergies Management
     And a user clicks on Allergies link
     Then the system loads Allergies page
 
-  @run
+  @selenium
   Scenario: Add No known allergies
     And a user clicks No Known Allergy button
     Then the system add no known allergies into the allergies table
@@ -31,3 +31,9 @@ Feature: Allergies Management
     
   Scenario: List allergies
     And a list of recorded allergies is displayed
+
+  @selenium
+  Scenario: Remove No known allergies
+    And a user clicks Remove No Known Allergy icon
+    Then the system displays unknown in the allergies table
+

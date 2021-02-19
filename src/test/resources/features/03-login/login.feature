@@ -3,7 +3,8 @@ Feature: User Login
   Background:
     Given User visits login page
 
-  @run
+  @selenium
+  @cypress
   Scenario Outline: Failing or Succeeding to Login
     When User enters "<username>" username
     And User enters "<password>" password
@@ -12,13 +13,13 @@ Feature: User Login
     Then System Evaluates Login "<status>"
     Examples:
       | username  | password  | location      | status |
-      | admin     | wrongPas  | anyLocation   | false  |
-      | wrongUser | Admin123  | anyLocation   | false  |
-      | wrongUser | wrongPas  | anyLocation   | false  |
+      | admin     | wrongPas  | firstLocation | false  |
+      | wrongUser | Admin123  | firstLocation | false  |
+      | wrongUser | wrongPas  | firstLocation | false  |
       | admin     | Admin123  | noLocation    | false  |
       | setupUser | setupPass | setupLocation | true   |
 
-  @run
+  @selenium
   Scenario: Right Login
     When Setup user rightly logs in
     Then System logs in user

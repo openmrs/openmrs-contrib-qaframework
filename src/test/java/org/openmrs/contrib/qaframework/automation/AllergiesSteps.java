@@ -1,20 +1,26 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 import org.openmrs.contrib.qaframework.page.AllergiesPage;
 import org.openmrs.reference.page.HomePage;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class AllergiesSteps extends Steps {
 	private AllergiesPage allergiesPage;
 
+	@After("@selenium")
+	public void destroy() {
+		quit();
+	}
+
 	@Given("a user logs in, searches John and visits his dashboard")
 	public void loadJohnDashboard() {
-		goToLoginPage().login(testProperties.getUsername(),
-				testProperties.getPassword(), testProperties.getLocation());
+		configuredUserLogin();
 		homePage = new HomePage(loginPage);
 		findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient("John");
@@ -52,11 +58,6 @@ public class AllergiesSteps extends Steps {
 	@Then("the system displays unknown in the allergies table")
 	public void systemRemovesNoKnownAllergies() {
 		assertTrue(textExists("Unknown"));
-	}
-
-	@And("close browser")
-	public void closeBrowser() {
-		quitBrowser();
 	}
 
 }

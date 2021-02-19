@@ -1,5 +1,6 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -14,6 +15,11 @@ public class StylesGuideSteps extends Steps {
 	private SystemAdministrationPage systemAdministrationPage;
 
 	private StylesGuidePage stylesGuidePage;
+
+	@After("@selenium")
+	public void destroy() {
+		quit();
+	}
 
 	@Given("a user logins into the system")
 	public void loginForStyles() {
@@ -49,11 +55,6 @@ public class StylesGuideSteps extends Steps {
 	@Then("system should return to the previous page")
 	public void validateReturn() {
 		Assert.assertNotNull(StylesGuidePage.STYLES_GUIDE_LINK);
-	}
-
-	@And("Close styles browser instance")
-	public void quit() {
-		quitBrowser();
 	}
 
 }

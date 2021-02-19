@@ -1,0 +1,38 @@
+{
+  "name": "openmrs-contrib-qaframework",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=14.15.5",
+    "npm": ">=7.5.3"
+  },
+  "scripts": {
+    "test": "./node_modules/.bin/cypress-tags run -eTAGS=@cypress"
+  },
+  "devDependencies": {
+    "@types/uuid": "3.4.7",
+    "properties-reader": "2.2.0",
+    "cypress": "6.5.0",
+    "@testing-library/cypress": "7.0.3",
+    "cypress-cucumber-preprocessor": "4.0.1"
+  },
+  "cypress-cucumber-preprocessor": {
+    "step_definitions": "cypress/integration/cucumber/step_definitions"
+  },
+  "description": "![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)",
+  "main": "index.js",
+  "dependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/openmrs/openmrs-contrib-qaframework.git"
+  },
+  "keywords": [
+    "qa"
+  ],
+  "author": "k-joseph",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/openmrs/openmrs-contrib-qaframework/issues"
+  },
+  "homepage": "https://github.com/openmrs/openmrs-contrib-qaframework#readme"
+}

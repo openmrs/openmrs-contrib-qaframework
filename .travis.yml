@@ -2,6 +2,15 @@ language: java
 
 jdk:
  - openjdk8
+ 
+ cache:
+  directories:
+  - $HOME/.m2
+
+script:
+  - java --version
+  - ./mvn clean install
+  - ./mvn test
 
 notifications:
   email: false

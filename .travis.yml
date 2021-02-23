@@ -8,9 +8,8 @@ jdk:
   - $HOME/.m2
 
 script:
-  - java --version
-  - ./mvn clean install
-  - ./mvn test
+  - mvn clean install
+  - mvn clean test
 
 notifications:
   email: false

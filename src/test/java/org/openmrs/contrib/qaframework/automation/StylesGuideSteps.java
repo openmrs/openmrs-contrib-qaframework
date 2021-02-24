@@ -38,7 +38,7 @@ public class StylesGuideSteps extends Steps {
 
 	@When("user presses the styles guide link")
 	public void loadStylesGuide() {
-		elementClickOn(StylesGuidePage.STYLES_GUIDE_LINK);
+		systemAdministrationPage.clickOnStylesGuideAppLink();
 		stylesGuidePage = new StylesGuidePage(systemAdministrationPage);
 	}
 
@@ -54,7 +54,7 @@ public class StylesGuideSteps extends Steps {
 
 	@Then("system should return to the previous page")
 	public void validateReturn() {
-		Assert.assertNotNull(StylesGuidePage.STYLES_GUIDE_LINK);
+		Assert.assertNotNull(By.className("icon-magic"));
 	}
 
 }

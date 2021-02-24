@@ -4,14 +4,14 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openmrs.contrib.qaframework.page.AllergiesPage;
+import org.openmrs.reference.page.AllergyPage;
 import org.openmrs.reference.page.HomePage;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class AllergiesSteps extends Steps {
-	private AllergiesPage allergiesPage;
+	private AllergyPage allergyPage;
 
 	@After("@selenium")
 	public void destroy() {
@@ -29,8 +29,8 @@ public class AllergiesSteps extends Steps {
 
 	@And("a user clicks on Allergies link")
 	public void loadAllergiesPage() {
-		allergiesPage = new AllergiesPage(dashboardPage);
-		allergiesPage.clickOnAllergiesAppLink();
+		dashboardPage.clickOnAllergyManagement();
+		allergyPage = new AllergyPage(dashboardPage);
 	}
 
 	@Then("the system loads Allergies page")
@@ -42,7 +42,7 @@ public class AllergiesSteps extends Steps {
 
 	@And("a user clicks No Known Allergy button")
 	public void addNoKnownAllergy() {
-		allergiesPage.addNoKnownAllergy();
+		allergyPage.addNoKnownAllergy();
 	}
 
 	@Then("the system add no known allergies into the allergies table")
@@ -52,7 +52,7 @@ public class AllergiesSteps extends Steps {
 
 	@And("a user clicks Remove No Known Allergy icon")
 	public void removeNoKnownAllergy() {
-		allergiesPage.removeNoKnownAllergy();
+		allergyPage.removeNoKnownAllergy();
 	}
 
 	@Then("the system displays unknown in the allergies table")

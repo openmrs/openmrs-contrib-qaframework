@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 
 import static org.junit.Assert.fail;
 
+// Use english locale, of not set, the test instance should be set to english language
 public class Steps extends ReferenceApplicationTestBase {
 	protected TestProperties testProperties = TestProperties.instance();
 	protected LoginPage loginPage;

@@ -35,7 +35,7 @@ public class ConditionsSteps extends Steps {
 
 	@And("User clicks on Conditions")
 	public void launchManageConditions() {
-		elementClickOn(ConditionsPage.MANAGE_CONDITIONS_ENDPOINT);
+		dashboardPage.clickOnConditionsWidgetLink();
 		conditionsPage = new ConditionsPage(dashboardPage);
 		assertEquals(patientDashboardId, getElement(patientHeaderId).getText());
 	}

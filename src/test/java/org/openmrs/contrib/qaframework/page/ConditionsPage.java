@@ -5,8 +5,6 @@ import org.openmrs.uitestframework.page.Page;
 import org.openqa.selenium.By;
 
 public class ConditionsPage extends Page {
-	public static final By MANAGE_CONDITIONS_ENDPOINT = By
-			.cssSelector(".conditions .info-header i.right");
 	public static final By ADD_NEW_CONDITION = By
 			.id("conditionui-addNewCondition");
 	public static final By SET_ACTIVE = By

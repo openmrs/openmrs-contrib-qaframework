@@ -5,7 +5,6 @@ import org.openmrs.uitestframework.page.Page;
 import org.openqa.selenium.By;
 
 public class StylesGuidePage extends Page {
-	public static By STYLES_GUIDE_LINK = By.className("icon-magic");
 
 	public static By STYLES_GUIDE_HEADER = By.id("style-guide-header");
 

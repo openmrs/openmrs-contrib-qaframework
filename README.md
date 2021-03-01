@@ -8,8 +8,7 @@ OpenMRS [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) QA fram
 - `mvn clean install -DskipTests=true`
 
 ## Running selenium tests
-- `mvn clean test`
+- `mvn clean install`
 
 ## Running cypress tests
-- `npm install`
-- `npm test`
+- `npm install-test`

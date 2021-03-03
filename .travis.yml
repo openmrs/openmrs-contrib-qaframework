@@ -24,6 +24,4 @@ script:
     git checkout qa;
     mvn clean install;
     cd ../../;
-    rm -r openmrs-contrib-uitestframework;
-    rm -r openmrs-distro-referenceapplication;
     mvn clean install;

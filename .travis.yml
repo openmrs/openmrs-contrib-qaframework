@@ -17,13 +17,13 @@ script:
     git fetch --all;
     git checkout qa;
     mvn clean install;
-    cd -;
+    cd ../;
     git clone https://github.com/openmrs/openmrs-distro-referenceapplication.git;
-    cd openmrs-distro-referenceapplication;
+    cd openmrs-distro-referenceapplication/ui-tests;
     git fetch --all;
     git checkout qa;
     mvn clean install;
-    cd -;
+    cd ../../;
     rm -r openmrs-contrib-uitestframework;
     rm -r openmrs-distro-referenceapplication;
     mvn clean install;

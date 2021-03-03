@@ -12,12 +12,12 @@ before_cache:
   - rm -rf $HOME/.m2/repository/org/openmrs
   
 script:
-    git clone https://github.com/openmrs/openmrs-contrib-uitestframework.git
-    git fetch --all
-    git checkout qa
-    git clone https://github.com/openmrs/openmrs-distro-referenceapplication.git
-    git fetch --all
-    git checkout qa
-    rm -r openmrs-contrib-uitestframework
-    rm -r openmrs-distro-referenceapplication
-    mvn clean install
+    git clone https://github.com/openmrs/openmrs-contrib-uitestframework.git;
+    git fetch --all;
+    git checkout qa;
+    git clone https://github.com/openmrs/openmrs-distro-referenceapplication.git;
+    git fetch --all;
+    git checkout qa;
+    rm -r openmrs-contrib-uitestframework;
+    rm -r openmrs-distro-referenceapplication;
+    mvn clean install;

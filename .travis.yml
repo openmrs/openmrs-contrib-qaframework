@@ -2,28 +2,41 @@ language: java
 
 jdk: openjdk8
 
+addons:
+  chrome: stable
+
 cache:
   directories:
   - $HOME/.m2
+before_install:
+  - wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+  - sudo dpkg -i google-chrome*.deb
 
 install: true
   
 before_cache:
   - rm -rf $HOME/.m2/repository/org/openmrs
-  
+
+before_script:
+  - CHROME_STABLE_VERSION=`google-chrome-stable --version | sed -E 's/(^Google Chrome |\.[0-9]+ )//g'`
+  - CHROMEDRIVER_VERSION=`curl -s "https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_STABLE_VERSION"`
+
 script:
-    git clone https://github.com/openmrs/openmrs-contrib-uitestframework.git;
-    cd openmrs-contrib-uitestframework;
-    git fetch --all;
-    git checkout qa;
-    mvn clean install;
-    cd ../;
-    git clone https://github.com/openmrs/openmrs-distro-referenceapplication.git;
-    cd openmrs-distro-referenceapplication/ui-tests;
-    git fetch --all;
-    git checkout qa;
-    mvn clean install;
-    cd ../../;
-    rm -rf openmrs-contrib-uitestframework;
-    rm -rf openmrs-distro-referenceapplication;
-    mvn clean install;
+    - git clone https://github.com/openmrs/openmrs-contrib-uitestframework.git
+    - cd openmrs-contrib-uitestframework
+    - git fetch --all
+    - git checkout qa
+    - curl "https://chromedriver.storage.googleapis.com/${CHROMEDRIVER_VERSION}/chromedriver_linux64.zip" -O
+    - rm src/main/resources/chromedriver/linux/chromedriver
+    - unzip chromedriver_linux64.zip -d src/main/resources/chromedriver/linux
+    - mvn clean install
+    - cd ../
+    - git clone https://github.com/openmrs/openmrs-distro-referenceapplication.git
+    - cd openmrs-distro-referenceapplication/ui-tests
+    - git fetch --all
+    - git checkout qa
+    - mvn clean install
+    - cd ../../
+    - rm -rf openmrs-contrib-uitestframework
+    - rm -rf openmrs-distro-referenceapplication
+    - mvn clean install

@@ -13,11 +13,17 @@ before_cache:
   
 script:
     git clone https://github.com/openmrs/openmrs-contrib-uitestframework.git;
+    cd openmrs-contrib-uitestframework;
     git fetch --all;
     git checkout qa;
+    mvn clean install;
+    cd -;
     git clone https://github.com/openmrs/openmrs-distro-referenceapplication.git;
+    cd openmrs-distro-referenceapplication;
     git fetch --all;
     git checkout qa;
+    mvn clean install;
+    cd -;
     rm -r openmrs-contrib-uitestframework;
     rm -r openmrs-distro-referenceapplication;
     mvn clean install;

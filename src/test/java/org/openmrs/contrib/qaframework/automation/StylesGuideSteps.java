@@ -6,8 +6,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openmrs.contrib.qaframework.page.StylesGuidePage;
 import org.openmrs.reference.page.HomePage;
+import org.openmrs.reference.page.StylesGuidePage;
 import org.openmrs.reference.page.SystemAdministrationPage;
 import org.openqa.selenium.By;
 

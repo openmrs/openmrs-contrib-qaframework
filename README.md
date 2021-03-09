@@ -1,8 +1,8 @@
 # openmrs-contrib-qaframework
 
-[Bamboo CI](https://github.com/openmrs/openmrs-contrib-qaframework) (Chrome): ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
+[Bamboo CI](https://ci.openmrs.org/browse/CONTRIB-QA) (Chrome): ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
 
-[Travis CI](https://github.com/openmrs/openmrs-contrib-qaframework) (Firefox): [![Build Status](https://travis-ci.org/openmrs/openmrs-contrib-qaframework.svg?branch=master)](https://travis-ci.org/openmrs/openmrs-contrib-qaframework/branches)
+[Travis CI](https://travis-ci.org/github/openmrs/openmrs-contrib-qaframework) (Firefox): [![Build Status](https://travis-ci.org/openmrs/openmrs-contrib-qaframework.svg?branch=master)](https://travis-ci.org/openmrs/openmrs-contrib-qaframework/branches)
 
 OpenMRS [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) QA framework, Currently containing reference application end to end tests
 

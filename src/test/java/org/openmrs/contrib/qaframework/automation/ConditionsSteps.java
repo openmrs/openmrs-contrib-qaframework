@@ -5,8 +5,8 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.apache.commons.lang3.StringUtils;
-import org.openmrs.contrib.qaframework.page.ConditionPage;
-import org.openmrs.contrib.qaframework.page.ConditionsPage;
+import org.openmrs.reference.page.ConditionPage;
+import org.openmrs.reference.page.ConditionsPage;
 import org.openmrs.reference.page.HomePage;
 import org.openqa.selenium.By;
 

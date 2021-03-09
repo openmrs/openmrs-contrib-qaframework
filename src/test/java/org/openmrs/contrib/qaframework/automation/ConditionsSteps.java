@@ -23,12 +23,12 @@ public class ConditionsSteps extends Steps {
 		quit();
 	}
 
-	@Given("User logs in, searches John and visits first patient dashboard")
+	@Given("User logs in, searches John Taylor and visits first patient dashboard")
 	public void visitFirstJohnsDashboard() {
 		configuredUserLogin();
 		homePage = new HomePage(loginPage);
 		findPatientPage = homePage.goToFindPatientRecord();
-		findPatientPage.enterPatient("John");
+		findPatientPage.enterPatient("John Taylor");
 		dashboardPage = findPatientPage.clickOnFirstPatient();
 		patientDashboardId = getElement(patientHeaderId).getText();
 	}
@@ -74,15 +74,16 @@ public class ConditionsSteps extends Steps {
 	@And("User clicks save")
 	public void saveCondition() {
 		conditionPage.clickSave();
+		conditionsPage.waitForPage();
 	}
 
-	@And("User enters {string} existing condition")
+	@And("User enters {string} condition")
 	public void enterExistingCondition(String activity) {
 		if ("active".equals(activity)) {
-			conditionPage.typeInCondition("Diarrhe");
+			conditionPage.typeInCondition("Diarrhea");
 			conditionPage.clickOnActive();
 		} else if ("inactive".equals(activity)) {
-			conditionPage.typeInCondition("Diabetes Mellitu");
+			conditionPage.typeInCondition("Diabetes mellitus");
 			conditionPage.clickOnInActive();
 		}
 	}

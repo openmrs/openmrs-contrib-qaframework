@@ -86,7 +86,7 @@
                         <phase>process-test-classes</phase>
                         <configuration>
                             <target>
-                                <chmod file="target/test-classes/firefoxdriver/mac/geckodriver" perm="755"/>
+                                <chmod file="target/test-classes/firefoxdriver/linux/geckodriver" perm="755"/>
                             </target>
                         </configuration>
                         <goals>

@@ -11,7 +11,7 @@ Feature: Patient Search
 
   @selenium
   Scenario: Searching an existing patient
-    And User enters John
+    And User enters John Taylor
     Then Search Page returns patients
     And User clicks on first patient
     Then System loads patient dashboard

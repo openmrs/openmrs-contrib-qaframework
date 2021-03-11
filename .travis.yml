@@ -15,14 +15,10 @@ before_cache:
 before_install:
     - git clone https://github.com/openmrs/openmrs-contrib-uitestframework.git
     - cd openmrs-contrib-uitestframework
-    - git fetch --all
-    - git checkout qa
     - mvn clean install
     - cd ../
     - git clone https://github.com/openmrs/openmrs-distro-referenceapplication.git
     - cd openmrs-distro-referenceapplication/ui-tests
-    - git fetch --all
-    - git checkout qa
     - mvn clean install
     - cd ../../
     - rm -rf openmrs-contrib-uitestframework

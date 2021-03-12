@@ -5,6 +5,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openmrs.contrib.qaframework.RunTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -12,7 +13,7 @@ import static org.junit.Assert.assertNotNull;
 
 public class LoginSteps extends Steps {
 
-	@After("@selenium")
+	@After(RunTest.HOOK.SELENIUM)
 	public void destroy() {
 		quit();
 	}
@@ -62,9 +63,9 @@ public class LoginSteps extends Steps {
 			getLoginButton().click();
 			assertNotNull(getLoginButton());
 		} else if ("setupLocation".equals(loginLocation)) {
-			elementClickOn(By.id(testProperties.getLocation()));
+			loginPage.clickOn(By.id(testProperties.getLocation()));
 		} else {
-			elementClickOn(By.id(loginLocation));
+			loginPage.clickOn(By.id(loginLocation));
 		}
 	}
 
@@ -80,17 +81,5 @@ public class LoginSteps extends Steps {
 		} else if (status.trim().endsWith("false")) {
 			assertNotNull(getLoginButton());
 		}
-	}
-
-	@When("Setup user rightly logs in")
-	public void setupRightLogin() {
-		loginPage.login(testProperties.getUsername(),
-				testProperties.getPassword(), testProperties.getLocation());
-	}
-
-	@Then("System logs in user")
-	public void evaluateLogin() {
-		assertNotNull(getLogOutLink());
-		assertNotNull(getElement(By.className("homeList")));
 	}
 }

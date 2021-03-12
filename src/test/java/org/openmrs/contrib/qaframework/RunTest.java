@@ -12,6 +12,15 @@ features = {"src/test/resources/features"},
 glue = "org.openmrs.contrib.qaframework.automation", plugin = {
 		"html:target/index.html", "message:target/cucumber.ndjson"}, monochrome = true,
 // only scenarios tagged here are executed
-tags = "@selenium")
+tags = RunTest.HOOK.SELENIUM)
 public class RunTest {
+
+	public class HOOK {
+		public static final String SELENIUM = "@selenium";
+		public static final String LOGIN = "@login";
+		public static final String DASHBOARD = "@dashboard";
+		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
+		public static final String SELENIUM_DASHBOARD = SELENIUM + " and "
+				+ DASHBOARD;
+	}
 }

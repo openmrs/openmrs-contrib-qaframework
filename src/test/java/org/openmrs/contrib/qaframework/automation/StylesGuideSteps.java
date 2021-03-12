@@ -1,12 +1,13 @@
 package org.openmrs.contrib.qaframework.automation;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.junit.Assert;
-import org.openmrs.reference.page.HomePage;
+import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.StylesGuidePage;
 import org.openmrs.reference.page.SystemAdministrationPage;
 import org.openqa.selenium.By;
@@ -16,30 +17,25 @@ public class StylesGuideSteps extends Steps {
 
 	private StylesGuidePage stylesGuidePage;
 
-	@After("@selenium")
+	@Before(RunTest.HOOK.SELENIUM_LOGIN)
+	public void systemLogin() {
+		initiateWithLogin();
+	}
+
+	@After(RunTest.HOOK.SELENIUM_LOGIN)
 	public void destroy() {
 		quit();
 	}
 
-	@Given("a user logins into the system")
-	public void loginForStyles() {
-		goToLoginPage();
-		loginPage.login(testProperties.getUsername(),
-				testProperties.getPassword(), testProperties.getLocation());
-		homePage = new HomePage(loginPage);
-	}
-
-	@And("user navigates to the systems admin page")
+	@Given("user navigates to the systems admin page")
 	public void navigateToSystemsPage() {
-		elementClickOn(By
-				.id("coreapps-systemadministration-homepageLink-coreapps-systemadministration-homepageLink-extension"));
-		systemAdministrationPage = new SystemAdministrationPage(homePage);
+		systemAdministrationPage = homePage.goToSystemAdministrationPage();
 	}
 
-	@When("user presses the styles guide link")
+	@And("user presses the styles guide link")
 	public void loadStylesGuide() {
-		systemAdministrationPage.clickOnStylesGuideAppLink();
-		stylesGuidePage = new StylesGuidePage(systemAdministrationPage);
+		stylesGuidePage = (StylesGuidePage) systemAdministrationPage
+				.clickOnStylesGuideAppLink().waitForPage();
 	}
 
 	@Then("system should load the styles guide page")
@@ -47,7 +43,7 @@ public class StylesGuideSteps extends Steps {
 		Assert.assertNotNull(getElement(StylesGuidePage.STYLES_GUIDE_HEADER));
 	}
 
-	@And("user clicks back")
+	@When("user clicks back")
 	public void back() {
 		stylesGuidePage.pressBack();
 	}

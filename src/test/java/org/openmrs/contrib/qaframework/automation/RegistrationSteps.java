@@ -4,12 +4,12 @@ import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.helper.PatientGenerator;
 import org.openmrs.reference.helper.TestPatient;
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.reference.page.HomePage;
 import org.openmrs.reference.page.RegistrationPage;
-import org.openmrs.uitestframework.page.LoginPage;
 import org.openqa.selenium.By;
 
 import static org.junit.Assert.assertEquals;
@@ -17,12 +17,11 @@ import static org.junit.Assert.assertNotNull;
 
 public class RegistrationSteps extends Steps {
 
-	LoginPage loginPage;
 	RegistrationPage registrationPage;
 	TestPatient patient;
 	ClinicianFacingPatientDashboardPage dashboardPage;
 
-	@After("@selenium")
+	@After(RunTest.HOOK.SELENIUM)
 	public void destroy() {
 		quit();
 	}
@@ -37,7 +36,8 @@ public class RegistrationSteps extends Steps {
 	@And("User clicks on Registration App")
 	public void visitRegistrationPage() throws InterruptedException {
 		homePage = new HomePage(loginPage);
-		registrationPage = homePage.goToRegisterPatientApp();
+		registrationPage = (RegistrationPage) homePage.goToRegisterPatientApp()
+				.waitForPage();
 	}
 
 	@And("User enters {string} patient details")
@@ -63,7 +63,8 @@ public class RegistrationSteps extends Steps {
 	@Then("User's patient registration is {string}")
 	public void registering(String status) throws InterruptedException {
 		if ("successful".equals(status)) {
-			dashboardPage = registrationPage.confirmPatient();
+			dashboardPage = (ClinicianFacingPatientDashboardPage) registrationPage
+					.confirmPatient().waitForPage();
 			patient.uuid = dashboardPage.getPatientUuidFromUrl();
 			assertEquals(dashboardPage.getPatientGivenName(), patient.givenName);
 			assertEquals(dashboardPage.getPatientFamilyName(),

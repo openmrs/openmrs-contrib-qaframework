@@ -1,11 +1,12 @@
 package org.openmrs.contrib.qaframework.automation;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.AllergyPage;
-import org.openmrs.reference.page.HomePage;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
@@ -13,24 +14,20 @@ import static org.junit.Assert.assertTrue;
 public class AllergiesSteps extends Steps {
 	private AllergyPage allergyPage;
 
-	@After("@selenium")
+	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)
+	public void visitDashboard() {
+		initiatePatientDashboard();
+	}
+
+	@After(RunTest.HOOK.SELENIUM_DASHBOARD)
 	public void destroy() {
 		quit();
 	}
 
-	@Given("a user logs in, searches John and visits his dashboard")
-	public void loadJohnDashboard() {
-		configuredUserLogin();
-		homePage = new HomePage(loginPage);
-		findPatientPage = homePage.goToFindPatientRecord();
-		findPatientPage.enterPatient("John");
-		dashboardPage = findPatientPage.clickOnFirstPatient();
-	}
-
-	@And("a user clicks on Allergies link")
+	@Given("a user clicks on Allergies link from Patient dashboard")
 	public void loadAllergiesPage() {
-		dashboardPage.clickOnAllergyManagement();
-		allergyPage = new AllergyPage(dashboardPage);
+		allergyPage = (AllergyPage) dashboardPage.clickOnAllergyManagement()
+				.waitForPage();
 	}
 
 	@Then("the system loads Allergies page")

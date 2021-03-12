@@ -1,13 +1,14 @@
 package org.openmrs.contrib.qaframework.automation;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.apache.commons.lang3.StringUtils;
+import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.ConditionPage;
 import org.openmrs.reference.page.ConditionsPage;
-import org.openmrs.reference.page.HomePage;
 import org.openqa.selenium.By;
 
 import static org.junit.Assert.*;
@@ -18,29 +19,25 @@ public class ConditionsSteps extends Steps {
 	private By addNewCondition = By.id("conditionui-addNewCondition");
 	private ConditionPage conditionPage;
 
-	@After("@selenium")
+	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)
+	public void visitDashboard() {
+		initiatePatientDashboard();
+	}
+
+	@After(RunTest.HOOK.SELENIUM_DASHBOARD)
 	public void destroy() {
 		quit();
 	}
 
-	@Given("User logs in, searches John Taylor and visits first patient dashboard")
-	public void visitFirstJohnsDashboard() {
-		configuredUserLogin();
-		homePage = new HomePage(loginPage);
-		findPatientPage = homePage.goToFindPatientRecord();
-		findPatientPage.enterPatient("John Taylor");
-		dashboardPage = findPatientPage.clickOnFirstPatient();
-		patientDashboardId = getElement(patientHeaderId).getText();
-	}
-
-	@And("User clicks on Conditions")
+	@Given("User clicks on Conditions from Patient dashboard")
 	public void launchManageConditions() {
-		dashboardPage.clickOnConditionsWidgetLink();
-		conditionsPage = new ConditionsPage(dashboardPage);
+		patientDashboardId = getElement(patientHeaderId).getText();
+		conditionsPage = (ConditionsPage) dashboardPage
+				.clickOnConditionsWidgetLink().waitForPage();
 		assertEquals(patientDashboardId, getElement(patientHeaderId).getText());
 	}
 
-	@Then("System on Manage Conditions Page")
+	@Then("System loads Manage Conditions Page")
 	public void systemLoadsManageConditions() {
 		assertNotNull(getElement(addNewCondition));
 	}
@@ -57,8 +54,8 @@ public class ConditionsSteps extends Steps {
 
 	@And("User clicks on Add new condition")
 	public void userClicksAddNewCondition() {
-		elementClickOn(ConditionsPage.ADD_NEW_CONDITION);
-		conditionPage = new ConditionPage(conditionsPage);
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
+				.waitForPage();
 	}
 
 	@Then("System on Add New Condition Page")
@@ -131,20 +128,22 @@ public class ConditionsSteps extends Steps {
 	@And("User edits active")
 	public void editActive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionsPage.editFirstActive();
-			conditionPage = new ConditionPage(conditionsPage);
+			conditionPage = (ConditionPage) conditionsPage.editFirstActive()
+					.waitForPage();
 			conditionPage.clickOnInActive();
 			conditionPage.clickSave();
+			conditionsPage.waitForPage();
 		}
 	}
 
 	@And("User edits inactive")
 	public void editInactive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionsPage.editFirstInActive();
-			conditionPage = new ConditionPage(conditionsPage);
+			conditionPage = (ConditionPage) conditionsPage.editFirstInActive()
+					.waitForPage();
 			conditionPage.clickOnActive();
 			conditionPage.clickSave();
+			conditionsPage.waitForPage();
 		}
 	}
 

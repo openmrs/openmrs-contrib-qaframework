@@ -3,6 +3,7 @@ package org.openmrs.contrib.qaframework.automation;
 import org.openmrs.reference.ReferenceApplicationTestBase;
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.reference.page.FindPatientPage;
+import org.openmrs.reference.page.HomePage;
 import org.openmrs.uitestframework.page.LoginPage;
 import org.openmrs.uitestframework.page.TestProperties;
 import org.openqa.selenium.By;
@@ -30,11 +31,9 @@ public class Steps extends ReferenceApplicationTestBase {
 	}
 
 	protected void quit() {
-		quitBrowser();
-	}
-
-	protected void elementClickOn(By elementBy) {
-		driver.findElement(elementBy).click();
+		if (driver != null) {
+			driver.quit();
+		}
 	}
 
 	protected WebElement getElement(By elementBy) {
@@ -45,19 +44,24 @@ public class Steps extends ReferenceApplicationTestBase {
 		}
 	}
 
-	private void quitBrowser() {
-		if (driver != null) {
-			driver.quit();
-		}
-	}
-
 	protected boolean textExists(String text) {
 		return driver.findElements(
 				By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
 	}
 
-	protected void configuredUserLogin() {
+	protected void initiateWithLogin() {
+		goToLoginPage();
 		goToLoginPage().login(testProperties.getUsername(),
 				testProperties.getPassword(), testProperties.getLocation());
+		homePage = (HomePage) new HomePage(loginPage).waitForPage();
+	}
+
+	protected void initiatePatientDashboard() {
+		initiateWithLogin();
+		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord()
+				.waitForPage();
+		findPatientPage.enterPatient("John Taylor");
+		dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage
+				.clickOnFirstPatient().waitForPage();
 	}
 }

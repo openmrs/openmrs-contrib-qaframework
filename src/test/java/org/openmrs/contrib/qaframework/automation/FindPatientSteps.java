@@ -40,9 +40,9 @@ public class FindPatientSteps extends Steps {
 		assertNotNull(getElement(By.className("dataTables_empty")));
 	}
 
-	@And("User enters John Taylor")
-	public void enterJohnTaylor() {
-		findPatientPage.enterPatient("John Taylor");
+	@And("User enters John Smith")
+	public void enterJohnSmith() {
+		findPatientPage.enterPatient("John Smith");
 	}
 
 	@Then("Search Page returns patients")

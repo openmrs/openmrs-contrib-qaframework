@@ -60,7 +60,7 @@ public class Steps extends ReferenceApplicationTestBase {
 		initiateWithLogin();
 		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord()
 				.waitForPage();
-		findPatientPage.enterPatient("John Taylor");
+		findPatientPage.enterPatient("John Smith");
 		dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage
 				.clickOnFirstPatient().waitForPage();
 	}

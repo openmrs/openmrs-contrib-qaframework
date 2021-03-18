@@ -12,7 +12,7 @@ Feature: Patient Search
   @selenium
   @login
   Scenario: Searching an existing patient
-    And User enters John Taylor
+    And User enters John Smith
     Then Search Page returns patients
     And User clicks on first patient
     Then System loads patient dashboard

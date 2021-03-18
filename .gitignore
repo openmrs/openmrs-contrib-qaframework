@@ -10,5 +10,3 @@ package-lock.json
 cypress/screenshots
 cypress/videos
 node_modules/
-src/test/java/org/openmrs/contrib/qaframework/RunTest.java
-src/test/resources/org/openmrs/uitestframework/

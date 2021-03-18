@@ -58,18 +58,6 @@ public class FindPatientSteps extends Steps {
 
 	@Then("System loads patient dashboard")
 	public void loadPatientDashboard() {
-		assertEquals(trimPatientId(firstPatientIdentifier),
-				trimPatientId(getElement(patientHeaderId).getText()));
-	}
-
-	private String trimPatientId(String id) {
-		id = id.replace("Recent", "");
-		if (id.indexOf("[") > 0) {
-			id = id.split("\\[")[0];
-		}
-		if (id.indexOf(" ") > 0) {
-			id = id.split(" ")[0];
-		}
-		return id;
+		matchPatientIds(firstPatientIdentifier);
 	}
 }

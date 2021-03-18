@@ -10,7 +10,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-import static org.junit.Assert.fail;
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.*;
 
 // Use english locale, of not set, the test instance should be set to english language
 public class Steps extends ReferenceApplicationTestBase {
@@ -63,5 +66,24 @@ public class Steps extends ReferenceApplicationTestBase {
 		findPatientPage.enterPatient("John Smith");
 		dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage
 				.clickOnFirstPatient().waitForPage();
+	}
+
+	protected String trimPatientId(String id) {
+		id = id.replace("Recent", "");
+		if (id.indexOf("[") > 0) {
+			id = id.split("\\[")[0];
+		}
+		if (id.indexOf(" ") > 0) {
+			id = id.split(" ")[0];
+		}
+		return id;
+	}
+
+	protected void matchPatientIds(String patientId) {
+		List<String> ids = new ArrayList<>();
+		driver.findElements(patientHeaderId).forEach(id-> {
+			ids.add(trimPatientId(id.getText()));
+		});
+		assertTrue(ids.contains(trimPatientId(patientId)));
 	}
 }

@@ -34,7 +34,7 @@ public class ConditionsSteps extends Steps {
 		patientDashboardId = getElement(patientHeaderId).getText();
 		conditionsPage = (ConditionsPage) dashboardPage
 				.clickOnConditionsWidgetLink().waitForPage();
-		assertEquals(patientDashboardId, getElement(patientHeaderId).getText());
+		matchPatientIds(patientDashboardId);
 	}
 
 	@Then("System loads Manage Conditions Page")
@@ -49,7 +49,7 @@ public class ConditionsSteps extends Steps {
 
 	@Then("System returns to patient dashboard")
 	public void returnToDashboard() {
-		assertEquals(patientDashboardId, getElement(patientHeaderId).getText());
+		matchPatientIds(patientDashboardId);
 	}
 
 	@And("User clicks on Add new condition")

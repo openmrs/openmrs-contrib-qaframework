@@ -19,13 +19,6 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Cache local Maven repository
-        uses: actions/cache@v2
-        with:
-          path: ~/.m2/repository
-          key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
-          restore-keys: |
-            ${{ runner.os }}-maven-
       - name: Checkout ui test framework
         uses: actions/checkout@master
         with:
@@ -45,5 +38,5 @@ jobs:
       - name: Run qaframework on selenium
         run: |
           echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
-          cp -f src/test/resources/org/openmrs/uitestframework/test-travis-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties
+          cp -f src/test/resources/org/openmrs/uitestframework/test-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties
           mvn clean install -B

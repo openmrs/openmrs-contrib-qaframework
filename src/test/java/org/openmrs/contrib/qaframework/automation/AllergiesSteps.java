@@ -9,10 +9,14 @@ import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.AllergyPage;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 public class AllergiesSteps extends Steps {
 	private AllergyPage allergyPage;
+
+    final int allergytype = (int)(Math.random()*(3) + 0);
 
 	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)
 	public void visitDashboard() {
@@ -57,4 +61,54 @@ public class AllergiesSteps extends Steps {
 		assertTrue(textExists("Unknown"));
 	}
 
+	@And("user clicks add new allergy button")
+	public void addNewAllergy(){
+		allergyPage.clickOnAddNewAllergy();
+	}
+
+	@Then("system loads add new allergy page")
+	public void systemdisplayAddNewAllergyPage(){
+		assertTrue(textExists("Add New Allergy"));
+	}
+
+	@Given("User selects one of the three allergen Types options")
+	public void selectoneofthetrheeallergentypesoption{
+		allergyPage.selectAllergyType( allergytype );
+	}
+
+	@Then("corresponding allergens should appear")
+	public void correspondingAllergenAppear(){
+		String allergens = allergyPage.getSeclectedAllergernclass( allergytype );
+		assertEquals(null, allergens);
+	}
+
+	@And("User selects an allergen")
+	public void selectsAnAllergen(){
+		allergyPage.selectalleregn((allergytype));
+	}
+
+	@And("user selects the reactions")
+	public void selectreaction(){
+		allergyPage.selectReaction();
+	}
+
+	@And("user  enters severity")
+	public void selectSeveriy(){
+		allergyPage.selectSeverity(2);
+	}
+
+	@And("user enters comment")
+	public void enterSomeComment(){
+		allergyPage.addComment(" i am sick");
+	}
+
+	@And("user clicks Save button")
+	public void clickSavebutton(){
+		allergyPage.clickOnSaveButon();
+	}
+
+	@Then("System should show the allergies of the patient in a table")
+	public void systemShowallergyofthePatientinTable(){
+		assertFalse(textExists("Unknown"));
+	}
 }

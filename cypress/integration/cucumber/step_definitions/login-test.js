@@ -18,18 +18,20 @@ When('User enters username {string}', (username) => {
   cy.get('#username').type(username);
 });
 
-And('User clicks {string}', (text) => cy.get('#continueButton').click());
+And('User clicks {string}', (text) => cy.get('.iw0iHcFjY--gDZi9jUQ1_').click());
 
 And('User enters Password {string}', (password) => {
-  cy.get('#password').type(password);
+  cy.get('.NGQQUK5YhTAwqMeeVQW5R').type(password);
 });
 
-And('User {string}', (text) => cy.get('#submitButton').click());
+And('User {string}', (text) => cy.get('.iw0iHcFjY--gDZi9jUQ1_').click());
 
-And('User clicks {string}', (text) => cy.get('RadioButton').first().click());
+And('User clicks {string}', (text) =>
+  cy.get('.bx--radio-button__appearance').click()
+);
 
-And('User clicks {string}', (text) => cy.get('#confirmLocation').click());
+And('User clicks {string}', (text) => cy.get('.bx--btn').click());
 
 Then('User should arrive at {string}', (url) => {
-  cy.url().should('contain', url);
+  cy.visit(url);
 });

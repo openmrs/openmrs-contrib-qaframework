@@ -5,7 +5,7 @@ Feature: User Login check
     Given User opens the website at "https://openmrs-spa.org/openmrs/spa"
     When User enters username "admin"
       And User clicks "continue"
-      And User enters Password "Admin123"'
+      And User enters Password "Admin123"
       And User "Log in"
       And User clicks "confirm"
     Then User should arrive at "https://openmrs-spa.org/openmrs/spa/home"

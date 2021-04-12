@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "./node_modules/.bin/cypress-tags run -eTAGS=@cypress",
-    "cypress": "npx cypress open"
+    "cypress:open": "npx cypress open"
   },
   "devDependencies": {
     "@testing-library/cypress": "7.0.3",

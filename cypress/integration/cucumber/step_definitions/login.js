@@ -1,4 +1,4 @@
-import {Given, When, Then} from "cypress-cucumber-preprocessor/steps";
+import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps';
 
 beforeEach(() => {
   cy.initiateExceptionsLogger();
@@ -13,41 +13,41 @@ Given('User visits login page', () => {
 });
 
 When('User enters {string} username', (username) => {
-    if('setupUser' == username) {
-        cy.typeInPropertyIntoElement('login.username', '#username');
-    } else {
-        cy.get('#username').type(username);
-    }
-})
+  if ('setupUser' == username) {
+    cy.typeInPropertyIntoElement('login.username', '#username');
+  } else {
+    cy.get('#username').type(username);
+  }
+});
 
 And('User enters {string} password', (password) => {
-    if('setupPass' == password) {
-        cy.typeInPropertyIntoElement('login.password', '#password');
-    } else {
-        cy.get('#password').type(password);
-    }
-})
+  if ('setupPass' == password) {
+    cy.typeInPropertyIntoElement('login.password', '#password');
+  } else {
+    cy.get('#password').type(password);
+  }
+});
 
 And('User Selects {string} Login Location', (location) => {
-    if('firstLocation' == location) {
-        cy.get('#sessionLocation li:first').click();
-    } else if('noLocation' == location) {
-        // cy.contains('#loginButton').click();
-    } else if('setupLocation' == location) {
-        cy.clickOnPropertyAsId('login.location');
-    } else {
-        cy.get('#' + location).click();
-    }
-})
+  if ('firstLocation' == location) {
+    cy.get('#sessionLocation li:first').click();
+  } else if ('noLocation' == location) {
+    // cy.contains('#loginButton').click();
+  } else if ('setupLocation' == location) {
+    cy.clickOnPropertyAsId('login.location');
+  } else {
+    cy.get('#' + location).click();
+  }
+});
 
 And('User Logs in', () => {
-    cy.get('#loginButton').click();
-})
+  cy.get('#loginButton').click();
+});
 
 Then('System Evaluates Login {string}', (status) => {
-    if ('true' == status) {
-    	cy.get('.logout').should('exist');
-    } else if ('false' == status) {
-        cy.get('#loginButton').should('exist');
-    }
-})
+  if ('true' == status) {
+    cy.get('.logout').should('exist');
+  } else if ('false' == status) {
+    cy.get('#loginButton').should('exist');
+  }
+});

@@ -1,8 +1,5 @@
 {
   "integrationFolder": "src/test/resources/features/",
-  "testFiles": [
-    "*.feature",
-    "**/*.feature"
-  ],
+  "testFiles": ["*.feature", "**/*.feature"],
   "video": false
 }

@@ -1,5 +1,6 @@
 {
   "integrationFolder": "src/test/resources/features/",
   "testFiles": ["*.feature", "**/*.feature"],
+  "baseUrl": "https://openmrs-spa.org/openmrs/spa",
   "video": false
 }

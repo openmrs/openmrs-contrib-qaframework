@@ -1,4 +1,4 @@
-.classpath
+openmrs.log.classpath
 .project
 .settings/
 .vscode/
@@ -10,3 +10,5 @@ package-lock.json
 cypress/screenshots
 cypress/videos
 node_modules/
+openmrs.log
+.classpath

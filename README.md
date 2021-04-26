@@ -11,8 +11,24 @@ OpenMRS [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) QA fram
 ## Building without running tests
 - `mvn clean install -DskipTests=true`
 
+## Configuration
+Set Your test configurations in `src/test/resources/org/openmrs/uitestframework/test.properties`.
+MySQL password should be the same for initialSetupTests as openmrs password
+
 ## Running selenium tests
-- `mvn clean install`
+- `mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup'`
+
+## Running Simple Installation test
+- `mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'`
+
+## Running Advanced Installation test
+- `mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'`
+
+## Running Testing Installation test
+- `mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @testingInstall'`
+
+## Running Upgrade test
+- `mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'`
 
 ## Running cypress tests
 - `npm install-test`

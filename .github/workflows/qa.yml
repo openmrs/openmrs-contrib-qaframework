@@ -19,6 +19,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
+      - name: Deploy local qa ref app instance
+        uses: docker://openmrs/openmrs-reference-application-distro:qa
       - name: Checkout ui test framework
         uses: actions/checkout@master
         with:
@@ -39,4 +41,4 @@ jobs:
         run: |
           echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
           cp -f src/test/resources/org/openmrs/uitestframework/test-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties
-          mvn clean install -B
+          mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup' -B

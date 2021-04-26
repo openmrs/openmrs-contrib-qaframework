@@ -4,6 +4,7 @@ import org.openmrs.reference.ReferenceApplicationTestBase;
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.reference.page.FindPatientPage;
 import org.openmrs.reference.page.HomePage;
+import org.openmrs.uitestframework.page.InitialSetupPage;
 import org.openmrs.uitestframework.page.LoginPage;
 import org.openmrs.uitestframework.page.TestProperties;
 import org.openqa.selenium.By;
@@ -23,6 +24,7 @@ public class Steps extends ReferenceApplicationTestBase {
 	protected String firstPatientIdentifier;
 	protected ClinicianFacingPatientDashboardPage dashboardPage;
 	protected By patientHeaderId = By.cssSelector("div.identifiers span");
+	protected InitialSetupPage initialSetupPage;
 
 	public Steps() {
 		try {

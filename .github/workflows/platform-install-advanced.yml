@@ -34,8 +34,8 @@ jobs:
       - name: build platform
         run: |
           pwd
-          mvn clean install
-          cp webapps/target/openmrs.war ../
+          mvn clean install -DskipTests=true
+          cp webapp/target/openmrs.war ../
       - name: Checkout qaframework
         uses: actions/checkout@master
         with:

@@ -3,7 +3,6 @@ package org.openmrs.contrib.qaframework.automation;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.openmrs.uitestframework.page.InitialSetupPage;
-import org.openmrs.uitestframework.page.TestProperties;
 import org.openmrs.uitestframework.test.TestBase;
 
 import static org.junit.Assert.fail;
@@ -28,6 +27,7 @@ public class InitialSetupSteps extends TestBase {
 	protected void initialSetup() {
 		initialSetupPage = new InitialSetupPage(driver);
 		initialSetupPage.go();
+		initialSetupPage.waitForPage();
 	}
 
 	protected void submitInstallationStep1() {

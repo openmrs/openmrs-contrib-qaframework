@@ -39,10 +39,9 @@ jobs:
       - name: Checkout qaframework
         uses: actions/checkout@master
         with:
-          repository: openmrs/openmrs-contrib-qaframework
+          repository: ${{github.repository}}
       - name: run db and web containers
         run: |
-          pwd
           cp ../openmrs.war docker/
           cd docker
           docker-compose -f docker-compose-platform-install.yml up -d

@@ -1,0 +1,55 @@
+name: Platform Simple Installation
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    services:
+      firefox:
+        image: selenium/node-firefox:3.141.59-gold
+        env:
+          HUB_HOST: hub
+          HUB_PORT: 4444
+    steps:
+      - name: Set up JDK 1.8
+        uses: actions/setup-java@v1
+        with:
+          java-version: 1.8
+      - name: Checkout ui test framework
+        uses: actions/checkout@master
+        with:
+          repository: openmrs/openmrs-contrib-uitestframework
+      - name: Build ui test framework
+        run: mvn clean install -B
+      - name: Checkout distro/uitests
+        uses: actions/checkout@master
+        with:
+          repository: openmrs/openmrs-distro-referenceapplication
+      - name: Build distro/uitests
+        run: mvn clean install -B
+      - name: Checkout openmrs-core
+        uses: actions/checkout@master
+        with:
+          repository: openmrs/openmrs-core
+      - name: build platform
+        run: |
+          pwd
+          mvn clean install
+          cp webapps/target/openmrs.war ../
+      - name: Checkout qaframework
+        uses: actions/checkout@master
+        with:
+          repository: openmrs/openmrs-contrib-qaframework
+      - name: run db and web containers
+        run: |
+          pwd
+          cp ../openmrs.war docker/
+          cd docker
+          docker-compose -f docker-compose-platform-install.yml up -d
+      - name: wait for openmrs instance to start
+        run: while ! nc -z localhost 8080 </dev/null; do sleep 1; done
+      - name: Run qaframework on selenium
+        run: |
+          echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
+          cp -f src/test/resources/org/openmrs/uitestframework/test-local.properties src/test/resources/org/openmrs/uitestframework/test.properties
+          mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall' -B

@@ -1,4 +1,4 @@
-name: Run QA Framework tests on Github Actions
+name: Cucumber Ref App
 on:
   push:
     branches: [master]

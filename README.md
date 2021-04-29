@@ -1,12 +1,15 @@
 # openmrs-contrib-qaframework
 
-[Bamboo CI](https://ci.openmrs.org/browse/CONTRIB-QA) (Chrome): ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
+OpenMRS [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) QA framework, Currently tracking;
+___
+[![Platform Simple Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-simple.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-simple.yml)
 
-[Travis CI](https://travis-ci.org/github/openmrs/openmrs-contrib-qaframework) (Firefox): [![Build Status](https://travis-ci.org/openmrs/openmrs-contrib-qaframework.svg?branch=master)](https://travis-ci.org/openmrs/openmrs-contrib-qaframework/branches)
+[![Platform Advanced Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml)
 
-[![Run QA Framework tests on Github Actions](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
+[Legacy Selenium Ref App](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
 
-OpenMRS [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) QA framework, Currently containing reference application end to end tests
+[![Cucumber Ref App](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
+___
 
 ## Building without running tests
 - `mvn clean install -DskipTests=true`
@@ -32,3 +35,7 @@ MySQL password should be the same for initialSetupTests as openmrs password
 
 ## Running cypress tests
 - `npm install-test`
+
+## Before Releasing
+- [ ] For the platform, manually run both Installation and upgrade workflows again.
+- [ ] Check all relevant builds to the release above to be sure they pass

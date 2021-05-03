@@ -1,8 +1,8 @@
 name: Platform Upgrade
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "0 1 * * *"
+  repository_dispatch:
+    types: [qa-initialSetup]
 jobs:
   build:
     runs-on: ubuntu-latest

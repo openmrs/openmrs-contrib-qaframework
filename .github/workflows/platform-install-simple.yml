@@ -53,4 +53,5 @@ jobs:
         run: |
           echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
           cp -f src/test/resources/org/openmrs/uitestframework/test-local.properties src/test/resources/org/openmrs/uitestframework/test.properties
-          mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall' -B
+          mvn clean install -DskipTests=true
+          npm run simpleCoreInstall

@@ -1,4 +1,4 @@
-name: Cucumber Ref App
+name: BDD Firefox
 on:
   push:
     branches: [master]

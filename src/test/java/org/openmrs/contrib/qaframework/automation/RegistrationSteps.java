@@ -40,9 +40,11 @@ public class RegistrationSteps extends Steps {
 				.waitForPage();
 	}
 
-	@And("User enters {string} patient details")
+	@And("User enters {string} details for John Smith")
 	public void userEntersPatient(String validity) throws InterruptedException {
 		patient = PatientGenerator.generateTestPatient();
+		patient.givenName = "John";
+		patient.familyName = "Smith";
 		if ("wrong".equals(validity)) {
 			patient.phone = "fake";
 		} else if ("incomplete".equals(validity)) {

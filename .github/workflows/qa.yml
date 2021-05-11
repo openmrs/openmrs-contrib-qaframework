@@ -37,10 +37,15 @@ jobs:
         uses: actions/checkout@master
         with:
           repository: ${{github.repository}}
+      - name: run db and web containers
+        run: |
+          docker-compose -f docker/docker-compose-refqa.yml up -d
+      - name: wait for openmrs instance to start
+        run: while ! nc -z localhost 8080 </dev/null; do sleep 1; done
       - name: Run qaframework on selenium
         run: |
           echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
-          cp -f src/test/resources/org/openmrs/uitestframework/test-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties
+          cp -f src/test/resources/org/openmrs/uitestframework/test-local.properties src/test/resources/org/openmrs/uitestframework/test.properties
           mvn clean install -DskipTests=true
           npm run refappSelenium
           curl -sX POST -F messages=@target/cucumber.ndjson https://studio.cucumber.io/cucumber_project/results -H "project-access-token: ${{secrets.CUCUMBER_IO_TOKEN}}" -H "provider: github" -H "repo: ${{github.repository}}" -H "branch: master" -H "revision: ${{github.sha}}"

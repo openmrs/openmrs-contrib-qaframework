@@ -21,23 +21,22 @@ public class EditPatientRelationshipSteps extends Steps {
 		initiateWithLogin();
 	}
 
-	@Then("System loads clicianFacingPatientDashboardPage")
-	public void loadClinicianFacingPatientDashboardPage() {
-		matchPatientIds(firstPatientIdentifier);
-
-	}
-
 	@After(RunTest.HOOK.SELENIUM_DASHBOARD)
 	public void destroy() {
 		quit();
 	}
 
-	@Then("User clicks on editRegistration")
-	public void clickEditPatientRegistration() {
+	@Then("System loads clinicianFacingPatientDashboardPage")
+	public void loadClinicianFacingPatientDashboardPage() {
+		homePage.goToClinicianFacingPatientDasboard();
+	}
+
+	@Then("User clicks on editRegistrationInformation")
+	public void clickEditRegistrationInformation() {
 
 	}
-	@Then("User clicks on EditRelationship")
-	public void clickEditRelationship() {
+	@Then("User clicks on EditRelationships")
+	public void clickEditRelationships() {
 
 	}
 

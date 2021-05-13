@@ -9,7 +9,7 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-
+import io.cucumber.java.en.When;
 public class EditPatientRelationshipSteps extends Steps {
 
 	private FindPatientPage findpatientPage;
@@ -26,22 +26,25 @@ public class EditPatientRelationshipSteps extends Steps {
 		quit();
 	}
 
-	@Then("System loads clinicianFacingPatientDashboardPage")
-	public void loadClinicianFacingPatientDashboardPage() {
-		homePage.goToClinicianFacingPatientDasboard();
-	}
+	@Given("System loads clinicianFacingPatientDashboardPage")
+	public void loadClinicianFacingPatientDashboardPage() throws Exception {
 
-	@Then("User clicks on editRegistrationInformation")
+	}
+	@When("User clicks on editRegistrationInformation")
 	public void clickEditRegistrationInformation() {
 
 	}
-	@Then("User clicks on EditRelationships")
+	@And("User clicks on EditRelationships")
 	public void clickEditRelationships() {
 
 	}
 
-	@And("User click on find Relationshiptype")
+	@And("User clicks on   Relationshiptype")
 	public void findRelationshipType() {
+
+	}
+	@Then("system loads back to patientDashboard")
+	public void loadPatientDashboard() {
 
 	}
 

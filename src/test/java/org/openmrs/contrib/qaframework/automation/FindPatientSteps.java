@@ -9,7 +9,6 @@ import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.FindPatientPage;
 import org.openqa.selenium.By;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class FindPatientSteps extends Steps {

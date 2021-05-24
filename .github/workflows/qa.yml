@@ -1,11 +1,11 @@
 name: BDD Firefox
 on:
-  push:
-    branches: [master]
+  #push:
+    #branches: [master]
   pull_request:
     branches: [master]
-  repository_dispatch:
-    types: [qa]
+  #repository_dispatch:
+    #types: [qa]
   workflow_dispatch:
 jobs:
   build:

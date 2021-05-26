@@ -26,7 +26,7 @@ public class AllergiesSteps extends Steps {
 
 	@Given("a user clicks on Allergies link from Patient dashboard")
 	public void loadAllergiesPage() {
-		allergyPage = (AllergyPage) dashboardPage.clickOnAllergyManagement()
+		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
 				.waitForPage();
 	}
 

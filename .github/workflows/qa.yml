@@ -1,11 +1,11 @@
 name: BDD Firefox
 on:
-  push:
-    branches: [master]
+  #push:
+    #branches: [master]
   pull_request:
     branches: [master]
-  repository_dispatch:
-    types: [qa]
+  #repository_dispatch:
+    #types: [qa]
   workflow_dispatch:
 jobs:
   build:
@@ -37,11 +37,11 @@ jobs:
         uses: actions/checkout@master
         with:
           repository: ${{github.repository}}
-      - name: run db and web containers
-        run: |
-          docker-compose -f docker/docker-compose-refqa.yml up -d
-      - name: wait for openmrs instance to start
-        run: while ! nc -z localhost 8080 </dev/null; do sleep 1; done
+      #- name: run db and web containers
+        #run: |
+          #docker-compose -f docker/docker-compose-refqa.yml up -d
+      #- name: wait for openmrs instance to start
+        #run: while ! nc -z localhost 8080 </dev/null; do sleep 1; done
       - name: Run qaframework on selenium
         run: |
           echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties

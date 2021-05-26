@@ -13,7 +13,6 @@ import static org.junit.Assert.assertTrue;
 
 public class AllergiesSteps extends Steps {
 	private AllergyPage allergyPage;
-
 	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)
 	public void visitDashboard() {
 		initiatePatientDashboard();
@@ -23,7 +22,6 @@ public class AllergiesSteps extends Steps {
 	public void destroy() {
 		quit();
 	}
-
 	@Given("a user clicks on Allergies link from Patient dashboard")
 	public void loadAllergiesPage() {
 		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
@@ -35,7 +33,6 @@ public class AllergiesSteps extends Steps {
 				getElement(patientHeaderId).getText());
 		assertTrue(textExists("Allergies"));
 	}
-
 	@And("a user clicks No Known Allergy button")
 	public void addNoKnownAllergy() {
 		allergyPage.addNoKnownAllergy();
@@ -55,5 +52,4 @@ public class AllergiesSteps extends Steps {
 	public void systemRemovesNoKnownAllergies() {
 		assertTrue(textExists("Unknown"));
 	}
-
 }

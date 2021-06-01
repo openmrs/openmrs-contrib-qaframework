@@ -5,10 +5,6 @@ import org.openmrs.reference.page.EditPatientRelationshipPage;
 import org.openmrs.reference.page.FindPatientPage;
 import org.openmrs.reference.page.RegistrationSummaryPage;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.Select;
-
-import static org.junit.Assert.assertNotNull;
-
 import org.openmrs.contrib.qaframework.RunTest;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -48,14 +44,14 @@ public class EditPatientRelationshipSteps extends Steps {
 
 	@And("User clicks on RegistrationSummary")
 	public void clickOnRegistrationSummary() {
-		RegistrationSummaryPage summary = new RegistrationSummaryPage(page);
-		summary.goToEditPatientRelationship();
+//		RegistrationSummaryPage summary = new RegistrationSummaryPage(page);
+//		summary.goToEditPatientRelationship();
 
 	}
 
 	@And("User clicks   on  SelectRelationshipType")
 	public void findRelationshipType() throws InterruptedException {
-		editPatientRelationshipPage.clickOnSelectRelationshipType();
+//		editPatientRelationshipPage.clickOnSelectRelationshipType();
 
 	}
 

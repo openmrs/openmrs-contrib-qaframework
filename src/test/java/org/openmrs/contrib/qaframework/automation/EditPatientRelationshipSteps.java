@@ -1,9 +1,7 @@
 package org.openmrs.contrib.qaframework.automation;
 
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
-import org.openmrs.reference.page.EditPatientRelationshipPage;
 import org.openmrs.reference.page.FindPatientPage;
-import org.openmrs.reference.page.RegistrationSummaryPage;
 import org.openqa.selenium.By;
 import org.openmrs.contrib.qaframework.RunTest;
 import io.cucumber.java.After;
@@ -17,7 +15,6 @@ public class EditPatientRelationshipSteps extends Steps {
 	private static final By NEXT_BUTTON = By.id("next-button");
 	private FindPatientPage findpatientPage;
 	private String patientDashboardId;
-	private EditPatientRelationshipPage editPatientRelationshipPage;
 
 	private ClinicianFacingPatientDashboardPage dashboardPage;
 
@@ -39,7 +36,7 @@ public class EditPatientRelationshipSteps extends Steps {
 
 	@When("User clicks on editRegistrationInformation")
 	public void clickEditRegistrationInformation() {
-		dashboardPage.goToRegistrationSummary().waitForPage();
+//		dashboardPage.goToRegistrationSummary().waitForPage();
 	}
 
 	@And("User clicks on RegistrationSummary")

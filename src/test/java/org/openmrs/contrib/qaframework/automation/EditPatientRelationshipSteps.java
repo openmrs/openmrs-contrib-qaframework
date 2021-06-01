@@ -1,7 +1,13 @@
 package org.openmrs.contrib.qaframework.automation;
 
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
+import org.openmrs.reference.page.EditPatientRelationshipPage;
 import org.openmrs.reference.page.FindPatientPage;
+import org.openmrs.reference.page.RegistrationSummaryPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Select;
+
+import static org.junit.Assert.assertNotNull;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import io.cucumber.java.After;
@@ -12,9 +18,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class EditPatientRelationshipSteps extends Steps {
+	private static final By NEXT_BUTTON = By.id("next-button");
 	private FindPatientPage findpatientPage;
+	private String patientDashboardId;
+	private EditPatientRelationshipPage editPatientRelationshipPage;
 
-	private ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage;
+	private ClinicianFacingPatientDashboardPage dashboardPage;
 
 	@Before(RunTest.HOOK.SELENIUM_LOGIN)
 	public void systemLogin() {
@@ -28,26 +37,31 @@ public class EditPatientRelationshipSteps extends Steps {
 
 	@Given("System loads clinicianFacingPatientDashboardPage")
 	public void loadClinicianFacingPatientDashboardPage() throws Exception {
+		matchPatientIds(patientDashboardId);
 
- 
 	}
+
 	@When("User clicks on editRegistrationInformation")
 	public void clickEditRegistrationInformation() {
-
-	}
-	@And("User clicks on EditRelationships")
-	public void clickEditRelationships() {
-
+		dashboardPage.goToRegistrationSummary().waitForPage();
 	}
 
-	@And("User clicks on   Relationshiptype")
-	public void findRelationshipType() {
- 
+	@And("User clicks on RegistrationSummary")
+	public void clickOnRegistrationSummary() {
+		RegistrationSummaryPage summary = new RegistrationSummaryPage(page);
+		summary.goToEditPatientRelationship();
+
 	}
+
+	@And("User clicks   on  SelectRelationshipType")
+	public void findRelationshipType() throws InterruptedException {
+		editPatientRelationshipPage.clickOnSelectRelationshipType();
+
+	}
+
 	@Then("system loads back to patientDashboard")
 	public void loadPatientDashboard() {
-
+		matchPatientIds(firstPatientIdentifier);
 	}
 
 }
-

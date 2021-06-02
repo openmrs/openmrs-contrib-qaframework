@@ -1,5 +1,7 @@
 name: Platform Advanced Installation
 on:
+  push:
+    branches: [ master ]
   repository_dispatch:
     types: [qa-initialSetup]
   workflow_dispatch:

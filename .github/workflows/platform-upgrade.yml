@@ -1,6 +1,8 @@
 name: Platform Upgrade
 on:
   workflow_dispatch:
+  push:
+    branches: [master]
   repository_dispatch:
     types: [qa-initialSetup]
 jobs:

@@ -15,8 +15,7 @@ public class EditPatientRelationshipSteps extends Steps {
 	private static final By NEXT_BUTTON = By.id("next-button");
 	private FindPatientPage findpatientPage;
 	private String patientDashboardId;
-
-	private ClinicianFacingPatientDashboardPage dashboardPage;
+	private ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage;
 
 	@Before(RunTest.HOOK.SELENIUM_LOGIN)
 	public void systemLogin() {
@@ -31,24 +30,23 @@ public class EditPatientRelationshipSteps extends Steps {
 	@Given("System loads clinicianFacingPatientDashboardPage")
 	public void loadClinicianFacingPatientDashboardPage() throws Exception {
 		matchPatientIds(patientDashboardId);
-
 	}
 
 	@When("User clicks on editRegistrationInformation")
 	public void clickEditRegistrationInformation() {
-//		dashboardPage.goToRegistrationSummary().waitForPage();
+		// dashboardPage.goToRegistrationSummary().waitForPage();
 	}
 
 	@And("User clicks on RegistrationSummary")
 	public void clickOnRegistrationSummary() {
-//		RegistrationSummaryPage summary = new RegistrationSummaryPage(page);
-//		summary.goToEditPatientRelationship();
+		// RegistrationSummaryPage summary = new RegistrationSummaryPage(page);
+		// summary.goToEditPatientRelationship();
 
 	}
 
 	@And("User clicks   on  SelectRelationshipType")
 	public void findRelationshipType() throws InterruptedException {
-//		editPatientRelationshipPage.clickOnSelectRelationshipType();
+		// editPatientRelationshipPage.clickOnSelectRelationshipType();
 
 	}
 

@@ -20,6 +20,7 @@ public class RunTest {
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
 		public static final String ADVANCED_INSTALL = "@advancedInstall";
+		public static final String POSTGRES_INSTALL = "@postgresInstall";
 		public static final String TESTING_INSTALL = "@testingInstall";
 		public static final String UPGRADE = "@upgrade";
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;

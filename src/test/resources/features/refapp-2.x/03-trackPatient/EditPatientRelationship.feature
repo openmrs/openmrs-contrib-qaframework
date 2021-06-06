@@ -1,12 +1,5 @@
  Feature: EditRelationshipType
- Background:
-    Given User clicks on Find Patient App
-    
- @selenium
- @login
- Scenario: Searching an existing patient
-       And  User clicks on first patient
-       
+     
  @selenium
  @login: 
  Scenario:System loads clinicianFacingPatientDashboardPage

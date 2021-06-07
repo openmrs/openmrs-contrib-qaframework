@@ -15,6 +15,7 @@ public class EditPatientRelationshipSteps extends Steps {
 	private static final By NEXT_BUTTON = By.id("next-button");
 	private FindPatientPage findpatientPage;
 	private FindPatientSteps findPatientSteps;
+
 	private String patientDashboardId;
 	private ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage;
 

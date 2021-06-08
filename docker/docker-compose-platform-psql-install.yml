@@ -6,7 +6,8 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: openmrs
+      POSTGRES_DB: openmrs
+      POSTGRES_USER: root
       POSTGRES_PASSWORD: Admin123
 
   web:
@@ -19,6 +20,3 @@ services:
       - db:openmrs
     ports:
       - '8080:8080'
-    environment:
-      MYSQL_ROOT_PASSWORD: Admin123
-      MYSQL_DATABASE: openmrs

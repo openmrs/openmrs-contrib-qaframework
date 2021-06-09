@@ -39,6 +39,9 @@ MySQL password should be the same for initialSetupTests as openmrs password
 ### Running Platform Advanced Installation test
 - `npm run advancedCoreInstall`
 
+### Running Platform postgres Installation test
+- `npm run postgresCoreInstall`
+
 ### Running Platform Testing Installation test
 - `npm run testingCoreInstall`
 

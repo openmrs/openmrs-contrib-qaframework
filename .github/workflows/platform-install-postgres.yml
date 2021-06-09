@@ -47,7 +47,7 @@ jobs:
         run: |
           cp ../openmrs.war docker/
           cd docker
-          docker-compose -f docker-compose-platform-psql-install.yml up -d
+          docker-compose -f docker-compose-platform-psql-install.yml up -d --force-recreate
       - name: wait for openmrs instance to start
         run: while ! nc -z localhost 8080 </dev/null; do sleep 1; done
       - name: Run qaframework on selenium

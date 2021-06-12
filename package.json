@@ -13,6 +13,7 @@
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
     "testingCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @testingInstall'",
     "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'",
+    "editPatientRelationship": "mvn test -Dcucumber.filter.tags='@selenium and @editPatientRelationship'",
     "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
     "microfrontend": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @microfrontend'"
   },

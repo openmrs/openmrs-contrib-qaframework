@@ -1,7 +1,11 @@
 package org.openmrs.contrib.qaframework.automation;
 
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
+import org.openmrs.reference.page.EditPatientRelationshipPage;
 import org.openmrs.reference.page.FindPatientPage;
+import org.openmrs.reference.page.HeaderPage;
+import org.openmrs.reference.page.HomePage;
+import org.openmrs.reference.page.RegistrationSummaryPage;
 import org.openqa.selenium.By;
 import org.openmrs.contrib.qaframework.RunTest;
 import io.cucumber.java.After;
@@ -13,47 +17,57 @@ import io.cucumber.java.en.When;
 
 public class EditPatientRelationshipSteps extends Steps {
 	private static final By NEXT_BUTTON = By.id("next-button");
-	private FindPatientPage findpatientPage;
-	private FindPatientSteps findPatientSteps;
+	private HomePage homePage;
+	private HeaderPage headerPage;
+	private EditPatientRelationshipPage editPatientRelationshipPage;
+	private ClinicianFacingPatientDashboardPage patientDashboardPage;
+	private RegistrationSummaryPage registrationSummaryPage;
 
 	private String patientDashboardId;
 	private ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage;
 
-	@Before(RunTest.HOOK.SELENIUM_LOGIN)
-	public void systemLogin() {
-		initiateWithLogin();
+	@Before(RunTest.HOOK.EDITPATIENTRELATIONSHIP)
+	public void setUp() throws Exception {
+		homePage = new HomePage(page);
+		assertPage(homePage.waitForPage());
+		headerPage = new HeaderPage(driver);
+		// editPatientRelationshipPage = new EditPatientRelationshipPage(page);
+		registrationSummaryPage = new RegistrationSummaryPage(page);
+		patientDashboardPage = new ClinicianFacingPatientDashboardPage(page);
 	}
 
-	@After(RunTest.HOOK.SELENIUM_DASHBOARD)
+	@After(RunTest.HOOK.EDITPATIENTRELATIONSHIP)
 	public void destroy() {
 		quit();
 	}
 
-	@Given("System loads clinicianFacingPatientDashboardPage")
+	@Given("User clicks on find Patient record")
+	public void clickOnFindPatientRecord() {
+		homePage.goToFindPatientRecord().clickOnFirstPatient();
+	}
+
+	@And("System loads clinicianFacingPatientDashboardPage")
 	public void loadClinicianFacingPatientDashboardPage() throws Exception {
 		matchPatientIds(patientDashboardId);
 	}
-
-	@When("User clicks on editRegistrationInformation")
-	public void clickEditRegistrationInformation() {
-		// dashboardPage.goToRegistrationSummary().waitForPage();
+	@Then("User clicks on RegistrationSummary")
+	public void clickOnRegistrationSummary() {
+		patientDashboardPage.goToRegistrationSummary().waitForPage();
 	}
 
-	@And("User clicks on RegistrationSummary")
-	public void clickOnRegistrationSummary() {
-		// RegistrationSummaryPage summary = new RegistrationSummaryPage(page);
-		// summary.goToEditPatientRelationship();
-
+	@And("User click on editPatientRelationshipPage")
+	public void clickeditPatientRelationshipPage() {
+		registrationSummaryPage.goToEditPatientRelationship();
 	}
 
 	@And("User clicks   on  SelectRelationshipType")
 	public void findRelationshipType() throws InterruptedException {
-		// editPatientRelationshipPage.clickOnSelectRelationshipType();
-
+		editPatientRelationshipPage.clickOnSelectRelationshipType();
 	}
 
 	@Then("system loads back to patientDashboard")
 	public void loadPatientDashboard() {
+		homePage.go();
 		matchPatientIds(firstPatientIdentifier);
 	}
 

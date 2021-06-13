@@ -23,7 +23,9 @@ public class RunTest {
 		public static final String POSTGRES_INSTALL = "@postgresInstall";
 		public static final String TESTING_INSTALL = "@testingInstall";
 		public static final String UPGRADE = "@upgrade";
+		public static final String VITALS = "@vitals";
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
+		public static final String SELENIUM_VITALS = SELENIUM + " and "	+ VITALS;
 		public static final String SELENIUM_DASHBOARD = SELENIUM + " and "
 				+ DASHBOARD;
 		public static final String SELENIUM_INITIAL_SETUP = SELENIUM + " and "

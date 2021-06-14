@@ -36,7 +36,6 @@ public class searchAndRegistrationSteps extends Steps {
 	public void destroy() {
 		quit();
 	}
-
 	@Given("User logs in as Admin")
 	public void adminlogIn(String locationName) throws Exception {
 		loginPage.loginAsAdmin();

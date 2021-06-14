@@ -15,7 +15,7 @@
     "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'",
     "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
     "microfrontend": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @microfrontend'",
-    "searchAndRegistration": "mvn test -Dcucumber.filter.tags='@selenium and not @searchAndRegistration'"
+    "searchAndRegistration": "mvn test -Dcucumber.filter.tags='@selenium and @searchAndRegistration'"
   },
   "devDependencies": {
     "@types/uuid": "3.4.7",

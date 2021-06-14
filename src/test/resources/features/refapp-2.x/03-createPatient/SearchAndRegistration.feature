@@ -1,21 +1,16 @@
 Feature: Search And Patient Registration
-
-  Background:
-    Given User logs in as Admin
-    Given System loads back to HomePage
-
-  @Selenium
-  @searchAndRegistration
-  Scenario: searching for a patient
-    And User clicks on Find Patient Record App
-    Then User searches john smith
-    And  User click on first Patient
-    Then Load patient dashboard
+   Background:
+   Given :User clicks on Find Patient Record App
 
   @selenium
   @searchAndRegistration
-  Scenario: register new Patient
-    And User click on Rgistration app
-    And User enters Patient details
-    Then User click on confirm button
-
+  Scenario: Searching for missing  patient called faiza
+    And    User searches Andria Faiza
+    Then  The System returns no patient
+    
+  @selenium
+  @searchAndRegistration
+  Scenario: Registering new patient
+     And  The system loads homePage
+     When User clicks on registrationapp
+     And  User enters patient details

@@ -50,9 +50,6 @@ MySQL password should be the same for initialSetupTests as openmrs password
 ### Running Platform Upgrade test
 - `npm run coreUpgrade`
 
-### Running ocl tests
-- `npm run ocl`
-
 ### Running microfrontend tests
 - `npm run microfrontend`
 

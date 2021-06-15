@@ -7,14 +7,13 @@
     "npm": ">=7.5.3"
   },
   "scripts": {
-    "refappCypress": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and not @ocl and not @microfrontend'",
+    "refappCypress": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and not @microfrontend'",
     "refappSelenium": "mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
     "postgresCoreInstall":"mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",
     "testingCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @testingInstall'",
     "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'",
-    "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
     "microfrontend": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @microfrontend'"
   },
   "devDependencies": {

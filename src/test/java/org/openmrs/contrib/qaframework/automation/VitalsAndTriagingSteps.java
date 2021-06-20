@@ -47,13 +47,13 @@ public class VitalsAndTriagingSteps extends Steps {
 
 	@And("a user enters patient vitals")
 	public void enterPatientVitals() {
-	  patientCaptureVitalsPage.setHeightField("180");
-	  patientCaptureVitalsPage.setWeightField("77");
-	  patientCaptureVitalsPage.setTemperatureField("35.8");
-	  patientCaptureVitalsPage.setPulseField("124");
-	  patientCaptureVitalsPage.setRespiratoryField("115");
-	  patientCaptureVitalsPage.setBloodPressureFields("122", "75");
-	  patientCaptureVitalsPage.setBloodOxygenSaturationField("54");
+	  patientCaptureVitalsPage.setHeightField("154");
+	  patientCaptureVitalsPage.setWeightField("65");
+	  patientCaptureVitalsPage.setTemperatureField("34");
+	  patientCaptureVitalsPage.setPulseField("80");
+	  patientCaptureVitalsPage.setRespiratoryField("60");
+	  patientCaptureVitalsPage.setBloodPressureFields("120", "110");
+	  patientCaptureVitalsPage.setBloodOxygenSaturationField("94");
 	}
 
 	@And("a user clicks on save button")
@@ -65,13 +65,5 @@ public class VitalsAndTriagingSteps extends Steps {
 	@Then("the system adds patient vitals into the vitals table")
 	public void systemAddsPatientVitals() {	  
 	  assertTrue(patientCaptureVitalsPage.containsText("Vitals"));	
-	  
-	  /**
-	   * TO-DO: 
-	   * This block of code will replace the current one ASA
-	   * the functions are integrated into resource page master 
-	   */	  
-	  // patientCaptureVitalsPage.showPatientVitals();
-	  // assertNotNull(patientCaptureVitalsPage.getPatientVitals();
 	}
 }

@@ -6,7 +6,15 @@ Feature: Vitals Management
 
   @selenium
   @vitals
-  Scenario: Capture Patient vitals
-    And a user enters patient vitals
+  Scenario: Normal Vitals
+    And a user enters normal patient vitals
     And a user clicks on save button
     Then the system adds patient vitals into the vitals table 
+   
+  @selenium
+  @vitals 
+  Scenario: Abnormal Vitals
+    And a user enters abnormal patient vitals
+    And a user clicks on save button
+    Then the system adds patient vitals into the vitals table
+ 

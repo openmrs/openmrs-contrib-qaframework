@@ -1,20 +1,20 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertTrue;
-
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.FindPatientPage;
-import org.openmrs.reference.page.PatientCaptureVitalsPage;
-import org.openmrs.uitestframework.test.TestData;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.reference.page.FindPatientPage;
+import org.openmrs.reference.page.PatientCaptureVitalsPage;
+import org.openmrs.uitestframework.test.TestData;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.junit.Assert.assertTrue;
 
 public class VitalsAndTriagingSteps extends Steps {
-
 	private PatientCaptureVitalsPage patientCaptureVitalsPage;
 	private TestData.PatientInfo testPatient;
 
@@ -45,17 +45,40 @@ public class VitalsAndTriagingSteps extends Steps {
 	  assertTrue(textExists("Vitals"));
 	}
 
-	@And("a user enters patient vitals")
-	public void enterPatientVitals() {
-	  patientCaptureVitalsPage.setHeightField("180");
-	  patientCaptureVitalsPage.setWeightField("77");
-	  patientCaptureVitalsPage.setTemperatureField("35.8");
-	  patientCaptureVitalsPage.setPulseField("124");
-	  patientCaptureVitalsPage.setRespiratoryField("115");
-	  patientCaptureVitalsPage.setBloodPressureFields("122", "75");
-	  patientCaptureVitalsPage.setBloodOxygenSaturationField("54");
+	@And("a user enters normal patient vitals")
+	public void enterNormalPatientVitals() {
+	  patientCaptureVitalsPage.setHeightField("154");
+	  patientCaptureVitalsPage.setWeightField("65");
+	  patientCaptureVitalsPage.setTemperatureField("34");
+	  patientCaptureVitalsPage.setPulseField("80");
+	  patientCaptureVitalsPage.setRespiratoryField("60");
+	  patientCaptureVitalsPage.setBloodPressureFields("120", "110");
+	  patientCaptureVitalsPage.setBloodOxygenSaturationField("94");
 	}
 
+	@And("a user enters abnormal patient vitals")
+	public void enterAbnormalPatientVitals() {
+	  patientCaptureVitalsPage.setHeightField("300");
+	  assertThat(patientCaptureVitalsPage.getValidationErrors(), hasItem("Maximum: 272"));
+	  patientCaptureVitalsPage.clearPatientHeight();
+	  patientCaptureVitalsPage.setHeightField("260");  
+	  patientCaptureVitalsPage.setWeightField("280");
+	  assertThat(patientCaptureVitalsPage.getValidationErrors(), hasItem("Maximum: 250")); 
+	  patientCaptureVitalsPage.clearPatientWeight();
+	  patientCaptureVitalsPage.setWeightField("230");  
+	  patientCaptureVitalsPage.setTemperatureField("45");
+	  assertThat(patientCaptureVitalsPage.getValidationErrors(), hasItem("Maximum: 43"));
+	  patientCaptureVitalsPage.clearPatientTemperature();
+	  patientCaptureVitalsPage.setTemperatureField("42");  
+	  patientCaptureVitalsPage.setPulseField("120"); 
+	  patientCaptureVitalsPage.setRespiratoryField("12");  
+	  patientCaptureVitalsPage.setBloodPressureFields("120", "180");
+	  assertThat(patientCaptureVitalsPage.getValidationErrors(), hasItem("Maximum: 150"));
+	  patientCaptureVitalsPage.clearPatientBloodPressure2();
+	  patientCaptureVitalsPage.setBloodPressureFields("120", "145"); 
+	  patientCaptureVitalsPage.setBloodOxygenSaturationField("60");
+	}
+	
 	@And("a user clicks on save button")
 	public void savePatientVitals() {
 	  patientCaptureVitalsPage.confirm();
@@ -65,13 +88,5 @@ public class VitalsAndTriagingSteps extends Steps {
 	@Then("the system adds patient vitals into the vitals table")
 	public void systemAddsPatientVitals() {	  
 	  assertTrue(patientCaptureVitalsPage.containsText("Vitals"));	
-	  
-	  /**
-	   * TO-DO: 
-	   * This block of code will replace the current one ASA
-	   * the functions are integrated into resource page master 
-	   */	  
-	  // patientCaptureVitalsPage.showPatientVitals();
-	  // assertNotNull(patientCaptureVitalsPage.getPatientVitals();
 	}
 }

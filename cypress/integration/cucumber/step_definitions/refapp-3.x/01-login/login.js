@@ -16,7 +16,7 @@ When('the user logs in with {string} and {string}', (username, password) => {
 
 When('the user selects location {string}', (location) => {
     cy.contains(location).click();
-    cy.get('button[type="submit"]').click();
+    cy.get('button[type="submit"]').click({force: true});
 })
 
 Then('the user should arrive at the home page', () => {

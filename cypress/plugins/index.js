@@ -7,6 +7,9 @@ module.exports = (on, config) => {
   on('task', {
       getProperty(prop) {
         return testProperties.get(prop);
+      },
+      getAllProperties() {
+          return testProperties.getAllProperties();
       }
   });
 }

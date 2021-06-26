@@ -1,4 +1,4 @@
-name: RefApp 3.x Login
+name: RefApp 3.x Search & Registration
 on:
   push:
     branches: [ master ]
@@ -16,4 +16,4 @@ jobs:
       - name: Installing dependencies
         run: npm install
       - name: Run patient registration workflow tests
-        run: npm run refApp3Login
+        run: npm run refApp3Registration

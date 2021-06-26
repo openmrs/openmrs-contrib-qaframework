@@ -34,3 +34,19 @@ Cypress.Commands.add('getByLabel', (label) => {
             cy.get('#' + id)
         })
 })
+
+Cypress.Commands.add('getByPlaceholder', (placeholder) => {
+    cy.get(`input[placeholder="${placeholder}"]`)
+})
+
+Cypress.Commands.add('login', () => {
+    cy.task('getAllProperties').then(properties => {
+        cy.visitPage('/login');
+        cy.getByLabel('Username').type(properties['login.admin.username'])
+        cy.contains('Continue').click();
+        cy.getByLabel('Password').type(properties['login.admin.password'])
+        cy.contains('Log in').click();
+        cy.contains(properties['login.location']).click();
+        cy.contains('Confirm').click();
+    });
+});

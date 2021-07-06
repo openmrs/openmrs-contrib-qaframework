@@ -2,13 +2,10 @@ package org.openmrs.contrib.qaframework.automation;
 
 import static org.junit.Assert.assertNotNull;
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.helper.PatientGenerator;
-import org.openmrs.reference.helper.TestPatient;
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.reference.page.FindPatientPage;
 import org.openmrs.reference.page.HomePage;
 import org.openmrs.reference.page.RegistrationPage;
-import org.openmrs.uitestframework.page.LoginPage;
 import org.openmrs.uitestframework.test.TestData;
 import org.openqa.selenium.By;
 
@@ -24,14 +21,14 @@ public class searchAndRegistrationSteps extends Steps {
 	private RegistrationPage registrationPage;
 	private ClinicianFacingPatientDashboardPage dashboardPage;
 	private FindPatientPage findPatientPage;
-	private String familyName = "Faiza";
-	private String givenName = "Andria";
+	private String familyName = "Olora";
+	private String givenName = "Job";
+	private String gender = "Male";
 	private String phoneNumber = "+21134567890";
 	private TestData.PatientInfo testPatient;
 
 	@Before(RunTest.HOOK.SELENIUM_SEARCH_REGISTRATION)
 	public void setUp() throws Exception {
-		testPatient = createTestPatient();
 		initiateWithLogin();
 	}
 
@@ -40,15 +37,14 @@ public class searchAndRegistrationSteps extends Steps {
 		quit();
 	}
 
-	@Given("User clicks on Find Patient Record App")
-	public void clickOnFindPatientRecord() {
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord()
-				.waitForPage();
+	@Given("a user clicks on Find Patient Record App")
+	public void clickOnFindPatientRecord() throws InterruptedException {
+		goToFindPatientRecordApp();
 	}
 
-	@And("User searches Andria Faiza")
-	public void searchPatientAsAndriaFaiza() {
-		findPatientPage.enterPatient("Andria Faiza");
+	@And("a user searches Olora Job")
+	public void searchPatientAsAndriaFaith() {
+		searchForNewPatient();
 	}
 
 	@Then("The System returns no patient")
@@ -57,35 +53,25 @@ public class searchAndRegistrationSteps extends Steps {
 	}
 
 	@And("The system loads homePage")
-	public void clickOnHomePage() {
-		homePage.go();
+	public void clickOnHomePage() throws InterruptedException {
+		goToHomePage();
 	}
 
-	@When("User clicks on registration app")
-	public void clickOnRegistrationApp() throws InterruptedException {
-		registrationPage = (RegistrationPage) homePage.goToRegisterPatientApp()
-				.waitForPage();
+	@And("System clicks on registration app")
+	public void clickOnRegistrationDefaultApp() throws InterruptedException {
+		goToRegistrationApp();
 	}
 
-	@And("User enters patient details")
-	public void enterPatientDetails() throws InterruptedException {
-		registrationPage.enterPatientFamilyName("familyName ");
-		registrationPage.enterPatientGivenName("givenName");
-		registrationPage.clickOnGenderLink();
-		registrationPage.selectPatientGender(familyName);
-		registrationPage.clickOnBirthdateLabel();
-		registrationPage.clickOnBirthDateLink();
-		registrationPage.enterPatientBirthDate(null);
-		registrationPage.enterPatientAddress(null);
-		registrationPage.clickOnPhoneNumber();
-		registrationPage.enterPhoneNumber("phoneNumber");
+	@Then("User enters patient details for Olora Job")
+	public void UserEnterPatientDetails() throws InterruptedException {
+		enterPatientDetails();
 	}
 
-	@Then("User clicks on comfirm button")
-	public void clickOnComFormButton() throws InterruptedException {
-		dashboardPage = registrationPage.confirmPatient();
-		dashboardPage.waitForPage();
-
+	@And("system loads clinicianFacingPatientDashboard")
+	public void loadClinicianFacingPatientDashbaord() {
+		if (dashboardPage != null) {
+			dashboardPage.waitForPage();
+		}
 	}
 
 }

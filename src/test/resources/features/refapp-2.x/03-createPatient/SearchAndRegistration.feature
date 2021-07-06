@@ -1,16 +1,19 @@
 Feature: Search And Patient Registration
-   Background:
-   Given :User clicks on Find Patient Record App
-
+  
   @selenium
   @searchAndRegistration
-  Scenario: Searching for missing  patient called faiza
-    And    User searches Andria Faiza
-    Then  The System returns no patient
+  Scenario: Searching for missing patient
+   Given   a user clicks on Find Patient Record App
+    And    a user searches Olora Job
+    Then   The System returns no patient
     
-  @selenium
-  @searchAndRegistration
-  Scenario: Registering new patient
-     And  The system loads homePage
-     When User clicks on registrationapp
-     And  User enters patient details
+    #registering new patient
+    And    The system loads homePage
+    And    System clicks on registration app
+    Then   User enters patient details for Olora Job
+    And    system loads clinicianFacingPatientDashboard
+
+     
+
+     
+     

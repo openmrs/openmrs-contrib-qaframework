@@ -1,4 +1,4 @@
-name: Search And Patient Registration
+name:Search And Patient Registration
 on:
   #push:
   #branches: [master]

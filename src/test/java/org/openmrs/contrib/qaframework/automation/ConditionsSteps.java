@@ -32,8 +32,7 @@ public class ConditionsSteps extends Steps {
 	@Given("User clicks on Conditions from Patient dashboard")
 	public void launchManageConditions() {
 		patientDashboardId = getElement(patientHeaderId).getText();
-		conditionsPage = (ConditionsPage) dashboardPage
-				.clickOnConditionsWidgetLink().waitForPage();
+		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
 		matchPatientIds(patientDashboardId);
 	}
 
@@ -42,36 +41,14 @@ public class ConditionsSteps extends Steps {
 		assertNotNull(getElement(addNewCondition));
 	}
 
-	@And("User clicks on Return")
-	public void clickReturn() {
-		conditionsPage.clickReturn();
-	}
-
-	@Then("System returns to patient dashboard")
-	public void returnToDashboard() {
-		matchPatientIds(patientDashboardId);
-	}
-
 	@And("User clicks on Add new condition")
 	public void userClicksAddNewCondition() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
-				.waitForPage();
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
 	}
 
 	@Then("System on Add New Condition Page")
 	public void launchAddNewCondition() {
 		assertNotNull(getElement(ConditionPage.SAVE));
-	}
-
-	@And("User clicks on cancel")
-	public void cancelAddNewCondition() {
-		conditionPage.clickCancel();
-	}
-
-	@And("User clicks save")
-	public void saveCondition() {
-		conditionPage.clickSave();
-		conditionsPage.waitForPage();
 	}
 
 	@And("User enters {string} condition")
@@ -83,6 +60,12 @@ public class ConditionsSteps extends Steps {
 			conditionPage.typeInCondition("Diabetes mellitus");
 			conditionPage.clickOnInActive();
 		}
+	}
+
+	@And("User clicks save")
+	public void saveCondition() {
+		conditionPage.clickSave();
+		conditionsPage.waitForPage();
 	}
 
 	@Then("Then System on {string} Page")
@@ -102,19 +85,19 @@ public class ConditionsSteps extends Steps {
 		}
 	}
 
+	@Then("System should move condition to inactive section")
+	public void moveInActive() {
+		conditionsPage.clickInActiveTab();
+		assertNotNull(conditionsPage.getFirstConditionName());
+		assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
+	}
+
 	@And("User clicks on set active button")
 	public void setActive() {
 		conditionsPage.clickInActiveTab();
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionsPage.setFirstActive();
 		}
-	}
-
-	@Then("System should move condition to inactive section")
-	public void moveInActive() {
-		conditionsPage.clickInActiveTab();
-		assertNotNull(conditionsPage.getFirstConditionName());
-		assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
 	}
 
 	@Then("System should move condition to active section")
@@ -128,20 +111,8 @@ public class ConditionsSteps extends Steps {
 	@And("User edits active")
 	public void editActive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionPage = (ConditionPage) conditionsPage.editFirstActive()
-					.waitForPage();
+			conditionPage = (ConditionPage) conditionsPage.editFirstActive().waitForPage();
 			conditionPage.clickOnInActive();
-			conditionPage.clickSave();
-			conditionsPage.waitForPage();
-		}
-	}
-
-	@And("User edits inactive")
-	public void editInactive() {
-		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionPage = (ConditionPage) conditionsPage.editFirstInActive()
-					.waitForPage();
-			conditionPage.clickOnActive();
 			conditionPage.clickSave();
 			conditionsPage.waitForPage();
 		}
@@ -152,6 +123,16 @@ public class ConditionsSteps extends Steps {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			assertNotNull(getElement(ConditionsPage.SET_INACTIVE));
 			assertNotNull(conditionsPage.getFirstConditionName());
+		}
+	}
+
+	@And("User edits inactive")
+	public void editInactive() {
+		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
+			conditionPage = (ConditionPage) conditionsPage.editFirstInActive().waitForPage();
+			conditionPage.clickOnActive();
+			conditionPage.clickSave();
+			conditionsPage.waitForPage();
 		}
 	}
 

@@ -63,6 +63,7 @@
                             <target>
                                 <chmod file="target/test-classes/chromedriver/mac/chromedriver" perm="755" />
                             </target>
+                            <failOnError>false</failOnError>
                         </configuration>
                         <goals>
                             <goal>run</goal>
@@ -75,6 +76,7 @@
                             <target>
                                 <chmod file="target/test-classes/chromedriver/linux/chromedriver" perm="755" />
                             </target>
+                            <failOnError>false</failOnError>
                         </configuration>
                         <goals>
                             <goal>run</goal>
@@ -87,6 +89,7 @@
                             <target>
                                 <chmod file="target/test-classes/firefoxdriver/mac/geckodriver" perm="755"/>
                             </target>
+                            <failOnError>false</failOnError>
                         </configuration>
                         <goals>
                             <goal>run</goal>
@@ -99,6 +102,7 @@
                             <target>
                                 <chmod file="target/test-classes/firefoxdriver/linux/geckodriver" perm="755"/>
                             </target>
+                            <failOnError>false</failOnError>
                         </configuration>
                         <goals>
                             <goal>run</goal>

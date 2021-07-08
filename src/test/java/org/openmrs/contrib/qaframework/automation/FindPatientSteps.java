@@ -24,9 +24,8 @@ public class FindPatientSteps extends Steps {
 	}
 
 	@Given("User clicks on Find Patient App")
-	public void visitFindPatientPage() {
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord()
-				.waitForPage();
+	public void visitFindPatientPage() throws InterruptedException {
+		goToFindPatientRecordApp();
 	}
 
 	@And("User enters missing patient")

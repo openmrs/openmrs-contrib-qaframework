@@ -28,16 +28,12 @@ public class RegistrationSteps extends Steps {
 
 	@When("Registration user rightly logs in")
 	public void registrationLogin() throws Exception {
-		goToLoginPage();
-		loginPage = getLoginPage();
-		loginPage.login("clerk", "Clerk123", "Registration Desk");
+		systemLogin();
 	}
 
 	@And("User clicks on Registration App")
 	public void visitRegistrationPage() throws InterruptedException {
-		homePage = new HomePage(loginPage);
-		registrationPage = (RegistrationPage) homePage.goToRegisterPatientApp()
-				.waitForPage();
+		goToRegistrationApp();
 	}
 
 	@And("User enters {string} details for John Smith")

@@ -5,6 +5,8 @@ ___
 
 [![Platform Advanced Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml)
 
+[![Platform Postgres Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml)
+
 [![Platform Upgrade](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml)
 
 ## Reference Application
@@ -41,14 +43,14 @@ MySQL password should be the same for initialSetupTests as openmrs password
 ### Running Platform Advanced Installation test
 - `npm run advancedCoreInstall`
 
+### Running Platform postgres Installation test
+- `npm run postgresCoreInstall`
+
 ### Running Platform Testing Installation test
 - `npm run testingCoreInstall`
 
 ### Running Platform Upgrade test
 - `npm run coreUpgrade`
-
-### Running ocl tests
-- `npm run ocl`
 
 ### Running microfrontend tests
 - `npm run microfrontend`

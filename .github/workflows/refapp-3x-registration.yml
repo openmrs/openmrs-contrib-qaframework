@@ -1,0 +1,17 @@
+name: RefApp 3.x Search & Registration
+on:
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Using Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Installing dependencies
+        run: npm install
+      - name: Run patient registration workflow tests
+        run:  ./node_modules/.bin/cypress run --spec src/test/resources/features/refapp-3.x/02-registration/registration.feature

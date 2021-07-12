@@ -20,3 +20,42 @@ Cypress.Commands.add('initiateExceptionsLogger', () => {
     	return false;
     });
 });
+
+Cypress.Commands.add('visitPage', path => {
+    cy.task('getProperty', 'webapp.url').then(baseUrl => {
+        cy.visit(`${baseUrl}${path}`);
+    });
+})
+
+Cypress.Commands.add('loginToLocation', ( location ) => {
+    cy.task('getProperty', 'webapp.url').then(baseUrl => {
+        cy.visit(`${baseUrl}/login`);
+        cy.get('#username').type('admin');
+        cy.contains('Continue').click();
+        cy.get('#password').type('Admin123');
+        cy.contains('Log in').click();
+        cy.contains(location).click();
+        cy.get('button[type="submit"]').click({force: true})
+    });
+});
+
+Cypress.Commands.add('loginWithAPI', () => {
+    cy.task('getAllProperties').then(properties => {
+        const token = window.btoa(`${properties['login.admin.username']}:${properties['login.admin.password']}`);
+        cy.request({
+            method: 'GET',
+            url: `${properties['api.url']}/session`,
+            headers: {
+                Authorization: `Basic ${token}`,
+            },
+        })
+        cy.request({
+            method: 'POST',
+            url: `${properties['api.url']}/session`,
+            body: { sessionLocation: properties['login.location.uuid'] },
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        })
+    });
+});

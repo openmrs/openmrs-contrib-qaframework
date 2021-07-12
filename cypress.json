@@ -4,5 +4,6 @@
     "*.feature",
     "**/*.feature"
   ],
-  "video": false
+  "video": false,
+  "defaultCommandTimeout": 40000
 }

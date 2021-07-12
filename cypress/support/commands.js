@@ -20,3 +20,9 @@ Cypress.Commands.add('initiateExceptionsLogger', () => {
     	return false;
     });
 });
+
+Cypress.Commands.add('visitPage', path => {
+    cy.task('getProperty', 'webapp.url').then(baseUrl => {
+        cy.visit(`${baseUrl}${path}`);
+    });
+})

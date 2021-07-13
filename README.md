@@ -17,6 +17,8 @@ ___
 [BDD Chrome](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
 
 [![BDD Firefox](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
+
+[![Vitals And Triaging Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/vitals-and-triaging.yml)
 ___
 
 # openmrs-contrib-qaframework

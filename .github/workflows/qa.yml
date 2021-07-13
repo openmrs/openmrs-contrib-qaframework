@@ -1,4 +1,4 @@
-name: BDD Firefox
+name: All Firefox Tests
 on:
   push:
     branches: [master]

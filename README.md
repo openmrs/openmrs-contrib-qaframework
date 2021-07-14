@@ -13,11 +13,12 @@ ___
   * [![.github/workflows/search_registration.yml](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/search_registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/search_registration.yml)
   * [![Vitals And Triaging Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/vitals-and-triaging.yml) 
   * [![Clinical Visit Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/clinical-visit.yml)
-  * Admin: Patient Merge: _Test Development In Progress_
-  * Admin: Managing User Accounts: _Test Development In Progress_
-  * Discharges & Transfers: _Test Development In Progress_
-  * Reports: _Test Development In Progress_
-  * Security: XSS Checks: _Test Development In Progress_
+  * _Tests in development:_ 
+    * Patient Merge
+    * Managing User Accounts
+    * Discharges & Transfers
+    * Reports
+    * Security: XSS Checks
 * Legacy Tests
   * [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
   * [![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml/badge.svg)](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml)

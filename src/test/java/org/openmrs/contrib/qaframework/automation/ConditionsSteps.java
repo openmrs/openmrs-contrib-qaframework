@@ -1,56 +1,64 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
 import org.apache.commons.lang3.StringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.ConditionPage;
 import org.openmrs.reference.page.ConditionsPage;
 import org.openqa.selenium.By;
 
-import static org.junit.Assert.*;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ConditionsSteps extends Steps {
+	
 	private ConditionsPage conditionsPage;
+	
 	private String patientDashboardId;
+	
 	private By addNewCondition = By.id("conditionui-addNewCondition");
+	
 	private ConditionPage conditionPage;
-
+	
 	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)
 	public void visitDashboard() {
 		initiatePatientDashboard();
 	}
-
+	
 	@After(RunTest.HOOK.SELENIUM_DASHBOARD)
 	public void destroy() {
 		quit();
 	}
-
+	
 	@Given("User clicks on Conditions from Patient dashboard")
 	public void launchManageConditions() {
 		patientDashboardId = getElement(patientHeaderId).getText();
 		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
 		matchPatientIds(patientDashboardId);
 	}
-
+	
 	@Then("System loads Manage Conditions Page")
 	public void systemLoadsManageConditions() {
 		assertNotNull(getElement(addNewCondition));
 	}
-
+	
 	@And("User clicks on Add new condition")
 	public void userClicksAddNewCondition() {
 		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
 	}
-
+	
 	@Then("System on Add New Condition Page")
 	public void launchAddNewCondition() {
 		assertNotNull(getElement(ConditionPage.SAVE));
 	}
-
+	
 	@And("User enters {string} condition")
 	public void enterExistingCondition(String activity) {
 		if ("active".equals(activity)) {
@@ -61,13 +69,24 @@ public class ConditionsSteps extends Steps {
 			conditionPage.clickOnInActive();
 		}
 	}
-
+	
 	@And("User clicks save")
 	public void saveCondition() {
 		conditionPage.clickSave();
 		conditionsPage.waitForPage();
 	}
-
+	
+	@When("User clicks on Return")
+	public void clickReturn() {
+		conditionsPage.clickReturn();
+	}
+	
+	@Then("System loads patient Dashboard with added Conditions")
+	public void PatientDashboard() {
+		boolean patientDashboardId = getElement(patientHeaderId).isDisplayed();
+		assertTrue(patientDashboardId);
+	}
+	
 	@Then("Then System on {string} Page")
 	public void persist(String page) {
 		if ("parent".equals(page)) {
@@ -76,7 +95,7 @@ public class ConditionsSteps extends Steps {
 			assertNotNull(getElement(ConditionPage.SAVE));
 		}
 	}
-
+	
 	@And("User clicks on set inactive button")
 	public void setInActive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
@@ -84,14 +103,14 @@ public class ConditionsSteps extends Steps {
 			conditionsPage.setFirstInActive();
 		}
 	}
-
+	
 	@Then("System should move condition to inactive section")
 	public void moveInActive() {
 		conditionsPage.clickInActiveTab();
 		assertNotNull(conditionsPage.getFirstConditionName());
 		assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
 	}
-
+	
 	@And("User clicks on set active button")
 	public void setActive() {
 		conditionsPage.clickInActiveTab();
@@ -99,7 +118,7 @@ public class ConditionsSteps extends Steps {
 			conditionsPage.setFirstActive();
 		}
 	}
-
+	
 	@Then("System should move condition to active section")
 	public void moveActive() {
 		conditionsPage.clickActiveTab();
@@ -107,7 +126,7 @@ public class ConditionsSteps extends Steps {
 			assertNotNull(getElement(ConditionsPage.SET_INACTIVE));
 		}
 	}
-
+	
 	@And("User edits active")
 	public void editActive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
@@ -117,7 +136,7 @@ public class ConditionsSteps extends Steps {
 			conditionsPage.waitForPage();
 		}
 	}
-
+	
 	@Then("System should edit all active adjustable fields")
 	public void successiveActiveEdition() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
@@ -125,7 +144,7 @@ public class ConditionsSteps extends Steps {
 			assertNotNull(conditionsPage.getFirstConditionName());
 		}
 	}
-
+	
 	@And("User edits inactive")
 	public void editInactive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
@@ -135,7 +154,7 @@ public class ConditionsSteps extends Steps {
 			conditionsPage.waitForPage();
 		}
 	}
-
+	
 	@Then("System should edit all inactive adjustable fields")
 	public void successiveInactiveEdition() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
@@ -143,7 +162,7 @@ public class ConditionsSteps extends Steps {
 			assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
 		}
 	}
-
+	
 	@And("User clicks delete condition")
 	public void delete() {
 		String name = conditionsPage.getFirstConditionName();
@@ -151,7 +170,7 @@ public class ConditionsSteps extends Steps {
 			conditionsPage.deleteFirstActive();
 		}
 		driver.findElement(By.cssSelector(".confirm")).click();
-
+		
 		conditionsPage.clickInActiveTab();
 		name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {
@@ -159,14 +178,14 @@ public class ConditionsSteps extends Steps {
 		}
 		driver.findElement(By.cssSelector(".confirm")).click();
 	}
-
+	
 	@Then("System should trash first condition")
 	public void SuccessfulDeletion() {
 		String name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {
 			assertNull(driver.findElement(By.linkText(name)));
 		}
-
+		
 		conditionsPage.clickInActiveTab();
 		name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {

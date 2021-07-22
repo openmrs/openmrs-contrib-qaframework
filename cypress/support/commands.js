@@ -20,3 +20,17 @@ Cypress.Commands.add('initiateExceptionsLogger', () => {
     	return false;
     });
 });
+
+Cypress.Commands.add('visitPage', path => {
+    cy.task('getProperty', 'webapp.url').then(baseUrl => {
+        cy.visit(`${baseUrl}${path}`);
+    });
+})
+
+Cypress.Commands.add('getByLabel', (label) => {
+    cy.contains('label', label)
+        .invoke('attr', 'for')
+        .then((id) => {
+            cy.get('#' + id)
+        })
+})

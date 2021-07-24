@@ -9,6 +9,7 @@
   "scripts": {
     "refappCypress": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and not @microfrontend'",
     "refappSelenium": "mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup'",
+    "vitalsAndTriagingTest": "mvn test -Dcucumber.filter.tags='@selenium and @vitals'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
     "postgresCoreInstall":"mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",
@@ -16,8 +17,7 @@
     "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'",
     "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
     "microfrontend": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @microfrontend'",
-    "refApp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature",
-    "vitalsAndTriagingTest": "mvn test -Dcucumber.filter.tags='@selenium and @vitals'"
+    "refApp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature"
   },
   "devDependencies": {
     "@types/uuid": "3.4.7",

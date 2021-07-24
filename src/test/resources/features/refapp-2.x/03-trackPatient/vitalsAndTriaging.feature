@@ -7,13 +7,21 @@ Feature: Vitals Management
   @selenium
   @vitals
   Scenario: Normal Vitals
-    And a user enters normal patient vitals
+    When a user enters normal patient vitals
     And a user clicks on save button
     Then the system adds patient vitals into the vitals table 
    
   @selenium
   @vitals 
-  Scenario: Abnormal Vitals
-    And a user enters abnormal patient vitals
+  Scenario: Vitals under minimum value
+    When a user enters a vital below minimum value and the system alerts until valid
     And a user clicks on save button
     Then the system adds patient vitals into the vitals table
+    
+  @selenium
+  @vitals 
+  Scenario: Vitals over maximum value
+    When a user enters a vital above maximum value and the system alerts until valid
+    And a user clicks on save button
+    Then the system adds patient vitals into the vitals table
+    

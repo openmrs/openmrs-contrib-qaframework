@@ -5,6 +5,8 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.FindPatientPage;
 import org.openmrs.reference.page.PatientCaptureVitalsPage;
@@ -48,7 +50,7 @@ public class VitalsAndTriagingSteps extends Steps {
 		assertTrue(textExists("Vitals"));
 	}
 
-	@And("a user enters normal patient vitals")
+	@When("a user enters normal patient vitals")
 	public void enterNormalPatientVitals() {
 		patientCaptureVitalsPage.setHeightField("154");
 		patientCaptureVitalsPage.setWeightField("65");
@@ -59,8 +61,43 @@ public class VitalsAndTriagingSteps extends Steps {
 		patientCaptureVitalsPage.setBloodOxygenSaturationField("94");
 	}
 
-	@And("a user enters abnormal patient vitals")
-	public void enterAbnormalPatientVitals() {
+	@When("a user enters a vital below minimum value and the system alerts until valid")
+	public void crossCheckMinimumVitalsValidity() {
+		patientCaptureVitalsPage.setHeightField("5");
+		assertThat(patientCaptureVitalsPage.getValidationErrors(),
+				hasItem("Minimum: 10"));
+		patientCaptureVitalsPage.clearPatientHeight();
+		patientCaptureVitalsPage.setHeightField("15");
+		patientCaptureVitalsPage.setWeightField("-10");
+		assertThat(patientCaptureVitalsPage.getValidationErrors(),
+				hasItem("Minimum: 0"));
+		patientCaptureVitalsPage.clearPatientWeight();
+		patientCaptureVitalsPage.setWeightField("7");
+		patientCaptureVitalsPage.setTemperatureField("20");
+		assertThat(patientCaptureVitalsPage.getValidationErrors(),
+				hasItem("Minimum: 25"));
+		patientCaptureVitalsPage.clearPatientTemperature();
+		patientCaptureVitalsPage.setTemperatureField("28");
+		patientCaptureVitalsPage.setPulseField("-5");
+		assertThat(patientCaptureVitalsPage.getValidationErrors(),
+				hasItem("Minimum: 0"));
+		patientCaptureVitalsPage.clearPatientPulse();
+		patientCaptureVitalsPage.setPulseField("5");
+		patientCaptureVitalsPage.setRespiratoryField("-10");
+		assertThat(patientCaptureVitalsPage.getValidationErrors(),
+				hasItem("Minimum: 0"));
+		patientCaptureVitalsPage.clearPatientRespiratoryRate();
+		patientCaptureVitalsPage.setRespiratoryField("4");
+		patientCaptureVitalsPage.setBloodPressureFields("60", "25");
+		assertThat(patientCaptureVitalsPage.getValidationErrors(),
+				hasItem("Minimum: 30"));
+		patientCaptureVitalsPage.clearPatientBloodPressure2();
+		patientCaptureVitalsPage.setBloodPressureFields("60", "40");
+		patientCaptureVitalsPage.setBloodOxygenSaturationField("5");
+	}
+
+	@When("a user enters a vital above maximum value and the system alerts until valid")
+	public void crossCheckMaximumVitalsValidity() {
 		patientCaptureVitalsPage.setHeightField("300");
 		assertThat(patientCaptureVitalsPage.getValidationErrors(),
 				hasItem("Maximum: 272"));
@@ -106,3 +143,4 @@ public class VitalsAndTriagingSteps extends Steps {
 		assertTrue(patientCaptureVitalsPage.containsText("Vitals"));
 	}
 }
+

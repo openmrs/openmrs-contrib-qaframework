@@ -11,15 +11,31 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout qaframework
+        uses: actions/checkout@master
+        with:
+          repository: ${{github.repository}}
+      - name: Run db and web containers
+        run: docker-compose -f docker/docker-compose-refqa.yml up -d
+      - name: Wait for Openmrs instance to start
+        run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/ws/rest/v1/session)" != "200" ]]; do echo "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/ws/rest/v1/session)"; sleep 10; done
       - name: Using Node.js
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
       - name: Installing dependencies
         run: npm install
-      - name: Run login workflow tests
-        run: npm run refapp3Login
+      - name: Run RefApp 3.x frontend
+        run: npx openmrs@next start --backend http://localhost:8080 --port 8081 &
+      - name: Run patient login workflow tests
+        run: npm run refApp3Login
+      - name: Archive server logs
+        if: ${{ always() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: openmrs.log
+          path: |
+            /$(pwd)/openmrs/openmrs.log
       - name: Upload screen recordings of failed tests
         if: ${{ failure() }}
         uses: actions/upload-artifact@v2

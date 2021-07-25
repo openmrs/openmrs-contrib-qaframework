@@ -1,7 +1,7 @@
 import {Given} from 'cypress-cucumber-preprocessor/steps';
 
 Given('user arrives at the login page', () => {
-    cy.visitPage('/login');
+    cy.visitPage('/login', 40000);
 })
 
 When('the user logs in with {string} and {string} to the {string}', (username, password, location) => {

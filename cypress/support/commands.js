@@ -21,9 +21,10 @@ Cypress.Commands.add('initiateExceptionsLogger', () => {
     });
 });
 
-Cypress.Commands.add('visitPage', path => {
+Cypress.Commands.add('visitPage', (path, timeout = null) => {
     cy.task('getProperty', 'webapp.url').then(baseUrl => {
-        cy.visit(`${baseUrl}${path}`);
+        const options = timeout ? {} : {timeout};
+        cy.visit(`${baseUrl}${path}`, options);
     });
 })
 

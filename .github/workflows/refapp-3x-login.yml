@@ -10,16 +10,77 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      openmrs-referenceapplication-mysql:
+        image: mysql:5.6
+        env:
+          MYSQL_DATABASE: openmrs
+          MYSQL_ROOT_PASSWORD: Admin123
+          MYSQL_USER: openmrs
+          MYSQL_PASSWORD: Admin123
+        ports:
+          - "3306:3306"
+        volumes:
+          - ${{ github.workspace }}/docker/mysql-config.cnf:/etc/mysql/conf.d/custom.cnf
+          #- /$(pwd)/mysql-log:/var/log/mysql
+      openmrs-referenceapplication:
+        image: openmrs/openmrs-reference-application-distro:demo
+        ports:
+          - "8080:8080"
+        env:
+          DB_DATABASE: openmrs
+          DB_HOST: openmrs-referenceapplication-mysql
+          DB_USERNAME: openmrs
+          DB_PASSWORD: Admin123
+          DB_CREATE_TABLES: 'true'
+          DB_AUTO_UPDATE: 'false'
+          MODULE_WEB_ADMIN: 'false'
+        volumes:
+          - /$(pwd)/openmrs:/usr/local/tomcat/.OpenMRS
     steps:
-      - uses: actions/checkout@v2
+      - name: Allow workflow to delete old files even if they are mounted
+        run: sudo chown -R $USER:$USER ${{ github.workspace }}
+      - name: Checkout qaframework
+        uses: actions/checkout@master
+        with:
+          repository: ${{github.repository}}
+      - name: Wait for Openmrs instance to start
+        run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/ws/rest/v1/session)" =~ ^(200|404)$ ]]; do echo "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/ws/rest/v1/session)"; sleep 10; done
       - name: Using Node.js
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
       - name: Installing dependencies
         run: npm install
-      - name: Run login workflow tests
+      - name: Run RefApp 3.x frontend
+        run: npx openmrs@next start --backend http://localhost:8080 --port 8081 &
+      - name: Test openmrs instance
+        run: curl http://localhost:8080/openmrs/login.htm
+      - name: Test REST API
+        run: curl http://localhost:8080/openmrs/ws/rest/v1/session
+      - name: Test frontend
+        run: curl http://localhost:8081
+      - name: Test proxy
+        run: curl http://localhost:8081/openmrs/ws/rest/v1/session
+      - name: Run patient login workflow tests
         run: npm run refapp3Login
+      - name: Dump docker logs on failure
+        if: ${{ always() }}
+        uses: jwalton/gh-docker-logs@v1
+      #- name: Archive server logs
+        #if: ${{ always() }}
+        #uses: actions/upload-artifact@v2
+        #with:
+          #name: openmrs-logs
+          #path: |
+            #/$(pwd)/openmrs/openmrs.log
+      #- name: Archive mysql logs
+        #if: ${{ always() }}
+        #uses: actions/upload-artifact@v2
+        #with:
+          #name: mysql-logs
+          #path: |
+            #/$(pwd)/mysql-log
       - name: Upload screen recordings of failed tests
         if: ${{ failure() }}
         uses: actions/upload-artifact@v2

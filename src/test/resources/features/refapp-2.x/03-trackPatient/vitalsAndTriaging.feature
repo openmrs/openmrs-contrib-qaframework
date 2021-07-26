@@ -24,4 +24,3 @@ Feature: Vitals Management
     When a user enters a vital above maximum value and the system alerts until valid
     And a user clicks on save button
     Then the system adds patient vitals into the vitals table
-    

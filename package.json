@@ -9,6 +9,7 @@
   "scripts": {
     "refappCypress": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and not @microfrontend'",
     "refappSelenium": "mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup'",
+    "vitalsAndTriagingTest": "mvn test -Dcucumber.filter.tags='@selenium and @vitals'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
     "postgresCoreInstall":"mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",

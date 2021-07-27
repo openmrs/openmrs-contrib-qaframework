@@ -4,6 +4,7 @@ import org.openmrs.reference.ReferenceApplicationTestBase;
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.reference.page.FindPatientPage;
 import org.openmrs.reference.page.HomePage;
+import org.openmrs.reference.page.PatientVisitsDashboardPage;
 import org.openmrs.uitestframework.page.InitialSetupPage;
 import org.openmrs.uitestframework.page.LoginPage;
 import org.openmrs.uitestframework.page.TestProperties;
@@ -18,6 +19,7 @@ import static org.junit.Assert.*;
 
 // Use english locale, of not set, the test instance should be set to english language
 public class Steps extends ReferenceApplicationTestBase {
+	
 	protected TestProperties testProperties = TestProperties.instance();
 	protected LoginPage loginPage;
 	protected FindPatientPage findPatientPage;
@@ -25,6 +27,7 @@ public class Steps extends ReferenceApplicationTestBase {
 	protected ClinicianFacingPatientDashboardPage dashboardPage;
 	protected By patientHeaderId = By.cssSelector("div.identifiers span");
 	protected InitialSetupPage initialSetupPage;
+	protected PatientVisitsDashboardPage visitsDashboardPage;
 
 	public Steps() {
 		try {

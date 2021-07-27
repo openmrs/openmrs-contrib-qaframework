@@ -143,4 +143,3 @@ public class VitalsAndTriagingSteps extends Steps {
 		assertTrue(patientCaptureVitalsPage.containsText("Vitals"));
 	}
 }
-

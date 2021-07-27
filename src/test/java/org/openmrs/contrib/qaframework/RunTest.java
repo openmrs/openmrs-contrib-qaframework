@@ -22,6 +22,7 @@ public class RunTest {
 		public static final String ADVANCED_INSTALL = "@advancedInstall";
 		public static final String POSTGRES_INSTALL = "@postgresInstall";
 		public static final String TESTING_INSTALL = "@testingInstall";
+		public static final String USER_ACCOUNT = "@userAccount";
 		public static final String UPGRADE = "@upgrade";
 		public static final String VITALS = "@vitals";
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
@@ -31,5 +32,7 @@ public class RunTest {
 				+ INITIAL_SETUP;
 		public static final String SELENIUM_VITALS = SELENIUM + " and "
 				+ VITALS;
+		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "
+				+ USER_ACCOUNT;
 	}
 }

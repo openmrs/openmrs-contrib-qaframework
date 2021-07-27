@@ -50,4 +50,3 @@ Feature: Clinical Visit Management
     When a user attaches patient supporting file
     And a user clicks the upload file button
     Then the system uploads the file
-    

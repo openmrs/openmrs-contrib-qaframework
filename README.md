@@ -26,6 +26,7 @@ ___
   * [BDD Chrome](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
   * [![Vitals And Triaging Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/vitals-and-triaging.yml) 
 
+* [![Search And Patient Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/search_registration.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/search_registration.yml)
 
 ### 3.x RefApp
 * [![RefApp 3.x Login](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-login.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-login.yml)

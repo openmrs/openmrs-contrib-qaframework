@@ -10,14 +10,36 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    services:
+      openmrs-referenceapplication-mysql:
+        image: mysql:5.6
+        env:
+          MYSQL_DATABASE: openmrs
+          MYSQL_ROOT_PASSWORD: Admin123
+          MYSQL_USER: openmrs
+          MYSQL_PASSWORD: Admin123
+        ports:
+          - "3306:3306"
+      openmrs-referenceapplication:
+        image: openmrs/openmrs-reference-application-distro:demo
+        ports:
+          - "8080:8080"
+        env:
+          DB_DATABASE: openmrs
+          DB_HOST: openmrs-referenceapplication-mysql
+          DB_USERNAME: openmrs
+          DB_PASSWORD: Admin123
+          DB_CREATE_TABLES: 'true'
+          DB_AUTO_UPDATE: 'false'
+          MODULE_WEB_ADMIN: 'false'
+        volumes:
+          - openmrs-referenceapplication-data:/usr/local/tomcat/.OpenMRS
+          - /$(pwd)/activemq-data:/usr/local/tomcat/.OpenMRS/activemq-data
     steps:
       - name: Checkout qaframework
         uses: actions/checkout@master
         with:
           repository: ${{github.repository}}
-      - name: Run db and web containers
-        run: |
-          docker-compose -f docker/docker-compose-refqa.yml up -d
       - name: Wait for Openmrs instance to start
         run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/login.htm)" != "200" ]]; do sleep 1; done
       - name: Using Node.js
@@ -26,8 +48,10 @@ jobs:
           node-version: '12.x'
       - name: Installing dependencies
         run: npm install
-      - name: Run RefApp 3.x frontend
-        run: npx openmrs@next start --backend http://localhost:8080 --port 8081 &
+#      - name: Run RefApp 3.x frontend
+#        run: npx openmrs@next start --backend http://localhost:8080 --port 8081 &
       - name: Run patient login workflow tests
-        run: npm run refApp3Login
+        run: |
+          npx openmrs@next start --backend http://localhost:8080 --port 8081 &
+          npm run refApp3Login
 

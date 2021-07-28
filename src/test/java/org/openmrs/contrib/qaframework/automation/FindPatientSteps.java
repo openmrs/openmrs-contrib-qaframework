@@ -1,15 +1,15 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertNotNull;
+
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openqa.selenium.By;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.FindPatientPage;
-import org.openqa.selenium.By;
-
-import static org.junit.Assert.assertNotNull;
 
 public class FindPatientSteps extends Steps {
 
@@ -24,9 +24,8 @@ public class FindPatientSteps extends Steps {
 	}
 
 	@Given("User clicks on Find Patient App")
-	public void visitFindPatientPage() {
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord()
-				.waitForPage();
+	public void visitFindPatientPage() throws InterruptedException {
+		goToFindPatientRecordApp();
 	}
 
 	@And("User enters missing patient")

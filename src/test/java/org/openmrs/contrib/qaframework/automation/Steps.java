@@ -22,6 +22,7 @@ import org.openqa.selenium.WebElement;
 
 // Use english locale, of not set, the test instance should be set to english language
 public class Steps extends ReferenceApplicationTestBase {
+
 	protected TestProperties testProperties = TestProperties.instance();
 	protected LoginPage loginPage;
 	protected FindPatientPage findPatientPage;
@@ -32,8 +33,8 @@ public class Steps extends ReferenceApplicationTestBase {
 	protected ClinicianFacingPatientDashboardPage dashboardPage;
 	protected By patientHeaderId = By.cssSelector("div.identifiers span");
 	protected InitialSetupPage initialSetupPage;
-	private String familyName = "Ojora";
-	private String givenName = "Job";
+	private String familyName = "henry";
+	private String givenName = "feni";
 	private String gender = "Male";
 	private String phoneNumber = "+21134567890";
 	private String estimatedYears = "41";
@@ -105,7 +106,6 @@ public class Steps extends ReferenceApplicationTestBase {
 		});
 		assertTrue(ids.contains(trimPatientId(patientId)));
 	}
-	
 	public void systemLogin() {
 		goToLoginPage();
 		loginPage = getLoginPage();
@@ -127,7 +127,7 @@ public class Steps extends ReferenceApplicationTestBase {
 	}
 
 	public void searchForNewPatient() {
-		findPatientPage.enterPatient("Olora Job");
+		findPatientPage.enterPatient("henry feni");
 	}
 
 	public void enterPatientDetails() throws InterruptedException {
@@ -143,9 +143,6 @@ public class Steps extends ReferenceApplicationTestBase {
 		registrationPage.enterState(stateName);
 		registrationPage.enterCountry(countryName);
 		registrationPage.enterPostalCode(postalCode);
-		registrationPage.clickOnConfirmSection();
-		registrationPage.clickOnPhoneNumber();
-		registrationPage.enterPhoneNumber(phoneNumber);
 		registrationPage.clickOnConfirmSection();
 		registrationPage.clickOnConfirmPatient();
 		registrationPage.waitForPage();

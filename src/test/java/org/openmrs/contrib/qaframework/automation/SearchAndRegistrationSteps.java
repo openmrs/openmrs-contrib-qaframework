@@ -21,8 +21,8 @@ public class SearchAndRegistrationSteps extends Steps {
 	private RegistrationPage registrationPage;
 	private ClinicianFacingPatientDashboardPage dashboardPage;
 	private FindPatientPage findPatientPage;
-	private String familyName = "Olora";
-	private String givenName = "Job";
+	private String familyName = "Henry";
+	private String givenName = "feni";
 	private String gender = "Male";
 	private String phoneNumber = "+21134567890";
 	private TestData.PatientInfo testPatient;
@@ -73,5 +73,4 @@ public class SearchAndRegistrationSteps extends Steps {
 			dashboardPage.waitForPage();
 		}
 	}
-
 }

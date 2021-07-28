@@ -1,4 +1,4 @@
-name: Search And Patient Registration
+name: RefApp 2.x Search And Patient Registration
 on:
   push:
     branches: [master]

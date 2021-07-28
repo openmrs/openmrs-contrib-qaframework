@@ -10,7 +10,7 @@ ___
 
 ### 2.x RefApp
 * All Firefox Tests [![All Firefox Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
-  * [![.github/workflows/search_registration.yml](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/search_registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/search_registration.yml)
+  * [![.github/workflows/search_registration.yml](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/search_registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/search-registration.yml)
   * [![Vitals And Triaging Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/vitals-and-triaging.yml) 
   * [![Clinical Visit Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/clinical-visit.yml)
   * _Tests in development:_ 

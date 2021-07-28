@@ -12,3 +12,4 @@ Feature: Search And Patient Registration
     And    System clicks on registration app
     Then   User enters patient details for Olora Job
     And    system loads clinicianFacingPatientDashboard
+    

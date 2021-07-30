@@ -48,10 +48,13 @@ jobs:
           node-version: '12.x'
       - name: Installing dependencies
         run: npm install
-#      - name: Run RefApp 3.x frontend
-#        run: npx openmrs@next start --backend http://localhost:8080 --port 8081 &
-      - name: Run patient login workflow tests
+      - name: Run RefApp 3.x frontend
+        run: npx openmrs@next start --backend http://localhost:8080 --port 8081 &
+      - name: Test openmrs instance and the proxy
         run: |
-          npx openmrs@next start --backend http://localhost:8080 --port 8081 &
-          npm run refApp3Login
+          curl http://localhost:8080
+          sleep 30
+          curl http://localhost:8081
+      - name: Run patient login workflow tests
+        run: npm run refApp3Login
 

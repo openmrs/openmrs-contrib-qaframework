@@ -1,11 +1,11 @@
-name: RefApp 3.x Login
+name: RefApp 3.x User Settings
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
   repository_dispatch:
-    types: [qa]
+    types: [ qa ]
   workflow_dispatch:
 jobs:
   build:
@@ -18,5 +18,5 @@ jobs:
           node-version: '12.x'
       - name: Installing dependencies
         run: npm install
-      - name: Run login workflow tests
-        run: npm run refApp3Login
+      - name: Run User settings workflow tests
+        run: npm run refApp3Settings

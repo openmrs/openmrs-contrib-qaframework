@@ -1,4 +1,4 @@
-name: Vitals And Triaging Test
+name: RefApp 2.x Vitals And Triaging Test
 on:
   push:
     branches: [master]

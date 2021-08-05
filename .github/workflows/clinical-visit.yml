@@ -1,4 +1,4 @@
-name: Clinical Visit Test
+name: RefApp 2.x Clinical Visit Test
 on:
   push:
     branches: [master]

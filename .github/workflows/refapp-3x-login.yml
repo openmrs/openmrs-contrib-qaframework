@@ -41,9 +41,10 @@ jobs:
       - name: Allow workflow to delete old files even if they are mounted
         run: sudo chown -R $USER:$USER ${{ github.workspace }}
       - name: Checkout qaframework
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
           repository: ${{github.repository}}
+          token: ${{ secrets.token || github.token }}
       - name: Wait for Openmrs instance to start
         run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/ws/rest/v1/session)" =~ ^(200|404)$ ]]; do echo "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/ws/rest/v1/session)"; sleep 10; done
       - name: Using Node.js

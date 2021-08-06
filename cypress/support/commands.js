@@ -41,12 +41,15 @@ Cypress.Commands.add('getByPlaceholder', (placeholder) => {
 
 Cypress.Commands.add('login', () => {
     cy.task('getAllProperties').then(properties => {
-        cy.visitPage('/login');
-        cy.getByLabel('Username').type(properties['login.admin.username'])
-        cy.contains('Continue').click();
-        cy.getByLabel('Password').type(properties['login.admin.password'])
-        cy.contains('Log in').click();
-        cy.contains(properties['login.location']).click();
-        cy.contains('Confirm').click();
+        const token = window.btoa(`${properties['login.admin.username']}:${properties['login.admin.password']}`);
+        cy.request({
+            method: 'POST',
+            url: `${properties['api.url']}/session`,
+            body: { sessionLocation: properties['login.location.uuid'] },
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Basic ${token}`,
+            },
+        })
     });
 });

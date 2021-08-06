@@ -2,6 +2,7 @@ import {Given} from 'cypress-cucumber-preprocessor/steps';
 
 Given('the user login to the Registration Desk', () => {
     cy.login();
+    cy.visit('home');
 })
 
 When('the user search for {string}', patientName => {
@@ -15,6 +16,7 @@ Then('the result should be {string}', result => {
 
 
 When('the user clicks on the add patient icon', () => {
+    cy.get('button[name=SearchPatientIcon]');
     cy.get('button[name=AddPatientIcon]').click();
 })
 
@@ -25,7 +27,6 @@ When('the user enters {string} details for Andria Faiza', validity => {
             middleName: 'Kumbha',
             familyName: 'Faiza',
             gender: 'Female',
-            birthday: 'January 3, 1970',
             address: '55372,test',
             cityVillage: 'Nairobi',
             stateProvince: 'Nairobi',
@@ -38,7 +39,6 @@ When('the user enters {string} details for Andria Faiza', validity => {
             middleName: 'Kumbha',
             familyName: 'Mwangi',
             gender: 'Female',
-            birthday: 'January 3, 1970',
             address: null,
             cityVillage: null,
             stateProvince: null,
@@ -64,10 +64,6 @@ When('the user enters {string} details for Andria Faiza', validity => {
     if (user.gender != null) {
         cy.contains(user.gender).click({force: true});
     }
-    if (user.birthday != null) {
-        cy.getByLabel('Date of Birth').click({force: true});
-        cy.get(`span[aria-label="${user.birthday}"]`).click({force: true});
-    }
     if (user.address != null) {
         cy.getByLabel('Address Line 1').type(user.address, {force: true});
     }
@@ -86,6 +82,9 @@ When('the user enters {string} details for Andria Faiza', validity => {
     if (user.phoneNumber != null) {
         cy.getByLabel('Phone number(optional)').type(user.phoneNumber, {force: true});
     }
+    // Click on the first day on the calendar because the calendar doesn't support manual inputs
+    cy.getByLabel('Date of Birth').click();
+    cy.get('.dayContainer .flatpickr-day').first().click();
 })
 
 When('the user clicks on the create patient button', () => {

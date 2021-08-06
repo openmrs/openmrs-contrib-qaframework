@@ -6,7 +6,6 @@ Feature: Search & Registration
   Scenario Outline: Search for a patient
     When the user search for "<patientName>"
     Then the result should be "<result>"
-
     Examples:
       | patientName | result           |
       | Kevin Jones | Found 1 patient  |

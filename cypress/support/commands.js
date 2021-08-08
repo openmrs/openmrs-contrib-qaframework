@@ -37,7 +37,7 @@ Cypress.Commands.add('login', () => {
     const apiUrl = Cypress.env('API_BASE_URL');
     const username = Cypress.env('ADMIN_USERNAME');
     const password = Cypress.env('ADMIN_PASSWORD');
-    const location = Cypress.env('DEFAULT_LOCATION');
+    const location = Cypress.env('DEFAULT_LOCATION_UUID');
     const token = window.btoa(`${username}:${password}`);
     cy.request({
         method: 'POST',

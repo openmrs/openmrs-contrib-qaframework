@@ -9,7 +9,7 @@
   "baseUrl": "https://openmrs-spa.org/openmrs/spa",
   "env": {
     "API_BASE_URL": "https://openmrs-spa.org/openmrs/ws/rest/v1",
-    "ADMIN_USERNAME": "admin",
+    "ADMIN_USERNAME": "spa_user",
     "ADMIN_PASSWORD": "Admin123",
     "DEFAULT_LOCATION_UUID": "6351fcf4-e311-4a19-90f9-35667d99a8af",
     "DEFAULT_LOCATION_NAME": "Registration Desk"

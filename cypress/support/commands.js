@@ -21,12 +21,6 @@ Cypress.Commands.add('initiateExceptionsLogger', () => {
     });
 });
 
-Cypress.Commands.add('visitPage', path => {
-    cy.task('getProperty', 'webapp.url').then(baseUrl => {
-        cy.visit(`${baseUrl}${path}`);
-    });
-})
-
 Cypress.Commands.add('getByLabel', (label) => {
     cy.contains('label', label)
         .invoke('attr', 'for')
@@ -40,16 +34,18 @@ Cypress.Commands.add('getByPlaceholder', (placeholder) => {
 })
 
 Cypress.Commands.add('login', () => {
-    cy.task('getAllProperties').then(properties => {
-        const token = window.btoa(`${properties['login.admin.username']}:${properties['login.admin.password']}`);
-        cy.request({
-            method: 'POST',
-            url: `${properties['api.url']}/session`,
-            body: { sessionLocation: properties['login.location.uuid'] },
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Basic ${token}`,
-            },
-        })
-    });
+    const apiUrl = Cypress.env('API_BASE_URL');
+    const username = Cypress.env('ADMIN_USERNAME');
+    const password = Cypress.env('ADMIN_PASSWORD');
+    const location = Cypress.env('DEFAULT_LOCATION');
+    const token = window.btoa(`${username}:${password}`);
+    cy.request({
+        method: 'POST',
+        url: `${apiUrl}/session`,
+        body: {sessionLocation: location},
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Basic ${token}`,
+        },
+    })
 });

@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
 
 // Use english locale, of not set, the test instance should be set to english language
 public class Steps extends ReferenceApplicationTestBase {
-	
+
 	protected TestProperties testProperties = TestProperties.instance();
 	protected LoginPage loginPage;
 	protected FindPatientPage findPatientPage;

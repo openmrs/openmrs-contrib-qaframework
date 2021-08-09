@@ -49,7 +49,7 @@ Then('the user should be on the patient’s chart', () => {
     cy.url().should('include', `patient/${patient_uuid}/chart`);
 });
 
-Then('the current location should be "{string}"', (location) => {
+Then('the current location should be {string}', (location) => {
     cy.get('button[name=Users]').click();
     cy.get('div[data-extension-id=location-changer]').contains(location);
 });

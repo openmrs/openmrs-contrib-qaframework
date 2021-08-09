@@ -33,16 +33,16 @@ public class Steps extends ReferenceApplicationTestBase {
 	protected ClinicianFacingPatientDashboardPage dashboardPage;
 	protected By patientHeaderId = By.cssSelector("div.identifiers span");
 	protected InitialSetupPage initialSetupPage;
-	private String familyName = "henry";
-	private String givenName = "feni";
-	private String gender = "Male";
-	private String phoneNumber = "+21134567890";
-	private String estimatedYears = "41";
-	private String address1 = "Nairobi";
+	private String familyName = "Origin";
+	private String givenName = "Ashaba";
+	private String gender = "Female";
+	private String phoneNumber = "++21134567810";
+	private String estimatedYears = "24";
+	private String address1 = "Kenya";
 	private String villageName = "mwisho";
 	private String stateName = "Nairobi";
-	private String countryName = "Kenya";
-	private String postalCode = "10001";
+	private String countryName = "Kenyata";
+	private String postalCode = "10101";
 
 	public Steps() {
 		try {
@@ -127,7 +127,7 @@ public class Steps extends ReferenceApplicationTestBase {
 	}
 
 	public void searchForNewPatient() {
-		findPatientPage.enterPatient("henry feni");
+		findPatientPage.enterPatient("Origin Ashaba");
 	}
 
 	public void enterPatientDetails() throws InterruptedException {

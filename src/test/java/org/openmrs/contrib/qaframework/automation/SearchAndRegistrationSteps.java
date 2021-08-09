@@ -21,10 +21,10 @@ public class SearchAndRegistrationSteps extends Steps {
 	private RegistrationPage registrationPage;
 	private ClinicianFacingPatientDashboardPage dashboardPage;
 	private FindPatientPage findPatientPage;
-	private String familyName = "Henry";
-	private String givenName = "feni";
-	private String gender = "Male";
-	private String phoneNumber = "+21134567890";
+	private String familyName = "Origin";
+	private String givenName = "ashaba";
+	private String gender = "Female";
+	private String phoneNumber = "+21134567810";
 	private TestData.PatientInfo testPatient;
 
 	@Before(RunTest.HOOK.SELENIUM_SEARCH_REGISTRATION)
@@ -42,8 +42,8 @@ public class SearchAndRegistrationSteps extends Steps {
 		goToFindPatientRecordApp();
 	}
 
-	@And("a user searches Olora Job")
-	public void searchPatientAsAndriaFaith() {
+	@And("a user searches origin ashaba")
+	public void searchPatientAsOriginAshaba() {
 		searchForNewPatient();
 	}
 
@@ -62,7 +62,7 @@ public class SearchAndRegistrationSteps extends Steps {
 		goToRegistrationApp();
 	}
 
-	@Then("User enters patient details for Olora Job")
+	@Then("User enters patient details for Origin Ashaba")
 	public void UserEnterPatientDetails() throws InterruptedException {
 		enterPatientDetails();
 	}

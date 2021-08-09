@@ -13,7 +13,7 @@
     "clinicalVisitTest": "mvn test -Dcucumber.filter.tags='@selenium and @clinicalVisit'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
-    "postgresCoreInstall":"mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",
+    "postgresCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",
     "testingCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @testingInstall'",
     "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'",
     "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
@@ -23,11 +23,10 @@
     "refApp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^8.0.0",
     "@types/uuid": "3.4.7",
-    "properties-reader": "2.2.0",
-    "cypress": "6.5.0",
-    "@testing-library/cypress": "7.0.3",
-    "cypress-cucumber-preprocessor": "4.0.1"
+    "cypress": "^8.2.0",
+    "cypress-cucumber-preprocessor": "^4.0.1"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/integration/cucumber/step_definitions"

@@ -22,7 +22,7 @@ When('the user clicks on the add patient icon', () => {
 
 When('the user enters {string} details for Andria Faiza', validity => {
     const details = {
-        right: {
+        correct: {
             givenName: 'Andria',
             middleName: 'Kumbha',
             familyName: 'Faiza',

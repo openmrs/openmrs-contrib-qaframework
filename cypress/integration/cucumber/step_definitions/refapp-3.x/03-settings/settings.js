@@ -17,7 +17,7 @@ Given('the user arrives on a patient’s chart', () => {
 })
 
 When('the user navigate back to home by clicking Home breadcrumb', () => {
-    cy.get('.breadcrumbs-container').contains('Home').click();
+    cy.get('.breadcrumbs-container').contains('Home').click({force: true});
 })
 
 When('the user can change the locale to Spanish', () => {
@@ -26,7 +26,7 @@ When('the user can change the locale to Spanish', () => {
 });
 
 Then('the text should change into spanish', () => {
-    cy.get('button[name=SearchPatientIcon]').click();
+    cy.get('button[name=SearchPatientIcon]').click({force: true});
     cy.getByPlaceholder('Buscar un paciente');
 });
 
@@ -40,9 +40,9 @@ Then('the current location should be there', () => {
 });
 
 When('the user change the location to {string}', (location) => {
-    cy.get('div[data-extension-id=location-changer]').contains('Change').click()
-    cy.contains(location).click();
-    cy.contains('Confirm').click();
+    cy.get('div[data-extension-id=location-changer]').contains('Change').click({force: true})
+    cy.contains(location).click({force: true});
+    cy.contains('Confirm').click({force: true});
 });
 
 Then('the user should be on the patient’s chart', () => {
@@ -55,7 +55,7 @@ Then('the current location should be {string}', (location) => {
 });
 
 When('the user clicks on logout', () => {
-    cy.contains('Logout').click();
+    cy.contains('Logout').click({force: true});
 });
 
 Then('the user should be on the login page', () => {

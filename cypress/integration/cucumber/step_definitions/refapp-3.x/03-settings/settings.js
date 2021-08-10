@@ -21,17 +21,17 @@ When('the user navigate back to home by clicking Home breadcrumb', () => {
 })
 
 When('the user can change the locale to Spanish', () => {
-    cy.get('button[name=Users]').click();
-    cy.getByLabel('Select locale').select('es');
+    cy.get('button[name="Users"]').click({force: true});
+    cy.getByLabel('Select locale').select('es', {force: true});
 });
 
 Then('the text should change into spanish', () => {
-    cy.get('button[name=SearchPatientIcon]').click({force: true});
+    cy.get('button[name="SearchPatientIcon"]').click({force: true});
     cy.getByPlaceholder('Buscar un paciente');
 });
 
 When('the user clicks on the users icon', () => {
-    cy.get('button[name=Users]').click();
+    cy.get('button[name="Users"]').click();
 });
 
 Then('the current location should be there', () => {
@@ -50,7 +50,7 @@ Then('the user should be on the patient’s chart', () => {
 });
 
 Then('the current location should be {string}', (location) => {
-    cy.get('button[name=Users]').click();
+    cy.get('button[name="Users"]').click();
     cy.get('div[data-extension-id=location-changer]').contains(location);
 });
 

@@ -81,7 +81,7 @@ Cypress.Commands.add('createPatient', ()=>{
         },
         identifiers: [
             {
-                identifier: null,
+                identifier: undefined, // will be later replaced by a generated identifier
                 identifierType: '05a29f94-c0ed-11e2-94be-8c13b969e334',
                 location: '6351fcf4-e311-4a19-90f9-35667d99a8af',
                 preferred: true

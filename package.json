@@ -18,7 +18,8 @@
     "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'",
     "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
     "microfrontend": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @microfrontend'",
-    "refApp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature"
+    "refApp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature",
+    "refApp3Registration": "cypress run --spec src/test/resources/features/refapp-3.x/02-registration/registration.feature"
   },
   "devDependencies": {
     "@types/uuid": "3.4.7",

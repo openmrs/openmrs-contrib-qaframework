@@ -37,7 +37,7 @@ public class ManageUserAccountSteps extends Steps {
 		systemAdministrationPage = homePage.goToSystemAdministrationPage();
 	}
 
-	@Then("the system loads the system administration page")
+	@Then("the system loads system administration page")
 	public void systemloadsSystemAdministrationPage() {
 		assertTrue(textExists("System Administration"));
 	}
@@ -47,7 +47,7 @@ public class ManageUserAccountSteps extends Steps {
 		userAccountPage = systemAdministrationPage.goToManageAccounts();
 	}
 
-	@Then("the system loads the manage acccount page")
+	@Then("the system loads manage acccount page")
 	public void systemloadsManageAccountsPage() {
 		assertTrue(textExists("Manage Accounts"));
 	}
@@ -57,12 +57,12 @@ public class ManageUserAccountSteps extends Steps {
 		userAccountPage.clickOnAddUser();
 	}
 
-	@Then("the system loads the add new account form")
+	@Then("the system loads add new account form")
 	public void systemLoadsAddNewAccountPage() {
 		assertTrue(textExists("Add New Account"));
 	}
 
-	@When("a user fills details of the Data clerk in the user account form")
+	@When("a user enters Data clerk details in the user account form")
 	public void registerDataClerkDetails() {
 		userAccountPage.enterPersonalDetails("Data", "Clerk");
 		userAccountPage.selectGender();
@@ -82,7 +82,7 @@ public class ManageUserAccountSteps extends Steps {
 		userAccountPage.setUserProviderRole("Clerk");
 	}
 
-	@When("a user fills details of the Nurse in the user account form")
+	@When("a user enters Nurse details in the user account form")
 	public void registerNurseDetails() {
 		userAccountPage.enterPersonalDetails("Super", "Nurse");
 		userAccountPage.selectGender();
@@ -102,7 +102,7 @@ public class ManageUserAccountSteps extends Steps {
 		userAccountPage.setUserProviderRole("Nurse");
 	}
 
-	@When("a user fills details of the Doctor in the user account form")
+	@When("a user enters Doctor details in the user account form")
 	public void registerDoctorDetails() {
 		userAccountPage.enterPersonalDetails("Super", "Doctor");
 		userAccountPage.selectGender();

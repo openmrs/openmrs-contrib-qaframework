@@ -12,3 +12,4 @@ cypress/videos
 node_modules/
 openmrs.log
 .classpath
+.DS_Store

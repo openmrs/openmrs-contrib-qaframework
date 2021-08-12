@@ -12,6 +12,7 @@ import org.openmrs.reference.page.FindPatientPage;
 import org.openmrs.reference.page.HomePage;
 import org.openmrs.reference.page.PatientVisitsDashboardPage;
 import org.openmrs.reference.page.RegistrationPage;
+
 import org.openmrs.uitestframework.page.InitialSetupPage;
 import org.openmrs.uitestframework.page.LoginPage;
 import org.openmrs.uitestframework.page.TestProperties;
@@ -43,6 +44,8 @@ public class Steps extends ReferenceApplicationTestBase {
 	private String stateName = "Nairobi";
 	private String countryName = "Kenyata";
 	private String postalCode = "10101";
+	protected PatientVisitsDashboardPage visitsDashboardPage;
+
 
 	public Steps() {
 		try {

@@ -23,6 +23,7 @@ public class RunTest {
 		public static final String ADVANCED_INSTALL = "@advancedInstall";
 		public static final String POSTGRES_INSTALL = "@postgresInstall";
 		public static final String TESTING_INSTALL = "@testingInstall";
+		public static final String CLINICAL_VISIT = "@clinicalVisit";
 		public static final String UPGRADE = "@upgrade";
 		public static final String SEARCH_REGISTRATION = "@searchAndRegistration";
 		public static final String VITALS = "@vitals";
@@ -35,5 +36,7 @@ public class RunTest {
 				+ " and " + SEARCH_REGISTRATION;
 		public static final String SELENIUM_VITALS = SELENIUM + " and "
 				+ VITALS;
+		public static final String SELENIUM_CLINICAL_VISIT = SELENIUM + " and "
+				+ CLINICAL_VISIT;
 	}
 }

@@ -21,12 +21,6 @@ Cypress.Commands.add('initiateExceptionsLogger', () => {
     });
 });
 
-Cypress.Commands.add('visitPage', path => {
-    cy.task('getProperty', 'webapp.url').then(baseUrl => {
-        cy.visit(`${baseUrl}${path}`);
-    });
-})
-
 Cypress.Commands.add('getByLabel', (label) => {
     cy.contains('label', label)
         .invoke('attr', 'for')
@@ -34,3 +28,24 @@ Cypress.Commands.add('getByLabel', (label) => {
             cy.get('#' + id)
         })
 })
+
+Cypress.Commands.add('getByPlaceholder', (placeholder) => {
+    cy.get(`input[placeholder="${placeholder}"]`)
+})
+
+Cypress.Commands.add('login', () => {
+    const apiUrl = Cypress.env('API_BASE_URL');
+    const username = Cypress.env('ADMIN_USERNAME');
+    const password = Cypress.env('ADMIN_PASSWORD');
+    const location = Cypress.env('DEFAULT_LOCATION_UUID');
+    const token = window.btoa(`${username}:${password}`);
+    cy.request({
+        method: 'POST',
+        url: `${apiUrl}/session`,
+        body: {sessionLocation: location},
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Basic ${token}`,
+        },
+    })
+});

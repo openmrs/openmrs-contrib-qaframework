@@ -67,7 +67,7 @@ public class ManageUserAccountSteps extends Steps {
 		userAccountPage.enterPersonalDetails("Data", "Clerk");
 		userAccountPage.selectGender();
 		userAccountPage.clickOnAddUserAccount();
-		userAccountPage.enterUsername("dclerk");
+		userAccountPage.enterUsername("clerk");
 		userAccountPage.setUserPrivilegeLevel("High");
 		userAccountPage.setUserPassword("Clerk123", "Clerk123");
 		assertFalse(userAccountPage.containsText(SYSTEM_ALERT));

@@ -26,6 +26,7 @@ public class SearchAndRegistrationSteps extends Steps {
 	private String gender = "Female";
 	private String phoneNumber = "+21134567810";
 	private TestData.PatientInfo testPatient;
+	private static final String REASON = "patient nolonger needed";
 
 	@Before(RunTest.HOOK.SELENIUM_SEARCH_REGISTRATION)
 	public void setUp() throws Exception {
@@ -71,6 +72,20 @@ public class SearchAndRegistrationSteps extends Steps {
 	public void loadClinicianFacingPatientDashbaord() {
 		if (dashboardPage != null) {
 			dashboardPage.waitForPage();
+			dashboardPage.deletePatient(REASON);
 		}
 	}
+
+	@And("user click on delete patient")
+	public void deletePatient() {
+		if (dashboardPage != null) {
+			dashboardPage.deletePatient(REASON);
+		}
+	}
+
+	@Then("system loads find Patient record Page")
+	public void loadFindPatientRecordPage() {
+		assertPage(findPatientPage.waitForPage());
+	}
+
 }

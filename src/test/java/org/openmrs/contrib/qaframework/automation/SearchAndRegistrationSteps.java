@@ -82,10 +82,4 @@ public class SearchAndRegistrationSteps extends Steps {
 			dashboardPage.deletePatient(REASON);
 		}
 	}
-
-	@Then("system loads find Patient record Page")
-	public void loadFindPatientRecordPage() {
-		assertPage(findPatientPage.waitForPage());
-	}
-
 }

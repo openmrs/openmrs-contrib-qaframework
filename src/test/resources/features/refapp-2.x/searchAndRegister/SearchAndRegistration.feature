@@ -15,4 +15,4 @@ Feature: Search And Patient Registration
    
     #delete the same patient
     And  user click on delete patient
-    Then system loads find Patient record Page 
+ 

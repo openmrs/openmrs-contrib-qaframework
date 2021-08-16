@@ -11,7 +11,6 @@
     "refappSelenium": "mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup'",
     "vitalsAndTriagingTest": "mvn test -Dcucumber.filter.tags='@selenium and @vitals'",
     "clinicalVisitTest": "mvn test -Dcucumber.filter.tags='@selenium and @clinicalVisit'",
-    "admitPatientTest": "mvn test -Dcucumber.filter.tags='@selenium and @admitPatient'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
     "postgresCoreInstall":"mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",

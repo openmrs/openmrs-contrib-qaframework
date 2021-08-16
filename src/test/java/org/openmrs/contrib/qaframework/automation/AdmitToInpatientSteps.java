@@ -11,14 +11,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-public class AdmitPatientSteps extends Steps {
+public class AdmitToInpatientSteps extends Steps {
 
-	@Before(RunTest.HOOK.SELENIUM_ADMIT_PATIENT)
+	@Before(RunTest.HOOK.SELENIUM)
 	public void visitPatientDashboard() {
 		createTestPatient();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_ADMIT_PATIENT)
+	@After(RunTest.HOOK.SELENIUM)
 	public void destroy() {
 		quit();
 	}
@@ -29,7 +29,7 @@ public class AdmitPatientSteps extends Steps {
 				.waitForPage();
 	}
 
-	@Then("a user selects a patient from active patient list")
+	@When("a user selects a patient from the patient list")
 	public void selectPatientFromPatientList() {
 		dashboardPage = findPatientPage.clickOnFirstPatient();
 	}
@@ -49,7 +49,7 @@ public class AdmitPatientSteps extends Steps {
 		admitToInpatientPage = visitsDashboardPage.goToAdmitToInpatient();
 	}
 
-	@And("a user saves the patient to Inpatient ward")
+	@Then("a user saves the patient to Inpatient ward")
 	public void savePatientToInpatientWard() {
 		admitToInpatientPage.confirm("Inpatient Ward");
 	}

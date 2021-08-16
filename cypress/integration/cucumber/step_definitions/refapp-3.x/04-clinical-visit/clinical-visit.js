@@ -1,4 +1,4 @@
-import {Given, After, Before} from 'cypress-cucumber-preprocessor/steps';
+import {Given, Before} from 'cypress-cucumber-preprocessor/steps';
 
 let identifier = null;
 let patient = null;

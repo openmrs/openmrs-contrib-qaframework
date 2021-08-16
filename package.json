@@ -21,7 +21,7 @@
     "refApp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature",
     "refApp3Registration": "cypress run --spec src/test/resources/features/refapp-3.x/02-registration/registration.feature",
     "refApp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature",
-    "refApp3Visit": "cypress run --spec src/test/resources/features/refapp-3.x/04-visit/visit.feature"
+    "refapp3ClinicalVisit": "cypress run --spec src/test/resources/features/refapp-3.x/04-visit/visit.feature"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.0",

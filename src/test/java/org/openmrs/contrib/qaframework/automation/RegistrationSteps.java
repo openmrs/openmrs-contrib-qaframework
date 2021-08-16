@@ -1,19 +1,19 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.helper.PatientGenerator;
-import org.openmrs.reference.helper.TestPatient;
-import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
-import org.openmrs.reference.page.RegistrationPage;
-import org.openqa.selenium.By;
-
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.reference.helper.PatientGenerator;
+import org.openmrs.reference.helper.TestPatient;
+import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
+import org.openmrs.reference.page.HomePage;
+import org.openmrs.reference.page.RegistrationPage;
+import org.openqa.selenium.By;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 
 public class RegistrationSteps extends Steps {
 
@@ -28,12 +28,16 @@ public class RegistrationSteps extends Steps {
 
 	@When("Registration user rightly logs in")
 	public void registrationLogin() throws Exception {
-		systemLogin();
+		goToLoginPage();
+		loginPage = getLoginPage();
+		loginPage.login("clerk", "Clerk123", "Registration Desk");
 	}
 
 	@And("User clicks on Registration App")
 	public void visitRegistrationPage() throws InterruptedException {
-		goToRegistrationApp();
+		homePage = new HomePage(loginPage);
+		registrationPage = (RegistrationPage) homePage.goToRegisterPatientApp()
+				.waitForPage();
 	}
 
 	@And("User enters {string} details for John Smith")

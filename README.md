@@ -12,9 +12,9 @@ ___
   
 * RefApp 2.x Workflow Tests (Firefox) [![All Firefox Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
 * RefApp 2.x Workflow Tests (Chrome) [BDD Chrome](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
-  * [![RefApp 2.x Clinical Visit Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/clinical-visit.yml)
-  * [![RefApp 2.x Vitals And Triaging Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/vitals-and-triaging.yml) 
   * [![RefApp 2.x Search And Patient Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/search-registration.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/search-registration.yml)
+  * [![RefApp 2.x Clinical Visit Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml)
+  * [![RefApp 2.x Vitals And Triaging Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml) 
   * Tests in development:
     * Managing User Accounts
     * Discharges & Transfers

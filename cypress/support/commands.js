@@ -66,7 +66,7 @@ Cypress.Commands.add('generateIdentifier', () => {
     });
 });
 
-Cypress.Commands.add('createPatient', (identifier = null)=>{
+Cypress.Commands.add('createPatient', (identifier = null) => {
     const patient = {
         person: {
             names: [

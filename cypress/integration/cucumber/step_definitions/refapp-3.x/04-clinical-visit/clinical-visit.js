@@ -5,9 +5,9 @@ let patient = null;
 
 
 Before({tags: '@clinical-visit'}, () => {
-    identifier = cy.generateIdentifier().then((generatedIdentifier)=>{
+    identifier = cy.generateIdentifier().then((generatedIdentifier) => {
         identifier = generatedIdentifier;
-        cy.createPatient(identifier).then((generatedPatient)=> {
+        cy.createPatient(identifier).then((generatedPatient) => {
             patient = generatedPatient;
             cy.startVisit(patient.uuid);
         });
@@ -24,9 +24,9 @@ Given('the user arrives on a patient’s chart page', () => {
 });
 
 Then('the Patient header should be display correct information', () => {
-   cy.contains(patient.person.display);
-   cy.contains(`${patient.person.age} years`);
-   cy.contains(identifier.toString());
+    cy.contains(patient.person.display);
+    cy.contains(`${patient.person.age} years`);
+    cy.contains(identifier.toString());
 });
 
 Then('the user should be able to expand header to see more information', () => {
@@ -48,31 +48,31 @@ Then('the Patient Summary should load properly', () => {
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Clinical Views');
 });
 
-When('the user clicks on the {string} menu', (menu)=>{
+When('the user clicks on the {string} menu', (menu) => {
     cy.get('div[data-extension-id="patient-chart-nav-items"]').contains(menu).click();
 });
 
-Then('the program list should be empty', ()=>{
+Then('the program list should be empty', () => {
     cy.contains('There are no program enrollments to display for this patient');
 });
 
-When('the user enrolls the patient into a program', ()=>{
+When('the user enrolls the patient into a program', () => {
     cy.contains('Record program enrollments').click();
     cy.get('#program').select('HIV Care and Treatment');
     cy.get('button[type="submit"').click();
 });
 
-Then('the patient should be enrolled into the program', ()=>{
+Then('the patient should be enrolled into the program', () => {
     cy.contains('Program enrollment saved successfully');
     cy.reload();
     cy.contains('HIV Care and Treatment');
 });
 
-Then('the allergies list should be empty', ()=>{
+Then('the allergies list should be empty', () => {
     cy.contains('There are no allergy intolerances to display for this patient');
 });
 
-When('the user adds an allergy', ()=>{
+When('the user adds an allergy', () => {
     cy.contains('Record allergy intolerances').click({force: true});
     cy.contains('ACE inhibitors').click({force: true});
     cy.contains('Mental status change').click({force: true});
@@ -83,48 +83,48 @@ When('the user adds an allergy', ()=>{
     cy.contains('Save and Close').click({force: true});
 });
 
-Then('the added allergy should be listed', ()=>{
+Then('the added allergy should be listed', () => {
     cy.contains('Allergy saved successfully');
     cy.reload();
     cy.contains('ACE inhibitors');
 });
 
-Then('the conditions list should be empty', ()=>{
+Then('the conditions list should be empty', () => {
     cy.contains('There are no conditions to display for this patient');
 });
 
-When('the user adds a condition', ()=>{
+When('the user adds a condition', () => {
     cy.contains('Record conditions').click({force: true});
     cy.get('input[role="searchbox"]').type('Fever');
     cy.contains('Fever').click();
     cy.contains('Save & Close').click({force: true});
 });
 
-Then('the added condition should be listed', ()=>{
+Then('the added condition should be listed', () => {
     cy.contains('Condition saved successfully');
     cy.reload();
     cy.contains('Fever');
 });
 
-Then('the attachments list should be empty', ()=>{
+Then('the attachments list should be empty', () => {
     cy.contains('There are no attachments to display for this patient');
 });
 
-When('the user adds an attachment', ()=>{
+When('the user adds an attachment', () => {
     cy.contains('Record attachments').click({force: true});
     cy.get('#uploadPhoto').attachFile('test_image.jpeg');
     cy.contains('Save').click({force: true});
 });
 
-Then('the added attachment should be listed', ()=>{
+Then('the added attachment should be listed', () => {
     cy.contains('1 items');
 });
 
-Then('the notes list should be empty', ()=>{
+Then('the notes list should be empty', () => {
     cy.contains('There are no notes to display for this patient');
 });
 
-When('the user adds a note', ()=>{
+When('the user adds a note', () => {
     cy.contains('Record notes').click({force: true});
     cy.get('input[role="searchbox"]').type('Shock');
     cy.contains('Shock').click();
@@ -132,8 +132,8 @@ When('the user adds a note', ()=>{
     cy.contains('Save & Close').click({force: true});
 });
 
-Then('the added note should be listed', ()=>{
+Then('the added note should be listed', () => {
     cy.contains('Visit note saved successfully');
     cy.reload();
     cy.contains('Visit Note');
-})
+});

@@ -147,7 +147,7 @@ There are two ways of running tests:
     
     The name of the directory should be `<sequence>-<name>`.
     
-    [Simple style guide](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/src/test/resources/features/refapp-2.x/stylesGuide.feature)
+    [Example feature file](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/src/test/resources/features/refapp-2.x/stylesGuide.feature)
     
 1. Create a new directory with the same name under  `cypress/integration/cucumber/step_definitions/refapp-3.x/` to store the step definition file.
     See the [cypress-cucumber-preprocessor docs](https://github.com/TheBrainFamily/cypress-cucumber-preprocessor#readme)

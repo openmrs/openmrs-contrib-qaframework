@@ -29,20 +29,6 @@ public class FormSteps extends Steps {
 	private HtmlFormsPage htmlFormsPage;
 	private ClinicianFacingPatientDashboardPage patientDashboardPage;
 
-//	@Before(RunTest.HOOK.SELENIUM)
-//	public void setUp() throws Exception {
-//		if(homePage != null) {
-//		homePage = new HomePage(page);
-//		assertPage(homePage.waitForPage());
-//		headerPage = new HeaderPage(driver);
-//		administrationPage = new AdministrationPage(page);
-//		manageForm = new ManageFormsPage(driver);
-//		htmlFormsPage = new HtmlFormsPage(page);
-//		manageHtmlFormsPage = new ManageHtmlFormsPage(page);
-//		patientDashboardPage = new ClinicianFacingPatientDashboardPage(page);
-//		}
-//	}
-
 	@Given("User finds a form in the system")
 	public void initiateFormPresence() throws InterruptedException {
 		manageHtmlFormsPage = homePage.goToAdministration()

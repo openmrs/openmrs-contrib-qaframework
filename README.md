@@ -75,25 +75,31 @@ MySQL password should be the same for initialSetupTests as openmrs password
      cd openmrs-contrib-qaframework
     ```
 1. Install the dependencies
-  ```
-  npm install
-  ```
-You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://openmrs-spa.org/openmrs/spa) for testing.
+    ```
+    npm install
+    ```
+You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://openmrs-spa.org/openmrs/spa) for the test backend.
 
 ## Running tests
 
 There are two ways of running tests:
-- **Running with cypress runner**
-  1. Open the Cypress runner
+
+1. **Running with cypress runner**
+    Open the Cypress runner with
     ```
     cypress open
     ```
-  1. Pick a test from the GUI
-- **Running in command line**
+    and pick a test from the GUI.
+    
+1. **Running in command line**
   
-    Run the desired test using npm run. See package.json
-      
-    ex: `npm run refApp3Login`
+    Run the desired test using `npm run`, e.g.
+    
+    ```
+    npm run refApp3Login
+    ```
+    
+    See the `scripts` section of [package.json](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/package.json).
 
 ## File structure
 ```
@@ -143,28 +149,30 @@ There are two ways of running tests:
     
     [Simple style guide](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/src/test/resources/features/refapp-2.x/stylesGuide.feature)
     
-2. Create a new directory with the same name under  `cypress/integration/cucumber/step_definitions/refapp-3.x/` to store the step definition file.
-  [Learn More](https://github.com/TheBrainFamily/cypress-cucumber-preprocessor/blob/master/README.md)
+1. Create a new directory with the same name under  `cypress/integration/cucumber/step_definitions/refapp-3.x/` to store the step definition file.
+    See the [cypress-cucumber-preprocessor docs](https://github.com/TheBrainFamily/cypress-cucumber-preprocessor#readme)
 
-3. Run the test using either:
+1. Run the test using either:
    - Command line: `cypress run --spec <path-to-feature-file>`
    
-    You can simplify the command by adding it to the npm scripts section. See [this example](https://github.com/openmrs/openmrs-contrib-qaframework/blob/f9996d757912ba7ccfb1ff3495379bbafaf89f23/package.json#L19).
+      (You can simplify the command by adding it to the npm scripts section. See [this example](https://github.com/openmrs/openmrs-contrib-qaframework/blob/f9996d757912ba7ccfb1ff3495379bbafaf89f23/package.json#L19).)
    - Cypress runner: `cypress open` and choose the test
 
 ## Creating a GitHub workflow
 1. Create a new GitHub workflow file under `.github/workflows/` directory. An example workflow can be found [here](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/.github/workflows/refapp-3x-login.yml).
-2. Add the workflow badge to the readme file under [3.x RefApp](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/README.md#3x-refapp) section.
-
-    Ex:
-
-    `[![<workflow name>](<link-to-the-workflow>/badge.svg)](<link-to-the-workflow>)`
+1. Add the workflow badge to the readme file under [3.x RefApp](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/README.md#3x-refapp) section. It should take the following format:
+    ```markdown
+    [![<workflow name>](<link-to-the-workflow>/badge.svg)](<link-to-the-workflow>)
+    ```
 
 ## Environment variables
-The environment variables are stored in the `cypress.json` file. The variables can be accessed with `Cypress.env()` 
 
-ex: `Cypress.env('API_BASE_URL');`
-[Learn more](https://docs.cypress.io/guides/guides/environment-variables)
+The environment variables are stored in the `cypress.json` file. The variables can be accessed with `Cypress.env()`; e.g.,
+```typescript
+Cypress.env('API_BASE_URL');
+```
+
+See the [Cypress docs](https://docs.cypress.io/guides/guides/environment-variables).
 
 
 ## Before Releasing

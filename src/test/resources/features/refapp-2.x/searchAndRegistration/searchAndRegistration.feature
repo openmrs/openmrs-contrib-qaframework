@@ -14,5 +14,5 @@ Feature: Search And Patient Registration
     And    System loads clinicianFacingPatientDashboard
 
     #delete the same patient
-    Then   user click on delete patient
+    Then   User click on delete patient
 

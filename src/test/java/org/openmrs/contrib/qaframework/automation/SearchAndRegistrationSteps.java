@@ -1,19 +1,18 @@
 package org.openmrs.contrib.qaframework.automation;
 import static org.junit.Assert.assertNotNull;
 
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
-import org.openmrs.reference.page.FindPatientPage;
-import org.openmrs.reference.page.HomePage;
-import org.openmrs.reference.page.RegistrationPage;
-import org.openmrs.uitestframework.test.TestData;
-import org.openqa.selenium.By;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
+import org.openmrs.reference.page.FindPatientPage;
+import org.openmrs.reference.page.HomePage;
+import org.openmrs.reference.page.RegistrationPage;
+import org.openqa.selenium.By;
+
 
 
 public class SearchAndRegistrationSteps extends Steps {
@@ -38,12 +37,12 @@ public class SearchAndRegistrationSteps extends Steps {
 		quit();
 	}
 
-	@Given("a user clicks on Find Patient Record App")
+	@Given("A user clicks on Find Patient Record App")
 	public void clickOnFindPatientRecord() throws InterruptedException {
 		goToFindPatientRecordApp();
 	}
 
-	@And("a user searches origin ashaba")
+	@And("A user searches origin ashaba")
 	public void searchPatientAsOriginAshaba() {
 		searchForNewPatient();
 	}
@@ -68,7 +67,7 @@ public class SearchAndRegistrationSteps extends Steps {
 		enterPatientDetails();
 	}
 
-	@And("system loads clinicianFacingPatientDashboard")
+	@And("System loads clinicianFacingPatientDashboard")
 	public void loadClinicianFacingPatientDashbaord() {
 		if (dashboardPage != null) {
 			dashboardPage.waitForPage();
@@ -76,7 +75,7 @@ public class SearchAndRegistrationSteps extends Steps {
 		}
 	}
 
-	@And("user click on delete patient")
+	@And("User click on delete patient")
 	public void deletePatient() {
 		if (dashboardPage != null) {
 			dashboardPage.deletePatient(REASON);

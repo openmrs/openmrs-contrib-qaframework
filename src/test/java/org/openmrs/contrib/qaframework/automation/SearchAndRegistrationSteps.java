@@ -15,8 +15,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
-
-
 public class SearchAndRegistrationSteps extends Steps {
 	private HomePage homePage;
 	private RegistrationPage registrationPage;
@@ -77,7 +75,7 @@ public class SearchAndRegistrationSteps extends Steps {
 		}
 	}
 
-	@And("User click on delete patient")
+	@Then("User click on delete patient")
 	public void deletePatient() {
 		if (dashboardPage != null) {
 			dashboardPage.deletePatient(REASON);

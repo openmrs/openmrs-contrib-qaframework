@@ -34,8 +34,8 @@ public class RunTest {
 				+ INITIAL_SETUP;
 		public static final String SELENIUM_VITALS = SELENIUM + " and "
 				+ VITALS;
-		public static final String SELENIUM_DATA_MANAGEMENT = SELENIUM + "and "
-				+ DATA_MANAGEMENT;
+		public static final String SELENIUM_DATA_MANAGEMENT = SELENIUM
+				+ " and " + DATA_MANAGEMENT;
 		public static final String SELENIUM_CLINICAL_VISIT = SELENIUM + " and "
 				+ CLINICAL_VISIT;
 	}

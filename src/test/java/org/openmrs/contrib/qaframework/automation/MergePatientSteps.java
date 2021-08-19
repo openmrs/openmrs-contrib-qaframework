@@ -22,7 +22,7 @@ public class MergePatientSteps extends Steps {
 	TestData.PatientInfo testPatient1;
 
 	@Before(RunTest.HOOK.SELENIUM_DATA_MANAGEMENT)
-	public void setUp() throws Exception {
+	public void setup() {
 		initiateWithLogin();
 		testPatient = createTestPatient();
 		testPatient1 = createTestPatient();
@@ -31,16 +31,12 @@ public class MergePatientSteps extends Steps {
 	@Given("User click data management from home Page")
 	public void goToDataManagement() {
 		dataManagementPage = homePage.goToDataManagement();
+		mergePatientsPage = dataManagementPage.goToMergePatient();
 	}
 
 	@And("The system loads data management page")
 	public void loadDataManagementPage() {
 		assertTrue(textExists("Merge Patient Electronic Records"));
-	}
-
-	@Then("User clicks on merge Patient elctronic records")
-	public void clickOnMergePatientElectronicRecordsApp() {
-		mergePatientsPage = dataManagementPage.goToMergePatient();
 	}
 
 	@And("User enter patient1 using patient identifier")
@@ -61,6 +57,7 @@ public class MergePatientSteps extends Steps {
 	@And("User clicks on mergePatients")
 	public void clickOnMergePatient() {
 		mergePatientsPage.clickOnMergePatient();
+		mergePatientsPage.waitForPage();
 	}
 
 	@Then("User clicks on continue from dashbaord")
@@ -70,6 +67,7 @@ public class MergePatientSteps extends Steps {
 
 	@After(RunTest.HOOK.SELENIUM_DATA_MANAGEMENT)
 	public void destroy() {
+		deletePatient(testPatient);
 		quit();
 	}
 }

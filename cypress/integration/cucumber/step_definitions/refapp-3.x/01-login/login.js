@@ -8,7 +8,7 @@ When('the user logs in with {string} and {string} to the {string}', (username, p
     cy.getByLabel('Username').type(username)
     cy.contains('Continue').click({force: true});
     cy.getByLabel('Password').type(password)
-    cy.contains('Login').click({force: true});
+    cy.contains('Log in').click({force: true});
     // The user will be redirected to the location selection page if the credentials are correct.
     // The following artificial wait is to wait until it changes the url.
     cy.wait(2000);

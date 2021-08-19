@@ -1,8 +1,9 @@
 package org.openmrs.contrib.qaframework;
 
+import org.junit.runner.RunWith;
+
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
@@ -25,6 +26,7 @@ public class RunTest {
 		public static final String CLINICAL_VISIT = "@clinicalVisit";
 		public static final String UPGRADE = "@upgrade";
 		public static final String VITALS = "@vitals";
+		public static final String DATA_MANAGEMENT = "@dataManagement";
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
 		public static final String SELENIUM_DASHBOARD = SELENIUM + " and "
 				+ DASHBOARD;
@@ -32,6 +34,8 @@ public class RunTest {
 				+ INITIAL_SETUP;
 		public static final String SELENIUM_VITALS = SELENIUM + " and "
 				+ VITALS;
+		public static final String SELENIUM_DATA_MANAGEMENT = SELENIUM + "and "
+				+ DATA_MANAGEMENT;
 		public static final String SELENIUM_CLINICAL_VISIT = SELENIUM + " and "
 				+ CLINICAL_VISIT;
 	}

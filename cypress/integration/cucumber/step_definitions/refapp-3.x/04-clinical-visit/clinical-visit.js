@@ -1,15 +1,15 @@
-import {Given, Before} from 'cypress-cucumber-preprocessor/steps';
+import {Given, Before, After} from 'cypress-cucumber-preprocessor/steps';
 
 let identifier = null;
 let patient = null;
 
 
 Before({tags: '@clinical-visit'}, () => {
-    identifier = cy.generateIdentifier().then((generatedIdentifier) => {
+    cy.generateIdentifier().then((generatedIdentifier) => {
         identifier = generatedIdentifier;
         cy.createPatient(identifier).then((generatedPatient) => {
             patient = generatedPatient;
-            cy.startVisit(patient.uuid);
+            cy.startFacilityVisit(patient.uuid);
         });
     });
 
@@ -23,7 +23,7 @@ Given('the user arrives on a patient’s chart page', () => {
     cy.visit(`patient/${patient.uuid}/chart`);
 });
 
-Then('the Patient header should be display correct information', () => {
+Then('the Patient header should display correct information', () => {
     cy.contains(patient.person.display);
     cy.contains(`${patient.person.age} years`);
     cy.contains(identifier.toString());
@@ -48,7 +48,7 @@ Then('the Patient Summary should load properly', () => {
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Clinical Views');
 });
 
-When('the user clicks on the {string} menu', (menu) => {
+When('the user clicks on {string} in the menu', (menu) => {
     cy.get('div[data-extension-id="patient-chart-nav-items"]').contains(menu).click();
 });
 
@@ -106,34 +106,7 @@ Then('the added condition should be listed', () => {
     cy.contains('Fever');
 });
 
-Then('the attachments list should be empty', () => {
-    cy.contains('There are no attachments to display for this patient');
-});
 
-When('the user adds an attachment', () => {
-    cy.contains('Record attachments').click({force: true});
-    cy.get('#uploadPhoto').attachFile('test_image.jpeg');
-    cy.contains('Save').click({force: true});
-});
-
-Then('the added attachment should be listed', () => {
-    cy.contains('1 items');
-});
-
-Then('the notes list should be empty', () => {
-    cy.contains('There are no notes to display for this patient');
-});
-
-When('the user adds a note', () => {
-    cy.contains('Record notes').click({force: true});
-    cy.get('input[role="searchbox"]').type('Shock');
-    cy.contains('Shock').click();
-    cy.getByLabel('Write an additional note').type('note');
-    cy.contains('Save & Close').click({force: true});
-});
-
-Then('the added note should be listed', () => {
-    cy.contains('Visit note saved successfully');
-    cy.reload();
-    cy.contains('Visit Note');
+After({tags: '@clinical-visit'}, () => {
+    cy.deletePatient(identifier);
 });

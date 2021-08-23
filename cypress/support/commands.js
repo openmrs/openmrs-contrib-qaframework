@@ -134,7 +134,7 @@ Cypress.Commands.add('createPatient', (identifier = null) => {
     }
 });
 
-Cypress.Commands.add('startVisit', (patientUuid) => {
+Cypress.Commands.add('startFacilityVisit', (patientUuid) => {
     cy.request({
         method: 'POST',
         url: `${API_BASE_URL}/visit`,
@@ -154,7 +154,7 @@ Cypress.Commands.add('startVisit', (patientUuid) => {
 Cypress.Commands.add('deletePatient', (uuid) => {
     cy.request({
         method: 'DELETE',
-        url: `${API_BASE_URL}/patient/${uuid}?purge=true`,
+        url: `${API_BASE_URL}/patient/${uuid}`,
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Basic ${TOKEN}`,

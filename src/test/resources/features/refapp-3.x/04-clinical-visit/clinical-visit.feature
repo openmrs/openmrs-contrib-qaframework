@@ -13,7 +13,6 @@ Feature: User Settings
   Scenario: The Patient Summary should load properly
     Then the Patient Summary should load properly
 
-
   @clinical-visit
   Scenario: The programs page should function properly
     When the user clicks on "Programs" in the menu

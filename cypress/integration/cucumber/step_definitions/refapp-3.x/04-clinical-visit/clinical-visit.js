@@ -95,7 +95,7 @@ Then('the conditions list should be empty', () => {
 
 When('the user adds a condition', () => {
     cy.contains('Record conditions').click({force: true});
-    cy.get('input[role="searchbox"]').type('Fever');
+    cy.get('input[role="searchbox"]').type('Fever', {force: true});
     cy.contains('Fever').click();
     cy.contains('Save & Close').click({force: true});
 });
@@ -108,5 +108,5 @@ Then('the added condition should be listed', () => {
 
 
 After({tags: '@clinical-visit'}, () => {
-    cy.deletePatient(identifier);
+    cy.deletePatient(patient.uuid);
 });

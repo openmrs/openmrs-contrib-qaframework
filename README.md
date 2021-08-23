@@ -65,8 +65,116 @@ MySQL password should be the same for initialSetupTests as openmrs password
 ### Running Platform Upgrade test
 - `npm run coreUpgrade`
 
-### Running microfrontend tests
-- `npm run microfrontend`
+---
+# RefApp 3.x  E2E tests
+
+## Setting up the project
+
+1. Clone the project
+    ```
+     git clone git@github.com:openmrs/openmrs-contrib-qaframework.git
+     cd openmrs-contrib-qaframework
+    ```
+1. Install the dependencies
+    ```
+    npm install
+    ```
+You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://openmrs-spa.org/openmrs/spa) for the test backend.
+
+## Running tests
+
+There are two ways of running tests:
+
+1. **Running with cypress runner**
+    Open the Cypress runner with
+    ```
+    cypress open
+    ```
+    and pick a test from the GUI.
+    
+1. **Running in command line**
+  
+    Run the desired test using `npm run`, e.g.
+    
+    ```
+    npm run refApp3Login
+    ```
+    
+    See the `scripts` section of [package.json](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/package.json).
+
+## File structure
+```
+.
+├── cypress
+│   ├── fixtures // Test fixtures (e.g. attachments)
+│   │   └── test_image.jpeg
+│   ├── integration
+│   │   └── cucumber
+│   │       └── step_definitions
+│   │           ├── refapp-2.x
+│   │           │   └── login.js
+│   │           └── refapp-3.x // Cypress tests for the refapp 3.x
+│   │               ├── 01-login
+│   │               │   └── login.js
+│   │               ...
+│   ├── plugins
+│   │   └── index.js
+│   ├── support
+│   │   ├── commands.js // Custom commands for Cypress
+│   │   └── index.js
+│   ├── videos  // Screen recordings (set "video": true in cypress.json)
+│   └── tsconfig.json
+├── src
+│   └── test
+│       ├── java
+│       └── resources
+│           ├── features
+│           │   ├── platform
+│           │   ├── refapp-2.x
+│           │   └── refapp-3.x // Cucumber feature files for the refapp 3.x
+│           │       ├── 01-login
+│           │       │   └── login.feature
+│           │       ...
+├── target
+├── README.md
+├── cypress.json // Cypress configuration file
+├── package.json
+├── pom.xml
+```
+
+
+## Writing a new test
+1. Create a new directory with your feature file under `/src/test/resources/features/refapp-3.x/`.
+    
+    The name of the directory should be `<sequence>-<name>`.
+    
+    [Example feature file](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/src/test/resources/features/refapp-2.x/stylesGuide.feature)
+    
+1. Create a new directory with the same name under  `cypress/integration/cucumber/step_definitions/refapp-3.x/` to store the step definition file.
+    See the [cypress-cucumber-preprocessor docs](https://github.com/TheBrainFamily/cypress-cucumber-preprocessor#readme)
+
+1. Run the test using either:
+   - Command line: `cypress run --spec <path-to-feature-file>`
+   
+      (You can simplify the command by adding it to the npm scripts section. See [this example](https://github.com/openmrs/openmrs-contrib-qaframework/blob/f9996d757912ba7ccfb1ff3495379bbafaf89f23/package.json#L19).)
+   - Cypress runner: `cypress open` and choose the test
+
+## Creating a GitHub workflow
+1. Create a new GitHub workflow file under `.github/workflows/` directory. An example workflow can be found [here](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/.github/workflows/refapp-3x-login.yml).
+1. Add the workflow badge to the readme file under [3.x RefApp](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/README.md#3x-refapp) section. It should take the following format:
+    ```markdown
+    [![<workflow name>](<link-to-the-workflow>/badge.svg)](<link-to-the-workflow>)
+    ```
+
+## Environment variables
+
+The environment variables are stored in the `cypress.json` file. The variables can be accessed with `Cypress.env()`; e.g.,
+```typescript
+Cypress.env('API_BASE_URL');
+```
+
+See the [Cypress docs](https://docs.cypress.io/guides/guides/environment-variables).
+
 
 ## Before Releasing
 - [ ] For the platform, manually run both Installation and upgrade workflows again.

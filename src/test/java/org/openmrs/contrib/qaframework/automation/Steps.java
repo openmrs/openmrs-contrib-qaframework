@@ -107,7 +107,6 @@ public class Steps extends ReferenceApplicationTestBase {
 		});
 		assertTrue(ids.contains(trimPatientId(patientId)));
 	}
-	
 	public void systemLogin() {
 		goToLoginPage();
 		loginPage = getLoginPage();

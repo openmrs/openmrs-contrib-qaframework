@@ -47,7 +47,7 @@ MySQL password should be the same for initialSetupTests as openmrs password
 ## Running test projects
 
 ### Running Ref app selenium tests
-- `npm run refappSelenium`
+- `npm run refAppSelenium`
 
 ### Running Platform Simple Installation test
 - `npm run simpleCoreInstall`

@@ -53,7 +53,7 @@ public class InpatientSteps extends Steps {
 	}
 
 	@Then("the system loads patient visit dashboard page")
-	public void systemloadsPatientVisitDashboardPage() {
+	public void systemLoadsPatientVisitDashboardPage() {
 		assertTrue(visitsDashboardPage.containsText("Visits"));
 	}
 

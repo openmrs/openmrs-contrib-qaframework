@@ -97,7 +97,7 @@ There are two ways of running tests:
     Run the desired test using `npm run`, e.g.
     
     ```
-    npm run refApp3Login
+    npm run refapp3Login
     ```
     
     See the `scripts` section of [package.json](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/package.json).

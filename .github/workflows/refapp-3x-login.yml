@@ -19,4 +19,4 @@ jobs:
       - name: Installing dependencies
         run: npm install
       - name: Run login workflow tests
-        run: npm run refApp3Login
+        run: npm run refapp3Login

@@ -57,9 +57,8 @@ public class InpatienttSteps extends Steps {
 		assertTrue(visitsDashboardPage.containsText("Visits"));
 	}
 
-	// Admission encounter
 	@When("a user clicks on Admit to Inpatient button and selects location")
-	public void goToAdmitToInpatientPage() {
+	public void admissionEncounter() {
 		visitsDashboardPage.goToAdmitToInpatient().confirm("Inpatient Ward");
 	}
 
@@ -69,9 +68,8 @@ public class InpatienttSteps extends Steps {
 		assertThat(visitsDashboardPage.getEncountersCount(), is(1));
 	}
 
-	// Transfer encounter
 	@When("a user clicks on Trasfer to Ward service button and selects location")
-	public void goToTrasferToWardServicePage() {
+	public void transferEncounter() {
 		visitsDashboardPage.goToTransferToWardServicePage().confirm(
 				"Isolation Ward");
 	}
@@ -82,9 +80,8 @@ public class InpatienttSteps extends Steps {
 		assertThat(visitsDashboardPage.getEncountersCount(), is(2));
 	}
 
-	// Discharge encounter
 	@When("a user clicks on Exit from Inpatient button and selects location")
-	public void goToExitFromInpatientPage() {
+	public void dischargeEncounter() {
 		visitsDashboardPage.goToExitFromInpatient().confirm("Isolation Ward");
 	}
 

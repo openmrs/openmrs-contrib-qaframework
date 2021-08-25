@@ -19,4 +19,4 @@ jobs:
       - name: Installing dependencies
         run: npm install
       - name: Run User settings workflow tests
-        run: npm run refApp3Settings
+        run: npm run refapp3Settings

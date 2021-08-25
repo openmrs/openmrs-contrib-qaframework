@@ -14,7 +14,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
-public class InpatienttSteps extends Steps {
+public class InpatientSteps extends Steps {
 
 	private TestData.PatientInfo testPatient;
 
@@ -58,7 +58,7 @@ public class InpatienttSteps extends Steps {
 	}
 
 	@When("a user clicks on Admit to Inpatient button and selects location")
-	public void admissionEncounter() {
+	public void goToAdmitToInpatientPage() {
 		visitsDashboardPage.goToAdmitToInpatient().confirm("Inpatient Ward");
 	}
 
@@ -69,7 +69,7 @@ public class InpatienttSteps extends Steps {
 	}
 
 	@When("a user clicks on Trasfer to Ward service button and selects location")
-	public void transferEncounter() {
+	public void goToTransferToWardServicePage() {
 		visitsDashboardPage.goToTransferToWardServicePage().confirm(
 				"Isolation Ward");
 	}
@@ -81,7 +81,7 @@ public class InpatienttSteps extends Steps {
 	}
 
 	@When("a user clicks on Exit from Inpatient button and selects location")
-	public void dischargeEncounter() {
+	public void goToExitFromInpatientPage() {
 		visitsDashboardPage.goToExitFromInpatient().confirm("Isolation Ward");
 	}
 

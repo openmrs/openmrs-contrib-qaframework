@@ -36,7 +36,7 @@ public class InpatientSteps extends Steps {
 	}
 
 	@Then("the system loads find patient record page")
-	public void systemloadsFindPatientRecordPage() {
+	public void systemLoadsFindPatientRecordPage() {
 		assertTrue(textExists("Find Patient Record"));
 	}
 

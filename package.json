@@ -9,8 +9,9 @@
   "scripts": {
     "refappCypress": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and not @microfrontend'",
     "refappSelenium": "mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup'",
-    "refapp2VitalsAndTriagingTest": "mvn test -Dcucumber.filter.tags='@selenium and @vitals'",
-    "refapp2ClinicalVisitTest": "mvn test -Dcucumber.filter.tags='@selenium and @clinicalVisit'",
+    "refapp2VitalsAndTriaging": "mvn test -Dcucumber.filter.tags='@selenium and @vitals'",
+    "refapp2ClinicalVisit": "mvn test -Dcucumber.filter.tags='@selenium and @clinicalVisit'",
+    "refapp2Inpatient": "mvn test -Dcucumber.filter.tags='@selenium and @inpatient'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
     "postgresCoreInstall":"mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",
@@ -19,15 +20,17 @@
     "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'",
     "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
     "microfrontend": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @microfrontend'",
-    "refApp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature",
-    "refApp3Registration": "cypress run --spec src/test/resources/features/refapp-3.x/02-registration/registration.feature",
-    "refApp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature"
+    "refapp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature",
+    "refapp3Registration": "cypress run --spec src/test/resources/features/refapp-3.x/02-registration/registration.feature",
+    "refapp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature",
+    "refapp3ClinicalVisit": "cypress run --spec src/test/resources/features/refapp-3.x/04-clinical-visit/clinical-visit.feature"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.0",
     "@types/uuid": "3.4.7",
     "cypress": "^8.2.0",
-    "cypress-cucumber-preprocessor": "^4.0.1"
+    "cypress-cucumber-preprocessor": "^4.0.1",
+    "cypress-file-upload": "^5.0.8"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/integration/cucumber/step_definitions"

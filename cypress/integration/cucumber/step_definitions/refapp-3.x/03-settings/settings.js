@@ -10,15 +10,15 @@ Before({tags: '@patient-involved'}, () => {
 
 Given('the user is logged in', () => {
     cy.login();
-})
+});
 
 Given('the user arrives on a patient’s chart', () => {
     cy.visit(`patient/${patient_uuid}/chart`);
-})
+});
 
 When('the user navigate back to home by clicking Home breadcrumb', () => {
     cy.get('.breadcrumbs-container').contains('Home').click({force: true});
-})
+});
 
 When('the user can change the locale to Spanish', () => {
     cy.get('button[name="Users"]').click({force: true});

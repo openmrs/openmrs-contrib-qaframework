@@ -10,14 +10,13 @@ ___
 
 ### 2.x RefApp 
   
-* RefApp 2.x Workflow Tests (Firefox) [![All Firefox Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
-* RefApp 2.x Workflow Tests (Chrome) [BDD Chrome](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
-  * [![RefApp 2.x Clinical Visit Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml)
-  * [![RefApp 2.x Vitals And Triaging Test](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml) 
+  * RefApp 2.x Workflow Tests (Firefox) [![All Firefox Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
+  * RefApp 2.x Workflow Tests (Chrome) [BDD Chrome](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
+  * [![RefApp 2.x Clinical Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml)
+  * [![RefApp 2.x Vitals And Triaging](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml) 
+  * [![RefApp 2.x Inpatient](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-inpatient.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-inpatient.yml)
   * [![RefApp 2.x Edit Patient Relationship](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-editPatientRelationship.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-editPatientRelationship.yml) 
   * Tests in development:
-    * Managing User Accounts
-    * Discharges & Transfers
     * Search & Registration
     * Security: XSS Checks   
 * Other Feature-Specific Tests
@@ -29,6 +28,7 @@ ___
 * [![RefApp 3.x Login](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-login.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-login.yml)
 * [![RefApp 3.x Search & Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-registration.yml)
 * [![RefApp 3.x User settings](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-settings.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-settings.yml)
+* [![RefApp 3.x Clinical Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-clinical-visit.yml)
 ___
 
 ### OpenMRS Dictionary Manager
@@ -97,7 +97,7 @@ There are two ways of running tests:
     Run the desired test using `npm run`, e.g.
     
     ```
-    npm run refApp3Login
+    npm run refapp3Login
     ```
     
     See the `scripts` section of [package.json](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/package.json).

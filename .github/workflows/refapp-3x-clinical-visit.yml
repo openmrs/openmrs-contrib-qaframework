@@ -1,11 +1,11 @@
-name: RefApp 3.x Search & Registration
+name: RefApp 3.x Clinical Visit
 on:
   push:
-    branches: [master]
+    branches: [ master ]
   pull_request:
-    branches: [master]
+    branches: [ master ]
   repository_dispatch:
-    types: [qa]
+    types: [ qa ]
   workflow_dispatch:
 jobs:
   build:
@@ -18,5 +18,5 @@ jobs:
           node-version: '12.x'
       - name: Installing dependencies
         run: npm install
-      - name: Run patient registration workflow tests
-        run: npm run refapp3Registration
+      - name: Run clinical visit workflow tests
+        run: npm run refapp3ClinicalVisit

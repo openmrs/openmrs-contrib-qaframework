@@ -1,6 +1,7 @@
 package org.openmrs.contrib.qaframework.automation;
 
 import org.openmrs.reference.ReferenceApplicationTestBase;
+import org.openmrs.reference.page.AdmitToInpatientPage;
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.reference.page.FindPatientPage;
 import org.openmrs.reference.page.HomePage;
@@ -28,6 +29,7 @@ public class Steps extends ReferenceApplicationTestBase {
 	protected By patientHeaderId = By.cssSelector("div.identifiers span");
 	protected InitialSetupPage initialSetupPage;
 	protected PatientVisitsDashboardPage visitsDashboardPage;
+	protected AdmitToInpatientPage admitToInpatientPage;
 
 	public Steps() {
 		try {

@@ -55,5 +55,4 @@ public class AdmitToInpatientSteps extends Steps {
 	public void savePatientToInpatientWard() {
 		admitToInpatientPage.confirm("Inpatient Ward");
 	}
-} 	
-
+}

@@ -19,4 +19,4 @@ jobs:
       - name: Installing dependencies
         run: npm install
       - name: Run patient registration workflow tests
-        run: npm run refapp3Registration
+        run: npm run refapp3SearchAndRegistration

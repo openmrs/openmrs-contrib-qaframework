@@ -20,7 +20,7 @@
     "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
     "microfrontend": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @microfrontend'",
     "refapp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature",
-    "refapp3Registration": "cypress run --spec src/test/resources/features/refapp-3.x/02-registration/search-and-registration.feature",
+    "refapp3searchAndRegistration": "cypress run --spec src/test/resources/features/refapp-3.x/02-registration/search-and-registration.feature",
     "refapp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature",
     "refapp3ClinicalVisit": "cypress run --spec src/test/resources/features/refapp-3.x/04-clinical-visit/clinical-visit.feature"
   },

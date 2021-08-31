@@ -23,7 +23,6 @@
     "refapp3searchAndRegistration": "cypress run --spec src/test/resources/features/refapp-3.x/02-registration/search-and-registration.feature",
     "refapp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature",
     "refapp3ClinicalVisit": "cypress run --spec src/test/resources/features/refapp-3.x/04-clinical-visit/clinical-visit.feature"
-    
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.0",

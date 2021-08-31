@@ -1,24 +1,25 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertNotNull;
+
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.reference.page.FindPatientPage;
+import org.openqa.selenium.By;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.FindPatientPage;
-import org.openqa.selenium.By;
-
-import static org.junit.Assert.assertNotNull;
 
 public class FindPatientSteps extends Steps {
 
-	@Before(RunTest.HOOK.SELENIUM_LOGIN)
+	@Before(RunTest.HOOK.SELENIUM_FINDPATIENT)
 	public void systemLogin() {
 		initiateWithLogin();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_LOGIN)
+	@After(RunTest.HOOK.SELENIUM_FINDPATIENT)
 	public void destroy() {
 		quit();
 	}
@@ -42,6 +43,7 @@ public class FindPatientSteps extends Steps {
 	@And("User enters John Smith")
 	public void enterJohnSmith() {
 		findPatientPage.enterPatient("John Smith");
+		findPatientPage.waitForPage();
 	}
 
 	@Then("Search Page returns patients")

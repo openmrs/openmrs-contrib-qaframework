@@ -4,7 +4,7 @@
     "*.feature",
     "**/*.feature"
   ],
-  "video": false,
+  "video": true,
   "defaultCommandTimeout": 120000,
   "baseUrl": "https://openmrs-spa.org/openmrs/spa",
   "env": {

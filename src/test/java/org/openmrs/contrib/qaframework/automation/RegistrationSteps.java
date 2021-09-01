@@ -21,7 +21,7 @@ public class RegistrationSteps extends Steps {
 	TestPatient patient;
 	ClinicianFacingPatientDashboardPage dashboardPage;
 
-	@After(RunTest.HOOK.SELENIUM)
+	@After(RunTest.HOOK.SELENIUM_REGISTRATION)
 	public void destroy() {
 		quit();
 	}

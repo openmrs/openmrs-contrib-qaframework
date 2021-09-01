@@ -29,7 +29,7 @@ Feature: User Settings
 
   @clinical-visit
   Scenario: The Conditions page should function properly
-    When the user clicks on "Allergies" in the menu
+    When the user clicks on "Conditions" in the menu
     Then the conditions list should be empty
     When the user adds a condition
     Then the added condition should be listed

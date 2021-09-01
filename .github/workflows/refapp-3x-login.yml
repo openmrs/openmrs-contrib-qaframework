@@ -31,9 +31,11 @@ jobs:
         run: npm run refApp3Login
       - run: ls -a /$(pwd)/
         if: ${{ always() }}
-      - run: ls -a /$(pwd)/openmrs/
-        if: ${{ always() }}
       - run: ls -a /
+        if: ${{ always() }}
+      - run: ls -a /openmrs/
+        if: ${{ always() }}
+      - run: ls -a /activemq_data/
         if: ${{ always() }}
       - name: Archive server logs
         if: ${{ always() }}

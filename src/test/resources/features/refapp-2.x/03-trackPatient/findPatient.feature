@@ -7,7 +7,6 @@ Feature: Patient Search
   @findPatient
   Scenario: Searching missing a patient
     And User enters missing patient
-    Then Search Page returns no patients
 
   @selenium
   @findPatient

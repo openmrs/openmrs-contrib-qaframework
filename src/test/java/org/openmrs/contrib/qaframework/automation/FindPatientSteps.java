@@ -4,7 +4,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.FindPatientPage;
-import org.openqa.selenium.By;
+import org.openmrs.uitestframework.test.TestData;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -14,13 +14,17 @@ import io.cucumber.java.en.Then;
 
 public class FindPatientSteps extends Steps {
 
+	private TestData.PatientInfo testPatient;
+
 	@Before(RunTest.HOOK.SELENIUM_FINDPATIENT)
 	public void systemLogin() {
+		testPatient = createTestPatient();
 		initiateWithLogin();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_FINDPATIENT)
 	public void destroy() {
+		deletePatient(testPatient);
 		quit();
 	}
 
@@ -32,17 +36,13 @@ public class FindPatientSteps extends Steps {
 
 	@And("User enters missing patient")
 	public void enterMissingPatient() {
-		findPatientPage.enterPatient("MissingPatient");
-	}
-
-	@Then("Search Page returns no patients")
-	public void noPatients() {
-		assertNotNull(getElement(By.className("dataTables_empty")));
+		findPatientPage.enterPatient("testPatient");
+		findPatientPage.waitForPage();
 	}
 
 	@And("User enters John Smith")
 	public void enterJohnSmith() {
-		findPatientPage.enterPatient("John Smith");
+		findPatientPage.enterPatient("testPatient");
 		findPatientPage.waitForPage();
 	}
 
@@ -55,10 +55,14 @@ public class FindPatientSteps extends Steps {
 	@And("User clicks on first patient")
 	public void clickFirstPatient() {
 		dashboardPage = findPatientPage.clickOnFirstPatient();
+
 	}
 
 	@Then("System loads patient dashboard")
 	public void loadPatientDashboard() {
 		matchPatientIds(firstPatientIdentifier);
+		dashboardPage.waitForPageToLoad();
 	}
 }
+
+

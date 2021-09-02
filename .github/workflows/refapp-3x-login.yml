@@ -35,7 +35,9 @@ jobs:
         if: ${{ always() }}
       - run: ls -a /openmrs/
         if: ${{ always() }}
-      - run: ls -a /activemq_data/
+      - run: ls -a /activemq-data/
+        if: ${{ always() }}
+      - run: ls -a /openmrs/activemq-data/
         if: ${{ always() }}
       - name: Archive server logs
         if: ${{ always() }}

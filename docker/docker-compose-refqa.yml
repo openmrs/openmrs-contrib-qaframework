@@ -33,7 +33,6 @@ services:
       timeout: 20s
     volumes:
       - /openmrs:/usr/local/tomcat/.OpenMRS
-      - /activemq-data:/usr/local/tomcat/.OpenMRS/activemq-data
 
 volumes:
   openmrs-referenceapplication-data:

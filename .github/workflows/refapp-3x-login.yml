@@ -43,7 +43,7 @@ jobs:
         with:
           name: openmrs.log
           path: |
-            /$(pwd)/openmrs/openmrs.log
+            /openmrs/openmrs.log
       - name: Upload screen recordings of failed tests
         if: ${{ failure() }}
         uses: actions/upload-artifact@v2

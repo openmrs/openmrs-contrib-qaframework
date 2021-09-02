@@ -21,7 +21,7 @@ jobs:
         ports:
           - "3306:3306"
         volumes:
-          - /$(pwd)/docker/mysql-config.cnf:/etc/mysql/my.cnf
+          - /$(pwd)/docker/mysql-config.cnf:/etc/my.cnf
           #- /$(pwd)/mysql-log:/var/log/mysql
       openmrs-referenceapplication:
         image: openmrs/openmrs-reference-application-distro:demo

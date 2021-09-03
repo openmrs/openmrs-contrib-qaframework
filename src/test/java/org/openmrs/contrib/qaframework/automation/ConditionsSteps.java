@@ -76,7 +76,7 @@ public class ConditionsSteps extends Steps {
 		conditionsPage.waitForPage();
 	}
 	
-	@When("User clicks on Return")
+	@When("user clicks return")
 	public void clickReturn() {
 		conditionsPage.clickReturn();
 	}

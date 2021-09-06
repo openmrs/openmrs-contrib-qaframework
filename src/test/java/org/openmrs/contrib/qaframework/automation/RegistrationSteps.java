@@ -18,9 +18,9 @@ import io.cucumber.java.en.Then;
 
 public class RegistrationSteps extends Steps {
 
-	RegistrationPage registrationPage;
-	TestPatient patient;
-	ClinicianFacingPatientDashboardPage dashboardPage;
+	private RegistrationPage registrationPage;
+	private TestPatient patient;
+	private ClinicianFacingPatientDashboardPage dashboardPage;
 
 	@After(RunTest.HOOK.SELENIUM_REGISTRATION)
 	public void destroy() {

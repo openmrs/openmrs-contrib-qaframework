@@ -64,5 +64,3 @@ public class FindPatientSteps extends Steps {
 		dashboardPage.waitForPageToLoad();
 	}
 }
-
-

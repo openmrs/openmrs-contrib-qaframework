@@ -1,7 +1,5 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.FindPatientPage;
 import org.openmrs.uitestframework.test.TestData;
@@ -46,11 +44,11 @@ public class FindPatientSteps extends Steps {
 		findPatientPage.waitForPage();
 	}
 
-	@Then("Search Page returns patients")
-	public void returnResults() {
-		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
-		assertNotNull(firstPatientIdentifier);
-	}
+//	@Then("Search Page returns patients")
+//	public void returnResults() {
+//		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
+//		assertNotNull(firstPatientIdentifier);
+//	}
 
 	@And("User clicks on first patient")
 	public void clickFirstPatient() {

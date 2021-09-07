@@ -26,7 +26,7 @@ public class RunTest {
 		public static final String CLINICAL_VISIT = "@clinicalVisit";
 		public static final String REGISTRATION = "@registration";
 		public static final String USER_ACCOUNT = "@userAccount";
-		public static final String INPATIENT = "@inpatient";		
+		public static final String INPATIENT = "@inpatient";
 		public static final String UPGRADE = "@upgrade";
 		public static final String VITALS = "@vitals";
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;

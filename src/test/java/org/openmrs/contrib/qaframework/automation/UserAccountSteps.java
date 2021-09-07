@@ -71,9 +71,9 @@ public class UserAccountSteps extends Steps {
 		assertTrue(textExists("Add New Account"));
 	}
 
-	@When("a user enters data clerk details in the user account form")
+	@And("a user enters data clerk details in the user account form")
 	public void registerDataClerkDetails() {
-		userAccountPage.enterPersonalDetails("Data", "Clerk");
+		userAccountPage.enterPersonalDetails("Clerk", "Data");
 		userAccountPage.selectGender();
 		userAccountPage.clickOnAddUserAccount();
 		userAccountPage.enterUsername("dclerk");
@@ -91,9 +91,9 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.setUserProviderRole("Clerk");
 	}
 
-	@When("a user enters nurse details in the user account form")
+	@And("a user enters nurse details in the user account form")
 	public void registerNurseDetails() {
-		userAccountPage.enterPersonalDetails("Senior", "Nurse");
+		userAccountPage.enterPersonalDetails("Nurse", "Senior");
 		userAccountPage.selectGender();
 		userAccountPage.clickOnAddUserAccount();
 		userAccountPage.enterUsername("snurse");
@@ -111,9 +111,9 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.setUserProviderRole("Nurse");
 	}
 
-	@When("a user enters doctor details in the user account form")
+	@And("a user enters doctor details in the user account form")
 	public void registerDoctorDetails() {
-		userAccountPage.enterPersonalDetails("Senior", "Doctor");
+		userAccountPage.enterPersonalDetails("Doctor", "Senior");
 		userAccountPage.selectGender();
 		userAccountPage.clickOnAddUserAccount();
 		userAccountPage.enterUsername("sdoctor");

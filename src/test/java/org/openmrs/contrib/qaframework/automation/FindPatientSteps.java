@@ -18,13 +18,11 @@ public class FindPatientSteps extends Steps {
 
 	@Before(RunTest.HOOK.SELENIUM_FINDPATIENT)
 	public void systemLogin() {
-		testPatient = createTestPatient();
 		initiateWithLogin();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_FINDPATIENT)
 	public void destroy() {
-		deletePatient(testPatient);
 		quit();
 	}
 
@@ -42,7 +40,7 @@ public class FindPatientSteps extends Steps {
 
 	@And("User enters John Smith")
 	public void enterJohnSmith() {
-		findPatientPage.enterPatient("testPatient");
+		findPatientPage.enterPatient("John Smith");
 		findPatientPage.waitForPage();
 	}
 

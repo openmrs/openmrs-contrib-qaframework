@@ -26,7 +26,7 @@ public class RegistrationSteps extends Steps {
 		quit();
 	}
 
-	@Given("Registration user rightly logs in")
+	@Given("Registered user rightly logs in")
 	public void registrationLogin() throws Exception {
 		goToLoginPage();
 		loginPage = getLoginPage();

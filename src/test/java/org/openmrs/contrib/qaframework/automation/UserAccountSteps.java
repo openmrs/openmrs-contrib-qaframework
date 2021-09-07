@@ -61,7 +61,7 @@ public class UserAccountSteps extends Steps {
 		assertTrue(textExists("Manage Accounts"));
 	}
 
-	@When("a user clicks add new account button")
+	@And("a user clicks add new account button")
 	public void goToAddNewAccountPage() {
 		userAccountPage.clickOnAddUser();
 	}

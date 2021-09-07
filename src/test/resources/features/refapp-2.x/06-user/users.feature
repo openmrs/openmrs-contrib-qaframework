@@ -5,7 +5,7 @@ Feature: User Account Management
     Then the system loads system administration page
     When a user clicks on manage accounts app
     Then the system loads manage acccount page
-    When a user clicks add new account button
+    And a user clicks add new account button
     Then the system loads add new account form
 
   @selenium

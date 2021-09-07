@@ -34,7 +34,7 @@ public class FindPatientSteps extends Steps {
 
 	@And("User enters missing patient")
 	public void enterMissingPatient() {
-		findPatientPage.enterPatient("testPatient");
+		findPatientPage.enterPatient("Missing patient");
 		findPatientPage.waitForPage();
 	}
 

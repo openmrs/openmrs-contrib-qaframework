@@ -25,6 +25,7 @@ public class RunTest {
 		public static final String TESTING_INSTALL = "@testingInstall";
 		public static final String CLINICAL_VISIT = "@clinicalVisit";
 		public static final String INPATIENT = "@inpatient";
+		public static final String LOCATION = "@location";
 		public static final String REGISTRATION = "@registration";
 		public static final String UPGRADE = "@upgrade";
 		public static final String VITALS = "@vitals";
@@ -41,5 +42,7 @@ public class RunTest {
 				+ INPATIENT;
 		public static final String SELENIUM_REGISTRATION = SELENIUM + " and "
 				+ REGISTRATION;
+		public static final String SELENIUM_LOCATION = SELENIUM + " and "
+				+ LOCATION;
 	}
 }

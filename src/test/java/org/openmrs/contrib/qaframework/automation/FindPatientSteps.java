@@ -47,6 +47,7 @@ public class FindPatientSteps extends Steps {
 	@Then("Search Page returns patients")
 	public void returnResults() {
 		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
+		findPatientPage.waitForPage();
 		assertNotNull(firstPatientIdentifier);
 	}
 

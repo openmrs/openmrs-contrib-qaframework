@@ -14,12 +14,12 @@ import io.cucumber.java.en.Then;
 
 public class FindPatientSteps extends Steps {
 
-	@Before(RunTest.HOOK.SELENIUM_FINDPATIENT)
+	@Before(RunTest.HOOK.SELENIUM_LOGIN)
 	public void systemLogin() {
 		initiateWithLogin();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_FINDPATIENT)
+	@After(RunTest.HOOK.SELENIUM_LOGIN)
 	public void destroy() {
 		quit();
 	}
@@ -45,11 +45,11 @@ public class FindPatientSteps extends Steps {
 		findPatientPage.enterPatient("John Smith");
 	}
 
-//	@Then("Search Page returns patients")
-//	public void returnResults() {
-//		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
-//		assertNotNull(firstPatientIdentifier);
-//	}
+	@Then("Search Page returns patients")
+	public void returnResults() {
+		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
+		assertNotNull(firstPatientIdentifier);
+	}
 
 	@And("User clicks on first patient")
 	public void clickFirstPatient() {

@@ -28,7 +28,7 @@ jobs:
       - name: Run RefApp 3.x frontend
         run: npx openmrs@next start --backend http://localhost:8080 --port 8081 &
       - name: Run patient login workflow tests
-        run: npm run refApp3Login
+        run: npm run refapp3Login
       - name: Dump docker logs
         if: ${{ always() }}
         uses: jwalton/gh-docker-logs@v1

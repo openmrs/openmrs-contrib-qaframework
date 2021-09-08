@@ -45,7 +45,6 @@ public class RunTest {
 				+ REGISTRATION;
 		public static final String SELENIUM_FINDPATIENT = SELENIUM + " and "
 				+ FINDPATIENT;
-		
 		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "
 				+ USER_ACCOUNT;
 	}

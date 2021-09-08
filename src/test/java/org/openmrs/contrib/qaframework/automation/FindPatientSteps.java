@@ -5,6 +5,7 @@ import static org.junit.Assert.assertNotNull;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.FindPatientPage;
 import org.openmrs.uitestframework.test.TestData;
+import org.openqa.selenium.By;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

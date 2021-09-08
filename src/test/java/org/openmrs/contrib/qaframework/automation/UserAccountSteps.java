@@ -72,7 +72,7 @@ public class UserAccountSteps extends Steps {
 	}
 
 	@And("a user enters data clerk details in the user account form")
-	public void registerDataClerkDetails() {
+	public void enterDataClerkDetails() {
 		userAccountPage.enterPersonalDetails("Clerk", "Data");
 		userAccountPage.selectGender();
 		userAccountPage.clickOnAddUserAccount();
@@ -92,7 +92,7 @@ public class UserAccountSteps extends Steps {
 	}
 
 	@And("a user enters nurse details in the user account form")
-	public void registerNurseDetails() {
+	public void enterNurseDetails() {
 		userAccountPage.enterPersonalDetails("Nurse", "Senior");
 		userAccountPage.selectGender();
 		userAccountPage.clickOnAddUserAccount();
@@ -112,7 +112,7 @@ public class UserAccountSteps extends Steps {
 	}
 
 	@And("a user enters doctor details in the user account form")
-	public void registerDoctorDetails() {
+	public void enterDoctorDetails() {
 		userAccountPage.enterPersonalDetails("Doctor", "Senior");
 		userAccountPage.selectGender();
 		userAccountPage.clickOnAddUserAccount();

@@ -45,11 +45,11 @@ public class FindPatientSteps extends Steps {
 		findPatientPage.enterPatient("John Smith");
 	}
 
-//	@Then("Search Page returns patients")
-//	public void returnResults() {
-//		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
-//		assertNotNull(firstPatientIdentifier);
-//	}
+	@Then("Search Page returns patients")
+	public void returnResults() {
+		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
+		assertNotNull(firstPatientIdentifier);
+	}
 
 	@And("User clicks on first patient")
 	public void clickFirstPatient() {

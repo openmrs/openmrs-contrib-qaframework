@@ -13,7 +13,6 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class FindPatientSteps extends Steps {
-
 	@Before(RunTest.HOOK.SELENIUM_FINDPATIENT)
 	public void systemLogin() {
 		initiateWithLogin();

@@ -20,6 +20,7 @@ public class RunTest {
 		public static final String DASHBOARD = "@dashboard";
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
+		public static final String FINDPATIENT = "@findPatient";
 		public static final String ADVANCED_INSTALL = "@advancedInstall";
 		public static final String POSTGRES_INSTALL = "@postgresInstall";
 		public static final String TESTING_INSTALL = "@testingInstall";
@@ -44,5 +45,7 @@ public class RunTest {
 				+ REGISTRATION;
 		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "
 				+ USER_ACCOUNT;
+		public static final String SELENIUM_FINDPATIENT = SELENIUM + " and "
+				+ FINDPATIENT;
 	}
 }

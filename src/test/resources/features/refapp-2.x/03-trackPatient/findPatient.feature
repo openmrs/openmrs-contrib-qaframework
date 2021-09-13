@@ -18,4 +18,4 @@ Feature: Patient Search
     Then System loads patient dashboard
      Examples:
       | patientName  | 
-      | John Smith    | 
+      | John Smith   | 

@@ -41,7 +41,7 @@ public class FindPatientSteps extends Steps {
 	}
 
 	@And("User enters {string} patientName")
-	public void enterJohnSmith(String patientName) {
+	public void enterPatientName(String patientName) {
 		findPatientPage.enterPatient(patientName);
 	}
 

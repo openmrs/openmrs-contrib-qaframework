@@ -1,5 +1,11 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.util.ArrayList;
+import java.util.List;
+
 import org.openmrs.reference.ReferenceApplicationTestBase;
 import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.reference.page.FindPatientPage;
@@ -12,18 +18,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.*;
-
 // Use english locale, of not set, the test instance should be set to english language
 public class Steps extends ReferenceApplicationTestBase {
 
 	protected TestProperties testProperties = TestProperties.instance();
 	protected LoginPage loginPage;
 	protected FindPatientPage findPatientPage;
-	protected String firstPatientIdentifier;
 	protected ClinicianFacingPatientDashboardPage dashboardPage;
 	protected By patientHeaderId = By.cssSelector("div.identifiers span");
 	protected InitialSetupPage initialSetupPage;

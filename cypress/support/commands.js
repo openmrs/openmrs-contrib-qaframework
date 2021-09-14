@@ -22,7 +22,7 @@ Cypress.Commands.add('runAndAwait', (callable, method='GET', addArtificialWait=f
   });
 
 Cypress.Commands.add('initiateExceptionsLogger', () => {
-    Cypress.on('uncaught:exception', (err, runnable) => {
+    cy.on('uncaught:exception', (err, runnable) => {
     	console.log(err);
     	return false;
     });

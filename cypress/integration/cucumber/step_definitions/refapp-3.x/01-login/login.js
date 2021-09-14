@@ -1,6 +1,17 @@
 import {Given} from 'cypress-cucumber-preprocessor/steps';
 
+//Before({tags: '@login'}, () => {
+//    cy.on('uncaught:exception', (err, runnable) => {
+//    	console.log(err);
+//    	return false;
+//    });
+//});
+
 Given('user arrives at the login page', () => {
+	cy.on('uncaught:exception', (err, runnable) => {
+    	console.log(err);
+    	return false;
+    });
     cy.visit('/login');
 })
 

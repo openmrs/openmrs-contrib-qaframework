@@ -1,6 +1,10 @@
 import {Given} from 'cypress-cucumber-preprocessor/steps';
 
-Given('the user login to the Registration Desk', () => {
+Given('the user login to the Registration Desk', () => { 
+    cy.on('uncaught:exception', (err, runnable) => {
+    	console.log(err);
+    	return false;
+    });
     cy.login();
     cy.visit('home');
 })

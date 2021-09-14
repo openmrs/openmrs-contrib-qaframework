@@ -12,10 +12,7 @@ Feature: Patient Search
   @selenium
   @login
   Scenario: Searching an existing patient
-    And User enters "<patientName>" patientName
+    And User enters John Smith
     Then Search Page returns patients
     And User clicks on first patient
     Then System loads patient dashboard
-     Examples:
-      | patientName  | 
-      | John Smith   | 

@@ -1,10 +1,14 @@
 import {Given} from 'cypress-cucumber-preprocessor/steps';
 
-Given('user arrives at the login page', () => {
-    cy.visit('/login');
-})
+Before({tags: '@patient-involved'}, () => {
+    cy.on('uncaught:exception', (err, runnable) => {
+        console.log(err);
+        return false;
+    });
+    cy.visit('/login');    
+});
 
-When('the user logs in with {string} and {string} to the {string}', (username, password, location) => {
+Given('the user logs in with {string} and {string} to the {string}', (username, password, location) => {
     cy.getByLabel('Username').type(username)
     cy.contains('Continue').click({force: true});
     cy.getByLabel('Password').type(password)

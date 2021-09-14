@@ -6,13 +6,13 @@ Before({tags: '@patient-involved'}, () => {
     cy.createPatient().then((user) => {
         patient_uuid = user.uuid;
     });
-});
-
-Given('the user is logged in', () => {  
     cy.on('uncaught:exception', (err, runnable) => {
     	console.log(err);
     	return false;
     });
+});
+
+Given('the user is logged in', () => {  
     cy.login();
 });
 

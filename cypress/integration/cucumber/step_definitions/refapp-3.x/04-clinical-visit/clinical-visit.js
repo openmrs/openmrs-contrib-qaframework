@@ -12,14 +12,13 @@ Before({tags: '@clinical-visit'}, () => {
             cy.startFacilityVisit(patient.uuid);
         });
     });
-
+    cy.on('uncaught:exception', (err, runnable) => { 
+    	console.log(err);
+    	return false;
+   });
 });
 
 Given('the user is logged in', () => {  
-    cy.on('uncaught:exception', (err, runnable) => {
-    	console.log(err);
-    	return false;
-    });
     cy.login();    
 });
 

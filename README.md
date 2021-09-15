@@ -19,7 +19,7 @@ Install & Upgrade Tests |
 
 2.x RefApp Workflow Tests |
 ------------ |
-[Chrome](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
+[All Chrome Tests](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
 [![All Firefox Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
 [![RefApp 2.x Clinical Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml)
 [![RefApp 2.x Vitals And Triaging](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml) 

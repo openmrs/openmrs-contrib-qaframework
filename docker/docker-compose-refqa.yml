@@ -15,7 +15,7 @@ services:
       - "3306:3306"
 
   openmrs-referenceapplication:
-    image: openmrs/openmrs-reference-application-distro:demo
+    image: openmrs/openmrs-reference-application-distro:qa
     depends_on:
       - openmrs-referenceapplication-mysql
     ports:

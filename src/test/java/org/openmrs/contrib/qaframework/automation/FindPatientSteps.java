@@ -43,9 +43,9 @@ public class FindPatientSteps extends Steps {
 		assertNotNull(getElement(By.className("dataTables_empty")));
 	}
 
-	@And("User enters familyName")
-	public void enterPatientName(String familyName) {
-		findPatientPage.enterPatient(testPatient.familyName);
+	@And("User enters patient identifier")
+	public void enterPatientName() {
+		findPatientPage.enterPatient(testPatient.identifier);
 	}
 
 	@Then("Search Page returns patients")

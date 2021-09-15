@@ -1,13 +1,17 @@
 # QA Dashboard: Project Status
 ___
 ## Platform (core)
-* [![Platform Simple Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-simple.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-simple.yml)
-* [![Platform Advanced Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml)
-* [![Platform Postgres Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml)
-* [![Platform Upgrade](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml)
-* [TRUNK](https://ci.openmrs.org/browse/TRUNK-MASTER) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/TRUNK-MASTER)
-* [RESTWS](https://ci.openmrs.org/browse/RESTWS-RESTWS) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/RESTWS-RESTWS)
-* [FHIR FM2](https://ci.openmrs.org/browse/FHIR-FM2) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2)
+
+[TRUNK](https://ci.openmrs.org/browse/TRUNK-MASTER) | [REST API](https://ci.openmrs.org/browse/RESTWS-RESTWS) | [FHIR API](https://ci.openmrs.org/browse/FHIR-FM2)
+------------ | ------------- | -------------
+![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/TRUNK-MASTER) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/RESTWS-RESTWS) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2)
+
+Install & Upgrade Tests 
+* [![Platform Simple Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-simple.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-simple.yml) 
+* [![Platform Advanced Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml) 
+* [![Platform Postgres Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml) 
+* [![Platform Upgrade](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml) 
+
 
 ## Reference Application
 

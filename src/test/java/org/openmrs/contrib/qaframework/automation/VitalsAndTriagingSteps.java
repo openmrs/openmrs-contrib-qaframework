@@ -118,11 +118,11 @@ public class VitalsAndTriagingSteps extends Steps {
 				hasItem("Maximum: 230"));
 		patientCaptureVitalsPage.clearPatientPulse();
 		patientCaptureVitalsPage.setPulseField("78");
-		patientCaptureVitalsPage.setRespiratoryField("1004");
+		patientCaptureVitalsPage.setRespiratoryField("106");
 		assertThat(patientCaptureVitalsPage.getValidationErrors(),
-				hasItem("Maximum: 999"));
+				hasItem("Maximum: 99"));
 		patientCaptureVitalsPage.clearPatientRespiratoryRate();
-		patientCaptureVitalsPage.setRespiratoryField("14");
+		patientCaptureVitalsPage.setRespiratoryField("16");
 		patientCaptureVitalsPage.setBloodPressureFields("120", "180");
 		assertThat(patientCaptureVitalsPage.getValidationErrors(),
 				hasItem("Maximum: 150"));

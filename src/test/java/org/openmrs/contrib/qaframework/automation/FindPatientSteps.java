@@ -17,13 +17,13 @@ public class FindPatientSteps extends Steps {
 
 	private TestData.PatientInfo testPatient;
 
-	@Before(RunTest.HOOK.SELENIUM_FINDPATIENT)
+	@Before(RunTest.HOOK.SELENIUM_FIND_PATIENT)
 	public void systemLogin() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_FINDPATIENT)
+	@After(RunTest.HOOK.SELENIUM_FIND_PATIENT)
 	public void destroy() {
 		deletePatient(testPatient);
 		quit();
@@ -46,7 +46,7 @@ public class FindPatientSteps extends Steps {
 	}
 
 	@And("User enters patient identifer")
-	public void enterpatientIdentifier() {
+	public void enterPatientIdentifier() {
 		findPatientPage.enterPatient(testPatient.identifier);
 	}
 
@@ -65,5 +65,4 @@ public class FindPatientSteps extends Steps {
 	public void loadPatientDashboard() {
 		matchPatientIds(firstPatientIdentifier);
 	}
-	
 }

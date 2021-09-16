@@ -120,7 +120,7 @@ public class VitalsAndTriagingSteps extends Steps {
 		patientCaptureVitalsPage.setPulseField("78");
 		patientCaptureVitalsPage.setRespiratoryField("1004");
 		assertThat(patientCaptureVitalsPage.getValidationErrors(),
-				hasItem("Maximum: 999"));
+				hasItem("Maximum: 99"));
 		patientCaptureVitalsPage.clearPatientRespiratoryRate();
 		patientCaptureVitalsPage.setRespiratoryField("14");
 		patientCaptureVitalsPage.setBloodPressureFields("120", "180");

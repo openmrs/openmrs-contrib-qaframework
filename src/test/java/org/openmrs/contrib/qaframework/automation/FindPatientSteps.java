@@ -4,6 +4,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.FindPatientPage;
+import org.openmrs.uitestframework.test.TestData;
 import org.openqa.selenium.By;
 
 import io.cucumber.java.After;
@@ -14,13 +15,17 @@ import io.cucumber.java.en.Then;
 
 public class FindPatientSteps extends Steps {
 
-	@Before(RunTest.HOOK.SELENIUM_LOGIN)
+	private TestData.PatientInfo testPatient;
+
+	@Before(RunTest.HOOK.SELENIUM_FINDPATIENT)
 	public void systemLogin() {
+		testPatient = createTestPatient();
 		initiateWithLogin();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_LOGIN)
+	@After(RunTest.HOOK.SELENIUM_FINDPATIENT)
 	public void destroy() {
+		deletePatient(testPatient);
 		quit();
 	}
 
@@ -40,9 +45,9 @@ public class FindPatientSteps extends Steps {
 		assertNotNull(getElement(By.className("dataTables_empty")));
 	}
 
-	@And("User enters John Smith")
-	public void enterJohnSmith() {
-		findPatientPage.enterPatient("John Smith");
+	@And("User enters patient identifer")
+	public void enterpatientIdentifier() {
+		findPatientPage.enterPatient(testPatient.identifier);
 	}
 
 	@Then("Search Page returns patients")

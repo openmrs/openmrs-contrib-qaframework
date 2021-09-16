@@ -65,4 +65,5 @@ public class FindPatientSteps extends Steps {
 	public void loadPatientDashboard() {
 		matchPatientIds(firstPatientIdentifier);
 	}
+	
 }

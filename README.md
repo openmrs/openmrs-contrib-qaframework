@@ -26,8 +26,6 @@ Install & Upgrade Tests |
 [![RefApp 2.x Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml)
 [![RefApp 2.x User Account](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user-account.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user-account.yml)
 [![RefApp 2.x Find Patient](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-find-Patient.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-find-Patient.yml)
-Find Patients: _______
-Security: XSS Checks ______ 
 
 2.x RefApp Feature-Specific Tests |
 ------------- |
@@ -37,7 +35,7 @@ Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs
 [Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2)
 
 
-3.x RefApp |
+3.x RefApp Workflow Tests|
 ------------- |
 [![RefApp 3.x Login](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-login.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-login.yml)
 [![RefApp 3.x Search & Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-search-and-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-search-and-registration.yml)

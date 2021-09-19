@@ -28,6 +28,7 @@ public class Steps extends ReferenceApplicationTestBase {
 	protected By patientHeaderId = By.cssSelector("div.identifiers span");
 	protected InitialSetupPage initialSetupPage;
 	protected PatientVisitsDashboardPage visitsDashboardPage;
+	protected HomePage homePage;
 
 	public Steps() {
 		try {

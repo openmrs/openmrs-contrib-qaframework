@@ -2,22 +2,18 @@ package org.openmrs.contrib.qaframework.automation;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.ConditionPage;
 import org.openmrs.reference.page.ConditionsPage;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.UnhandledAlertException;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class XSSCheckSteps extends Steps {
-	private static final String ALERT_1_SCRIPT = "<script>alert(\"XSS is executed\");</script>";
+	private static final String ALERT_MESSAGE_SCRIPT = "<script>alert(\"XSS is executed\");</script>";
 	private ConditionPage conditionPage;
 	private ConditionsPage conditionsPage;
 	private String patientDashboardId;
@@ -46,25 +42,12 @@ public class XSSCheckSteps extends Steps {
 				.waitForPage();
 	}
 
-	@And("user enters a malicious code")
+	@Then("user enters a malicious code")
 	public void enterMaliciousCCondition() {
-		conditionPage.typeInCondition(ALERT_1_SCRIPT);
-	}
-
-	@Then("System does not execute the XSS")
-	public void systemThrowsXSS() {
-		assertThat(isAlertDisplayed(), is(false));
-	}
-
-	public boolean isAlertDisplayed() {
-		WebDriverWait wait = new WebDriverWait(driver, 10 /* timeout in seconds */);
-		boolean foundAlert = false;
 		try {
-			wait.until(ExpectedConditions.alertIsPresent());
-			foundAlert = true;
-		} catch (TimeoutException e) {
-			System.out.println("alert is present");
+			conditionPage.typeInCondition(ALERT_MESSAGE_SCRIPT);
+		} catch (UnhandledAlertException e) {
+			assertTrue(e.getAlertText().equals(ALERT_MESSAGE_SCRIPT));
 		}
-		return foundAlert;
 	}
 }

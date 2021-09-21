@@ -27,7 +27,6 @@ import static org.junit.Assert.assertTrue;
 public class LocationsSteps extends Steps {
 
 	private static final String PREFERRED_HANDLER = "Location Field Gen Datatype Handler";
-	private static final String DESCRIPTION = "The location is for expectant mothers";
 	private ManageLocationAttributeTypesPage attributePage;
 	private ManageLocationTagsPage manageLocationTagsPage;
 	private ManageLocationsPage manageLocationsPage;
@@ -119,7 +118,8 @@ public class LocationsSteps extends Steps {
 	@And("a user enters location tag details into the form")
 	public void enterLocationTagDetails() {
 		manageLocationTagsPage.enterLocationTagName("Maternity Ward Wing");
-		manageLocationTagsPage.enterLocationTagDescription("For expectant mothers");
+		manageLocationTagsPage
+				.enterLocationTagDescription("For expectant mothers");
 	}
 
 	@And("a user clicks on save location tag button")
@@ -155,7 +155,8 @@ public class LocationsSteps extends Steps {
 	@And("a user enters location attribute type details into the form")
 	public void enterLocationAttributeTypeDetails() {
 		attributePage.enterLocationAttributeTypeName("Female Ward");
-		attributePage.enterLocationAttributeTypeDescription(DESCRIPTION);
+		attributePage
+				.enterLocationAttributeTypeDescription("The location is for expectant mothers");
 		attributePage.enterMinimumOccurs("1");
 		attributePage.enterMaximumOccurs("3");
 		attributePage.selectDatatype("Location Datatype");
@@ -163,7 +164,7 @@ public class LocationsSteps extends Steps {
 	}
 
 	@And("a user clicks on save location attribute type button")
-	public void clickOnSaveLocationAttributeTypeButton() {
+	public void clickOnSaveButton() {
 		attributePage.clickOnSaveButton();
 		attributePage.waitForPageToLoad();
 	}

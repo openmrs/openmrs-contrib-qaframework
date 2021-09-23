@@ -38,6 +38,7 @@ public class Steps extends ReferenceApplicationTestBase {
 		}
 	}
 
+	//Call the quit function to terminate run
 	protected void quit() {
 		if (driver != null) {
 			driver.quit();

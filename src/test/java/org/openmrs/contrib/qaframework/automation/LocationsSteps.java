@@ -18,6 +18,7 @@ import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.reference.page.ConfigureMetadataPage;
+import org.openmrs.reference.page.HomePage;
 import org.openmrs.reference.page.ManageLocationAttributeTypesPage;
 import org.openmrs.reference.page.ManageLocationTagsPage;
 import org.openmrs.reference.page.ManageLocationsPage;
@@ -28,9 +29,10 @@ public class LocationsSteps extends Steps {
 
 	private static final String PREFERRED_HANDLER = "Location Field Gen Datatype Handler";
 	private ManageLocationAttributeTypesPage attributePage;
-	private ManageLocationTagsPage manageLocationTagsPage;
-	private ManageLocationsPage manageLocationsPage;
+	private ManageLocationTagsPage locationTagsPage;
+	private ManageLocationsPage locationsPage;
 	private ConfigureMetadataPage metadataPage;
+	private HomePage homePage;
 
 	@Before(RunTest.HOOK.SELENIUM_LOCATION)
 	public void visitHomePage() {
@@ -49,22 +51,22 @@ public class LocationsSteps extends Steps {
 
 	@Then("the system loads configure metadata page")
 	public void systemLoadsConfigureMetadataPage() {
-		assertTrue(textExists("Configure Metadata"));
+		assertPage(metadataPage.waitForPage());
 	}
 
 	@When("a user clicks on manage location link from configure metadata page")
 	public void goToManageLocationsPage() {
-		manageLocationsPage = metadataPage.goToManageLocations();
+		locationsPage = metadataPage.goToManageLocations();
 	}
 
 	@Then("the system loads manage locations page")
 	public void systemLoadsManageLocationsPage() {
-		assertTrue(textExists("Manage Locations"));
+		assertPage(locationsPage.waitForPage());
 	}
 
 	@And("a user clicks on add new location button")
 	public void clickOnAddNewLocationButton() {
-		manageLocationsPage.goToAddNewLocation();
+		locationsPage.goToAddNewLocation();
 	}
 
 	@Then("the system loads add new location form")
@@ -74,20 +76,20 @@ public class LocationsSteps extends Steps {
 
 	@And("a user enters location details into the form")
 	public void enterLocationDetails() {
-		manageLocationsPage.enterLocationName("Maternity ward");
-		manageLocationsPage.enterLocationDescription("Expectant mothers ward");
-		manageLocationsPage.enterAddress1("Upper floor");
-		manageLocationsPage.enterAddress2("Lower floor");
-		manageLocationsPage.enterCity("Gulu");
-		manageLocationsPage.enterState("Central");
-		manageLocationsPage.enterCountry("Uganda");
-		manageLocationsPage.enterPostalCode("25619");
-		manageLocationsPage.selectLocationTag();
+		locationsPage.enterLocationName("Maternity ward");
+		locationsPage.enterLocationDescription("Expectant mothers ward");
+		locationsPage.enterAddress1("Upper floor");
+		locationsPage.enterAddress2("Lower floor");
+		locationsPage.enterCity("Gulu");
+		locationsPage.enterState("Central");
+		locationsPage.enterCountry("Uganda");
+		locationsPage.enterPostalCode("25619");
+		locationsPage.selectLocationTag();
 	}
 
 	@And("a user clicks on save location button")
 	public void clickOnSaveLocationButton() {
-		manageLocationsPage.saveLocation();
+		locationsPage.saveLocation();
 	}
 
 	@Then("the system adds location into the locations table")
@@ -97,17 +99,17 @@ public class LocationsSteps extends Steps {
 
 	@When("a user clicks on manage location tags link from configure metadata page")
 	public void goToManageLocationTagsPage() {
-		manageLocationTagsPage = metadataPage.goToManageLocationTagPage();
+		locationTagsPage = metadataPage.goToManageLocationTagPage();
 	}
 
 	@Then("the system loads manage location tags page")
 	public void systemLoadsManageLocationTagsPage() {
-		assertTrue(textExists("Manage Location Tags"));
+		assertPage(locationTagsPage.waitForPage());
 	}
 
 	@And("a user clicks on add new location tag button")
 	public void goToLocationTagsForm() {
-		manageLocationTagsPage.goToAddNewLocationTagForm();
+		locationTagsPage.goToAddNewLocationTagForm();
 	}
 
 	@Then("the system loads add new location tag form")
@@ -117,14 +119,13 @@ public class LocationsSteps extends Steps {
 
 	@And("a user enters location tag details into the form")
 	public void enterLocationTagDetails() {
-		manageLocationTagsPage.enterLocationTagName("Maternity Ward Wing");
-		manageLocationTagsPage
-				.enterLocationTagDescription("For expectant mothers");
+		locationTagsPage.enterLocationTagName("Maternity Ward Wing");
+		locationTagsPage.enterLocationTagDescription("For expectant mothers");
 	}
 
 	@And("a user clicks on save location tag button")
 	public void clickOnSaveLocationTagsButton() {
-		manageLocationTagsPage.saveLocationTag();
+		locationTagsPage.saveLocationTag();
 	}
 
 	@Then("the system adds location tag into the location tags table")
@@ -139,7 +140,7 @@ public class LocationsSteps extends Steps {
 
 	@Then("the system loads manage location attribute types page")
 	public void systemLoadsManageLocationAttributeTypesPage() {
-		assertTrue(textExists("Manage Location Attribute Types"));
+		assertPage(attributePage.waitForPage());
 	}
 
 	@And("a user clicks on add new location attribute type button")
@@ -155,8 +156,7 @@ public class LocationsSteps extends Steps {
 	@And("a user enters location attribute type details into the form")
 	public void enterLocationAttributeTypeDetails() {
 		attributePage.enterLocationAttributeTypeName("Female Ward");
-		attributePage
-				.enterLocationAttributeTypeDescription("The location is for expectant mothers");
+		attributePage.enterLocationAttributeTypeDescription("The location is for expectant mothers");
 		attributePage.enterMinimumOccurs("1");
 		attributePage.enterMaximumOccurs("3");
 		attributePage.selectDatatype("Location Datatype");

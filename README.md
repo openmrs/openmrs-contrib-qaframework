@@ -28,12 +28,12 @@ Install & Upgrade Tests |
 [![RefApp 2.x Find Patient](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-find-Patient.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-find-Patient.yml)
 [![RefApp 2.x Location](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-location.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-location.yml)
 
-2.x RefApp Feature-Specific Tests |
+2.x RefApp Feature-Specific Tests* |
 ------------- |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
 [![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml/badge.svg)](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml)
-Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs-distro-referenceapplication/tree/master/ui-tests/src/test/java/org/openmrs/reference).
-[Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2)
+[Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2) 
+###### * Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs-distro-referenceapplication/tree/master/ui-tests/src/test/java/org/openmrs/reference).
 
 
 3.x RefApp Workflow Tests|
@@ -44,6 +44,8 @@ Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs
 [![RefApp 3.x Clinical Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-clinical-visit.yml)
 ___
 
+## Concept Management Tools 
+
 OpenMRS Dictionary Manager|
 ------------- |
 [![Dictionary Manager](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/dictionary-manager.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/dictionary-manager.yml)
@@ -51,6 +53,9 @@ Basic Dictionary Management ____
 Loading into EMR ____
 Organization Management ____
 
+OCL Module (Subscription Module)
+-----|
+[OCL Module](https://ci.openmrs.org/browse/OCLM-OCLM) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/OCLM-OCLM)
 
 ___
 # openmrs-contrib-qaframework

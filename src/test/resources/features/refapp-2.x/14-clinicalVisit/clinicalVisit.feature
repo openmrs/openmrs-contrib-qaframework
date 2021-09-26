@@ -50,3 +50,55 @@ Feature: Clinical Visit Management
     When a user attaches patient supporting file
     And a user clicks the upload file button
     Then the system uploads the file
+
+  @selenium
+  @clinicalVisit
+  Scenario: Patient Dashboard adding Allergy
+    # User story: Adding New Allergy
+    When user clicks on Allergies link from Patient dashboard
+    Then system loads Allergies table page
+    When a user clicks Add New Allergy button
+    Then the system loads Add New Allergy dashboard
+    And the user selects a new Allergy
+    And the user clicks on the Save button
+    Then the system adds a new Allergy
+
+  @selenium
+  @clinicalVisit
+  Scenario: Patient Dashboard adding condition
+    # User story: Add New Condition
+    When a user clicks on Conditions on Patient dashboard
+    Then system loads Conditions Page
+    When user clicks on Add new condition button
+    And user enters patient condition
+    And user clicks on save button
+    Then system adds New Condition in Conditions table
+
+  @selenium
+  @clinicalVisit
+  Scenario: Patient Dashboard adding Allergy2
+    # User story: Adding and deleting New Allergy2
+    When a user clicks on Allergy2 link from Patient dashboard page2
+    Then the system loads Allergy2 board page
+    When a user clicks Add New Allergy2 button
+    Then the system loads Add New Allergy2 dashboard
+    And the user selects a new Allergy2
+    And the user clicks on the Save button2
+    Then the system adds a new Allergy2
+    When the user clicks on the delete button from the patient dashboard
+    And the system loads Remove Allergy dashboard
+    Then system displays no allergy in the Allergies table
+
+  @selenium
+  @clinicalVisit
+  Scenario: Patient Dashboard adding Condition2
+    # User story: Adding and deleting New Condition2
+    When a user clicks on Condition2 link from Patient dashboard page
+    Then the system loads Condition2 board page
+    When a user clicks Add New Condition2 button
+    And the system loads Add New Condition2 dashboard
+    And user clicks on the Save button2
+    Then the system adds a new Condition2
+    When the user clicks on the delete button from dashboard
+    Then user clicks on the yes button to confirm
+

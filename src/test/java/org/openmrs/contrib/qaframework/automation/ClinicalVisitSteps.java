@@ -18,6 +18,7 @@ import org.openmrs.reference.page.PatientVisitsDashboardPage;
 import org.openmrs.reference.page.RequestAppointmentPage;
 import org.openmrs.reference.page.VisitNotePage;
 import org.openmrs.uitestframework.test.TestData;
+import org.openqa.selenium.By;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -259,4 +260,179 @@ public class ClinicalVisitSteps extends Steps {
 		assertNull(visitsDashboardPage.getActiveVisit());
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
+	// Scenario: Patient Dashboard adding Allergy and condition
+	// User story: Adding New Allergy
+	@When("user clicks on Allergies link from Patient dashboard")
+	public void launchManageAllergies() {
+		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
+				.waitForPage();
+	}
+
+	@Then("system loads Allergies table page")
+	public void systemLoadsManageAllergies() {
+		assertEquals(getElement(patientHeaderId).getText(),
+				getElement(patientHeaderId).getText());
+		assertTrue(textExists("Allergies"));
+	}
+
+	@When("a user clicks Add New Allergy button")
+	public void addNewAllergy() {
+		allergyPage.clickOnAddNewAllergy();
+	}
+
+	@Then("the system loads Add New Allergy dashboard")
+	public void systemLoadsAddNewAllergy() {
+		assertTrue(textExists("Add New Allergy"));
+	}
+
+	@And("the user selects a new Allergy")
+	public void selectNewAllergy() {
+		allergyPage.clickOn(By.id("allergen-73667-label"));// Codeine
+	}
+
+	@And("the user clicks on the Save button")
+	public void saveAllergy() {
+		allergyPage.clickOn(By.id("addAllergyBtn"));
+		allergyPage.waitForPage();
+	}
+
+	@Then("the system adds a new Allergy")
+	public void systemAddsAllergy() {
+		assertTrue(textExists("Codeine"));
+	}
+
+	// User story: Add New Condition
+	@When("a user clicks on Conditions on Patient dashboard")
+	public void loadManageConditions() {
+		conditionsPage = (ConditionsPage) dashboardPage
+				.clickOnConditionsWidgetLink().waitForPage();
+	}
+
+	@Then("system loads Conditions Page")
+	public void loadsManageConditionsPage() {
+		assertTrue(conditionsPage.containsText("Conditions"));
+	}
+
+	@When("user clicks on Add new condition button")
+	public void clicksAddNewCondition() {
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
+				.waitForPage();
+	}
+
+	@And("user enters patient condition")
+	public void userEntersExistingCondition() {
+		conditionPage.typeInCondition(CONDITION);
+	}
+
+	@And("user clicks on save button")
+	public void clicksSaveCondition() {
+		conditionPage.clickSave();
+	}
+
+	@Then("system adds New Condition in Conditions table")
+	public void systemAddsNewCondition() {
+		assertNotNull(conditionsPage.getConditionsList());
+		dashboardPage = conditionsPage.clickReturn();
+	}
+
+	// Scenario: Patient Dashboard adding Allergy2
+	// User story: Adding and deleting New Allergy2
+	@When("a user clicks on Allergy2 link from Patient dashboard page2")
+	public void loadManageAllergy2() {
+		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
+				.waitForPage();
+	}
+
+	@Then("the system loads Allergy2 board page")
+	public void loadsManageAllergy2() {
+		assertEquals(getElement(patientHeaderId).getText(),
+				getElement(patientHeaderId).getText());
+		assertTrue(textExists("Allergies"));
+	}
+
+	@When("a user clicks Add New Allergy2 button")
+	public void addNewAllergy2() {
+		allergyPage.clickOnAddNewAllergy();
+	}
+
+	@Then("the system loads Add New Allergy2 dashboard")
+	public void loadsAddNewAllergy2() {
+		assertTrue(textExists("Add New Allergy"));
+	}
+
+	@And("the user selects a new Allergy2")
+	public void selectNewAllergy2() {
+		allergyPage.clickOn(By.id("allergen-162297-label"));// Penicillins
+	}
+
+	@And("the user clicks on the Save button2")
+	public void saveAllergy2() {
+		allergyPage.clickOn(By.id("addAllergyBtn"));
+		allergyPage.waitForPage();
+	}
+
+	@Then("the system adds a new Allergy2")
+	public void systemAddsAllergy2() {
+		assertTrue(textExists("Penicillins"));
+	}
+
+	@When("the user clicks on the delete button from the patient dashboard")
+	public void deleteAllergy2() {
+		allergyPage.clickOnDeleteAllergy();
+	}
+
+	@And("the system loads Remove Allergy dashboard")
+	public void confirmDeleteAllergy2() {
+		allergyPage.clickOnConfirmDeleteAllergy();
+	}
+
+	@Then("system displays no allergy in the Allergies table")
+	public void systemRemovesAllergy2() {
+		assertTrue(textExists("Unknown"));
+	}
+
+	// Scenario: Patient Dashboard adding Condition2
+	// User story: Adding and deleting New Condition2
+	@When("a user clicks on Condition2 link from Patient dashboard page")
+	public void loadManageCondition2() {
+		conditionsPage = (ConditionsPage) dashboardPage
+				.clickOnConditionsWidgetLink().waitForPage();
+	}
+
+	@Then("the system loads Condition2 board page")
+	public void loadsManageConditionsPage2() {
+		assertTrue(conditionsPage.containsText("Conditions"));
+	}
+
+	@When("a user clicks Add New Condition2 button")
+	public void clicksAddNewCondition2() {
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
+				.waitForPage();
+	}
+	@And("the system loads Add New Condition2 dashboard")
+	public void userEntersExistingCondition2() {
+		conditionPage.typeInCondition(CONDITION);
+	}
+
+	@And("user clicks on the Save button2")
+	public void clicksSaveCondition2() {
+		conditionPage.clickSave();
+	}
+
+	@Then("the system adds a new Condition2")
+	public void systemAddsNewCondition2() {
+		assertNotNull(conditionsPage.getConditionsList());
+		dashboardPage = conditionsPage.clickReturn();
+	}
+
+	@When("the user clicks on the delete button from dashboard")
+	public void deleteCondition2() {
+		conditionsPage.clickOn(By.className("delete-action"));
+	}
+
+	@Then("user clicks on the yes button to confirm")
+	public void deleteCondition2Confirmation() {
+		conditionsPage.confirmDeleteCondition2();
+	}
+
 }

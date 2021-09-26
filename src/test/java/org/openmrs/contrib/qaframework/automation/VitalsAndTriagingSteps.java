@@ -5,8 +5,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.FindPatientPage;
-import org.openmrs.reference.page.PatientCaptureVitalsPage;
+import org.openmrs.contrib.qaframework.page.FindPatientPage;
+import org.openmrs.contrib.qaframework.page.PatientCaptureVitalsPage;
 import org.openmrs.uitestframework.test.TestData;
 
 import io.cucumber.java.After;

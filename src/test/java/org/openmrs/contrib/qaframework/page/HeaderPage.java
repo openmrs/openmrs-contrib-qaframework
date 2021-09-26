@@ -7,30 +7,30 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class HeaderPage extends Page {
 
-    static final String HOME_ICON = "logo";
-    static final String HOME_LINK_TEXT = "Home";
-    static final By LOGOUT = By.cssSelector(".logout > a");
-    
-    public HeaderPage(WebDriver driver) {
-        super(driver);
-    }
+	static final String HOME_ICON = "logo";
+	static final String HOME_LINK_TEXT = "Home";
+	static final By LOGOUT = By.cssSelector(".logout > a");
 
-    public void clickOnHomeIcon() throws InterruptedException {
-        clickOn(By.className(HOME_ICON));
-    }
+	public HeaderPage(WebDriver driver) {
+		super(driver);
+	}
 
-    // TODO This is unused, do we really need it?
-    public void clickOnHomeLink() {
-        clickOn(By.linkText(HOME_LINK_TEXT));
-    }
+	public void clickOnHomeIcon() throws InterruptedException {
+		clickOn(By.className(HOME_ICON));
+	}
 
-    public void logOut() throws InterruptedException {
-    	waiter.until(ExpectedConditions.visibilityOfElementLocated(LOGOUT));
-        clickOn(LOGOUT);
-    }
+	// TODO This is unused, do we really need it?
+	public void clickOnHomeLink() {
+		clickOn(By.linkText(HOME_LINK_TEXT));
+	}
 
-    @Override
-    public String getPageUrl() {
-        return null;
-    }
+	public void logOut() throws InterruptedException {
+		waiter.until(ExpectedConditions.visibilityOfElementLocated(LOGOUT));
+		clickOn(LOGOUT);
+	}
+
+	@Override
+	public String getPageUrl() {
+		return null;
+	}
 }

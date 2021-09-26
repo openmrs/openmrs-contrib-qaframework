@@ -1,16 +1,17 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import org.junit.Assert;
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.page.StylesGuidePage;
+import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
+import org.openqa.selenium.By;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.StylesGuidePage;
-import org.openmrs.reference.page.SystemAdministrationPage;
-import org.openqa.selenium.By;
 
 public class StylesGuideSteps extends Steps {
 	private SystemAdministrationPage systemAdministrationPage;

@@ -3,7 +3,7 @@ package org.openmrs.contrib.qaframework.automation;
 import static org.junit.Assert.assertNotNull;
 
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.FindPatientPage;
+import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.uitestframework.test.TestData;
 import org.openqa.selenium.By;
 

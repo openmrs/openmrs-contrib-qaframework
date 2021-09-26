@@ -1,28 +1,29 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
+import org.openmrs.contrib.qaframework.page.AddOrEditAllergyPage;
+import org.openmrs.contrib.qaframework.page.AllergyPage;
+import org.openmrs.contrib.qaframework.page.AttachmentsPage;
+import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
+import org.openmrs.contrib.qaframework.page.ConditionPage;
+import org.openmrs.contrib.qaframework.page.ConditionsPage;
+import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
+import org.openmrs.contrib.qaframework.page.RequestAppointmentPage;
+import org.openmrs.contrib.qaframework.page.VisitNotePage;
+import org.openmrs.uitestframework.test.TestData;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.ActiveVisitsPage;
-import org.openmrs.reference.page.AddOrEditAllergyPage;
-import org.openmrs.reference.page.AllergyPage;
-import org.openmrs.reference.page.AttachmentsPage;
-import org.openmrs.reference.page.ConditionPage;
-import org.openmrs.reference.page.ConditionsPage;
-import org.openmrs.reference.page.PatientVisitsDashboardPage;
-import org.openmrs.reference.page.RequestAppointmentPage;
-import org.openmrs.reference.page.VisitNotePage;
-import org.openmrs.uitestframework.test.TestData;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 public class ClinicalVisitSteps extends Steps {
 
@@ -33,6 +34,7 @@ public class ClinicalVisitSteps extends Steps {
 	private static final String REACTION = "Headache";
 	private static final String CONDITION = "Malaria";
 	private ActiveVisitsPage activeVisitsPage;
+	private PatientVisitsDashboardPage patientVisitDashbaordPage;
 	private VisitNotePage visitNotePage;
 	private AllergyPage allergyPage;
 	private AddOrEditAllergyPage addOrEditAllergyPage;
@@ -40,6 +42,7 @@ public class ClinicalVisitSteps extends Steps {
 	private ConditionsPage conditionsPage;
 	private AttachmentsPage attachmentsPage;
 	private RequestAppointmentPage requestAppointmentPage;
+	private ClinicianFacingPatientDashboardPage dashboardPage;
 	private TestData.PatientInfo testPatient;
 
 	@Before(RunTest.HOOK.SELENIUM_CLINICAL_VISIT)

@@ -1,17 +1,19 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
+import org.apache.commons.lang3.StringUtils;
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.page.ConditionPage;
+import org.openmrs.contrib.qaframework.page.ConditionsPage;
+import org.openqa.selenium.By;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.apache.commons.lang3.StringUtils;
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.ConditionPage;
-import org.openmrs.reference.page.ConditionsPage;
-import org.openqa.selenium.By;
-
-import static org.junit.Assert.*;
 
 public class ConditionsSteps extends Steps {
 	private ConditionsPage conditionsPage;

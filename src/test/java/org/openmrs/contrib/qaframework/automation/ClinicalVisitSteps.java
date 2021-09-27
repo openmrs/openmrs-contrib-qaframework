@@ -432,7 +432,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@Then("user clicks on the yes button to confirm")
 	public void deleteCondition2Confirmation() {
-		conditionsPage.confirmDeleteCondition2();
+		conditionsPage.confirmDeleteCondition();
 	}
 
 }

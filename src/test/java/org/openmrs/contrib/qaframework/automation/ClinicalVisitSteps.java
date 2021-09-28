@@ -260,7 +260,7 @@ public class ClinicalVisitSteps extends Steps {
 		assertNull(visitsDashboardPage.getActiveVisit());
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
-	// Scenario: Patient Dashboard adding Allergy and condition
+
 	// User story: Adding New Allergy
 	@When("user clicks on Allergies link from Patient dashboard")
 	public void launchManageAllergies() {
@@ -335,7 +335,6 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = conditionsPage.clickReturn();
 	}
 
-	// Scenario: Patient Dashboard adding Allergy2
 	// User story: Adding and deleting New Allergy2
 	@When("a user clicks on Allergy2 link from Patient dashboard page2")
 	public void loadManageAllergy2() {
@@ -391,7 +390,7 @@ public class ClinicalVisitSteps extends Steps {
 		assertTrue(textExists("Unknown"));
 	}
 
-	// Scenario: Patient Dashboard adding Condition2
+
 	// User story: Adding and deleting New Condition2
 	@When("a user clicks on Condition2 link from Patient dashboard page")
 	public void loadManageCondition2() {

@@ -4,8 +4,8 @@ Feature: Location Management
     Given a user clicks on configure metadata link from home page
     Then the system loads configure metadata page
 
-  @selenium
-  @location
+  #@selenium
+  #@location
   Scenario: Create Location
     When a user clicks on manage location link from configure metadata page
     Then the system loads manage locations page
@@ -15,8 +15,8 @@ Feature: Location Management
     And a user clicks on save location button
     Then the system adds location into the locations table         
     
-  @selenium
-  @location
+  #@selenium
+  #@location
   Scenario: Manage Location Tags
     When a user clicks on manage location tags link from configure metadata page
     Then the system loads manage location tags page
@@ -26,8 +26,8 @@ Feature: Location Management
     And a user clicks on save location tag button
     Then the system adds location tag into the location tags table
      
-  @selenium
-  @location
+  #@selenium
+  #@location
   Scenario: Manage Location Attribute Types
     When a user clicks on manage location attribute types link from configure metadata page
     Then the system loads manage location attribute types page

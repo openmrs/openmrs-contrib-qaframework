@@ -270,8 +270,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@Then("system loads Allergies table page")
 	public void systemLoadsManageAllergies() {
-		assertEquals(getElement(patientHeaderId).getText(),
-				getElement(patientHeaderId).getText());
+				getElement(patientHeaderId).getText();
 		assertTrue(textExists("Allergies"));
 	}
 

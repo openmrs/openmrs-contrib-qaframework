@@ -20,11 +20,8 @@ import io.cucumber.java.en.When;
 public class ConditionsSteps extends Steps {
 	
 	private ConditionsPage conditionsPage;
-	
 	private String patientDashboardId;
-	
 	private By addNewCondition = By.id("conditionui-addNewCondition");
-	
 	private ConditionPage conditionPage;
 	
 	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)

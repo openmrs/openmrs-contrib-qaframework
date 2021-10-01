@@ -276,23 +276,14 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks Add New Allergy button")
 	public void addNewAllergy() {
-		allergyPage.clickOnAddNewAllergy();
-	}
-
-	@Then("the system loads Add New Allergy dashboard")
-	public void systemLoadsAddNewAllergy() {
-		assertTrue(textExists("Add New Allergy"));
-	}
-
-	@And("the user selects a new Allergy")
-	public void selectNewAllergy() {
-		allergyPage.clickOn(By.id("allergen-73667-label"));// Codeine
+		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
+		addOrEditAllergyPage.enterDrug(DRUG_NAME);
+		addOrEditAllergyPage.drugId();
 	}
 
 	@And("the user clicks on the Save button")
 	public void saveAllergy() {
-		allergyPage.clickOn(By.id("addAllergyBtn"));
-		allergyPage.waitForPage();
+		addOrEditAllergyPage.clickOnSaveAllergy();
 	}
 
 	@Then("the system adds a new Allergy")
@@ -350,23 +341,14 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks Add New Allergy2 button")
 	public void addNewAllergy2() {
-		allergyPage.clickOnAddNewAllergy();
-	}
-
-	@Then("the system loads Add New Allergy2 dashboard")
-	public void loadsAddNewAllergy2() {
-		assertTrue(textExists("Add New Allergy"));
-	}
-
-	@And("the user selects a new Allergy2")
-	public void selectNewAllergy2() {
-		allergyPage.clickOn(By.id("allergen-162297-label"));// Penicillins
+		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
+		addOrEditAllergyPage.enterDrug(DRUG_NAME);
+		addOrEditAllergyPage.drugId();
 	}
 
 	@And("the user clicks on the Save button2")
 	public void saveAllergy2() {
-		allergyPage.clickOn(By.id("addAllergyBtn"));
-		allergyPage.waitForPage();
+		addOrEditAllergyPage.clickOnSaveAllergy();
 	}
 
 	@Then("the system adds a new Allergy2")
@@ -388,8 +370,7 @@ public class ClinicalVisitSteps extends Steps {
 	public void systemRemovesAllergy2() {
 		assertTrue(textExists("Unknown"));
 	}
-
-
+	
 	// User story: Adding and deleting New Condition2
 	@When("a user clicks on Condition2 link from Patient dashboard page")
 	public void loadManageCondition2() {

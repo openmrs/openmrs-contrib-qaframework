@@ -58,8 +58,6 @@ Feature: Clinical Visit Management
     When user clicks on Allergies link from Patient dashboard
     Then system loads Allergies table page
     When a user clicks Add New Allergy button
-    Then the system loads Add New Allergy dashboard
-    And the user selects a new Allergy
     And the user clicks on the Save button
     Then the system adds a new Allergy
 
@@ -81,8 +79,6 @@ Feature: Clinical Visit Management
     When a user clicks on Allergy2 link from Patient dashboard page2
     Then the system loads Allergy2 board page
     When a user clicks Add New Allergy2 button
-    Then the system loads Add New Allergy2 dashboard
-    And the user selects a new Allergy2
     And the user clicks on the Save button2
     Then the system adds a new Allergy2
     When the user clicks on the delete button from the patient dashboard

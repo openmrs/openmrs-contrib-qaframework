@@ -51,27 +51,7 @@ Feature: Clinical Visit Management
     And a user clicks the upload file button
     Then the system uploads the file
 
-  @selenium
-  @clinicalVisit
-  Scenario: Patient Dashboard adding Allergy
-    # User story: Adding New Allergy
-    When user clicks on Allergies link from Patient dashboard
-    Then system loads Allergies table page
-    When a user clicks Add New Allergy button
-    And the user clicks on the Save button
-    Then the system adds a new Allergy
-
-  @selenium
-  @clinicalVisit
-  Scenario: Patient Dashboard adding condition
-    # User story: Add New Condition
-    When a user clicks on Conditions on Patient dashboard
-    Then system loads Conditions Page
-    When user clicks on Add new condition button
-    And user enters patient condition
-    And user clicks on save button
-    Then system adds New Condition in Conditions table
-
+    
   @selenium
   @clinicalVisit
   Scenario: Patient Dashboard adding Allergy2

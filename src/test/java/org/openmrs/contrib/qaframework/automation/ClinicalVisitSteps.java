@@ -261,70 +261,6 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 
-	// User story: Adding New Allergy
-	@When("user clicks on Allergies link from Patient dashboard")
-	public void launchManageAllergies() {
-		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
-				.waitForPage();
-	}
-
-	@Then("system loads Allergies table page")
-	public void systemLoadsManageAllergies() {
-				getElement(patientHeaderId).getText();
-		assertTrue(textExists("Allergies"));
-	}
-
-	@When("a user clicks Add New Allergy button")
-	public void addNewAllergy() {
-		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
-		addOrEditAllergyPage.enterDrug(DRUG_NAME);
-		addOrEditAllergyPage.drugId();
-	}
-
-	@And("the user clicks on the Save button")
-	public void saveAllergy() {
-		addOrEditAllergyPage.clickOnSaveAllergy();
-	}
-
-	@Then("the system adds a new Allergy")
-	public void systemAddsAllergy() {
-		assertTrue(textExists("Codeine"));
-	}
-
-	// User story: Add New Condition
-	@When("a user clicks on Conditions on Patient dashboard")
-	public void loadManageConditions() {
-		conditionsPage = (ConditionsPage) dashboardPage
-				.clickOnConditionsWidgetLink().waitForPage();
-	}
-
-	@Then("system loads Conditions Page")
-	public void loadsManageConditionsPage() {
-		assertTrue(conditionsPage.containsText("Conditions"));
-	}
-
-	@When("user clicks on Add new condition button")
-	public void clicksAddNewCondition() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
-				.waitForPage();
-	}
-
-	@And("user enters patient condition")
-	public void userEntersExistingCondition() {
-		conditionPage.typeInCondition(CONDITION);
-	}
-
-	@And("user clicks on save button")
-	public void clicksSaveCondition() {
-		conditionPage.clickSave();
-	}
-
-	@Then("system adds New Condition in Conditions table")
-	public void systemAddsNewCondition() {
-		assertNotNull(conditionsPage.getConditionsList());
-		dashboardPage = conditionsPage.clickReturn();
-	}
-
 	// User story: Adding and deleting New Allergy2
 	@When("a user clicks on Allergy2 link from Patient dashboard page2")
 	public void loadManageAllergy2() {
@@ -370,7 +306,7 @@ public class ClinicalVisitSteps extends Steps {
 	public void systemRemovesAllergy2() {
 		assertTrue(textExists("Unknown"));
 	}
-	
+
 	// User story: Adding and deleting New Condition2
 	@When("a user clicks on Condition2 link from Patient dashboard page")
 	public void loadManageCondition2() {

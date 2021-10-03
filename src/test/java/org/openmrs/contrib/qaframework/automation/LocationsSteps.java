@@ -51,7 +51,8 @@ public class LocationsSteps extends Steps {
 
 	@Then("the system loads configure metadata page")
 	public void systemLoadsConfigureMetadataPage() {
-		assertPage(metadataPage.waitForPage());
+		// assertPage(metadataPage.waitForPage());
+		assertTrue(textExists("Configure Metadata"));
 	}
 
 	@When("a user clicks on manage location link from configure metadata page")
@@ -61,7 +62,8 @@ public class LocationsSteps extends Steps {
 
 	@Then("the system loads manage locations page")
 	public void systemLoadsManageLocationsPage() {
-		assertPage(locationsPage.waitForPage());
+		// assertPage(locationsPage.waitForPage());
+		assertTrue(textExists("Manage Locations"));
 	}
 
 	@And("a user clicks on add new location button")
@@ -105,6 +107,7 @@ public class LocationsSteps extends Steps {
 	@Then("the system loads manage location tags page")
 	public void systemLoadsManageLocationTagsPage() {
 		assertPage(locationTagsPage.waitForPage());
+		assertTrue(textExists("Manage Location Tags"));
 	}
 
 	@And("a user clicks on add new location tag button")
@@ -140,7 +143,8 @@ public class LocationsSteps extends Steps {
 
 	@Then("the system loads manage location attribute types page")
 	public void systemLoadsManageLocationAttributeTypesPage() {
-		assertPage(attributePage.waitForPage());
+		// assertPage(attributePage.waitForPage());
+		assertTrue(textExists("Manage Location Attribute Types"));		
 	}
 
 	@And("a user clicks on add new location attribute type button")
@@ -156,7 +160,8 @@ public class LocationsSteps extends Steps {
 	@And("a user enters location attribute type details into the form")
 	public void enterLocationAttributeTypeDetails() {
 		attributePage.enterLocationAttributeTypeName("Female Ward");
-		attributePage.enterLocationAttributeTypeDescription("The location is for expectant mothers");
+		attributePage
+				.enterLocationAttributeTypeDescription("The location is for expectant mothers");
 		attributePage.enterMinimumOccurs("1");
 		attributePage.enterMaximumOccurs("3");
 		attributePage.selectDatatype("Location Datatype");

@@ -1,10 +1,10 @@
 package org.openmrs.contrib.qaframework.page;
 
-import org.openmrs.uitestframework.page.Page;
+import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 /**
- * Created by tomasz on 24.06.15.
+ * Created by tomasz, sharif on 24.06.15.
  */
 public class ServicePage extends Page {
 

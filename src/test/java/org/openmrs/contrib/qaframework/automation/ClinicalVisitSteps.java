@@ -6,6 +6,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.AddOrEditAllergyPage;
 import org.openmrs.contrib.qaframework.page.AllergyPage;
@@ -16,7 +17,6 @@ import org.openmrs.contrib.qaframework.page.ConditionsPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 import org.openmrs.contrib.qaframework.page.RequestAppointmentPage;
 import org.openmrs.contrib.qaframework.page.VisitNotePage;
-import org.openmrs.uitestframework.test.TestData;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;

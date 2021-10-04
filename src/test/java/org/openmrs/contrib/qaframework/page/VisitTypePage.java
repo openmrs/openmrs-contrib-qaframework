@@ -1,6 +1,6 @@
 package org.openmrs.contrib.qaframework.page;
 
-import org.openmrs.uitestframework.page.Page;
+import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class VisitTypePage extends Page {

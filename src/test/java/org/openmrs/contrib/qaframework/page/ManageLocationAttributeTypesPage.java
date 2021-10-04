@@ -9,9 +9,8 @@
  */
 package org.openmrs.contrib.qaframework.page;
 
-import org.openmrs.uitestframework.page.Page;
+import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
 
 public class ManageLocationAttributeTypesPage extends Page {
 

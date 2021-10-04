@@ -6,14 +6,14 @@ import static org.junit.Assert.fail;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
+import org.openmrs.contrib.qaframework.helper.TestProperties;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.HomePage;
+import org.openmrs.contrib.qaframework.page.InitialSetupPage;
+import org.openmrs.contrib.qaframework.page.LoginPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
-import org.openmrs.reference.ReferenceApplicationTestBase;
-import org.openmrs.uitestframework.page.InitialSetupPage;
-import org.openmrs.uitestframework.page.LoginPage;
-import org.openmrs.uitestframework.page.TestProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -23,7 +23,6 @@ public class Steps extends ReferenceApplicationTestBase {
 
 	protected TestProperties testProperties = TestProperties.instance();
 	protected LoginPage loginPage;
-	protected HomePage homePage;
 	protected FindPatientPage findPatientPage;
 	protected String firstPatientIdentifier;
 	protected ClinicianFacingPatientDashboardPage dashboardPage;

@@ -2,7 +2,7 @@ package org.openmrs.contrib.qaframework.page;
 
 import java.util.List;
 
-import org.openmrs.uitestframework.page.Page;
+import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
@@ -25,13 +25,8 @@ public class ConditionsPage extends Page {
 	private static final By DELETE = By.cssSelector("i[title='Delete']");
 	private static final By CONDITIONS_LIST = By.cssSelector("tr.clickable-tr");
 
-	public ConditionsPage(
-			ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage) {
-		super(clinicianFacingPatientDashboardPage);
-	}
-
-	public ConditionsPage(ConditionPage conditionPage) {
-		super(conditionPage);
+	public ConditionsPage(Page page) {
+		super(page);
 	}
 
 	@Override

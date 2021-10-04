@@ -2,7 +2,7 @@ package org.openmrs.contrib.qaframework.page;
 
 import java.util.List;
 
-import org.openmrs.uitestframework.page.Page;
+import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

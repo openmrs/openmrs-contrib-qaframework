@@ -1,6 +1,6 @@
 package org.openmrs.contrib.qaframework.page;
 
-import org.openmrs.uitestframework.page.Page;
+import org.openmrs.contrib.qaframework.helper.Page;
 
 public class ModulesPage extends Page {
 

@@ -18,26 +18,26 @@ Feature: Patient's Conditions Managment
       | inactive |
 
   @dashboard
-  Scenario: Set first condition to inactive
+  #User story: Set first condition to inactive
     And User clicks on set inactive button
     Then System should move condition to inactive section
 
   @dashboard
-  Scenario: Set first condition to active
+  #User story: Set first condition to active
     And User clicks on set active button
     Then System should move condition to active section
 
   @dashboard
-  Scenario: Edit first active condition
+  #User story: Edit first active condition
     And User edits active
     Then System should edit all active adjustable fields
 
   @dashboard
-  Scenario: Edit first inactive condition
+  #User story: Edit first inactive condition
     And User edits inactive
     Then System should edit all inactive adjustable fields
 
   @dashboard
-  Scenario: Delete first condition
+  #User story: Delete first condition
     And User clicks delete condition
     Then System should trash first condition

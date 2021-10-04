@@ -17,13 +17,13 @@ Feature: Patient's Conditions Managment
       | active   |
       | inactive |
 	
-	@selenium
+  @selenium
   @dashboard
   Scenario: Set first condition to inactive
     And User clicks on set inactive button
     Then System should move condition to inactive section
 	
-	@selenium
+  @selenium
   @dashboard
   Scenario: Set first condition to active
     And User clicks on set active button

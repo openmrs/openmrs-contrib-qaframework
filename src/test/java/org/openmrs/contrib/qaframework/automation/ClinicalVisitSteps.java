@@ -261,7 +261,6 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 
-	// User story: Adding and deleting New Allergy2
 	@When("a user clicks on Allergy2 link from Patient dashboard page2")
 	public void loadManageAllergy2() {
 		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
@@ -270,9 +269,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@Then("the system loads Allergy2 board page")
 	public void loadsManageAllergy2() {
-		assertEquals(getElement(patientHeaderId).getText(),
-				getElement(patientHeaderId).getText());
-		assertTrue(textExists("Allergies"));
+				assertTrue(textExists("Allergies"));
 	}
 
 	@When("a user clicks Add New Allergy2 button")
@@ -306,8 +303,7 @@ public class ClinicalVisitSteps extends Steps {
 	public void systemRemovesAllergy2() {
 		assertTrue(textExists("Unknown"));
 	}
-
-	// User story: Adding and deleting New Condition2
+	
 	@When("a user clicks on Condition2 link from Patient dashboard page")
 	public void loadManageCondition2() {
 		conditionsPage = (ConditionsPage) dashboardPage

@@ -55,6 +55,7 @@ Feature: Clinical Visit Management
   @selenium
   @clinicalVisit
   Scenario: Patient Dashboard adding Allergy2
+    # User story: Adding and deleting New Allergy2
     When a user clicks on Allergy2 link from Patient dashboard page2
     Then the system loads Allergy2 board page
     When a user clicks Add New Allergy2 button
@@ -67,6 +68,7 @@ Feature: Clinical Visit Management
   @selenium
   @clinicalVisit
   Scenario: Patient Dashboard adding Condition2
+    # User story: Adding and deleting New Condition2
     When a user clicks on Condition2 link from Patient dashboard page
     Then the system loads Condition2 board page
     When a user clicks Add New Condition2 button

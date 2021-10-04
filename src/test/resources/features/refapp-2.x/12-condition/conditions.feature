@@ -16,28 +16,33 @@ Feature: Patient's Conditions Managment
       | activity |
       | active   |
       | inactive |
-
+	
+	@selenium
   @dashboard
-  #User story: Set first condition to inactive
+  Scenario: Set first condition to inactive
     And User clicks on set inactive button
     Then System should move condition to inactive section
-
+	
+	@selenium
   @dashboard
-  #User story: Set first condition to active
+  Scenario: Set first condition to active
     And User clicks on set active button
     Then System should move condition to active section
 
+  @selenium
   @dashboard
-  #User story: Edit first active condition
+  Scenario: Edit first active condition
     And User edits active
     Then System should edit all active adjustable fields
 
+  @selenium
   @dashboard
-  #User story: Edit first inactive condition
+  Scenario: Edit first inactive condition
     And User edits inactive
     Then System should edit all inactive adjustable fields
 
+  @selenium
   @dashboard
-  #User story: Delete first condition
+  Scenario: Delete first condition
     And User clicks delete condition
     Then System should trash first condition

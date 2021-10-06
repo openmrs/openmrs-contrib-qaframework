@@ -45,15 +45,15 @@ public class TestData {
 		}
 		return SINGLETON;
 	}
-/**
- * arbitrarily choose the first location
- * 
- * */
+	/**
+	 * arbitrarily choose the first location
+	 * 
+	 * */
 	public static String getALocation() {
 		JsonNode locations = RestClient.get("location");
 		return locations.get("results").get(0).get("uuid").asText();
 	}
-	
+
 	/**
 	 * arbitrarily choose the first location
 	 * */
@@ -61,7 +61,7 @@ public class TestData {
 		JsonNode locations = RestClient.get("locationtag", null, name);
 		return locations.get("results").get(0).get("uuid").asText();
 	}
-	
+
 	/**
 	 * arbitrarily choose the first visit type
 	 * */
@@ -294,7 +294,9 @@ public class TestData {
 
 		String create(String clazz) {
 			JsonNode json = RestClient.post(clazz, this);
-			JsonNode uuid = json.get("uuid");
+			System.out.println("..........classssss....");
+			JsonNode uuid = json.get("uud");
+
 			return uuid == null ? null : uuid.asText();
 		}
 	}

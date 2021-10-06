@@ -55,11 +55,12 @@ Feature: Clinical Visit Management
   @clinicalVisit
   Scenario: Patient Dashboard adding Allergy2
     # User story: Adding and deleting New Allergy2
-    When a user clicks on Allergy2 link from Patient dashboard page2
-    Then the system loads Allergy2 board page
-    When a user clicks Add New Allergy2 button
-    And the user clicks on the Save button2
-    Then the system adds a new Allergy2
+    When a user clicks on Allergies link from Patient dashboard page
+    Then the system loads Allergies board page
+    When a user clicks Add Known Allergy button
+    And a user clicks on save allergy button
+    Then the system adds known allergies into the allergies table
+
     When the user clicks on the delete button from the patient dashboard
     And the system loads Remove Allergy dashboard
     Then system displays no allergy in the Allergies table
@@ -67,13 +68,13 @@ Feature: Clinical Visit Management
   @selenium
   @clinicalVisit
   Scenario: Patient Dashboard adding Condition2
-    # User story: Adding and deleting New Condition2
-    When a user clicks on Condition2 link from Patient dashboard page
-    Then the system loads Condition2 board page
-    When a user clicks Add New Condition2 button
-    And the system loads Add New Condition2 dashboard
-    And user clicks on the Save button2
-    Then the system adds a new Condition2
+    When a user clicks on Conditions link from Patient dashboard
+    Then the system loads Manage Conditions Page
+    When a user clicks on Add new condition
+    And a user enters patient condition
+    And a user clicks on save condition button
+    Then the system adds New Condition in Conditions table
+
     When the user clicks on the delete button from dashboard
     Then user clicks on the yes button to confirm
 

@@ -262,31 +262,6 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 
-	@When("a user clicks on Allergy2 link from Patient dashboard page2")
-	public void loadManageAllergy2() {
-		loadAllergiesPage();
-	}
-
-	@Then("the system loads Allergy2 board page")
-	public void loadsManageAllergy2() {
-		systemLoadsAllergiesPage();
-	}
-
-	@When("a user clicks Add New Allergy2 button")
-	public void addNewAllergy2() {
-		addKnownAllergy();
-	}
-
-	@And("the user clicks on the Save button2")
-	public void saveAllergy2() {
-		saveKnownAllergy();
-	}
-
-	@Then("the system adds a new Allergy2")
-	public void systemAddsAllergy2() {
-		systemAddsKnownAllergy();
-	}
-
 	@When("the user clicks on the delete button from the patient dashboard")
 	public void deleteAllergy2() {
 		allergyPage.clickOnDeleteAllergy();
@@ -300,35 +275,6 @@ public class ClinicalVisitSteps extends Steps {
 	@Then("system displays no allergy in the Allergies table")
 	public void systemRemovesAllergy2() {
 		assertTrue(textExists("Unknown"));
-	}
-
-	@When("a user clicks on Condition2 link from Patient dashboard page")
-	public void loadManageCondition2() {
-		loadManageConditionsPage();
-	}
-
-	@Then("the system loads Condition2 board page")
-	public void loadsManageConditionsPage2() {
-		systemLoadsManageConditionsPage();
-	}
-
-	@When("a user clicks Add New Condition2 button")
-	public void clicksAddNewCondition2() {
-		userClicksAddNewCondition();
-	}
-	@And("the system loads Add New Condition2 dashboard")
-	public void userEntersExistingCondition2() {
-		enterExistingCondition();
-	}
-
-	@And("user clicks on the Save button2")
-	public void clicksSaveCondition2() {
-		saveCondition();
-	}
-
-	@Then("the system adds a new Condition2")
-	public void systemAddsNewCondition2() {
-		systemAddsCondition();
 	}
 
 	@When("the user clicks on the delete button from dashboard")

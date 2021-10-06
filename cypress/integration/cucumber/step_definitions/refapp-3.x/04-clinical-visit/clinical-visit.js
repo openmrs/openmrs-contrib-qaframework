@@ -1,4 +1,4 @@
-import {Given, Before, After} from 'cypress-cucumber-preprocessor/steps';
+import {Given, Before, After, When} from 'cypress-cucumber-preprocessor/steps';
 
 let identifier = null;
 let patient = null;
@@ -10,6 +10,7 @@ Before({tags: '@clinical-visit'}, () => {
         cy.createPatient(identifier).then((generatedPatient) => {
             patient = generatedPatient;
             cy.startFacilityVisit(patient.uuid);
+            cy.generateLabResults(patient.uuid);
         });
     });
 });
@@ -108,6 +109,35 @@ Then('the added condition should be listed', () => {
     cy.reload();
     cy.contains('Fever');
 });
+
+Then('the test results should be shown', () => {
+    cy.contains('Viral load');
+})
+
+When('the user clicks on timeline of a test', () => {
+    cy.contains('Timeline').click({force: true});
+})
+
+Then('the timeline table should be shown', () => {
+    cy.contains('copies/ml');
+})
+
+When('the user clicks on trend of a test', () => {
+    cy.contains('Trend').click({force: true});
+})
+
+Then('the trend line should be shown', () => {
+    // Todo: Use a robust way to check for the trend line 
+    cy.contains('Back to timeline');
+})
+
+When('the user changes the time range of a trend line', () => {
+    cy.contains('5 days').click({force: true});
+})
+
+Then('the time range of the trend line should be changed', () => {
+    cy.contains('Jan 20');
+})
 
 
 After({tags: '@clinical-visit'}, () => {

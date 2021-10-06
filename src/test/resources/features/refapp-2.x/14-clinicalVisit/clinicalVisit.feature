@@ -77,4 +77,6 @@ Feature: Clinical Visit Management
     When the user clicks on the delete button from dashboard
     Then user clicks on the yes button to confirm
 
+    
+
 

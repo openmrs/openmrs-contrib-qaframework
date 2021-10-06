@@ -20,6 +20,7 @@ import org.openmrs.reference.page.VisitNotePage;
 import org.openmrs.uitestframework.test.TestData;
 import org.openqa.selenium.By;
 
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
@@ -116,7 +117,7 @@ public class ClinicalVisitSteps extends Steps {
 	}
 
 	@Then("the system loads Allergies board page")
-	public void systemLoadsAllergiesPage() {
+	public void systemLoadsAllergiesPage()  {
 		assertTrue(textExists("Allergies"));
 	}
 
@@ -263,30 +264,27 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Allergy2 link from Patient dashboard page2")
 	public void loadManageAllergy2() {
-		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
-				.waitForPage();
+		loadAllergiesPage();
 	}
 
 	@Then("the system loads Allergy2 board page")
 	public void loadsManageAllergy2() {
-				assertTrue(textExists("Allergies"));
+		systemLoadsAllergiesPage();
 	}
 
 	@When("a user clicks Add New Allergy2 button")
 	public void addNewAllergy2() {
-		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
-		addOrEditAllergyPage.enterDrug(DRUG_NAME);
-		addOrEditAllergyPage.drugId();
+		addKnownAllergy();
 	}
 
 	@And("the user clicks on the Save button2")
 	public void saveAllergy2() {
-		addOrEditAllergyPage.clickOnSaveAllergy();
+		saveKnownAllergy();
 	}
 
 	@Then("the system adds a new Allergy2")
 	public void systemAddsAllergy2() {
-		assertTrue(textExists("Penicillins"));
+		systemAddsKnownAllergy();
 	}
 
 	@When("the user clicks on the delete button from the patient dashboard")
@@ -303,37 +301,34 @@ public class ClinicalVisitSteps extends Steps {
 	public void systemRemovesAllergy2() {
 		assertTrue(textExists("Unknown"));
 	}
-	
+
 	@When("a user clicks on Condition2 link from Patient dashboard page")
 	public void loadManageCondition2() {
-		conditionsPage = (ConditionsPage) dashboardPage
-				.clickOnConditionsWidgetLink().waitForPage();
+		loadManageConditionsPage();
 	}
 
 	@Then("the system loads Condition2 board page")
 	public void loadsManageConditionsPage2() {
-		assertTrue(conditionsPage.containsText("Conditions"));
+		systemLoadsManageConditionsPage();
 	}
 
 	@When("a user clicks Add New Condition2 button")
 	public void clicksAddNewCondition2() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
-				.waitForPage();
+		userClicksAddNewCondition();
 	}
 	@And("the system loads Add New Condition2 dashboard")
 	public void userEntersExistingCondition2() {
-		conditionPage.typeInCondition(CONDITION);
+		enterExistingCondition();
 	}
 
 	@And("user clicks on the Save button2")
 	public void clicksSaveCondition2() {
-		conditionPage.clickSave();
+		saveCondition();
 	}
 
 	@Then("the system adds a new Condition2")
 	public void systemAddsNewCondition2() {
-		assertNotNull(conditionsPage.getConditionsList());
-		dashboardPage = conditionsPage.clickReturn();
+		systemAddsCondition();
 	}
 
 	@When("the user clicks on the delete button from dashboard")

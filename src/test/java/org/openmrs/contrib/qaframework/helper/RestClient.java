@@ -137,5 +137,4 @@ public class RestClient {
 	public static void post(String restPath, TestPatient testPatient) {
 
 	}
-
 }

@@ -45,33 +45,29 @@ public class TestData {
 		}
 		return SINGLETON;
 	}
-
+/**
+ * arbitrarily choose the first location
+ * 
+ * */
 	public static String getALocation() {
 		JsonNode locations = RestClient.get("location");
-		return locations.get("results").get(0).get("uuid").asText(); // arbitrarily
-																		// choose
-																		// the
-																		// first
-																		// location
+		return locations.get("results").get(0).get("uuid").asText();
 	}
-
+	
+	/**
+	 * arbitrarily choose the first location
+	 * */
 	public static String getLocationTag(String name) {
 		JsonNode locations = RestClient.get("locationtag", null, name);
-		return locations.get("results").get(0).get("uuid").asText(); // arbitrarily
-																		// choose
-																		// the
-																		// first
-																		// location
+		return locations.get("results").get(0).get("uuid").asText();
 	}
-
+	
+	/**
+	 * arbitrarily choose the first visit type
+	 * */
 	public static String getAVisitType() {
 		JsonNode locations = RestClient.get("visittype");
-		return locations.get("results").get(0).get("uuid").asText(); // arbitrarily
-																		// choose
-																		// the
-																		// first
-																		// visit
-																		// type
+		return locations.get("results").get(0).get("uuid").asText();
 	}
 
 	public static String getIdentifierTypeUuid(String name) {

@@ -22,12 +22,13 @@ public class VitalsAndTriagingSteps extends Steps {
 	private TestData.PatientInfo testPatient;
 
 	@Before(RunTest.HOOK.SELENIUM_VITALS)
-	public void visitPatientDashboard() {
+	public void visitPatientDashboard() throws InterruptedException {
 		testPatient = createTestPatient();
 		initiateWithLogin();
 		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord()
 				.waitForPage();
 		findPatientPage.enterPatient(testPatient.identifier);
+		Thread.sleep(50000);
 		findPatientPage.waitForPageToLoad();
 		dashboardPage = findPatientPage.clickOnFirstPatient();
 		dashboardPage.startVisit().waitForPage();

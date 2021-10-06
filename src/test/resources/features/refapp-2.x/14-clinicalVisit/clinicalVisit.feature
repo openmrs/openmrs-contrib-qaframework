@@ -51,7 +51,6 @@ Feature: Clinical Visit Management
     And a user clicks the upload file button
     Then the system uploads the file
 
-    
   @selenium
   @clinicalVisit
   Scenario: Patient Dashboard adding Allergy2
@@ -77,4 +76,5 @@ Feature: Clinical Visit Management
     Then the system adds a new Condition2
     When the user clicks on the delete button from dashboard
     Then user clicks on the yes button to confirm
+
 

@@ -117,7 +117,7 @@ public class ClinicalVisitSteps extends Steps {
 	}
 
 	@Then("the system loads Allergies board page")
-	public void systemLoadsAllergiesPage()  {
+	public void systemLoadsAllergiesPage() {
 		assertTrue(textExists("Allergies"));
 	}
 

@@ -2,8 +2,6 @@ package org.openmrs.contrib.qaframework.helper;
 
 public class TestPatient {
 
-	public TestPatient() {
-	}
 	public String givenName;
 	public String familyName;
 	public String middleName;

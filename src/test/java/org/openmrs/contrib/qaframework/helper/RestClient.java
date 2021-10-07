@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.openmrs.contrib.qaframework.helper.TestData.JsonTestClass;
+import org.openmrs.contrib.qaframework.helper.TestData.TestLocationTag;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -72,11 +73,11 @@ public class RestClient {
 		delete(restPath, null);
 	}
 
-	public static JsonNode post(String restPath, JsonTestClass object) {
+	public static JsonNode post(String restPath, TestLocationTag testLocationTag) {
 		WebTarget target = newClient().target(getWebAppUrl()).path(
 				REST_ROOT + restPath);
 		try {
-			String objectAsJson = object.asJson();
+			String objectAsJson = testLocationTag.asJson();
 			Entity<String> entity = Entity.entity(objectAsJson,
 					MediaType.APPLICATION_JSON_TYPE);
 			String json = target.request(MediaType.APPLICATION_JSON_TYPE).post(
@@ -135,6 +136,12 @@ public class RestClient {
 	}
 
 	public static void post(String restPath, TestPatient testPatient) {
+		// TODO Auto-generated method stub
 
+	}
+
+	public static JsonNode post(String clazz, JsonTestClass jsonTestClass) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

@@ -2,6 +2,7 @@ package org.openmrs.contrib.qaframework.helper;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
+import static org.openmrs.contrib.qaframework.helper.TestData.checkIfPatientExists;
 
 import java.io.File;
 import java.io.IOException;
@@ -455,7 +456,8 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 	public String createPatient(String personUuid,
 			String patientIdentifierType, String source) {
 		String patientIdentifier = generatePatientIdentifier(source);
-		RestClient.post("patient", new TestPatient());
+		RestClient.post("patient", new TestPatient(personUuid,
+				patientIdentifier, patientIdentifierType));
 		return patientIdentifier;
 	}
 
@@ -497,10 +499,5 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 						"Patient not deleted in expected time");
 			}
 		}
-	}
-
-	private boolean checkIfPatientExists(String uuid) {
-
-		return false;
 	}
 }

@@ -83,11 +83,11 @@ When('the user adds an allergy', () => {
     // Click on the first day on the calendar
     cy.getByLabel('Date of first onset').click({force: true});
     cy.get('.dayContainer .flatpickr-day').first().click({force: true});
-    cy.contains('Save and Close').click({force: true});
+    cy.contains('Save and close').click({force: true});
 });
 
 Then('the added allergy should be listed', () => {
-    cy.contains('Allergy saved successfully');
+    cy.contains('Allergy saved');
     cy.reload();
     cy.contains('ACE inhibitors');
 });

@@ -139,6 +139,25 @@ Then('the time range of the trend line should be changed', () => {
     cy.contains('Jan 20');
 })
 
+Then('the form entry widget should load properly', () => {
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('Forms');
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('Recommended');
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('Completed');
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('All');
+});
+
+When('the user clicks on {string} in the form widget', (tab) => {
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains(tab).click({force: true});
+});
+
+Then('the forms list should be empty', () => {
+    cy.contains('Sorry, no forms have been found');
+});
+
+Then('the forms list should load properly', () => {
+    cy.contains('Last Completed');
+    cy.contains('Form Name (A-Z)');
+});
 
 After({tags: '@clinical-visit'}, () => {
     cy.deletePatient(patient.uuid);

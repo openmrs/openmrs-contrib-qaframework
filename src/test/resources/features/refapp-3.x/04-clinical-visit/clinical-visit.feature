@@ -44,3 +44,14 @@ Feature: User Settings
     Then the trend line should be shown
     When the user changes the time range of a trend line
     Then the time range of the trend line should be changed
+
+  @clinical-visit
+  Scenario: The Form Entry page should function properly
+    When the user clicks on "Form Entry" in the menu
+    Then the form entry widget should load properly
+    When the user clicks on "Recommended" in the form widget
+    Then the forms list should be empty
+    When the user clicks on "Completed" in the form widget
+    Then the forms list should be empty
+    When the user clicks on "All" in the form widget
+    Then the forms list should load properly

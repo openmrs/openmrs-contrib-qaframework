@@ -67,7 +67,7 @@ When('the user enrolls the patient into a program', () => {
 });
 
 Then('the patient should be enrolled into the program', () => {
-    cy.contains('Program enrollment saved successfully');
+    cy.contains('Program enrollment saved');
     cy.reload();
     cy.contains('HIV Care and Treatment');
 });

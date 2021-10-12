@@ -19,8 +19,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.ManageUserAccountPage;
-import org.openmrs.reference.page.SystemAdministrationPage;
+import org.openmrs.contrib.qaframework.page.ManageUserAccountPage;
+import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;

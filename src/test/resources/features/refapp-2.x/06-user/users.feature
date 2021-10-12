@@ -10,6 +10,7 @@ Feature: User Account Management
 
   @selenium
   @userAccount
+  @skip
   Scenario: Creating user account for Nurse
     And a user enters data clerk details in the user account form
     And a user clicks on save account button

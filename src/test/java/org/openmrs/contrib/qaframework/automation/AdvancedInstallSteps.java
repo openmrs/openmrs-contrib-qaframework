@@ -1,15 +1,17 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.uitestframework.page.InitialSetupPage;
 
 public class AdvancedInstallSteps extends InitialSetupSteps {
+
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and "
 			+ RunTest.HOOK.ADVANCED_INSTALL)
 	public void init() {

@@ -1,28 +1,28 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
+import org.openmrs.contrib.qaframework.page.AddOrEditAllergyPage;
+import org.openmrs.contrib.qaframework.page.AllergyPage;
+import org.openmrs.contrib.qaframework.page.AttachmentsPage;
+import org.openmrs.contrib.qaframework.page.ConditionPage;
+import org.openmrs.contrib.qaframework.page.ConditionsPage;
+import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
+import org.openmrs.contrib.qaframework.page.RequestAppointmentPage;
+import org.openmrs.contrib.qaframework.page.VisitNotePage;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.ActiveVisitsPage;
-import org.openmrs.reference.page.AddOrEditAllergyPage;
-import org.openmrs.reference.page.AllergyPage;
-import org.openmrs.reference.page.AttachmentsPage;
-import org.openmrs.reference.page.ConditionPage;
-import org.openmrs.reference.page.ConditionsPage;
-import org.openmrs.reference.page.PatientVisitsDashboardPage;
-import org.openmrs.reference.page.RequestAppointmentPage;
-import org.openmrs.reference.page.VisitNotePage;
-import org.openmrs.uitestframework.test.TestData;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 public class ClinicalVisitSteps extends Steps {
 
@@ -100,7 +100,7 @@ public class ClinicalVisitSteps extends Steps {
 	}
 
 	@Then("the system adds the note into visit note table")
-	public void systemAddsVisitNote() {
+	public void systemAddsVisitNote() throws InterruptedException {
 		assertEquals(DIAGNOSIS_PRIMARY, visitNotePage.primaryDiagnosis());
 		assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.secondaryDiagnosis());
 		visitsDashboardPage.waitForPageToLoad();
@@ -109,7 +109,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	// User story: Add known allergies
 	@When("a user clicks on Allergies link from Patient dashboard page")
-	public void loadAllergiesPage() {
+	public void loadAllergiesPage() throws InterruptedException {
 		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
 				.waitForPage();
 	}

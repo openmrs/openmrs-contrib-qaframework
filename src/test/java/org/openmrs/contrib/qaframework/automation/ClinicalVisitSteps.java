@@ -48,8 +48,7 @@ public class ClinicalVisitSteps extends Steps {
 	public void visitHomePage() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
-		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_CLINICAL_VISIT)
@@ -66,8 +65,7 @@ public class ClinicalVisitSteps extends Steps {
 	@When("a user selects a patient from active patient list")
 	public void searchActivePatient() {
 		activeVisitsPage.search(testPatient.identifier);
-		dashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
+		dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
 	}
 
 	@Then("the system loads Patient dashboard page")
@@ -79,8 +77,7 @@ public class ClinicalVisitSteps extends Steps {
 	@When("a user clicks visit note link from the patient dashboard")
 	public void loadVisitNotePage() {
 		visitsDashboardPage = dashboardPage.goToRecentVisits();
-		visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote()
-				.waitForPage();
+		visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote().waitForPage();
 	}
 
 	@Then("the system loads visit note page")
@@ -112,8 +109,7 @@ public class ClinicalVisitSteps extends Steps {
 	// User story: Add known allergies
 	@When("a user clicks on Allergies link from Patient dashboard page")
 	public void loadAllergiesPage() {
-		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
-				.waitForPage();
+		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink().waitForPage();
 	}
 
 	@Then("the system loads Allergies board page")
@@ -131,6 +127,20 @@ public class ClinicalVisitSteps extends Steps {
 		addOrEditAllergyPage.addAllergyNote("The effect is severe");
 	}
 
+	@When("the user clicks Add Known Allergy button")
+	public void addAllergy() {
+		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
+	}
+
+	@And("the user selects an allergy")
+	public void selectAllergy(){
+		addOrEditAllergyPage.enterDrug("Codeine");
+		addOrEditAllergyPage.drugId();
+		addOrEditAllergyPage.enterReaction(REACTION);
+		addOrEditAllergyPage.reactionId();
+		addOrEditAllergyPage.addAllergyNote("The effect is severe");
+	}
+
 	@And("a user clicks on save allergy button")
 	public void saveKnownAllergy() {
 		allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
@@ -139,14 +149,28 @@ public class ClinicalVisitSteps extends Steps {
 	@Then("the system adds known allergies into the allergies table")
 	public void systemAddsKnownAllergy() {
 		assertNotNull(addOrEditAllergyPage.getAllergiesList());
+	}
+
+	@When("the user clicks on the delete button for Codien Allergy")
+	public void deleteAllergy() {
+		allergyPage.clickOnDeleteAllergy();
+	}
+
+	@And("the system confirms delete Codein Allergy")
+	public void confirmDeleteAllergy() {
+		allergyPage.clickOnConfirmDeleteAllergy();
+	}
+
+	@Then("system displays Penicillins")
+	public void systemRemovesAllergy() {
+		assertTrue(textExists("Penicillins"));
 		dashboardPage = addOrEditAllergyPage.clickReturn();
 	}
 
 	// User story: Add known condition
 	@When("a user clicks on Conditions link from Patient dashboard")
 	public void loadManageConditionsPage() {
-		conditionsPage = (ConditionsPage) dashboardPage
-				.clickOnConditionsWidgetLink().waitForPage();
+		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
 	}
 
 	@Then("the system loads Manage Conditions Page")
@@ -165,6 +189,11 @@ public class ClinicalVisitSteps extends Steps {
 		conditionPage.typeInCondition(CONDITION);
 	}
 
+	@And("the user enters patient condition Acute malnutrition")
+	public void enterOneOfExistingConditions() {
+		conditionPage.typeInCondition("Acute malnutrition");
+	}
+
 	@And("a user clicks on save condition button")
 	public void saveCondition() {
 		conditionPage.clickSave();
@@ -173,16 +202,24 @@ public class ClinicalVisitSteps extends Steps {
 	@Then("the system adds New Condition in Conditions table")
 	public void systemAddsCondition() {
 		assertNotNull(conditionsPage.getConditionsList());
+	}
+
+	@When("the user clicks on the delete button from dashboard")
+	public void deleteCondition(){
+		conditionsPage.deleteFirstActive();
+	}
+
+	@Then("user clicks on the yes button to confirm")
+	public void confirmDeletCondition(){
+		conditionsPage.confirmDeleteCondition();
 		dashboardPage = conditionsPage.clickReturn();
 	}
 
 	// User story: Attach supporting document
 	@When("a user clicks on Attachments link from patient visits dashboard")
 	public void loadAttachmentsPage() {
-		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage
-				.goToRecentVisits();
-		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage()
-				.waitForPage();
+		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
+		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage().waitForPage();
 	}
 
 	@Then("the system loads Attachments page")
@@ -210,8 +247,7 @@ public class ClinicalVisitSteps extends Steps {
 	// User story: Book an appointment
 	@When("a user clicks on Request appointment link from Patient dashboard")
 	public void loadRequestAppointmentPage() {
-		requestAppointmentPage = (RequestAppointmentPage) dashboardPage
-				.clickOnRequest();
+		requestAppointmentPage = (RequestAppointmentPage) dashboardPage.clickOnRequest();
 	}
 
 	@Then("the system loads Request appointment page")
@@ -261,30 +297,6 @@ public class ClinicalVisitSteps extends Steps {
 		assertNull(visitsDashboardPage.getActiveVisit());
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
-
-	@When("the user clicks on the delete button from the patient dashboard")
-	public void deleteAllergy2() {
-		allergyPage.clickOnDeleteAllergy();
-	}
-
-	@And("the system loads Remove Allergy dashboard")
-	public void confirmDeleteAllergy2() {
-		allergyPage.clickOnConfirmDeleteAllergy();
-	}
-
-	@Then("system displays no allergy in the Allergies table")
-	public void systemRemovesAllergy2() {
-		assertTrue(textExists("Unknown"));
-	}
-
-	@When("the user clicks on the delete button from dashboard")
-	public void deleteCondition2() {
-		conditionsPage.clickOn(By.className("delete-action"));
-	}
-
-	@Then("user clicks on the yes button to confirm")
-	public void deleteCondition2Confirmation() {
-		conditionsPage.confirmDeleteCondition();
-	}
-
 }
+
+

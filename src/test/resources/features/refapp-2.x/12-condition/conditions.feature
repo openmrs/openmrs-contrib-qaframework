@@ -5,7 +5,7 @@ Feature: Patient's Conditions Managment
     Then System loads Manage Conditions Page
 
   @selenium
-  @conditions
+  @dashboard
   Scenario Outline: Adding an active or inactive condition
     And User clicks on Add new condition
     Then System on Add New Condition Page
@@ -18,31 +18,31 @@ Feature: Patient's Conditions Managment
       | inactive |
 
   @selenium
-  @conditions
+  @dashboard
   Scenario: Set first condition to inactive
     And User clicks on set inactive button
     Then System should move condition to inactive section
 
   @selenium
-  @conditions
+  @dashboard
   Scenario: Set first condition to active
     And User clicks on set active button
     Then System should move condition to active section
 
   @selenium
-  @conditions
+  @dashboard
   Scenario: Edit first active condition
     And User edits active
     Then System should edit all active adjustable fields
 
   @selenium
-  @conditions
+  @dashboard
   Scenario: Edit first inactive condition
     And User edits inactive
     Then System should edit all inactive adjustable fields
 
   @selenium
-  @conditions
+  @dashboard
   Scenario: Delete first condition
     And User clicks delete condition
     Then System should trash first condition

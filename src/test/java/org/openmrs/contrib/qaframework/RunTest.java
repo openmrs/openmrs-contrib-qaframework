@@ -14,6 +14,7 @@ glue = "org.openmrs.contrib.qaframework.automation", plugin = {
 		"html:target/index.html", "message:target/cucumber.ndjson"}, monochrome = true)
 public class RunTest {
 
+	// Run actions
 	public class HOOK {
 		public static final String SELENIUM = "@selenium";
 		public static final String LOGIN = "@login";

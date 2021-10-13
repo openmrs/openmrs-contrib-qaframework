@@ -1,11 +1,11 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.fail;
-
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 import org.openmrs.contrib.qaframework.helper.TestBase;
+
+import static org.junit.Assert.fail;
 
 public class InitialSetupSteps extends TestBase {
 	protected InitialSetupPage initialSetupPage;

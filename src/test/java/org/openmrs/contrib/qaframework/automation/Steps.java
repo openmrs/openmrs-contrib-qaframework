@@ -1,11 +1,5 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
-
-import java.util.ArrayList;
-import java.util.List;
-
 import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 import org.openmrs.contrib.qaframework.helper.LoginPage;
 import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
@@ -17,6 +11,12 @@ import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 // Use english locale, of not set, the test instance should be set to english language
 public class Steps extends ReferenceApplicationTestBase {

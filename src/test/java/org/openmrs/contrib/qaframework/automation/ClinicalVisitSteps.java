@@ -100,7 +100,7 @@ public class ClinicalVisitSteps extends Steps {
 	}
 
 	@Then("the system adds the note into visit note table")
-	public void systemAddsVisitNote() throws InterruptedException {
+	public void systemAddsVisitNote() {
 		assertEquals(DIAGNOSIS_PRIMARY, visitNotePage.primaryDiagnosis());
 		assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.secondaryDiagnosis());
 		visitsDashboardPage.waitForPageToLoad();
@@ -109,7 +109,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	// User story: Add known allergies
 	@When("a user clicks on Allergies link from Patient dashboard page")
-	public void loadAllergiesPage() throws InterruptedException {
+	public void loadAllergiesPage() {
 		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
 				.waitForPage();
 	}

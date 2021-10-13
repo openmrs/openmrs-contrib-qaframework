@@ -3,5 +3,4 @@ These chromedriver executables were downloaded from http://chromedriver.storage.
 Versions:
   Win32:   2.14
   linux64: 2.14
-  Mac32:   2.14
-  
+  Mac32:   2.14 

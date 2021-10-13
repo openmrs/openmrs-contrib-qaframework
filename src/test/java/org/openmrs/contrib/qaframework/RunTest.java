@@ -16,6 +16,7 @@ public class RunTest {
 
 	public class HOOK {
 		public static final String SELENIUM = "@selenium";
+		public static final String CONDITIONS = "@conditions";
 		public static final String LOGIN = "@login";
 		public static final String DASHBOARD = "@dashboard";
 		public static final String INITIAL_SETUP = "@initialSetup";
@@ -31,6 +32,8 @@ public class RunTest {
 		public static final String VITALS = "@vitals";
 		public static final String FIND_PATIENT = "@findPatient";
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
+		public static final String SELENIUM_CONDITIONS = SELENIUM + " and "
+				+ CONDITIONS;
 		public static final String SELENIUM_DASHBOARD = SELENIUM + " and "
 				+ DASHBOARD;
 		public static final String SELENIUM_INITIAL_SETUP = SELENIUM + " and "

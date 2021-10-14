@@ -15,20 +15,14 @@ import org.openqa.selenium.By;
 
 public class ProviderPage extends Page {
 
-	private static final By IDENTIFIER_FIELD = By
-			.cssSelector("#content input[name=\"identifier\"]");
+	private static final By IDENTIFIER_FIELD = By.cssSelector("#content input[name=\"identifier\"]");
 	private static final By PERSON_FIELD = By.id("person_id_selection");
-	private static final By SAVE = By
-			.cssSelector("#content input[type=\"submit\"]");
-	private static final By CANCEL = By
-			.cssSelector("#content input[type=\"button\"]:nth-child(5)");
-	private static final By DELETE_FOREVER = By
-			.cssSelector("#content input[name='purgeProviderButton']");
-	private static final By FIRST_AUTOCOMPLETE_RESULT = By
-			.cssSelector("body > ul");
+	private static final By SAVE = By.cssSelector("#content input[type=\"submit\"]");
+	private static final By CANCEL = By.cssSelector("#content input[type=\"button\"]:nth-child(5)");
+	private static final By DELETE_FOREVER = By.cssSelector("#content input[name='purgeProviderButton']");
+	private static final By FIRST_AUTOCOMPLETE_RESULT = By.cssSelector("body > ul");
 	private static final By RETIRE_REASON = By.id("retire");
-	private static final By RETIRE = By
-			.cssSelector("input[name='retireProviderButton']");
+	private static final By RETIRE = By.cssSelector("input[name='retireProviderButton']");
 
 	public ProviderPage(Page parent) {
 		super(parent);

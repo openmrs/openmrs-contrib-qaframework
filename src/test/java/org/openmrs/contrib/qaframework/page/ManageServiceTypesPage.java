@@ -16,13 +16,10 @@ import org.openqa.selenium.WebElement;
 
 public class ManageServiceTypesPage extends Page {
 
-	private static final By NEW_SERVICE_TYPE = By
-			.cssSelector("#content div div:nth-child(1) button");
-	private static final By SERVICE_TYPES = By
-			.cssSelector("#appointmentTypesTable tbody tr td:nth-child(1)");
+	private static final By NEW_SERVICE_TYPE = By.cssSelector("#content div div:nth-child(1) button");
+	private static final By SERVICE_TYPES = By.cssSelector("#appointmentTypesTable tbody tr td:nth-child(1)");
 	private static final By NEXT_BUTTON = By.id("appointmentTypesTable_next");
-	private static final By CONFIRM_DELETE = By
-			.cssSelector("#simplemodal-container #delete-appointment-type-dialog div.dialog-content button.confirm");
+	private static final By CONFIRM_DELETE = By.cssSelector("#simplemodal-container #delete-appointment-type-dialog div.dialog-content button.confirm");
 	private static String EDIT_ICON_ID = "appointmentschedulingui-edit-%s";
 	private static String DELETE_ICON_ID = "appointmentschedulingui-delete-%s";
 

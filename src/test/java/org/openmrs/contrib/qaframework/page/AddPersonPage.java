@@ -19,8 +19,7 @@ public class AddPersonPage extends Page {
 	private static final By BIRTHDATE = By.id("birthdate");
 	private static final By AGE = By.id("age");
 	private static final By GENDER_MALE = By.id("gender-M");
-	private static final By CREATE_PERSON = By
-			.cssSelector("#createPatient input[type=\"submit\"]");
+	private static final By CREATE_PERSON = By.cssSelector("#createPatient input[type=\"submit\"]");
 
 	public AddPersonPage(Page parent) {
 		super(parent);

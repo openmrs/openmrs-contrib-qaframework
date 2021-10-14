@@ -23,18 +23,12 @@ public class HomePage extends Page {
 	private static final String CONFIGURE_METADATA_APP_ID = "org-openmrs-module-adminui-configuremetadata-homepageLink-org-openmrs-module-adminui-configuremetadata-homepageLink-extension";
 	private static final String CAPTURE_VITALS_APP_ID = "referenceapplication-vitals-referenceapplication-vitals-extension";
 	private static final String DATA_MANAGEMENT_APP_ID = "coreapps-datamanagement-homepageLink-coreapps-datamanagement-homepageLink-extension";
-	private static final By CONFIGURE_METADATA = By
-			.id("org-openmrs-module-adminui-configuremetadata-homepageLink-org-openmrs-module-adminui-configuremetadata-homepageLink-extension");
-	private static final By MANAGE_FORM = By
-			.id("formentryapp-forms-homepageLink-formentryapp-forms-homepageLink-extension");
-	private static final By SYSTEM_ADMINISTRATION = By
-			.id("coreapps-systemadministration-homepageLink-coreapps-systemadministration-homepageLink-extension");
-	private static final By FIND_PATIENT_RECORD = By
-			.id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension");
-	private static final By DATA_MANAGEMENT = By
-			.id("coreapps-datamanagement-homepageLink-coreapps-datamanagement-homepageLink-extension");
-	private static final By APPOINTMENT_SCHEDULING = By
-			.id("appointmentschedulingui-homeAppLink-appointmentschedulingui-homeAppLink-extension");
+	private static final By CONFIGURE_METADATA = By.id("org-openmrs-module-adminui-configuremetadata-homepageLink-org-openmrs-module-adminui-configuremetadata-homepageLink-extension");
+	private static final By MANAGE_FORM = By.id("formentryapp-forms-homepageLink-formentryapp-forms-homepageLink-extension");
+	private static final By SYSTEM_ADMINISTRATION = By.id("coreapps-systemadministration-homepageLink-coreapps-systemadministration-homepageLink-extension");
+	private static final By FIND_PATIENT_RECORD = By.id("coreapps-activeVisitsHomepageLink-coreapps-activeVisitsHomepageLink-extension");
+	private static final By DATA_MANAGEMENT = By.id("coreapps-datamanagement-homepageLink-coreapps-datamanagement-homepageLink-extension");
+	private static final By APPOINTMENT_SCHEDULING = By.id("appointmentschedulingui-homeAppLink-appointmentschedulingui-homeAppLink-extension");
 
 	public HomePage(Page page) {
 		super(page);
@@ -64,8 +58,7 @@ public class HomePage extends Page {
 		return isAppButtonPresent(REGISTER_PATIENT_APP_ID);
 	}
 
-	public RegistrationPage goToRegisterPatientApp()
-			throws InterruptedException {
+	public RegistrationPage goToRegisterPatientApp()throws InterruptedException {
 		clickOn(By.id(REGISTER_PATIENT_APP_ID));
 		return new RegistrationPage(this);
 	}

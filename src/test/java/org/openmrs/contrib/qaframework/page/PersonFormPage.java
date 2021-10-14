@@ -19,12 +19,9 @@ public class PersonFormPage extends Page {
 	private static final By SAVE_PERSON = By.id("saveButton");
 	private static final By OPENMRS_MSG = By.id("openmrs_msg");
 	private static final By DELETE_PERSON_FOREVER = By.id("deletePersonButton");
-	private static final By DELETE_PERSON_CONFIRM = By
-			.cssSelector("#deletePersonDiv > div > input[type=\"submit\"]:nth-child(1)");
-	private static final By RETIRE_REASON_FIELD = By
-			.cssSelector("#content input[name=\"voidReason\"]");
-	private static final By RETIRE_PERSON = By
-			.cssSelector("#content > form:nth-child(10) > fieldset:nth-child(1) > input:nth-child(6)");
+	private static final By DELETE_PERSON_CONFIRM = By.cssSelector("#deletePersonDiv > div > input[type=\"submit\"]:nth-child(1)");
+	private static final By RETIRE_REASON_FIELD = By.cssSelector("#content input[name=\"voidReason\"]");
+	private static final By RETIRE_PERSON = By.cssSelector("#content > form:nth-child(10) > fieldset:nth-child(1) > input:nth-child(6)");
 
 	public PersonFormPage(Page parent) {
 		super(parent);

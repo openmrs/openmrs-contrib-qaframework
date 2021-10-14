@@ -20,8 +20,7 @@ import org.openqa.selenium.WebDriver;
 public class CaptureVitalsPage extends Page {
 
 	private static final By PATIENT_SEARCH = By.id("patient-search");
-	private static final By FIRST_FOUND_PATIENT = By
-			.cssSelector("i.icon-vitals");
+	private static final By FIRST_FOUND_PATIENT = By.cssSelector("i.icon-vitals");
 
 	public CaptureVitalsPage(WebDriver driver) {
 		super(driver);

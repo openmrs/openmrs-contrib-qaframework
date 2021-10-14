@@ -16,8 +16,7 @@ public class EditVisitNotePage extends VisitNotePage {
 
 	private static final By NOTE = By.id("w10");
 	private static final String NOTES = "This is edited note";
-	private static final By REMOVE_DIAGNOSIS = By
-			.cssSelector(".icon-remove.delete-item");
+	private static final By REMOVE_DIAGNOSIS = By.cssSelector(".icon-remove.delete-item");
 
 	public EditVisitNotePage(Page page) {
 		super(page);

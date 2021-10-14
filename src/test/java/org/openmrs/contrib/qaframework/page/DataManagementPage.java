@@ -17,8 +17,7 @@ public class DataManagementPage extends Page {
 
 	public final static By ID_PATIENT_2 = By.id("patient2-text");
 	public final static By CONTINUE = By.id("confirm-button");
-	private final static By MERGE_PATIENT_ELECTRONIC_RECORD = By
-			.id("coreapps-mergePatientsHomepageLink-app");
+	private final static By MERGE_PATIENT_ELECTRONIC_RECORD = By.id("coreapps-mergePatientsHomepageLink-app");
 	private final static By ID_PATIENT_1 = By.id("patient1-text");
 	private final static By MERGE_PATIENT = By.id("second-patient");
 	private final static By NO = By.id("cancel-button");

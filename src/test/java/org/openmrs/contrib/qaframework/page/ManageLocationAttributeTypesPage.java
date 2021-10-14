@@ -16,41 +16,24 @@ import org.openqa.selenium.By;
 public class ManageLocationAttributeTypesPage extends Page {
 
 	protected static final String PAGE_URL = "adminui/metadata/locations/manageLocationAttributeTypes.page";
-	private static final By ADD_LOCATION_ATTRIBUTE_TYPE_BUTTON = By
-			.cssSelector("input.button");
-	private static final By ATTRIBUTE_TYPE_NAME_FIELD = By
-			.cssSelector("#name-field");
-	private static final By ATTRIBUTE_TYPE_DESCRIPTION_FIELD = By
-			.cssSelector("#description-field");
-	private static final By MIN_OCCURS_FIELD = By
-			.cssSelector("#minOccurs-field");
-	private static final By MAX_OCCURS_FIELD = By
-			.cssSelector("#maxOccurs-field");
-	private static final By DATA_TYPE_FIELD = By
-			.cssSelector("#datatypeClassname-field");
-	private static final By DATA_TYPE_CONFIGURATION_FIELD = By
-			.cssSelector("#datatypeConfig-field");
-	private static final By PREFERRED_HANDLER_FIELD = By
-			.cssSelector("#preferredHandlerClassname-field");
-	private static final By HANDLER_CONFIGURATION_FILED = By
-			.cssSelector("#handlerConfig-field");
+	private static final By ADD_LOCATION_ATTRIBUTE_TYPE_BUTTON = By.cssSelector("input.button");
+	private static final By ATTRIBUTE_TYPE_NAME_FIELD = By.cssSelector("#name-field");
+	private static final By ATTRIBUTE_TYPE_DESCRIPTION_FIELD = By.cssSelector("#description-field");
+	private static final By MIN_OCCURS_FIELD = By.cssSelector("#minOccurs-field");
+	private static final By MAX_OCCURS_FIELD = By.cssSelector("#maxOccurs-field");
+	private static final By DATA_TYPE_FIELD = By.cssSelector("#datatypeClassname-field");
+	private static final By DATA_TYPE_CONFIGURATION_FIELD = By.cssSelector("#datatypeConfig-field");
+	private static final By PREFERRED_HANDLER_FIELD = By.cssSelector("#preferredHandlerClassname-field");
+	private static final By HANDLER_CONFIGURATION_FILED = By.cssSelector("#handlerConfig-field");
 	private static final By SAVE_BUTTON = By.cssSelector("#save-button");
-	private static final By CANCEL_BUTTON = By
-			.cssSelector("#locationAttributeTypeForm input.cancel");
-	private static final By EDIT_LOCATION_ATTRIBUTE_TYPE_ICON = By
-			.cssSelector("i.icon-pencil.edit-action");
-	private static final By DELETE_LOCATION_ICON = By
-			.cssSelector("i.icon-trash.delete-action.right");
-	private static final By RETIRE_LOCATION_ICON = By
-			.cssSelector("i.icon-remove.delete-action");
-	private static final By CONFIRM_DELETE_LOCATION_BUTTON = By
-			.cssSelector("#purgeLocationAttributeTypeForm button.confirm.right");
-	private static final By CONFIRM_RETIRE_LOCATION_BUTTON = By
-			.cssSelector("#retireLocationAttributeTypeForm button.confirm.right");
-	private static final By CANCEL_RETIRE_LOCATION_BUTTON = By
-			.cssSelector("#retireLocationAttributeTypeForm button.cancel");
-	private static final By CANCEL_DELETE_LOCATION_BUTTON = By
-			.cssSelector("#purgeLocationAttributeTypeForm button.cancel");
+	private static final By CANCEL_BUTTON = By.cssSelector("#locationAttributeTypeForm input.cancel");
+	private static final By EDIT_LOCATION_ATTRIBUTE_TYPE_ICON = By.cssSelector("i.icon-pencil.edit-action");
+	private static final By DELETE_LOCATION_ICON = By.cssSelector("i.icon-trash.delete-action.right");
+	private static final By RETIRE_LOCATION_ICON = By.cssSelector("i.icon-remove.delete-action");
+	private static final By CONFIRM_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationAttributeTypeForm button.confirm.right");
+	private static final By CONFIRM_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationAttributeTypeForm button.confirm.right");
+	private static final By CANCEL_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationAttributeTypeForm button.cancel");
+	private static final By CANCEL_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationAttributeTypeForm button.cancel");
 
 	public ManageLocationAttributeTypesPage(Page configureMetadataPage) {
 		super(configureMetadataPage);
@@ -71,15 +54,12 @@ public class ManageLocationAttributeTypesPage extends Page {
 
 	public void enterLocationAttributeTypeName(String locationAttributeTypeName) {
 		findElement(ATTRIBUTE_TYPE_NAME_FIELD).clear();
-		findElement(ATTRIBUTE_TYPE_NAME_FIELD).sendKeys(
-				locationAttributeTypeName);
+		findElement(ATTRIBUTE_TYPE_NAME_FIELD).sendKeys(locationAttributeTypeName);
 	}
 
-	public void enterLocationAttributeTypeDescription(
-			String locationAttributeTypeDescription) {
+	public void enterLocationAttributeTypeDescription(String locationAttributeTypeDescription) {
 		findElement(ATTRIBUTE_TYPE_DESCRIPTION_FIELD).clear();
-		findElement(ATTRIBUTE_TYPE_DESCRIPTION_FIELD).sendKeys(
-				locationAttributeTypeDescription);
+		findElement(ATTRIBUTE_TYPE_DESCRIPTION_FIELD).sendKeys(locationAttributeTypeDescription);
 	}
 
 	public void enterMinimumOccurs(String value) {
@@ -96,8 +76,7 @@ public class ManageLocationAttributeTypesPage extends Page {
 
 	public void enterDatatypeConfiguration(String datatypeConfiguration) {
 		findElement(DATA_TYPE_CONFIGURATION_FIELD).clear();
-		findElement(DATA_TYPE_CONFIGURATION_FIELD).sendKeys(
-				datatypeConfiguration);
+		findElement(DATA_TYPE_CONFIGURATION_FIELD).sendKeys(datatypeConfiguration);
 	}
 
 	public void selectPreferredHandler(String preferredHandler) {

@@ -17,35 +17,23 @@ import org.openqa.selenium.WebElement;
 
 public class SettingPage extends Page {
 
-	private static final By SETTING = By
-			.xpath("//a[contains(@href, '/openmrs/admin/maintenance/settings.list')]");
+	private static final By SETTING = By.xpath("//a[contains(@href, '/openmrs/admin/maintenance/settings.list')]");
 	private static final By REGISTRATIONCORE = By.linkText("Registrationcore");
-	private static final By FAMILY_NAME_LIST = By
-			.id("settings0.globalProperty.propertyValue");
-	private static final By GIVEN_NAME_LIST = By
-			.id("settings2.globalProperty.propertyValue");
+	private static final By FAMILY_NAME_LIST = By.id("settings0.globalProperty.propertyValue");
+	private static final By GIVEN_NAME_LIST = By.id("settings2.globalProperty.propertyValue");
 	private static final By SAVE_LIST = By.id("saveButton");
 	private static final By SECURITY = By.linkText("Security");
-	private static final By FALSE = By
-			.id("settings[1].globalProperty.propertyValue_f");
+	private static final By FALSE = By.id("settings[1].globalProperty.propertyValue_f");
 	private static final By SAVE_PROPERTIES = By.id("saveButton");
-	private static final By TRUE = By
-			.id("settings[1].globalProperty.propertyValue_t");
-	private static final By PASSWORD_LENGTH = By
-			.id("settings3.globalProperty.propertyValue");
-	private static final By FALSE_DIGIT = By
-			.id("settings[4].globalProperty.propertyValue_f");
-	private static final By TRUE_DIGIT = By
-			.id("settings[4].globalProperty.propertyValue_t");
+	private static final By TRUE = By.id("settings[1].globalProperty.propertyValue_t");
+	private static final By PASSWORD_LENGTH = By.id("settings3.globalProperty.propertyValue");
+	private static final By FALSE_DIGIT = By.id("settings[4].globalProperty.propertyValue_f");
+	private static final By TRUE_DIGIT = By.id("settings[4].globalProperty.propertyValue_t");
 	private static final By MSG = By.id("openmrs_msg");
-	private static final By FALSE_NONDIGIT = By
-			.id("settings[5].globalProperty.propertyValue_f");
-	private static final By TRUE_NONDIGIT = By
-			.id("settings[5].globalProperty.propertyValue_t");
-	private static final By FALSE_CASE = By
-			.id("settings[6].globalProperty.propertyValue_f");
-	private static final By TRUE_CASE = By
-			.id("settings[6].globalProperty.propertyValue_t");
+	private static final By FALSE_NONDIGIT = By.id("settings[5].globalProperty.propertyValue_f");
+	private static final By TRUE_NONDIGIT = By.id("settings[5].globalProperty.propertyValue_t");
+	private static final By FALSE_CASE = By.id("settings[6].globalProperty.propertyValue_f");
+	private static final By TRUE_CASE = By.id("settings[6].globalProperty.propertyValue_t");
 	public static By LIST = By.className("ui-corner-all");
 	public String GIVEN;
 	public String FAMILY;

@@ -19,8 +19,7 @@ public class ManageUserPage extends Page {
 	private static final By SAVE_BUTTON = By.id("saveButton");
 	private static final By HOME = By.id("homeNavLink");
 	private static final By ACTION = By.name("action");
-	private static final By USER_LINK = By
-			.xpath("//table[@class='openmrsSearchTable']/tbody/tr/td/a");
+	private static final By USER_LINK = By.xpath("//table[@class='openmrsSearchTable']/tbody/tr/td/a");
 	private static final By FIND_USER = By.name("name");
 	private static final By USER_SAVED_NOTIFICATION = By.id("openmrs_msg");
 	public static String URL_PATH = "/admin/users/users.list";
@@ -41,12 +40,10 @@ public class ManageUserPage extends Page {
 
 	public boolean userExists(String username) {
 		clickOn(ACTION);
-		return findElement(By.cssSelector(".openmrsSearchTable")).getText()
-				.contains(username);
+		return findElement(By.cssSelector(".openmrsSearchTable")).getText().contains(username);
 	}
 
-	public void assignRolesToUser(String roleToUnassign, String roleToAssign,
-			String user) throws InterruptedException {
+	public void assignRolesToUser(String roleToUnassign, String roleToAssign,String user) throws InterruptedException {
 		setText(FIND_USER, user);
 		clickOn(ACTION);
 		clickOn(USER_LINK);

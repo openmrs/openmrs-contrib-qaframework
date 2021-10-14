@@ -16,30 +16,18 @@ import org.openqa.selenium.By;
 public class ManageLocationTagsPage extends Page {
 
 	protected static final String PAGE_URL = "adminui/metadata/locations/manageLocationTags.page";
-	private static final By ADD_NEW_LOCATION_TAG_BUTTON = By
-			.cssSelector("input.button");
-	private static final By EDIT_LOCATION_LINK = By
-			.cssSelector("i.icon-pencil.edit-action");
-	private static final By LOCATION_TAG_NAME_FIELD = By
-			.cssSelector("input#name-field");
-	private static final By LOCATION_TAG_DESCRIPTION_FIELD = By
-			.cssSelector("#description-field");
-	private static final By DELETE_LOCATION_ICON = By
-			.cssSelector("i.icon-trash.delete-action.right");
-	private static final By RETIRE_LOCATION_ICON = By
-			.cssSelector("i.icon-remove.delete-action");
-	private static final By CONFIRM_RETIRE_LOCATION_BUTTON = By
-			.cssSelector("#retireLocationTagForm button.confirm.right");
-	private static final By CANCEL_RETIRE_LOCATION_ICON = By
-			.cssSelector("#retireLocationTagForm button.cancel");
-	private static final By CONFIRM_DELETE_LOCTION_BUTTON = By
-			.cssSelector("#purgeLocationTagForm button.confirm.right");
-	private static final By CANCEL_DELETE_LOCATION_BUTTON = By
-			.cssSelector("#purgeLocationTagForm button.cancel");
-	private static final By SAVE_LOCATION_BUTTON = By
-			.cssSelector("#save-button");
-	private static final By CANCEL_LOCATION_BUTTON = By
-			.cssSelector("input.cancel");
+	private static final By ADD_NEW_LOCATION_TAG_BUTTON = By.cssSelector("input.button");
+	private static final By EDIT_LOCATION_LINK = By.cssSelector("i.icon-pencil.edit-action");
+	private static final By LOCATION_TAG_NAME_FIELD = By.cssSelector("input#name-field");
+	private static final By LOCATION_TAG_DESCRIPTION_FIELD = By.cssSelector("#description-field");
+	private static final By DELETE_LOCATION_ICON = By.cssSelector("i.icon-trash.delete-action.right");
+	private static final By RETIRE_LOCATION_ICON = By.cssSelector("i.icon-remove.delete-action");
+	private static final By CONFIRM_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationTagForm button.confirm.right");
+	private static final By CANCEL_RETIRE_LOCATION_ICON = By.cssSelector("#retireLocationTagForm button.cancel");
+	private static final By CONFIRM_DELETE_LOCTION_BUTTON = By.cssSelector("#purgeLocationTagForm button.confirm.right");
+	private static final By CANCEL_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationTagForm button.cancel");
+	private static final By SAVE_LOCATION_BUTTON = By.cssSelector("#save-button");
+	private static final By CANCEL_LOCATION_BUTTON = By.cssSelector("input.cancel");
 
 	public ManageLocationTagsPage(Page parent) {
 		super(parent);
@@ -65,8 +53,7 @@ public class ManageLocationTagsPage extends Page {
 
 	public void enterLocationTagDescription(String locationTagDescription) {
 		findElement(LOCATION_TAG_DESCRIPTION_FIELD).clear();
-		findElement(LOCATION_TAG_DESCRIPTION_FIELD).sendKeys(
-				locationTagDescription);
+		findElement(LOCATION_TAG_DESCRIPTION_FIELD).sendKeys(locationTagDescription);
 	}
 
 	public void saveLocationTag() {

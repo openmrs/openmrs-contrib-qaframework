@@ -15,14 +15,10 @@ import org.openqa.selenium.By;
 
 public class AppointmentSchedulingPage extends Page {
 
-	private static final By MANAGE_SERVICES_TYPES = By
-			.id("appointmentschedulingui-manageAppointmentTypes-app");
-	private static final By MANAGE_PROVIDER_SCHEDULES = By
-			.id("appointmentschedulingui-scheduleProviders-app");
-	private static final By MANAGE_APPOINTMENTS = By
-			.id("appointmentschedulingui-manageAppointments-app");
-	private static final By DAILY_APPOINTMENTS = By
-			.id("appointmentschedulingui-scheduledAppointments-app");
+	private static final By MANAGE_SERVICES_TYPES = By.id("appointmentschedulingui-manageAppointmentTypes-app");
+	private static final By MANAGE_PROVIDER_SCHEDULES = By.id("appointmentschedulingui-scheduleProviders-app");
+	private static final By MANAGE_APPOINTMENTS = By.id("appointmentschedulingui-manageAppointments-app");
+	private static final By DAILY_APPOINTMENTS = By.id("appointmentschedulingui-scheduledAppointments-app");
 
 	public AppointmentSchedulingPage(Page page) {
 		super(page);

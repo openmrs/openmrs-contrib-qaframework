@@ -21,8 +21,7 @@ public class ManageFormsPage extends Page {
 	private static final By SAVE = By.cssSelector("input[type=\"submit\"]");
 	private static final By EXTENSION_FORM_LABEL = By.id("extensionForm.label");
 	private static final By EXTENSION_FORM_ICON = By.id("extensionForm.icon");
-	private static final By DELETE = By
-			.cssSelector("i.icon-remove.delete-action");
+	private static final By DELETE = By.cssSelector("i.icon-remove.delete-action");
 	private static String EDIT_FORM = "//i[@onclick=\"location.href='forms/extension.page?formId=";
 	private static String REST_PATH = "&extensionId=patientDashboard.overallActions.form.";
 	private static String DELETE_FORM = "//i[@onclick=\"location.href='forms/deleteExtension.page?formId=";
@@ -79,14 +78,12 @@ public class ManageFormsPage extends Page {
 	}
 
 	public void editPath() {
-		EDIT_FORM_PATH = By
-				.xpath(EDIT_FORM + id + REST_PATH + id + REST_PATH_2);
+		EDIT_FORM_PATH = By.xpath(EDIT_FORM + id + REST_PATH + id + REST_PATH_2);
 		clickOn(EDIT_FORM_PATH);
 	}
 
 	public void deletePath() {
-		DELETE_FORM_PATH = By.xpath(DELETE_FORM + id + REST_PATH + id
-				+ REST_PATH_2);
+		DELETE_FORM_PATH = By.xpath(DELETE_FORM + id + REST_PATH + id+ REST_PATH_2);
 		clickOn(DELETE_FORM_PATH);
 	}
 

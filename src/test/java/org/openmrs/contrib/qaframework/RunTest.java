@@ -7,6 +7,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
+	
 // defining ordered by name features folder
 features = {"src/test/resources/features"},
 // defining the definition steps package
@@ -25,7 +26,6 @@ public class RunTest {
 		public static final String TESTING_INSTALL = "@testingInstall";
 		public static final String CLINICAL_VISIT = "@clinicalVisit";
 		public static final String REGISTRATION = "@registration";
-		public static final String USER_ACCOUNT = "@userAccount";
 		public static final String INPATIENT = "@inpatient";
 		public static final String UPGRADE = "@upgrade";
 		public static final String VITALS = "@vitals";
@@ -43,8 +43,6 @@ public class RunTest {
 				+ INPATIENT;
 		public static final String SELENIUM_REGISTRATION = SELENIUM + " and "
 				+ REGISTRATION;
-		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "
-				+ USER_ACCOUNT;
 		public static final String SELENIUM_FIND_PATIENT = SELENIUM + " and "
 				+ FIND_PATIENT;
 	}

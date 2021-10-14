@@ -16,17 +16,13 @@ import org.openqa.selenium.By;
 public class AllergyPage extends Page {
 
 	private static final By ADD_NEW_ALLERGY = By.id("allergyui-addNewAllergy");
-	private static final By EDIT_ALLERGY = By
-			.cssSelector("i.icon-pencil.edit-action");
-	private static final By DELETE_ALLERGY = By
-			.cssSelector("i.icon-remove.delete-action");
-	private static final By CONFIRM_DELETE_ALLERGY = By
-			.cssSelector("#allergyui-remove-allergy-dialog .confirm");
+	private static final By EDIT_ALLERGY = By.cssSelector("i.icon-pencil.edit-action");
+	private static final By DELETE_ALLERGY = By.cssSelector("i.icon-remove.delete-action");
+	private static final By CONFIRM_DELETE_ALLERGY = By.cssSelector("#allergyui-remove-allergy-dialog .confirm");
 	private static final By REACTION = By.cssSelector(".reaction");
 	private static final By ALLERGEN = By.cssSelector(".allergen");
 	private static final By ALLERGY_STATUS = By.cssSelector(".allergyStatus");
-	private static final By ADD_NO_KNOWN = By
-			.xpath("//*[contains(text(),'No Known Allergy')]");
+	private static final By ADD_NO_KNOWN = By.xpath("//*[contains(text(),'No Known Allergy')]");
 	private static final By DELETE_NO_KNOWN = By.className("delete-action");
 
 	public AllergyPage(Page page) {

@@ -20,10 +20,8 @@ public class ManageProviderPage extends Page {
 
 	private static final By SEARCH_ELEMENT = By.id("inputNode");
 	private static final By INCLUDE_RETIRED = By.id("includeVoided");
-	private static final By ADD_PROVIDER = By
-			.cssSelector("#content a[href='provider.form']");
-	private static final By PROVIDERS = By
-			.cssSelector("#openmrsSearchTable tr td:first-child");
+	private static final By ADD_PROVIDER = By.cssSelector("#content a[href='provider.form']");
+	private static final By PROVIDERS = By.cssSelector("#openmrsSearchTable tr td:first-child");
 	private static final By OPENMRS_MSG = By.id("openmrs_msg");
 	private static final By SEARCH_STATUS = By.id("pageInfo");
 
@@ -39,8 +37,7 @@ public class ManageProviderPage extends Page {
 	public void setProviderNameOrId(String text) {
 		setText(SEARCH_ELEMENT, text);
 		findElement(SEARCH_ELEMENT).sendKeys(Keys.BACK_SPACE);
-		waitForTextToBePresentInElement(SEARCH_STATUS,
-				text.substring(0, text.length() - 1));
+		waitForTextToBePresentInElement(SEARCH_STATUS,text.substring(0, text.length() - 1));
 	}
 
 	public void clickOnIncludeRetired() {

@@ -18,7 +18,6 @@ import org.openmrs.reference.page.PatientVisitsDashboardPage;
 import org.openmrs.reference.page.RequestAppointmentPage;
 import org.openmrs.reference.page.VisitNotePage;
 import org.openmrs.uitestframework.test.TestData;
-import org.openqa.selenium.By;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

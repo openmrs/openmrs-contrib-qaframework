@@ -24,7 +24,6 @@ Install & Upgrade Tests |
 [![RefApp 2.x Vitals And Triaging](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml) 
 [![RefApp 2.x Inpatient](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-inpatient.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-inpatient.yml)
 [![RefApp 2.x Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml)
-[![RefApp 2.x User Account](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user-account.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user-account.yml)
 [![RefApp 2.x Find Patient](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-find-Patient.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-find-Patient.yml)
 
 2.x RefApp Feature-Specific Tests* |
@@ -41,6 +40,7 @@ Install & Upgrade Tests |
 [![RefApp 3.x Search & Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-search-and-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-search-and-registration.yml)
 [![RefApp 3.x User settings](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-settings.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-settings.yml)
 [![RefApp 3.x Clinical Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-clinical-visit.yml)
+
 ___
 
 ## Concept Management Tools 

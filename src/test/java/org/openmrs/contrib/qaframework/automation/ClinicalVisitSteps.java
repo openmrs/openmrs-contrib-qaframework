@@ -181,7 +181,8 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Add new condition")
 	public void userClicksAddNewCondition() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
+				.waitForPage();
 	}
 
 	@And("a user enters patient condition")

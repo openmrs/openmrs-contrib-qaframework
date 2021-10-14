@@ -18,6 +18,7 @@ import org.openmrs.reference.page.PatientVisitsDashboardPage;
 import org.openmrs.reference.page.RequestAppointmentPage;
 import org.openmrs.reference.page.VisitNotePage;
 import org.openmrs.uitestframework.test.TestData;
+import org.openqa.selenium.By;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -129,6 +130,20 @@ public class ClinicalVisitSteps extends Steps {
 		addOrEditAllergyPage.addAllergyNote("The effect is severe");
 	}
 
+	@When("the user clicks Add Known Allergy button")
+	public void addAllergy() {
+		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
+	}
+
+	@And("the user selects an allergy")
+	public void selectAllergy() {
+		addOrEditAllergyPage.enterDrug("Codeine");
+		addOrEditAllergyPage.drugId();
+		addOrEditAllergyPage.enterReaction(REACTION);
+		addOrEditAllergyPage.reactionId();
+		addOrEditAllergyPage.addAllergyNote("The effect is severe");
+	}
+
 	@And("a user clicks on save allergy button")
 	public void saveKnownAllergy() {
 		allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
@@ -137,6 +152,21 @@ public class ClinicalVisitSteps extends Steps {
 	@Then("the system adds known allergies into the allergies table")
 	public void systemAddsKnownAllergy() {
 		assertNotNull(addOrEditAllergyPage.getAllergiesList());
+	}
+
+	@When("the user clicks on the delete button for Codien Allergy")
+	public void deleteAllergy() {
+		allergyPage.clickOnDeleteAllergy();
+	}
+
+	@And("the system confirms delete Codein Allergy")
+	public void confirmDeleteAllergy() {
+		allergyPage.clickOnConfirmDeleteAllergy();
+	}
+
+	@Then("system displays Penicillins")
+	public void systemRemovesAllergy() {
+		assertTrue(textExists("Penicillins"));
 		dashboardPage = addOrEditAllergyPage.clickReturn();
 	}
 
@@ -163,14 +193,30 @@ public class ClinicalVisitSteps extends Steps {
 		conditionPage.typeInCondition(CONDITION);
 	}
 
+	@And("the user enters patient condition Acute malnutrition")
+	public void enterOneOfExistingConditions() {
+		conditionPage.typeInCondition("Acute malnutrition");
+	}
+
 	@And("a user clicks on save condition button")
 	public void saveCondition() {
 		conditionPage.clickSave();
+		conditionPage.waitForPage();
 	}
 
 	@Then("the system adds New Condition in Conditions table")
 	public void systemAddsCondition() {
 		assertNotNull(conditionsPage.getConditionsList());
+	}
+
+	@When("the user clicks on the delete button from dashboard")
+	public void deleteCondition() {
+		conditionsPage.deleteFirstActive();
+	}
+
+	@Then("user clicks on the yes button to confirm")
+	public void confirmDeletCondition() {
+		conditionsPage.confirmDeleteCondition();
 		dashboardPage = conditionsPage.clickReturn();
 	}
 

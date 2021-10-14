@@ -1,4 +1,4 @@
-Feature: User Settings
+Feature: Clinical Visit
 
   Background:
     Given the user is logged in
@@ -55,3 +55,5 @@ Feature: User Settings
     Then the forms list should be empty
     When the user clicks on "All" in the form widget
     Then the forms list should load properly
+    When the user completes a form
+    Then the completed form should be listed

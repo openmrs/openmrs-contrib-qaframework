@@ -48,7 +48,8 @@ public class ClinicalVisitSteps extends Steps {
 	public void visitHomePage() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
-		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
+		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(),
+				getLocationUuid(homePage)).create();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_CLINICAL_VISIT)
@@ -180,8 +181,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Add new condition")
 	public void userClicksAddNewCondition() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
-				.waitForPage();
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
 	}
 
 	@And("a user enters patient condition")
@@ -299,5 +299,4 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 }
-
 

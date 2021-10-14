@@ -72,6 +72,3 @@ Feature: Clinical Visit Management
 
 
 
-    
-
-

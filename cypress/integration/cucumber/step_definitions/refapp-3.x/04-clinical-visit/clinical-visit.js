@@ -1,4 +1,4 @@
-import {Given, Before, After} from 'cypress-cucumber-preprocessor/steps';
+import {Given, Before, After, When} from 'cypress-cucumber-preprocessor/steps';
 
 let identifier = null;
 let patient = null;
@@ -10,6 +10,7 @@ Before({tags: '@clinical-visit'}, () => {
         cy.createPatient(identifier).then((generatedPatient) => {
             patient = generatedPatient;
             cy.startFacilityVisit(patient.uuid);
+            cy.generateLabResults(patient.uuid);
         });
     });
 });
@@ -66,7 +67,7 @@ When('the user enrolls the patient into a program', () => {
 });
 
 Then('the patient should be enrolled into the program', () => {
-    cy.contains('Program enrollment saved successfully');
+    cy.contains('Program enrollment saved');
     cy.reload();
     cy.contains('HIV Care and Treatment');
 });
@@ -83,11 +84,11 @@ When('the user adds an allergy', () => {
     // Click on the first day on the calendar
     cy.getByLabel('Date of first onset').click({force: true});
     cy.get('.dayContainer .flatpickr-day').first().click({force: true});
-    cy.contains('Save and Close').click({force: true});
+    cy.contains('Save and close').click({force: true});
 });
 
 Then('the added allergy should be listed', () => {
-    cy.contains('Allergy saved successfully');
+    cy.contains('Allergy saved');
     cy.reload();
     cy.contains('ACE inhibitors');
 });
@@ -109,6 +110,54 @@ Then('the added condition should be listed', () => {
     cy.contains('Fever');
 });
 
+Then('the test results should be shown', () => {
+    cy.contains('Viral load');
+})
+
+When('the user clicks on timeline of a test', () => {
+    cy.contains('Timeline').click({force: true});
+})
+
+Then('the timeline table should be shown', () => {
+    cy.contains('copies/ml');
+})
+
+When('the user clicks on trend of a test', () => {
+    cy.contains('Trend').click({force: true});
+})
+
+Then('the trend line should be shown', () => {
+    // Todo: Use a robust way to check for the trend line 
+    cy.contains('Back to timeline');
+})
+
+When('the user changes the time range of a trend line', () => {
+    cy.contains('5 days').click({force: true});
+})
+
+Then('the time range of the trend line should be changed', () => {
+    cy.contains('Jan 20');
+})
+
+Then('the form entry widget should load properly', () => {
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('Forms');
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('Recommended');
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('Completed');
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('All');
+});
+
+When('the user clicks on {string} in the form widget', (tab) => {
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains(tab).click({force: true});
+});
+
+Then('the forms list should be empty', () => {
+    cy.contains('Sorry, no forms have been found');
+});
+
+Then('the forms list should load properly', () => {
+    cy.contains('Last Completed');
+    cy.contains('Form Name (A-Z)');
+});
 
 After({tags: '@clinical-visit'}, () => {
     cy.deletePatient(patient.uuid);

@@ -1,4 +1,4 @@
-Feature: User Settings
+Feature: Clinical Visit
 
   Background:
     Given the user is logged in

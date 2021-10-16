@@ -87,6 +87,10 @@ When("the user saves the form", () => {
 Then("the vitals needs to be displayed on the Vitals table", () => {
   cy.contains("Last Recorded").click({ force: true });
   cy.contains("15");
+  cy.contains("38");
+  cy.contains("140 / 80");
   cy.contains("90");
   cy.contains("160");
+  cy.contains("60");
+  cy.contains("23.4");
 });

@@ -1,13 +1,13 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
-import org.openmrs.contrib.qaframework.helper.LoginPage;
-import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
-import org.openmrs.contrib.qaframework.helper.TestProperties;
-import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
-import org.openmrs.contrib.qaframework.page.FindPatientPage;
-import org.openmrs.contrib.qaframework.page.HomePage;
-import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
+import org.openmrs.reference.ReferenceApplicationTestBase;
+import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
+import org.openmrs.reference.page.FindPatientPage;
+import org.openmrs.reference.page.HomePage;
+import org.openmrs.reference.page.PatientVisitsDashboardPage;
+import org.openmrs.uitestframework.page.InitialSetupPage;
+import org.openmrs.uitestframework.page.LoginPage;
+import org.openmrs.uitestframework.page.TestProperties;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -15,8 +15,7 @@ import org.openqa.selenium.WebElement;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 // Use english locale, of not set, the test instance should be set to english language
 public class Steps extends ReferenceApplicationTestBase {

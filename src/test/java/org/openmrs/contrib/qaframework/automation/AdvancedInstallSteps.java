@@ -7,10 +7,9 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
+import org.openmrs.uitestframework.page.InitialSetupPage;
 
 public class AdvancedInstallSteps extends InitialSetupSteps {
-
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and "
 			+ RunTest.HOOK.ADVANCED_INSTALL)
 	public void init() {

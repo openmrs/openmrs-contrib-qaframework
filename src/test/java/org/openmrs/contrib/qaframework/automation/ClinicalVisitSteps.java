@@ -8,16 +8,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.helper.TestData;
-import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
-import org.openmrs.contrib.qaframework.page.AddOrEditAllergyPage;
-import org.openmrs.contrib.qaframework.page.AllergyPage;
-import org.openmrs.contrib.qaframework.page.AttachmentsPage;
-import org.openmrs.contrib.qaframework.page.ConditionPage;
-import org.openmrs.contrib.qaframework.page.ConditionsPage;
-import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
-import org.openmrs.contrib.qaframework.page.RequestAppointmentPage;
-import org.openmrs.contrib.qaframework.page.VisitNotePage;
+import org.openmrs.reference.page.ActiveVisitsPage;
+import org.openmrs.reference.page.AddOrEditAllergyPage;
+import org.openmrs.reference.page.AllergyPage;
+import org.openmrs.reference.page.AttachmentsPage;
+import org.openmrs.reference.page.ConditionPage;
+import org.openmrs.reference.page.ConditionsPage;
+import org.openmrs.reference.page.PatientVisitsDashboardPage;
+import org.openmrs.reference.page.RequestAppointmentPage;
+import org.openmrs.reference.page.VisitNotePage;
+import org.openmrs.uitestframework.test.TestData;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;

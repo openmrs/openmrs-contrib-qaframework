@@ -4,11 +4,11 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.helper.PatientGenerator;
-import org.openmrs.contrib.qaframework.helper.TestPatient;
-import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
-import org.openmrs.contrib.qaframework.page.HomePage;
-import org.openmrs.contrib.qaframework.page.RegistrationPage;
+import org.openmrs.reference.helper.PatientGenerator;
+import org.openmrs.reference.helper.TestPatient;
+import org.openmrs.reference.page.ClinicianFacingPatientDashboardPage;
+import org.openmrs.reference.page.HomePage;
+import org.openmrs.reference.page.RegistrationPage;
 import org.openqa.selenium.By;
 
 import io.cucumber.java.After;

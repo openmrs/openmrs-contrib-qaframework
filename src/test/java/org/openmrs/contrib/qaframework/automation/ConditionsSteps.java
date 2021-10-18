@@ -153,7 +153,7 @@ public class ConditionsSteps extends Steps {
 	@Then("System should edit all active adjustable fields")
 	public void successiveActiveEdition() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			assertNotNull(getElement(ConditionsPage.SET_INACTIVE));
+			assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
 			assertNotNull(conditionsPage.getFirstConditionName());
 		}
 	}

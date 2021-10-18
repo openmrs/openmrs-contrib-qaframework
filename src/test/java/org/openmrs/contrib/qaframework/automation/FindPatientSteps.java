@@ -3,8 +3,8 @@ package org.openmrs.contrib.qaframework.automation;
 import static org.junit.Assert.assertNotNull;
 
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.FindPatientPage;
-import org.openmrs.uitestframework.test.TestData;
+import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openqa.selenium.By;
 
 import io.cucumber.java.After;

@@ -8,10 +8,8 @@ public class EditReportPage extends Page {
 	private static final By PREVIEW_BUTTON = By.cssSelector("#previewButton");
 	private static final By START_DATE_FIELD = By.cssSelector("#startDate");
 	private static final By END_DATE_FIELD = By.cssSelector("#endDate");
-	private static final By RUN_BUTTON = By
-			.cssSelector("#preview-parameterizable-button");
-	private static final By CLOSE_TAB = By
-			.xpath("//span[contains(text(),'close')]");
+	private static final By RUN_BUTTON = By.cssSelector("#preview-parameterizable-button");
+	private static final By CLOSE_TAB = By.xpath("//span[contains(text(),'close')]");
 
 	public EditReportPage(Page parent) {
 		super(parent);

@@ -25,7 +25,7 @@ public class RunTest {
 		public static final String POSTGRES_INSTALL = "@postgresInstall";
 		public static final String TESTING_INSTALL = "@testingInstall";
 		public static final String CLINICAL_VISIT = "@clinicalVisit";
-		public static final String REPORTS = "@reports",
+		public static final String REPORTS = "@reports";
 		public static final String REGISTRATION = "@registration";
 		public static final String INPATIENT = "@inpatient";
 		public static final String UPGRADE = "@upgrade";

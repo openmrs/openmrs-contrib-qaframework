@@ -46,7 +46,7 @@ public class ClinicalVisitSteps extends Steps {
 	public void visitHomePage() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
-		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(),getLocationUuid(homePage)).create();
+		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_CLINICAL_VISIT)

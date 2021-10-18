@@ -15,6 +15,7 @@ import java.util.List;
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ConditionsPage extends Page {
 
@@ -50,8 +51,8 @@ public class ConditionsPage extends Page {
 
 	public String getFirstConditionName() {
 		try {
-			return driver.findElement(FIRST_CONDITION_NAME).getAttribute(
-					"innerText");
+			 waiter.until(ExpectedConditions.elementToBeClickable(FIRST_CONDITION_NAME));
+			return driver.findElement(FIRST_CONDITION_NAME).getAttribute("innerText");
 		} catch (Exception e) {
 			return null;
 		}
@@ -62,6 +63,7 @@ public class ConditionsPage extends Page {
 	}
 
 	public void clickInActiveTab() {
+		waiter.until(ExpectedConditions.elementToBeClickable(TAB_INACTIVE));
 		clickOn(TAB_INACTIVE);
 	}
 

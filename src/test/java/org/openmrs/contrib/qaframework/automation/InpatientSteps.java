@@ -8,7 +8,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.uitestframework.test.TestData;
+import org.openmrs.contrib.qaframework.helper.TestData;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;

@@ -1,15 +1,5 @@
 package org.openmrs.contrib.qaframework.helper;
 
-import com.google.common.collect.Iterables;
-import org.apache.commons.lang3.StringUtils;
-import org.junit.Assert;
-import org.openqa.selenium.*;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
@@ -17,10 +7,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import org.apache.commons.lang3.StringUtils;
+import org.junit.Assert;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.google.common.collect.Iterables;
+
 /**
  * A superclass for "real" pages. Has lots of handy methods for accessing
  * elements, clicking, filling fields. etc.
  */
+
 public abstract class Page {
 
 	protected final TestProperties properties = TestProperties.instance();

@@ -1,12 +1,13 @@
 package org.openmrs.contrib.qaframework.helper;
 
+import java.io.IOException;
+import java.io.InputStream;
+
 import org.apache.commons.io.IOUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
-import java.io.IOException;
-import java.io.InputStream;
 
 public class LoginPage extends Page {
 

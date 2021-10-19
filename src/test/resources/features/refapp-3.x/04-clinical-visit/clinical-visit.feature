@@ -55,3 +55,5 @@ Feature: Clinical Visit
     Then the forms list should be empty
     When the user clicks on "All" in the form widget
     Then the forms list should load properly
+    When the user completes a form
+    Then the completed form should be listed

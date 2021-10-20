@@ -117,8 +117,6 @@ public class TestProperties {
 		}
 	}
 
-	; // only these two for now
-
 	public String getProperty(String property, String defaultValue) {
 		String value = System.getProperty(property);
 		if (value == null) {

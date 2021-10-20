@@ -12,9 +12,6 @@ package org.openmrs.contrib.qaframework.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by tomasz on 15.07.15.
- */
 public class RelationTypePage extends AdminManagementPage {
 
 	static final By DELETE_RELATION_TYPE = By.name("purge");

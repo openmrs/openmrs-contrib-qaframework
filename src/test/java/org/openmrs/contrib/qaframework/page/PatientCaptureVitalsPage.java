@@ -14,9 +14,6 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-/**
- * Created by tomasz on 26.05.15.
- */
 public class PatientCaptureVitalsPage extends Page {
 
 	public static final String URL_PATH = "/htmlformentryui/htmlform/enterHtmlFormWithSimpleUi.page";

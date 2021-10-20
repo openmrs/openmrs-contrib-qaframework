@@ -1,17 +1,28 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ * 
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework.automation;
 
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+
 import org.apache.commons.lang3.StringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.ConditionPage;
 import org.openmrs.contrib.qaframework.page.ConditionsPage;
 import org.openqa.selenium.By;
 
-import static org.junit.Assert.*;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 
 public class ConditionsSteps extends Steps {
 	private ConditionsPage conditionsPage;
@@ -32,8 +43,7 @@ public class ConditionsSteps extends Steps {
 	@Given("User clicks on Conditions from Patient dashboard")
 	public void launchManageConditions() {
 		patientDashboardId = getElement(patientHeaderId).getText();
-		conditionsPage = (ConditionsPage) dashboardPage
-				.clickOnConditionsWidgetLink().waitForPage();
+		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
 		matchPatientIds(patientDashboardId);
 	}
 
@@ -54,8 +64,7 @@ public class ConditionsSteps extends Steps {
 
 	@And("User clicks on Add new condition")
 	public void userClicksAddNewCondition() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
-				.waitForPage();
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
 	}
 
 	@Then("System on Add New Condition Page")
@@ -139,8 +148,7 @@ public class ConditionsSteps extends Steps {
 	@And("User edits inactive")
 	public void editInactive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionPage = (ConditionPage) conditionsPage.editFirstInActive()
-					.waitForPage();
+			conditionPage = (ConditionPage) conditionsPage.editFirstInActive().waitForPage();
 			conditionPage.clickOnActive();
 			conditionPage.clickSave();
 			conditionsPage.waitForPage();

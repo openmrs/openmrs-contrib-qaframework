@@ -1,4 +1,19 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ * 
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework.automation;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 import org.openmrs.contrib.qaframework.helper.LoginPage;
@@ -11,12 +26,6 @@ import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
 
 // Use english locale, of not set, the test instance should be set to english language
 public class Steps extends ReferenceApplicationTestBase {
@@ -60,18 +69,15 @@ public class Steps extends ReferenceApplicationTestBase {
 
 	protected void initiateWithLogin() {
 		goToLoginPage();
-		goToLoginPage().login(testProperties.getUsername(),
-				testProperties.getPassword(), testProperties.getLocation());
+		goToLoginPage().login(testProperties.getUsername(),testProperties.getPassword(), testProperties.getLocation());
 		homePage = (HomePage) new HomePage(loginPage).waitForPage();
 	}
 
 	protected void initiatePatientDashboard() {
 		initiateWithLogin();
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord()
-				.waitForPage();
+		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
 		findPatientPage.enterPatient("John Smith");
-		dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage
-				.clickOnFirstPatient().waitForPage();
+		dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage.clickOnFirstPatient().waitForPage();
 	}
 
 	protected String trimPatientId(String id) {

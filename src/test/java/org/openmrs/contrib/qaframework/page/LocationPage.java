@@ -14,9 +14,6 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-/**
- * Created by nata on 14.07.15.
- */
 @Deprecated
 public class LocationPage extends Page {
 

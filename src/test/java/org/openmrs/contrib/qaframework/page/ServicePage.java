@@ -13,9 +13,6 @@ package org.openmrs.contrib.qaframework.page;
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
-/**
- * Created by tomasz on 24.06.15.
- */
 public class ServicePage extends Page {
 
 	public static final String URL_PATH = "/appointmentschedulingui/appointmentType.page";

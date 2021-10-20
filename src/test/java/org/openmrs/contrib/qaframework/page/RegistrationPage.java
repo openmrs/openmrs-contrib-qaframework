@@ -17,7 +17,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 
 /**
- * The register-a-new-patient page.
+ * Register-a-new-patient page.
  */
 public class RegistrationPage extends Page {
 

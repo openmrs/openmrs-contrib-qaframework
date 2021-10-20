@@ -1,3 +1,12 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ * 
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework.automation;
 
 import static org.junit.Assert.assertEquals;
@@ -71,7 +80,6 @@ public class ClinicalVisitSteps extends Steps {
 		assertNotNull(dashboardPage.getActiveVisitList());
 	}
 
-	// User story: Complete visit note
 	@When("a user clicks visit note link from the patient dashboard")
 	public void loadVisitNotePage() {
 		visitsDashboardPage = dashboardPage.goToRecentVisits();
@@ -104,7 +112,6 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 
-	// User story: Add known allergies
 	@When("a user clicks on Allergies link from Patient dashboard page")
 	public void loadAllergiesPage() {
 		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink().waitForPage();
@@ -136,7 +143,6 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = addOrEditAllergyPage.clickReturn();
 	}
 
-	// User story: Add known condition
 	@When("a user clicks on Conditions link from Patient dashboard")
 	public void loadManageConditionsPage() {
 		conditionsPage = (ConditionsPage) dashboardPage
@@ -169,13 +175,10 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = conditionsPage.clickReturn();
 	}
 
-	// User story: Attach supporting document
 	@When("a user clicks on Attachments link from patient visits dashboard")
 	public void loadAttachmentsPage() {
-		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage
-				.goToRecentVisits();
-		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage()
-				.waitForPage();
+		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
+		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage().waitForPage();
 	}
 
 	@Then("the system loads Attachments page")
@@ -200,7 +203,6 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = attachmentsPage.goToPatientDashboardPage();
 	}
 
-	// User story: Book an appointment
 	@When("a user clicks on Request appointment link from Patient dashboard")
 	public void loadRequestAppointmentPage() {
 		requestAppointmentPage = (RequestAppointmentPage) dashboardPage
@@ -232,7 +234,6 @@ public class ClinicalVisitSteps extends Steps {
 		assertNotNull(requestAppointmentPage.getAppointmentRequestsList());
 	}
 
-	// User story: End patient visit
 	@When("a user clicks on recent visit link")
 	public void loadRecentVisitPage() {
 		visitsDashboardPage = dashboardPage.goToRecentVisits();

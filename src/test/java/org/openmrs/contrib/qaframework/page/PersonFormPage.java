@@ -14,8 +14,7 @@ import org.openqa.selenium.By;
 
 public class PersonFormPage extends Page {
 
-	private static final By FAMILY_NAME_FIELD = By
-			.cssSelector("#namePortlet > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > input[type=\"text\"]");
+	private static final By FAMILY_NAME_FIELD = By.cssSelector("#namePortlet > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > input[type=\"text\"]");
 	private static final By SAVE_PERSON = By.id("saveButton");
 	private static final By OPENMRS_MSG = By.id("openmrs_msg");
 	private static final By DELETE_PERSON_FOREVER = By.id("deletePersonButton");

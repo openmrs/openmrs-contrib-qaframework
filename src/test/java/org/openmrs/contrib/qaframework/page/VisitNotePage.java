@@ -54,7 +54,6 @@ public class VisitNotePage extends Page {
 		enterDiagnosis(diag);
 		diagnosisElement.clear();
 		diagnosisElement.click();
-
 	}
 
 	public void addNote(String note) {

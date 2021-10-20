@@ -1,3 +1,12 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ * 
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework.helper;
 
 import static org.junit.Assert.assertTrue;
@@ -81,7 +90,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 	public SauceOnDemandTestWatcher sauceLabsResultReportingTestWatcher;
 	@Rule
 	public TestName testName = new TestName();
-
+	protected Page page;
 	protected WebDriver driver;
 	@Rule
 	public TestRule testWatcher = new TestWatcher() {
@@ -91,23 +100,16 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 			takeScreenshot(test.getDisplayName().replaceAll("[()]", ""));
 		}
 	};
-	protected Page page;
 
 	public TestBase() {
 		TestProperties testProperties = TestProperties.instance();
-		String sauceLabsUsername = testProperties.getProperty(
-				"SAUCELABS_USERNAME", null);
-		String sauceLabsAccessKey = testProperties.getProperty(
-				"SAUCELABS_ACCESSKEY", null);
-		sauceLabsHubUrl = testProperties.getProperty("saucelabs.hub.url",
-				"ondemand.saucelabs.com:80");
+		String sauceLabsUsername = testProperties.getProperty("SAUCELABS_USERNAME", null);
+		String sauceLabsAccessKey = testProperties.getProperty("SAUCELABS_ACCESSKEY", null);
+		sauceLabsHubUrl = testProperties.getProperty("saucelabs.hub.url","ondemand.saucelabs.com:80");
 
-		if (!StringUtils.isBlank(sauceLabsUsername)
-				&& !StringUtils.isBlank(sauceLabsAccessKey)) {
-			sauceLabsAuthentication = new SauceOnDemandAuthentication(
-					sauceLabsUsername, sauceLabsAccessKey);
-			sauceLabsResultReportingTestWatcher = new SauceOnDemandTestWatcher(
-					this, sauceLabsAuthentication);
+		if (!StringUtils.isBlank(sauceLabsUsername)&& !StringUtils.isBlank(sauceLabsAccessKey)) {
+			sauceLabsAuthentication = new SauceOnDemandAuthentication(sauceLabsUsername, sauceLabsAccessKey);
+			sauceLabsResultReportingTestWatcher = new SauceOnDemandTestWatcher(this, sauceLabsAuthentication);
 		}
 
 	}
@@ -217,9 +219,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 		while (autoLoginAtStart & !driver.getCurrentUrl().endsWith("index.htm")) {
 			try {
 				page = login();
-				// wait for loading a page for MAX_PAGE_LOAD_IN_SECONDS +
-				// MAX_WAIT_IN_SECONDS
-				// and interpret no exception as successful connection
+				// wait for loading a page for MAX_PAGE_LOAD_IN_SECONDS + MAX_WAIT_IN_SECONDS and interpret no exception as successful connection
 				return;
 			} catch (ServerErrorException e) {
 				failTest(testMethod, e);
@@ -232,8 +232,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 						+ MAX_SERVER_STARTUP_IN_MILLISECONDS) {
 					failTest(testMethod, e);
 				} else {
-					// log that connection timed out, and try again in next
-					// iteration
+					// log that connection timed out, and try again in next iteration
 					System.out.println("Failed to login in " + testMethod
 							+ ", trying again...");
 				}

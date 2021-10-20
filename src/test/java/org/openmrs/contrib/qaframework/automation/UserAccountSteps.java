@@ -1,3 +1,4 @@
+
 /**This Source Code Form is subject to the terms of the Mozilla Public License,
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
@@ -8,7 +9,14 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
+
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.page.ManageUserAccountPage;
+import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -16,13 +24,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.page.ManageUserAccountPage;
-import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
-
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
 
 public class UserAccountSteps extends Steps {
 

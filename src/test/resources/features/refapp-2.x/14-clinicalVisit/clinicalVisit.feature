@@ -59,8 +59,6 @@ Feature: Clinical Visit Management
     Then the system loads recent visit page
     When a user clicks on end visit button
     Then the system ends the patient visit
-    When the user clicks on the delete button from dashboard
-    Then user clicks on the yes button to confirm
   
   Scenario: Clinical Visit for uploading supporting file
     # User story: Attach supporting document

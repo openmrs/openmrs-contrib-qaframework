@@ -105,6 +105,7 @@ public class ClinicalVisitSteps extends Steps {
 		assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.secondaryDiagnosis());
 		visitsDashboardPage.waitForPageToLoad();
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
+		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 
 	// User story: Add known allergies

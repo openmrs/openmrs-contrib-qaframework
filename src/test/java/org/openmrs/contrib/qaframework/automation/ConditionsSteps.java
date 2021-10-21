@@ -116,7 +116,7 @@ public class ConditionsSteps extends Steps {
 	public void moveInActive() {
 		conditionsPage.clickInActiveTab();
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			assertNotNull(getElement(ConditionsPage.SET_INACTIVE));
+			assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
 		}
 	}
 
@@ -153,7 +153,7 @@ public class ConditionsSteps extends Steps {
 	@Then("System should edit all active adjustable fields")
 	public void successiveActiveEdition() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
+			assertNotNull(getElement(ConditionsPage.SET_INACTIVE));
 			assertNotNull(conditionsPage.getFirstConditionName());
 		}
 	}

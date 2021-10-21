@@ -21,12 +21,12 @@ public class ConditionsSteps extends Steps {
 	private By addNewCondition = By.id("conditionui-addNewCondition");
 	private ConditionPage conditionPage;
 
-	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)
+	@Before(RunTest.HOOK.SELENIUM_CONDITIONS)
 	public void visitDashboard() {
 		initiatePatientDashboard();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_DASHBOARD)
+	@After(RunTest.HOOK.SELENIUM_CONDITIONS)
 	public void destroy() {
 		quit();
 	}

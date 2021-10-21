@@ -24,7 +24,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import jakarta.ws.rs.NotFoundException;
 
-
 public class TestData {
 
 	public static final String OPENMRS_PATIENT_IDENTIFIER_TYPE = "OpenMRS ID";

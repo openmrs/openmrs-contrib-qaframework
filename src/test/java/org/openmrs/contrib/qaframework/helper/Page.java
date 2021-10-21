@@ -36,7 +36,6 @@ import com.google.common.collect.Iterables;
  * A superclass for "real" pages. Has lots of handy methods for accessing
  * elements, clicking, filling fields. etc.
  */
-
 public abstract class Page {
 
 	protected final TestProperties properties = TestProperties.instance();

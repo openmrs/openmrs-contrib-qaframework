@@ -127,8 +127,9 @@ When('the user clicks on trend of a test', () => {
 })
 
 Then('the trend line should be shown', () => {
-    // Todo: Use a robust way to check for the trend line 
     cy.contains('Back to timeline');
+    cy.get('.layout-svg-wrapper')
+    .should('be.visible')
 })
 
 When('the user changes the time range of a trend line', () => {

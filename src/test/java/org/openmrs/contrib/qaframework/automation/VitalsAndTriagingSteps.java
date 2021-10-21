@@ -1,3 +1,12 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ * 
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework.automation;
 
 import static org.hamcrest.CoreMatchers.hasItem;
@@ -5,9 +14,9 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.FindPatientPage;
-import org.openmrs.reference.page.PatientCaptureVitalsPage;
-import org.openmrs.uitestframework.test.TestData;
+import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.FindPatientPage;
+import org.openmrs.contrib.qaframework.page.PatientCaptureVitalsPage;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -25,8 +34,7 @@ public class VitalsAndTriagingSteps extends Steps {
 	public void visitPatientDashboard() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord()
-				.waitForPage();
+		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
 		dashboardPage = findPatientPage.clickOnFirstPatient();

@@ -1,4 +1,30 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ * 
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework.automation;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
+import org.openmrs.contrib.qaframework.page.AddOrEditAllergyPage;
+import org.openmrs.contrib.qaframework.page.AllergyPage;
+import org.openmrs.contrib.qaframework.page.AttachmentsPage;
+import org.openmrs.contrib.qaframework.page.ConditionPage;
+import org.openmrs.contrib.qaframework.page.ConditionsPage;
+import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
+import org.openmrs.contrib.qaframework.page.RequestAppointmentPage;
+import org.openmrs.contrib.qaframework.page.VisitNotePage;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -6,23 +32,6 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.ActiveVisitsPage;
-import org.openmrs.reference.page.AddOrEditAllergyPage;
-import org.openmrs.reference.page.AllergyPage;
-import org.openmrs.reference.page.AttachmentsPage;
-import org.openmrs.reference.page.ConditionPage;
-import org.openmrs.reference.page.ConditionsPage;
-import org.openmrs.reference.page.PatientVisitsDashboardPage;
-import org.openmrs.reference.page.RequestAppointmentPage;
-import org.openmrs.reference.page.VisitNotePage;
-import org.openmrs.uitestframework.test.TestData;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
 
 public class ClinicalVisitSteps extends Steps {
 
@@ -46,8 +55,7 @@ public class ClinicalVisitSteps extends Steps {
 	public void visitHomePage() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
-		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_CLINICAL_VISIT)
@@ -64,8 +72,7 @@ public class ClinicalVisitSteps extends Steps {
 	@When("a user selects a patient from active patient list")
 	public void searchActivePatient() {
 		activeVisitsPage.search(testPatient.identifier);
-		dashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
+		dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
 	}
 
 	@Then("the system loads Patient dashboard page")
@@ -73,12 +80,10 @@ public class ClinicalVisitSteps extends Steps {
 		assertNotNull(dashboardPage.getActiveVisitList());
 	}
 
-	// User story: Complete visit note
 	@When("a user clicks visit note link from the patient dashboard")
 	public void loadVisitNotePage() {
 		visitsDashboardPage = dashboardPage.goToRecentVisits();
-		visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote()
-				.waitForPage();
+		visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote().waitForPage();
 	}
 
 	@Then("the system loads visit note page")
@@ -108,11 +113,9 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 
-	// User story: Add known allergies
 	@When("a user clicks on Allergies link from Patient dashboard page")
 	public void loadAllergiesPage() {
-		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
-				.waitForPage();
+		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink().waitForPage();
 	}
 
 	@Then("the system loads Allergies board page")
@@ -170,7 +173,6 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = addOrEditAllergyPage.clickReturn();
 	}
 
-	// User story: Add known condition
 	@When("a user clicks on Conditions link from Patient dashboard")
 	public void loadManageConditionsPage() {
 		conditionsPage = (ConditionsPage) dashboardPage
@@ -184,8 +186,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Add new condition")
 	public void userClicksAddNewCondition() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
-				.waitForPage();
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
 	}
 
 	@And("a user enters patient condition")
@@ -220,13 +221,10 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = conditionsPage.clickReturn();
 	}
 
-	// User story: Attach supporting document
 	@When("a user clicks on Attachments link from patient visits dashboard")
 	public void loadAttachmentsPage() {
-		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage
-				.goToRecentVisits();
-		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage()
-				.waitForPage();
+		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
+		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage().waitForPage();
 	}
 
 	@Then("the system loads Attachments page")
@@ -251,7 +249,6 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = attachmentsPage.goToPatientDashboardPage();
 	}
 
-	// User story: Book an appointment
 	@When("a user clicks on Request appointment link from Patient dashboard")
 	public void loadRequestAppointmentPage() {
 		requestAppointmentPage = (RequestAppointmentPage) dashboardPage
@@ -283,7 +280,6 @@ public class ClinicalVisitSteps extends Steps {
 		assertNotNull(requestAppointmentPage.getAppointmentRequestsList());
 	}
 
-	// User story: End patient visit
 	@When("a user clicks on recent visit link")
 	public void loadRecentVisitPage() {
 		visitsDashboardPage = dashboardPage.goToRecentVisits();

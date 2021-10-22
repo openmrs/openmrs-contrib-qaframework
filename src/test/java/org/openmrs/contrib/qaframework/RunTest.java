@@ -1,3 +1,12 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ * 
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework;
 
 import org.junit.runner.RunWith;
@@ -26,6 +35,7 @@ public class RunTest {
 		public static final String TESTING_INSTALL = "@testingInstall";
 		public static final String CLINICAL_VISIT = "@clinicalVisit";
 		public static final String REGISTRATION = "@registration";
+		public static final String USER_ACCOUNT = "@userAccount";
 		public static final String INPATIENT = "@inpatient";
 		public static final String UPGRADE = "@upgrade";
 		public static final String VITALS = "@vitals";
@@ -47,5 +57,7 @@ public class RunTest {
 				+ REGISTRATION;
 		public static final String SELENIUM_FIND_PATIENT = SELENIUM + " and "
 				+ FIND_PATIENT;
+		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "
+				+ USER_ACCOUNT;
 	}
 }

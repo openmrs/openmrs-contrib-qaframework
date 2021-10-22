@@ -127,8 +127,9 @@ When('the user clicks on trend of a test', () => {
 })
 
 Then('the trend line should be shown', () => {
-    // Todo: Use a robust way to check for the trend line 
     cy.contains('Back to timeline');
+    cy.get('.layout-svg-wrapper')
+    .should('be.visible')
 })
 
 When('the user changes the time range of a trend line', () => {
@@ -157,6 +158,18 @@ Then('the forms list should be empty', () => {
 Then('the forms list should load properly', () => {
     cy.contains('Last Completed');
     cy.contains('Form Name (A-Z)');
+});
+
+When('the user completes a form', () => {
+    cy.contains('Record Vitals').click({force: true});
+    cy.get('#Temperature').type("38");
+    cy.contains('Sign & Save').click({force: true});
+});
+
+Then('the completed form should be listed', () => {
+    cy.contains('Vitals and Biometrics saved');
+    cy.reload();
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('Vitals');
 });
 
 After({tags: '@clinical-visit'}, () => {

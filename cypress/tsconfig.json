@@ -3,14 +3,15 @@
   "compilerOptions": {
     "strict": true,
     "baseUrl": "../node_modules",
+    "isolatedModules": false,
     "target": "es5",
-    "lib": [
-      "es5",
-      "dom"
-    ],
+    "lib": ["es5", "dom"],
     "types": [
       "cypress",
-      "@types/testing-library__cypress"
+      "@testing-library/cypress",
+      "node",
+      "cypress-wait-until"
     ]
-  }
+  },
+  "include": ["./**/*.ts", "plugins/index.ts"]
 }

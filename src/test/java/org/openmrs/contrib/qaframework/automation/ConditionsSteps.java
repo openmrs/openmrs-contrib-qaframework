@@ -168,18 +168,16 @@ public class ConditionsSteps extends Steps {
 
 	@And("User clicks delete condition")
 	public void delete() {
-		String name = conditionsPage.getFirstConditionName();
-		if (StringUtils.isNotBlank(name)) {
+		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionsPage.deleteFirstActive();
+			conditionsPage.confirmDeleteCondition();
 		}
-		driver.findElement(By.cssSelector(".confirm")).click();
 
 		conditionsPage.clickInActiveTab();
-		name = conditionsPage.getFirstConditionName();
-		if (StringUtils.isNotBlank(name)) {
+		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionsPage.deleteFirstInActive();
+			conditionsPage.confirmDeleteCondition();
 		}
-		driver.findElement(By.cssSelector(".confirm")).click();
 	}
 
 	@Then("System should trash first condition")

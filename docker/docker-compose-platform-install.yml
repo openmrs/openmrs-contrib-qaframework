@@ -20,6 +20,3 @@ services:
       - db:openmrs
     ports:
       - '8080:8080'
-    environment:
-      MYSQL_ROOT_PASSWORD: Admin123
-      MYSQL_DATABASE: openmrs

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.openmrs.contrib</groupId>
     <artifactId>qaframework</artifactId>
@@ -16,8 +15,6 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <cucumber.version>6.7.0</cucumber.version>
-        <uitestframework.version>2.4.0-SNAPSHOT</uitestframework.version>
-        <refappuitests.version>2.12.0-SNAPSHOT</refappuitests.version>
         <formatter.version>0.4</formatter.version>
     </properties>
     <dependencies>
@@ -32,23 +29,50 @@
             <version>${cucumber.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.openmrs.contrib</groupId>
-            <artifactId>uitestframework</artifactId>
-            <version>${uitestframework.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.openmrs.distro</groupId>
-            <artifactId>referenceapplication-ui-tests</artifactId>
-            <version>${refappuitests.version}</version>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
+        	<groupId>org.apache.commons</groupId>
+			<artifactId>commons-vfs2</artifactId>
+			<version>2.0</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-io</groupId>
+			<artifactId>commons-io</artifactId>
+			<version>2.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.11</version>
+		</dependency>
+		<dependency>
+			<groupId>org.seleniumhq.selenium</groupId>
+			<artifactId>selenium-java</artifactId>
+			<version>4.0.0-alpha-6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.core</groupId>
+			<artifactId>jersey-client</artifactId>
+			<version>3.0.0-M6</version>
+		</dependency>
+		<dependency>
+			<groupId>org.glassfish.jersey.inject</groupId>
+			<artifactId>jersey-hk2</artifactId>
+			<version>3.0.0-M6</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.11.2</version>
+		</dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
             <version>1.5.6</version>
         </dependency>
+        <dependency>
+		    <groupId>com.saucelabs</groupId>
+		    <artifactId>sauce_junit</artifactId>
+		    <version>2.1.18</version>
+		</dependency>
     </dependencies>
     <build>
         <plugins>
@@ -62,8 +86,9 @@
                         <phase>process-test-classes</phase>
                         <configuration>
                             <target>
-                                <chmod file="target/test-classes/chromedriver/mac/chromedriver" perm="755"/>
+                                <chmod file="target/test-classes/chromedriver/mac/chromedriver" perm="755" />
                             </target>
+                            <failOnError>false</failOnError>
                         </configuration>
                         <goals>
                             <goal>run</goal>
@@ -74,8 +99,22 @@
                         <phase>process-test-classes</phase>
                         <configuration>
                             <target>
-                                <chmod file="target/test-classes/chromedriver/linux/chromedriver" perm="755"/>
+                                <chmod file="target/test-classes/chromedriver/linux/chromedriver" perm="755" />
                             </target>
+                            <failOnError>false</failOnError>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>make-windows-chromedriver-executable</id>
+                        <phase>process-test-classes</phase>
+                        <configuration>
+                            <target>
+                                <chmod file="target/test-classes/chromedriver/windows/chromedriver.exe" perm="755" />
+                            </target>
+                            <failOnError>false</failOnError>
                         </configuration>
                         <goals>
                             <goal>run</goal>
@@ -86,8 +125,35 @@
                         <phase>process-test-classes</phase>
                         <configuration>
                             <target>
+                                <chmod file="target/test-classes/firefoxdriver/mac/geckodriver" perm="755"/>
+                            </target>
+                            <failOnError>false</failOnError>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>make-linux-firefoxdriver-executable</id>
+                        <phase>process-test-classes</phase>
+                        <configuration>
+                            <target>
                                 <chmod file="target/test-classes/firefoxdriver/linux/geckodriver" perm="755"/>
                             </target>
+                            <failOnError>false</failOnError>
+                        </configuration>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>make-windows-firefoxdriver-executable</id>
+                        <phase>process-test-classes</phase>
+                        <configuration>
+                            <target>
+                                <chmod file="target/test-classes/firefoxdriver/windows/geckodriver.exe" perm="755"/>
+                            </target>
+                            <failOnError>false</failOnError>
                         </configuration>
                         <goals>
                             <goal>run</goal>
@@ -110,7 +176,7 @@
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
-                <version>1.9.1</version>
+                <version>1.11.3</version>
                 <executions>
                     <execution>
                         <id>install node and npm</id>

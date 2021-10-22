@@ -4,5 +4,17 @@
     "*.feature",
     "**/*.feature"
   ],
-  "video": false
+  "video": true,
+  "defaultCommandTimeout": 120000,
+  "baseUrl": "https://openmrs-spa.org/openmrs/spa",
+  "env": {
+    "API_BASE_URL": "https://openmrs-spa.org/openmrs/ws/rest/v1",
+    "ADMIN_USERNAME": "spa_user",
+    "ADMIN_PASSWORD": "Admin123",
+    "ADMIN_UUID": "8f24ac87-2d71-4574-991e-97803e6f8095",
+    "DEFAULT_LOCATION_UUID": "6351fcf4-e311-4a19-90f9-35667d99a8af",
+    "DEFAULT_LOCATION_NAME": "Registration Desk"
+  },
+  "viewportWidth": 1800,
+  "viewportHeight": 900
 }

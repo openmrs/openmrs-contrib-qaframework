@@ -1,25 +1,40 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ * 
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework.automation;
+
+import static org.junit.Assert.assertNotNull;
+
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.FindPatientPage;
+import org.openqa.selenium.By;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.reference.page.FindPatientPage;
-import org.openqa.selenium.By;
-
-import static org.junit.Assert.assertNotNull;
 
 public class FindPatientSteps extends Steps {
 
-	@Before(RunTest.HOOK.SELENIUM_LOGIN)
+	private TestData.PatientInfo testPatient;
+
+	@Before(RunTest.HOOK.SELENIUM_FIND_PATIENT)
 	public void systemLogin() {
+		testPatient = createTestPatient();
 		initiateWithLogin();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_LOGIN)
+	@After(RunTest.HOOK.SELENIUM_FIND_PATIENT)
 	public void destroy() {
+		deletePatient(testPatient);
 		quit();
 	}
 
@@ -39,9 +54,9 @@ public class FindPatientSteps extends Steps {
 		assertNotNull(getElement(By.className("dataTables_empty")));
 	}
 
-	@And("User enters John Smith")
-	public void enterJohnSmith() {
-		findPatientPage.enterPatient("John Smith");
+	@And("User enters patient identifer")
+	public void enterPatientIdentifier() {
+		findPatientPage.enterPatient(testPatient.identifier);
 	}
 
 	@Then("Search Page returns patients")

@@ -7,21 +7,33 @@
     "npm": ">=7.5.3"
   },
   "scripts": {
-    "refappCypress": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and not @ocl and not @microfrontend'",
+    "refappCypress": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and not @microfrontend'",
     "refappSelenium": "mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup'",
+    "refapp2VitalsAndTriaging": "mvn test -Dcucumber.filter.tags='@selenium and @vitals'",
+    "refapp2ClinicalVisit": "mvn test -Dcucumber.filter.tags='@selenium and @clinicalVisit'",
+    "refapp2UserAccount": "mvn test -Dcucumber.filter.tags='@selenium and @userAccount'",
+    "refapp2Inpatient": "mvn test -Dcucumber.filter.tags='@selenium and @inpatient'",
+    "refapp2Registration": "mvn test -Dcucumber.filter.tags='@selenium and @registration'",
+    "refapp2FindPatient": "mvn test -Dcucumber.filter.tags='@selenium and @findPatient'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
+    "postgresCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",
     "testingCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @testingInstall'",
     "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'",
     "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
-    "microfrontend": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @microfrontend'"
+    "microfrontend": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @microfrontend'",
+    "refapp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature",
+    "refapp3SearchAndRegistration": "cypress run --spec src/test/resources/features/refapp-3.x/02-search-and-registration/search-and-registration.feature",
+    "refapp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature",
+    "refapp3ClinicalVisit": "cypress run --spec src/test/resources/features/refapp-3.x/04-clinical-visit/clinical-visit.feature",
+    "refapp3VitalsAndTriage": "cypress run --spec src/test/resources/features/refapp-3.x/05-vitals-and-triage/vitals-and-triage.feature"
   },
   "devDependencies": {
+    "@testing-library/cypress": "^8.0.0",
     "@types/uuid": "3.4.7",
-    "properties-reader": "2.2.0",
-    "cypress": "6.5.0",
-    "@testing-library/cypress": "7.0.3",
-    "cypress-cucumber-preprocessor": "4.0.1"
+    "cypress": "^8.2.0",
+    "cypress-cucumber-preprocessor": "^4.0.1",
+    "cypress-file-upload": "^5.0.8"
   },
   "cypress-cucumber-preprocessor": {
     "step_definitions": "cypress/integration/cucumber/step_definitions"
@@ -37,7 +49,7 @@
     "qa"
   ],
   "author": "k-joseph",
-  "license": "ISC",
+  "license": "MPL-2.0",
   "bugs": {
     "url": "https://github.com/openmrs/openmrs-contrib-qaframework/issues"
   },

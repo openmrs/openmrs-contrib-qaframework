@@ -1,0 +1,28 @@
+name: RefApp 3.x Search & Registration
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+  repository_dispatch:
+    types: [qa]
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Using Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Installing dependencies
+        run: npm install
+      - name: Run patient registration workflow tests
+        run: npm run refapp3SearchAndRegistration
+      - name: Upload screen recordings of failed tests
+        if: ${{ failure() }}
+        uses: actions/upload-artifact@v2
+        with:
+          name: Screen recordings of failed tests
+          path: cypress/videos/refapp-3.x

@@ -16,20 +16,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AdministrationPage extends Page {
 
 	private static final String URL = "/admin/index.htm";
-	private static final By MANAGE_USERS = By
-			.cssSelector("#content a[href='/openmrs/admin/users/users.list']");
-	private static final By MANAGE_MODULES = By
-			.cssSelector("#legacyui-manageModules a");
-	private final static By MANAGE_VISIT_TYPES = By
-			.cssSelector("#legacyui-manageVisitTypes a");
-	private static final By MANAGE_PROVIDERS = By
-			.cssSelector("#content a[href='/openmrs/admin/provider/index.htm']");
-	private static final By MANAGE_PERSONS = By
-			.cssSelector("#content a[href='/openmrs/admin/person/index.htm']");
-	private static final By MANAGE_HTMLFORMS_PAGE = By
-			.cssSelector("#content a[href*='/module/htmlformentry/htmlForms.list']");
-	private static final By REPORT_ADMINISTRATION_LINK = By
-			.xpath("//*[@id=\"menu\"]/li[1]/a");
+	private static final By MANAGE_USERS = By.cssSelector("#content a[href='/openmrs/admin/users/users.list']");
+	private static final By MANAGE_MODULES = By.cssSelector("#legacyui-manageModules a");
+	private final static By MANAGE_VISIT_TYPES = By.cssSelector("#legacyui-manageVisitTypes a");
+	private static final By MANAGE_PROVIDERS = By.cssSelector("#content a[href='/openmrs/admin/provider/index.htm']");
+	private static final By MANAGE_PERSONS = By.cssSelector("#content a[href='/openmrs/admin/person/index.htm']");
+	private static final By MANAGE_HTMLFORMS_PAGE = By.cssSelector("#content a[href*='/module/htmlformentry/htmlForms.list']");
+	private static final By REPORT_ADMINISTRATION_LINK = By.xpath("/html/body/div[1]/div[3]/table/tbody/tr/td[3]/div[15]/ul/li[1]/a");
 
 	public AdministrationPage(Page page) {
 		super(page);

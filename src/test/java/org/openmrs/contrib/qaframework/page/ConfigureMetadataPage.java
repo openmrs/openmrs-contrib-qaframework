@@ -11,13 +11,17 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ConfigureMetadataPage extends Page {
 
-	protected static final String PAGE_URL = "adminui/metadata/configureMetadata.page";
-	private static final By MANAGE_LOCATION_ATTRIBUTE_TYPE_LINK = By.id("org-openmrs-module-adminui-manageLocationAttributeTypes-link-org-openmrs-module-adminui-manageLocationAttributeTypes-link-extension");
-	private static final By MANAGE_LOCATIONS_LINK = By.id("org-openmrs-module-adminui-manageLocations-link-org-openmrs-module-adminui-manageLocations-link-extension");
-	private static final By MANAGE_LOCATION_TAGS_LINK = By.id("org-openmrs-module-adminui-manageLocationTags-link-org-openmrs-module-adminui-manageLocationTags-link-extension");
+	protected static final String PAGE_URL = "/adminui/metadata/configureMetadata.page";
+	private static final By MANAGE_LOCATION_ATTRIBUTE_TYPE_LINK = By
+			.id("org-openmrs-module-adminui-manageLocationAttributeTypes-link-org-openmrs-module-adminui-manageLocationAttributeTypes-link-extension");
+	private static final By MANAGE_LOCATIONS_LINK = By
+			.id("org-openmrs-module-adminui-manageLocations-link-org-openmrs-module-adminui-manageLocations-link-extension");
+	private static final By MANAGE_LOCATION_TAGS_LINK = By
+			.id("org-openmrs-module-adminui-manageLocationTags-link-org-openmrs-module-adminui-manageLocationTags-link-extension");
 
 	public ConfigureMetadataPage(Page parent) {
 		super(parent);

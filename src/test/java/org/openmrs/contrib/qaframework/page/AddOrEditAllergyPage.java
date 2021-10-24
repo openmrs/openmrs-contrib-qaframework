@@ -26,7 +26,8 @@ public class AddOrEditAllergyPage extends Page {
 	private static String REACTION_XPATH = "//div[@id='reactions']/ul/li/label[text()=\"";
 	private static By REACTION_ID;
 	private static By ALLERGY_NOTE = By.id("allergy-comment");
-	private static By ALLERGIES_LIST = By.cssSelector("#allergies tbody tr td.allergen");
+	private static By ALLERGIES_LIST = By
+			.cssSelector("#allergies tbody tr td.allergen");
 	private static By RETURN = By.cssSelector("#content > button.cancel");
 
 	public AddOrEditAllergyPage(Page page) {

@@ -36,6 +36,7 @@ public class RunTest {
 		public static final String REGISTRATION = "@registration";
 		public static final String USER_ACCOUNT = "@userAccount";
 		public static final String INPATIENT = "@inpatient";
+		public static final String LOCATION = "@location";
 		public static final String UPGRADE = "@upgrade";
 		public static final String VITALS = "@vitals";
 		public static final String FIND_PATIENT = "@findPatient";
@@ -56,5 +57,7 @@ public class RunTest {
 				+ FIND_PATIENT;
 		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "
 				+ USER_ACCOUNT;
+		public static final String SELENIUM_LOCATION = SELENIUM + " and "
+				+ LOCATION;
 	}
 }

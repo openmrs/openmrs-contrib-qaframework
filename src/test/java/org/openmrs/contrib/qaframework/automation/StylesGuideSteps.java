@@ -44,7 +44,8 @@ public class StylesGuideSteps extends Steps {
 
 	@And("user presses the styles guide link")
 	public void loadStylesGuide() {
-		stylesGuidePage = (StylesGuidePage) systemAdministrationPage.clickOnStylesGuideAppLink().waitForPage();
+		stylesGuidePage = (StylesGuidePage) systemAdministrationPage
+				.clickOnStylesGuideAppLink().waitForPage();
 	}
 
 	@Then("system should load the styles guide page")

@@ -23,67 +23,104 @@ import org.openqa.selenium.support.ui.Select;
 public class ClinicianFacingPatientDashboardPage extends Page {
 
 	public static final String URL_PATH = "/coreapps/clinicianfacing/patient.page";
-	public static final By END_VISIT = By.id("referenceapplication.realTime.endVisit");
+	public static final By END_VISIT = By
+			.id("referenceapplication.realTime.endVisit");
 	public static final By VISIT_LINK = By.className("toast-item-wrapper");
 	public static final By SELECT_LOCATION = By.id("w5");
 	public static final By FORM_EXIST = By.className("action-section");
-	private static final By START_VISIT = By.id("org.openmrs.module.coreapps.createVisit");
-	private static final By CONFIRM = By.cssSelector("#quick-visit-creation-dialog .confirm");
-	private static final By STARTED_AT = By.className("active-visit-started-at-message");
+	private static final By START_VISIT = By
+			.id("org.openmrs.module.coreapps.createVisit");
+	private static final By CONFIRM = By
+			.cssSelector("#quick-visit-creation-dialog .confirm");
+	private static final By STARTED_AT = By
+			.className("active-visit-started-at-message");
 	private static final By VISIT_NOTE = By.linkText("Visit Note");
-	private static final By PATIENT_CAPTURE_VITALS = By.linkText("Capture Vitals");
-	private static final By DIAGNOSIS_SEARCH_CONTAINER = By.id("diagnosis-search-container");
+	private static final By PATIENT_CAPTURE_VITALS = By
+			.linkText("Capture Vitals");
+	private static final By DIAGNOSIS_SEARCH_CONTAINER = By
+			.id("diagnosis-search-container");
 	private static final By DIAGNOSIS_SEARCH = By.id("diagnosis-search");
 	private static final By VISIT_LINK_2 = By.className("visit-link");
 	private static final By YES = By.cssSelector("#end-visit-dialog .confirm");
-	private static final By ADMIT_TO_INPATIENT = By.linkText("Admit to Inpatient");
+	private static final By ADMIT_TO_INPATIENT = By
+			.linkText("Admit to Inpatient");
 	private static final By SAVE = By.xpath("//input[@value='Save']");
-	private static final By EXIT_FROM_INPATIENT = (By.linkText("Exit from Inpatient"));
-	private static final By TRANSFER_TO_WARD_SERVICE = By.id("referenceapplication.realTime.simpleTransfer");
-	private static final By SHOW_CONTACT_INFO = By.id("patient-header-contactInfo");
-	private static final By EDIT_PATIENT = By.cssSelector("#edit-patient-demographics a");
-	private static final By EDIT_CONTACT_INFO = By.id("contact-info-inline-edit");
+	private static final By EXIT_FROM_INPATIENT = (By
+			.linkText("Exit from Inpatient"));
+	private static final By TRANSFER_TO_WARD_SERVICE = By
+			.id("referenceapplication.realTime.simpleTransfer");
+	private static final By SHOW_CONTACT_INFO = By
+			.id("patient-header-contactInfo");
+	private static final By EDIT_PATIENT = By
+			.cssSelector("#edit-patient-demographics a");
+	private static final By EDIT_CONTACT_INFO = By
+			.id("contact-info-inline-edit");
 	private static final By PATIENT_ID = By.cssSelector("div.identifiers span");
 	private static final By CODE = By.className("code");
 	private static final By UI_ID_1 = By.id("ui-id-1");
 	private static final By UI_MENU_ITEM = By.className("ui-menu-item");
-	private static final By PRIMARY_DIAGNOSIS_ELEMENT = By.cssSelector(".diagnosis.primary .matched-name");
-	private static final By SECONDARY_DIAGNOSIS_ELEMENT = By.xpath("//ul[2]/li/span/div/strong");
-	private static final By DIAGNOSES_LIST = By.cssSelector("#coreapps-diagnosesList");
+	private static final By PRIMARY_DIAGNOSIS_ELEMENT = By
+			.cssSelector(".diagnosis.primary .matched-name");
+	private static final By SECONDARY_DIAGNOSIS_ELEMENT = By
+			.xpath("//ul[2]/li/span/div/strong");
+	private static final By DIAGNOSES_LIST = By
+			.cssSelector("#coreapps-diagnosesList");
 	private static final By APPOINTMENT_LIST = By.id("miniPatientAppointments");
-	private static final By APPOINTMENT_REQUESTS_LIST = By.id("miniPatientAppointmentRequests");
+	private static final By APPOINTMENT_REQUESTS_LIST = By
+			.id("miniPatientAppointmentRequests");
 	private static final By CURRENT_DATE = By.linkText("Today");
-	private static final By VISIT_NOTE_ENCOUNTER = By.xpath("//div[@id='visit-details']/ul/li/ul/li/div/strong/span[text()='Visit Note']");
-	private static final By SAVE_VISIT_NOTE = By.cssSelector(".submitButton.confirm");
-	private static final By CONFIRM_DEL_BUTTON = By.cssSelector("#delete-encounter-dialog > div.dialog-content > button.confirm.right");
-	private static final By DEL_DIAGNOSIS = By.xpath("//div[@id='display-encounter-diagnoses-container']/ul/li/span/i");
+	private static final By VISIT_NOTE_ENCOUNTER = By
+			.xpath("//div[@id='visit-details']/ul/li/ul/li/div/strong/span[text()='Visit Note']");
+	private static final By SAVE_VISIT_NOTE = By
+			.cssSelector(".submitButton.confirm");
+	private static final By CONFIRM_DEL_BUTTON = By
+			.cssSelector("#delete-encounter-dialog > div.dialog-content > button.confirm.right");
+	private static final By DEL_DIAGNOSIS = By
+			.xpath("//div[@id='display-encounter-diagnoses-container']/ul/li/span/i");
 	private static final By DATE_FIELD = By.id("w5-display");
 	private static final By PROVIDER = By.id("w1");
 	private static final By LOCATION = By.id("w3");
 	private static final By WHO_WHEN_WHERE = By.id("who-when-where");
-	private static final By REQUEST_APPOINTMENT = By.linkText("Request Appointment");
+	private static final By REQUEST_APPOINTMENT = By
+			.linkText("Request Appointment");
 	private static final By APPOINTMENT_LINK = By.cssSelector("a.right > i");
 	private static final By ERROR = By.cssSelector("li.error > span");
-	private static final By ADD_PAST_VISIT = By.id("org.openmrs.module.coreapps.createRetrospectiveVisit");
+	private static final By ADD_PAST_VISIT = By
+			.id("org.openmrs.module.coreapps.createRetrospectiveVisit");
 	private static final By TODAY = By.cssSelector("td.day.active");
-	private static final By CONFIRM_PAST_VISIT = By.cssSelector("div.dialog-content.form > button.confirm.right");
-	private static final By CHANGE_DATE = By.cssSelector("button.confirm.no-color");
-	private static final By DAY = By.xpath("//table[@class=' table-condensed']/tbody/tr[1]/td[0]");
-	private static final By MERGE_VISIT_BUTTON = By.xpath("//a[@id='org.openmrs.module.coreapps.mergeVisits']/li");
+	private static final By CONFIRM_PAST_VISIT = By
+			.cssSelector("div.dialog-content.form > button.confirm.right");
+	private static final By CHANGE_DATE = By
+			.cssSelector("button.confirm.no-color");
+	private static final By DAY = By
+			.xpath("//table[@class=' table-condensed']/tbody/tr[1]/td[0]");
+	private static final By MERGE_VISIT_BUTTON = By
+			.xpath("//a[@id='org.openmrs.module.coreapps.mergeVisits']/li");
 	private static final By MERGE = By.id("mergeVisitsBtn");
-	private static final By PATIENT = By.xpath("//ul[@id='breadcrumbs']/li[2]/a");
-	private static final By TELEPHONE_NUMBER_TEXT = By.cssSelector("#coreapps-telephoneNumber");
-	private static final By RECENT_VISITS = By.cssSelector("visitbyencountertype > ul > li:nth-child(1) > a");
-	private static final By PATIENT_GIVENNAME = By.cssSelector("#content div span.PersonName-givenName");
-	private static final By ACTIVE_VISIT_MESSAGE = By.cssSelector("active-visit-message");
+	private static final By PATIENT = By
+			.xpath("//ul[@id='breadcrumbs']/li[2]/a");
+	private static final By TELEPHONE_NUMBER_TEXT = By
+			.cssSelector("#coreapps-telephoneNumber");
+	private static final By RECENT_VISITS = By
+			.cssSelector("visitbyencountertype > ul > li:nth-child(1) > a");
+	private static final By PATIENT_GIVENNAME = By
+			.cssSelector("#content div span.PersonName-givenName");
+	private static final By ACTIVE_VISIT_MESSAGE = By
+			.cssSelector("active-visit-message");
 	private static final By ALLERGIES_LINK = By.id("allergyui-editAllergies");
-	private static final By CONDITIONS_LINK = By.cssSelector(".conditions .info-header i.right");
-	private static final By ATTACHMENTS_LINK = By.cssSelector("a[id='attachments.attachments.visitActions.default']");
-	private static final By ACTIVE_VISIT = By.cssSelector("visitbyencountertype ul li a");
-	private static final By DELETE_PATIENT_LINK = By.id("org.openmrs.module.coreapps.deletePatient");
+	private static final By CONDITIONS_LINK = By
+			.cssSelector(".conditions .info-header i.right");
+	private static final By ATTACHMENTS_LINK = By
+			.cssSelector("a[id='attachments.attachments.visitActions.default']");
+	private static final By ACTIVE_VISIT = By
+			.cssSelector("visitbyencountertype ul li a");
+	private static final By DELETE_PATIENT_LINK = By
+			.id("org.openmrs.module.coreapps.deletePatient");
 	private static final By DELETE_PATIENT_REASON = By.id("delete-reason");
-	private static final By DELETE_PATIENT_CONFIRM = By.cssSelector("#delete-patient-creation-dialog > div.dialog-content > button.confirm.right");
-	private static final By EDIT_PATIENT_LINK = By.cssSelector("a[id='application.registrationapp.summary.editPatientLink']");
+	private static final By DELETE_PATIENT_CONFIRM = By
+			.cssSelector("#delete-patient-creation-dialog > div.dialog-content > button.confirm.right");
+	private static final By EDIT_PATIENT_LINK = By
+			.cssSelector("a[id='application.registrationapp.summary.editPatientLink']");
 	private static final String REASON = "patient nolonger needed";
 
 	public ClinicianFacingPatientDashboardPage(Page page) {
@@ -289,13 +326,19 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 
 	public void goToEditVisitNote() throws InterruptedException {
 		clickOn(CURRENT_DATE);
-		String visitNoteId = findElement(VISIT_NOTE_ENCOUNTER).getAttribute("data-encounter-id");
-		clickOn(By.xpath("//div[@id='visit-details']/ul/li/span/i[@data-encounter-id='"+ visitNoteId + "']"));
+		String visitNoteId = findElement(VISIT_NOTE_ENCOUNTER).getAttribute(
+				"data-encounter-id");
+		clickOn(By
+				.xpath("//div[@id='visit-details']/ul/li/span/i[@data-encounter-id='"
+						+ visitNoteId + "']"));
 	}
 
 	public void deleteVisitNote() {
-		String visitNoteId = findElement(VISIT_NOTE_ENCOUNTER).getAttribute("data-encounter-id");
-		clickOn(By.xpath("//div[@id='visit-details']/ul/li/span/i[@data-encounter-id='"+ visitNoteId + "'][2]"));
+		String visitNoteId = findElement(VISIT_NOTE_ENCOUNTER).getAttribute(
+				"data-encounter-id");
+		clickOn(By
+				.xpath("//div[@id='visit-details']/ul/li/span/i[@data-encounter-id='"
+						+ visitNoteId + "'][2]"));
 	}
 
 	public void confirmDeletion() {
@@ -309,7 +352,9 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	public void getCurrentDate() {
 		findElement(DATE_FIELD).click();
 		findElement(
-				By.linkText(""+ Calendar.getInstance().get(Calendar.DAY_OF_MONTH))).click();
+				By.linkText(""
+						+ Calendar.getInstance().get(Calendar.DAY_OF_MONTH)))
+				.click();
 	}
 
 	public void selectProviderAndLocation() {
@@ -346,7 +391,10 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 		Integer dayOfMoth = currentDay.get(Calendar.DAY_OF_MONTH);
 		A : for (int j = 6; j > 0; j--) {
 			for (int i = 7; i > 0; i--) {
-				WebElement day = findElement(By.xpath(String.format("//table[@class=' table-condensed']/tbody/tr[%s]/td[%s]",j, i)));
+				WebElement day = findElement(By
+						.xpath(String
+								.format("//table[@class=' table-condensed']/tbody/tr[%s]/td[%s]",
+										j, i)));
 				if (!day.getAttribute("class").contains("disabled")) {
 					if (day.getText().equals("" + dayOfMoth)) {
 						day.click();
@@ -372,8 +420,12 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	public String mergeVisits() {
 		waitForElement(MERGE_VISIT_BUTTON);
 		clickOn(MERGE_VISIT_BUTTON);
-		driver.findElement(By.xpath("//table[@id='active-visits']/tbody/tr/td/input[@name='mergeVisits']")).click();
-		driver.findElement(By.xpath("//table[@id='active-visits']/tbody/tr[2]/td/input[@name='mergeVisits']")).click();
+		driver.findElement(
+				By.xpath("//table[@id='active-visits']/tbody/tr/td/input[@name='mergeVisits']"))
+				.click();
+		driver.findElement(
+				By.xpath("//table[@id='active-visits']/tbody/tr[2]/td/input[@name='mergeVisits']"))
+				.click();
 		clickOn(MERGE);
 		waitForVisitLink();
 		String text = findElement(VISIT_LINK).getText();
@@ -391,7 +443,9 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	}
 
 	public String getPatientFamilyName() {
-		String patientFamilyName = findElement(By.cssSelector(".patient-header .demographics .name .PersonName-familyName")).getText();
+		String patientFamilyName = findElement(
+				By.cssSelector(".patient-header .demographics .name .PersonName-familyName"))
+				.getText();
 		return patientFamilyName;
 	}
 
@@ -419,13 +473,16 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 
 	public List<String> getAppointments() {
 		String appointmentsRaw = findElement(APPOINTMENT_LIST).getText();
-		List<String> appointmentsList = new ArrayList<String>(Arrays.asList(appointmentsRaw.split("[\r\n]+")));
+		List<String> appointmentsList = new ArrayList<String>(
+				Arrays.asList(appointmentsRaw.split("[\r\n]+")));
 		return appointmentsList;
 	}
 
 	public List<String> getAppointmentRequestsList() {
-		String appointmentsRequestsRaw = findElement(APPOINTMENT_REQUESTS_LIST).getText();
-		List<String> appointmentsRequestsList = new ArrayList<String>(Arrays.asList(appointmentsRequestsRaw.split("[\r\n]+")));
+		String appointmentsRequestsRaw = findElement(APPOINTMENT_REQUESTS_LIST)
+				.getText();
+		List<String> appointmentsRequestsList = new ArrayList<String>(
+				Arrays.asList(appointmentsRequestsRaw.split("[\r\n]+")));
 		return appointmentsRequestsList;
 	}
 

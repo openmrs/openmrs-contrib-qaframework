@@ -14,7 +14,8 @@ import org.openqa.selenium.By;
 
 public class MergePatientsPage extends Page {
 
-	private final static By MERGE_PATIENT_ELECTRONIC_RECORD = By.id("coreapps-mergePatientsHomepageLink-app");
+	private final static By MERGE_PATIENT_ELECTRONIC_RECORD = By
+			.id("coreapps-mergePatientsHomepageLink-app");
 	private final static By ID_PATIENT_1 = By.id("patient1-text");
 	private final static By ID_PATIENT_2 = By.id("patient2-text");
 	private final static By CONTINUE = By.id("confirm-button");

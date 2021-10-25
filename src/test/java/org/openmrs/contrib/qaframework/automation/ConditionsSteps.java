@@ -14,10 +14,8 @@ import static org.junit.Assert.assertNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
-
 import org.openmrs.contrib.qaframework.page.ConditionPage;
 import org.openmrs.contrib.qaframework.page.ConditionsPage;
-
 import org.openqa.selenium.By;
 
 import io.cucumber.java.After;
@@ -140,8 +138,7 @@ public class ConditionsSteps extends Steps {
 	@And("User edits active")
 	public void editActive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionPage = (ConditionPage) conditionsPage.editFirstActive()
-					.waitForPage();
+			conditionPage = conditionsPage.editFirstActive();
 			conditionPage.clickOnInActive();
 			conditionPage.clickSave();
 			conditionsPage.waitForPage();
@@ -151,7 +148,7 @@ public class ConditionsSteps extends Steps {
 	@And("User edits inactive")
 	public void editInactive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionPage = (ConditionPage) conditionsPage.editFirstInActive().waitForPage();
+			conditionPage = conditionsPage.editFirstInActive();
 			conditionPage.clickOnActive();
 			conditionPage.clickSave();
 			conditionsPage.waitForPage();

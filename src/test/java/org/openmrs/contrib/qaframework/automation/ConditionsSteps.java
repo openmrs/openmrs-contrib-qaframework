@@ -14,8 +14,10 @@ import static org.junit.Assert.assertNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
+
 import org.openmrs.contrib.qaframework.page.ConditionPage;
 import org.openmrs.contrib.qaframework.page.ConditionsPage;
+
 import org.openqa.selenium.By;
 
 import io.cucumber.java.After;
@@ -30,12 +32,12 @@ public class ConditionsSteps extends Steps {
 	private By addNewCondition = By.id("conditionui-addNewCondition");
 	private ConditionPage conditionPage;
 
-	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)
+	@Before(RunTest.HOOK.SELENIUM_CONDITIONS)
 	public void visitDashboard() {
 		initiatePatientDashboard();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_DASHBOARD)
+	@After(RunTest.HOOK.SELENIUM_CONDITIONS)
 	public void destroy() {
 		quit();
 	}
@@ -122,8 +124,9 @@ public class ConditionsSteps extends Steps {
 	@Then("System should move condition to inactive section")
 	public void moveInActive() {
 		conditionsPage.clickInActiveTab();
-		assertNotNull(conditionsPage.getFirstConditionName());
-		assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
+		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
+			assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
+		}
 	}
 
 	@Then("System should move condition to active section")
@@ -173,18 +176,16 @@ public class ConditionsSteps extends Steps {
 
 	@And("User clicks delete condition")
 	public void delete() {
-		String name = conditionsPage.getFirstConditionName();
-		if (StringUtils.isNotBlank(name)) {
+		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionsPage.deleteFirstActive();
+			conditionsPage.confirmDeleteCondition();
 		}
-		driver.findElement(By.cssSelector(".confirm")).click();
 
 		conditionsPage.clickInActiveTab();
-		name = conditionsPage.getFirstConditionName();
-		if (StringUtils.isNotBlank(name)) {
+		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionsPage.deleteFirstInActive();
+			conditionsPage.confirmDeleteCondition();
 		}
-		driver.findElement(By.cssSelector(".confirm")).click();
 	}
 
 	@Then("System should trash first condition")

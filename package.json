@@ -21,7 +21,7 @@
     "testingCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @testingInstall'",
     "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'",
     "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
-    "microfrontend": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @microfrontend'",
+    "microfrontend": "cypress-tags run -eTAGS='@cypress and @microfrontend'",
     "refapp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature",
     "refapp3SearchAndRegistration": "cypress run --spec src/test/resources/features/refapp-3.x/02-search-and-registration/search-and-registration.feature",
     "refapp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature",

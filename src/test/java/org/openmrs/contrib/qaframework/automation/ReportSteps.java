@@ -82,7 +82,6 @@ public class ReportSteps extends Steps {
 	@And("user clicks on request report")
 	public void userclickOnRequestReport() {
 		reportHistoryPage = runReportsPage.clickOnRequestReport();
-
 	}
 
 	@And("user clicks on view report link")

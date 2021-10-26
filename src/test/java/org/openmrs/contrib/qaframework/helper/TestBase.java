@@ -103,13 +103,19 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 	public TestBase() {
 		TestProperties testProperties = TestProperties.instance();
-		String sauceLabsUsername = testProperties.getProperty("SAUCELABS_USERNAME", null);
-		String sauceLabsAccessKey = testProperties.getProperty("SAUCELABS_ACCESSKEY", null);
-		sauceLabsHubUrl = testProperties.getProperty("saucelabs.hub.url","ondemand.saucelabs.com:80");
+		String sauceLabsUsername = testProperties.getProperty(
+				"SAUCELABS_USERNAME", null);
+		String sauceLabsAccessKey = testProperties.getProperty(
+				"SAUCELABS_ACCESSKEY", null);
+		sauceLabsHubUrl = testProperties.getProperty("saucelabs.hub.url",
+				"ondemand.saucelabs.com:80");
 
-		if (!StringUtils.isBlank(sauceLabsUsername)&& !StringUtils.isBlank(sauceLabsAccessKey)) {
-			sauceLabsAuthentication = new SauceOnDemandAuthentication(sauceLabsUsername, sauceLabsAccessKey);
-			sauceLabsResultReportingTestWatcher = new SauceOnDemandTestWatcher(this, sauceLabsAuthentication);
+		if (!StringUtils.isBlank(sauceLabsUsername)
+				&& !StringUtils.isBlank(sauceLabsAccessKey)) {
+			sauceLabsAuthentication = new SauceOnDemandAuthentication(
+					sauceLabsUsername, sauceLabsAccessKey);
+			sauceLabsResultReportingTestWatcher = new SauceOnDemandTestWatcher(
+					this, sauceLabsAuthentication);
 		}
 
 	}
@@ -219,7 +225,9 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 		while (autoLoginAtStart & !driver.getCurrentUrl().endsWith("index.htm")) {
 			try {
 				page = login();
-				// wait for loading a page for MAX_PAGE_LOAD_IN_SECONDS + MAX_WAIT_IN_SECONDS and interpret no exception as successful connection
+				// wait for loading a page for MAX_PAGE_LOAD_IN_SECONDS +
+				// MAX_WAIT_IN_SECONDS and interpret no exception as successful
+				// connection
 				return;
 			} catch (ServerErrorException e) {
 				failTest(testMethod, e);
@@ -232,7 +240,8 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 						+ MAX_SERVER_STARTUP_IN_MILLISECONDS) {
 					failTest(testMethod, e);
 				} else {
-					// log that connection timed out, and try again in next iteration
+					// log that connection timed out, and try again in next
+					// iteration
 					System.out.println("Failed to login in " + testMethod
 							+ ", trying again...");
 				}

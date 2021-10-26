@@ -3,7 +3,7 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
- * 
+ *
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
@@ -55,7 +55,8 @@ public class ClinicalVisitSteps extends Steps {
 	public void visitHomePage() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
-		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
+		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(),
+				getLocationUuid(homePage)).create();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_CLINICAL_VISIT)
@@ -72,7 +73,8 @@ public class ClinicalVisitSteps extends Steps {
 	@When("a user selects a patient from active patient list")
 	public void searchActivePatient() {
 		activeVisitsPage.search(testPatient.identifier);
-		dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+		dashboardPage = activeVisitsPage
+				.goToPatientDashboardOfLastActiveVisit();
 	}
 
 	@Then("the system loads Patient dashboard page")
@@ -83,7 +85,8 @@ public class ClinicalVisitSteps extends Steps {
 	@When("a user clicks visit note link from the patient dashboard")
 	public void loadVisitNotePage() {
 		visitsDashboardPage = dashboardPage.goToRecentVisits();
-		visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote().waitForPage();
+		visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote()
+				.waitForPage();
 	}
 
 	@Then("the system loads visit note page")
@@ -110,11 +113,13 @@ public class ClinicalVisitSteps extends Steps {
 		assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.secondaryDiagnosis());
 		visitsDashboardPage.waitForPageToLoad();
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
+		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 
 	@When("a user clicks on Allergies link from Patient dashboard page")
 	public void loadAllergiesPage() {
-		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink().waitForPage();
+		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
+				.waitForPage();
 	}
 
 	@Then("the system loads Allergies board page")
@@ -140,7 +145,7 @@ public class ClinicalVisitSteps extends Steps {
 	@Then("the system adds known allergies into the allergies table")
 	public void systemAddsKnownAllergy() {
 		assertNotNull(addOrEditAllergyPage.getAllergiesList());
-		dashboardPage = addOrEditAllergyPage.clickReturn();
+		//dashboardPage = addOrEditAllergyPage.clickReturn();
 	}
 
 	@When("a user clicks on Conditions link from Patient dashboard")
@@ -156,7 +161,8 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Add new condition")
 	public void userClicksAddNewCondition() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
+				.waitForPage();
 	}
 
 	@And("a user enters patient condition")
@@ -172,13 +178,15 @@ public class ClinicalVisitSteps extends Steps {
 	@Then("the system adds New Condition in Conditions table")
 	public void systemAddsCondition() {
 		assertNotNull(conditionsPage.getConditionsList());
-		dashboardPage = conditionsPage.clickReturn();
+		//dashboardPage = conditionsPage.clickReturn();
 	}
 
 	@When("a user clicks on Attachments link from patient visits dashboard")
 	public void loadAttachmentsPage() {
-		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
-		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage().waitForPage();
+		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage
+				.goToRecentVisits();
+		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage()
+				.waitForPage();
 	}
 
 	@Then("the system loads Attachments page")
@@ -254,5 +262,51 @@ public class ClinicalVisitSteps extends Steps {
 	public void systemEndsPatientVisit() {
 		assertNull(visitsDashboardPage.getActiveVisit());
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
+	}
+
+	@When("the user clicks Add Known Allergy button")
+	public void addAllergy() {
+		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
+	}
+
+	@And("the user selects an allergy")
+	public void selectAllergy() {
+		addOrEditAllergyPage.enterDrug("Codeine");
+		addOrEditAllergyPage.drugId();
+		addOrEditAllergyPage.enterReaction(REACTION);
+		addOrEditAllergyPage.reactionId();
+		addOrEditAllergyPage.addAllergyNote("The effect is severe");
+	}
+
+	@When("the user clicks on the delete button for Codien Allergy")
+	public void deleteAllergy() {
+		allergyPage.clickOnDeleteAllergy();
+	}
+
+	@And("the system confirms delete Codein Allergy")
+	public void confirmDeleteAllergy() {
+		allergyPage.clickOnConfirmDeleteAllergy();
+	}
+
+	@Then("system displays Penicillins")
+	public void systemRemovesAllergy() {
+		assertTrue(textExists("Penicillins"));
+		dashboardPage = addOrEditAllergyPage.clickReturn();
+	}
+
+	@And("the user enters patient condition Acute malnutrition")
+	public void enterOneOfExistingConditions() {
+		conditionPage.typeInCondition("Acute malnutrition");
+	}
+
+	@When("the user clicks on the delete button from dashboard")
+	public void deleteCondition() {
+		conditionsPage.deleteFirstActive();
+	}
+
+	@Then("user clicks on the yes button to confirm")
+	public void confirmDeletCondition() {
+		conditionsPage.confirmDeleteCondition();
+		dashboardPage = conditionsPage.clickReturn();
 	}
 }

@@ -47,24 +47,36 @@ public class RegistrationPage extends Page {
 	static final By UNKNOWN_PATIENT = By.id("checkbox-unknown-patient");
 	// These xpath expressions should be replaced by id's or cssSelectors if
 	// possible.
-	static final By CONFIRM_EDIT = By.xpath("//ul[@id='formBreadcrumb']/li[2]/span");
+	static final By CONFIRM_EDIT = By
+			.xpath("//ul[@id='formBreadcrumb']/li[2]/span");
 	static final String CONFIRMATION_DIV = "//div[@id='confirmation']";
-	public static final By NAME_CONFIRM = By.xpath(CONFIRMATION_DIV+ "//div/div/p[1]");
-	public static final By GENDER_CONFIRM = By.xpath(CONFIRMATION_DIV+ "//div/div/p[2]");
-	public static final By BIRTHDATE_CONFIRM = By.xpath(CONFIRMATION_DIV+ "//div/div/p[3]");
-	static final By ADDRESS_CONFIRM = By.xpath(CONFIRMATION_DIV+ "//div/div/p[4]");
-	static final By PHONE_CONFIRM = By.xpath(CONFIRMATION_DIV+ "//div/div/p[5]");
+	public static final By NAME_CONFIRM = By.xpath(CONFIRMATION_DIV
+			+ "//div/div/p[1]");
+	public static final By GENDER_CONFIRM = By.xpath(CONFIRMATION_DIV
+			+ "//div/div/p[2]");
+	public static final By BIRTHDATE_CONFIRM = By.xpath(CONFIRMATION_DIV
+			+ "//div/div/p[3]");
+	static final By ADDRESS_CONFIRM = By.xpath(CONFIRMATION_DIV
+			+ "//div/div/p[4]");
+	static final By PHONE_CONFIRM = By.xpath(CONFIRMATION_DIV
+			+ "//div/div/p[5]");
 	static final By PATIENT_HEADER = By.className("patient-header");
 	static final By CONFIRM = By.cssSelector("input[value='Confirm']");
 	static final By REVIEW = By.id("reviewSimilarPatientsButton");
 	static final By CANCEL = By.id("reviewSimilarPatients-button-cancel");
 	private static final By CONFIRM_DATA = By.id("submit");
-	private static final By PHONE_NUMBER_EDIT = By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[2]/span");
-	private static final By SELECT_RELATIONSHIP_TYPE = By.id("relationship_type");
-	private static final By PERSON_NAME_INPUT = By.xpath("//ul[@id='relationship']/p[2]/input[1]");
-	private static final By ADD_NEW_RELATIONSHIP_TYPE_ICON = By.xpath("//ul[@id='relationship']/p[3]/a[1]/i");
-	private static final By REMOVE_RELATIONSHIP_TYPE_ICON = By.cssSelector("//ul[@id='relationship']/p[3]/a[2]/i");
-	private static final By CONFIRM_RELATIONSHIP_TYPE_BUTTON = By.xpath(CONFIRMATION_DIV + "//div/div/p[6]");
+	private static final By PHONE_NUMBER_EDIT = By
+			.xpath("//ul[@id='formBreadcrumb']/li/ul/li[2]/span");
+	private static final By SELECT_RELATIONSHIP_TYPE = By
+			.id("relationship_type");
+	private static final By PERSON_NAME_INPUT = By
+			.xpath("//ul[@id='relationship']/p[2]/input[1]");
+	private static final By ADD_NEW_RELATIONSHIP_TYPE_ICON = By
+			.xpath("//ul[@id='relationship']/p[3]/a[1]/i");
+	private static final By REMOVE_RELATIONSHIP_TYPE_ICON = By
+			.cssSelector("//ul[@id='relationship']/p[3]/a[2]/i");
+	private static final By CONFIRM_RELATIONSHIP_TYPE_BUTTON = By
+			.xpath(CONFIRMATION_DIV + "//div/div/p[6]");
 	static By AUTO_LIST;
 	private boolean acceptNextAlert = true;
 	private static final String NAME = "JOHN";
@@ -335,7 +347,8 @@ public class RegistrationPage extends Page {
 		clickOn(CONFIRM_DATA);
 	}
 
-	public void enterMergePatient(TestPatient patient) throws InterruptedException {
+	public void enterMergePatient(TestPatient patient)
+			throws InterruptedException {
 		enterPatientGivenName(patient.givenName);
 		enterPatientFamilyName(patient.familyName);
 		clickOnGenderLink();
@@ -349,16 +362,19 @@ public class RegistrationPage extends Page {
 	}
 
 	public String getSimilarPatientName() {
-		return findElement(By.cssSelector("#similarPatientsSelect .name")).getText();
+		return findElement(By.cssSelector("#similarPatientsSelect .name"))
+				.getText();
 	}
 
 	public String getSimilarPatientInfo() {
-		return findElement(By.cssSelector("#similarPatientsSelect .info")).getText();
+		return findElement(By.cssSelector("#similarPatientsSelect .info"))
+				.getText();
 	}
 
 	public void selectRelationshipType() {
 		clickOn(SELECT_RELATIONSHIP_TYPE);
-		Select relationshipType = new Select(driver.findElement(By.id("relationship_type")));
+		Select relationshipType = new Select(driver.findElement(By
+				.id("relationship_type")));
 		relationshipType.selectByVisibleText("Doctor");
 		setTextToFieldNoEnter(PERSON_NAME_INPUT, NAME);
 	}

@@ -18,13 +18,20 @@ import org.openqa.selenium.WebElement;
 public class AttachmentsPage extends Page {
 
 	private static final String URL = "/attachments/attachments.page";
-	private static final By ATTACHMENTS_LIST = By.cssSelector("span.att_thumbnail-extension");
-	private static final By ATTACHMENT_NOTE = By.cssSelector("textarea.ng-pristine");
-	private static final By UPLOAD_FILE_BUTTON = By.cssSelector("button[ng-click='uploadFile()']");
-	private static final By CLEAR_FORMS = By.cssSelector("button[ng-click='clearForms()']");
-	private static final By CAMERA_ICON = By.cssSelector("button[ng-click='snap()']");
-	private static final By SAVE_IMAGE = By.cssSelector("button[ng-click='finalise()']");
-	private static final By RETURN_TO_DASHBOARD = By.xpath("//*[@id='breadcrumbs']/li[2]/a");
+	private static final By ATTACHMENTS_LIST = By
+			.cssSelector("span.att_thumbnail-extension");
+	private static final By ATTACHMENT_NOTE = By
+			.cssSelector("textarea.ng-pristine");
+	private static final By UPLOAD_FILE_BUTTON = By
+			.cssSelector("button[ng-click='uploadFile()']");
+	private static final By CLEAR_FORMS = By
+			.cssSelector("button[ng-click='clearForms()']");
+	private static final By CAMERA_ICON = By
+			.cssSelector("button[ng-click='snap()']");
+	private static final By SAVE_IMAGE = By
+			.cssSelector("button[ng-click='finalise()']");
+	private static final By RETURN_TO_DASHBOARD = By
+			.xpath("//*[@id='breadcrumbs']/li[2]/a");
 
 	public AttachmentsPage(Page page) {
 		super(page);

@@ -14,8 +14,10 @@ import org.openqa.selenium.By;
 
 public class FindPatientPage extends Page {
 
-	private static final By PATIENT_NAME_SEARCH_RESULT = By.cssSelector("#patient-search-results-table tbody tr:first-child td:nth-child(2)");
-	private static final By PATIENT_ID_SEARCH_RESULT = By.cssSelector("#patient-search-results-table tr:first-child td:first-child");
+	private static final By PATIENT_NAME_SEARCH_RESULT = By
+			.cssSelector("#patient-search-results-table tbody tr:first-child td:nth-child(2)");
+	private static final By PATIENT_ID_SEARCH_RESULT = By
+			.cssSelector("#patient-search-results-table tr:first-child td:first-child");
 	private static final By PATIENT_SEARCH = By.id("patient-search");
 
 	public FindPatientPage(Page parent) {
@@ -42,7 +44,8 @@ public class FindPatientPage extends Page {
 	 * @return patient id
 	 */
 	public String getFirstPatientIdentifier() {
-		// let's wait for the name to appear as the identifier selector is ambiguous and may select the loading image
+		// let's wait for the name to appear as the identifier selector is
+		// ambiguous and may select the loading image
 		getFirstPatientName();
 		return findElement(PATIENT_ID_SEARCH_RESULT).getText();
 	}

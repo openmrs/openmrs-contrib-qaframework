@@ -9,19 +9,28 @@ Feature: Clinical Visit Management
   @clinicalVisit
   Scenario: Clinical Visit  
     # User story: Complete visit note
-    When a user clicks visit note link from the patient dashboard
-    Then the system loads visit note page
-    When a user fills the visit note
-    And a user clicks on save visit note button
-    Then the system adds the note into visit note table
-    
+    #When a user clicks visit note link from the patient dashboard
+    #Then the system loads visit note page
+    #When a user fills the visit note
+    #And a user clicks on save visit note button
+    #Then the system adds the note into visit note table
+
     # User story: Add known allergies
     When a user clicks on Allergies link from Patient dashboard page
     Then the system loads Allergies board page
     When a user clicks Add Known Allergy button
     And a user clicks on save allergy button
     Then the system adds known allergies into the allergies table
-          
+
+    # Add known allergy Codien
+    When the user clicks Add Known Allergy button
+    And the user selects an allergy
+    And a user clicks on save allergy button
+    Then the system adds known allergies into the allergies table
+    When the user clicks on the delete button for Codien Allergy
+    And the system confirms delete Codein Allergy
+    Then system displays Penicillins
+
     # User story: Add known conditions
     When a user clicks on Conditions link from Patient dashboard
     Then the system loads Manage Conditions Page
@@ -29,24 +38,32 @@ Feature: Clinical Visit Management
     And a user enters patient condition
     And a user clicks on save condition button
     Then the system adds New Condition in Conditions table
-     
+
+    # Add known condition Acute malnutrition
+    When a user clicks on Add new condition
+    And the user enters patient condition Acute malnutrition
+    And a user clicks on save condition button
+    Then the system adds New Condition in Conditions table
+    When the user clicks on the delete button from dashboard
+    Then user clicks on the yes button to confirm
+
     # User story: Book an appointment
     When a user clicks on Request appointment link from Patient dashboard
     Then the system loads Request appointment page
     When a user fills the Request appointment form
     And a user clicks on save appointment button
-    Then the system adds Appointment request into the appointment table 
-    
+    Then the system adds Appointment request into the appointment table
+
     # User story: End patient visit
-    When a user clicks on recent visit link
-    Then the system loads recent visit page
-    When a user clicks on end visit button
-    Then the system ends the patient visit
-  
-  Scenario: Clinical Visit for uploading supporting file
+    #When a user clicks on recent visit link
+    #Then the system loads recent visit page
+    #When a user clicks on end visit button
+    #Then the system ends the patient visit
+
+  #Scenario: Clinical Visit for uploading supporting file
     # User story: Attach supporting document
-    When a user clicks on Attachments link from patient visits dashboard
-    Then the system loads Attachments page
-    When a user attaches patient supporting file
-    And a user clicks the upload file button
-    Then the system uploads the file
+    #When a user clicks on Attachments link from patient visits dashboard
+    #Then the system loads Attachments page
+    #When a user attaches patient supporting file
+    #And a user clicks the upload file button
+    #Then the system uploads the file

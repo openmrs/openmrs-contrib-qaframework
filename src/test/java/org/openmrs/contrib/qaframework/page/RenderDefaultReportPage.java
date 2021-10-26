@@ -12,5 +12,4 @@ public class RenderDefaultReportPage extends Page {
 	public String getPageUrl() {
 		return "/reporting/reports/renderDefaultReport";
 	}
-
 }

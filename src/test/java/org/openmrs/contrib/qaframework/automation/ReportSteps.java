@@ -50,14 +50,12 @@ public class ReportSteps extends Steps {
 
 	@When("user click on advanced administration page")
 	public void goToAdministrationPage() {
-		administrationPage = systemAdministrationPage
-				.goToAdvancedAdministration();
+		administrationPage = systemAdministrationPage.goToAdvancedAdministration();
 	}
 
 	@And("user click on report administration link")
 	public void clickOnReportAdministrationPage() {
-		manageReportsPage = administrationPage
-				.clickOnReportAdministrationLink();
+		manageReportsPage = administrationPage.clickOnReportAdministrationLink();
 	}
 
 	@Then("the system loads manage reports page")

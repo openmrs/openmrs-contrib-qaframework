@@ -64,8 +64,7 @@ public class AdministrationPage extends Page {
 	}
 
 	public ManageReportsPage clickOnReportAdministrationLink() {
-		waiter.until(ExpectedConditions
-				.visibilityOfElementLocated(REPORT_ADMINISTRATION_LINK));
+		waiter.until(ExpectedConditions.visibilityOfElementLocated(REPORT_ADMINISTRATION_LINK));
 		clickOn(REPORT_ADMINISTRATION_LINK);
 		return new ManageReportsPage(this);
 	}

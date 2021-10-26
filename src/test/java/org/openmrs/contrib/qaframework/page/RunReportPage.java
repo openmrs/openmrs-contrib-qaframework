@@ -16,7 +16,6 @@ public class RunReportPage extends Page {
 
 	public RunReportPage(Page page) {
 		super(page);
-
 	}
 
 	public void enterStartDate(String startDate) {

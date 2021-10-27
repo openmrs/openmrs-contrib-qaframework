@@ -22,7 +22,7 @@ public class AdministrationPage extends Page {
 	private static final By MANAGE_PROVIDERS = By.cssSelector("#content a[href='/openmrs/admin/provider/index.htm']");
 	private static final By MANAGE_PERSONS = By.cssSelector("#content a[href='/openmrs/admin/person/index.htm']");
 	private static final By MANAGE_HTMLFORMS_PAGE = By.cssSelector("#content a[href*='/module/htmlformentry/htmlForms.list']");
-	private static final By REPORT_ADMINISTRATION_LINK = By.xpath("/html/body/div[1]/div[3]/table/tbody/tr/td[3]/div[15]/ul/li[1]/a");
+	private static final By REPORT_ADMINISTRATION_LINK = By.cssSelector("#content a[href*='/module/reporting/reports/manageReports.form']");
 
 	public AdministrationPage(Page page) {
 		super(page);

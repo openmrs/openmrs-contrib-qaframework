@@ -15,4 +15,3 @@ Feature: Reports Management
     Then  user enter end date
     And   user clicks on request report
     And   user clicks on view report link
-    

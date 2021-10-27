@@ -1,3 +1,12 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ * 
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
@@ -9,10 +18,9 @@ public class RunReportPage extends Page {
 
 	private static final By START_DATE_FIELD = By.cssSelector("#userEnteredParamstartDate");
 	private static final By END_DATE_FIELD = By.cssSelector("#userEnteredParamendDate");
-	private static final By REQUEST_REPORT_BUTTON = By.xpath("//*[@id=\"container\"]/div/table/tbody/tr/td[1]/fieldset/form/table[2]/tbody/tr[3]/td/input");
+	private static final By REQUEST_REPORT_BUTTON = By.cssSelector("input[type=\"submit\" i]");
 	private static final By CLOSE_TAB = By.xpath("//span[contains(text(),'close')]");
-	private static final By VIEW_REPORT = By.xpath("//*[@id=\"container\"]/table/tbody/tr/td[2]/div[1]/a");
-	private static final By VIEW = By.xpath("//*[@id=\"content\"]");
+	private static final By VIEW = By.cssSelector("#content");
 
 	public RunReportPage(Page page) {
 		super(page);
@@ -22,7 +30,7 @@ public class RunReportPage extends Page {
 		WebElement element = findElement(START_DATE_FIELD);
 		clickOn(START_DATE_FIELD);
 		waiter.until(ExpectedConditions.elementToBeClickable(START_DATE_FIELD));
-		element.sendKeys("05 / 07 / 2008");
+		element.sendKeys(startDate);
 	}
 
 	public void enterEndDate(String endDate) {

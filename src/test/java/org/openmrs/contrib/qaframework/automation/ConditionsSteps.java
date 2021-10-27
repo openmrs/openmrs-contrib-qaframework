@@ -35,7 +35,7 @@ public class ConditionsSteps extends Steps {
     private ConditionPage conditionPage;
     private TestData.PatientInfo testPatient;
 
-    @Before(RunTest.HOOK.SELENIUM_CONDITIONS)
+    @Before(RunTest.HOOK.SELENIUM_CONDITION)
     public void visitDashboard() {
         testPatient = createTestPatient();
         initiateWithLogin();
@@ -43,7 +43,7 @@ public class ConditionsSteps extends Steps {
                 getLocationUuid(homePage)).create();
     }
  
-    @After(RunTest.HOOK.SELENIUM_CONDITIONS)
+    @After(RunTest.HOOK.SELENIUM_CONDITION)
     public void destroy() {
         deletePatient(testPatient);
         quit();
@@ -67,10 +67,8 @@ public class ConditionsSteps extends Steps {
  
     @When("a user clicks on Conditions from Patient dashboard")
     public void launchManageConditions() {
-        patientDashboardId = getElement(patientHeaderId).getText();
         conditionsPage = (ConditionsPage) dashboardPage
                 .clickOnConditionsWidgetLink().waitForPage();
-        matchPatientIds(patientDashboardId);
     }
 
 	@Then("System loads Manage Conditions Page")

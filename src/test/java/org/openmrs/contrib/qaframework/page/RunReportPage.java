@@ -18,7 +18,7 @@ public class RunReportPage extends Page {
 
 	private static final By START_DATE_FIELD = By.cssSelector("#userEnteredParamstartDate");
 	private static final By END_DATE_FIELD = By.cssSelector("#userEnteredParamendDate");
-	private static final By REQUEST_REPORT_BUTTON = By.cssSelector("input[type=\"submit\" i]");
+	private static final By REQUEST_REPORT_BUTTON = By.cssSelector("input[type='submit' i]");
 	private static final By EMPTY_FORM = By.cssSelector("#content");
 
 	public RunReportPage(Page page) {
@@ -27,14 +27,14 @@ public class RunReportPage extends Page {
 
 	public void enterStartDate(String startDate) {
 		WebElement element = findElement(START_DATE_FIELD);
-		clickOn(START_DATE_FIELD);
 		waiter.until(ExpectedConditions.elementToBeClickable(START_DATE_FIELD));
+		clickOn(START_DATE_FIELD);
 		element.sendKeys(startDate);
 	}
 
 	public void enterEndDate(String endDate) {
-		clickOn(END_DATE_FIELD);
 		waiter.until(ExpectedConditions.elementToBeClickable(START_DATE_FIELD));
+		clickOn(END_DATE_FIELD);
 		setTextToFieldNoEnter(END_DATE_FIELD, endDate);
 	}
 

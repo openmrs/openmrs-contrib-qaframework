@@ -9,11 +9,11 @@ Feature: Clinical Visit Management
   @clinicalVisit
   Scenario: Clinical Visit  
     # User story: Complete visit note
-    When a user clicks visit note link from the patient dashboard
-    Then the system loads visit note page
-    When a user fills the visit note
-    And a user clicks on save visit note button
-    Then the system adds the note into visit note table
+    #When a user clicks visit note link from the patient dashboard
+    #Then the system loads visit note page
+    #When a user fills the visit note
+    #And a user clicks on save visit note button
+    #Then the system adds the note into visit note table
     
     # User story: Add known allergies
     When a user clicks on Allergies link from Patient dashboard page

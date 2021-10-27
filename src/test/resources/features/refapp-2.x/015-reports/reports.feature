@@ -2,11 +2,11 @@ Feature: Reports Management
 
   Background:
     Given a user go to system administartion app
-    
+     Then  the system loads system administrationpage
+     
   @selenium
   @report
   Scenario: Report Management
-    Then  the system loads system administrationpage
     When  user click on advanced administration page
     And   user click on report administration link
     Then  the system loads manage reports page

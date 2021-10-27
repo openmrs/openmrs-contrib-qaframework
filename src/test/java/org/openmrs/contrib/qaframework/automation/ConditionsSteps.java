@@ -8,44 +8,68 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 package org.openmrs.contrib.qaframework.automation;
-
+ 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.ConditionPage;
 import org.openmrs.contrib.qaframework.page.ConditionsPage;
 import org.openqa.selenium.By;
 
 import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class ConditionsSteps extends Steps {
-	private ConditionsPage conditionsPage;
-	private String patientDashboardId;
-	private By addNewCondition = By.id("conditionui-addNewCondition");
-	private ConditionPage conditionPage;
+    private ActiveVisitsPage activeVisitsPage;
+    private ConditionsPage conditionsPage;
+    private String patientDashboardId;
+    private By addNewCondition = By.id("conditionui-addNewCondition");
+    private ConditionPage conditionPage;
+    private TestData.PatientInfo testPatient;
 
-	@Before(RunTest.HOOK.SELENIUM_CONDITIONS)
-	public void visitDashboard() {
-		initiatePatientDashboard();
-	}
-
-	@After(RunTest.HOOK.SELENIUM_CONDITIONS)
-	public void destroy() {
-		quit();
-	}
-
-	@Given("User clicks on Conditions from Patient dashboard")
-	public void launchManageConditions() {
-		patientDashboardId = getElement(patientHeaderId).getText();
-		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
-		matchPatientIds(patientDashboardId);
-	}
+    public void visitDashboard() {
+        testPatient = createTestPatient();
+        initiateWithLogin();
+        new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(),
+                getLocationUuid(homePage)).create();
+    }
+ 
+    @After(RunTest.HOOK.SELENIUM_CONDITIONS)
+    public void destroy() {
+        deletePatient(testPatient);
+        quit();
+    }
+ 
+    @Given("a user clicks on the active visits link from home page")
+    public void launchPatient_DashboardActiveVisits() {
+        activeVisitsPage = homePage.goToActiveVisitsSearch();
+    }
+ 
+    @When("a user selects a patient from the active patient list")
+    public void searchActive_Patient() {
+        activeVisitsPage.search(testPatient.identifier);
+    }
+ 
+    @Then("the system loads the Patient dashboard page")
+    public void launchPatient_DashboardPage() {
+        dashboardPage = activeVisitsPage
+                .goToPatientDashboardOfLastActiveVisit();
+    }
+ 
+    @When("a user clicks on Conditions from Patient dashboard")
+    public void launchManageConditions() {
+        patientDashboardId = getElement(patientHeaderId).getText();
+        conditionsPage = (ConditionsPage) dashboardPage
+                .clickOnConditionsWidgetLink().waitForPage();
+        matchPatientIds(patientDashboardId);
+    }
 
 	@Then("System loads Manage Conditions Page")
 	public void systemLoadsManageConditions() {

@@ -1,13 +1,16 @@
 Feature: Patient's Conditions Managment
-
+ 
   Background:
-    Given User clicks on Conditions from Patient dashboard
-    Then System loads Manage Conditions Page
-
+    Given a user clicks on the active visits link from home page
+    When a user selects a patient from the active patient list
+    Then the system loads the Patient dashboard page
+ 
   @selenium
   @conditions
   Scenario Outline: Adding an active or inactive condition
-    And User clicks on Add new condition
+    When a user clicks on Conditions from Patient dashboard
+    Then System loads Manage Conditions Page
+     And User clicks on Add new condition
     Then System on Add New Condition Page
     And User enters "<activity>" condition
     And User clicks save

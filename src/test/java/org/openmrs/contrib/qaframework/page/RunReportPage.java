@@ -19,8 +19,7 @@ public class RunReportPage extends Page {
 	private static final By START_DATE_FIELD = By.cssSelector("#userEnteredParamstartDate");
 	private static final By END_DATE_FIELD = By.cssSelector("#userEnteredParamendDate");
 	private static final By REQUEST_REPORT_BUTTON = By.cssSelector("input[type=\"submit\" i]");
-	private static final By CLOSE_TAB = By.xpath("//span[contains(text(),'close')]");
-	private static final By VIEW = By.cssSelector("#content");
+	private static final By EMPTY_FORM = By.cssSelector("#content");
 
 	public RunReportPage(Page page) {
 		super(page);
@@ -44,11 +43,8 @@ public class RunReportPage extends Page {
 		return new ReportHistoryPage(this);
 	}
 
-	public void clickOnView() {
-		clickOn(VIEW);
-	}
-	public void clickOnCloseIcon() {
-		clickOn(CLOSE_TAB);
+	public void clickOnEmptyForm() {
+		clickOn(EMPTY_FORM);
 	}
 
 	@Override

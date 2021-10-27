@@ -73,7 +73,7 @@ public class ReportSteps extends Steps {
 	@Then("user enter start date")
 	public void userEnterStartDate() {
 		runReportsPage.enterStartDate(startDate);
-		runReportsPage.clickOnView();
+		runReportsPage.clickOnEmptyForm();
 	}
 
 	@Then("user enter end date")

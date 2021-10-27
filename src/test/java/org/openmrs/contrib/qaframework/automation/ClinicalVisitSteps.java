@@ -101,7 +101,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@And("a user clicks on save visit note button")
 	public void addVisitNote() {
-		visitNotePage.save();
+		visitNotePage.save().waitForPage();		
 	}
 
 	@Then("the system adds the note into visit note table")

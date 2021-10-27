@@ -21,6 +21,7 @@ import org.openmrs.contrib.qaframework.page.ConditionsPage;
 import org.openqa.selenium.By;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -34,6 +35,7 @@ public class ConditionsSteps extends Steps {
     private ConditionPage conditionPage;
     private TestData.PatientInfo testPatient;
 
+    @Before(RunTest.HOOK.SELENIUM_CONDITIONS)
     public void visitDashboard() {
         testPatient = createTestPatient();
         initiateWithLogin();

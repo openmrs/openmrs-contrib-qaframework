@@ -43,7 +43,8 @@ public class ConditionsSteps extends Steps {
 	@Given("User clicks on Conditions from Patient dashboard")
 	public void launchManageConditions() {
 		patientDashboardId = getElement(patientHeaderId).getText();
-		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
+		conditionsPage = (ConditionsPage) dashboardPage
+				.clickOnConditionsWidgetLink().waitForPage();
 		matchPatientIds(patientDashboardId);
 	}
 
@@ -64,7 +65,8 @@ public class ConditionsSteps extends Steps {
 
 	@And("User clicks on Add new condition")
 	public void userClicksAddNewCondition() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
+				.waitForPage();
 	}
 
 	@Then("System on Add New Condition Page")
@@ -148,7 +150,8 @@ public class ConditionsSteps extends Steps {
 	@And("User edits inactive")
 	public void editInactive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionPage = (ConditionPage) conditionsPage.editFirstInActive().waitForPage();
+			conditionPage = (ConditionPage) conditionsPage.editFirstInActive()
+					.waitForPage();
 			conditionPage.clickOnActive();
 			conditionPage.clickSave();
 			conditionsPage.waitForPage();

@@ -69,15 +69,18 @@ public class Steps extends ReferenceApplicationTestBase {
 
 	protected void initiateWithLogin() {
 		goToLoginPage();
-		goToLoginPage().login(testProperties.getUsername(),testProperties.getPassword(), testProperties.getLocation());
+		goToLoginPage().login(testProperties.getUsername(),
+				testProperties.getPassword(), testProperties.getLocation());
 		homePage = (HomePage) new HomePage(loginPage).waitForPage();
 	}
 
 	protected void initiatePatientDashboard() {
 		initiateWithLogin();
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
+		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord()
+				.waitForPage();
 		findPatientPage.enterPatient("John Smith");
-		dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage.clickOnFirstPatient().waitForPage();
+		dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage
+				.clickOnFirstPatient().waitForPage();
 	}
 
 	protected String trimPatientId(String id) {

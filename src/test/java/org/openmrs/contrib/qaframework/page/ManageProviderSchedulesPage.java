@@ -34,15 +34,23 @@ public class ManageProviderSchedulesPage extends Page {
 	}
 
 	private static final By LOCATION = By.className("ng-pristine");
-	private static final By LOCATION_IN_BLOCK = By.xpath("//div[@id='select-location']/select");
-	private static final By SERVICE_DROPDOWN = By.cssSelector("a.ng-scope.ng-binding");
+	private static final By LOCATION_IN_BLOCK = By
+			.xpath("//div[@id='select-location']/select");
+	private static final By SERVICE_DROPDOWN = By
+			.cssSelector("a.ng-scope.ng-binding");
 	private static final By SERVICE = By.id("createAppointmentBlock");
-	private static final By MIN_HOUR_VALUE_FIELD = By.xpath("//*[@id='start-time']/table/tbody/tr[2]/td[1]/input");
-	private static final By MAX_HOUR_VALUE_FIELD = By.xpath("//*[@id='end-time']/table/tbody/tr[2]/td[1]/input");
-	private static final By MIN_MINUTES_VALUE_FIELD = By.xpath("//*[@id='start-time']/table/tbody/tr[2]/td[3]/input");
-	private static final By MAX_MINUTES_VALUE_FIELD = By.xpath("//*[@id='end-time']/table/tbody/tr[2]/td[3]/input");
-	private static final By START_TIME_BUTTON = By.cssSelector("#start-time button");
-	private static final By END_TIME_BUTTON = By.cssSelector("#end-time button");
+	private static final By MIN_HOUR_VALUE_FIELD = By
+			.xpath("//*[@id='start-time']/table/tbody/tr[2]/td[1]/input");
+	private static final By MAX_HOUR_VALUE_FIELD = By
+			.xpath("//*[@id='end-time']/table/tbody/tr[2]/td[1]/input");
+	private static final By MIN_MINUTES_VALUE_FIELD = By
+			.xpath("//*[@id='start-time']/table/tbody/tr[2]/td[3]/input");
+	private static final By MAX_MINUTES_VALUE_FIELD = By
+			.xpath("//*[@id='end-time']/table/tbody/tr[2]/td[3]/input");
+	private static final By START_TIME_BUTTON = By
+			.cssSelector("#start-time button");
+	private static final By END_TIME_BUTTON = By
+			.cssSelector("#end-time button");
 	private static final By SAVE = By.cssSelector("button.confirm");
 
 	public ManageProviderSchedulesPage(Page page) {

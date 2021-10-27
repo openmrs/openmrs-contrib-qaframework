@@ -17,14 +17,21 @@ import org.openqa.selenium.By;
 public class RegistrationEditSectionPage extends Page {
 
 	private static final By PHONE_NUMBER = By.name("phoneNumber");
-	private static final By CONFIRM_EDIT = By.xpath("//ul[@id='formBreadcrumb']/li[2]/span");
+	private static final By CONFIRM_EDIT = By
+			.xpath("//ul[@id='formBreadcrumb']/li[2]/span");
 	private static final By CONFIRM = By.id("registration-submit");
-	private static final By PHONE_NUMBER_EDIT = By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[2]/span");
-	private static final By GIVEN_NAME_FIELD = By.cssSelector("#demographics-name input[name='givenName']");
-	private static final By MIDDLE_NAME_FIELD = By.cssSelector("#demographics-name input[name='middleName']");
-	private static final By FAMILY_NAME_FIELD = By.cssSelector("#demographics-name input[name='familyName']");
-	private static final By GENDER_SELECT = By.cssSelector("#demographics-gender select[name='gender']");
-	private static final By BIRTHDAY_MONTH = By.cssSelector("#demographics-birthdate select[name='birthdateMonth']");
+	private static final By PHONE_NUMBER_EDIT = By
+			.xpath("//ul[@id='formBreadcrumb']/li/ul/li[2]/span");
+	private static final By GIVEN_NAME_FIELD = By
+			.cssSelector("#demographics-name input[name='givenName']");
+	private static final By MIDDLE_NAME_FIELD = By
+			.cssSelector("#demographics-name input[name='middleName']");
+	private static final By FAMILY_NAME_FIELD = By
+			.cssSelector("#demographics-name input[name='familyName']");
+	private static final By GENDER_SELECT = By
+			.cssSelector("#demographics-gender select[name='gender']");
+	private static final By BIRTHDAY_MONTH = By
+			.cssSelector("#demographics-birthdate select[name='birthdateMonth']");
 	private static final By BIRTHDAY_YEAR = By.id("birthdateYear-field");
 	private static final By BIRTHDAY_DAY = By.id("birthdateDay-field");
 	private static final By BIRTHDATE_LABEL = By.id("birthdateLabel");
@@ -137,7 +144,8 @@ public class RegistrationEditSectionPage extends Page {
 		return null;
 	}
 
-	public ClinicianFacingPatientDashboardPage confirmPatient() throws InterruptedException {
+	public ClinicianFacingPatientDashboardPage confirmPatient()
+			throws InterruptedException {
 		clickOn(CONFIRM);
 		return new ClinicianFacingPatientDashboardPage(this);
 	}

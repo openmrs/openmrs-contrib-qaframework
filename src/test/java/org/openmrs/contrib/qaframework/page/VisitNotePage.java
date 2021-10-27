@@ -20,19 +20,28 @@ public class VisitNotePage extends Page {
 	private static final By CODE = By.className("code");
 	private static final By UI_ID_1 = By.id("ui-id-1");
 	private static final By UI_MENU_ITEM = By.className("ui-menu-item");
-	private static final By PRIMARY_DIAGNOSIS_ELEMENT = By.cssSelector(".diagnosis.primary .matched-name");
-	private static final By SECONDARY_DIAGNOSIS_ELEMENT = By.xpath("//ul[2]/li/span/div/strong");
-	private static final By SAVE_VISIT_NOTE = By.cssSelector(".submitButton.confirm");
+	private static final By PRIMARY_DIAGNOSIS_ELEMENT = By
+			.cssSelector(".diagnosis.primary .matched-name");
+	private static final By SECONDARY_DIAGNOSIS_ELEMENT = By
+			.xpath("//ul[2]/li/span/div/strong");
+	private static final By SAVE_VISIT_NOTE = By
+			.cssSelector(".submitButton.confirm");
 	private static final By NOTE = By.id("w10");
 	private static final By PROVIDER = By.id("w1");
 	private static final By LOCATION = By.id("w3");
 	private static final By DELETE_DIAGNOSIS = By.cssSelector("#delete-button");
-	private static final By CONFORM_DELETE_DIAGNOSIS = By.cssSelector("#confirm-delete-dialog > div.dialog-content > div > button.confirm.right");
-	private static final By CANCEL_DELETE_DIAGNOSIS = By.cssSelector("#confirm-delete-dialog > div.dialog-content > div > button.cancel");
-	private static final By EDIT_VISIT_NOTE = By.cssSelector("#encountersList > li > span > i.editEncounter.edit-action.icon-pencil");
-	private static final By VIEW_VISIT_NOTE = By.cssSelector("#encountersList > li > span > i.viewEncounter.view-action.icon-file-alt");
-	private static final By DELETE_ENCOUNTER_NOTE = By.cssSelector("#encountersList > li > span > i.deleteEncounterId.delete-action.icon-remove");
-	private static final By COMFIRM_DELETE_BUTTON = By.cssSelector("#delete-encounter-dialog > div.dialog-content > button.confirm.right");
+	private static final By CONFORM_DELETE_DIAGNOSIS = By
+			.cssSelector("#confirm-delete-dialog > div.dialog-content > div > button.confirm.right");
+	private static final By CANCEL_DELETE_DIAGNOSIS = By
+			.cssSelector("#confirm-delete-dialog > div.dialog-content > div > button.cancel");
+	private static final By EDIT_VISIT_NOTE = By
+			.cssSelector("#encountersList > li > span > i.editEncounter.edit-action.icon-pencil");
+	private static final By VIEW_VISIT_NOTE = By
+			.cssSelector("#encountersList > li > span > i.viewEncounter.view-action.icon-file-alt");
+	private static final By DELETE_ENCOUNTER_NOTE = By
+			.cssSelector("#encountersList > li > span > i.deleteEncounterId.delete-action.icon-remove");
+	private static final By COMFIRM_DELETE_BUTTON = By
+			.cssSelector("#delete-encounter-dialog > div.dialog-content > button.confirm.right");
 
 	public VisitNotePage(Page page) {
 		super(page);

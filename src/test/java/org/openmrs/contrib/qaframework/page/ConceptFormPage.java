@@ -16,18 +16,23 @@ import org.openqa.selenium.WebDriver;
 
 public class ConceptFormPage extends Page {
 
-	private static final By VIEW_CONCEPT_DICTIONARY = By.linkText("View Concept Dictionary");
+	private static final By VIEW_CONCEPT_DICTIONARY = By
+			.linkText("View Concept Dictionary");
 	private static final By ADD_NEW_CONCEPT = By.linkText("Add new Concept");
 	private static final By FULLY_NAME = By.id("namesByLocale[en].name");
 	private static final By CONCEPT_CLASS = By.name("concept.conceptClass");
-	private static final By SAVE_CONCEPT = By.xpath("//input[@value='Save Concept]");
+	private static final By SAVE_CONCEPT = By
+			.xpath("//input[@value='Save Concept]");
 	private static final By FIND_CONCEPT = By.id("inputNode");
 	private static final By EDIT = By.linkText("Edit");
-	private static final By DELETE_CONCEPT = By.xpath("(//input[@name='action'])[4]");
+	private static final By DELETE_CONCEPT = By
+			.xpath("(//input[@name='action'])[4]");
 	private static final By SAVE_EDIT = By.xpath("//input[@name='action']");
 	private static final By RETIRE = By.xpath("(//input[@name='action'])[5]");
-	private static final By UNRETIRE = By.xpath("//div[@id='content']/div[3]/div[3]/form/input");
-	private static final By FINDED_CONCEPT = By.cssSelector("tr.odd > td > span");
+	private static final By UNRETIRE = By
+			.xpath("//div[@id='content']/div[3]/div[3]/form/input");
+	private static final By FINDED_CONCEPT = By
+			.cssSelector("tr.odd > td > span");
 	private static By ADDED_DRUG;
 	public String CONCEPT;
 	private boolean acceptNextAlert = true;

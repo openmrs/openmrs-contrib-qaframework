@@ -14,10 +14,12 @@ import org.openqa.selenium.By;
 
 public class ManagePersonPage extends Page {
 
-	private static final By CREATE_PERSON = By.cssSelector("#content a:nth-child(9)");
+	private static final By CREATE_PERSON = By
+			.cssSelector("#content a:nth-child(9)");
 	private static final By PERSON_NAME_FIELD = By.id("inputNode");
 	private static final By OPENMRS_MSG = By.id("openmrs_msg");
-	private static final By FIRST_FOUND_PERSON = By.cssSelector("#openmrsSearchTable tbody tr td:nth-child(1)");
+	private static final By FIRST_FOUND_PERSON = By
+			.cssSelector("#openmrsSearchTable tbody tr td:nth-child(1)");
 
 	public ManagePersonPage(Page parent) {
 		super(parent);

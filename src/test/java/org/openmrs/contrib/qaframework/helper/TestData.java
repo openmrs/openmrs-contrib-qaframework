@@ -57,17 +57,29 @@ public class TestData {
 
 	public static String getALocation() {
 		JsonNode locations = RestClient.get("location");
-		return locations.get("results").get(0).get("uuid").asText(); // arbitrarily choose the first location
+		return locations.get("results").get(0).get("uuid").asText(); // arbitrarily
+																		// choose
+																		// the
+																		// first
+																		// location
 	}
 
 	public static String getLocationTag(String name) {
 		JsonNode locations = RestClient.get("locationtag", null, name);
-		return locations.get("results").get(0).get("uuid").asText(); // arbitrarily choose the first location
+		return locations.get("results").get(0).get("uuid").asText(); // arbitrarily
+																		// choose
+																		// the
+																		// first
+																		// location
 	}
 
 	public static String getAVisitType() {
 		JsonNode locations = RestClient.get("visittype");
-		return locations.get("results").get(0).get("uuid").asText(); // arbitrarily choose the first location
+		return locations.get("results").get(0).get("uuid").asText(); // arbitrarily
+																		// choose
+																		// the
+																		// first
+																		// location
 	}
 
 	public static String getIdentifierTypeUuid(String name) {
@@ -122,14 +134,16 @@ public class TestData {
 		pi.familyName = "Tester" + suffix;
 		pi.gender = randomArrayEntry(GENDERS);
 		pi.birthDay = randomArrayEntry(DAYS);
-		pi.birthMonthIndex = randomArrayIndex(MONTHS) + 1; // +1 because bmi is  1-12 not 0-11
+		pi.birthMonthIndex = randomArrayIndex(MONTHS) + 1; // +1 because bmi is
+															// 1-12 not 0-11
 		pi.birthMonth = MONTHS[pi.birthMonthIndex - 1];
 		pi.birthYear = randomArrayEntry(YEARS);
 		pi.address1 = "Address1" + suffix;
 		pi.address2 = "Address2" + suffix;
 		pi.city = "City" + suffix;
 		pi.state = "State" + suffix; // TODO shorter string for State perhaps?
-		pi.country = "Country" + suffix; // TODO shorter string for Country perhaps
+		pi.country = "Country" + suffix; // TODO shorter string for Country
+											// perhaps
 		pi.phone = randomSuffix(9);
 		pi.postalCode = randomSuffix(5);
 		return pi;

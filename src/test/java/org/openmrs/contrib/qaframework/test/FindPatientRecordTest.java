@@ -22,26 +22,25 @@ import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.FindPatientPage;
 
 public class FindPatientRecordTest extends ReferenceApplicationTestBase {
-
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void createPatient() {
 		patient = createTestPatient();
 	}
-
+	
 	@After
 	public void deletePatient() throws Exception {
 		deletePatient(patient);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void findPatientRecordTest() {
 		FindPatientPage findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(patient.identifier);
 		findPatientPage.waitForPageToLoad();
-		assertThat(findPatientPage.getFirstPatientIdentifier(),
-				containsString(patient.identifier));
+		assertThat(findPatientPage.getFirstPatientIdentifier(), containsString(patient.identifier));
 	}
 }

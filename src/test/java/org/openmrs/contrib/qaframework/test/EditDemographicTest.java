@@ -25,44 +25,37 @@ import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
 
 public class EditDemographicTest extends ReferenceApplicationTestBase {
-
+	
 	private TestData.PatientInfo testPatient;
-
+	
 	private String prefix;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		testPatient = createTestPatient();
 		prefix = RandomStringUtils.randomAlphanumeric(6);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void editDemographicTest() throws Exception {
 		FindPatientPage findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(testPatient.identifier);
-		ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage = findPatientPage
-				.clickOnFirstPatient();
-		RegistrationEditSectionPage registrationEditSectionPage = clinicianFacingPatientDashboardPage
-				.clickOnEditPatient();
-		registrationEditSectionPage.enterGivenName(testPatient.givenName
-				+ prefix);
-		registrationEditSectionPage.enterMiddleName(testPatient.middleName
-				+ prefix);
-		registrationEditSectionPage.enterFamilyName(testPatient.familyName
-				+ prefix);
+		ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage = findPatientPage.clickOnFirstPatient();
+		RegistrationEditSectionPage registrationEditSectionPage = clinicianFacingPatientDashboardPage.clickOnEditPatient();
+		registrationEditSectionPage.enterGivenName(testPatient.givenName + prefix);
+		registrationEditSectionPage.enterMiddleName(testPatient.middleName + prefix);
+		registrationEditSectionPage.enterFamilyName(testPatient.familyName + prefix);
 		registrationEditSectionPage.selectPatientGender("Male");
 		registrationEditSectionPage.clickOnBirthdateLabel();
 		registrationEditSectionPage.enterBirthDay("21");
 		registrationEditSectionPage.selectBirthMonth("May");
 		registrationEditSectionPage.enterBirthYear("1992");
 		registrationEditSectionPage.clickOnConfirmEdit();
-		clinicianFacingPatientDashboardPage = registrationEditSectionPage
-				.confirmPatient();
-		assertThat(clinicianFacingPatientDashboardPage.getPatientGivenName(),
-				is(testPatient.givenName + prefix));
+		clinicianFacingPatientDashboardPage = registrationEditSectionPage.confirmPatient();
+		assertThat(clinicianFacingPatientDashboardPage.getPatientGivenName(), is(testPatient.givenName + prefix));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(testPatient);

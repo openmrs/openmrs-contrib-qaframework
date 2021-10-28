@@ -23,29 +23,26 @@ import org.openmrs.contrib.qaframework.page.ManageServiceTypesPage;
 import org.openmrs.contrib.qaframework.page.ServicePage;
 
 public class AddDeleteServiceTest extends ReferenceApplicationTestBase {
-
+	
 	private String name;
-
+	
 	private String duration;
-
+	
 	private String description;
-
+	
 	@Before
 	public void setup() {
 		name = RandomStringUtils.randomAlphabetic(5);
 		duration = RandomStringUtils.randomNumeric(2);
 		description = RandomStringUtils.randomAlphabetic(10);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void addDeleteServiceTest() {
-		AppointmentSchedulingPage appointmentSchedulingPage = homePage
-				.goToAppointmentScheduling();
-		ManageServiceTypesPage manageServiceTypesPage = appointmentSchedulingPage
-				.goToManageServices();
-		ServicePage servicePage = manageServiceTypesPage
-				.clickOnNewServiceType();
+		AppointmentSchedulingPage appointmentSchedulingPage = homePage.goToAppointmentScheduling();
+		ManageServiceTypesPage manageServiceTypesPage = appointmentSchedulingPage.goToManageServices();
+		ServicePage servicePage = manageServiceTypesPage.clickOnNewServiceType();
 		servicePage.setName(name);
 		servicePage.setDuration(duration);
 		servicePage.setDescription(description);

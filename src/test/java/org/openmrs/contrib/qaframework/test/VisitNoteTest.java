@@ -25,33 +25,32 @@ import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 import org.openmrs.contrib.qaframework.page.VisitNotePage;
 
 public class VisitNoteTest extends LocationSensitiveApplicationTestBase {
-
+	
 	private static final String DIAGNOSIS_PRIMARY = "Gum Cancer";
-
+	
 	private static final String DIAGNOSIS_SECONDARY = "Malaria";
-
+	
 	private static final String DIAGNOSIS_SECONDARY_UPDATED = "Pneumonia";
-
+	
 	private PatientVisitsDashboardPage patientVisitsDashboardPage;
-
+	
 	private PatientInfo patient;
-
+	
 	@Before
 	public void setup() {
 		patient = createTestPatient();
 		createTestVisit();
 		patientVisitsDashboardPage = new PatientVisitsDashboardPage(page);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void visitNoteTest() throws Exception {
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
-		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
+		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
 		VisitNotePage visitNotePage = patientDashboardPage.goToVisitNote();
-
+		
 		visitNotePage.selectProviderAndLocation();
 		visitNotePage.addDiagnosis(DIAGNOSIS_PRIMARY);
 		visitNotePage.addSecondaryDiagnosis(DIAGNOSIS_SECONDARY);
@@ -61,19 +60,17 @@ public class VisitNoteTest extends LocationSensitiveApplicationTestBase {
 		patientDashboardPage = visitNotePage.save();
 		patientDashboardPage.waitForPage();
 		patientVisitsDashboardPage = patientDashboardPage.goToRecentVisits();
-		EditVisitNotePage editVisitNotePage = patientVisitsDashboardPage
-				.goToEditVisitNote();
-
+		EditVisitNotePage editVisitNotePage = patientVisitsDashboardPage.goToEditVisitNote();
+		
 		// Editing visit Note
 		editVisitNotePage.waitForPage();
 		editVisitNotePage.removeDiagnosis();
 		editVisitNotePage.clearNote();
 		editVisitNotePage.addNote("This is edited note");
 		editVisitNotePage.addSecondaryDiagnosis(DIAGNOSIS_SECONDARY_UPDATED);
-		assertEquals(DIAGNOSIS_SECONDARY_UPDATED,
-				patientDashboardPage.secondaryDiagnosis());
+		assertEquals(DIAGNOSIS_SECONDARY_UPDATED, patientDashboardPage.secondaryDiagnosis());
 		patientDashboardPage = visitNotePage.save();
-
+		
 		// Add a new diagnosis
 		patientDashboardPage.goToVisitNote();
 		editVisitNotePage.selectProviderAndLocation();
@@ -83,20 +80,19 @@ public class VisitNoteTest extends LocationSensitiveApplicationTestBase {
 		assertEquals(DIAGNOSIS_PRIMARY, visitNotePage.primaryDiagnosis());
 		editVisitNotePage.addNote("This is a new note");
 		patientDashboardPage = visitNotePage.save();
-
+		
 		// Deleting visit Note.....
 		visitNotePage.viewVisitNote();
 		visitNotePage.deleteDiagnosis();
 		visitNotePage.confirmDeleteDiagnosis();
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(patient);
 	}
-
+	
 	private void createTestVisit() {
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 }

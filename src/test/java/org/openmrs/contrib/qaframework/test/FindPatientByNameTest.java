@@ -22,16 +22,16 @@ import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.FindPatientPage;
 
 public class FindPatientByNameTest extends ReferenceApplicationTestBase {
-
+	
 	private FindPatientPage findPatientPage;
-
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		patient = createTestPatient();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void findPatientByNameTest() {
@@ -39,20 +39,17 @@ public class FindPatientByNameTest extends ReferenceApplicationTestBase {
 		// Search by name
 		findPatientPage.enterPatient(patient.givenName);
 		findPatientPage.waitForPageToLoad();
-		assertThat(findPatientPage.getFirstPatientName(),
-				containsString(patient.givenName));
-
+		assertThat(findPatientPage.getFirstPatientName(), containsString(patient.givenName));
+		
 		findPatientPage.enterPatient(patient.middleName);
 		findPatientPage.waitForPageToLoad();
-		assertThat(findPatientPage.getFirstPatientName(),
-				containsString(patient.middleName));
-
+		assertThat(findPatientPage.getFirstPatientName(), containsString(patient.middleName));
+		
 		findPatientPage.enterPatient(patient.familyName);
 		findPatientPage.waitForPageToLoad();
-		assertThat(findPatientPage.getFirstPatientName(),
-				containsString(patient.familyName));
+		assertThat(findPatientPage.getFirstPatientName(), containsString(patient.familyName));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(patient);

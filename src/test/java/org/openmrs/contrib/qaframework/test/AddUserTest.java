@@ -26,51 +26,43 @@ import org.openmrs.contrib.qaframework.page.ManageUserPage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
 public class AddUserTest extends ReferenceApplicationTestBase {
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void addUserTest() {
-		SystemAdministrationPage systemAdministrationPage = homePage
-				.goToSystemAdministrationPage();
-		AdministrationPage administrationPage = systemAdministrationPage
-				.goToAdvancedAdministration();
+		SystemAdministrationPage systemAdministrationPage = homePage.goToSystemAdministrationPage();
+		AdministrationPage administrationPage = systemAdministrationPage.goToAdvancedAdministration();
 		ManageUserPage manageUserPage = administrationPage.clickOnManageUsers();
-
+		
 		if (manageUserPage.userExists("super_nurse")) {
 			manageUserPage.removeUser("super_nurse");
 		} else {
 			AddEditUserPage addEditUserPage = manageUserPage.clickOnAddUser();
 			addEditUserPage.createNewPerson();
-
+			
 			addEditUserPage.saveUser();
-			List<String> validationErrors = addEditUserPage
-					.getValidationErrors();
-			assertTrue(validationErrors
-					.contains("You must define at least one name"));
+			List<String> validationErrors = addEditUserPage.getValidationErrors();
+			assertTrue(validationErrors.contains("You must define at least one name"));
 			assertTrue(validationErrors.contains("Cannot be empty or null"));
 			assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-
+			
 			addEditUserPage.enterGivenFamily("Super", "Nurse");
 			addEditUserPage.saveUser();
 			validationErrors = addEditUserPage.getValidationErrors();
 			assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-
+			
 			addEditUserPage.clickOnFemale();
-			addEditUserPage.enterUsernamePassword("super_nurse", "supernurse",
-					"supernurse123");
+			addEditUserPage.enterUsernamePassword("super_nurse", "supernurse", "supernurse123");
 			addEditUserPage.saveUser();
 			assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-			addEditUserPage.enterUsernamePassword("super_nurse", "Nurse123",
-					"Nurse123");
+			addEditUserPage.enterUsernamePassword("super_nurse", "Nurse123", "Nurse123");
 			addEditUserPage.saveUser();
 			assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-
+			
 			manageUserPage.waitForPage();
-			assertTrue(manageUserPage.getUserSavedNotification().contains(
-					"User Saved"));
-
-			homePage = new HomePage(goToLoginPage().login("super_nurse",
-					"Nurse123"));
+			assertTrue(manageUserPage.getUserSavedNotification().contains("User Saved"));
+			
+			homePage = new HomePage(goToLoginPage().login("super_nurse", "Nurse123"));
 			homePage.waitForPage();
 			assertTrue(homePage.containsText("super_nurse"));
 			goToLoginPage().loginAsAdmin();
@@ -78,8 +70,7 @@ public class AddUserTest extends ReferenceApplicationTestBase {
 			administrationPage.clickOnManageUsers();
 			manageUserPage.removeUser("super_nurse");
 			manageUserPage.waitForPage();
-			assertTrue(manageUserPage.getUserSavedNotification().contains(
-					"Successfully deleted user."));
+			assertTrue(manageUserPage.getUserSavedNotification().contains("Successfully deleted user."));
 		}
 	}
 }

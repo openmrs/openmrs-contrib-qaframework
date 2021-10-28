@@ -20,25 +20,24 @@ import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ManageLocationsPage;
 
 public class RetireLocationTest extends ReferenceApplicationTestBase {
-
+	
 	private String locationName = "TEST" + TestData.randomSuffix();
-
+	
 	private String locationUuid = null;
-
+	
 	@Before
 	public void createLocation() {
 		locationUuid = new TestData.TestLocation(locationName).create();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void retireLocationTest() {
-		ManageLocationsPage manageLocationsPage = homePage
-				.goToConfigureMetadata().goToManageLocations();
+		ManageLocationsPage manageLocationsPage = homePage.goToConfigureMetadata().goToManageLocations();
 		manageLocationsPage.retireLocation(locationName);
 		manageLocationsPage.assertRetired(locationName);
 	}
-
+	
 	@After
 	public void deleteLocation() {
 		RestClient.delete("location/" + locationUuid, true);

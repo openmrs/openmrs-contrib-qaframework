@@ -23,23 +23,22 @@ import org.openmrs.contrib.qaframework.page.VisitTypeListPage;
 import org.openmrs.contrib.qaframework.page.VisitTypePage;
 
 public class AddVisitTypeTest extends ReferenceApplicationTestBase {
-
+	
 	private String visitTypeName;
-
+	
 	private String visitTypeDesc;
-
+	
 	@Before
 	public void setUp() {
 		visitTypeName = RandomStringUtils.randomAlphanumeric(8);
 		visitTypeDesc = RandomStringUtils.randomAlphanumeric(16);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void addVisitTypeTest() {
 		AdministrationPage administrationPage = homePage.goToAdministration();
-		VisitTypeListPage visitTypeListPage = administrationPage
-				.goToVisitTypePage();
+		VisitTypeListPage visitTypeListPage = administrationPage.goToVisitTypePage();
 		VisitTypePage visitTypePage = visitTypeListPage.addVisitType();
 		visitTypePage.save();
 		assertThat(visitTypePage.getValidationErrors(), hasItem("Invalid name"));

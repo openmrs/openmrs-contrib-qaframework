@@ -24,27 +24,25 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
 
 public class ContactInfoTest extends ReferenceApplicationTestBase {
-
+	
 	private static final String VISIT_TYPE_UUID = "7b0f5697-27e3-40c4-8bae-f4049abfb4ed";
-
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		patient = createTestPatient();
 		createTestVisit();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void contactInfoTest() throws Exception {
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
-		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
+		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
 		patientDashboardPage.clickOnShowContact();
-		RegistrationEditSectionPage registrationEditSectionPage = patientDashboardPage
-				.clickOnEditContact();
+		RegistrationEditSectionPage registrationEditSectionPage = patientDashboardPage.clickOnEditContact();
 		registrationEditSectionPage.clearVillage();
 		registrationEditSectionPage.enterVillage("Adidas Abbeba");
 		registrationEditSectionPage.clearState();
@@ -57,10 +55,8 @@ public class ContactInfoTest extends ReferenceApplicationTestBase {
 		registrationEditSectionPage.clearPhoneNumber();
 		registrationEditSectionPage.enterPhoneNumber("aaaaaaaaa");
 		registrationEditSectionPage.clickOnConfirmEdit();
-		assertTrue(registrationEditSectionPage
-				.getInvalidPhoneNumberNotification()
-				.contains(
-						"Must be a valid phone number (with +, -, numbers or parentheses)"));
+		assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification()
+		        .contains("Must be a valid phone number (with +, -, numbers or parentheses)"));
 		registrationEditSectionPage.clearPhoneNumber();
 		registrationEditSectionPage.enterPhoneNumber("111111111");
 		registrationEditSectionPage.clickOnConfirmEdit();
@@ -68,20 +64,17 @@ public class ContactInfoTest extends ReferenceApplicationTestBase {
 		homePage = patientDashboardPage.goToHomePage();
 		activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
-		patientDashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
+		patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
 		patientDashboardPage.clickOnShowContact();
-		assertTrue(patientDashboardPage.getTelephoneNumber().contains(
-				"111111111"));
+		assertTrue(patientDashboardPage.getTelephoneNumber().contains("111111111"));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(patient);
 	}
-
+	
 	private void createTestVisit() {
-		new TestData.TestVisit(patient.uuid, VISIT_TYPE_UUID,
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, VISIT_TYPE_UUID, getLocationUuid(homePage)).create();
 	}
 }

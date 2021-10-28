@@ -19,27 +19,27 @@ import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 
 public class DeleteAppointmentBlockTest extends ManageProviderSchedulesTest {
-
+	
 	int firstAppointmentIndex = 0;
-
+	
 	private String correctStartTimeFirtAppointment = "08";
-
+	
 	private String outboundStartTime = "30";
-
+	
 	private String firstAppointment = "Gynecology";
-
+	
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
 	}
-
+	
 	/*
 	 * @verifies creation and delete of an appointment
 	 */
 	@Test
 	@Category(BuildTests.class)
 	public void deleteAppointmentBlockTest() throws Exception {
-
+		
 		// The logic behind the text is to create an appointment and delete it
 		appointmentBlocksPage.selectLocation(locationName);
 		appointmentBlocksPage.clickOnDay();
@@ -53,15 +53,14 @@ public class DeleteAppointmentBlockTest extends ManageProviderSchedulesTest {
 		appointmentBlocksPage.enterService("gyne");
 		appointmentBlocksPage.enterProvider(provider);
 		appointmentBlocksPage.clickOnSave();
-		assertTrue(appointmentBlocksPage.getServiceOfDay(firstAppointmentIndex)
-				.equals(firstAppointment));
+		assertTrue(appointmentBlocksPage.getServiceOfDay(firstAppointmentIndex).equals(firstAppointment));
 		// let'remove the appointment
 		appointmentBlocksPage.clickOnAppointment();
 		appointmentBlocksPage.clickOnDelete();
 		appointmentBlocksPage.clickOnleft();
 		appointmentBlocksPage.clickOnConfirmDelete();
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		super.tearDown();

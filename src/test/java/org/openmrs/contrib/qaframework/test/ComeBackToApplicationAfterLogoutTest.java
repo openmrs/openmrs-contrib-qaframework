@@ -15,10 +15,8 @@ import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
 
-public class ComeBackToApplicationAfterLogoutTest
-		extends
-			ReferenceApplicationTestBase {
-
+public class ComeBackToApplicationAfterLogoutTest extends ReferenceApplicationTestBase {
+	
 	@Test
 	@Category(BuildTests.class)
 	public void comeBackToApplicationAfterLogoutTest() throws Exception {

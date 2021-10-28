@@ -24,27 +24,24 @@ import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 
 public class AddPastVisitTest extends LocationSensitiveApplicationTestBase {
-
+	
 	private TestData.PatientInfo testPatient;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		testPatient = createTestPatient();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void addPastVisitTest() {
 		FindPatientPage findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.search(testPatient.identifier);
-		ClinicianFacingPatientDashboardPage patientDashboardPage = findPatientPage
-				.clickOnFirstPatient();
-		PatientVisitsDashboardPage patientVisitsDashboardPage = patientDashboardPage
-				.addPastVisit();
-		assertThat(patientVisitsDashboardPage.getVisitList().get(0)
-				.getAttribute("class"), is(not("no-results")));
+		ClinicianFacingPatientDashboardPage patientDashboardPage = findPatientPage.clickOnFirstPatient();
+		PatientVisitsDashboardPage patientVisitsDashboardPage = patientDashboardPage.addPastVisit();
+		assertThat(patientVisitsDashboardPage.getVisitList().get(0).getAttribute("class"), is(not("no-results")));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(testPatient);

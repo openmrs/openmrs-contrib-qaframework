@@ -27,12 +27,10 @@ import org.openmrs.contrib.qaframework.page.RegistrationPage;
 /**
  * Test for RA-472
  */
-public class RegisterUnidentifiedPatientTest
-		extends
-			ReferenceApplicationTestBase {
-
+public class RegisterUnidentifiedPatientTest extends ReferenceApplicationTestBase {
+	
 	private TestPatient patient;
-
+	
 	@After
 	public void tearDown() throws Exception {
 		TestData.PatientInfo p = new TestData.PatientInfo();
@@ -40,19 +38,17 @@ public class RegisterUnidentifiedPatientTest
 		deletePatient(p);
 		waitForPatientDeletion(patient.uuid);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void registerUnidentifiedPatientTest() throws InterruptedException {
 		RegistrationPage registrationPage = homePage.goToRegisterPatientApp();
 		patient = PatientGenerator.generateTestPatient();
 		registrationPage.enterUnidentifiedPatient(patient);
-
-		assertTrue(registrationPage.getGenderInConfirmationPage().contains(
-				patient.gender));
-
-		ClinicianFacingPatientDashboardPage dashboardPage = registrationPage
-				.confirmPatient();
+		
+		assertTrue(registrationPage.getGenderInConfirmationPage().contains(patient.gender));
+		
+		ClinicianFacingPatientDashboardPage dashboardPage = registrationPage.confirmPatient();
 		dashboardPage.waitForPage();
 		patient.uuid = page.getPatientUuidFromUrl();
 		assertThat(dashboardPage.getPatientGivenName(), is("UNKNOWN"));

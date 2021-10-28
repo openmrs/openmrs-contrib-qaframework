@@ -23,43 +23,38 @@ import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 
 public class SearchActiveVisitsTest extends ReferenceApplicationTestBase {
-
+	
 	TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setup() {
 		patient = createTestPatient();
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void searchActiveVisitsTest() {
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
-
+		
 		String patientName = activeVisitsPage.getPatientNameOfLastActiveVisit();
 		activeVisitsPage.search(patientName);
-		assertThat(activeVisitsPage.getPatientNameOfLastActiveVisit(),
-				is(equalTo(patientName)));
-
+		assertThat(activeVisitsPage.getPatientNameOfLastActiveVisit(), is(equalTo(patientName)));
+		
 		activeVisitsPage.search("");
-
+		
 		String patientId = activeVisitsPage.getPatientIdOfLastActiveVisit();
 		activeVisitsPage.search(patientId);
-		assertThat(activeVisitsPage.getPatientIdOfLastActiveVisit(),
-				is(equalTo(patientId)));
-
+		assertThat(activeVisitsPage.getPatientIdOfLastActiveVisit(), is(equalTo(patientId)));
+		
 		activeVisitsPage.search("");
-
-		String lastSeen = activeVisitsPage
-				.getPatientLastSeenValueOfLastActiveVisit();
+		
+		String lastSeen = activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit();
 		activeVisitsPage.search(lastSeen);
-		assertThat(activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit(),
-				is(equalTo(lastSeen)));
+		assertThat(activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit(), is(equalTo(lastSeen)));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(patient);

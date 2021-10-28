@@ -22,30 +22,28 @@ import org.openmrs.contrib.qaframework.page.ManagePersonPage;
 import org.openmrs.contrib.qaframework.page.PersonFormPage;
 
 public class RetirePersonTest extends ReferenceApplicationTestBase {
-
+	
 	private String personUuid;
-
+	
 	private TestData.PersonInfo personInfo;
-
+	
 	@Before
 	public void setup() {
 		personInfo = TestData.generateRandomPerson();
 		personUuid = TestData.createPerson(personInfo);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void retirePersonTest() {
 		AdministrationPage administrationPage = homePage.goToAdministration();
-		ManagePersonPage managePersonPage = administrationPage
-				.clickOnManagePersons();
+		ManagePersonPage managePersonPage = administrationPage.clickOnManagePersons();
 		managePersonPage.setPersonName(personInfo.givenName);
-		PersonFormPage personFormPage = managePersonPage
-				.clickFirstFoundPerson();
+		PersonFormPage personFormPage = managePersonPage.clickFirstFoundPerson();
 		personFormPage.setRetireReason("retire reason");
 		personFormPage.retirePerson();
 	}
-
+	
 	@After
 	public void teardown() {
 		RestClient.delete("person/" + personUuid, true);

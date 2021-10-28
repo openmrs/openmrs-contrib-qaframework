@@ -25,40 +25,34 @@ import org.openmrs.contrib.qaframework.page.ManageAppointmentsPage;
 import org.openmrs.contrib.qaframework.page.ManageProviderSchedulesPage;
 import org.openmrs.contrib.qaframework.page.RequestAppointmentPage;
 
-public class BookRequestAppointmentTest
-		extends
-			LocationSensitiveApplicationTestBase {
-
+public class BookRequestAppointmentTest extends LocationSensitiveApplicationTestBase {
+	
 	private static final String SERVICE_NAME = "Oncology";
-
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		patient = createTestPatient();
 		createTestVisit();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void bookRequestAppointmentTest() throws Exception {
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
-		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
-		RequestAppointmentPage requestAppointmentPage = patientDashboardPage
-				.clickOnRequest();
+		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+		RequestAppointmentPage requestAppointmentPage = patientDashboardPage.clickOnRequest();
 		requestAppointmentPage.enterAppointmentType("Oncology");
 		requestAppointmentPage.enterMinimumValue("0");
 		requestAppointmentPage.selectMinimumUnits("Day(s)");
 		patientDashboardPage = requestAppointmentPage.saveRequest();
 		patientDashboardPage.waitForPage();
 		patientDashboardPage.goToHomePage();
-
-		AppointmentSchedulingPage appointmentSchedulingPage = homePage
-				.goToAppointmentScheduling();
-		ManageProviderSchedulesPage manageProviderSchedulesPage = appointmentSchedulingPage
-				.goToManageProviderSchedules();
+		
+		AppointmentSchedulingPage appointmentSchedulingPage = homePage.goToAppointmentScheduling();
+		ManageProviderSchedulesPage manageProviderSchedulesPage = appointmentSchedulingPage.goToManageProviderSchedules();
 		manageProviderSchedulesPage.selectLocation(getLocationName());
 		manageProviderSchedulesPage.clickOnNextWeekday();
 		manageProviderSchedulesPage.selectLocationBlock(getLocationName());
@@ -69,29 +63,25 @@ public class BookRequestAppointmentTest
 		manageProviderSchedulesPage.enterService(SERVICE_NAME);
 		manageProviderSchedulesPage.clickOnSave();
 		patientDashboardPage.goToHomePage();
-
+		
 		appointmentSchedulingPage = homePage.goToAppointmentScheduling();
-		FindPatientPage findPatientPage = appointmentSchedulingPage
-				.goToManageAppointments();
+		FindPatientPage findPatientPage = appointmentSchedulingPage.goToManageAppointments();
 		findPatientPage.enterPatient(patient.identifier);
-		ManageAppointmentsPage manageAppointmentsPage = findPatientPage
-				.clickOnFirstPatientAppointment();
+		ManageAppointmentsPage manageAppointmentsPage = findPatientPage.clickOnFirstPatientAppointment();
 		manageAppointmentsPage.clickOnBookAppointment();
 		manageAppointmentsPage.clickAppointment();
 		manageAppointmentsPage.saveAppointment();
 		findPatientPage.enterPatient(patient.getName());
-		manageAppointmentsPage = findPatientPage
-				.clickOnFirstPatientAppointment();
+		manageAppointmentsPage = findPatientPage.clickOnFirstPatientAppointment();
 		assertTrue(manageAppointmentsPage.containsText("Scheduled"));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(patient);
 	}
-
+	
 	private void createTestVisit() {
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 }

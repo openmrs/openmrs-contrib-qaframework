@@ -24,54 +24,46 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.ManageAppointmentsPage;
 import org.openmrs.contrib.qaframework.page.RequestAppointmentPage;
 
-public class DeleteRequestAppointmentTest
-		extends
-			LocationSensitiveApplicationTestBase {
-
+public class DeleteRequestAppointmentTest extends LocationSensitiveApplicationTestBase {
+	
 	private static final String SERVICE_NAME = "Oncology";
-
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		patient = createTestPatient();
 		createTestVisit();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void deleteRequestAppointmentTest() {
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
-		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
-		RequestAppointmentPage requestAppointmentPage = patientDashboardPage
-				.clickOnRequest();
+		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+		RequestAppointmentPage requestAppointmentPage = patientDashboardPage.clickOnRequest();
 		requestAppointmentPage.enterAppointmentType(SERVICE_NAME);
 		requestAppointmentPage.enterMinimumValue("0");
 		requestAppointmentPage.selectMinimumUnits("Day(s)");
 		patientDashboardPage = requestAppointmentPage.saveRequest();
-
-		List<String> appointmentRequestsList = patientDashboardPage
-				.getAppointmentRequestsList();
+		
+		List<String> appointmentRequestsList = patientDashboardPage.getAppointmentRequestsList();
 		assertTrue(appointmentRequestsList.get(0).equals(SERVICE_NAME));
-
-		ManageAppointmentsPage manageAppointmentsPage = patientDashboardPage
-				.goToManageAppointments();
+		
+		ManageAppointmentsPage manageAppointmentsPage = patientDashboardPage.goToManageAppointments();
 		manageAppointmentsPage.deleteRequest();
 		patientDashboardPage = manageAppointmentsPage.clickCancel();
 		manageAppointmentsPage = patientDashboardPage.goToManageAppointments();
-		assertTrue(manageAppointmentsPage
-				.containsText("No appointment requests"));
+		assertTrue(manageAppointmentsPage.containsText("No appointment requests"));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(patient);
 	}
-
+	
 	private void createTestVisit() {
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 }

@@ -22,29 +22,27 @@ import org.openmrs.contrib.qaframework.page.ManagePersonPage;
 import org.openmrs.contrib.qaframework.page.PersonFormPage;
 
 public class DeletePersonTest extends ReferenceApplicationTestBase {
-
+	
 	private String personUuid;
-
+	
 	private TestData.PersonInfo personInfo;
-
+	
 	@Before
 	public void setup() {
 		personInfo = TestData.generateRandomPerson();
 		personUuid = TestData.createPerson(personInfo);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void deletePersonTest() {
 		AdministrationPage administrationPage = homePage.goToAdministration();
-		ManagePersonPage managePersonPage = administrationPage
-				.clickOnManagePersons();
+		ManagePersonPage managePersonPage = administrationPage.clickOnManagePersons();
 		managePersonPage.setPersonName(personInfo.givenName);
-		PersonFormPage personFormPage = managePersonPage
-				.clickFirstFoundPerson();
+		PersonFormPage personFormPage = managePersonPage.clickFirstFoundPerson();
 		personFormPage.deletePersonForever();
 	}
-
+	
 	@After
 	public void teardown() {
 		RestClient.delete("person/" + personUuid, true);

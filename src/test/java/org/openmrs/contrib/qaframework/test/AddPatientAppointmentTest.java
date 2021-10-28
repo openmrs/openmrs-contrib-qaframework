@@ -23,27 +23,23 @@ import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.ManageAppointmentsPage;
 import org.openmrs.contrib.qaframework.page.ManageProviderSchedulesPage;
 
-public class AddPatientAppointmentTest
-		extends
-			LocationSensitiveApplicationTestBase {
-
+public class AddPatientAppointmentTest extends LocationSensitiveApplicationTestBase {
+	
 	private static final String SERVICE_NAME = "Oncology";
-
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		patient = createTestPatient();
 		createTestVisit();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void addPatientAppointmentTest() throws Exception {
-		AppointmentSchedulingPage appointmentSchedulingPage = homePage
-				.goToAppointmentScheduling();
-		ManageProviderSchedulesPage manageProviderSchedulesPage = appointmentSchedulingPage
-				.goToManageProviderSchedules();
+		AppointmentSchedulingPage appointmentSchedulingPage = homePage.goToAppointmentScheduling();
+		ManageProviderSchedulesPage manageProviderSchedulesPage = appointmentSchedulingPage.goToManageProviderSchedules();
 		manageProviderSchedulesPage.selectLocation(getLocationName());
 		manageProviderSchedulesPage.clickOnNextWeekday();
 		manageProviderSchedulesPage.selectLocationBlock(getLocationName());
@@ -55,29 +51,25 @@ public class AddPatientAppointmentTest
 		manageProviderSchedulesPage.clickOnSave();
 		homePage = new HomePage(login());
 		appointmentSchedulingPage = homePage.goToAppointmentScheduling();
-		FindPatientPage findPatientPage = appointmentSchedulingPage
-				.goToManageAppointments();
+		FindPatientPage findPatientPage = appointmentSchedulingPage.goToManageAppointments();
 		findPatientPage.enterPatient(patient.getName());
-		ManageAppointmentsPage manageAppointmentsPage = findPatientPage
-				.clickOnFirstPatientAppointment();
+		ManageAppointmentsPage manageAppointmentsPage = findPatientPage.clickOnFirstPatientAppointment();
 		manageAppointmentsPage.clickOnViewAllTypes();
 		manageAppointmentsPage.clickOnService(SERVICE_NAME);
 		manageAppointmentsPage.searchAppointment();
 		manageAppointmentsPage.clickAppointment();
 		findPatientPage = manageAppointmentsPage.saveAppointment();
 		findPatientPage.enterPatient(patient.getName());
-		manageAppointmentsPage = findPatientPage
-				.clickOnFirstPatientAppointment();
+		manageAppointmentsPage = findPatientPage.clickOnFirstPatientAppointment();
 		assertTrue(manageAppointmentsPage.containsText(SERVICE_NAME));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(patient);
 	}
-
+	
 	private void createTestVisit() {
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 }

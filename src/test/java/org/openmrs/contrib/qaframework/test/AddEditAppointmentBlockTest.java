@@ -19,18 +19,22 @@ import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 
 public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
-
+	
 	private final String startTimeFirstAppointment = "09";
+	
 	private String firstAppointment = "Gynecology";
+	
 	private String secondAppointment = "Dermatology";
+	
 	int firstAppointmentIndex = 0;
+	
 	int secondAppointmentIndex = 1;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		super.setUp();
 	}
-
+	
 	/*
 	 * @verifies the creation and editing of an appointment
 	 */
@@ -48,15 +52,13 @@ public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
 		appointmentBlocksPage.enterService("gyne");
 		appointmentBlocksPage.enterProvider(provider);
 		appointmentBlocksPage.clickOnSave();
-		assertTrue(appointmentBlocksPage.getServiceOfDay(firstAppointmentIndex)
-				.equals(firstAppointment));
+		assertTrue(appointmentBlocksPage.getServiceOfDay(firstAppointmentIndex).equals(firstAppointment));
 		appointmentBlocksPage.clickOnAppointment();
 		appointmentBlocksPage.clickOnEdit();
 		appointmentBlocksPage.removeAppointment();
 		appointmentBlocksPage.enterService("derma");
 		appointmentBlocksPage.clickOnSave();
-		assertTrue(appointmentBlocksPage.getServiceOfDay(firstAppointmentIndex)
-				.equals(secondAppointment));
+		assertTrue(appointmentBlocksPage.getServiceOfDay(firstAppointmentIndex).equals(secondAppointment));
 		appointmentBlocksPage.clickOnAppointment();
 		appointmentBlocksPage.clickOnDelete();
 		// click on "left area" is needed because the tooltip shadows the delete
@@ -64,7 +66,7 @@ public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
 		appointmentBlocksPage.clickOnleft();
 		appointmentBlocksPage.clickOnConfirmDelete();
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		super.tearDown();

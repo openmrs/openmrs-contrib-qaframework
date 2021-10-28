@@ -20,30 +20,28 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.PatientCaptureVitalsPage;
 
 public class CaptureVitalsTest extends LocationSensitiveApplicationTestBase {
-
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setup() {
 		patient = createTestPatient();
 		createTestVisit();
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(patient);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void captureVitalsTest() {
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
-
-		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
-		PatientCaptureVitalsPage patientCaptureVitalsPage = patientDashboardPage
-				.goToPatientCaptureVitalsPage();
+		
+		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+		PatientCaptureVitalsPage patientCaptureVitalsPage = patientDashboardPage.goToPatientCaptureVitalsPage();
 		patientCaptureVitalsPage.setHeightField("185");
 		patientCaptureVitalsPage.setWeightField("78");
 		patientCaptureVitalsPage.setTemperatureField("36.6");
@@ -54,9 +52,8 @@ public class CaptureVitalsTest extends LocationSensitiveApplicationTestBase {
 		patientCaptureVitalsPage.confirm();
 		patientCaptureVitalsPage.save();
 	}
-
+	
 	private void createTestVisit() {
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 }

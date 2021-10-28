@@ -24,38 +24,33 @@ import org.openmrs.contrib.qaframework.page.MergeVisitsPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 
 public class MergeVisitsTest extends LocationSensitiveApplicationTestBase {
-
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setUp() {
 		patient = createTestPatient();
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void mergeVisitsTest() {
 		FindPatientPage findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(patient.identifier);
 		findPatientPage.waitForPageToLoad();
-		ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage = findPatientPage
-				.clickOnFirstPatient();
-		PatientVisitsDashboardPage patientVisitsDashboardPage = clinicianFacingPatientDashboardPage
-				.goToRecentVisits();
+		ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage = findPatientPage.clickOnFirstPatient();
+		PatientVisitsDashboardPage patientVisitsDashboardPage = clinicianFacingPatientDashboardPage.goToRecentVisits();
 		patientVisitsDashboardPage.waitForPage();
 		patientVisitsDashboardPage.clickOnActions();
-		MergeVisitsPage mergeVisitsPage = patientVisitsDashboardPage
-				.clickOnMergeVisits();
+		MergeVisitsPage mergeVisitsPage = patientVisitsDashboardPage.clickOnMergeVisits();
 		mergeVisitsPage.checkFirstVisit();
 		mergeVisitsPage.checkSecondVisit();
 		mergeVisitsPage = mergeVisitsPage.clickOnMergeSelecetdVisits();
 		assertThat(mergeVisitsPage.getAllVisit().size(), is(1));
 	}
-
+	
 	@After
 	public void tearDown() throws InterruptedException {
 		TestData.PatientInfo p = new TestData.PatientInfo();

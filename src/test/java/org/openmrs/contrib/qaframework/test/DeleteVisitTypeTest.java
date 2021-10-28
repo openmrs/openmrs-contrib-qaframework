@@ -27,34 +27,30 @@ import org.openmrs.contrib.qaframework.page.VisitTypeListPage;
 import org.openmrs.contrib.qaframework.page.VisitTypePage;
 
 public class DeleteVisitTypeTest extends ReferenceApplicationTestBase {
-
+	
 	private String visitTypeName;
-
+	
 	private String visitTypeDesc;
-
+	
 	private String visitTypeUuid;
-
+	
 	@Before
 	public void setup() {
 		visitTypeName = RandomStringUtils.randomAlphanumeric(8);
 		visitTypeDesc = RandomStringUtils.randomAlphanumeric(16);
-		visitTypeUuid = new TestData.TestVisitType(visitTypeName, visitTypeDesc)
-				.create();
+		visitTypeUuid = new TestData.TestVisitType(visitTypeName, visitTypeDesc).create();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void deleteVisitTypeTest() {
 		AdministrationPage administrationPage = homePage.goToAdministration();
-		VisitTypeListPage visitTypeListPage = administrationPage
-				.goToVisitTypePage();
-		VisitTypePage visitTypePage = visitTypeListPage
-				.goToVisitType(visitTypeName);
+		VisitTypeListPage visitTypeListPage = administrationPage.goToVisitTypePage();
+		VisitTypePage visitTypePage = visitTypeListPage.goToVisitType(visitTypeName);
 		visitTypeListPage = visitTypePage.delete();
-		assertThat(visitTypeListPage.getVisitTypeList(),
-				not(hasItem(visitTypeName)));
+		assertThat(visitTypeListPage.getVisitTypeList(), not(hasItem(visitTypeName)));
 	}
-
+	
 	@After
 	public void teardown() {
 		RestClient.delete("visittype/" + visitTypeUuid, true);

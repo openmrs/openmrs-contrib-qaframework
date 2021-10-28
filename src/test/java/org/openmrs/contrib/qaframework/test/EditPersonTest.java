@@ -25,31 +25,29 @@ import org.openmrs.contrib.qaframework.page.ManagePersonPage;
 import org.openmrs.contrib.qaframework.page.PersonFormPage;
 
 public class EditPersonTest extends ReferenceApplicationTestBase {
-
+	
 	private String personUuid;
-
+	
 	private TestData.PersonInfo personInfo;
-
+	
 	@Before
 	public void setup() {
 		personInfo = TestData.generateRandomPerson();
 		personUuid = TestData.createPerson(personInfo);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void editPersonTest() {
 		AdministrationPage administrationPage = homePage.goToAdministration();
-		ManagePersonPage managePersonPage = administrationPage
-				.clickOnManagePersons();
+		ManagePersonPage managePersonPage = administrationPage.clickOnManagePersons();
 		managePersonPage.setPersonName(personInfo.givenName);
-		PersonFormPage personFormPage = managePersonPage
-				.clickFirstFoundPerson();
+		PersonFormPage personFormPage = managePersonPage.clickFirstFoundPerson();
 		personFormPage.setFamilyNameField("newFamilyName");
 		personFormPage.savePerson();
 		assertThat(personFormPage.getFamilyName(), is("newFamilyName"));
 	}
-
+	
 	@After
 	public void teardown() {
 		RestClient.delete("person/" + personUuid, true);

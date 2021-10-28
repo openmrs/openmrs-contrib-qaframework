@@ -24,34 +24,31 @@ import org.openmrs.contrib.qaframework.page.MergePatientsPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 
 public class MergePatientTest extends ReferenceApplicationTestBase {
-
+	
 	TestData.PatientInfo testPatient;
-
+	
 	TestData.PatientInfo testPatient1;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		testPatient = createTestPatient();
 		testPatient1 = createTestPatient();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void mergePatientTest() {
 		DataManagementPage dataManagementPage = homePage.goToDataManagement();
-		MergePatientsPage mergePatientsPage = dataManagementPage
-				.goToMergePatient();
+		MergePatientsPage mergePatientsPage = dataManagementPage.goToMergePatient();
 		mergePatientsPage.enterPatient1(testPatient.identifier);
 		mergePatientsPage.enterPatient2(testPatient1.identifier);
 		mergePatientsPage.clickOnContinue();
 		mergePatientsPage.clickOnMergePatient();
-		PatientVisitsDashboardPage dashboardPage = mergePatientsPage
-				.clickOnContinue();
-
-		assertThat(dashboardPage.getPatientFamilyName(),
-				is(testPatient1.familyName));
+		PatientVisitsDashboardPage dashboardPage = mergePatientsPage.clickOnContinue();
+		
+		assertThat(dashboardPage.getPatientFamilyName(), is(testPatient1.familyName));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(testPatient);

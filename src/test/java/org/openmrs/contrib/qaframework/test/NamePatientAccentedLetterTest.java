@@ -25,14 +25,14 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
 public class NamePatientAccentedLetterTest extends ReferenceApplicationTestBase {
-
+	
 	private TestPatient patient;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		patient = PatientGenerator.generateTestPatient();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void namePatientAccentedLetterTest() throws Exception {
@@ -41,13 +41,12 @@ public class NamePatientAccentedLetterTest extends ReferenceApplicationTestBase 
 		patient.familyName = "Kłoczkowski";
 		patient.gender = "Male";
 		registrationPage.enterPatient(patient);
-		ClinicianFacingPatientDashboardPage dashboardPage = registrationPage
-				.confirmPatient();
+		ClinicianFacingPatientDashboardPage dashboardPage = registrationPage.confirmPatient();
 		String name = dashboardPage.getPatientFamilyName();
 		assertThat(name, Matchers.is(patient.familyName));
 		patient.uuid = dashboardPage.getPatientUuidFromUrl();
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		TestData.PatientInfo p = new TestData.PatientInfo();

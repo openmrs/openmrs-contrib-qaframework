@@ -24,26 +24,25 @@ import org.openmrs.contrib.qaframework.page.ManagePersonPage;
 import org.openmrs.contrib.qaframework.page.PersonFormPage;
 
 public class CreatePersonTest extends ReferenceApplicationTestBase {
-
+	
 	private String personName;
-
+	
 	private String personAge;
-
+	
 	private String personFamilyName;
-
+	
 	@Before
 	public void setUp() {
 		personName = RandomStringUtils.randomAlphanumeric(8);
 		personAge = RandomStringUtils.randomNumeric(2);
 		personFamilyName = RandomStringUtils.randomAlphanumeric(8);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void createPersonTest() {
 		AdministrationPage administrationPage = homePage.goToAdministration();
-		ManagePersonPage managePersonPage = administrationPage
-				.clickOnManagePersons();
+		ManagePersonPage managePersonPage = administrationPage.clickOnManagePersons();
 		AddPersonPage personPage = managePersonPage.createPerson();
 		personPage.createPerson();
 		assertThat(personPage.getValidationErrors().size(), is(3));

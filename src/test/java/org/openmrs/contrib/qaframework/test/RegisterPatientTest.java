@@ -25,9 +25,9 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
 public class RegisterPatientTest extends ReferenceApplicationTestBase {
-
+	
 	private TestPatient patient;
-
+	
 	@After
 	public void tearDown() throws Exception {
 		TestData.PatientInfo p = new TestData.PatientInfo();
@@ -35,7 +35,7 @@ public class RegisterPatientTest extends ReferenceApplicationTestBase {
 		deletePatient(p);
 		waitForPatientDeletion(patient.uuid);
 	}
-
+	
 	// Test for Story RA-71
 	@Test
 	@Category(BuildTests.class)
@@ -43,25 +43,19 @@ public class RegisterPatientTest extends ReferenceApplicationTestBase {
 		RegistrationPage registrationPage = homePage.goToRegisterPatientApp();
 		patient = PatientGenerator.generateTestPatient();
 		registrationPage.enterPatient(patient);
-
-		String address = patient.address1 + ", " + patient.address2 + ", "
-				+ patient.city + ", " + patient.state + ", " + patient.country
-				+ ", " + patient.postalCode;
-
+		
+		String address = patient.address1 + ", " + patient.address2 + ", " + patient.city + ", " + patient.state + ", "
+		        + patient.country + ", " + patient.postalCode;
+		
 		assertThat(registrationPage.getNameInConfirmationPage(),
-				containsString(patient.givenName + ", " + patient.familyName));
-		assertThat(registrationPage.getGenderInConfirmationPage(),
-				containsString(patient.gender));
+		    containsString(patient.givenName + ", " + patient.familyName));
+		assertThat(registrationPage.getGenderInConfirmationPage(), containsString(patient.gender));
 		assertThat(registrationPage.getBirthdateInConfirmationPage(),
-				containsString(patient.birthDay + ", " + patient.birthMonth
-						+ ", " + patient.birthYear));
-		assertThat(registrationPage.getAddressInConfirmationPage(),
-				containsString(address));
-		assertThat(registrationPage.getPhoneInConfirmationPage(),
-				containsString(patient.phone));
-
-		ClinicianFacingPatientDashboardPage dashboardPage = registrationPage
-				.confirmPatient();
+		    containsString(patient.birthDay + ", " + patient.birthMonth + ", " + patient.birthYear));
+		assertThat(registrationPage.getAddressInConfirmationPage(), containsString(address));
+		assertThat(registrationPage.getPhoneInConfirmationPage(), containsString(patient.phone));
+		
+		ClinicianFacingPatientDashboardPage dashboardPage = registrationPage.confirmPatient();
 		dashboardPage.waitForPage();
 		patient.uuid = dashboardPage.getPatientUuidFromUrl();
 		assertThat(dashboardPage.getPatientGivenName(), is(patient.givenName));

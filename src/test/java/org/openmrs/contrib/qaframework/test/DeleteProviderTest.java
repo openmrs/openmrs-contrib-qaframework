@@ -22,33 +22,30 @@ import org.openmrs.contrib.qaframework.page.ManageProviderPage;
 import org.openmrs.contrib.qaframework.page.ProviderPage;
 
 public class DeleteProviderTest extends ReferenceApplicationTestBase {
-
+	
 	private TestData.PersonInfo person;
-
+	
 	private String personUuid;
-
+	
 	private String providerUuid;
-
+	
 	@Before
 	public void setUp() {
 		person = TestData.generateRandomPerson();
 		personUuid = TestData.createPerson(this.person);
-		providerUuid = new TestData.TestProvider(personUuid, personUuid)
-				.create();
+		providerUuid = new TestData.TestProvider(personUuid, personUuid).create();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void deleteProviderTest() {
 		AdministrationPage administrationPage = homePage.goToAdministration();
-		ManageProviderPage manageProviderPage = administrationPage
-				.clickOnManageProviders();
+		ManageProviderPage manageProviderPage = administrationPage.clickOnManageProviders();
 		manageProviderPage.setProviderNameOrId(person.getName());
-		ProviderPage providerPage = manageProviderPage.clickOnProvider(person
-				.getName());
+		ProviderPage providerPage = manageProviderPage.clickOnProvider(person.getName());
 		providerPage.deleteForever();
 	}
-
+	
 	@After
 	public void tearDown() throws InterruptedException {
 		RestClient.delete("provider/" + providerUuid, true);

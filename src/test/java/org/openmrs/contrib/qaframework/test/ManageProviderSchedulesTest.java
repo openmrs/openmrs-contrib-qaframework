@@ -18,33 +18,30 @@ import org.openmrs.contrib.qaframework.page.AppointmentSchedulingPage;
 import org.openmrs.contrib.qaframework.page.HomePage;
 
 /**
- * This class is meant to create the preconditions (set-up) and to clean up the
- * environment (tear down) after the tests AddEditAppointmbetBlockTest and
- * DeleteAppointmentBlocktTest have been executed. Subclassing
- * ManageProviderSchedulsTest is a possible solution for a common set-up. Other
- * possibilities are Rules or extending TestSetup. The latter possibilities
- * might be applied in future if the test code become hard to maintain/read
+ * This class is meant to create the preconditions (set-up) and to clean up the environment (tear
+ * down) after the tests AddEditAppointmbetBlockTest and DeleteAppointmentBlocktTest have been
+ * executed. Subclassing ManageProviderSchedulsTest is a possible solution for a common set-up.
+ * Other possibilities are Rules or extending TestSetup. The latter possibilities might be applied
+ * in future if the test code become hard to maintain/read
  */
 public class ManageProviderSchedulesTest extends ReferenceApplicationTestBase {
-
+	
 	protected HomePage homePage;
-
+	
 	protected AppointmentBlocksPage appointmentBlocksPage;
-
+	
 	protected String locationName;
-
+	
 	protected String locationUuid;
-
+	
 	protected String provider;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		homePage = new HomePage(page);
 		assertPage(homePage.waitForPage());
-		AppointmentSchedulingPage appointmentSchedulingPage = homePage
-				.goToAppointmentScheduling();
-		appointmentBlocksPage = appointmentSchedulingPage
-				.goToAppointmentBlock();
+		AppointmentSchedulingPage appointmentSchedulingPage = homePage.goToAppointmentScheduling();
+		appointmentBlocksPage = appointmentSchedulingPage.goToAppointmentBlock();
 		/*
 		 * TODO The following code should be re-nabled when bug AM-186 is fixed
 		 * Location might not be available when running this test, thus we
@@ -56,7 +53,7 @@ public class ManageProviderSchedulesTest extends ReferenceApplicationTestBase {
 		locationName = "Isolation Ward";
 		provider = "Provider " + TestData.randomSuffix();
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		/*

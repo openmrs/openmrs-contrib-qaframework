@@ -25,48 +25,44 @@ import org.openmrs.contrib.qaframework.page.AllergyPage;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 
 public class DeleteAllergyTest extends ReferenceApplicationTestBase {
-
+	
 	private static final String DRUG_NAME = "Aspirin";
-
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		patient = createTestPatient();
 		createTestVisit();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void deleteAllergyTest() {
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
-		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
-
-		AllergyPage allergyPage = patientDashboardPage
-				.clickOnAllergiesWidgetLink();
+		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+		
+		AllergyPage allergyPage = patientDashboardPage.clickOnAllergiesWidgetLink();
 		createTestAllergy(allergyPage);
-
+		
 		allergyPage.clickOnDeleteAllergy();
 		allergyPage.clickOnConfirmDeleteAllergy();
-
+		
 		assertTrue(allergyPage.getAllergyStatus().contains("Unknown"));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(patient);
 	}
-
+	
 	private void createTestVisit() {
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
-
+	
 	private void createTestAllergy(AllergyPage allergyPage) {
-		AddOrEditAllergyPage addOrEditAllergyPage = allergyPage
-				.clickOnAddNewAllergy();
+		AddOrEditAllergyPage addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
 		addOrEditAllergyPage.enterDrug(DRUG_NAME);
 		addOrEditAllergyPage.drugId();
 		addOrEditAllergyPage.clickOnSaveAllergy();

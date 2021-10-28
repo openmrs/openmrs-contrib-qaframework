@@ -21,53 +21,44 @@ import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
 
-public class XSSOnPhoneNumberFieldTest
-		extends
-			LocationSensitiveApplicationTestBase {
-
+public class XSSOnPhoneNumberFieldTest extends LocationSensitiveApplicationTestBase {
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setup() {
 		patient = createTestPatient();
 		createTestVisit();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void xssOnPhoneNumberFieldTest() throws Exception {
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
-		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
+		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
 		patientDashboardPage.clickOnShowContact();
-		RegistrationEditSectionPage registrationEditSectionPage = patientDashboardPage
-				.clickOnEditContact();
+		RegistrationEditSectionPage registrationEditSectionPage = patientDashboardPage.clickOnEditContact();
 		registrationEditSectionPage.clickOnPhoneNumberEdit();
 		registrationEditSectionPage.clearPhoneNumber();
-		registrationEditSectionPage
-				.enterPhoneNumber("<script>alert(0)</script>");
+		registrationEditSectionPage.enterPhoneNumber("<script>alert(0)</script>");
 		registrationEditSectionPage.clickOnConfirmEdit();
-		assertTrue(registrationEditSectionPage
-				.getInvalidPhoneNumberNotification()
-				.contains(
-						("Must be a valid phone number (with +, -, numbers or parentheses)")));
+		assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification()
+		        .contains(("Must be a valid phone number (with +, -, numbers or parentheses)")));
 		registrationEditSectionPage.clearPhoneNumber();
 		registrationEditSectionPage.enterPhoneNumber("111111111");
 		registrationEditSectionPage.clickOnConfirmEdit();
 		patientDashboardPage = registrationEditSectionPage.confirmPatient();
 		patientDashboardPage.clickOnShowContact();
-		assertTrue(patientDashboardPage.getTelephoneNumber().contains(
-				"111111111"));
+		assertTrue(patientDashboardPage.getTelephoneNumber().contains("111111111"));
 	}
-
+	
 	@After
 	public void teardown() {
 		deletePatient(patient);
 	}
-
+	
 	private void createTestVisit() {
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 }

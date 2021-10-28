@@ -22,34 +22,33 @@ import org.openmrs.contrib.qaframework.page.ManageProviderPage;
 import org.openmrs.contrib.qaframework.page.ProviderPage;
 
 public class AddProviderTest extends ReferenceApplicationTestBase {
-
+	
 	private TestData.PersonInfo person;
-
+	
 	private String personUuid;
-
+	
 	@Before
 	public void setUp() {
 		person = TestData.generateRandomPerson();
 		personUuid = TestData.createPerson(this.person);
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void addProviderTest() {
 		AdministrationPage administrationPage = homePage.goToAdministration();
-		ManageProviderPage manageProviderPage = administrationPage
-				.clickOnManageProviders();
+		ManageProviderPage manageProviderPage = administrationPage.clickOnManageProviders();
 		ProviderPage providerPage = manageProviderPage.clickOnAddProvider();
-
+		
 		providerPage.setIdentifier(personUuid);
 		providerPage.setPerson(person.getName());
 		manageProviderPage = providerPage.clickOnSave();
-
+		
 		manageProviderPage.setProviderNameOrId(person.getName());
 		providerPage = manageProviderPage.clickOnProvider(person.getName());
 		providerPage.deleteForever();
 	}
-
+	
 	@After
 	public void tearDown() throws InterruptedException {
 		RestClient.delete("person/" + personUuid, true);

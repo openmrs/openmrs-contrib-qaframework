@@ -28,35 +28,32 @@ import org.openmrs.contrib.qaframework.page.AddEditLocationPage;
 import org.openmrs.contrib.qaframework.page.ManageLocationsPage;
 
 public class AddDeleteLocationTest extends ReferenceApplicationTestBase {
-
+	
 	private String locationTagUuid;
-
+	
 	@Before
 	public void createLocationTag() {
 		// locationTagUuid = createTestLocationTag();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void addLocationTest() {
-		AddEditLocationPage addEditLocationPage = homePage
-				.goToConfigureMetadata().goToManageLocations()
-				.goToAddLocation();
-
+		AddEditLocationPage addEditLocationPage = homePage.goToConfigureMetadata().goToManageLocations().goToAddLocation();
+		
 		addEditLocationPage.save();
-		assertThat(addEditLocationPage.getValidationErrors(),
-				hasItem("This field is required."));
-
+		assertThat(addEditLocationPage.getValidationErrors(), hasItem("This field is required."));
+		
 		String locationName = "TEST" + TestData.randomSuffix();
 		addEditLocationPage.enterName(locationName);
 		addEditLocationPage.selectFirstTag();
 		ManageLocationsPage manageLocationsPage = addEditLocationPage.save();
-
+		
 		assertThat(manageLocationsPage, is(notNullValue()));
 		manageLocationsPage.purgeLocation(locationName);
 		assertThat(pageContent(), not(containsString(locationName)));
 	}
-
+	
 	@After
 	public void delete() throws Exception {
 		RestClient.delete("/locationtag/" + locationTagUuid, true);

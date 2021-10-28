@@ -25,45 +25,41 @@ import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.VisitNotePage;
 
-public class AddDiagnosisToVisitNoteTest
-		extends
-			LocationSensitiveApplicationTestBase {
-
+public class AddDiagnosisToVisitNoteTest extends LocationSensitiveApplicationTestBase {
+	
 	private TestData.PatientInfo patient;
-
+	
 	@Before
 	public void setup() {
 		patient = createTestPatient();
 		createTestVisit();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void addDiagnosisToVisitNoteTest() {
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
-
-		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
+		
+		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
 		VisitNotePage visitNotePage = patientDashboardPage.goToVisitNote();
 		visitNotePage.enterDiagnosis("Pne");
 		visitNotePage.enterSecondaryDiagnosis("Bleed");
 		assertEquals("Pneumonia", visitNotePage.primaryDiagnosis());
 		assertEquals("Bleeding", visitNotePage.secondaryDiagnosis());
-
+		
 		patientDashboardPage = visitNotePage.save();
-
+		
 		List<String> diagnoses = patientDashboardPage.getDiagnoses();
 		assertThat(diagnoses, hasItems("Pneumonia", "Bleeding"));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		deletePatient(patient);
 	}
-
+	
 	private void createTestVisit() {
-		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 }

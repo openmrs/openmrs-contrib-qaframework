@@ -14,7 +14,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class CheckModulesTest extends ReferenceApplicationTestBase {
-
+	
 	/**
 	 * Check the list of modules to be sure they are all started.
 	 */
@@ -26,8 +26,7 @@ public class CheckModulesTest extends ReferenceApplicationTestBase {
 		// Get the modulesListing <div>, which contains the table of modules.
 		WebElement moduleListing = modulesPage.findElementById("moduleListing");
 		// Grab all the <input> elements from the first column of the table.
-		List<WebElement> firstColumn = moduleListing.findElements(By
-				.cssSelector("#moduleListing table tbody td"));
+		List<WebElement> firstColumn = moduleListing.findElements(By.cssSelector("#moduleListing table tbody td"));
 		for (WebElement eachModule : firstColumn) {
 			// The name attr on the <input> elements should all be "stop" which
 			// indicates the module is correctly started.

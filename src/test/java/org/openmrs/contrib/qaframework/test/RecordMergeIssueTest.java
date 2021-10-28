@@ -21,25 +21,25 @@ import org.openmrs.contrib.qaframework.page.RegistrationPage;
  */
 
 public class RecordMergeIssueTest extends TestBase {
-
+	
 	private HomePage homePage;
-
+	
 	private FindPatientPage findPatientPage;
-
+	
 	private TestPatient patient;
-
+	
 	private TestPatient patient1;
-
+	
 	private RegistrationPage registrationPage;
-
+	
 	private ClinicianFacingPatientDashboardPage patientDashboardPage;
-
+	
 	private DataManagementPage dataManagementPage;
-
+	
 	private String id;
-
+	
 	private String id2;
-
+	
 	@Before
 	public void setUp() throws Exception {
 		homePage = new HomePage(page);
@@ -51,7 +51,7 @@ public class RecordMergeIssueTest extends TestBase {
 		patient = new TestPatient();
 		patient1 = new TestPatient();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void recordMergeIssueTest() throws Exception {
@@ -81,10 +81,9 @@ public class RecordMergeIssueTest extends TestBase {
 		dataManagementPage.enterPatient1(id);
 		dataManagementPage.enterPatient2(id2);
 		dataManagementPage.clickOnContinue();
-		assertFalse(driver.getPageSource().contains(
-				"java.lang.NullPointerException"));
+		assertFalse(driver.getPageSource().contains("java.lang.NullPointerException"));
 	}
-
+	
 	@After
 	public void tearDown() throws Exception {
 		homePage.go();

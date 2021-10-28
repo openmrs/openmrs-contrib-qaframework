@@ -30,37 +30,33 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 /**
  */
 public class RetireVisitTypeTest extends ReferenceApplicationTestBase {
-
+	
 	public static final String RETIRE_REASON = "Retire reason";
-
+	
 	private String visitTypeName;
-
+	
 	private String visitTypeDesc;
-
+	
 	private String visitTypeUuid;
-
+	
 	@Before
 	public void setup() throws JsonProcessingException {
 		visitTypeName = RandomStringUtils.randomAlphanumeric(8);
 		visitTypeDesc = RandomStringUtils.randomAlphanumeric(16);
-		visitTypeUuid = new TestData.TestVisitType(visitTypeName, visitTypeDesc)
-				.create();
+		visitTypeUuid = new TestData.TestVisitType(visitTypeName, visitTypeDesc).create();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void retireVisitTypeTest() {
 		AdministrationPage administrationPage = homePage.goToAdministration();
-		VisitTypeListPage visitTypeListPage = administrationPage
-				.goToVisitTypePage();
-		VisitTypePage visitTypePage = visitTypeListPage
-				.goToVisitType(visitTypeName);
+		VisitTypeListPage visitTypeListPage = administrationPage.goToVisitTypePage();
+		VisitTypePage visitTypePage = visitTypeListPage.goToVisitType(visitTypeName);
 		visitTypePage.setRetireReason(RETIRE_REASON);
 		visitTypeListPage = visitTypePage.retire();
-		assertThat(visitTypeListPage.getRetiredVisitTypeList(),
-				hasItem(visitTypeName));
+		assertThat(visitTypeListPage.getRetiredVisitTypeList(), hasItem(visitTypeName));
 	}
-
+	
 	@After
 	public void teardown() {
 		RestClient.delete("visittype/" + visitTypeUuid, true);

@@ -24,39 +24,36 @@ import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 
 public class TransferToWardServiceTest extends ReferenceApplicationTestBase {
-
+	
 	private static final String INPATIENT_WARD = "Inpatient Ward";
-
+	
 	private static final String ISOLATION_WARD = "Isolation Ward";
-
+	
 	private TestData.PatientInfo testPatient;
-
+	
 	@Before
 	public void createTestData() throws Exception {
 		testPatient = createTestPatient();
 	}
-
+	
 	@Test
 	@Category(BuildTests.class)
 	public void transferToWardServiceTest() {
 		FindPatientPage findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
-		PatientVisitsDashboardPage patientVisitsDashboardPage = findPatientPage
-				.clickOnFirstPatient().startVisit();
-
-		patientVisitsDashboardPage.goToAdmitToInpatient().confirm(
-				INPATIENT_WARD);
+		PatientVisitsDashboardPage patientVisitsDashboardPage = findPatientPage.clickOnFirstPatient().startVisit();
+		
+		patientVisitsDashboardPage.goToAdmitToInpatient().confirm(INPATIENT_WARD);
 		assertTrue(patientVisitsDashboardPage.containsText("Admission"));
-
-		patientVisitsDashboardPage.goToTransferToWardServicePage().confirm(
-				ISOLATION_WARD);
+		
+		patientVisitsDashboardPage.goToTransferToWardServicePage().confirm(ISOLATION_WARD);
 		assertTrue(patientVisitsDashboardPage.containsText("Transfer"));
 		patientVisitsDashboardPage.waitForPage();
-
+		
 		assertThat(patientVisitsDashboardPage.getEncountersCount(), is(2));
 	}
-
+	
 	@After
 	public void deleteTestPatient() {
 		deletePatient(testPatient);

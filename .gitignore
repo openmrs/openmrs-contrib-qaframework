@@ -13,3 +13,51 @@ node_modules/
 openmrs.log
 .classpath
 .DS_Store
+*.class
+*.jar
+*.war
+*.ear
+/target
+/packaging/target
+
+# eclipse
+.project
+.settings
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+###############
+
+### Java ###
+*.class
+### Netbeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+################
+
+### Linux ###
+.*
+!.gitignore
+!.gitattributes
+!.travis.yml
+*~
+#############
+## webdrivers
+/src/test/resources/firefoxdriver/mac/
+src/test/resources/firefoxdriver/windows/
+/src/test/resources/chromedriver/mac/
+/src/test/resources/chromedriver/windows/

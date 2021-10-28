@@ -38,7 +38,7 @@ jobs:
           #run: until curl -I localhost:8080/openmrs/login.htm 2>&1 | grep -w "200" > /dev/null 2>&1; do :; done
       - name: Checkout qaframework
         run: |
+         echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
           cd qaframework
           cp -f src/test/resources/org/openmrs/uitestframework/test-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties
           mvn clean install -B -DskipTests=false
- 

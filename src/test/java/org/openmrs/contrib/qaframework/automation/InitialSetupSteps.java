@@ -17,32 +17,34 @@ import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 import org.openmrs.contrib.qaframework.helper.TestBase;
 
 public class InitialSetupSteps extends TestBase {
+	
 	protected InitialSetupPage initialSetupPage;
-
+	
 	public InitialSetupSteps() {
 		try {
 			startWebDriver();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			fail(e.getMessage());
 		}
 	}
-
+	
 	protected void complete() {
 		if (driver != null) {
 			driver.quit();
 		}
 	}
-
+	
 	protected void initialSetup() {
 		initialSetupPage = new InitialSetupPage(driver);
 		initialSetupPage.go();
 		initialSetupPage.waitForPage();
 	}
-
+	
 	protected void submitInstallationStep1() {
 		initialSetupPage.installationSelectLanguage();
 	}
-
+	
 	protected void waitForSetupCompletion() {
 		initialSetupPage.waitForSetupToComplete();
 		String errorMsg = initialSetupPage.getErrorMessage();

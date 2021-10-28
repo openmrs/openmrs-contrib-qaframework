@@ -22,33 +22,33 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class LoginSteps extends Steps {
-
+	
 	@After(RunTest.HOOK.SELENIUM)
 	public void destroy() {
 		quit();
 	}
-
+	
 	private void enterUsername(String username) {
 		driver.findElement(By.id("username")).sendKeys(username);
 	}
-
+	
 	private void enterPassword(String password) {
 		driver.findElement(By.id("password")).sendKeys(password);
 	}
-
+	
 	private WebElement getLoginButton() {
 		return getElement(By.id("loginButton"));
 	}
-
+	
 	private WebElement getLogOutLink() {
 		return getElement(By.className("logout"));
 	}
-
+	
 	@Given("User visits login page")
 	public void visitLoginPage() throws Exception {
 		goToLoginPage();
 	}
-
+	
 	@When("User enters {string} username")
 	public void anyUsername(String username) {
 		if ("setupUser".equals(username)) {
@@ -56,7 +56,7 @@ public class LoginSteps extends Steps {
 		}
 		enterUsername(username);
 	}
-
+	
 	@And("User enters {string} password")
 	public void anyPassword(String password) {
 		if ("setupPass".equals(password)) {
@@ -64,7 +64,7 @@ public class LoginSteps extends Steps {
 		}
 		enterPassword(password);
 	}
-
+	
 	@And("User Selects {string} Login Location")
 	public void selectLoginLocation(String loginLocation) {
 		if ("firstLocation".equals(loginLocation)) {
@@ -78,12 +78,12 @@ public class LoginSteps extends Steps {
 			loginPage.clickOn(By.id(loginLocation));
 		}
 	}
-
+	
 	@And("User Logs in")
 	public void userLogsIn() {
 		getLoginButton().click();
 	}
-
+	
 	@Then("System Evaluates Login {string}")
 	public void evaluateLogin(String status) {
 		if (status.trim().endsWith("true")) {

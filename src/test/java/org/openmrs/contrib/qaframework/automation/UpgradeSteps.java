@@ -18,30 +18,30 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class UpgradeSteps extends InitialSetupSteps {
-	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and "
-			+ RunTest.HOOK.UPGRADE)
+	
+	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)
 	public void init() {
 		initialSetup();
 	}
-
+	
 	@After(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)
 	public void finish() {
 		complete();
 	}
-
+	
 	@Given("User enters credentials")
 	public void enterCredentials() {
 		initialSetupPage.enterUsernameAndPassword();
 	}
-
+	
 	@When("User proceeds with Upgrade")
 	public void submitUpgrade() {
 		initialSetupPage.upgrade();
 	}
-
+	
 	@Then("System should run upgrade")
 	public void waitToFinish() {
 		waitForSetupCompletion();
 	}
-
+	
 }

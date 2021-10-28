@@ -1,3 +1,6 @@
+## Heroku App
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 # QA Dashboard: Project Status
 ___
 ## Platform (core)
@@ -30,11 +33,14 @@ Install & Upgrade Tests |
 2.x RefApp Feature-Specific Tests* |
 ------------- |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
+
 [![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ci.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ci.yml)
 
 [Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2) 
 ###### * Detailed list of Legacy Selenium Firefox [here](https://github.com/openmrs/openmrs-contrib-qaframework/src/test/java/org/openmrs/contrib/qaframework/test)
 
+[![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml/badge.svg)](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml)
+[Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) 
 
 3.x RefApp Workflow Tests|
 ------------- |
@@ -51,9 +57,9 @@ ___
 OpenMRS Dictionary Manager|
 ------------- |
 [![Dictionary Manager](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/dictionary-manager.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/dictionary-manager.yml)
-Basic Dictionary Management ____
-Loading into EMR ____
-Organization Management ____
+[![Basic Dictionary Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/basic-dictionary.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/basic-dictionary.yml)
+[![Organization Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml)
+Loading into EMR ____Coming soon
 
 OCL Module (Subscription Module)
 -----|
@@ -127,6 +133,8 @@ There are two ways of running tests:
     ```
     
     See the `scripts` section of [package.json](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/package.json).
+
+Tests might be timed out on slow internet connections. In that case, try increasing the `defaultCommandTimeout` setting in the 'cypress.json' file.
 
 ## File structure
 ```

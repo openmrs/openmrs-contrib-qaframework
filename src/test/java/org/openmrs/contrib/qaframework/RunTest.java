@@ -57,7 +57,7 @@ public class RunTest {
 				+ FIND_PATIENT;
 		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "
 				+ USER_ACCOUNT;
-		public static final String SELENIUM_REPORTS = SELENIUM + " and "
+		public static final String SELENIUM_REPORT = SELENIUM + " and "
 				+ REPORT;
 	}
 }

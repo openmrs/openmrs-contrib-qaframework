@@ -45,24 +45,22 @@ public class ReportSteps extends Steps {
 
 	@Then("the system loads system administrationpage")
 	public void LoadsSystemAdministrationPage() {
-		assertTrue(textExists("System Administration"));
+		assertPage(systemAdministrationPage.waitForPage());
 	}
 
 	@When("user click on advanced administration page")
 	public void goToAdministrationPage() {
-		administrationPage = systemAdministrationPage
-				.goToAdvancedAdministration();
+		administrationPage = systemAdministrationPage.goToAdvancedAdministration();
 	}
 
 	@And("user click on report administration link")
 	public void clickOnReportAdministrationPage() {
-		manageReportsPage = administrationPage
-				.clickOnReportAdministrationLink();
+		manageReportsPage = administrationPage.clickOnReportAdministrationLink();
 	}
 
 	@Then("the system loads manage reports page")
 	public void loadManageReportsPage() {
-		assertTrue(textExists("Report Administration"));
+		assertPage(manageReportsPage.waitForPage());
 	}
 
 	@And("user clicks on run button from manage Reports page")

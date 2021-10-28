@@ -1,10 +1,7 @@
-name: Legacy Selenium Tests
-  push:
-    branches: [master]
+name: Legacy Selenium Firefox
+on:
   pull_request:
     branches: [master]
-  repository_dispatch:
-    types: [qa]
   workflow_dispatch:
 jobs:
   build:
@@ -20,13 +17,13 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - name: Checkout Checkout qaframework
+      - name: Checkout qaframework
         uses: actions/checkout@master
         with:
           repository: openmrs/openmrs-contrib-qaframework
-      - name: qaframework
+      - name: Build ui test framework
         run: mvn clean install -B
-      - name: Checkout Checkout qaframework
+      - name: Checkout qaframework
         uses: actions/checkout@master
         with:
           repository: ${{github.repository}}
@@ -36,9 +33,8 @@ jobs:
           #docker-compose -f docker-compose-refqa.yml up -d
       #- name: wait for openmrs instance to start
           #run: until curl -I localhost:8080/openmrs/login.htm 2>&1 | grep -w "200" > /dev/null 2>&1; do :; done
-      - name: Checkout qaframework
+      - name: Build qaframework
         run: |
-         echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
-          cd qaframework
+          cd tests
           cp -f src/test/resources/org/openmrs/uitestframework/test-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties
           mvn clean install -B -DskipTests=false

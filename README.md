@@ -130,6 +130,9 @@ There are two ways of running tests:
     
     See the `scripts` section of [package.json](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/package.json).
 
+
+In case of internet connection problems, the test may be failing. To resolve the problem developers can increase the timeout of E2E tests by changing `defaultCommandTimeout` in the cypress.json Cypress configuration file file.    
+
 ## File structure
 ```
 .

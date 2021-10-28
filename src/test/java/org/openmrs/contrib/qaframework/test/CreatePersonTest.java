@@ -26,7 +26,9 @@ import org.openmrs.contrib.qaframework.page.PersonFormPage;
 public class CreatePersonTest extends ReferenceApplicationTestBase {
 
 	private String personName;
+
 	private String personAge;
+
 	private String personFamilyName;
 
 	@Before

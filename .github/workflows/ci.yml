@@ -1,40 +1,42 @@
 name: Legacy Selenium Firefox
 on:
-  pull_request:
-    branches: [master]
-  workflow_dispatch:
+   pull_request:
+      branches:
+      - master
+   workflow_dispatch: null
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    services:
-      firefox:
-        image: selenium/node-firefox:3.141.59-gold
-        env:
-          HUB_HOST: hub
-          HUB_PORT: 4444
-    steps:
-      - name: Set up JDK 1.8
-        uses: actions/setup-java@v1
-        with:
-          java-version: 1.8
-      - name: Checkout qaframework
-        uses: actions/checkout@master
-        with:
-          repository: openmrs/openmrs-contrib-qaframework
-      - name: Build ui test framework
-        run: mvn clean install -B
-      - name: Checkout qaframework
-        uses: actions/checkout@master
-        with:
-          repository: ${{github.repository}}
-      #- name: run db and web containers
-        #run: |
-          #cd docker
-          #docker-compose -f docker-compose-refqa.yml up -d
-      #- name: wait for openmrs instance to start
-          #run: until curl -I localhost:8080/openmrs/login.htm 2>&1 | grep -w "200" > /dev/null 2>&1; do :; done
-      - name: Build qaframework
-        run: |
-          cd tests
-          cp -f src/test/resources/org/openmrs/uitestframework/test-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties
-          mvn clean install -B -DskipTests=false
+   build:
+      runs-on: ubuntu-latest
+      services:
+         firefox:
+            image: selenium/node-firefox:3.141.59-gold
+            env:
+               HUB_HOST: hub
+               HUB_PORT: 4444
+      steps:
+      -  name: Set up JDK 1.8
+         uses: actions/setup-java@v1
+         with:
+            java-version: 1.8
+      -  name: Checkout qaframework
+         uses: actions/checkout@master
+         with:
+            repository: openmrs/openmrs-contrib-qaframework
+      -  name: Build ui test framework
+         run: mvn clean install -B
+      -  name: Checkout qaframework
+         uses: actions/checkout@master
+         with:
+            repository: ${{github.repository}}
+#run: |
+#cd docker
+#docker-compose -f docker-compose-refqa.yml up -d
+#- name: wait for openmrs instance to start
+#run: until curl -I localhost:8080/openmrs/login.htm 2>&1 | grep -w "200" > /dev/null 2>&1; do :; done
+#- name: run db and web containers
+      -  name: Build qaframework
+         run: |-
+            cd tests
+            cp -f src/test/resources/org/openmrs/uitestframework/test-ci.properties src/test/resources/org/openmrs/uitestframework/test.properties
+            mvn clean install -B -DskipTests=false
+            

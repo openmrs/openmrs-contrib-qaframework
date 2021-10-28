@@ -19,15 +19,25 @@ import org.openqa.selenium.WebElement;
 public abstract class AdminManagementPage extends Page {
 
 	protected static final By HOME = By.id("homeNavLink");
+
 	protected static final By RETIRE_REASON = By.name("retireReason");
+
 	protected static final By DESCRIPTION = By.name("description");
+
 	protected static final By DELETE = By.name("purge");
+
 	protected static final By FOUND_ELEMENT = By.className("odd");
+
 	static final By SEARCH_ELEMENT = By.id("inputNode");
+
 	protected static By ADD;
+
 	protected static By MANAGE;
+
 	protected static By NAME = By.name("name");
+
 	protected static By SAVE = By.name("save");
+
 	protected static By RETIRE = By.name("retire");
 
 	public AdminManagementPage(WebDriver driver) {

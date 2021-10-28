@@ -25,7 +25,9 @@ import org.openmrs.contrib.qaframework.page.ServicePage;
 public class AddDeleteServiceTest extends ReferenceApplicationTestBase {
 
 	private String name;
+
 	private String duration;
+
 	private String description;
 
 	@Before

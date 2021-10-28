@@ -22,13 +22,21 @@ import org.openqa.selenium.By;
 public class FormTest extends TestBase {
 
 	private static String name = "newFormTest1";
+
 	private static String description = "description of new form";
+
 	private static String version = "1.2";
+
 	private HomePage homePage;
+
 	private AdministrationPage administrationPage;
+
 	private ManageFormsPage manageForm;
+
 	private ManageHtmlFormsPage manageHtmlFormsPage;
+
 	private HtmlFormsPage htmlFormsPage;
+
 	private ClinicianFacingPatientDashboardPage patientDashboardPage;
 
 	@Before

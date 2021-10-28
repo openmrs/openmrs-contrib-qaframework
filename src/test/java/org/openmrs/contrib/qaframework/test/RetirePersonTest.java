@@ -24,6 +24,7 @@ import org.openmrs.contrib.qaframework.page.PersonFormPage;
 public class RetirePersonTest extends ReferenceApplicationTestBase {
 
 	private String personUuid;
+
 	private TestData.PersonInfo personInfo;
 
 	@Before

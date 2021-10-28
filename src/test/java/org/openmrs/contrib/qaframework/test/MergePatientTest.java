@@ -24,7 +24,9 @@ import org.openmrs.contrib.qaframework.page.MergePatientsPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 
 public class MergePatientTest extends ReferenceApplicationTestBase {
+
 	TestData.PatientInfo testPatient;
+
 	TestData.PatientInfo testPatient1;
 
 	@Before

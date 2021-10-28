@@ -27,9 +27,13 @@ import org.openmrs.contrib.qaframework.page.VisitNotePage;
 public class VisitNoteTest extends LocationSensitiveApplicationTestBase {
 
 	private static final String DIAGNOSIS_PRIMARY = "Gum Cancer";
+
 	private static final String DIAGNOSIS_SECONDARY = "Malaria";
+
 	private static final String DIAGNOSIS_SECONDARY_UPDATED = "Pneumonia";
+
 	private PatientVisitsDashboardPage patientVisitsDashboardPage;
+
 	private PatientInfo patient;
 
 	@Before

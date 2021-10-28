@@ -14,6 +14,7 @@ public class LocationSensitiveApplicationTestBase
 			ReferenceApplicationTestBase {
 
 	private String locationUuid;
+
 	private String locationName;
 
 	@Before

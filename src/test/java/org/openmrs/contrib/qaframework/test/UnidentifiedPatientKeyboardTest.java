@@ -18,8 +18,11 @@ import org.openmrs.contrib.qaframework.page.RegistrationPage;
 public class UnidentifiedPatientKeyboardTest extends TestBase {
 
 	private RegistrationPage registrationPage;
+
 	private HomePage homePage;
+
 	private ClinicianFacingPatientDashboardPage patientDashboardPage;
+
 	private TestPatient patient;
 
 	@Before

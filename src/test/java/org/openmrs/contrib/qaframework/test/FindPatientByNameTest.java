@@ -24,6 +24,7 @@ import org.openmrs.contrib.qaframework.page.FindPatientPage;
 public class FindPatientByNameTest extends ReferenceApplicationTestBase {
 
 	private FindPatientPage findPatientPage;
+
 	private TestData.PatientInfo patient;
 
 	@Before

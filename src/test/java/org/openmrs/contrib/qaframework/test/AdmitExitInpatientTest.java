@@ -25,6 +25,7 @@ import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 public class AdmitExitInpatientTest extends ReferenceApplicationTestBase {
 
 	private static final String INPATIENT_WARD = "Inpatient Ward";
+
 	private TestData.PatientInfo testPatient;
 
 	@Before

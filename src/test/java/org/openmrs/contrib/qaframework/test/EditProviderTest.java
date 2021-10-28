@@ -24,7 +24,9 @@ import org.openmrs.contrib.qaframework.page.ProviderPage;
 public class EditProviderTest extends ReferenceApplicationTestBase {
 
 	private TestData.PersonInfo person;
+
 	private TestData.TestProvider provider;
+
 	private String providerUuid;
 
 	@Before

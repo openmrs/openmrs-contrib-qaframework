@@ -34,7 +34,9 @@ public class RetireVisitTypeTest extends ReferenceApplicationTestBase {
 	public static final String RETIRE_REASON = "Retire reason";
 
 	private String visitTypeName;
+
 	private String visitTypeDesc;
+
 	private String visitTypeUuid;
 
 	@Before

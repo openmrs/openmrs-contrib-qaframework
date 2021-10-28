@@ -21,8 +21,11 @@ import org.openmrs.contrib.qaframework.helper.BuildTests;
 public class DeleteAppointmentBlockTest extends ManageProviderSchedulesTest {
 
 	int firstAppointmentIndex = 0;
+
 	private String correctStartTimeFirtAppointment = "08";
+
 	private String outboundStartTime = "30";
+
 	private String firstAppointment = "Gynecology";
 
 	@Before

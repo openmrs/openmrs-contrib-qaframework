@@ -22,6 +22,7 @@ import org.openmrs.contrib.qaframework.page.ManageLocationsPage;
 public class RetireLocationTest extends ReferenceApplicationTestBase {
 
 	private String locationName = "TEST" + TestData.randomSuffix();
+
 	private String locationUuid = null;
 
 	@Before

@@ -23,6 +23,7 @@ import org.openmrs.contrib.qaframework.page.ManageUserPage;
 public class AddRolesToUserTest extends ReferenceApplicationTestBase {
 
 	private static final String NURSE_PASSWORD = "Nurse321";
+
 	private static final String NURSE_USERNAME = "newNurse"
 			+ new Random().nextInt(1024);
 

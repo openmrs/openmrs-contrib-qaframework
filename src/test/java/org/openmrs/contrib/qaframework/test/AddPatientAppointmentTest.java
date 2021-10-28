@@ -28,6 +28,7 @@ public class AddPatientAppointmentTest
 			LocationSensitiveApplicationTestBase {
 
 	private static final String SERVICE_NAME = "Oncology";
+
 	private TestData.PatientInfo patient;
 
 	@Before

@@ -24,6 +24,7 @@ import org.openmrs.contrib.qaframework.page.ProviderPage;
 public class AddProviderTest extends ReferenceApplicationTestBase {
 
 	private TestData.PersonInfo person;
+
 	private String personUuid;
 
 	@Before

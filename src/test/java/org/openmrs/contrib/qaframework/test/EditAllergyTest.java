@@ -26,7 +26,9 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 public class EditAllergyTest extends ReferenceApplicationTestBase {
 
 	private static final String DRUG_NAME = "Aspirin";
+
 	private static final String REACTION_NAME = "Cough";
+
 	private TestData.PatientInfo patient;
 
 	@Before

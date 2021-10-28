@@ -24,7 +24,9 @@ import org.openmrs.contrib.qaframework.page.ProviderPage;
 public class RetireProviderTest extends ReferenceApplicationTestBase {
 
 	private TestData.PersonInfo person;
+
 	private String personUuid;
+
 	private String providerUuid;
 
 	@Before

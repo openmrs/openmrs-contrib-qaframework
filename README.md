@@ -26,15 +26,14 @@ Install & Upgrade Tests |
 [![RefApp 2.x Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml)
 [![RefApp 2.x Find Patient](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-find-Patient.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-find-Patient.yml)
 [![RefApp 2.x User Account](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user-account.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user-account.yml)
-[![Legacy Selenium Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ci.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ci.yml)
 
 2.x RefApp Feature-Specific Tests* |
 ------------- |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
-[![Legacy Selenium Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ci.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ci.yml)
+[![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ci.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ci.yml)
 
 [Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2) 
-###### * Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs-contrib-qaframework/src/test/java/org/openmrs/contrib/qaframework/test)
+###### * Detailed list of Legacy Selenium Firefox [here](https://github.com/openmrs/openmrs-contrib-qaframework/src/test/java/org/openmrs/contrib/qaframework/test)
 
 
 3.x RefApp Workflow Tests|

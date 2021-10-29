@@ -1,4 +1,4 @@
-Feature: Search
+Feature: Patient Search
 
   Background:
     Given the user login to the Registration Desk

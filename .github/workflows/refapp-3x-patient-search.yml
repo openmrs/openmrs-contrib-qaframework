@@ -1,4 +1,4 @@
-name: RefApp 3.x Search
+name: RefApp 3.x Patient Search
 on:
   push:
     branches: [master]
@@ -19,7 +19,7 @@ jobs:
       - name: Installing dependencies
         run: npm install
       - name: Run patient search workflow tests
-        run: npm run refapp3Search
+        run: npm run refapp3PatientSearch
       - name: Upload screen recordings of failed tests
         if: ${{ failure() }}
         uses: actions/upload-artifact@v2

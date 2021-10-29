@@ -1,4 +1,4 @@
-name: RefApp 3.x Registration
+name: RefApp 3.x Patient Registration
 on:
   push:
     branches: [master]
@@ -19,7 +19,7 @@ jobs:
       - name: Installing dependencies
         run: npm install
       - name: Run patient registration workflow tests
-        run: npm run refapp3Registration
+        run: npm run refapp3PatientRegistration
       - name: Upload screen recordings of failed tests
         if: ${{ failure() }}
         uses: actions/upload-artifact@v2

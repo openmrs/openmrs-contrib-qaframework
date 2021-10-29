@@ -1,4 +1,4 @@
-Feature: Registration
+Feature: Patient Registration
 
   Background:
     Given the user login to the Registration Desk

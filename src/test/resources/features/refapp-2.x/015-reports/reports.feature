@@ -13,5 +13,5 @@ Feature: Reports Management
     And user clicks on run button from manage Reports page
     And user enters start date
     Then user enters end date
-    And user clicks on request report
+    And user clicks on request report button
     And user clicks on view report link

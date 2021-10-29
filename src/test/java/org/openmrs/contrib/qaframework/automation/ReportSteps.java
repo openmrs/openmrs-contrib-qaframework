@@ -1,7 +1,5 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertTrue;
-
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManageReportsPage;
@@ -18,7 +16,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ReportSteps extends Steps {
-
+	
 	private SystemAdministrationPage systemAdministrationPage;
 	private AdministrationPage administrationPage;
 	private ManageReportsPage manageReportsPage;
@@ -27,66 +25,66 @@ public class ReportSteps extends Steps {
 	private RenderDefaultReportPage renderDefaultReportPage;
 	private static final String startDate = "05 / 07 / 2008";
 	private static final String endDate = "20 / 06 / 2020";
-
-	@Before(RunTest.HOOK.SELENIUM_REPORTS)
+	
+	@Before(RunTest.HOOK.SELENIUM_REPORT)
 	public void visitHomePage() {
 		initiateWithLogin();
 	}
-
-	@After(RunTest.HOOK.SELENIUM_REPORTS)
+	
+	@After(RunTest.HOOK.SELENIUM_REPORT)
 	public void destroy() {
 		quit();
 	}
-
+	
 	@Given("a user go to system administartion app")
 	public void clickOnSystemAdministrationPage() {
 		systemAdministrationPage = homePage.goToSystemAdministrationPage();
 	}
-
+	
 	@Then("the system loads system administrationpage")
 	public void LoadsSystemAdministrationPage() {
 		assertPage(systemAdministrationPage.waitForPage());
 	}
-
+	
 	@When("user click on advanced administration page")
 	public void goToAdministrationPage() {
 		administrationPage = systemAdministrationPage.goToAdvancedAdministration();
 	}
-
+	
 	@And("user click on report administration link")
-	public void clickOnReportAdministrationPage() {
+	public void clicksOnReportAdministrationPage() {
 		manageReportsPage = administrationPage.clickOnReportAdministrationLink();
 	}
-
+	
 	@Then("the system loads manage reports page")
 	public void loadManageReportsPage() {
 		assertPage(manageReportsPage.waitForPage());
 	}
-
+	
 	@And("user clicks on run button from manage Reports page")
-	public void clickOnRunButton() {
+	public void clicksOnRunButton() {
 		runReportsPage = manageReportsPage.clickOnRunButton();
 	}
-
+	
 	@Then("user enter start date")
-	public void userEnterStartDate() {
+	public void userEntersStartDate() {
 		runReportsPage.enterStartDate(startDate);
 		runReportsPage.clickOnEmptyForm();
 	}
-
+	
 	@Then("user enter end date")
-	public void userEnterEndDate() {
+	public void userEntersEndDate() {
 		runReportsPage.enterEndDate(endDate);
 	}
-
+	
 	@And("user clicks on request report")
-	public void userclickOnRequestReport() {
+	public void userclicksOnRequestReport() {
 		reportHistoryPage = runReportsPage.clickOnRequestReport();
 	}
-
+	
 	@And("user clicks on view report link")
-	public void userClickOnViewReport() {
+	public void userClicksOnViewReport() {
 		renderDefaultReportPage = reportHistoryPage.clickOnViewLink();
 	}
-
+	
 }

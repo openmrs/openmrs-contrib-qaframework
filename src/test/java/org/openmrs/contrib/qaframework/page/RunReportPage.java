@@ -15,7 +15,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class RunReportPage extends Page {
-	
+
 	private static final By START_DATE_FIELD = By.cssSelector("#userEnteredParamstartDate");
 	private static final By END_DATE_FIELD = By.cssSelector("#userEnteredParamendDate");
 	private static final By REQUEST_REPORT_BUTTON = By.cssSelector("input[type='submit' i]");
@@ -24,30 +24,28 @@ public class RunReportPage extends Page {
 	public RunReportPage(Page page) {
 		super(page);
 	}
-	
+
 	public void enterStartDate(String startDate) {
-		WebElement element = findElement(START_DATE_FIELD);
 		waiter.until(ExpectedConditions.elementToBeClickable(START_DATE_FIELD));
 		clickOn(START_DATE_FIELD);
-		element.sendKeys(startDate);
+		setTextToFieldNoEnter(START_DATE_FIELD, startDate);
 	}
-	
+
 	public void enterEndDate(String endDate) {
-		WebElement element = findElement(END_DATE_FIELD);
 		waiter.until(ExpectedConditions.elementToBeClickable(END_DATE_FIELD));
 		clickOn(END_DATE_FIELD);
-		element.sendKeys(endDate);
+		setTextToFieldNoEnter(END_DATE_FIELD, endDate);
 	}
-	
+
 	public ReportHistoryPage clickOnRequestReport() {
 		clickOn(REQUEST_REPORT_BUTTON);
 		return new ReportHistoryPage(this);
 	}
-	
+
 	public void clickOnEmptyForm() {
 		clickOn(EMPTY_FORM);
 	}
-	
+
 	@Override
 	public String getPageUrl() {
 		return "reporting/run/runReport";

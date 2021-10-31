@@ -23,8 +23,8 @@ public class ReportSteps extends Steps {
 	private ReportHistoryPage reportHistoryPage;
 	private RunReportPage runReportsPage;
 	private RenderDefaultReportPage renderDefaultReportPage;
-	private static final String startDate = "05 / 07 / 2008";
-	private static final String endDate = "20 / 06 / 2020";
+	private static final String STARTDATE = "05 / 07 / 2008";
+	private static final String ENDDATE = "20 / 06 / 2020";
 
 	@Before(RunTest.HOOK.SELENIUM_REPORT)
 	public void visitHomePage() {
@@ -48,14 +48,12 @@ public class ReportSteps extends Steps {
 
 	@When("user clicks on advanced administration page")
 	public void goToAdministrationPage() {
-		administrationPage = systemAdministrationPage
-				.goToAdvancedAdministration();
+		administrationPage = systemAdministrationPage.goToAdvancedAdministration();
 	}
 
 	@And("user clicks on report administration link")
 	public void clicksOnReportAdministrationPage() {
-		manageReportsPage = administrationPage
-				.clickOnReportAdministrationLink();
+		manageReportsPage = administrationPage.clickOnReportAdministrationLink();
 	}
 
 	@Then("the system loads manage reports page")
@@ -70,13 +68,13 @@ public class ReportSteps extends Steps {
 
 	@Then("user enters start date")
 	public void userEntersStartDate() {
-		runReportsPage.enterStartDate(startDate);
+		runReportsPage.enterStartDate(STARTDATE);
 		runReportsPage.clickOnEmptyForm();
 	}
 
 	@Then("user enters end date")
 	public void userEntersEndDate() {
-		runReportsPage.enterEndDate(endDate);
+		runReportsPage.enterEndDate(ENDDATE);
 	}
 
 	@And("user clicks on request report button")

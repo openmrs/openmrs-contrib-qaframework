@@ -131,6 +131,8 @@ There are two ways of running tests:
     
     See the `scripts` section of [package.json](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/package.json).
 
+Tests might be timed out on slow internet connections. In that case, try increasing the `defaultCommandTimeout` setting in the 'cypress.json' file.
+
 ## File structure
 ```
 .

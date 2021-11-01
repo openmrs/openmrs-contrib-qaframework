@@ -23,8 +23,8 @@ public class ReportSteps extends Steps {
 	private ReportHistoryPage reportHistoryPage;
 	private RunReportPage runReportsPage;
 	private RenderDefaultReportPage renderDefaultReportPage;
-	private static final String STARTDATE = "05 / 07 / 2008";
-	private static final String ENDDATE = "20 / 06 / 2020";
+	private static final String START_DATE = "05 / 07 / 2008";
+	private static final String END_DATE = "20 / 06 / 2020";
 
 	@Before(RunTest.HOOK.SELENIUM_REPORT)
 	public void visitHomePage() {
@@ -70,13 +70,13 @@ public class ReportSteps extends Steps {
 
 	@Then("user enters start date")
 	public void userEntersStartDate() {
-		runReportsPage.enterStartDate(STARTDATE);
+		runReportsPage.enterStartDate(START_DATE);
 		runReportsPage.clickOnEmptyForm();
 	}
 
 	@And("user enters end date")
 	public void userEntersEndDate() {
-		runReportsPage.enterEndDate(ENDDATE);
+		runReportsPage.enterEndDate(END_DATE);
 	}
 
 	@And("user clicks on request report button")

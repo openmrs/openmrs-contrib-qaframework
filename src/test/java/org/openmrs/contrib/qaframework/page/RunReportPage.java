@@ -25,16 +25,16 @@ public class RunReportPage extends Page {
 		super(page);
 	}
 
-	public void enterStartDate(String STARTDATE) {
+	public void enterStartDate(String START_DATE) {
 		waiter.until(ExpectedConditions.elementToBeClickable(START_DATE_FIELD));
 		clickOn(START_DATE_FIELD);
-		setTextToFieldNoEnter(START_DATE_FIELD, STARTDATE);
+		setTextToFieldNoEnter(START_DATE_FIELD, START_DATE);
 	}
 
-	public void enterEndDate(String ENDDATE) {
+	public void enterEndDate(String END_DATE) {
 		waiter.until(ExpectedConditions.elementToBeClickable(END_DATE_FIELD));
 		clickOn(END_DATE_FIELD);
-		setTextToFieldNoEnter(END_DATE_FIELD,ENDDATE);
+		setTextToFieldNoEnter(END_DATE_FIELD, END_DATE);
 	}
 
 	public ReportHistoryPage clickOnRequestReport() {

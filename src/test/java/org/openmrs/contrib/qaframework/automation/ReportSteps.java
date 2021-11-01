@@ -48,12 +48,14 @@ public class ReportSteps extends Steps {
 
 	@When("user clicks on advanced administration page")
 	public void goToAdministrationPage() {
-		administrationPage = systemAdministrationPage.goToAdvancedAdministration();
+		administrationPage = systemAdministrationPage
+				.goToAdvancedAdministration();
 	}
 
 	@And("user clicks on report administration link")
 	public void clicksOnReportAdministrationPage() {
-		manageReportsPage = administrationPage.clickOnReportAdministrationLink();
+		manageReportsPage = administrationPage
+				.clickOnReportAdministrationLink();
 	}
 
 	@Then("the system loads manage reports page")
@@ -72,7 +74,7 @@ public class ReportSteps extends Steps {
 		runReportsPage.clickOnEmptyForm();
 	}
 
-	@Then("user enters end date")
+	@And("user enters end date")
 	public void userEntersEndDate() {
 		runReportsPage.enterEndDate(ENDDATE);
 	}
@@ -82,7 +84,7 @@ public class ReportSteps extends Steps {
 		reportHistoryPage = runReportsPage.clickOnRequestReport();
 	}
 
-	@And("user clicks on view report link")
+	@Then("user clicks on view report link")
 	public void userClicksOnViewReport() {
 		renderDefaultReportPage = reportHistoryPage.clickOnViewLink();
 	}

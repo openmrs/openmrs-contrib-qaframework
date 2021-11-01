@@ -8,13 +8,6 @@ Feature: Clinical Visit Management
   @selenium
   @clinicalVisit
   Scenario: Clinical Visit  
-    # User story: Complete visit note
-    When a user clicks visit note link from the patient dashboard
-    Then the system loads visit note page
-    When a user fills the visit note
-    And a user clicks on save visit note button
-    Then the system adds the note into visit note table
-    
     # User story: Add known allergies
     When a user clicks on Allergies link from Patient dashboard page
     Then the system loads Allergies board page
@@ -37,9 +30,14 @@ Feature: Clinical Visit Management
     And a user clicks on save appointment button
     Then the system adds Appointment request into the appointment table 
     
+    # User story: Complete visit note
+    When a user clicks visit note link from the patient dashboard
+    Then the system loads visit note page
+    When a user fills the visit note
+    And a user clicks on save visit note button
+    Then the system adds the note into visit note table
+    
     # User story: End patient visit
-    When a user clicks on recent visit link
-    Then the system loads recent visit page
     When a user clicks on end visit button
     Then the system ends the patient visit
   

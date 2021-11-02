@@ -28,7 +28,8 @@
     "refapp3PatientSearch": "cypress run --spec src/test/resources/features/refapp-3.x/06-patient-search/patient-search.feature",
     "refapp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature",
     "refapp3ClinicalVisit": "cypress run --spec src/test/resources/features/refapp-3.x/04-clinical-visit/clinical-visit.feature",
-    "refapp3VitalsAndTriage": "cypress run --spec src/test/resources/features/refapp-3.x/05-vitals-and-triage/vitals-and-triage.feature"
+    "refapp3VitalsAndTriage": "cypress run --spec src/test/resources/features/refapp-3.x/05-vitals-and-triage/vitals-and-triage.feature",
+    "refappOCLSubscriptionModule": "cypress run --spec src/test/resources/features/oclsubscriptionmodule/index.feature"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.0",

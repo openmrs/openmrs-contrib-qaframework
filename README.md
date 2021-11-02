@@ -60,7 +60,7 @@ Loading into EMR ____ Coming soon
 
 OCL Module (Subscription Module)
 -----|
-[OCL Module](https://ci.openmrs.org/browse/OCLM-OCLM) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/OCLM-OCLM)
+[![OCL Subscription Module](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ocl-sub-module.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ocl-sub-module.yml)
 
 ___
 # openmrs-contrib-qaframework

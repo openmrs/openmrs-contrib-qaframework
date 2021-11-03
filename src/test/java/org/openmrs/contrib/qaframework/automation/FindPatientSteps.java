@@ -23,53 +23,52 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class FindPatientSteps extends Steps {
-
+	
 	private TestData.PatientInfo testPatient;
-
+	
 	@Before(RunTest.HOOK.SELENIUM_FIND_PATIENT)
 	public void systemLogin() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
 	}
-
+	
 	@After(RunTest.HOOK.SELENIUM_FIND_PATIENT)
 	public void destroy() {
 		deletePatient(testPatient);
 		quit();
 	}
-
+	
 	@Given("User clicks on Find Patient App")
 	public void visitFindPatientPage() {
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord()
-				.waitForPage();
+		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
 	}
-
+	
 	@And("User enters missing patient")
 	public void enterMissingPatient() {
 		findPatientPage.enterPatient("MissingPatient");
 	}
-
+	
 	@Then("Search Page returns no patients")
 	public void noPatients() {
 		assertNotNull(getElement(By.className("dataTables_empty")));
 	}
-
+	
 	@And("User enters patient identifer")
 	public void enterPatientIdentifier() {
 		findPatientPage.enterPatient(testPatient.identifier);
 	}
-
+	
 	@Then("Search Page returns patients")
 	public void returnResults() {
 		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
 		assertNotNull(firstPatientIdentifier);
 	}
-
+	
 	@And("User clicks on first patient")
 	public void clickFirstPatient() {
 		dashboardPage = findPatientPage.clickOnFirstPatient();
 	}
-
+	
 	@Then("System loads patient dashboard")
 	public void loadPatientDashboard() {
 		matchPatientIds(firstPatientIdentifier);

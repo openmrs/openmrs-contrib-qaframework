@@ -13,24 +13,33 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class PersonFormPage extends Page {
-
-	private static final By FAMILY_NAME_FIELD = By.cssSelector("#namePortlet > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > input[type=\"text\"]");
+	
+	private static final By FAMILY_NAME_FIELD = By
+	        .cssSelector("#namePortlet > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > input[type=\"text\"]");
+	
 	private static final By SAVE_PERSON = By.id("saveButton");
+	
 	private static final By OPENMRS_MSG = By.id("openmrs_msg");
+	
 	private static final By DELETE_PERSON_FOREVER = By.id("deletePersonButton");
-	private static final By DELETE_PERSON_CONFIRM = By.cssSelector("#deletePersonDiv > div > input[type=\"submit\"]:nth-child(1)");
+	
+	private static final By DELETE_PERSON_CONFIRM = By
+	        .cssSelector("#deletePersonDiv > div > input[type=\"submit\"]:nth-child(1)");
+	
 	private static final By RETIRE_REASON_FIELD = By.cssSelector("#content input[name=\"voidReason\"]");
-	private static final By RETIRE_PERSON = By.cssSelector("#content > form:nth-child(10) > fieldset:nth-child(1) > input:nth-child(6)");
-
+	
+	private static final By RETIRE_PERSON = By
+	        .cssSelector("#content > form:nth-child(10) > fieldset:nth-child(1) > input:nth-child(6)");
+	
 	public PersonFormPage(Page parent) {
 		super(parent);
 	}
-
+	
 	public void savePerson() {
 		clickOn(SAVE_PERSON);
 		waitForTextToBePresentInElement(OPENMRS_MSG, "Person saved");
 	}
-
+	
 	public ManagePersonPage deletePersonForever() {
 		clickOn(DELETE_PERSON_FOREVER);
 		clickOn(DELETE_PERSON_CONFIRM);
@@ -39,26 +48,26 @@ public class PersonFormPage extends Page {
 		managePersonPage.waitForPersonToBeDeleted();
 		return managePersonPage;
 	}
-
+	
 	public void setFamilyNameField(String familyName) {
 		findElement(FAMILY_NAME_FIELD).clear();
 		findElement(FAMILY_NAME_FIELD).sendKeys(familyName);
 	}
-
+	
 	public String getFamilyName() {
 		return findElement(FAMILY_NAME_FIELD).getAttribute("value");
 	}
-
+	
 	@Override
 	public String getPageUrl() {
 		return "/admin/person/person.form";
 	}
-
+	
 	public void setRetireReason(String reason) {
 		findElement(RETIRE_REASON_FIELD).clear();
 		findElement(RETIRE_REASON_FIELD).sendKeys(reason);
 	}
-
+	
 	public void retirePerson() {
 		clickOn(RETIRE_PERSON);
 		waitForTextToBePresentInElement(OPENMRS_MSG, "Person deleted");

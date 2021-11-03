@@ -18,40 +18,41 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class VisitTypeListPage extends AdminManagementPage {
-
+	
 	private static final By ERROR = By.cssSelector("span.error");
+	
 	private static final By VISIT_TYPE_LIST = By.cssSelector("#content  form  table  tbody  tr td");
+	
 	private static final By RETIRED_VISIT_TYPE_LIST = By.cssSelector("#content form table tbody tr td del");
-
+	
 	public VisitTypeListPage(Page parent) {
 		super(parent);
 		ADD = By.cssSelector("#content a[href=\"visitType.form\"]");
 	}
-
+	
 	public void waitForError() {
 		waitForElement(ERROR);
 	}
-
+	
 	public VisitTypePage addVisitType() {
 		clickOn(ADD);
 		return new VisitTypePage(this);
 	}
-
+	
 	public VisitTypePage goToVisitType(String name) {
 		findElement(By.linkText(name)).click();
 		return new VisitTypePage(this);
 	}
-
+	
 	public List<String> getVisitTypeList() {
 		List<String> visitTypeList = new ArrayList<String>();
-		waiter.until(ExpectedConditions
-				.visibilityOfElementLocated(VISIT_TYPE_LIST));
+		waiter.until(ExpectedConditions.visibilityOfElementLocated(VISIT_TYPE_LIST));
 		for (WebElement webElement : findElements(VISIT_TYPE_LIST)) {
 			visitTypeList.add(webElement.getText());
 		}
 		return visitTypeList;
 	}
-
+	
 	public List<String> getRetiredVisitTypeList() {
 		List<String> retiredVisitTypeList = new ArrayList<String>();
 		for (WebElement webElement : findElements(RETIRED_VISIT_TYPE_LIST)) {
@@ -59,7 +60,7 @@ public class VisitTypeListPage extends AdminManagementPage {
 		}
 		return retiredVisitTypeList;
 	}
-
+	
 	@Override
 	public String getPageUrl() {
 		return "/admin/visits/visitType.list";

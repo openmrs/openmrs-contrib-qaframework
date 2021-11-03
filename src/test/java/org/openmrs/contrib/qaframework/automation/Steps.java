@@ -29,57 +29,65 @@ import org.openqa.selenium.WebElement;
 
 // Use english locale, of not set, the test instance should be set to english language
 public class Steps extends ReferenceApplicationTestBase {
-
+	
 	protected TestProperties testProperties = TestProperties.instance();
+	
 	protected LoginPage loginPage;
+	
 	protected FindPatientPage findPatientPage;
+	
 	protected String firstPatientIdentifier;
+	
 	protected ClinicianFacingPatientDashboardPage dashboardPage;
+	
 	protected By patientHeaderId = By.cssSelector("div.identifiers span");
+	
 	protected InitialSetupPage initialSetupPage;
+	
 	protected PatientVisitsDashboardPage visitsDashboardPage;
-
+	
 	public Steps() {
 		try {
 			startWebDriver();
 			loginPage = getLoginPage();
-		} catch (Exception e) {
+		}
+		catch (Exception e) {
 			fail(e.getMessage());
 		}
 	}
-
+	
 	protected void quit() {
 		if (driver != null) {
 			driver.quit();
 		}
 	}
-
+	
 	protected WebElement getElement(By elementBy) {
 		try {
 			return driver.findElement(elementBy);
-		} catch (NoSuchElementException e) {
+		}
+		catch (NoSuchElementException e) {
 			return null;
 		}
 	}
-
+	
 	protected boolean textExists(String text) {
-		return driver.findElements(
-				By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
+		return driver.findElements(By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
 	}
-
+	
 	protected void initiateWithLogin() {
 		goToLoginPage();
-		goToLoginPage().login(testProperties.getUsername(),testProperties.getPassword(), testProperties.getLocation());
+		goToLoginPage().login(testProperties.getUsername(), testProperties.getPassword(), testProperties.getLocation());
 		homePage = (HomePage) new HomePage(loginPage).waitForPage();
 	}
-
+	
 	protected void initiatePatientDashboard() {
 		initiateWithLogin();
 		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
 		findPatientPage.enterPatient("John Smith");
 		dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage.clickOnFirstPatient().waitForPage();
 	}
-
+	
 	protected String trimPatientId(String id) {
 		id = id.replace("Recent", "");
 		if (id.indexOf("[") > 0) {
@@ -90,10 +98,10 @@ public class Steps extends ReferenceApplicationTestBase {
 		}
 		return id;
 	}
-
+	
 	protected void matchPatientIds(String patientId) {
 		List<String> ids = new ArrayList<>();
-		driver.findElements(patientHeaderId).forEach(id-> {
+		driver.findElements(patientHeaderId).forEach(id -> {
 			ids.add(trimPatientId(id.getText()));
 		});
 		assertTrue(ids.contains(trimPatientId(patientId)));

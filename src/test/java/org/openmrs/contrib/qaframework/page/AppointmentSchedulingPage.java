@@ -13,36 +13,39 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class AppointmentSchedulingPage extends Page {
-
+	
 	private static final By MANAGE_SERVICES_TYPES = By.id("appointmentschedulingui-manageAppointmentTypes-app");
+	
 	private static final By MANAGE_PROVIDER_SCHEDULES = By.id("appointmentschedulingui-scheduleProviders-app");
+	
 	private static final By MANAGE_APPOINTMENTS = By.id("appointmentschedulingui-manageAppointments-app");
+	
 	private static final By DAILY_APPOINTMENTS = By.id("appointmentschedulingui-scheduledAppointments-app");
-
+	
 	public AppointmentSchedulingPage(Page page) {
 		super(page);
 	}
-
+	
 	public ManageProviderSchedulesPage goToManageProviderSchedules() {
 		clickOn(MANAGE_PROVIDER_SCHEDULES);
 		return new ManageProviderSchedulesPage(this);
 	}
-
+	
 	public FindPatientPage goToManageAppointments() {
 		clickOn(MANAGE_APPOINTMENTS);
 		return new FindPatientPage(this);
 	}
-
+	
 	public ManageServiceTypesPage goToManageServices() {
 		clickOn(MANAGE_SERVICES_TYPES);
 		return new ManageServiceTypesPage(this);
 	}
-
+	
 	public AppointmentBlocksPage goToAppointmentBlock() {
 		clickOn(MANAGE_PROVIDER_SCHEDULES);
 		return new AppointmentBlocksPage(this);
 	}
-
+	
 	@Override
 	public String getPageUrl() {
 		return "/appointmentschedulingui/home.page";

@@ -26,51 +26,53 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class UserAccountSteps extends Steps {
-
+	
 	private static final String SYSTEM_ALERT = "Atleast 8 character(s) are required";
+	
 	private SystemAdministrationPage systemAdministrationPage;
+	
 	private ManageUserAccountPage userAccountPage;
-
+	
 	@Before(RunTest.HOOK.SELENIUM_USER_ACCOUNT)
 	public void visitHomePage() {
 		initiateWithLogin();
 	}
-
+	
 	@After(RunTest.HOOK.SELENIUM_USER_ACCOUNT)
 	public void destroy() {
 		quit();
 	}
-
+	
 	@Given("a user clicks on system administartion app from home page")
 	public void goToSystemAdministrationPage() {
 		systemAdministrationPage = homePage.goToSystemAdministrationPage();
 	}
-
+	
 	@Then("the system loads system administration page")
 	public void systemLoadsSystemAdministrationPage() {
 		assertTrue(textExists("System Administration"));
 	}
-
+	
 	@When("a user clicks on manage accounts app")
 	public void goToManageAccountsPage() {
 		userAccountPage = systemAdministrationPage.goToManageAccounts();
 	}
-
+	
 	@Then("the system loads manage acccount page")
 	public void systemLoadsManageAccountsPage() {
 		assertTrue(textExists("Manage Accounts"));
 	}
-
+	
 	@And("a user clicks add new account button")
 	public void goToAddNewAccountPage() {
 		userAccountPage.clickOnAddUser();
 	}
-
+	
 	@Then("the system loads add new account form")
 	public void systemLoadsAddNewAccountPage() {
 		assertTrue(textExists("Add New Account"));
 	}
-
+	
 	@And("a user enters data clerk details in the user account form")
 	public void enterDataClerkDetails() {
 		userAccountPage.enterPersonalDetails("Clerk", "Data");
@@ -90,7 +92,7 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.setUserIdentifier("C501");
 		userAccountPage.setUserProviderRole("Clerk");
 	}
-
+	
 	@And("a user enters nurse details in the user account form")
 	public void enterNurseDetails() {
 		userAccountPage.enterPersonalDetails("Nurse", "Senior");
@@ -110,7 +112,7 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.setUserIdentifier("N801");
 		userAccountPage.setUserProviderRole("Nurse");
 	}
-
+	
 	@And("a user enters doctor details in the user account form")
 	public void enterDoctorDetails() {
 		userAccountPage.enterPersonalDetails("Doctor", "Senior");
@@ -131,13 +133,13 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.setUserIdentifier("D050");
 		userAccountPage.setUserProviderRole("Clinical Doctor");
 	}
-
+	
 	@And("a user clicks on save account button")
 	public void clickOnSaveUserAccountButton() {
 		userAccountPage.saveUserAccount();
 		userAccountPage.waitForPage();
 	}
-
+	
 	@Then("the system adds user account into the users table")
 	public void systemAddsUserAccount() {
 		assertTrue(textExists("Account Saved Successfully"));

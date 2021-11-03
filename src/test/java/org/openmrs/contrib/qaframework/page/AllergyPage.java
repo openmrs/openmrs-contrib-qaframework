@@ -13,59 +13,67 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class AllergyPage extends Page {
-
+	
 	private static final By ADD_NEW_ALLERGY = By.id("allergyui-addNewAllergy");
+	
 	private static final By EDIT_ALLERGY = By.cssSelector("i.icon-pencil.edit-action");
+	
 	private static final By DELETE_ALLERGY = By.cssSelector("i.icon-remove.delete-action");
+	
 	private static final By CONFIRM_DELETE_ALLERGY = By.cssSelector("#allergyui-remove-allergy-dialog .confirm");
+	
 	private static final By REACTION = By.cssSelector(".reaction");
+	
 	private static final By ALLERGEN = By.cssSelector(".allergen");
+	
 	private static final By ALLERGY_STATUS = By.cssSelector(".allergyStatus");
+	
 	private static final By ADD_NO_KNOWN = By.xpath("//*[contains(text(),'No Known Allergy')]");
+	
 	private static final By DELETE_NO_KNOWN = By.className("delete-action");
-
+	
 	public AllergyPage(Page page) {
 		super(page);
 	}
-
+	
 	public AddOrEditAllergyPage clickOnAddNewAllergy() {
 		clickOn(ADD_NEW_ALLERGY);
 		return new AddOrEditAllergyPage(this);
 	}
-
+	
 	public AddOrEditAllergyPage clickOnEditAllergy() {
 		clickOn(EDIT_ALLERGY);
 		return new AddOrEditAllergyPage(this);
 	}
-
+	
 	public void clickOnDeleteAllergy() {
 		clickOn(DELETE_ALLERGY);
 	}
-
+	
 	public void clickOnConfirmDeleteAllergy() {
 		clickOn(CONFIRM_DELETE_ALLERGY);
 	}
-
+	
 	public String getAllergen() {
 		return findElement(ALLERGEN).getText();
 	}
-
+	
 	public String getReaction() {
 		return findElement(REACTION).getText();
 	}
-
+	
 	public String getAllergyStatus() {
 		return findElement(ALLERGY_STATUS).getText();
 	}
-
+	
 	public void addNoKnownAllergy() {
 		driver.findElement(ADD_NO_KNOWN).click();
 	}
-
+	
 	public void removeNoKnownAllergy() {
 		driver.findElement(DELETE_NO_KNOWN).click();
 	}
-
+	
 	@Override
 	public String getPageUrl() {
 		return "/allergyui/allergies.page";

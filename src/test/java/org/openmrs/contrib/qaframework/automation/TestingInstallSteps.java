@@ -20,32 +20,32 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class TestingInstallSteps extends InitialSetupSteps {
-	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and "+ RunTest.HOOK.TESTING_INSTALL)
+	
+	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.TESTING_INSTALL)
 	public void init() {
 		initialSetup();
 	}
-
-	@After(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and "
-			+ RunTest.HOOK.TESTING_INSTALL)
+	
+	@After(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.TESTING_INSTALL)
 	public void finish() {
 		complete();
 	}
-
+	
 	@Given("User selects Language on step one of Testing Installation")
 	public void selectLanguage() {
 		initialSetupPage.installationSelectLanguage();
 	}
-
+	
 	@And("User selects Testing Installation Type")
 	public void testingInstallationType() {
 		initialSetupPage.selectInstallationType(InitialSetupPage.Type.TESTING);
 	}
-
+	
 	@When("User enters all Testing Installation steps")
 	public void testingInstall() {
 		initialSetupPage.install(InitialSetupPage.Type.TESTING);
 	}
-
+	
 	@Then("System should run Testing installation")
 	public void waitToFinish() {
 		waitForSetupCompletion();

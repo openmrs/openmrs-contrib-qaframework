@@ -17,33 +17,38 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 
 public class ManageProviderPage extends Page {
-
+	
 	private static final By SEARCH_ELEMENT = By.id("inputNode");
+	
 	private static final By INCLUDE_RETIRED = By.id("includeVoided");
+	
 	private static final By ADD_PROVIDER = By.cssSelector("#content a[href='provider.form']");
+	
 	private static final By PROVIDERS = By.cssSelector("#openmrsSearchTable tr td:first-child");
+	
 	private static final By OPENMRS_MSG = By.id("openmrs_msg");
+	
 	private static final By SEARCH_STATUS = By.id("pageInfo");
-
+	
 	public ManageProviderPage(Page parent) {
 		super(parent);
 	}
-
+	
 	public ProviderPage clickOnAddProvider() {
 		clickOn(ADD_PROVIDER);
 		return new ProviderPage(this);
 	}
-
+	
 	public void setProviderNameOrId(String text) {
 		setText(SEARCH_ELEMENT, text);
 		findElement(SEARCH_ELEMENT).sendKeys(Keys.BACK_SPACE);
-		waitForTextToBePresentInElement(SEARCH_STATUS,text.substring(0, text.length() - 1));
+		waitForTextToBePresentInElement(SEARCH_STATUS, text.substring(0, text.length() - 1));
 	}
-
+	
 	public void clickOnIncludeRetired() {
 		clickOn(INCLUDE_RETIRED);
 	}
-
+	
 	public ProviderPage clickOnProvider(String name) {
 		List<WebElement> elements = findElements(PROVIDERS);
 		for (WebElement element : elements) {
@@ -52,24 +57,22 @@ public class ManageProviderPage extends Page {
 				return new ProviderPage(this);
 			}
 		}
-		throw new IllegalStateException(
-				"Could not find provider with identifier: " + name);
+		throw new IllegalStateException("Could not find provider with identifier: " + name);
 	}
-
+	
 	@Override
 	public String getPageUrl() {
 		return "/admin/provider/index.htm";
 	}
-
+	
 	public void waitForProviderToBeSaved() {
 		waitForTextToBePresentInElement(OPENMRS_MSG, "Provider saved");
 	}
-
+	
 	public void waitForProviderToBeDeleted() {
-		waitForTextToBePresentInElement(OPENMRS_MSG,
-				"Provider deleted forever successfully");
+		waitForTextToBePresentInElement(OPENMRS_MSG, "Provider deleted forever successfully");
 	}
-
+	
 	public void waitForProviderToBeRetired() {
 		waitForTextToBePresentInElement(OPENMRS_MSG, "Provider retired");
 	}

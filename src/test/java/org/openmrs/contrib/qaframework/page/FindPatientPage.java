@@ -13,29 +13,33 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class FindPatientPage extends Page {
-
-	private static final By PATIENT_NAME_SEARCH_RESULT = By.cssSelector("#patient-search-results-table tbody tr:first-child td:nth-child(2)");
-	private static final By PATIENT_ID_SEARCH_RESULT = By.cssSelector("#patient-search-results-table tr:first-child td:first-child");
+	
+	private static final By PATIENT_NAME_SEARCH_RESULT = By
+	        .cssSelector("#patient-search-results-table tbody tr:first-child td:nth-child(2)");
+	
+	private static final By PATIENT_ID_SEARCH_RESULT = By
+	        .cssSelector("#patient-search-results-table tr:first-child td:first-child");
+	
 	private static final By PATIENT_SEARCH = By.id("patient-search");
-
+	
 	public FindPatientPage(Page parent) {
 		super(parent);
 	}
-
+	
 	public void enterPatient(String patient) {
 		setTextToFieldNoEnter(PATIENT_SEARCH, patient);
 	}
-
+	
 	public ClinicianFacingPatientDashboardPage clickOnFirstPatient() {
 		clickOn(PATIENT_NAME_SEARCH_RESULT);
 		return new ClinicianFacingPatientDashboardPage(this);
 	}
-
+	
 	public ManageAppointmentsPage clickOnFirstPatientAppointment() {
 		clickOn(PATIENT_NAME_SEARCH_RESULT);
 		return new ManageAppointmentsPage(this);
 	}
-
+	
 	/**
 	 * Finds first record from the result table
 	 * 
@@ -46,15 +50,15 @@ public class FindPatientPage extends Page {
 		getFirstPatientName();
 		return findElement(PATIENT_ID_SEARCH_RESULT).getText();
 	}
-
+	
 	public String getFirstPatientName() {
 		return findElement(PATIENT_NAME_SEARCH_RESULT).getText();
 	}
-
+	
 	public void search(String text) {
 		setTextToFieldNoEnter(PATIENT_SEARCH, text);
 	}
-
+	
 	@Override
 	public String getPageUrl() {
 		return "/coreapps/findpatient/findPatient.page";

@@ -54,9 +54,6 @@ OpenMRS Dictionary Manager|
 [![Organization Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml)
 Loading into EMR ____ Coming soon
 
-In Basic Dictionary Management , I included  creating & editing a dictionary, coping dictionary, creating a version and releasing a version, plus all the concept tests , so we could also separate those workflows accordingly.
-
-
 OCL Module (Subscription Module)
 -----|
 [OCL Module](https://ci.openmrs.org/browse/OCLM-OCLM) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/OCLM-OCLM)

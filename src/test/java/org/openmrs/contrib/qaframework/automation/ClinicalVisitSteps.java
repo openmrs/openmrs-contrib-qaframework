@@ -129,6 +129,21 @@ public class ClinicalVisitSteps extends Steps {
 		addOrEditAllergyPage.enterReaction(REACTION);
 		addOrEditAllergyPage.reactionId();
 		addOrEditAllergyPage.addAllergyNote("The effect is severe");
+		addOrEditAllergyPage.clickOnSaveAllergy();
+	}
+
+	@When("the user clicks Add Known Allergy button")
+	public void addAllergy() {
+		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
+	}
+
+	@And("the user selects an allergy")
+	public void selectAllergy() {
+		addOrEditAllergyPage.enterDrug("Codeine");
+		addOrEditAllergyPage.drugId();
+		addOrEditAllergyPage.enterReaction(REACTION);
+		addOrEditAllergyPage.reactionId();
+		addOrEditAllergyPage.addAllergyNote("The effect is severe");
 	}
 
 	@And("a user clicks on save allergy button")
@@ -139,6 +154,21 @@ public class ClinicalVisitSteps extends Steps {
 	@Then("the system adds known allergies into the allergies table")
 	public void systemAddsKnownAllergy() {
 		assertNotNull(addOrEditAllergyPage.getAllergiesList());
+	}
+
+	@When("the user clicks on the delete button for Codein Allergy")
+	public void deleteAllergy() {
+		allergyPage.clickOnDeleteAllergy();
+	}
+
+	@And("the system confirms delete Codein Allergy")
+	public void confirmDeleteAllergy() {
+		allergyPage.clickOnConfirmDeleteAllergy();
+	}
+
+	@Then("system displays Penicillins")
+	public void systemRemovesAllergy() {
+		assertTrue(textExists("Penicillins"));
 		dashboardPage = addOrEditAllergyPage.clickReturn();
 	}
 
@@ -160,17 +190,36 @@ public class ClinicalVisitSteps extends Steps {
 	@And("a user enters patient condition")
 	public void enterExistingCondition() {
 		conditionPage.typeInCondition(CONDITION);
+		conditionPage.clickSave();
+	}
+
+	@And("the user enters patient condition Acute malnutrition")
+	public void enterOneOfExistingConditions() {
+		conditionsPage.clickOnAddNewCondition().waitForPage();
+		conditionPage.typeInCondition("Acute malnutrition");
 	}
 
 	@And("a user clicks on save condition button")
 	public void saveCondition() {
 		conditionPage.clickSave();
+		conditionPage.waitForPage();
 	}
 
 	@Then("the system adds New Condition in Conditions table")
 	public void systemAddsCondition() {
 		assertNotNull(conditionsPage.getConditionsList());
+	}
+
+	@When("the user clicks on the delete button from dashboard")
+	public void deleteCondition() {
+		conditionsPage.deleteFirstActive();
+	}
+
+	@Then("user clicks on the yes button to confirm")
+	public void confirmDeleteCondition() {
+		conditionsPage.confirmDeleteCondition();
 		dashboardPage = conditionsPage.clickReturn();
+
 	}
 
 	@When("a user clicks on Attachments link from patient visits dashboard")

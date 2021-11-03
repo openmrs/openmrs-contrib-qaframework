@@ -23,8 +23,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class StylesGuideSteps extends Steps {
+	
 	private SystemAdministrationPage systemAdministrationPage;
-
 	private StylesGuidePage stylesGuidePage;
 
 	@Before(RunTest.HOOK.SELENIUM_LOGIN)
@@ -61,5 +61,4 @@ public class StylesGuideSteps extends Steps {
 	public void validateReturn() {
 		Assert.assertNotNull(By.className("icon-magic"));
 	}
-
 }

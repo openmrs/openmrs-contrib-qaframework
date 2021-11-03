@@ -84,7 +84,6 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	private static final By DELETE_PATIENT_REASON = By.id("delete-reason");
 	private static final By DELETE_PATIENT_CONFIRM = By.cssSelector("#delete-patient-creation-dialog > div.dialog-content > button.confirm.right");
 	private static final By EDIT_PATIENT_LINK = By.cssSelector("a[id='application.registrationapp.summary.editPatientLink']");
-	private static final String REASON = "patient nolonger needed";
 
 	public ClinicianFacingPatientDashboardPage(Page page) {
 		super(page);
@@ -144,8 +143,7 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 
 	public void exitFromInpatient() {
 		clickOn(EXIT_FROM_INPATIENT);
-		new Select(driver.findElement(By.id("w5")))
-				.selectByVisibleText("Unknown Location");
+		new Select(driver.findElement(By.id("w5"))).selectByVisibleText("Unknown Location");
 		clickOn(SAVE);
 	}
 

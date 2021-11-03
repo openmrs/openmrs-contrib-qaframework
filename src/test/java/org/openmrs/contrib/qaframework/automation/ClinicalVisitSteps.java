@@ -55,8 +55,7 @@ public class ClinicalVisitSteps extends Steps {
 	public void visitHomePage() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
-		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_CLINICAL_VISIT)
@@ -73,8 +72,7 @@ public class ClinicalVisitSteps extends Steps {
 	@When("a user selects a patient from active patient list")
 	public void searchActivePatient() {
 		activeVisitsPage.search(testPatient.identifier);
-		dashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
+		dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
 	}
 
 	@Then("the system loads Patient dashboard page")
@@ -85,8 +83,7 @@ public class ClinicalVisitSteps extends Steps {
 	@When("a user clicks visit note link from the patient dashboard")
 	public void loadVisitNotePage() {
 		visitsDashboardPage = dashboardPage.goToRecentVisits();
-		visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote()
-				.waitForPage();
+		visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote().waitForPage();
 	}
 
 	@Then("the system loads visit note page")
@@ -116,8 +113,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Allergies link from Patient dashboard page")
 	public void loadAllergiesPage() {
-		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
-				.waitForPage();
+		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink().waitForPage();
 	}
 
 	@Then("the system loads Allergies board page")
@@ -148,8 +144,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Conditions link from Patient dashboard")
 	public void loadManageConditionsPage() {
-		conditionsPage = (ConditionsPage) dashboardPage
-				.clickOnConditionsWidgetLink().waitForPage();
+		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
 	}
 
 	@Then("the system loads Manage Conditions Page")
@@ -159,8 +154,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Add new condition")
 	public void userClicksAddNewCondition() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
-				.waitForPage();
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
 	}
 
 	@And("a user enters patient condition")
@@ -181,10 +175,8 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Attachments link from patient visits dashboard")
 	public void loadAttachmentsPage() {
-		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage
-				.goToRecentVisits();
-		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage()
-				.waitForPage();
+		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
+		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage().waitForPage();
 	}
 
 	@Then("the system loads Attachments page")
@@ -211,8 +203,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Request appointment link from Patient dashboard")
 	public void loadRequestAppointmentPage() {
-		requestAppointmentPage = (RequestAppointmentPage) dashboardPage
-				.clickOnRequest();
+		requestAppointmentPage = (RequestAppointmentPage) dashboardPage.clickOnRequest();
 	}
 
 	@Then("the system loads Request appointment page")

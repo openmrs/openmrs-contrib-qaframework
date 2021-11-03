@@ -13,6 +13,7 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class ManageReportsPage extends Page {
+	
 	public static final By RUN_BUTTON = By.cssSelector("#content a[href*='/module/reporting/run/runReport.form']");
 
 	public ManageReportsPage(Page page) {

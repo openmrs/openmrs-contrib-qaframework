@@ -82,8 +82,7 @@ public class AddEditUserPage extends Page {
 	}
 
 	public boolean isDataCorrect(List<String> validationErrors) {
-		return !validationErrors
-				.contains("Please fix all errors and try again.");
+		return !validationErrors.contains("Please fix all errors and try again.");
 	}
 
 	public void enterUsernamePassword(String username, String password,String confirm) {

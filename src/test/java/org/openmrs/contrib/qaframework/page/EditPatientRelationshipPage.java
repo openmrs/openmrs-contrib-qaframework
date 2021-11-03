@@ -15,7 +15,6 @@ import org.openqa.selenium.support.ui.Select;
 
 public class EditPatientRelationshipPage extends Page {
 
-	private HomePage homePage;
 	private static final String NAME = "John";
 	private static final By SELECT_RELATIONSHIP_TYPE = By.id("relationship_type");
 	private static final By PERSON_NAME = By.xpath("//ul[@id='relationship']/p[2]/input[1]");

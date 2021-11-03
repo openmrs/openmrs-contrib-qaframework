@@ -235,8 +235,7 @@ public class TestData {
 	}
 
 	public static void createEncounter(EncounterInfo ei) {
-		TestEncounter te = new TestEncounter(ei.type, ei.patient.uuid,
-				ei.datetime);
+		TestEncounter te = new TestEncounter(ei.type, ei.patient.uuid, ei.datetime);
 		ei.uuid = te.create();
 	}
 
@@ -308,8 +307,7 @@ public class TestData {
 		public String birthdate;
 
 		public TestPerson(Set<TestPersonName> names,
-				Set<TestPersonAddress> addresses, String gender,
-				String birthdate) {
+				Set<TestPersonAddress> addresses, String gender, String birthdate) {
 			this.names = names;
 			this.addresses = addresses;
 			this.gender = gender;
@@ -377,8 +375,7 @@ public class TestData {
 			this.familyName = familyName;
 		}
 
-		public TestPersonName(String givenName, String middleName,
-				String familyName) {
+		public TestPersonName(String givenName, String middleName, String familyName) {
 			this(givenName, familyName);
 			this.middleName = middleName;
 		}
@@ -402,9 +399,8 @@ public class TestData {
 		public String postalCode;
 		public String country;
 
-		public TestPersonAddress(String address1, String address2,
-				String city_village, String state_province, String postal_code,
-				String country) {
+		public TestPersonAddress(String address1, String address2, String city_village, 
+				String state_province, String postal_code, String country) {
 			this.address1 = address1;
 			this.address2 = address2;
 			this.cityVillage = city_village;
@@ -428,11 +424,9 @@ public class TestData {
 		public String person; // uuid
 		public List<PatientIdentifier> identifiers = new ArrayList<PatientIdentifier>();
 
-		public TestPatient(String uuid, String identifier,
-				String identifierTypeName) {
+		public TestPatient(String uuid, String identifier, String identifierTypeName) {
 			this.person = uuid;
-			this.identifiers.add(new PatientIdentifier(identifier,
-					identifierTypeName));
+			this.identifiers.add(new PatientIdentifier(identifier, identifierTypeName));
 		}
 
 		@Override
@@ -609,7 +603,6 @@ public class TestData {
 		public String name() {
 			return "locationTag";
 		}
-
 	}
 
 	public static class PersonInfo {
@@ -656,8 +649,7 @@ public class TestData {
 
 		@Override
 		public String toString() {
-			return "User: " + username + ", id: " + userId + ", personid: "
-					+ id;
+			return "User: " + username + ", id: " + userId + ", personid: " + id;
 		}
 
 		public void addRole(RoleInfo role) {
@@ -692,5 +684,4 @@ public class TestData {
 		public String datetime;
 		public String uuid;
 	}
-
 }

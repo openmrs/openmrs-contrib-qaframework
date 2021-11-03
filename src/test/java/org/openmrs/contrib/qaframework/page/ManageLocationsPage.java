@@ -33,7 +33,6 @@ public class ManageLocationsPage extends Page {
 	private static final By POSTAL_CODE_FIELD = By.cssSelector("#postalCode-field");
 	private static final By PARENT_LOCATION_FIELD = By.className("parentLocation");
 	private static final By SAVE_BUTTON = By.id("save-button");
-	private static final String PURGE_LOCATION_SELECTOR_TMPL = "list-locations > tbody > tr > i[onclick*='purgeLocation('%s', *)']";
 
 	public ManageLocationsPage(Page parent) {
 		super(parent);

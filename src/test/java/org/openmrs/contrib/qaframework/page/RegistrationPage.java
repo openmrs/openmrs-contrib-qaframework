@@ -66,7 +66,6 @@ public class RegistrationPage extends Page {
 	private static final By REMOVE_RELATIONSHIP_TYPE_ICON = By.cssSelector("//ul[@id='relationship']/p[3]/a[2]/i");
 	private static final By CONFIRM_RELATIONSHIP_TYPE_BUTTON = By.xpath(CONFIRMATION_DIV + "//div/div/p[6]");
 	static By AUTO_LIST;
-	private boolean acceptNextAlert = true;
 	private static final String NAME = "JOHN";
 
 	public RegistrationPage(Page page) {
@@ -176,8 +175,7 @@ public class RegistrationPage extends Page {
 	}
 
 	public void clickOnPhoneNumber() throws InterruptedException {
-		waiter.until(ExpectedConditions
-				.elementToBeClickable(PHONE_NUMBER_LABEL));
+		waiter.until(ExpectedConditions.elementToBeClickable(PHONE_NUMBER_LABEL));
 		clickOn(PHONE_NUMBER_LABEL);
 	}
 

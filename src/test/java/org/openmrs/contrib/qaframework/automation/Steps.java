@@ -63,13 +63,12 @@ public class Steps extends ReferenceApplicationTestBase {
 	}
 
 	protected boolean textExists(String text) {
-		return driver.findElements(
-				By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
+		return driver.findElements(By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
 	}
 
 	protected void initiateWithLogin() {
 		goToLoginPage();
-		goToLoginPage().login(testProperties.getUsername(),testProperties.getPassword(), testProperties.getLocation());
+		goToLoginPage().login(testProperties.getUsername(), testProperties.getPassword(), testProperties.getLocation());
 		homePage = (HomePage) new HomePage(loginPage).waitForPage();
 	}
 

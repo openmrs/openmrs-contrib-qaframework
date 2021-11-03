@@ -50,9 +50,12 @@ ___
 OpenMRS Dictionary Manager|
 ------------- |
 [![Dictionary Manager](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/dictionary-manager.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/dictionary-manager.yml)
-[![Basic Dictionary Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/basic-dictionary.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/basic-dictionary.yml)
+[![Basic Dictionary Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/basic-dictionary.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/basic-dictionary.yml) (Create, Edit, Copy, Version and Release)
 [![Organization Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml)
-Loading into EMR ____Coming soon
+Loading into EMR ____ Coming soon
+
+In Basic Dictionary Management , I included  creating & editing a dictionary, coping dictionary, creating a version and releasing a version, plus all the concept tests , so we could also separate those workflows accordingly.
+
 
 OCL Module (Subscription Module)
 -----|

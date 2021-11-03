@@ -74,6 +74,30 @@
 		    <version>2.1.18</version>
 		</dependency>
     </dependencies>
+    <profiles>
+        <profile>
+            <id>ci</id>
+
+            <properties>
+                <login.username>admin</login.username>
+                <login.password>Admin123</login.password>
+            </properties>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <artifactId>maven-failsafe-plugin</artifactId>
+                        <configuration>
+                            <skipTests>true</skipTests>
+                            <groups>org.openmrs.contrib.qaframework.helper.BuildTests</groups>
+                            <forkCount>5</forkCount>
+                            <reuseForks>true</reuseForks>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
     <build>
         <plugins>
             <plugin>

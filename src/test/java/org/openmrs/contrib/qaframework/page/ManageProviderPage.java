@@ -66,8 +66,7 @@ public class ManageProviderPage extends Page {
 	}
 
 	public void waitForProviderToBeDeleted() {
-		waitForTextToBePresentInElement(OPENMRS_MSG,
-				"Provider deleted forever successfully");
+		waitForTextToBePresentInElement(OPENMRS_MSG, "Provider deleted forever successfully");
 	}
 
 	public void waitForProviderToBeRetired() {

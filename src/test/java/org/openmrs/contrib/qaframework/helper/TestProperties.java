@@ -73,8 +73,7 @@ public class TestProperties {
 				properties.load(new InputStreamReader(input, "UTF-8"));
 			}
 		} catch (IOException ioException) {
-			throw new RuntimeException("Could not find test.properties",
-					ioException);
+			throw new RuntimeException("Could not find test.properties", ioException);
 		}
 	}
 
@@ -110,8 +109,7 @@ public class TestProperties {
 	}
 
 	public boolean automaticallyLoginAtStartup() {
-		return Boolean.parseBoolean(getProperty(AUTO_LOGIN_AT_STARTUP_PROPERTY,
-				"true"));
+		return Boolean.parseBoolean(getProperty(AUTO_LOGIN_AT_STARTUP_PROPERTY, "true"));
 	}
 
 	public String getBrowser() {

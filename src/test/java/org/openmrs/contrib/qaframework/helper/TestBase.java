@@ -156,8 +156,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 			capabilities.setCapability("name", testMethod);
 
-			capabilities.setCapability("commandTimeout",
-					MAX_SAUCELAB_COMMAND_TIMEOUT_IN_SECONDS);
+			capabilities.setCapability("commandTimeout", MAX_SAUCELAB_COMMAND_TIMEOUT_IN_SECONDS);
 
 			String buildNumber = System.getProperty("buildNumber");
 			if (!StringUtils.isBlank(buildNumber)) {
@@ -166,8 +165,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 			String saucelabsTunnel = System.getProperty("saucelabsTunnel");
 			if (!StringUtils.isBlank(saucelabsTunnel)) {
-				capabilities
-						.setCapability("tunnel-identifier", saucelabsTunnel);
+				capabilities.setCapability("tunnel-identifier", saucelabsTunnel);
 			}
 
 			String branch = System.getProperty("branch");
@@ -175,10 +173,8 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 				capabilities.setCapability("tags", branch);
 			}
 
-			if (TestProperties.DEFAULT_WEBDRIVER
-					.equals(properties.getBrowser())) {
-				capabilities.setCapability(
-						CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,
+			if (TestProperties.DEFAULT_WEBDRIVER.equals(properties.getBrowser())) {
+				capabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR,
 						UnexpectedAlertBehaviour.IGNORE);
 			}
 
@@ -187,14 +183,11 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 					+ sauceLabsAuthentication.getAccessKey() + "@"
 					+ sauceLabsHubUrl + "/wd/hub"), capabilities);
 
-			this.sessionId = (((RemoteWebDriver) driver).getSessionId())
-					.toString();
-			System.out.println("Running " + testMethod
-					+ " at https://saucelabs.com/tests/" + this.sessionId);
+			this.sessionId = (((RemoteWebDriver) driver).getSessionId()).toString();
+			System.out.println("Running " + testMethod + " at https://saucelabs.com/tests/" + this.sessionId);
 		} else {
 			System.out.println("Running locally...");
-			final TestProperties.WebDriverType webDriverType = properties
-					.getWebDriver();
+			final TestProperties.WebDriverType webDriverType = properties.getWebDriver();
 			switch (webDriverType) {
 				case chrome :
 					driver = setupChromeDriver();
@@ -209,10 +202,8 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 			}
 		}
 
-		driver.manage().timeouts()
-				.implicitlyWait(MAX_WAIT_IN_SECONDS, TimeUnit.SECONDS);
-		driver.manage().timeouts()
-				.pageLoadTimeout(MAX_PAGE_LOAD_IN_SECONDS, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(MAX_WAIT_IN_SECONDS, TimeUnit.SECONDS);
+		driver.manage().timeouts().pageLoadTimeout(MAX_PAGE_LOAD_IN_SECONDS, TimeUnit.SECONDS);
 
 		long start = System.currentTimeMillis();
 		boolean autoLoginAtStart = properties.automaticallyLoginAtStartup();
@@ -228,13 +219,11 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 			} catch (ProcessingException e) {
 				failTest(testMethod, e);
 			} catch (Exception e) {
-				if (System.currentTimeMillis() > start
-						+ MAX_SERVER_STARTUP_IN_MILLISECONDS) {
+				if (System.currentTimeMillis() > start + MAX_SERVER_STARTUP_IN_MILLISECONDS) {
 					failTest(testMethod, e);
 				} else {
 					// log that connection timed out, and try again in next iteration
-					System.out.println("Failed to login in " + testMethod
-							+ ", trying again...");
+					System.out.println("Failed to login in " + testMethod+ ", trying again...");
 				}
 			}
 		}
@@ -242,8 +231,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 	private void failTest(String testMethod, Exception e) {
 		serverFailure = true;
-		System.out
-				.println("Test killed due to server failure in " + testMethod);
+		System.out.println("Test killed due to server failure in " + testMethod);
 		ExceptionUtils.printRootCauseStackTrace(e);
 		fail("Test killed due to server failure");
 	}
@@ -266,15 +254,13 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 	public LoginPage goToLoginPage() {
 		LoginPage loginPage = getLoginPage();
 
-		Response response = ClientBuilder.newClient()
-				.target(TestProperties.instance().getWebAppUrl())
+		Response response = ClientBuilder.newClient().target(TestProperties.instance().getWebAppUrl())
 				.path(loginPage.getPageUrl()).request().get();
 
 		int status = response.getStatus();
 
 		if (status >= 400 && status <= 599) {
-			throw new ServerErrorException(response.getStatusInfo()
-					.getReasonPhrase(), status);
+			throw new ServerErrorException(response.getStatusInfo().getReasonPhrase(), status);
 		}
 
 		loginPage.go();
@@ -293,14 +279,9 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 	WebDriver setupFirefoxDriver() {
 		if (StringUtils.isBlank(System.getProperty("webdriver.gecko.driver"))) {
-			System.setProperty(
-					"webdriver.gecko.driver",
-					Thread.currentThread()
-							.getContextClassLoader()
-							.getResource(
-									TestProperties.instance()
-											.getFirefoxDriverLocation())
-							.getPath());
+			System.setProperty("webdriver.gecko.driver", Thread.currentThread()
+							.getContextClassLoader().getResource(TestProperties.
+									instance().getFirefoxDriverLocation()).getPath());
 		}
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
@@ -312,22 +293,18 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 	WebDriver setupChromeDriver() {
 		URL chromedriverExecutable = null;
-		ClassLoader classLoader = Thread.currentThread()
-				.getContextClassLoader();
+		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 
 		String chromedriverExecutableFilename = null;
 		if (SystemUtils.IS_OS_MAC_OSX) {
 			chromedriverExecutableFilename = "chromedriver";
-			chromedriverExecutable = classLoader
-					.getResource("chromedriver/mac/chromedriver");
+			chromedriverExecutable = classLoader.getResource("chromedriver/mac/chromedriver");
 		} else if (SystemUtils.IS_OS_LINUX) {
 			chromedriverExecutableFilename = "chromedriver";
-			chromedriverExecutable = classLoader
-					.getResource("chromedriver/linux/chromedriver");
+			chromedriverExecutable = classLoader.getResource("chromedriver/linux/chromedriver");
 		} else if (SystemUtils.IS_OS_WINDOWS) {
 			chromedriverExecutableFilename = "chromedriver.exe";
-			chromedriverExecutable = classLoader
-					.getResource("chromedriver/windows/chromedriver.exe");
+			chromedriverExecutable = classLoader.getResource("chromedriver/windows/chromedriver.exe");
 		}
 		String errmsg = "cannot find chromedriver executable";
 		String chromedriverExecutablePath = null;
@@ -344,14 +321,11 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 				try {
 					chromedriver_vfs = VFS.getManager().resolveFile(
 							chromedriverExecutable.toExternalForm());
-					File chromedriver_fs = new File(
-							FileUtils.getTempDirectory(),
+					File chromedriver_fs = new File(FileUtils.getTempDirectory(),
 							chromedriverExecutableFilename);
-					FileObject chromedriverUnzipped = VFS.getManager()
-							.toFileObject(chromedriver_fs);
+					FileObject chromedriverUnzipped = VFS.getManager().toFileObject(chromedriver_fs);
 					chromedriverUnzipped.delete();
-					chromedriverUnzipped.copyFrom(chromedriver_vfs,
-							new AllFileSelector());
+					chromedriverUnzipped.copyFrom(chromedriver_vfs, new AllFileSelector());
 					chromedriverExecutablePath = chromedriver_fs.getPath();
 					if (!SystemUtils.IS_OS_WINDOWS) {
 						chromedriver_fs.setExecutable(true);
@@ -372,8 +346,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 			e.printStackTrace();
 		}
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY,
-				chromedriverFilesDir + "/chromedriver-"
-						+ getClass().getSimpleName() + ".log");
+				chromedriverFilesDir + "/chromedriver-" + getClass().getSimpleName() + ".log");
 		ChromeOptions chromeOptions = new ChromeOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
 			chromeOptions.addArguments("--headless");
@@ -394,11 +367,9 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 	public void takeScreenshot(String filename) {
 		if (!isRunningOnSauceLabs() && driver != null) {
-			File tempFile = ((TakesScreenshot) driver)
-					.getScreenshotAs(OutputType.FILE);
+			File tempFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			try {
-				FileUtils.copyFile(tempFile, new File("target/screenshots/"
-						+ filename + ".png"));
+				FileUtils.copyFile(tempFile, new File("target/screenshots/" + filename + ".png"));
 			} catch (IOException e) {
 			}
 		}
@@ -417,8 +388,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 		}
 	}
 
-	public PatientInfo createTestPatient(String patientIdentifierTypeName,
-			String source) {
+	public PatientInfo createTestPatient(String patientIdentifierTypeName, String source) {
 		PatientInfo pi = TestData.generateRandomPatient();
 		String uuid = TestData.createPerson(pi);
 		pi.identifier = createPatient(uuid, patientIdentifierTypeName, source);
@@ -434,8 +404,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 	 */
 	public String createTestLocationTag() {
 		JsonNode responseBody = RestClient.post("/locationtag",
-				new TestData.TestLocationTag("TAG" + TestData.randomSuffix(),
-						"TEST TAG"));
+				new TestData.TestLocationTag("TAG" + TestData.randomSuffix(), "TEST TAG"));
 		return responseBody != null ? responseBody.get("uuid").asText() : null;
 	}
 
@@ -472,8 +441,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 		return driver.findElement(By.id("content")).getText();
 	}
 
-	public EncounterInfo createTestEncounter(String encounterType,
-			PatientInfo patient) {
+	public EncounterInfo createTestEncounter(String encounterType, PatientInfo patient) {
 		EncounterInfo ei = new EncounterInfo();
 		ei.datetime = "2012-01-04"; // arbitrary
 		ei.type = TestData.getEncounterTypeUuid(encounterType);
@@ -503,5 +471,4 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }

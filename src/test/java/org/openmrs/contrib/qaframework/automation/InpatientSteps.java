@@ -79,8 +79,7 @@ public class InpatientSteps extends Steps {
 
 	@When("a user clicks on Trasfer to Ward service button and selects location")
 	public void goToTransferToWardServicePage() {
-		visitsDashboardPage.goToTransferToWardServicePage().confirm(
-				"Isolation Ward");
+		visitsDashboardPage.goToTransferToWardServicePage().confirm("Isolation Ward");
 	}
 
 	@Then("the system confirms trasfer within hospital encounter is made")

@@ -44,8 +44,7 @@ public class VisitTypeListPage extends AdminManagementPage {
 
 	public List<String> getVisitTypeList() {
 		List<String> visitTypeList = new ArrayList<String>();
-		waiter.until(ExpectedConditions
-				.visibilityOfElementLocated(VISIT_TYPE_LIST));
+		waiter.until(ExpectedConditions.visibilityOfElementLocated(VISIT_TYPE_LIST));
 		for (WebElement webElement : findElements(VISIT_TYPE_LIST)) {
 			visitTypeList.add(webElement.getText());
 		}

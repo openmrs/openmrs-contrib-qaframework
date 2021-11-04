@@ -24,9 +24,9 @@ glue = "org.openmrs.contrib.qaframework.automation", plugin = {
 public class RunTest {
 
 	public class HOOK {
-		public static final String SELENIUM = "@selenium";
 		public static final String LOGIN = "@login";
 		public static final String CONDITION = "@condition";
+		public static final String SELENIUM = "@selenium";
 		public static final String DASHBOARD = "@dashboard";
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
@@ -34,11 +34,11 @@ public class RunTest {
 		public static final String POSTGRES_INSTALL = "@postgresInstall";
 		public static final String TESTING_INSTALL = "@testingInstall";
 		public static final String CLINICAL_VISIT = "@clinicalVisit";
-		public static final String REPORT = "@report";
 		public static final String REGISTRATION = "@registration";
 		public static final String USER_ACCOUNT = "@userAccount";
 		public static final String INPATIENT = "@inpatient";
 		public static final String UPGRADE = "@upgrade";
+		public static final String REPORT = "@report";
 		public static final String VITALS = "@vitals";
 		public static final String FIND_PATIENT = "@findPatient";
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;

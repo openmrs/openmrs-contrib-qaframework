@@ -35,6 +35,7 @@ public class AddPastVisitTest extends LocationSensitiveApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void addPastVisitTest() {
+		System.out.println(".... add past visit test.......");
 		FindPatientPage findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.search(testPatient.identifier);
 		ClinicianFacingPatientDashboardPage patientDashboardPage = findPatientPage.clickOnFirstPatient();

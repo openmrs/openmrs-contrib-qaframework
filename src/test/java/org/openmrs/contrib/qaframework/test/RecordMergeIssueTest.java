@@ -28,13 +28,21 @@ import org.openmrs.contrib.qaframework.page.RegistrationPage;
 public class RecordMergeIssueTest extends TestBase {
 	
 	private HomePage homePage;
+	
 	private FindPatientPage findPatientPage;
+	
 	private TestPatient patient;
+	
 	private TestPatient patient1;
+	
 	private RegistrationPage registrationPage;
+	
 	private ClinicianFacingPatientDashboardPage patientDashboardPage;
+	
 	private DataManagementPage dataManagementPage;
+	
 	private String id;
+	
 	private String id2;
 	
 	@Before
@@ -52,6 +60,7 @@ public class RecordMergeIssueTest extends TestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void recordMergeIssueTest() throws Exception {
+		System.out.println(".... Record merge issues test......");
 		homePage.goToRegisterPatientApp().waitForPage();
 		//       Register first patient
 		patient.familyName = "Mike";

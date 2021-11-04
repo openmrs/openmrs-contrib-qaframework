@@ -37,6 +37,7 @@ public class ContactInfoTest extends ReferenceApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void contactInfoTest() throws Exception {
+		System.out.println(".... Contact info.......");
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
 		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();

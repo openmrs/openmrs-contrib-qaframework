@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 import org.openmrs.contrib.qaframework.helper.TestData;
@@ -23,6 +23,7 @@ import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.ManageAppointmentsPage;
 import org.openmrs.contrib.qaframework.page.ManageProviderSchedulesPage;
 
+@Ignore
 public class AddPatientAppointmentTest extends LocationSensitiveApplicationTestBase {
 	
 	private static final String SERVICE_NAME = "Oncology";
@@ -35,9 +36,10 @@ public class AddPatientAppointmentTest extends LocationSensitiveApplicationTestB
 		createTestVisit();
 	}
 	
-	@Test
+	@Ignore
 	@Category(BuildTests.class)
 	public void addPatientAppointmentTest() throws Exception {
+		System.out.println(".... Add appointment test .......");
 		AppointmentSchedulingPage appointmentSchedulingPage = homePage.goToAppointmentScheduling();
 		ManageProviderSchedulesPage manageProviderSchedulesPage = appointmentSchedulingPage.goToManageProviderSchedules();
 		manageProviderSchedulesPage.selectLocation(getLocationName());

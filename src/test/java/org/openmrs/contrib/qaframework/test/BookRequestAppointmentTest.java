@@ -13,6 +13,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -25,6 +26,7 @@ import org.openmrs.contrib.qaframework.page.ManageAppointmentsPage;
 import org.openmrs.contrib.qaframework.page.ManageProviderSchedulesPage;
 import org.openmrs.contrib.qaframework.page.RequestAppointmentPage;
 
+@Ignore
 public class BookRequestAppointmentTest extends LocationSensitiveApplicationTestBase {
 	
 	private static final String SERVICE_NAME = "Oncology";

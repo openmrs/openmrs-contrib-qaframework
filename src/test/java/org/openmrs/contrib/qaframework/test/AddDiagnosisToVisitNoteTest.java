@@ -38,6 +38,7 @@ public class AddDiagnosisToVisitNoteTest extends LocationSensitiveApplicationTes
 	@Test
 	@Category(BuildTests.class)
 	public void addDiagnosisToVisitNoteTest() {
+		System.out.println(".... add diagnosis to visit note test.......");
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
 		

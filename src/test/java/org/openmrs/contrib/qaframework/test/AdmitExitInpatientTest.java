@@ -35,6 +35,7 @@ public class AdmitExitInpatientTest extends ReferenceApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void admitExitInpatientTest() {
+		System.out.println(".... admitpatient.......");
 		FindPatientPage findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();

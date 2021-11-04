@@ -37,6 +37,7 @@ public class CaptureVitalsTest extends LocationSensitiveApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void captureVitalsTest() {
+		System.out.println(".... capture vitals test.......");
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
 		

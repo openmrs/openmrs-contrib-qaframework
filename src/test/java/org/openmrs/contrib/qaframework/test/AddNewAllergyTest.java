@@ -27,6 +27,7 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 public class AddNewAllergyTest extends ReferenceApplicationTestBase {
 	
 	private static final String DRUG_NAME = "Aspirin";
+	
 	private TestData.PatientInfo patient;
 	
 	@Before
@@ -38,6 +39,7 @@ public class AddNewAllergyTest extends ReferenceApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void addNewAllergyTest() {
+		System.out.println(".... add new allergy test.......");
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
 		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();

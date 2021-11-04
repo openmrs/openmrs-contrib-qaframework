@@ -15,7 +15,7 @@ import static org.hamcrest.Matchers.is;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
@@ -27,6 +27,7 @@ import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
 public class EditDemographicTest extends ReferenceApplicationTestBase {
 	
 	private TestData.PatientInfo testPatient;
+	
 	private String prefix;
 	
 	@Before
@@ -35,9 +36,11 @@ public class EditDemographicTest extends ReferenceApplicationTestBase {
 		prefix = RandomStringUtils.randomAlphanumeric(6);
 	}
 	
-	@Test
+	//@Test
+	@Ignore
 	@Category(BuildTests.class)
 	public void editDemographicTest() throws Exception {
+		System.out.println(".... edit demoraphics test.......");
 		FindPatientPage findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(testPatient.identifier);
 		ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage = findPatientPage.clickOnFirstPatient();

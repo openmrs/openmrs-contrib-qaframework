@@ -32,8 +32,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 public class RetireVisitTypeTest extends ReferenceApplicationTestBase {
 	
 	public static final String RETIRE_REASON = "Retire reason";
+	
 	private String visitTypeName;
+	
 	private String visitTypeDesc;
+	
 	private String visitTypeUuid;
 	
 	@Before
@@ -46,6 +49,7 @@ public class RetireVisitTypeTest extends ReferenceApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void retireVisitTypeTest() {
+		System.out.println(".... retire visit type test.......");
 		AdministrationPage administrationPage = homePage.goToAdministration();
 		VisitTypeListPage visitTypeListPage = administrationPage.goToVisitTypePage();
 		VisitTypePage visitTypePage = visitTypeListPage.goToVisitType(visitTypeName);

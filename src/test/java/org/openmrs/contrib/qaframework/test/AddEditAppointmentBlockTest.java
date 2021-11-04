@@ -14,16 +14,20 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 
 public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
 	
 	private final String startTimeFirstAppointment = "09";
+	
 	private String firstAppointment = "Gynecology";
+	
 	private String secondAppointment = "Dermatology";
+	
 	int firstAppointmentIndex = 0;
+	
 	int secondAppointmentIndex = 1;
 	
 	@Before
@@ -34,7 +38,8 @@ public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
 	/*
 	 * @verifies the creation and editing of an appointment 
 	 */
-	@Test
+	//	@Test
+	@Ignore
 	@Category(BuildTests.class)
 	public void addEditAppointmentBlockTest() throws Exception {
 		/*
@@ -44,6 +49,7 @@ public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
 		 * search the newly created service
 		 * delete the appointment
 		*/
+		System.out.println(".... add edit apppointmentBlockTest.......");
 		appointmentBlocksPage.selectLocation(locationName);
 		appointmentBlocksPage.clickOnDay();
 		appointmentBlocksPage.enterStartTime(startTimeFirstAppointment);

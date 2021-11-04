@@ -18,8 +18,8 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class UpgradeSteps extends InitialSetupSteps {
-	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and "
-			+ RunTest.HOOK.UPGRADE)
+	
+	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)
 	public void init() {
 		initialSetup();
 	}
@@ -43,5 +43,4 @@ public class UpgradeSteps extends InitialSetupSteps {
 	public void waitToFinish() {
 		waitForSetupCompletion();
 	}
-
 }

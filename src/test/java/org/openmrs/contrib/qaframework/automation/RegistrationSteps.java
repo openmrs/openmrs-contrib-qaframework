@@ -45,8 +45,7 @@ public class RegistrationSteps extends Steps {
 	@And("User clicks on Registration App")
 	public void visitRegistrationPage() throws InterruptedException {
 		homePage = new HomePage(loginPage);
-		registrationPage = (RegistrationPage) homePage.goToRegisterPatientApp()
-				.waitForPage();
+		registrationPage = (RegistrationPage) homePage.goToRegisterPatientApp().waitForPage();
 	}
 
 	@And("User enters {string} details for John Smith")
@@ -74,12 +73,10 @@ public class RegistrationSteps extends Steps {
 	@Then("User's patient registration is {string}")
 	public void registering(String status) throws InterruptedException {
 		if ("successful".equals(status)) {
-			dashboardPage = (ClinicianFacingPatientDashboardPage) registrationPage
-					.confirmPatient().waitForPage();
+			dashboardPage = (ClinicianFacingPatientDashboardPage) registrationPage.confirmPatient().waitForPage();
 			patient.uuid = dashboardPage.getPatientUuidFromUrl();
 			assertEquals(dashboardPage.getPatientGivenName(), patient.givenName);
-			assertEquals(dashboardPage.getPatientFamilyName(),
-					patient.familyName);
+			assertEquals(dashboardPage.getPatientFamilyName(), patient.familyName);
 			assertNotNull(getElement(By.className("demographics")));
 		} else {
 			assertNotNull(RegistrationPage.FIELD_ERROR);

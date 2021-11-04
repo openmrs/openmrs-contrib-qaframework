@@ -70,8 +70,7 @@ public class LoginPage extends Page {
 			IOUtils.closeQuietly(in);
 		}
 
-		String post = postJs + " post('" + getContextPageUrl()
-				+ "', {username: '" + user + "', password: '" + password;
+		String post = postJs + " post('" + getContextPageUrl() + "', {username: '" + user + "', password: '" + password;
 		if (location != null) {
 			post += "', sessionLocation: " + location + "});";
 		} else {
@@ -81,8 +80,7 @@ public class LoginPage extends Page {
 	}
 
 	public Page login(String user, String password) {
-		String value = findElement(By.cssSelector("#sessionLocation li"))
-				.getAttribute("value");
+		String value = findElement(By.cssSelector("#sessionLocation li")).getAttribute("value");
 		return login(user, password, Integer.parseInt(value));
 	}
 

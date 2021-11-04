@@ -24,8 +24,8 @@ glue = "org.openmrs.contrib.qaframework.automation", plugin = {
 public class RunTest {
 
 	public class HOOK {
-		public static final String SELENIUM = "@selenium";
 		public static final String LOGIN = "@login";
+		public static final String SELENIUM = "@selenium";
 		public static final String DASHBOARD = "@dashboard";
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
@@ -33,31 +33,22 @@ public class RunTest {
 		public static final String POSTGRES_INSTALL = "@postgresInstall";
 		public static final String TESTING_INSTALL = "@testingInstall";
 		public static final String CLINICAL_VISIT = "@clinicalVisit";
-		public static final String REPORT = "@report";
 		public static final String REGISTRATION = "@registration";
 		public static final String USER_ACCOUNT = "@userAccount";
 		public static final String INPATIENT = "@inpatient";
 		public static final String UPGRADE = "@upgrade";
+		public static final String REPORT = "@report";
 		public static final String VITALS = "@vitals";
 		public static final String FIND_PATIENT = "@findPatient";
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
-		public static final String SELENIUM_DASHBOARD = SELENIUM + " and "
-				+ DASHBOARD;
-		public static final String SELENIUM_INITIAL_SETUP = SELENIUM + " and "
-				+ INITIAL_SETUP;
-		public static final String SELENIUM_VITALS = SELENIUM + " and "
-				+ VITALS;
-		public static final String SELENIUM_CLINICAL_VISIT = SELENIUM + " and "
-				+ CLINICAL_VISIT;
-		public static final String SELENIUM_ENCOUNTER = SELENIUM + " and "
-				+ INPATIENT;
-		public static final String SELENIUM_REGISTRATION = SELENIUM + " and "
-				+ REGISTRATION;
-		public static final String SELENIUM_FIND_PATIENT = SELENIUM + " and "
-				+ FIND_PATIENT;
-		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "
-				+ USER_ACCOUNT;
-		public static final String SELENIUM_REPORT = SELENIUM + " and "
-				+ REPORT;
+		public static final String SELENIUM_DASHBOARD = SELENIUM + " and " + DASHBOARD;
+		public static final String SELENIUM_INITIAL_SETUP = SELENIUM + " and " + INITIAL_SETUP;
+		public static final String SELENIUM_VITALS = SELENIUM + " and " + VITALS;
+		public static final String SELENIUM_CLINICAL_VISIT = SELENIUM + " and " + CLINICAL_VISIT;
+		public static final String SELENIUM_ENCOUNTER = SELENIUM + " and " + INPATIENT;
+		public static final String SELENIUM_REGISTRATION = SELENIUM + " and " + REGISTRATION;
+		public static final String SELENIUM_FIND_PATIENT = SELENIUM + " and " + FIND_PATIENT;
+		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and " + USER_ACCOUNT;
+		public static final String SELENIUM_REPORT = SELENIUM + " and " + REPORT;
 	}
 }

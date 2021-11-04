@@ -25,6 +25,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class ConditionsSteps extends Steps {
+	
 	private ConditionsPage conditionsPage;
 	private String patientDashboardId;
 	private By addNewCondition = By.id("conditionui-addNewCondition");
@@ -137,8 +138,7 @@ public class ConditionsSteps extends Steps {
 	@And("User edits active")
 	public void editActive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionPage = (ConditionPage) conditionsPage.editFirstActive()
-					.waitForPage();
+			conditionPage = (ConditionPage) conditionsPage.editFirstActive().waitForPage();
 			conditionPage.clickOnInActive();
 			conditionPage.clickSave();
 			conditionsPage.waitForPage();

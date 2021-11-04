@@ -29,18 +29,15 @@ public class ActiveVisitsPage extends Page {
 	}
 
 	public String getPatientNameOfLastActiveVisit() {
-		return findElement(FIRST_ACTIVE_VISIT).findElements(By.xpath("//td/a"))
-				.get(0).getText().trim();
+		return findElement(FIRST_ACTIVE_VISIT).findElements(By.xpath("//td/a")).get(0).getText().trim();
 	}
 
 	public String getPatientIdOfLastActiveVisit() {
-		return findElement(FIRST_ACTIVE_VISIT).findElements(By.xpath("//td"))
-				.get(0).getText().trim();
+		return findElement(FIRST_ACTIVE_VISIT).findElements(By.xpath("//td")).get(0).getText().trim();
 	}
 
 	public String getPatientLastSeenValueOfLastActiveVisit() {
-		return findElement(FIRST_ACTIVE_VISIT)
-				.findElements(By.xpath("//td[3]")).get(0).getText().trim();
+		return findElement(FIRST_ACTIVE_VISIT).findElements(By.xpath("//td[3]")).get(0).getText().trim();
 	}
 
 	public void search(String text) {
@@ -48,8 +45,7 @@ public class ActiveVisitsPage extends Page {
 	}
 
 	public ClinicianFacingPatientDashboardPage goToPatientDashboardOfLastActiveVisit() {
-		waiter.until(ExpectedConditions
-				.visibilityOfElementLocated(ACTIVE_PATIENT));
+		waiter.until(ExpectedConditions.visibilityOfElementLocated(ACTIVE_PATIENT));
 		clickOn(ACTIVE_PATIENT);
 		return new ClinicianFacingPatientDashboardPage(this);
 	}

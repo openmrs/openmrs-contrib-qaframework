@@ -25,5 +25,4 @@ public class GenericPage extends Page {
 	public String getPageUrl() {
 		return null;
 	}
-
 }

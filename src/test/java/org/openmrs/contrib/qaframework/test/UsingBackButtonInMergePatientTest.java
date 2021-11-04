@@ -4,6 +4,7 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -18,16 +19,23 @@ import org.openmrs.contrib.qaframework.page.RegistrationPage;
 /**
  * Created by sharif, kdaudi
  */
-
+@Ignore
 public class UsingBackButtonInMergePatientTest extends TestBase {
 	
 	private HomePage homePage;
+	
 	private TestPatient patient;
+	
 	private TestPatient patient1;
+	
 	private RegistrationPage registrationPage;
+	
 	private ClinicianFacingPatientDashboardPage patientDashboardPage;
+	
 	private DataManagementPage dataManagementPage;
+	
 	private String id;
+	
 	private String id2;
 	
 	@Before

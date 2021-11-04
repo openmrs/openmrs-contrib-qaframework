@@ -11,6 +11,7 @@ package org.openmrs.contrib.qaframework.test;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -19,9 +20,11 @@ import org.openmrs.contrib.qaframework.helper.RestClient;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ManageLocationsPage;
 
+@Ignore
 public class RetireLocationTest extends ReferenceApplicationTestBase {
 	
 	private String locationName = "TEST" + TestData.randomSuffix();
+	
 	private String locationUuid = null;
 	
 	@Before

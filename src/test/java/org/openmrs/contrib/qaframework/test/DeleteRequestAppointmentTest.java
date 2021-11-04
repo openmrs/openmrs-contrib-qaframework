@@ -15,6 +15,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -24,9 +25,11 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.ManageAppointmentsPage;
 import org.openmrs.contrib.qaframework.page.RequestAppointmentPage;
 
+@Ignore
 public class DeleteRequestAppointmentTest extends LocationSensitiveApplicationTestBase {
 	
 	private static final String SERVICE_NAME = "Oncology";
+	
 	private TestData.PatientInfo patient;
 	
 	@Before

@@ -16,6 +16,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -26,10 +27,13 @@ import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.VisitTypeListPage;
 import org.openmrs.contrib.qaframework.page.VisitTypePage;
 
+@Ignore
 public class DeleteVisitTypeTest extends ReferenceApplicationTestBase {
 	
 	private String visitTypeName;
+	
 	private String visitTypeDesc;
+	
 	private String visitTypeUuid;
 	
 	@Before

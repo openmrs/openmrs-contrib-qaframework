@@ -21,10 +21,13 @@ import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManageUserPage;
 
+@Ignore
 public class AddRolesToUserTest extends ReferenceApplicationTestBase {
 	
 	private static final String NURSE_PASSWORD = "Nurse321";
+	
 	private static final String NURSE_USERNAME = "newNurse" + new Random().nextInt(1024);
+	
 	private void reLoginAsUser() throws InterruptedException {
 		goToLoginPage().login(NURSE_USERNAME, NURSE_PASSWORD);
 	}

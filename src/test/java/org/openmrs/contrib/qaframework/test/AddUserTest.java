@@ -15,6 +15,7 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -25,6 +26,7 @@ import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.ManageUserPage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
+@Ignore
 public class AddUserTest extends ReferenceApplicationTestBase {
 	
 	@Test

@@ -14,6 +14,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -27,6 +28,7 @@ import org.openmrs.contrib.qaframework.page.RegistrationPage;
 /**
  * Test for RA-472
  */
+@Ignore
 public class RegisterUnidentifiedPatientTest extends ReferenceApplicationTestBase {
 	
 	private TestPatient patient;

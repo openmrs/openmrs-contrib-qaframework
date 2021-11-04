@@ -15,6 +15,7 @@ import static org.junit.Assert.assertThat;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -29,6 +30,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 
 /**
  */
+@Ignore
 public class RetireVisitTypeTest extends ReferenceApplicationTestBase {
 	
 	public static final String RETIRE_REASON = "Retire reason";

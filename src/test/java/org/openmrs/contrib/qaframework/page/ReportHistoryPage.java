@@ -11,20 +11,22 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ReportHistoryPage extends Page {
-
+	
 	private static final By VIEW_REPORT = By.cssSelector("#content a[href*='/module/reporting/reports/viewReport.form']");
-
+	
 	public ReportHistoryPage(Page page) {
 		super(page);
 	}
-
+	
 	public RenderDefaultReportPage clickOnViewLink() {
+		waiter.until(ExpectedConditions.elementToBeClickable(VIEW_REPORT));
 		clickOn(VIEW_REPORT);
 		return new RenderDefaultReportPage(this);
 	}
-
+	
 	@Override
 	public String getPageUrl() {
 		return "/reporting/reports/reportHistoryOpen";

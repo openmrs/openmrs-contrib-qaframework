@@ -14,6 +14,7 @@ import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
 
 import org.junit.After;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -24,6 +25,7 @@ import org.openmrs.contrib.qaframework.helper.TestPatient;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
+@Ignore
 public class RegisterPatientTest extends ReferenceApplicationTestBase {
 	
 	private TestPatient patient;

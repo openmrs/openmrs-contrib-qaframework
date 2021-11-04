@@ -14,6 +14,7 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -23,9 +24,11 @@ import org.openmrs.contrib.qaframework.page.DataManagementPage;
 import org.openmrs.contrib.qaframework.page.MergePatientsPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 
+@Ignore
 public class MergePatientTest extends ReferenceApplicationTestBase {
 	
 	TestData.PatientInfo testPatient;
+	
 	TestData.PatientInfo testPatient1;
 	
 	@Before

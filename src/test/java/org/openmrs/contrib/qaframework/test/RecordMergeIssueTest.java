@@ -13,6 +13,7 @@ import static org.junit.Assert.assertFalse;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -25,6 +26,7 @@ import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
+@Ignore
 public class RecordMergeIssueTest extends TestBase {
 	
 	private HomePage homePage;

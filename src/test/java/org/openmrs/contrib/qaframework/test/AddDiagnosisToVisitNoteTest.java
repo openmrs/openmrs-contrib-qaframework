@@ -17,6 +17,7 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -25,6 +26,7 @@ import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.VisitNotePage;
 
+@Ignore
 public class AddDiagnosisToVisitNoteTest extends LocationSensitiveApplicationTestBase {
 	
 	private TestData.PatientInfo patient;

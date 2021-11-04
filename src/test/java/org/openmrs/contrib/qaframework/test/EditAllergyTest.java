@@ -13,6 +13,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -23,11 +24,11 @@ import org.openmrs.contrib.qaframework.page.AddOrEditAllergyPage;
 import org.openmrs.contrib.qaframework.page.AllergyPage;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 
+@Ignore
 public class EditAllergyTest extends ReferenceApplicationTestBase {
 	
 	private static final String DRUG_NAME = "Aspirin";
 	private static final String REACTION_NAME = "Cough";
-
 	private TestData.PatientInfo patient;
 	
 	@Before

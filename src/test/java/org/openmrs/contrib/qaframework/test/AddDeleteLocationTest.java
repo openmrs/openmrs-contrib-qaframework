@@ -18,6 +18,7 @@ import static org.hamcrest.core.IsCollectionContaining.hasItem;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -27,6 +28,7 @@ import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.AddEditLocationPage;
 import org.openmrs.contrib.qaframework.page.ManageLocationsPage;
 
+@Ignore
 public class AddDeleteLocationTest extends ReferenceApplicationTestBase {
 	
 	private String locationTagUuid;

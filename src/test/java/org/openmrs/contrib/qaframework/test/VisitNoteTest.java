@@ -13,6 +13,7 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -24,12 +25,17 @@ import org.openmrs.contrib.qaframework.page.EditVisitNotePage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 import org.openmrs.contrib.qaframework.page.VisitNotePage;
 
+@Ignore
 public class VisitNoteTest extends LocationSensitiveApplicationTestBase {
 	
 	private static final String DIAGNOSIS_PRIMARY = "Gum Cancer";
+	
 	private static final String DIAGNOSIS_SECONDARY = "Malaria";
+	
 	private static final String DIAGNOSIS_SECONDARY_UPDATED = "Pneumonia";
+	
 	private PatientVisitsDashboardPage patientVisitsDashboardPage;
+	
 	private PatientInfo patient;
 	
 	@Before

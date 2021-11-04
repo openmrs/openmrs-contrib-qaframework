@@ -18,6 +18,7 @@ import org.junit.Ignore;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 
+@Ignore
 public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
 	
 	private final String startTimeFirstAppointment = "09";

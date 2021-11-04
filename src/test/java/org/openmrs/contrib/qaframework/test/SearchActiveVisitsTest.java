@@ -15,6 +15,7 @@ import static org.junit.Assert.assertThat;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -22,6 +23,7 @@ import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 
+@Ignore
 public class SearchActiveVisitsTest extends ReferenceApplicationTestBase {
 	
 	TestData.PatientInfo patient;

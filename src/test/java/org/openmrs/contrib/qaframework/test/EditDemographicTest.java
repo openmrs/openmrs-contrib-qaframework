@@ -24,6 +24,7 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
 
+@Ignore
 public class EditDemographicTest extends ReferenceApplicationTestBase {
 	
 	private TestData.PatientInfo testPatient;

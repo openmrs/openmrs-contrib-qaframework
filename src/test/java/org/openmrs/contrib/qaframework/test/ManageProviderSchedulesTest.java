@@ -27,13 +27,9 @@ import org.openmrs.contrib.qaframework.page.HomePage;
 public class ManageProviderSchedulesTest extends ReferenceApplicationTestBase {
 	
 	protected HomePage homePage;
-	
 	protected AppointmentBlocksPage appointmentBlocksPage;
-	
 	protected String locationName;
-	
 	protected String locationUuid;
-	
 	protected String provider;
 	
 	@Before

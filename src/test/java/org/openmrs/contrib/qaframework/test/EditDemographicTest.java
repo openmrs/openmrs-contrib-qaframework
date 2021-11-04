@@ -27,7 +27,6 @@ import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
 public class EditDemographicTest extends ReferenceApplicationTestBase {
 	
 	private TestData.PatientInfo testPatient;
-	
 	private String prefix;
 	
 	@Before

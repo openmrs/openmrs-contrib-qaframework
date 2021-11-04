@@ -16,7 +16,7 @@ import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
 /**
- * Created by nata on 24.07.15.
+ * Created by sharif, kdaudi
  */
 
 public class UsingBackButtonInMergePatientTest extends TestBase {

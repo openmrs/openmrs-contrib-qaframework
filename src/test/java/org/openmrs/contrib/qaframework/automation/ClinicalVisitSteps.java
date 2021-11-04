@@ -202,7 +202,6 @@ public class ClinicalVisitSteps extends Steps {
 	@And("a user clicks on save condition button")
 	public void saveCondition() {
 		conditionPage.clickSave();
-		conditionPage.waitForPage();
 	}
 
 	@Then("the system adds New Condition in Conditions table")

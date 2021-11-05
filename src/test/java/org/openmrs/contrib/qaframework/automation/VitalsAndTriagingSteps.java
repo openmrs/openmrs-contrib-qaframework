@@ -11,10 +11,12 @@ package org.openmrs.contrib.qaframework.automation;
 
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.EditVitalsPage;
 import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.PatientCaptureVitalsPage;
 
@@ -29,6 +31,7 @@ public class VitalsAndTriagingSteps extends Steps {
 
 	private PatientCaptureVitalsPage patientCaptureVitalsPage;
 	private TestData.PatientInfo testPatient;
+	private EditVitalsPage editVitalsPage;
 
 	@Before(RunTest.HOOK.SELENIUM_VITALS)
 	public void visitPatientDashboard() {
@@ -38,7 +41,7 @@ public class VitalsAndTriagingSteps extends Steps {
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
 		dashboardPage = findPatientPage.clickOnFirstPatient();
-		dashboardPage.startVisit().waitForPage();
+		visitsDashboardPage = dashboardPage.startVisit();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_VITALS)
@@ -135,6 +138,41 @@ public class VitalsAndTriagingSteps extends Steps {
 
 	@Then("the system adds patient vitals into the vitals table")
 	public void systemAddsPatientVitals() {
-		assertTrue(patientCaptureVitalsPage.containsText("Vitals"));
+		assertNotNull(visitsDashboardPage.getEncountersCount());
+	}
+	
+	@When("a user clicks on edit vitals icon from patient visits dashboard")
+	public void loadEditVitalsPage() {
+		editVitalsPage = (EditVitalsPage) visitsDashboardPage.goToEditVitalsPage().waitForPage();
+	}
+	
+	@And("the system loads the edit vitals page")
+	public void systemloadsEditPatientVitalsPage() {
+		assertTrue(textExists("Edit: Vitals"));
+	}
+	
+	@And("a user edits existing vitals")
+	public void editPatientVitals() {
+		editVitalsPage.clearPatientHeight();
+		editVitalsPage.setHeightField("187");
+		editVitalsPage.clearPatientWeight();
+		editVitalsPage.setWeightField("80");
+		editVitalsPage.clearPatientTemperature();
+		editVitalsPage.setTemperatureField("30");
+		editVitalsPage.clearPatientPulse();
+		editVitalsPage.setPulseField("90");
+		editVitalsPage.clearPatientRespiratoryRate();
+		editVitalsPage.setRespiratoryField("70");
+		editVitalsPage.clearPatientBloodPressure1();
+		editVitalsPage.clearPatientBloodPressure2();
+		editVitalsPage.setBloodPressureFields("122", "100");
+		editVitalsPage.clearPatientBloodOxygenSaturation();
+		editVitalsPage.setBloodOxygenSaturationField("89");
+	}
+	
+	@And("a user clicks on the save changes button")
+	public void saveUpdatedVitals() {
+		editVitalsPage.saveChanges();
+		editVitalsPage.waitForPage();
 	}
 }

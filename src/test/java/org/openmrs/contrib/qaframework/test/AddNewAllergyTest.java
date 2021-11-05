@@ -14,7 +14,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -25,7 +24,6 @@ import org.openmrs.contrib.qaframework.page.AddOrEditAllergyPage;
 import org.openmrs.contrib.qaframework.page.AllergyPage;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 
-@Ignore
 public class AddNewAllergyTest extends ReferenceApplicationTestBase {
 	
 	private static final String DRUG_NAME = "Aspirin";
@@ -41,7 +39,6 @@ public class AddNewAllergyTest extends ReferenceApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void addNewAllergyTest() {
-		System.out.println(".... add new allergy test.......");
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
 		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();

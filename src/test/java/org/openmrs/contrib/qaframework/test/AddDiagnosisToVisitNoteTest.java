@@ -17,7 +17,6 @@ import java.util.List;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -26,7 +25,6 @@ import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.VisitNotePage;
 
-@Ignore
 public class AddDiagnosisToVisitNoteTest extends LocationSensitiveApplicationTestBase {
 	
 	private TestData.PatientInfo patient;
@@ -40,7 +38,6 @@ public class AddDiagnosisToVisitNoteTest extends LocationSensitiveApplicationTes
 	@Test
 	@Category(BuildTests.class)
 	public void addDiagnosisToVisitNoteTest() {
-		System.out.println(".... add diagnosis to visit note test.......");
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
 		

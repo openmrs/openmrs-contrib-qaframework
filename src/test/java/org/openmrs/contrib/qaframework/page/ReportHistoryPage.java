@@ -11,7 +11,6 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ReportHistoryPage extends Page {
 	
@@ -26,13 +25,11 @@ public class ReportHistoryPage extends Page {
 	public RenderDefaultReportPage clickOnViewLink() {
 		if (driver.findElement(ERROR_DETAILS).isDisplayed()) {
 			clickOn(VIEW_LOG);
+		} else {
+			clickOn(VIEW_REPORT);
+			return new RenderDefaultReportPage(this);
 		}
-		else {
-		waiter.until(ExpectedConditions.visibilityOfElementLocated(VIEW_REPORT));
-		clickOn(VIEW_REPORT);
-		return new RenderDefaultReportPage(this);
-		}
-	   return new RenderDefaultReportPage(this);
+		return null;
 	}
 	
 	@Override

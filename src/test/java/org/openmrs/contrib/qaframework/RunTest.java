@@ -16,7 +16,7 @@ import io.cucumber.junit.CucumberOptions;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-// defining ordered by name features folder
+// defining features files folder
 features = {"src/test/resources/features"},
 // defining the definition steps package
 glue = "org.openmrs.contrib.qaframework.automation", plugin = {

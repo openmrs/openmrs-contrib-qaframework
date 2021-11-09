@@ -24,7 +24,6 @@ import org.openmrs.contrib.qaframework.page.EditVisitNotePage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 import org.openmrs.contrib.qaframework.page.VisitNotePage;
 
-
 public class VisitNoteTest extends LocationSensitiveApplicationTestBase {
 	
 	private static final String DIAGNOSIS_PRIMARY = "Gum Cancer";

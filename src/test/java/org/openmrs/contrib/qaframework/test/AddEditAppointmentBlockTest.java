@@ -14,7 +14,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -25,7 +24,6 @@ public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
 	private String firstAppointment = "Gynecology";
 	private String secondAppointment = "Dermatology";
 	int firstAppointmentIndex = 0;
-	
 	int secondAppointmentIndex = 1;
 	
 	@Before

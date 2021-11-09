@@ -42,14 +42,11 @@ public class AddNewAllergyTest extends ReferenceApplicationTestBase {
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
 		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
-		
 		AllergyPage allergyPage = patientDashboardPage.clickOnAllergiesWidgetLink();
-		
 		AddOrEditAllergyPage addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
 		addOrEditAllergyPage.enterDrug(DRUG_NAME);
 		addOrEditAllergyPage.drugId();
 		allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
-		
 		assertTrue(allergyPage.getAllergen().contains(DRUG_NAME));
 	}
 	

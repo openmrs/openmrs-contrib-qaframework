@@ -38,7 +38,6 @@ public class AddPatientAppointmentTest extends LocationSensitiveApplicationTestB
 	@Test
 	@Category(BuildTests.class)
 	public void addPatientAppointmentTest() throws Exception {
-		
 		AppointmentSchedulingPage appointmentSchedulingPage = homePage.goToAppointmentScheduling();
 		ManageProviderSchedulesPage manageProviderSchedulesPage = appointmentSchedulingPage.goToManageProviderSchedules();
 		manageProviderSchedulesPage.selectLocation(getLocationName());

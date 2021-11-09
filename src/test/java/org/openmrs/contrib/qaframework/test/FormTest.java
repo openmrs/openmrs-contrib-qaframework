@@ -25,10 +25,6 @@ import org.openmrs.contrib.qaframework.page.ManageFormsPage;
 import org.openmrs.contrib.qaframework.page.ManageHtmlFormsPage;
 import org.openqa.selenium.By;
 
-/**
- * Created by sharif
- */
-
 public class FormTest extends TestBase {
 	
 	private static String name = "newFormTest1";

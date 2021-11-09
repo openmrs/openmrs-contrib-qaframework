@@ -13,6 +13,3 @@ node_modules/
 openmrs.log
 .classpath
 .DS_Store
-/.apt_generated/
-/.apt_generated_tests/
-/bin/

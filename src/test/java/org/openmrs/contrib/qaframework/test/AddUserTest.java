@@ -40,7 +40,6 @@ public class AddUserTest extends ReferenceApplicationTestBase {
 			addEditUserPage.saveUser();
 			assertTrue(addEditUserPage.containsText("You must define at least one name"));
 			assertTrue(addEditUserPage.containsText("Cannot be empty or null"));
-			
 			addEditUserPage.enterGivenFamily("Super", "Nurse");
 			addEditUserPage.saveUser();
 			addEditUserPage.clickOnFemale();
@@ -48,7 +47,6 @@ public class AddUserTest extends ReferenceApplicationTestBase {
 			addEditUserPage.saveUser();
 			addEditUserPage.enterUsernamePassword("super_nurse", "Nurse123", "Nurse123");
 			addEditUserPage.saveUser();
-			
 			manageUserPage.waitForPage();
 			assertTrue(manageUserPage.getUserSavedNotification().contains("User Saved"));
 			

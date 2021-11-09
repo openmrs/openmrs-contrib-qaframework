@@ -9,4 +9,7 @@ Feature: Patient Search
     Examples:
       | patientName | result           |
       | Kevin Jones | Found 1 patient  |
-      | 100MQ       | No results found |
+      | Eward       | Found 10 patients  |
+      | James Smith Eldoret | Found 3 patients |
+      | D2 | Found 1 patient |
+      | 107L6E | Found 1 patient |

@@ -51,9 +51,7 @@ public class ConditionsSteps extends Steps {
     
 	@Given("User clicks on Conditions from Patient dashboard")
 	public void launchManageConditions() {
-		patientDashboardId = getElement(patientHeaderId).getText();
 		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
-		matchPatientIds(patientDashboardId);
 	}
 
 	@Then("System loads Manage Conditions Page")

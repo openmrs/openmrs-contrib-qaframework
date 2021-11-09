@@ -14,16 +14,13 @@ import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
 import org.openmrs.contrib.qaframework.helper.RestClient;
 import org.openmrs.contrib.qaframework.helper.TestData;
 
-@Ignore
 public class LocationSensitiveApplicationTestBase extends ReferenceApplicationTestBase {
 	
 	private String locationUuid;
-	
 	private String locationName;
 	
 	@Before

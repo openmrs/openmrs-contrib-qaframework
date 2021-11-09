@@ -11,7 +11,6 @@ package org.openmrs.contrib.qaframework.test;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -22,11 +21,10 @@ import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManagePersonPage;
 import org.openmrs.contrib.qaframework.page.PersonFormPage;
 
-@Ignore
+
 public class RetirePersonTest extends ReferenceApplicationTestBase {
 	
 	private String personUuid;
-	
 	private TestData.PersonInfo personInfo;
 	
 	@Before

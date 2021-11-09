@@ -10,12 +10,8 @@
 
 package org.openmrs.contrib.qaframework.test;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.List;
-
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -26,7 +22,6 @@ import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.ManageUserPage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
-@Ignore
 public class AddUserTest extends ReferenceApplicationTestBase {
 	
 	@Test
@@ -43,23 +38,16 @@ public class AddUserTest extends ReferenceApplicationTestBase {
 			addEditUserPage.createNewPerson();
 			
 			addEditUserPage.saveUser();
-			List<String> validationErrors = addEditUserPage.getValidationErrors();
-			assertTrue(validationErrors.contains("You must define at least one name"));
-			assertTrue(validationErrors.contains("Cannot be empty or null"));
-			assertFalse(addEditUserPage.isDataCorrect(validationErrors));
+			assertTrue(addEditUserPage.containsText("You must define at least one name"));
+			assertTrue(addEditUserPage.containsText("Cannot be empty or null"));
 			
 			addEditUserPage.enterGivenFamily("Super", "Nurse");
 			addEditUserPage.saveUser();
-			validationErrors = addEditUserPage.getValidationErrors();
-			assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-			
 			addEditUserPage.clickOnFemale();
 			addEditUserPage.enterUsernamePassword("super_nurse", "supernurse", "supernurse123");
 			addEditUserPage.saveUser();
-			assertFalse(addEditUserPage.isDataCorrect(validationErrors));
 			addEditUserPage.enterUsernamePassword("super_nurse", "Nurse123", "Nurse123");
 			addEditUserPage.saveUser();
-			assertFalse(addEditUserPage.isDataCorrect(validationErrors));
 			
 			manageUserPage.waitForPage();
 			assertTrue(manageUserPage.getUserSavedNotification().contains("User Saved"));

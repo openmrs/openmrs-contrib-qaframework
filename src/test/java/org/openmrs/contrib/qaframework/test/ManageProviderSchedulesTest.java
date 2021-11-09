@@ -25,17 +25,13 @@ import org.openmrs.contrib.qaframework.page.HomePage;
  * Other possibilities are Rules or extending TestSetup. The latter possibilities might be applied
  * in future if the test code become hard to maintain/read
  */
-@Ignore
+
 public class ManageProviderSchedulesTest extends ReferenceApplicationTestBase {
 	
 	protected HomePage homePage;
-	
 	protected AppointmentBlocksPage appointmentBlocksPage;
-	
 	protected String locationName;
-	
 	protected String locationUuid;
-	
 	protected String provider;
 	
 	@Before

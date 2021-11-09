@@ -13,7 +13,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -27,10 +26,9 @@ import org.openmrs.contrib.qaframework.page.ManageHtmlFormsPage;
 import org.openqa.selenium.By;
 
 /**
- * Created by nata on 24.06.15.
+ * Created by sharif
  */
 
-@Ignore
 public class FormTest extends TestBase {
 	
 	private static String name = "newFormTest1";

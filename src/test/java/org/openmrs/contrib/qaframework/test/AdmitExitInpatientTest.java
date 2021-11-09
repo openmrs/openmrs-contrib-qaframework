@@ -14,7 +14,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -23,7 +22,6 @@ import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 
-@Ignore
 public class AdmitExitInpatientTest extends ReferenceApplicationTestBase {
 	
 	private static final String INPATIENT_WARD = "Inpatient Ward";
@@ -38,7 +36,6 @@ public class AdmitExitInpatientTest extends ReferenceApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void admitExitInpatientTest() {
-		System.out.println(".... admitpatient.......");
 		FindPatientPage findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();

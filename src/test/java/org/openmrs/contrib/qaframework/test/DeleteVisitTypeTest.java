@@ -31,9 +31,7 @@ import org.openmrs.contrib.qaframework.page.VisitTypePage;
 public class DeleteVisitTypeTest extends ReferenceApplicationTestBase {
 	
 	private String visitTypeName;
-	
 	private String visitTypeDesc;
-	
 	private String visitTypeUuid;
 	
 	@Before

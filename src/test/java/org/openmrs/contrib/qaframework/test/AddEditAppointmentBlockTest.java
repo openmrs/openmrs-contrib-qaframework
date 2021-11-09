@@ -46,7 +46,6 @@ public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
 		 * search the newly created service
 		 * delete the appointment
 		*/
-		System.out.println(".... add edit apppointmentBlockTest.......");
 		appointmentBlocksPage.selectLocation(locationName);
 		appointmentBlocksPage.clickOnDay();
 		appointmentBlocksPage.enterStartTime(startTimeFirstAppointment);

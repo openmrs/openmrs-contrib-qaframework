@@ -14,7 +14,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -24,7 +23,6 @@ import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
 
-@Ignore
 public class ContactInfoTest extends ReferenceApplicationTestBase {
 	
 	private static final String VISIT_TYPE_UUID = "7b0f5697-27e3-40c4-8bae-f4049abfb4ed";
@@ -40,7 +38,6 @@ public class ContactInfoTest extends ReferenceApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void contactInfoTest() throws Exception {
-		System.out.println(".... Contact info.......");
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
 		ClinicianFacingPatientDashboardPage patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();

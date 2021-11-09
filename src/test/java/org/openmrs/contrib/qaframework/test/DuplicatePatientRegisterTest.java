@@ -20,7 +20,6 @@ import java.util.Date;
 import org.hamcrest.Matchers;
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -31,7 +30,6 @@ import org.openmrs.contrib.qaframework.helper.TestPatient;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
-@Ignore
 public class DuplicatePatientRegisterTest extends ReferenceApplicationTestBase {
 	
 	private TestPatient patient;

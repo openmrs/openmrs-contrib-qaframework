@@ -19,23 +19,16 @@ import org.openmrs.contrib.qaframework.page.RegistrationPage;
 /**
  * Created by sharif, kdaudi
  */
-@Ignore
+
 public class UsingBackButtonInMergePatientTest extends TestBase {
 	
 	private HomePage homePage;
-	
 	private TestPatient patient;
-	
 	private TestPatient patient1;
-	
 	private RegistrationPage registrationPage;
-	
 	private ClinicianFacingPatientDashboardPage patientDashboardPage;
-	
 	private DataManagementPage dataManagementPage;
-	
 	private String id;
-	
 	private String id2;
 	
 	@Before

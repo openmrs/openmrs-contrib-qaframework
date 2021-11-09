@@ -13,7 +13,6 @@ import static org.junit.Assert.assertNotNull;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -22,7 +21,6 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 
-@Ignore
 public class StartVisitTest extends LocationSensitiveApplicationTestBase {
 	
 	private TestData.PatientInfo patient;
@@ -35,7 +33,6 @@ public class StartVisitTest extends LocationSensitiveApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void startVisitTest() {
-		System.out.println(".... start visit test.......");
 		FindPatientPage findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(patient.identifier);
 		ClinicianFacingPatientDashboardPage clinicianFacingPatientDashboardPage = findPatientPage.clickOnFirstPatient();

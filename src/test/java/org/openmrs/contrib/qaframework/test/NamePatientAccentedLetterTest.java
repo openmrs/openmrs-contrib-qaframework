@@ -13,7 +13,6 @@ import static org.junit.Assert.assertThat;
 
 import org.hamcrest.Matchers;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -26,7 +25,6 @@ import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
 import io.cucumber.java.After;
 
-@Ignore
 public class NamePatientAccentedLetterTest extends ReferenceApplicationTestBase {
 	
 	private TestPatient patient;

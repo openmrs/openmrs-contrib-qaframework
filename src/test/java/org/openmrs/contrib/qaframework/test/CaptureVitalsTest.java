@@ -11,7 +11,6 @@ package org.openmrs.contrib.qaframework.test;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -20,7 +19,6 @@ import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.PatientCaptureVitalsPage;
 
-@Ignore
 public class CaptureVitalsTest extends LocationSensitiveApplicationTestBase {
 	
 	private TestData.PatientInfo patient;
@@ -39,7 +37,6 @@ public class CaptureVitalsTest extends LocationSensitiveApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void captureVitalsTest() {
-		System.out.println(".... capture vitals test.......");
 		ActiveVisitsPage activeVisitsPage = homePage.goToActiveVisitsSearch();
 		activeVisitsPage.search(patient.identifier);
 		

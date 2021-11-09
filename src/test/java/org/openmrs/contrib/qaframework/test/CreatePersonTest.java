@@ -11,10 +11,10 @@ package org.openmrs.contrib.qaframework.test;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -24,13 +24,11 @@ import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManagePersonPage;
 import org.openmrs.contrib.qaframework.page.PersonFormPage;
 
-@Ignore
+
 public class CreatePersonTest extends ReferenceApplicationTestBase {
 	
 	private String personName;
-	
 	private String personAge;
-	
 	private String personFamilyName;
 	
 	@Before
@@ -47,7 +45,9 @@ public class CreatePersonTest extends ReferenceApplicationTestBase {
 		ManagePersonPage managePersonPage = administrationPage.clickOnManagePersons();
 		AddPersonPage personPage = managePersonPage.createPerson();
 		personPage.createPerson();
-		assertThat(personPage.getValidationErrors().size(), is(3));
+		assertTrue(personPage.containsText("Please select a name"));
+		assertTrue(personPage.containsText("Please select a valid birthdate or age"));
+		assertTrue(personPage.containsText("Please select a gender"));
 		personPage.setPersonName(personName);
 		personPage.setAge(personAge);
 		personPage.clickGenderMale();

@@ -11,14 +11,12 @@ package org.openmrs.contrib.qaframework.test;
 
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
 import org.openmrs.contrib.qaframework.page.HomePage;
 
-@Ignore
 public class LoginTest extends ReferenceApplicationTestBase {
 	
 	private HomePage homePage;

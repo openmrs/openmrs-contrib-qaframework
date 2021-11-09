@@ -15,18 +15,15 @@ import static org.junit.Assert.assertTrue;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
+import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 
-@Ignore
 public class DeleteAppointmentBlockTest extends ManageProviderSchedulesTest {
 	
 	int firstAppointmentIndex = 0;
-	
 	private String correctStartTimeFirtAppointment = "08";
-	
 	private String outboundStartTime = "30";
-	
 	private String firstAppointment = "Gynecology";
 	
 	@Before
@@ -37,8 +34,7 @@ public class DeleteAppointmentBlockTest extends ManageProviderSchedulesTest {
 	/*
 	 * @verifies creation and delete of an appointment
 	 */
-	//@Test
-	@Ignore
+	@Test
 	@Category(BuildTests.class)
 	public void deleteAppointmentBlockTest() throws Exception {
 		

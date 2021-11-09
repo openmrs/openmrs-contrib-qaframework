@@ -13,7 +13,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -25,15 +24,12 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
-@Ignore
+
 public class UnidentifiedPatientKeyboardTest extends TestBase {
 	
 	private RegistrationPage registrationPage;
-	
 	private HomePage homePage;
-	
 	private ClinicianFacingPatientDashboardPage patientDashboardPage;
-	
 	private TestPatient patient;
 	
 	@Before

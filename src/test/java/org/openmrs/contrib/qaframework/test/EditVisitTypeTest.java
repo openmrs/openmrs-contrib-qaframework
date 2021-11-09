@@ -26,13 +26,10 @@ import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.VisitTypeListPage;
 import org.openmrs.contrib.qaframework.page.VisitTypePage;
 
-@Ignore
 public class EditVisitTypeTest extends ReferenceApplicationTestBase {
 	
 	private String visitTypeName;
-	
 	private String visitTypeDesc;
-	
 	private String visitTypeUuid;
 	
 	@Before

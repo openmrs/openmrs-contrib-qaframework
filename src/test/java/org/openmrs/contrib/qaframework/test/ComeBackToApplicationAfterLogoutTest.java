@@ -10,13 +10,11 @@
 
 package org.openmrs.contrib.qaframework.test;
 
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
 
-@Ignore
 public class ComeBackToApplicationAfterLogoutTest extends ReferenceApplicationTestBase {
 	
 	@Test

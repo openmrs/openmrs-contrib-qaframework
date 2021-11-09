@@ -11,10 +11,10 @@ package org.openmrs.contrib.qaframework.test;
 
 import static org.hamcrest.CoreMatchers.hasItem;
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -23,7 +23,6 @@ import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.VisitTypeListPage;
 import org.openmrs.contrib.qaframework.page.VisitTypePage;
 
-@Ignore
 public class AddVisitTypeTest extends ReferenceApplicationTestBase {
 	
 	private String visitTypeName;
@@ -43,7 +42,7 @@ public class AddVisitTypeTest extends ReferenceApplicationTestBase {
 		VisitTypeListPage visitTypeListPage = administrationPage.goToVisitTypePage();
 		VisitTypePage visitTypePage = visitTypeListPage.addVisitType();
 		visitTypePage.save();
-		assertThat(visitTypePage.getValidationErrors(), hasItem("Invalid name"));
+		assertTrue(visitTypePage.containsText("Invalid name"));
 		visitTypePage.setName(visitTypeName);
 		visitTypePage.setDescription(visitTypeDesc);
 		visitTypeListPage = visitTypePage.save();

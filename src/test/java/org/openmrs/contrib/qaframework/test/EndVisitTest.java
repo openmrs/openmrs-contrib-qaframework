@@ -13,7 +13,6 @@ import static org.junit.Assert.assertNull;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -22,7 +21,6 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 
-@Ignore
 public class EndVisitTest extends LocationSensitiveApplicationTestBase {
 	
 	private TestData.PatientInfo patient;

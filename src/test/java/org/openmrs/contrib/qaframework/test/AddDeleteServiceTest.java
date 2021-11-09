@@ -14,7 +14,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
@@ -23,13 +22,10 @@ import org.openmrs.contrib.qaframework.page.AppointmentSchedulingPage;
 import org.openmrs.contrib.qaframework.page.ManageServiceTypesPage;
 import org.openmrs.contrib.qaframework.page.ServicePage;
 
-@Ignore
 public class AddDeleteServiceTest extends ReferenceApplicationTestBase {
 	
 	private String name;
-	
 	private String duration;
-	
 	private String description;
 	
 	@Before
@@ -42,7 +38,6 @@ public class AddDeleteServiceTest extends ReferenceApplicationTestBase {
 	@Test
 	@Category(BuildTests.class)
 	public void addDeleteServiceTest() {
-		System.out.println(".... add delete servive test.......");
 		AppointmentSchedulingPage appointmentSchedulingPage = homePage.goToAppointmentScheduling();
 		ManageServiceTypesPage manageServiceTypesPage = appointmentSchedulingPage.goToManageServices();
 		ServicePage servicePage = manageServiceTypesPage.clickOnNewServiceType();

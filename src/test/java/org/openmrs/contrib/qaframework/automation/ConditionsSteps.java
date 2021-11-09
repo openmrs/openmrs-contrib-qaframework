@@ -15,9 +15,10 @@ import static org.junit.Assert.assertNull;
 import org.apache.commons.lang3.StringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
-import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
+import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.ConditionPage;
 import org.openmrs.contrib.qaframework.page.ConditionsPage;
+import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openqa.selenium.By;
 
 import io.cucumber.java.After;
@@ -25,10 +26,8 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 public class ConditionsSteps extends Steps {
-    private ActiveVisitsPage activeVisitsPage;
     private ConditionsPage conditionsPage;
     private String patientDashboardId;
     private By addNewCondition = By.id("conditionui-addNewCondition");
@@ -39,8 +38,9 @@ public class ConditionsSteps extends Steps {
     public void visitDashboard() {
         testPatient = createTestPatient();
         initiateWithLogin();
-        new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(),
-                getLocationUuid(homePage)).create();
+        findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
+        findPatientPage.enterPatient(testPatient.identifier);
+        dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage.clickOnFirstPatient().waitForPage();
     }
  
     @After(RunTest.HOOK.SELENIUM_CONDITION)
@@ -48,28 +48,13 @@ public class ConditionsSteps extends Steps {
         deletePatient(testPatient);
         quit();
     }
- 
-    @Given("a user clicks on the active visits link from home page")
-    public void launchPatient_DashboardActiveVisits() {
-        activeVisitsPage = homePage.goToActiveVisitsSearch();
-    }
- 
-    @When("a user selects a patient from the active patient list")
-    public void searchActive_Patient() {
-        activeVisitsPage.search(testPatient.identifier);
-    }
- 
-    @Then("the system loads the Patient dashboard page")
-    public void launchPatient_DashboardPage() {
-        dashboardPage = activeVisitsPage
-                .goToPatientDashboardOfLastActiveVisit();
-    }
- 
-    @When("a user clicks on Conditions from Patient dashboard")
-    public void launchManageConditions() {
-        conditionsPage = (ConditionsPage) dashboardPage
-                .clickOnConditionsWidgetLink().waitForPage();
-    }
+    
+	@Given("User clicks on Conditions from Patient dashboard")
+	public void launchManageConditions() {
+		patientDashboardId = getElement(patientHeaderId).getText();
+		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
+		matchPatientIds(patientDashboardId);
+	}
 
 	@Then("System loads Manage Conditions Page")
 	public void systemLoadsManageConditions() {
@@ -165,7 +150,6 @@ public class ConditionsSteps extends Steps {
 			conditionPage = conditionsPage.editFirstActive();
 			conditionPage.clickOnInActive();
 			conditionPage.clickSave();
-			conditionsPage.waitForPage();
 		}
 	}
 
@@ -175,7 +159,6 @@ public class ConditionsSteps extends Steps {
 			conditionPage = conditionsPage.editFirstInActive();
 			conditionPage.clickOnActive();
 			conditionPage.clickSave();
-			conditionsPage.waitForPage();
 		}
 	}
 
@@ -213,13 +196,13 @@ public class ConditionsSteps extends Steps {
 	public void SuccessfulDeletion() {
 		String name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {
-			assertNull(driver.findElement(By.linkText(name)));
+			assertNull(driver.findElement(By.xpath(name)));
 		}
 
 		conditionsPage.clickInActiveTab();
 		name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {
-			assertNull(driver.findElement(By.linkText(name)));
+			assertNull(driver.findElement(By.xpath(name)));
 		}
 	}
 }

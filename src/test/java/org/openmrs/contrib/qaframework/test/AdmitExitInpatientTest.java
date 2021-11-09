@@ -40,11 +40,8 @@ public class AdmitExitInpatientTest extends ReferenceApplicationTestBase {
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
 		PatientVisitsDashboardPage patientVisitsDashboardPage = findPatientPage.clickOnFirstPatient().startVisit();
-		
-		patientVisitsDashboardPage = (PatientVisitsDashboardPage) patientVisitsDashboardPage.goToAdmitToInpatient()
-		        .confirm(INPATIENT_WARD);
+		patientVisitsDashboardPage = (PatientVisitsDashboardPage) patientVisitsDashboardPage.goToAdmitToInpatient().confirm(INPATIENT_WARD);
 		assertThat(patientVisitsDashboardPage.getEncountersCount(), is(1));
-		
 		patientVisitsDashboardPage.goToExitFromInpatient().confirm(INPATIENT_WARD);
 		assertThat(patientVisitsDashboardPage.getEncountersCount(), is(2));
 	}

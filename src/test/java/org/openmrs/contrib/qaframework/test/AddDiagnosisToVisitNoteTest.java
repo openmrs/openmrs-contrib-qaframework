@@ -30,7 +30,7 @@ public class AddDiagnosisToVisitNoteTest extends LocationSensitiveApplicationTes
 	private TestData.PatientInfo patient;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		patient = createTestPatient();
 		createTestVisit();
 	}

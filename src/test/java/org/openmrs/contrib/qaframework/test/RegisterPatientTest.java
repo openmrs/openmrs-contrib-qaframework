@@ -36,7 +36,6 @@ public class RegisterPatientTest extends ReferenceApplicationTestBase {
 		waitForPatientDeletion(patient.uuid);
 	}
 	
-	// Test for Story RA-71
 	@Test
 	@Category(BuildTests.class)
 	public void registerPatientTest() throws InterruptedException {

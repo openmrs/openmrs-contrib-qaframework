@@ -24,11 +24,10 @@ import org.openmrs.contrib.qaframework.page.PersonFormPage;
 public class DeletePersonTest extends ReferenceApplicationTestBase {
 	
 	private String personUuid;
-	
 	private TestData.PersonInfo personInfo;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		personInfo = TestData.generateRandomPerson();
 		personUuid = TestData.createPerson(personInfo);
 	}

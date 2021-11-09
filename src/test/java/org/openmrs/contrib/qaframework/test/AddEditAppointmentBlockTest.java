@@ -7,7 +7,6 @@
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
-
 package org.openmrs.contrib.qaframework.test;
 
 import static org.junit.Assert.assertTrue;
@@ -23,6 +22,7 @@ public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
 	private final String startTimeFirstAppointment = "09";
 	private String firstAppointment = "Gynecology";
 	private String secondAppointment = "Dermatology";
+	
 	int firstAppointmentIndex = 0;
 	int secondAppointmentIndex = 1;
 	

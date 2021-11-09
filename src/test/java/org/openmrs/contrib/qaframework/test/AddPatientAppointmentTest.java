@@ -26,7 +26,6 @@ import org.openmrs.contrib.qaframework.page.ManageProviderSchedulesPage;
 public class AddPatientAppointmentTest extends LocationSensitiveApplicationTestBase {
 	
 	private static final String SERVICE_NAME = "Oncology";
-	
 	private TestData.PatientInfo patient;
 	
 	@Before

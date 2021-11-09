@@ -7,7 +7,6 @@
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
-
 package org.openmrs.contrib.qaframework.test;
 
 import static org.junit.Assert.assertTrue;
@@ -27,7 +26,6 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 public class DeleteAllergyTest extends ReferenceApplicationTestBase {
 	
 	private static final String DRUG_NAME = "Aspirin";
-	
 	private TestData.PatientInfo patient;
 	
 	@Before

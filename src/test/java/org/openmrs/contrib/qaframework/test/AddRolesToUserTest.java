@@ -7,7 +7,6 @@
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
-
 package org.openmrs.contrib.qaframework.test;
 
 import java.util.HashMap;
@@ -25,7 +24,6 @@ import org.openmrs.contrib.qaframework.page.ManageUserPage;
 public class AddRolesToUserTest extends ReferenceApplicationTestBase {
 	
 	private static final String NURSE_PASSWORD = "Nurse321";
-	
 	private static final String NURSE_USERNAME = "newNurse" + new Random().nextInt(1024);
 	
 	private void reLoginAsUser() throws InterruptedException {

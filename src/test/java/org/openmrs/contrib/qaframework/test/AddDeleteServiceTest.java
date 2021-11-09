@@ -29,7 +29,7 @@ public class AddDeleteServiceTest extends ReferenceApplicationTestBase {
 	private String description;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		name = RandomStringUtils.randomAlphabetic(5);
 		duration = RandomStringUtils.randomNumeric(2);
 		description = RandomStringUtils.randomAlphabetic(10);

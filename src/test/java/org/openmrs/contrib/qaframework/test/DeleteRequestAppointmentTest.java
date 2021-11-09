@@ -27,7 +27,6 @@ import org.openmrs.contrib.qaframework.page.RequestAppointmentPage;
 public class DeleteRequestAppointmentTest extends LocationSensitiveApplicationTestBase {
 	
 	private static final String SERVICE_NAME = "Oncology";
-	
 	private TestData.PatientInfo patient;
 	
 	@Before

@@ -25,13 +25,11 @@ import org.openmrs.contrib.qaframework.page.ServicePage;
 public class EditServiceTest extends ReferenceApplicationTestBase {
 	
 	private String name;
-	
 	private String duration;
-	
 	private String description;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		name = RandomStringUtils.randomAlphabetic(5);
 		duration = RandomStringUtils.randomNumeric(2);
 		description = RandomStringUtils.randomAlphabetic(10);

@@ -27,7 +27,7 @@ public class SearchActiveVisitsTest extends ReferenceApplicationTestBase {
 	TestData.PatientInfo patient;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		patient = createTestPatient();
 		new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}

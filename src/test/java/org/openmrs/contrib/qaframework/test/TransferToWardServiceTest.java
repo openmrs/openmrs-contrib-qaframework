@@ -3,7 +3,7 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
- * <p>
+ * 
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
@@ -26,9 +26,7 @@ import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 public class TransferToWardServiceTest extends ReferenceApplicationTestBase {
 	
 	private static final String INPATIENT_WARD = "Inpatient Ward";
-	
 	private static final String ISOLATION_WARD = "Isolation Ward";
-	
 	private TestData.PatientInfo testPatient;
 	
 	@Before
@@ -43,14 +41,11 @@ public class TransferToWardServiceTest extends ReferenceApplicationTestBase {
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
 		PatientVisitsDashboardPage patientVisitsDashboardPage = findPatientPage.clickOnFirstPatient().startVisit();
-		
 		patientVisitsDashboardPage.goToAdmitToInpatient().confirm(INPATIENT_WARD);
 		assertTrue(patientVisitsDashboardPage.containsText("Admission"));
-		
 		patientVisitsDashboardPage.goToTransferToWardServicePage().confirm(ISOLATION_WARD);
 		assertTrue(patientVisitsDashboardPage.containsText("Transfer"));
 		patientVisitsDashboardPage.waitForPage();
-		
 		assertThat(patientVisitsDashboardPage.getEncountersCount(), is(2));
 	}
 	

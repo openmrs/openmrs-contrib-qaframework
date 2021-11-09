@@ -24,7 +24,6 @@ import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
-
 public class UnidentifiedPatientKeyboardTest extends TestBase {
 	
 	private RegistrationPage registrationPage;

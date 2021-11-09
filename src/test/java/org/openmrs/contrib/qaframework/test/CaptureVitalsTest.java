@@ -24,7 +24,7 @@ public class CaptureVitalsTest extends LocationSensitiveApplicationTestBase {
 	private TestData.PatientInfo patient;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		patient = createTestPatient();
 		createTestVisit();
 	}

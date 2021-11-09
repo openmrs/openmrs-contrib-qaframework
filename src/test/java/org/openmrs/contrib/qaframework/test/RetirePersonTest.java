@@ -21,14 +21,13 @@ import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManagePersonPage;
 import org.openmrs.contrib.qaframework.page.PersonFormPage;
 
-
 public class RetirePersonTest extends ReferenceApplicationTestBase {
 	
 	private String personUuid;
 	private TestData.PersonInfo personInfo;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		personInfo = TestData.generateRandomPerson();
 		personUuid = TestData.createPerson(personInfo);
 	}

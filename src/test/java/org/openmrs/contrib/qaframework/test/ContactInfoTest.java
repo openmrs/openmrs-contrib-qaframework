@@ -7,7 +7,6 @@
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
-
 package org.openmrs.contrib.qaframework.test;
 
 import static org.junit.Assert.assertTrue;
@@ -26,7 +25,6 @@ import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
 public class ContactInfoTest extends ReferenceApplicationTestBase {
 	
 	private static final String VISIT_TYPE_UUID = "7b0f5697-27e3-40c4-8bae-f4049abfb4ed";
-	
 	private TestData.PatientInfo patient;
 	
 	@Before

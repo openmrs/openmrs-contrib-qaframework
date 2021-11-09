@@ -35,7 +35,7 @@ public class RetireVisitTypeTest extends ReferenceApplicationTestBase {
 	private String visitTypeUuid;
 	
 	@Before
-	public void setup() throws JsonProcessingException {
+	public void setUp() throws JsonProcessingException {
 		visitTypeName = RandomStringUtils.randomAlphanumeric(8);
 		visitTypeDesc = RandomStringUtils.randomAlphanumeric(16);
 		visitTypeUuid = new TestData.TestVisitType(visitTypeName, visitTypeDesc).create();

@@ -19,7 +19,6 @@ import org.openmrs.contrib.qaframework.helper.RestClient;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ManageLocationsPage;
 
-
 public class RetireLocationTest extends ReferenceApplicationTestBase {
 	
 	private String locationName = "TEST" + TestData.randomSuffix();

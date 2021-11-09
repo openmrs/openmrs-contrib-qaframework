@@ -25,7 +25,6 @@ import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
-
 public class RecordMergeIssueTest extends TestBase {
 	
 	private HomePage homePage;

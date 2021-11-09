@@ -22,7 +22,6 @@ import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManageProviderPage;
 import org.openmrs.contrib.qaframework.page.ProviderPage;
 
-
 public class RetireProviderTest extends ReferenceApplicationTestBase {
 	
 	private TestData.PersonInfo person;

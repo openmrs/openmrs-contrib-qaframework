@@ -26,7 +26,6 @@ import org.openmrs.contrib.qaframework.page.VisitTypePage;
 public class AddVisitTypeTest extends ReferenceApplicationTestBase {
 	
 	private String visitTypeName;
-	
 	private String visitTypeDesc;
 	
 	@Before

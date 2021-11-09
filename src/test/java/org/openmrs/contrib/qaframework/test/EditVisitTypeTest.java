@@ -33,7 +33,7 @@ public class EditVisitTypeTest extends ReferenceApplicationTestBase {
 	private String visitTypeUuid;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		visitTypeName = RandomStringUtils.randomAlphanumeric(8);
 		visitTypeDesc = RandomStringUtils.randomAlphanumeric(16);
 		visitTypeUuid = new TestData.TestVisitType(visitTypeName, visitTypeDesc).create();

@@ -33,7 +33,7 @@ public class VisitNoteTest extends LocationSensitiveApplicationTestBase {
 	private PatientInfo patient;
 	
 	@Before
-	public void setup() {
+	public void setUp() {
 		patient = createTestPatient();
 		createTestVisit();
 		patientVisitsDashboardPage = new PatientVisitsDashboardPage(page);

@@ -53,8 +53,7 @@ public class ContactInfoTest extends ReferenceApplicationTestBase {
 		registrationEditSectionPage.clearPhoneNumber();
 		registrationEditSectionPage.enterPhoneNumber("aaaaaaaaa");
 		registrationEditSectionPage.clickOnConfirmEdit();
-		assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification()
-		        .contains("Must be a valid phone number (with +, -, numbers or parentheses)"));
+		assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification().contains("Must be a valid phone number (with +, -, numbers or parentheses)"));
 		registrationEditSectionPage.clearPhoneNumber();
 		registrationEditSectionPage.enterPhoneNumber("111111111");
 		registrationEditSectionPage.clickOnConfirmEdit();

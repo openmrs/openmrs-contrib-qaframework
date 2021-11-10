@@ -11,7 +11,6 @@ package org.openmrs.contrib.qaframework.test;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.openmrs.contrib.qaframework.helper.ReferenceApplicationTestBase;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.AppointmentBlocksPage;
@@ -25,7 +24,6 @@ import org.openmrs.contrib.qaframework.page.HomePage;
  * Other possibilities are Rules or extending TestSetup. The latter possibilities might be applied
  * in future if the test code become hard to maintain/read
  */
-
 public class ManageProviderSchedulesTest extends ReferenceApplicationTestBase {
 	
 	protected HomePage homePage;

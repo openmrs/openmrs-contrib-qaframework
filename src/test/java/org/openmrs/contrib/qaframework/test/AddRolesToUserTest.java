@@ -35,7 +35,7 @@ public class AddRolesToUserTest extends ReferenceApplicationTestBase {
 	}
 	
 	@Ignore
-	//    @Category(org.openmrs.reference.groups.BuildTests.class)
+	// @Category(org.openmrs.reference.groups.BuildTests.class)
 	public void addRolesToUserTest() throws InterruptedException {
 		AdministrationPage administrationPage = homePage.goToAdministration();
 		ManageUserPage manageUserPage = administrationPage.clickOnManageUsers();

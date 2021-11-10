@@ -43,14 +43,11 @@ public class RegisterPatientTest extends ReferenceApplicationTestBase {
 		patient = PatientGenerator.generateTestPatient();
 		registrationPage.enterPatient(patient);
 		
-		String address = patient.address1 + ", " + patient.address2 + ", " + patient.city + ", " + patient.state + ", "
-		        + patient.country + ", " + patient.postalCode;
+		String address = patient.address1 + ", " + patient.address2 + ", " + patient.city + ", " + patient.state + ", "+ patient.country + ", " + patient.postalCode;
 		
-		assertThat(registrationPage.getNameInConfirmationPage(),
-		    containsString(patient.givenName + ", " + patient.familyName));
+		assertThat(registrationPage.getNameInConfirmationPage(), containsString(patient.givenName + ", " + patient.familyName));
 		assertThat(registrationPage.getGenderInConfirmationPage(), containsString(patient.gender));
-		assertThat(registrationPage.getBirthdateInConfirmationPage(),
-		    containsString(patient.birthDay + ", " + patient.birthMonth + ", " + patient.birthYear));
+		assertThat(registrationPage.getBirthdateInConfirmationPage(),containsString(patient.birthDay + ", " + patient.birthMonth + ", " + patient.birthYear));
 		assertThat(registrationPage.getAddressInConfirmationPage(), containsString(address));
 		assertThat(registrationPage.getPhoneInConfirmationPage(), containsString(patient.phone));
 		

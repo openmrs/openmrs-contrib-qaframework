@@ -38,7 +38,7 @@ public class AddDeleteLocationTest extends ReferenceApplicationTestBase {
 	
 	@Test
 	@Category(BuildTests.class)
-	public void addLocationTest() {
+	public void addDeleteLocationTest() {
 		AddEditLocationPage addEditLocationPage = homePage.goToConfigureMetadata().goToManageLocations().goToAddLocation();
 		
 		addEditLocationPage.save();

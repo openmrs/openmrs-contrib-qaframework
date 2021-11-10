@@ -53,7 +53,7 @@ public class RecordMergeIssueTest extends TestBase {
 	@Category(BuildTests.class)
 	public void recordMergeIssueTest() throws Exception {
 		homePage.goToRegisterPatientApp().waitForPage();
-		//       Register first patient
+		//Register first patient
 		patient.familyName = "Mike";
 		patient.givenName = "Smith";
 		patient.gender = "Male";
@@ -63,7 +63,7 @@ public class RecordMergeIssueTest extends TestBase {
 		id = patientDashboardPage.findPatientId();
 		patient.uuid = patientDashboardPage.getPatientUuidFromUrl();
 		homePage.go();
-		//     Register second patient
+		//Register second patient
 		homePage.goToRegisterPatientApp();
 		patient1.familyName = "Mike";
 		patient1.givenName = "Kowalski";

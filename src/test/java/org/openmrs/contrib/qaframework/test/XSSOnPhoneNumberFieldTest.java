@@ -43,8 +43,7 @@ public class XSSOnPhoneNumberFieldTest extends LocationSensitiveApplicationTestB
 		registrationEditSectionPage.clearPhoneNumber();
 		registrationEditSectionPage.enterPhoneNumber("<script>alert(0)</script>");
 		registrationEditSectionPage.clickOnConfirmEdit();
-		assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification()
-		        .contains(("Must be a valid phone number (with +, -, numbers or parentheses)")));
+		assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification().contains(("Must be a valid phone number (with +, -, numbers or parentheses)")));
 		registrationEditSectionPage.clearPhoneNumber();
 		registrationEditSectionPage.enterPhoneNumber("111111111");
 		registrationEditSectionPage.clickOnConfirmEdit();

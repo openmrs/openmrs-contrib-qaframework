@@ -24,7 +24,6 @@ import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManagePersonPage;
 import org.openmrs.contrib.qaframework.page.PersonFormPage;
 
-
 public class CreatePersonTest extends ReferenceApplicationTestBase {
 	
 	private String personName;

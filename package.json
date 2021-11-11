@@ -25,7 +25,8 @@
     "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
     "microfrontend": "cypress-tags run -eTAGS='@cypress and @microfrontend'",
     "refapp3Login": "cypress run --spec src/test/resources/features/refapp-3.x/01-login/login.feature",
-    "refapp3SearchAndRegistration": "cypress run --spec src/test/resources/features/refapp-3.x/02-search-and-registration/search-and-registration.feature",
+    "refapp3PatientRegistration": "cypress run --spec src/test/resources/features/refapp-3.x/02-patient-registration/patient-registration.feature",
+    "refapp3PatientSearch": "cypress run --spec src/test/resources/features/refapp-3.x/06-patient-search/patient-search.feature",
     "refapp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature",
     "refapp3ClinicalVisit": "cypress run --spec src/test/resources/features/refapp-3.x/04-clinical-visit/clinical-visit.feature",
     "refapp3VitalsAndTriage": "cypress run --spec src/test/resources/features/refapp-3.x/05-vitals-and-triage/vitals-and-triage.feature"

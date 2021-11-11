@@ -11,14 +11,14 @@ Feature: Clinical Visit Management
     # User story: Add known allergies
     When a user clicks on Allergies link from Patient dashboard page
     Then the system loads Allergies board page
-    When a user clicks Add Known Allergy button
-    When the user clicks Add Known Allergy button
+    And a user clicks Add Known Allergy button
+    And a user clicks Add next Known Allergy button
     And the user selects an allergy
     And a user clicks on save allergy button
     Then the system adds known allergies into the allergies table
-    When the user clicks on the delete button for Codein Allergy
-    And the system confirms delete Codein Allergy
-    Then system displays Penicillins
+    And a user clicks on the delete Allergy
+    And a user confirms delete action
+    Then the system deletes an allergy from the allergy table
           
     # User story: Add known conditions
     When a user clicks on Conditions link from Patient dashboard

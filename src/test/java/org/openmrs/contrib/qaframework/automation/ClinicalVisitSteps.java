@@ -121,7 +121,7 @@ public class ClinicalVisitSteps extends Steps {
 		assertTrue(textExists("Allergies"));
 	}
 
-	@When("a user clicks Add Known Allergy button")
+	@And("a user clicks Add Known Allergy button")
 	public void addKnownAllergy() {
 		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
 		addOrEditAllergyPage.enterDrug(DRUG_NAME);
@@ -132,7 +132,7 @@ public class ClinicalVisitSteps extends Steps {
 		addOrEditAllergyPage.clickOnSaveAllergy();
 	}
 
-	@When("the user clicks Add Known Allergy button")
+	@And("a user clicks Add next Known Allergy button")
 	public void addAllergy() {
 		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
 	}
@@ -156,17 +156,17 @@ public class ClinicalVisitSteps extends Steps {
 		assertNotNull(addOrEditAllergyPage.getAllergiesList());
 	}
 
-	@When("the user clicks on the delete button for Codein Allergy")
+	@And("a user clicks on the delete Allergy")
 	public void deleteAllergy() {
 		allergyPage.clickOnDeleteAllergy();
 	}
 
-	@And("the system confirms delete Codein Allergy")
+	@And("a user confirms delete action")
 	public void confirmDeleteAllergy() {
 		allergyPage.clickOnConfirmDeleteAllergy();
 	}
 
-	@Then("system displays Penicillins")
+	@Then("the system deletes an allergy from the allergy table")
 	public void systemRemovesAllergy() {
 		assertTrue(textExists("Penicillins"));
 		dashboardPage = addOrEditAllergyPage.clickReturn();

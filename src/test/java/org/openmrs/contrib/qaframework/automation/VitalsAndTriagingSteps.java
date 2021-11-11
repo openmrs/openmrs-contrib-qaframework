@@ -138,7 +138,7 @@ public class VitalsAndTriagingSteps extends Steps {
 
 	@Then("the system adds patient vitals into the vitals table")
 	public void systemAddsPatientVitals() {
-		assertNotNull(visitsDashboardPage.getEncountersCount());
+		assertNotNull(visitsDashboardPage.getVitalsList());
 	}
 	
 	@When("a user clicks on edit vitals icon from patient visits dashboard")
@@ -147,8 +147,8 @@ public class VitalsAndTriagingSteps extends Steps {
 	}
 	
 	@And("the system loads the edit vitals page")
-	public void systemloadsEditPatientVitalsPage() {
-		assertTrue(textExists("Edit: Vitals"));
+	public void systemLoadsEditVitalsPage() {
+		assertPage(editVitalsPage.waitForPage());
 	}
 	
 	@And("a user edits existing vitals")

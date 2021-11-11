@@ -25,7 +25,8 @@ public class ConditionsPage extends Page {
 	private static final By TAB_ACTIVE = By.cssSelector("a[href='#ACTIVE']");
 	private static final By TAB_INACTIVE = By.cssSelector("a[href='#INACTIVE']");
 	private static final By FIRST_CONDITION_NAME = By.xpath("//table/tbody[2]/tr[1]/td[1]");
-	private static final By EDIT_CONDITION = By.cssSelector("#ACTIVE tbody:nth-child(3) i.icon-pencil.edit-action.ng-scope");
+	private static final By EDIT_ACTIVE_CONDITION = By.cssSelector("#ACTIVE tbody:nth-child(3) i.icon-pencil.edit-action.ng-scope");
+	private static final By EDIT_INACTIVE_CONDITION = By.cssSelector("#INACTIVE tbody:nth-child(4) i.icon-pencil.edit-action.ng-scope");
 	private static final By DELETE = By.cssSelector("i[title='Delete']");
 	private static final By CONDITIONS_LIST = By.cssSelector("tr.clickable-tr");
 	private static final By CONFIRM_DELETE_CONDITION_BUTTON = By.cssSelector("#remove-condition-dialog > div.dialog-content > button.confirm.right");
@@ -75,12 +76,12 @@ public class ConditionsPage extends Page {
 	}
 
 	public ConditionPage editFirstActive() {
-		clickOn(EDIT_CONDITION);
+		clickOn(EDIT_ACTIVE_CONDITION);
 		return new ConditionPage(this);
 	}
 
 	public ConditionPage editFirstInActive() {
-		clickOn(EDIT_CONDITION);
+		clickOn(EDIT_INACTIVE_CONDITION);
 		return new ConditionPage(this);
 	}
 

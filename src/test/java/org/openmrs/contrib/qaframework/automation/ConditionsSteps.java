@@ -87,7 +87,12 @@ public class ConditionsSteps extends Steps {
 	@And("User clicks save")
 	public void saveCondition() {
 		conditionPage.clickSave();
-		conditionsPage.waitForPage();
+	}
+	
+	@Then ("System adds New Condition in Conditions table")
+	public void systemEntersExistingConditionToTable(){
+		assertNotNull(conditionsPage.getConditionsList());
+		dashboardPage = conditionsPage.clickReturn();
 	}
 
 	@And("User enters {string} condition")

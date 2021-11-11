@@ -11,7 +11,7 @@ Feature: Patient's Conditions Managment
     Then System on Add New Condition Page
     And User enters "<activity>" condition
     And User clicks save
-    Then System loads Manage Conditions Page
+    Then System adds New Condition in Conditions table
 
     Examples: 
       | activity |

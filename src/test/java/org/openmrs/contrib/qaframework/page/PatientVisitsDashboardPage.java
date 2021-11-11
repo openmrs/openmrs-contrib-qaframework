@@ -31,6 +31,11 @@ public class PatientVisitsDashboardPage extends Page {
 	private static final By VISIT_NOTE_ENCOUNTER = By.xpath("//div[@id='visit-details']/ul/li/ul/li/div/strong/span[text()='Visit Note']");
 	private static final By VISIT_NOTE = By.id("referenceapplication.realTime.simpleVisitNote");
 	private static final By RETURN_TO_DASHBOARD = By.xpath("/html/body/ul/li[2]/a");
+	private static final By VITALS_LIST = By.cssSelector("#encountersList .encounter-details i.icon-vitals");
+	private static final By EDIT_VITALS_ICON = By.cssSelector("#encountersList i.editEncounter.edit-action.icon-pencil");
+	private static final By VIEW_VITALS_ICON  = By.cssSelector("#encountersList i.viewEncounter.view-action.icon-file-alt");
+	private static final By DELETE_VITALS_ICON = By.cssSelector("#encountersList i.deleteEncounterId.delete-action.icon-remove");
+	private static final By CONFIRM_DELETE_BUTTON  = By.cssSelector("#delete-encounter-dialog button.confirm.right");
 
 	public PatientVisitsDashboardPage(Page parent) {
 		super(parent);
@@ -45,8 +50,28 @@ public class PatientVisitsDashboardPage extends Page {
 		return "coreapps/patientdashboard/patientDashboard.page";
 	}
 
-	public void goToCaptureVitals() {
-		findElement(CAPTURE_VITALS).click();
+	public PatientCaptureVitalsPage goToPatientCaptureVitalsPage() {
+		clickOn(CAPTURE_VITALS);
+		return new PatientCaptureVitalsPage(this);
+	}
+	
+	public EditVitalsPage goToEditVitalsPage() {
+		clickOn(EDIT_VITALS_ICON);
+		return new EditVitalsPage(this);
+	}
+	
+	public void clickOnViewVitalsIcon() {
+		clickOn(VIEW_VITALS_ICON);
+	}
+	
+	public void deleteVitals() {
+		clickOn(DELETE_VITALS_ICON);
+		waitForElement(CONFIRM_DELETE_BUTTON);
+		clickOn(CONFIRM_DELETE_BUTTON);
+	}
+	
+	public List<WebElement> getVitalsList() {
+		return findElements(VITALS_LIST);
 	}
 
 	public void goToVisitNote() {

@@ -23,13 +23,13 @@ Feature: Clinical Visit Management
     # User story: Add known conditions
     When a user clicks on Conditions link from Patient dashboard
     Then the system loads Manage Conditions Page
-    When a user clicks on Add new condition
+    And a user clicks on Add new condition
     And a user enters patient condition
-    And the user enters patient condition Acute malnutrition
+    And a user enters patient condition Acute malnutrition
     And a user clicks on save condition button
     Then the system adds New Condition in Conditions table
-    When the user clicks on the delete button from dashboard
-    Then user clicks on the yes button to confirm
+    And a user clicks on the delete button from dashboard
+    Then the system deletes a condition from the conditions table
      
     # User story: Book an appointment
     When a user clicks on Request appointment link from Patient dashboard

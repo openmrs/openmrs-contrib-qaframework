@@ -182,7 +182,7 @@ public class ClinicalVisitSteps extends Steps {
 		assertTrue(conditionsPage.containsText("Conditions"));
 	}
 
-	@When("a user clicks on Add new condition")
+	@And("a user clicks on Add new condition")
 	public void userClicksAddNewCondition() {
 		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
 	}
@@ -193,7 +193,7 @@ public class ClinicalVisitSteps extends Steps {
 		conditionPage.clickSave();
 	}
 
-	@And("the user enters patient condition Acute malnutrition")
+	@And("a user enters patient condition Acute malnutrition")
 	public void enterOneOfExistingConditions() {
 		conditionsPage.clickOnAddNewCondition().waitForPage();
 		conditionPage.typeInCondition("Acute malnutrition");
@@ -209,12 +209,14 @@ public class ClinicalVisitSteps extends Steps {
 		assertNotNull(conditionsPage.getConditionsList());
 	}
 
-	@When("the user clicks on the delete button from dashboard")
+	@And("a user clicks on the delete button from dashboard")
 	public void deleteCondition() {
 		conditionsPage.deleteFirstActive();
+        conditionsPage.confirmDeleteCondition();
+	    dashboardPage = conditionsPage.clickReturn();
 	}
 
-	@Then("user clicks on the yes button to confirm")
+	@Then("the system deletes a condition from the conditions table")
 	public void confirmDeleteCondition() {
 		conditionsPage.confirmDeleteCondition();
 		dashboardPage = conditionsPage.clickReturn();

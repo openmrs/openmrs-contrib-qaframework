@@ -213,15 +213,16 @@ public class ClinicalVisitSteps extends Steps {
 	public void deleteCondition() {
 		conditionsPage.deleteFirstActive();
         conditionsPage.confirmDeleteCondition();
+		assertNotNull(conditionsPage.getConditionsList());
 	    dashboardPage = conditionsPage.clickReturn();
 	}
 
 	@Then("the system deletes a condition from the conditions table")
-	public void confirmDeleteCondition() {
+	public void systemDeletesCondition() {
 		conditionsPage.confirmDeleteCondition();
+		assertNotNull(conditionsPage.getConditionsList());
 		dashboardPage = conditionsPage.clickReturn();
-
-	}
+    }
 
 	@When("a user clicks on Attachments link from patient visits dashboard")
 	public void loadAttachmentsPage() {

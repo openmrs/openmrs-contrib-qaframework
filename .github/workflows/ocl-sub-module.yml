@@ -18,6 +18,12 @@ jobs:
           node-version: '12.x'
       - name: Installing dependencies
         run: npm install
+      - name: run db and web containers
+        run: |
+          cd docker
+          docker-compose -f docker-compose-refqa.yml up -d
+      - name: wait for openmrs instance to start
+        run: while ! nc -z localhost 8080 </dev/null; do sleep 1; done
       - name: Run ocl subscription module
         run: npm run refappOCLSubscriptionModule
       - name: Upload screen recordings of failed tests

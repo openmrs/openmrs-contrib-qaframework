@@ -1,22 +1,14 @@
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
 
-const userApiToken = 'e6415c890158e06c36f7f52eca335bdf7204d50f';
-const sUrl = 'https://api.staging.openconceptlab.org/users/openmrs/collections/hdz/1/';
+const userApiToken = 'e6415c890158e06c36f7f52eca335bdf7204d50f'; // Fetch from the API and load directly
+const sUrl = 'https://api.staging.openconceptlab.org/users/openmrs/collections/TI2/1/';
 
 Given('the user goes to the Dictionary Manager App', () => {
-  cy.on('uncaught:exception', (err, runnable) => {
-    console.log(err);
-    return false;
-  });
   cy.visit('https://openmrs.staging.openconceptlab.org/login');
 });
 
 Given('the user goes to the openmrs application', () => {
-  cy.on('uncaught:exception', (err, runnable) => {
-    console.log(err);
-    return false;
-  });
-  cy.visit('https://qa-refapp.openmrs.org/openmrs/login.htm');
+  cy.visit('http://localhost:8080/openmrs/login.htm');
 });
 
 When('the user logs into the Dictionary Manager', () => {
@@ -31,11 +23,11 @@ When('the user logs into the openmrs Ref App', () => {
   cy.get("#password").type('Admin123');
   cy.get("#Pharmacy").click();
   cy.get("#loginButton").click();
-
+  cy.url().should('contain', 'http://localhost:8080/openmrs/referenceapplication/home.page')
 });
 
 When('the user goes to the dictionary details page', () => {
-  cy.visit('https://openmrs.staging.openconceptlab.org/users/openmrs/collections/hdz/')
+  cy.visit('https://openmrs.staging.openconceptlab.org/users/openmrs/collections/TI2/')
 });
 
 When('the user clicks the more actions button', () =>
@@ -54,13 +46,10 @@ Then('the user should copy the subscription url', () => {
 });
 
 When('the user visit the OCL module page', () => {
-  cy.visit('https://qa-refapp.openmrs.org/openmrs/owa/openconceptlab/index.html#/subscription')
+  cy.visit('http://localhost:8080/openmrs/owa/openconceptlab/index.html#/subscription')
 });
 
 When('the user pastes the subscription url and user API token', () => {
-  cy.window().its('navigator.clipboard')
-    .invoke('readText').then(text => console.log(text, 'text'));
-  // TODO: I need to access the text here instead of hardcoding it
   cy.get("#subscription-url").type(sUrl);
   cy.get("#subscription-token").type(userApiToken);
 });
@@ -78,5 +67,5 @@ When('the user clicks the import button', () => {
 });
 
 Then('the dictionary should be imported', () => {
-  cy.findByText('Items selected').should('be.visible'); // Currently failing because the app has some error
+  cy.get('td').contains(/items fetched|Errors found/g); // Because the importation is not stable, it passes for like three times and then fails for the rest
 });

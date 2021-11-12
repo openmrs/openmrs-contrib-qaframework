@@ -14,15 +14,47 @@ import org.openqa.selenium.By;
 
 public class RegistrationSummaryPage extends Page {
 
+	private static final By EDIT_DEMOGRAPHICS = By.cssSelector("#edit-patient-demographics a");
+	private static final By SHOW_CONTACT_INFO = By.id("patient-header-contactInfo");
+	private static final By EDIT_CONTACT_INFO = By.id("contact-info-inline-edit");
 	private static final By EDIT_RELATIONSHIP_LINK = By.id("relationships-info-edit-link");
+	private static final By PATIENT_GIVENNAME = By.cssSelector("#content div span.PersonName-givenName");
+	private static final By PATIENT_FAMILYNAME = By.cssSelector(".patient-header .demographics .name .PersonName-familyName");
+	private static final By TELEPHONE_NUMBER_TEXT = By.cssSelector("#coreapps-telephoneNumber");
 
-	public RegistrationSummaryPage(Page parent) {
-		super(parent);
+	public RegistrationSummaryPage(Page page) {
+		super(page);
 	}
 
+	public RegistrationEditSectionPage clickOnEditDemographics() {
+		clickOn(EDIT_DEMOGRAPHICS);
+		return new RegistrationEditSectionPage(this);
+	}
+	
+	public void clickOnShowContact() {
+		clickOn(SHOW_CONTACT_INFO);
+	}
+	
+	public RegistrationEditSectionPage clickOnEditContact() {
+		clickOn(EDIT_CONTACT_INFO);
+		return new RegistrationEditSectionPage(this);
+	}
+	
 	public EditPatientRelationshipPage goToEditPatientRelationship() {
-		clickOnLast(EDIT_RELATIONSHIP_LINK);
+		clickOn(EDIT_RELATIONSHIP_LINK);
 		return new EditPatientRelationshipPage(this);
+	}
+	
+	public String getPatientGivenName() {
+		return findElement(PATIENT_GIVENNAME).getText();
+	}
+	
+	public String getPatientFamilyName() {
+		return findElement(PATIENT_FAMILYNAME).getText();
+	}
+	
+	public String getTelephoneNumber() {
+		return findElement(TELEPHONE_NUMBER_TEXT).getText();
 	}
 
 	@Override

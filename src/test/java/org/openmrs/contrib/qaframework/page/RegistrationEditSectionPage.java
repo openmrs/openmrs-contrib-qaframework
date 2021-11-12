@@ -141,4 +141,9 @@ public class RegistrationEditSectionPage extends Page {
 		clickOn(CONFIRM);
 		return new ClinicianFacingPatientDashboardPage(this);
 	}
+	
+	public RegistrationSummaryPage confirmPatientEdit() throws InterruptedException {
+		clickOn(CONFIRM);
+		return new RegistrationSummaryPage(this);
+	}
 }

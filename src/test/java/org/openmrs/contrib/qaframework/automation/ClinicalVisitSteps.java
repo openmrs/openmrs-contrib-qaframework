@@ -212,9 +212,9 @@ public class ClinicalVisitSteps extends Steps {
 	@And("a user clicks on the delete button from dashboard")
 	public void deleteCondition() {
 		conditionsPage.deleteFirstActive();
-        conditionsPage.confirmDeleteCondition();
+		conditionsPage.confirmDeleteCondition();
 		assertNotNull(conditionsPage.getConditionsList());
-	    dashboardPage = conditionsPage.clickReturn();
+		dashboardPage = conditionsPage.clickReturn();
 	}
 
 	@Then("the system deletes a condition from the conditions table")

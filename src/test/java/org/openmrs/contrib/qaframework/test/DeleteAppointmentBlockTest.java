@@ -35,7 +35,6 @@ public class DeleteAppointmentBlockTest extends ManageProviderSchedulesTest {
 	@Test
 	@Category(BuildTests.class)
 	public void deleteAppointmentBlockTest() throws Exception {
-		
 		//The logic behind the text is to create an appointment and delete it
 		appointmentBlocksPage.selectLocation(locationName);
 		appointmentBlocksPage.clickOnDay();

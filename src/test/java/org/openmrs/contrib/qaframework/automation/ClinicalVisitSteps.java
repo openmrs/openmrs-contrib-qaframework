@@ -214,12 +214,10 @@ public class ClinicalVisitSteps extends Steps {
 		conditionsPage.deleteFirstActive();
 		conditionsPage.confirmDeleteCondition();
 		assertNotNull(conditionsPage.getConditionsList());
-		dashboardPage = conditionsPage.clickReturn();
 	}
 
 	@Then("the system deletes a condition from the conditions table")
 	public void systemDeletesCondition() {
-		conditionsPage.confirmDeleteCondition();
 		assertNotNull(conditionsPage.getConditionsList());
 		dashboardPage = conditionsPage.clickReturn();
     }

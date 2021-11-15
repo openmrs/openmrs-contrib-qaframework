@@ -16,5 +16,12 @@
     "DEFAULT_LOCATION_NAME": "Registration Desk"
   },
   "viewportWidth": 1800,
-  "viewportHeight": 900
+  "viewportHeight": 900,
+
+  "retries": {
+    // Configure retry attempts for `cypress run`
+    "runMode": 2,
+    // Configure retry attempts for `cypress open`
+    "openMode": 0
+  }
 }

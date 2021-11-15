@@ -11,8 +11,8 @@ Feature: Clinical Visit Management
     # User story: Add known allergies
     When a user clicks on Allergies link from Patient dashboard page
     Then the system loads Allergies board page
-    And And a user clicks Add Known Allergy for the first allergy
-    And And a user clicks Add Known Allergy for the second allergy
+    And a user clicks Add Known Allergy for the first allergy
+    And a user clicks Add Known Allergy for the second allergy
     And the user selects an allergy
     And a user clicks on save allergy button
     Then the system adds known allergies into the allergies table

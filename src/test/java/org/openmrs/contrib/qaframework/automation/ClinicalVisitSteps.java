@@ -38,7 +38,8 @@ public class ClinicalVisitSteps extends Steps {
 	private static final String DIAGNOSIS_PRIMARY = "Cancer";
 	private static final String DIAGNOSIS_SECONDARY = "Malaria";
 	private static final String APPOINTMENT_TYPE = "Surgery";
-	private static final String DRUG_NAME = "Penicillins";
+	private static final String FIRST_DRUG_NAME = "Penicillins";
+	private static final String SECOND_DRUG_NAME = "Codeine";
 	private static final String REACTION = "Headache";
 	private static final String CONDITION = "Malaria";
 	private ActiveVisitsPage activeVisitsPage;
@@ -124,7 +125,7 @@ public class ClinicalVisitSteps extends Steps {
 	@And("a user clicks Add Known Allergy for the first allergy")
 	public void addKnownAllergy() {
 		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
-		addOrEditAllergyPage.enterDrug(DRUG_NAME);
+		addOrEditAllergyPage.enterDrug(FIRST_DRUG_NAME);
 		addOrEditAllergyPage.drugId();
 		addOrEditAllergyPage.enterReaction(REACTION);
 		addOrEditAllergyPage.reactionId();
@@ -139,7 +140,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@And("the user selects an allergy")
 	public void selectAllergy() {
-		addOrEditAllergyPage.enterDrug("Codeine");
+		addOrEditAllergyPage.enterDrug(SECOND_DRUG_NAME);
 		addOrEditAllergyPage.drugId();
 		addOrEditAllergyPage.enterReaction(REACTION);
 		addOrEditAllergyPage.reactionId();

@@ -121,7 +121,7 @@ public class ClinicalVisitSteps extends Steps {
 		assertTrue(textExists("Allergies"));
 	}
 
-	@And("a user clicks Add Known Allergy button")
+	@And("And a user clicks Add Known Allergy for the first allergy")
 	public void addKnownAllergy() {
 		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
 		addOrEditAllergyPage.enterDrug(DRUG_NAME);
@@ -132,7 +132,7 @@ public class ClinicalVisitSteps extends Steps {
 		addOrEditAllergyPage.clickOnSaveAllergy();
 	}
 
-	@And("a user clicks Add next Known Allergy button")
+	@And("And a user clicks Add Known Allergy for the second allergy")
 	public void addAllergy() {
 		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
 	}
@@ -168,7 +168,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@Then("the system deletes an allergy from the allergy table")
 	public void systemRemovesAllergy() {
-		assertTrue(textExists("Penicillins"));
+		assertNotNull(addOrEditAllergyPage.getAllergiesList());
 		dashboardPage = addOrEditAllergyPage.clickReturn();
 	}
 
@@ -187,14 +187,14 @@ public class ClinicalVisitSteps extends Steps {
 		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
 	}
 
-	@And("a user enters patient condition")
-	public void enterExistingCondition() {
+	@And("a user enters first patient condition")
+	public void enterFirstCondition() {
 		conditionPage.typeInCondition(CONDITION);
 		conditionPage.clickSave();
 	}
 
-	@And("a user enters patient condition Acute malnutrition")
-	public void enterOneOfExistingConditions() {
+	@And("a user enters second patient condition")
+	public void enterSecondCondition() {
 		conditionsPage.clickOnAddNewCondition().waitForPage();
 		conditionPage.typeInCondition("Acute malnutrition");
 	}
@@ -213,7 +213,6 @@ public class ClinicalVisitSteps extends Steps {
 	public void deleteCondition() {
 		conditionsPage.deleteFirstActive();
 		conditionsPage.confirmDeleteCondition();
-		assertNotNull(conditionsPage.getConditionsList());
 	}
 
 	@Then("the system deletes a condition from the conditions table")

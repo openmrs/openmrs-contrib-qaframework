@@ -14,9 +14,9 @@ import org.openqa.selenium.By;
 
 public class RegistrationSummaryPage extends Page {
 
-	private static final By EDIT_DEMOGRAPHICS = By.cssSelector("#edit-patient-demographics a");
-	private static final By SHOW_CONTACT_INFO = By.id("patient-header-contactInfo");
-	private static final By EDIT_CONTACT_INFO = By.id("contact-info-inline-edit");
+	private static final By EDIT_DEMOGRAPHICS_LINK = By.cssSelector("#edit-patient-demographics a");
+	private static final By SHOW_CONTACT_INFO_LINK = By.id("patient-header-contactInfo");
+	private static final By EDIT_CONTACT_INFO_LINK = By.id("contact-info-inline-edit");
 	private static final By EDIT_RELATIONSHIP_LINK = By.id("relationships-info-edit-link");
 	private static final By PATIENT_GIVENNAME = By.cssSelector("#content div span.PersonName-givenName");
 	private static final By PATIENT_FAMILYNAME = By.cssSelector(".patient-header .demographics .name .PersonName-familyName");
@@ -27,16 +27,16 @@ public class RegistrationSummaryPage extends Page {
 	}
 
 	public RegistrationEditSectionPage clickOnEditDemographics() {
-		clickOn(EDIT_DEMOGRAPHICS);
+		clickOn(EDIT_DEMOGRAPHICS_LINK);
 		return new RegistrationEditSectionPage(this);
 	}
 	
 	public void clickOnShowContact() {
-		clickOn(SHOW_CONTACT_INFO);
+		clickOn(SHOW_CONTACT_INFO_LINK);
 	}
 	
 	public RegistrationEditSectionPage clickOnEditContact() {
-		clickOn(EDIT_CONTACT_INFO);
+		clickOn(EDIT_CONTACT_INFO_LINK);
 		return new RegistrationEditSectionPage(this);
 	}
 	

@@ -18,7 +18,7 @@ public class RegistrationEditSectionPage extends Page {
 
 	private static final By PHONE_NUMBER = By.name("phoneNumber");
 	private static final By CONFIRM_EDIT = By.xpath("//ul[@id='formBreadcrumb']/li[2]/span");
-	private static final By CONFIRM = By.id("registration-submit");
+	private static final By CONFIRM_BUTTON = By.id("registration-submit");
 	private static final By PHONE_NUMBER_EDIT = By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[2]/span");
 	private static final By GIVEN_NAME_FIELD = By.cssSelector("#demographics-name input[name='givenName']");
 	private static final By MIDDLE_NAME_FIELD = By.cssSelector("#demographics-name input[name='middleName']");
@@ -138,12 +138,12 @@ public class RegistrationEditSectionPage extends Page {
 	}
 
 	public ClinicianFacingPatientDashboardPage confirmPatient() throws InterruptedException {
-		clickOn(CONFIRM);
+		clickOn(CONFIRM_BUTTON);
 		return new ClinicianFacingPatientDashboardPage(this);
 	}
 	
 	public RegistrationSummaryPage confirmPatientEdit() throws InterruptedException {
-		clickOn(CONFIRM);
+		clickOn(CONFIRM_BUTTON);
 		return new RegistrationSummaryPage(this);
 	}
 }

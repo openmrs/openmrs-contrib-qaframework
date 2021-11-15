@@ -30,7 +30,7 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 	private RegistrationEditSectionPage registrationEditSectionPage;
 	private RegistrationSummaryPage registrationSummaryPage;
 
-	@Before(RunTest.HOOK.SELENIUM_EDIT_DEMOGRAPHICS)
+	@Before(RunTest.HOOK.SELENIUM_PATIENT_DEMOGRAPHICS)
 	public void visitPatientDashboard() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
@@ -40,7 +40,7 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 		dashboardPage = findPatientPage.clickOnFirstPatient();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_EDIT_DEMOGRAPHICS)
+	@After(RunTest.HOOK.SELENIUM_PATIENT_DEMOGRAPHICS)
 	public void destroy() {
 		deletePatient(testPatient);
 		quit();

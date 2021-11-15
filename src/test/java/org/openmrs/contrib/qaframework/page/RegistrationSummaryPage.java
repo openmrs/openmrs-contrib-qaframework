@@ -22,8 +22,8 @@ public class RegistrationSummaryPage extends Page {
 	private static final By PATIENT_FAMILYNAME = By.cssSelector(".patient-header .demographics .name .PersonName-familyName");
 	private static final By TELEPHONE_NUMBER_TEXT = By.cssSelector("#coreapps-telephoneNumber");
 
-	public RegistrationSummaryPage(Page page) {
-		super(page);
+	public RegistrationSummaryPage(Page parent) {
+		super(parent);
 	}
 
 	public RegistrationEditSectionPage clickOnEditDemographics() {

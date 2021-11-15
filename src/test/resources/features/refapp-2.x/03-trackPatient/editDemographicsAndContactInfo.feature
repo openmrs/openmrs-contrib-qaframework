@@ -5,7 +5,7 @@ Feature: Edit Demographics and contact info from Patient Dashboard
     Then the system loads Registration Summary Page
 
   @selenium
-  @editDemographics
+  @patientDemographics
   Scenario: Edit Patient Demographics and Contact Info
     # User story: Edit Patient Demographics
     When a user clicks on Edit link from Registration Summary Page

@@ -66,11 +66,11 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 		assertPage(registrationEditSectionPage.waitForPage());
 	}
 
-	@And("a user edits existing demographics")
+	@And("a user edits demographics")
 	public void editDemographics() {
-		testPatient.givenName = "Jane";
-		testPatient.middleName = "Adyeri";
-		testPatient.familyName = "Namata";
+		testPatient.givenName = "Yuan";
+		testPatient.middleName = "Youn";
+		testPatient.familyName = "Ching";
 		testPatient.gender = "Male";
 		testPatient.birthDay = "23";
 		testPatient.birthMonth = "May";
@@ -102,7 +102,7 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 		assertPage(registrationEditSectionPage.waitForPage());
 	}
 
-	@And("a user edits existing contact information")
+	@And("a user edits contact information")
 	public void editContactInfo() {
 		testPatient.city = "Kyambogo";
 		testPatient.state = "Central";

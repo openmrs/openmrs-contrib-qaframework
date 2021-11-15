@@ -28,7 +28,8 @@ Feature: Patient's Conditions Managment
     And User clicks on set active button
     Then System should move condition to active section
 
-  @selenium @condition
+  @selenium
+  @condition
   Scenario: Editing First Active condition
     And User enters active condition
     And User clicks save
@@ -37,7 +38,8 @@ Feature: Patient's Conditions Managment
     And User edits active
     Then System should edit all active adjustable fields
 
-  @selenium @condition
+  @selenium
+  @condition
   Scenario: Editing First Inactive condition
     And User enters inactive condition
     And User clicks save
@@ -46,7 +48,8 @@ Feature: Patient's Conditions Managment
     And User edits inactive
     Then System should edit all inactive adjustable fields
 
-  @selenium @condition
+  @selenium
+  @condition
   Scenario: Delete first active condition
     And User enters active condition
     And User clicks save
@@ -55,7 +58,8 @@ Feature: Patient's Conditions Managment
     And User clicks delete first active condition
     Then System should trash first active condition
 
-  @selenium @condition
+  @selenium
+  @condition
   Scenario: Delete first inactive condition
     And User enters inactive condition
     And User clicks save

@@ -121,7 +121,7 @@ public class ClinicalVisitSteps extends Steps {
 		assertTrue(textExists("Allergies"));
 	}
 
-	@And("And a user clicks Add Known Allergy for the first allergy")
+	@And("a user clicks Add Known Allergy for the first allergy")
 	public void addKnownAllergy() {
 		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
 		addOrEditAllergyPage.enterDrug(DRUG_NAME);
@@ -132,7 +132,7 @@ public class ClinicalVisitSteps extends Steps {
 		addOrEditAllergyPage.clickOnSaveAllergy();
 	}
 
-	@And("And a user clicks Add Known Allergy for the second allergy")
+	@And("a user clicks Add Known Allergy for the second allergy")
 	public void addAllergy() {
 		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
 	}

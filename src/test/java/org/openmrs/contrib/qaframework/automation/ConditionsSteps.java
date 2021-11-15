@@ -90,7 +90,7 @@ public class ConditionsSteps extends Steps {
 	}
 	
 	@Then ("System adds New Condition in Conditions table")
-	public void systemEntersExistingConditionToTable(){
+	public void systemAddsPatientCondition(){
 		assertNotNull(conditionsPage.getConditionsList());
 		dashboardPage = conditionsPage.clickReturn();
 	}
@@ -191,7 +191,7 @@ public class ConditionsSteps extends Steps {
 	}
 
    @And("User clicks delete first inactive condition")
-   public void deleteFirstInactiveCondition(){
+   public void deleteFirstInactiveCondition() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionsPage.deleteFirstInActive();
 			conditionsPage.confirmDeleteCondition();
@@ -199,7 +199,7 @@ public class ConditionsSteps extends Steps {
 	}
 
 	@Then("System should trash first active condition")
-	public void SuccessfullyDeleteActiveCondition() {
+	public void systemDeletesActiveCondition() {
 		String name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {
 			assertNull(driver.findElement(By.xpath(name)));
@@ -207,7 +207,7 @@ public class ConditionsSteps extends Steps {
 	}
 		
 	@Then("System should trash first inactive condition")
-		public void SuccessfullyDeleteInctiveCondition() {
+		public void systemDeletesInActiveCondition() {
 		String name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {
 			assertNull(driver.findElement(By.xpath(name)));

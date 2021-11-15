@@ -34,7 +34,7 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 	public void visitPatientDashboard() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord();
+		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
 		dashboardPage = findPatientPage.clickOnFirstPatient();
@@ -48,22 +48,22 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 
 	@Given("a user clicks on Edit Registration Information link from Patient dashboard")
 	public void loadRegistrationSummaryPage() {
-		registrationSummaryPage = (RegistrationSummaryPage) dashboardPage.goToRegistrationSummary();
+		registrationSummaryPage = (RegistrationSummaryPage) dashboardPage.goToRegistrationSummary().waitForPage();
 	}
 
 	@Then("the system loads Registration Summary Page")
 	public void systemLoadsRegistrationSummaryPage() {
-		assertPage(registrationSummaryPage);
+		assertPage(registrationSummaryPage.waitForPage());
 	}
 
 	@When("a user clicks on Edit link from Registration Summary Page")
 	public void loadEditDemographicsSection() {
-		registrationEditSectionPage = (RegistrationEditSectionPage) registrationSummaryPage.clickOnEditDemographics();
+		registrationEditSectionPage = (RegistrationEditSectionPage) registrationSummaryPage.clickOnEditDemographics().waitForPage();
 	}
 
 	@Then("the system loads edit demographics section")
 	public void systemLoadsEditDemographicsSection() {
-		assertPage(registrationEditSectionPage);
+		assertPage(registrationEditSectionPage.waitForPage());
 	}
 
 	@And("a user edits demographics")
@@ -94,12 +94,12 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 	@When("a user clicks on Edit link under contact info section from Registration Summary Page")
 	public void loadContactInfoEditSection() {
 		registrationSummaryPage.clickOnShowContact();
-		registrationEditSectionPage = (RegistrationEditSectionPage) registrationSummaryPage.clickOnEditContact();
+		registrationEditSectionPage = (RegistrationEditSectionPage) registrationSummaryPage.clickOnEditContact().waitForPage();
 	}
 
 	@Then("the system loads the edit contact information section")
 	public void systemLoadsEditContactInfoSection() {
-		assertPage(registrationEditSectionPage);
+		assertPage(registrationEditSectionPage.waitForPage());
 	}
 
 	@And("a user edits contact information")

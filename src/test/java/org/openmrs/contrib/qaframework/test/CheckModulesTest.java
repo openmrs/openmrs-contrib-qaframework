@@ -25,7 +25,8 @@ import org.openqa.selenium.WebElement;
 public class CheckModulesTest extends ReferenceApplicationTestBase {
 	
 	/**
-	 * Check the list of modules to be sure they are all started.
+	 * Check the list of modules to be sure 
+	 * they are all started.
 	 */
 	@Test
 	@Category(BuildTests.class)

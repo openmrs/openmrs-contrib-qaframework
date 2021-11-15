@@ -95,16 +95,17 @@ public class ConditionsSteps extends Steps {
 		dashboardPage = conditionsPage.clickReturn();
 	}
 
-	@And("User enters {string} condition")
-	public void enterExistingCondition(String activity) {
-		if ("active".equals(activity)) {
+	@And("User enters active condition")
+	public void enterActiveCondition() {
 			conditionPage.typeInCondition("Diarrhea");
 			conditionPage.clickOnActive();
-		} else if ("inactive".equals(activity)) {
+	}
+	
+	@And("User enters inactive condition")
+	public void enterInactiveCondition(){
 			conditionPage.typeInCondition("Diabetes mellitus");
 			conditionPage.clickOnInActive();
 		}
-	}
 
 	@Then("Then System on {string} Page")
 	public void persist(String page) {
@@ -181,29 +182,33 @@ public class ConditionsSteps extends Steps {
 		}
 	}
 
-	@And("User clicks delete condition")
-	public void delete() {
+	@And("User clicks delete first active condition")
+	public void deleteFirstActiveCondition() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionsPage.deleteFirstActive();
 			conditionsPage.confirmDeleteCondition();
 		}
+	}
 
-		conditionsPage.clickInActiveTab();
+   @And("User clicks delete first inactive condition")
+   public void deleteFirstInactiveCondition(){
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionsPage.deleteFirstInActive();
 			conditionsPage.confirmDeleteCondition();
 		}
 	}
 
-	@Then("System should trash first condition")
-	public void SuccessfulDeletion() {
+	@Then("System should trash first active condition")
+	public void SuccessfullyDeleteActiveCondition() {
 		String name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {
 			assertNull(driver.findElement(By.xpath(name)));
 		}
-
-		conditionsPage.clickInActiveTab();
-		name = conditionsPage.getFirstConditionName();
+	}
+		
+	@Then("System should trash first inactive condition")
+		public void SuccessfullyDeleteInctiveCondition() {
+		String name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {
 			assertNull(driver.findElement(By.xpath(name)));
 		}

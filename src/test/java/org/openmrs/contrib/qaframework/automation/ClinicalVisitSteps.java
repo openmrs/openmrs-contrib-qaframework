@@ -157,7 +157,7 @@ public class ClinicalVisitSteps extends Steps {
 	}
 
 	@And("a user clicks on the delete Allergy")
-	public void deleteAllergy() {
+	public void clickOnDeleteAllergyButton() {
 		allergyPage.clickOnDeleteAllergy();
 	}
 

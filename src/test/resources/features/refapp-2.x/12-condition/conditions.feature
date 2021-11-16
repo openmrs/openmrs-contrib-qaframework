@@ -53,7 +53,6 @@ Feature: Patient's Conditions Managment
   Scenario: Delete first active condition
     And User enters active condition
     And User clicks save
-    
     # User story: Delete first active active condition
     And User clicks delete first active condition
     Then System should trash first active condition

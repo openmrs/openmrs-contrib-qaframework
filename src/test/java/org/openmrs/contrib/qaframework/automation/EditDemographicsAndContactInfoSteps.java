@@ -34,7 +34,7 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 	public void visitPatientDashboard() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord();
+		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
 		dashboardPage = findPatientPage.clickOnFirstPatient();
@@ -53,7 +53,7 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 
 	@Then("the system loads Registration Summary Page")
 	public void systemLoadsRegistrationSummaryPage() {
-		assertPage(registrationSummaryPage);
+		assertPage(registrationSummaryPage.waitForPage());
 	}
 
 	@When("a user clicks on Edit link from Registration Summary Page")
@@ -63,7 +63,7 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 
 	@Then("the system loads edit demographics section")
 	public void systemLoadsEditDemographicsSection() {
-		assertPage(registrationEditSectionPage);
+		assertPage(registrationEditSectionPage.waitForPage());
 	}
 
 	@And("a user edits demographics")
@@ -99,7 +99,7 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 
 	@Then("the system loads the edit contact information section")
 	public void systemLoadsEditContactInfoSection() {
-		assertPage(registrationEditSectionPage);
+		assertPage(registrationEditSectionPage.waitForPage());
 	}
 
 	@And("a user edits contact information")

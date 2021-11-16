@@ -17,3 +17,4 @@ Feature: Import Dictionary via subscription module
              Then the user should see the import button
              When the user clicks the import button
              Then the dictionary should be imported
+              And the data should be correct

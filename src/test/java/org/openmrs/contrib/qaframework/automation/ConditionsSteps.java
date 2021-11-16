@@ -15,10 +15,8 @@ import static org.junit.Assert.assertNull;
 import org.apache.commons.lang3.StringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
-import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.ConditionPage;
 import org.openmrs.contrib.qaframework.page.ConditionsPage;
-import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openqa.selenium.By;
 
 import io.cucumber.java.After;
@@ -38,9 +36,9 @@ public class ConditionsSteps extends Steps {
     public void visitDashboard() {
         testPatient = createTestPatient();
         initiateWithLogin();
-        findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
+        findPatientPage = homePage.goToFindPatientRecord();
         findPatientPage.enterPatient(testPatient.identifier);
-        dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage.clickOnFirstPatient().waitForPage();
+        dashboardPage = findPatientPage.clickOnFirstPatient();
     }
  
     @After(RunTest.HOOK.SELENIUM_CONDITION)

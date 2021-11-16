@@ -18,8 +18,8 @@ public class RegistrationSummaryPage extends Page {
 	private static final By SHOW_CONTACT_INFO_LINK = By.id("patient-header-contactInfo");
 	private static final By EDIT_CONTACT_INFO_LINK = By.id("contact-info-inline-edit");
 	private static final By EDIT_RELATIONSHIP_LINK = By.id("relationships-info-edit-link");
-	private static final By PATIENT_GIVENNAME_TEXT = By.cssSelector("#content div span.PersonName-givenName");
-	private static final By PATIENT_FAMILYNAME_TEXT = By.cssSelector(".patient-header .demographics .name .PersonName-familyName");
+	private static final By PATIENT_GIVEN_NAME_TEXT = By.cssSelector("#content div span.PersonName-givenName");
+	private static final By PATIENT_FAMILY_NAME_TEXT = By.cssSelector(".patient-header .demographics .name .PersonName-familyName");
 	private static final By TELEPHONE_NUMBER_TEXT = By.cssSelector("#coreapps-telephoneNumber");
 
 	public RegistrationSummaryPage(Page parent) {
@@ -46,11 +46,11 @@ public class RegistrationSummaryPage extends Page {
 	}
 	
 	public String getPatientGivenName() {
-		return findElement(PATIENT_GIVENNAME_TEXT).getText();
+		return findElement(PATIENT_GIVEN_NAME_TEXT).getText();
 	}
 	
 	public String getPatientFamilyName() {
-		return findElement(PATIENT_FAMILYNAME_TEXT).getText();
+		return findElement(PATIENT_FAMILY_NAME_TEXT).getText();
 	}
 	
 	public String getTelephoneNumber() {

@@ -57,7 +57,6 @@ Feature: Patient's Conditions Managment
     # User story: Delete first active active condition
     And User clicks delete first active condition
     Then System should trash first active condition
-
   @selenium
   @condition
   Scenario: Delete first inactive condition

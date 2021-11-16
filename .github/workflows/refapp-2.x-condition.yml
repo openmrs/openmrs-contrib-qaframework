@@ -1,4 +1,4 @@
-name: RefApp 2.x Condition
+name: RefApp 2.x Patient Condition
 on:
   push:
     branches: [master]

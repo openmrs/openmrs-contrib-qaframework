@@ -21,7 +21,10 @@ jobs:
       - name: Navigate into qaframework-bdd-tests
         run: cd qaframework-bdd-tests
       - name: Run vitals and triage workflow tests
-        run: npm run refapp3VitalsAndTriage
+        run: |
+          echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
+          npm run refapp3VitalsAndTriage
+          curl -sX POST -F messages=@target/cucumber.ndjson https://studio.cucumber.io/cucumber_project/results -H "project-access-token: ${{secrets.CUCUMBER_IO_TOKEN}}" -H "provider: github" -H "repo: ${{github.repository}}" -H "branch: master" -H "revision: ${{github.sha}}"
       - name: Upload screen recordings of failed tests
         if: ${{ failure() }}
         uses: actions/upload-artifact@v2

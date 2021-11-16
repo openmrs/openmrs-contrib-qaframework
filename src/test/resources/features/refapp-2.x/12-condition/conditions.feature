@@ -62,7 +62,6 @@ Feature: Patient's Conditions Managment
   Scenario: Delete first inactive condition
     And User enters inactive condition
     And User clicks save
-    
     # User story: Delete first inactive condition
     And User clicks delete first inactive condition
     Then System should trash first inactive condition

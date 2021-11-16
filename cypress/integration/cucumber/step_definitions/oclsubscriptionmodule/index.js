@@ -46,10 +46,11 @@ When(/the user selects the "(.+)" menu list item/, menuItem => {
 });
 
 Then('the user should copy the subscription url', () => {
-  const getClipBoardText = () => cy.window().then(win => {
-    win.navigator.clipboard.readText().then(text => text);
+  cy.window().then(win => {
+    win.navigator.clipboard.readText().then(text => {
+      expect(text).to.contain(`https://api.staging.openconceptlab.org/users/openmrs/collections/TCM/1/`)
+    });
   });
-  // TODO: Need to find a way to save the copied text somewhere
 });
 
 When('the user visit the OCL module page', () => {

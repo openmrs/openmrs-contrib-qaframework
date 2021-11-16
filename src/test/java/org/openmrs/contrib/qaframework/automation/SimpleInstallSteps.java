@@ -20,14 +20,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class SimpleInstallSteps extends InitialSetupSteps {
-	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and "
-			+ RunTest.HOOK.SIMPLE_INSTALL)
+	
+	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.SIMPLE_INSTALL)
 	public void init() {
 		initialSetup();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and "
-			+ RunTest.HOOK.SIMPLE_INSTALL)
+	@After(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.SIMPLE_INSTALL)
 	public void finish() {
 		complete();
 	}

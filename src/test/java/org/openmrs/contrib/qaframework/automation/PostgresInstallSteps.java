@@ -20,14 +20,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class PostgresInstallSteps extends InitialSetupSteps {
-	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and "
-			+ RunTest.HOOK.POSTGRES_INSTALL)
+	
+	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.POSTGRES_INSTALL)
 	public void init() {
 		initialSetup();
 	}
 
-	@After(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and "
-			+ RunTest.HOOK.POSTGRES_INSTALL)
+	@After(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.POSTGRES_INSTALL)
 	public void finish() {
 		complete();
 	}

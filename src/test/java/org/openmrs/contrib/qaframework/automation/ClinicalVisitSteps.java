@@ -38,7 +38,8 @@ public class ClinicalVisitSteps extends Steps {
 	private static final String DIAGNOSIS_PRIMARY = "Cancer";
 	private static final String DIAGNOSIS_SECONDARY = "Malaria";
 	private static final String APPOINTMENT_TYPE = "Surgery";
-	private static final String DRUG_NAME = "Penicillins";
+	private static final String FIRST_DRUG_NAME = "Penicillins";
+	private static final String SECOND_DRUG_NAME = "Codeine";
 	private static final String REACTION = "Headache";
 	private static final String CONDITION = "Malaria";
 	private ActiveVisitsPage activeVisitsPage;
@@ -55,8 +56,7 @@ public class ClinicalVisitSteps extends Steps {
 	public void visitHomePage() {
 		testPatient = createTestPatient();
 		initiateWithLogin();
-		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(),
-				getLocationUuid(homePage)).create();
+		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_CLINICAL_VISIT)
@@ -73,8 +73,7 @@ public class ClinicalVisitSteps extends Steps {
 	@When("a user selects a patient from active patient list")
 	public void searchActivePatient() {
 		activeVisitsPage.search(testPatient.identifier);
-		dashboardPage = activeVisitsPage
-				.goToPatientDashboardOfLastActiveVisit();
+		dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
 	}
 
 	@Then("the system loads Patient dashboard page")
@@ -85,8 +84,7 @@ public class ClinicalVisitSteps extends Steps {
 	@When("a user clicks visit note link from the patient dashboard")
 	public void loadVisitNotePage() {
 		visitsDashboardPage = dashboardPage.goToRecentVisits();
-		visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote()
-				.waitForPage();
+		visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote().waitForPage();
 	}
 
 	@Then("the system loads visit note page")
@@ -116,8 +114,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Allergies link from Patient dashboard page")
 	public void loadAllergiesPage() {
-		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink()
-				.waitForPage();
+		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink().waitForPage();
 	}
 
 	@Then("the system loads Allergies board page")
@@ -125,10 +122,25 @@ public class ClinicalVisitSteps extends Steps {
 		assertTrue(textExists("Allergies"));
 	}
 
-	@When("a user clicks Add Known Allergy button")
+	@And("a user clicks Add Known Allergy for the first allergy")
 	public void addKnownAllergy() {
 		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
-		addOrEditAllergyPage.enterDrug(DRUG_NAME);
+		addOrEditAllergyPage.enterDrug(FIRST_DRUG_NAME);
+		addOrEditAllergyPage.drugId();
+		addOrEditAllergyPage.enterReaction(REACTION);
+		addOrEditAllergyPage.reactionId();
+		addOrEditAllergyPage.addAllergyNote("The effect is severe");
+		addOrEditAllergyPage.clickOnSaveAllergy();
+	}
+
+	@And("a user clicks Add Known Allergy for the second allergy")
+	public void addAllergy() {
+		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
+	}
+
+	@And("the user selects an allergy")
+	public void selectAllergy() {
+		addOrEditAllergyPage.enterDrug(SECOND_DRUG_NAME);
 		addOrEditAllergyPage.drugId();
 		addOrEditAllergyPage.enterReaction(REACTION);
 		addOrEditAllergyPage.reactionId();
@@ -143,13 +155,27 @@ public class ClinicalVisitSteps extends Steps {
 	@Then("the system adds known allergies into the allergies table")
 	public void systemAddsKnownAllergy() {
 		assertNotNull(addOrEditAllergyPage.getAllergiesList());
+	}
+
+	@And("a user clicks on the delete Allergy")
+	public void clickOnDeleteAllergyButton() {
+		allergyPage.clickOnDeleteAllergy();
+	}
+
+	@And("a user confirms delete action")
+	public void confirmDeleteAllergy() {
+		allergyPage.clickOnConfirmDeleteAllergy();
+	}
+
+	@Then("the system deletes an allergy from the allergy table")
+	public void systemRemovesAllergy() {
+		assertNotNull(addOrEditAllergyPage.getAllergiesList());
 		dashboardPage = addOrEditAllergyPage.clickReturn();
 	}
 
 	@When("a user clicks on Conditions link from Patient dashboard")
 	public void loadManageConditionsPage() {
-		conditionsPage = (ConditionsPage) dashboardPage
-				.clickOnConditionsWidgetLink().waitForPage();
+		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
 	}
 
 	@Then("the system loads Manage Conditions Page")
@@ -157,15 +183,21 @@ public class ClinicalVisitSteps extends Steps {
 		assertTrue(conditionsPage.containsText("Conditions"));
 	}
 
-	@When("a user clicks on Add new condition")
+	@And("a user clicks on Add new condition")
 	public void userClicksAddNewCondition() {
-		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition()
-				.waitForPage();
+		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
 	}
 
-	@And("a user enters patient condition")
-	public void enterExistingCondition() {
+	@And("a user enters first patient condition")
+	public void enterFirstCondition() {
 		conditionPage.typeInCondition(CONDITION);
+		conditionPage.clickSave();
+	}
+
+	@And("a user enters second patient condition")
+	public void enterSecondCondition() {
+		conditionsPage.clickOnAddNewCondition().waitForPage();
+		conditionPage.typeInCondition("Acute malnutrition");
 	}
 
 	@And("a user clicks on save condition button")
@@ -176,15 +208,24 @@ public class ClinicalVisitSteps extends Steps {
 	@Then("the system adds New Condition in Conditions table")
 	public void systemAddsCondition() {
 		assertNotNull(conditionsPage.getConditionsList());
-		dashboardPage = conditionsPage.clickReturn();
 	}
+
+	@And("a user clicks on the delete button from dashboard")
+	public void deleteCondition() {
+		conditionsPage.deleteFirstActive();
+		conditionsPage.confirmDeleteCondition();
+	}
+
+	@Then("the system deletes a condition from the conditions table")
+	public void systemDeletesCondition() {
+		assertNotNull(conditionsPage.getConditionsList());
+		dashboardPage = conditionsPage.clickReturn();
+    }
 
 	@When("a user clicks on Attachments link from patient visits dashboard")
 	public void loadAttachmentsPage() {
-		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage
-				.goToRecentVisits();
-		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage()
-				.waitForPage();
+		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
+		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage().waitForPage();
 	}
 
 	@Then("the system loads Attachments page")
@@ -211,8 +252,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Request appointment link from Patient dashboard")
 	public void loadRequestAppointmentPage() {
-		requestAppointmentPage = (RequestAppointmentPage) dashboardPage
-				.clickOnRequest();
+		requestAppointmentPage = (RequestAppointmentPage) dashboardPage.clickOnRequest();
 	}
 
 	@Then("the system loads Request appointment page")

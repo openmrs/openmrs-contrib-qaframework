@@ -17,6 +17,7 @@ import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 import org.openmrs.contrib.qaframework.helper.TestBase;
 
 public class InitialSetupSteps extends TestBase {
+	
 	protected InitialSetupPage initialSetupPage;
 
 	public InitialSetupSteps() {

@@ -22,6 +22,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class AllergiesSteps extends Steps {
+	
 	private AllergyPage allergyPage;
 
 	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)
@@ -64,5 +65,4 @@ public class AllergiesSteps extends Steps {
 	public void systemRemovesNoKnownAllergies() {
 		assertTrue(textExists("Unknown"));
 	}
-
 }

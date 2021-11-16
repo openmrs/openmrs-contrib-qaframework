@@ -38,10 +38,8 @@ public class RestClient {
 	}
 
 	// columns is a comma separated list (or null)
-	public static JsonNode get(String restPath, String columns,
-			String searchQuery) {
-		WebTarget target = newClient().target(getWebAppUrl()).path(
-				REST_ROOT + restPath);
+	public static JsonNode get(String restPath, String columns, String searchQuery) {
+		WebTarget target = newClient().target(getWebAppUrl()).path(REST_ROOT + restPath);
 		if (columns != null) {
 			target = target.queryParam("v", "custom:(" + columns + ")");
 		}
@@ -64,16 +62,14 @@ public class RestClient {
 	}
 
 	public static void delete(String restPath, Boolean purge) {
-		WebTarget target = newClient().target(getWebAppUrl())
-				.path(REST_ROOT + restPath).queryParam("purge", purge);
+		WebTarget target = newClient().target(getWebAppUrl()).path(REST_ROOT + restPath).queryParam("purge", purge);
 		try {
 			String jsonString = target.request().delete(String.class);
 			if (!jsonString.isEmpty()) {
 				throw new RuntimeException(jsonString);
 			}
 		} catch (Exception e) {
-			throw new IllegalStateException("Delete request failed: "
-					+ target.getUri(), e);
+			throw new IllegalStateException("Delete request failed: " + target.getUri(), e);
 		}
 	}
 
@@ -86,10 +82,8 @@ public class RestClient {
 				REST_ROOT + restPath);
 		try {
 			String objectAsJson = object.asJson();
-			Entity<String> entity = Entity.entity(objectAsJson,
-					MediaType.APPLICATION_JSON_TYPE);
-			String json = target.request(MediaType.APPLICATION_JSON_TYPE).post(
-					entity, String.class);
+			Entity<String> entity = Entity.entity(objectAsJson, MediaType.APPLICATION_JSON_TYPE);
+			String json = target.request(MediaType.APPLICATION_JSON_TYPE).post(entity, String.class);
 			return new ObjectMapper().readValue(json, JsonNode.class);
 		} catch (Exception e) {
 			log("POST " + restPath + " failed", e);
@@ -131,8 +125,7 @@ public class RestClient {
 				.queryParam("source", source)
 				.queryParam("username", getUsername())
 				.queryParam("password", getPassword());
-		String jsonString = target.request(MediaType.APPLICATION_JSON_TYPE)
-				.get(String.class);
+		String jsonString = target.request(MediaType.APPLICATION_JSON_TYPE).get(String.class);
 		JsonNode json;
 		try {
 			json = new ObjectMapper().readValue(jsonString, JsonNode.class);
@@ -142,5 +135,4 @@ public class RestClient {
 		}
 		return json.get("identifiers").get(0).asText();
 	}
-
 }

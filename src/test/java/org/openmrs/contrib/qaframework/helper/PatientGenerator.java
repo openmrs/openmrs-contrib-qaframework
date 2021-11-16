@@ -66,7 +66,6 @@ public class PatientGenerator {
 
 	static String randomSuffix(int digits) {
 		// First n digits of the current time.
-		return String.valueOf(System.currentTimeMillis()).substring(0,
-				digits - 1);
+		return String.valueOf(System.currentTimeMillis()).substring(0, digits - 1);
 	}
 }

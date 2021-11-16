@@ -31,8 +31,7 @@ public class AttachmentsPage extends Page {
 	}
 
 	public void setFileUrl(String fileUrl) {
-		WebElement element = driver.findElement(By
-				.xpath("//input[@type='file']"));
+		WebElement element = driver.findElement(By.xpath("//input[@type='file']"));
 		element.sendKeys(fileUrl);
 	}
 

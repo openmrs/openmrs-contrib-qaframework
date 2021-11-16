@@ -70,8 +70,7 @@ public abstract class Page {
 			Object readyState = executeScript("return document.readyState;");
 
 			if (hasPageReadyIndicator()) {
-				return "complete".equals(readyState)
-						&& Boolean.TRUE.equals(executeScript("return (typeof "
+				return "complete".equals(readyState) && Boolean.TRUE.equals(executeScript("return (typeof "
 								+ getPageReadyIndicatorName()
 								+ "  !== 'undefined') ? "
 								+ getPageReadyIndicatorName() + " : null;"));
@@ -90,8 +89,7 @@ public abstract class Page {
 	public Page(Page parent) {
 		this(parent.driver);
 		if (this.getClass().isInstance(parent)) {
-			throw new RuntimeException(
-					"When returning the same page use the two arguments constructor");
+			throw new RuntimeException("When returning the same page use the two arguments constructor");
 		}
 	}
 
@@ -107,12 +105,10 @@ public abstract class Page {
 		try {
 			contextUrl = new URL(serverUrl).getPath();
 		} catch (MalformedURLException e) {
-			throw new IllegalArgumentException("webapp.url "
-					+ properties.getWebAppUrl() + " is not a valid URL", e);
+			throw new IllegalArgumentException("webapp.url " + properties.getWebAppUrl() + " is not a valid URL", e);
 		}
 
-		waiter = new WebDriverWait(driver,
-				Duration.ofSeconds(TestBase.MAX_WAIT_IN_SECONDS));
+		waiter = new WebDriverWait(driver, Duration.ofSeconds(TestBase.MAX_WAIT_IN_SECONDS));
 	}
 
 	/**
@@ -169,13 +165,11 @@ public abstract class Page {
 
 	public void go() {
 		driver.get(getAbsolutePageUrl());
-
 		waitForPage();
 	}
 
 	public WebElement findElement(By by) {
 		waiter.until(ExpectedConditions.visibilityOfElementLocated(by));
-
 		return driver.findElement(by);
 	}
 
@@ -276,8 +270,7 @@ public abstract class Page {
 	public String getPatientUuidFromUrl() {
 		String url = driver.getCurrentUrl();
 
-		return StringUtils.substringBefore(
-				StringUtils.substringAfter(url, "patientId="), "&");
+		return StringUtils.substringBefore(StringUtils.substringAfter(url, "patientId="), "&");
 	}
 
 	public String getPageAliasUrl() {
@@ -331,8 +324,7 @@ public abstract class Page {
 
 			@Override
 			public Boolean apply(WebDriver driver) {
-				return ((JavascriptExecutor) driver)
-						.executeScript("return (typeof " + varName
+				return ((JavascriptExecutor) driver).executeScript("return (typeof " + varName
 								+ "  !== 'undefined') ? " + varName + " : null") != null;
 			}
 		});
@@ -374,8 +366,7 @@ public abstract class Page {
 	}
 
 	public void waitForTextToBePresentInElement(By by, String text) {
-		waiter.until(ExpectedConditions.textToBePresentInElementLocated(by,
-				text));
+		waiter.until(ExpectedConditions.textToBePresentInElementLocated(by, text));
 	}
 
 	public boolean containsTextWithoutWait(String text) {
@@ -388,8 +379,7 @@ public abstract class Page {
 
 	public List<String> getValidationErrors() {
 		List<String> validationErrors = new ArrayList<String>();
-		for (WebElement webElement : driver.findElements(By
-				.className("field-error"))) {
+		for (WebElement webElement : driver.findElements(By.className("field-error"))) {
 			if (StringUtils.isNotBlank(webElement.getText())) {
 				validationErrors.add(webElement.getText());
 			}
@@ -404,14 +394,11 @@ public abstract class Page {
 
 	public String queryJsForAttribute(String cssHandle, String attribute) {
 		return (String) ((JavascriptExecutor) driver).executeScript(String
-				.format("return document.querySelector('%s').%s", cssHandle,
-						attribute));
+				.format("return document.querySelector('%s').%s", cssHandle, attribute));
 	}
 
-	public void setAttributeWithJs(String cssHandle, String attribute,
-			String value) {
+	public void setAttributeWithJs(String cssHandle, String attribute, String value) {
 		((JavascriptExecutor) driver).executeScript(String.format(
-				"document.querySelector('%s').%s = '%s'", cssHandle, attribute,
-				value));
+				"document.querySelector('%s').%s = '%s'", cssHandle, attribute, value));
 	}
 }

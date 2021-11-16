@@ -29,5 +29,4 @@ public class ReportHistoryPage extends Page {
 	public String getPageUrl() {
 		return "/reporting/reports/reportHistoryOpen";
 	}
-
 }

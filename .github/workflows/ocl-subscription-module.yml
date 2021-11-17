@@ -25,7 +25,7 @@ jobs:
       - name: wait for openmrs instance to start
         run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/login.htm)" != "200" ]]; do sleep 1; done
       - name: Run ocl subscription module
-        run: npm run refappOCLSubscriptionModule
+        run: npm run refappOclSubscriptionModule
       - name: Upload screen recordings of failed tests
         if: ${{ failure() }}
         uses: actions/upload-artifact@v2

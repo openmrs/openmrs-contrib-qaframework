@@ -8,12 +8,13 @@
  * graphic logo is a trademark of OpenMRS Inc.
  */
 package org.openmrs.contrib.qaframework.automation;
-
+ 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ConditionPage;
 import org.openmrs.contrib.qaframework.page.ConditionsPage;
 import org.openqa.selenium.By;
@@ -25,27 +26,30 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 public class ConditionsSteps extends Steps {
-	
-	private ConditionsPage conditionsPage;
-	private String patientDashboardId;
-	private By addNewCondition = By.id("conditionui-addNewCondition");
-	private ConditionPage conditionPage;
+    private ConditionsPage conditionsPage;
+    private String patientDashboardId;
+    private By addNewCondition = By.id("conditionui-addNewCondition");
+    private ConditionPage conditionPage;
+    private TestData.PatientInfo testPatient;
 
-	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)
-	public void visitDashboard() {
-		initiatePatientDashboard();
-	}
-
-	@After(RunTest.HOOK.SELENIUM_DASHBOARD)
-	public void destroy() {
-		quit();
-	}
-
+    @Before(RunTest.HOOK.SELENIUM_CONDITION)
+    public void visitDashboard() {
+        testPatient = createTestPatient();
+        initiateWithLogin();
+        findPatientPage = homePage.goToFindPatientRecord();
+        findPatientPage.enterPatient(testPatient.identifier);
+        dashboardPage = findPatientPage.clickOnFirstPatient();
+    }
+ 
+    @After(RunTest.HOOK.SELENIUM_CONDITION)
+    public void destroy() {
+        deletePatient(testPatient);
+        quit();
+    }
+    
 	@Given("User clicks on Conditions from Patient dashboard")
 	public void launchManageConditions() {
-		patientDashboardId = getElement(patientHeaderId).getText();
 		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
-		matchPatientIds(patientDashboardId);
 	}
 
 	@Then("System loads Manage Conditions Page")
@@ -81,19 +85,25 @@ public class ConditionsSteps extends Steps {
 	@And("User clicks save")
 	public void saveCondition() {
 		conditionPage.clickSave();
-		conditionsPage.waitForPage();
+	}
+	
+	@Then ("System adds New Condition in Conditions table")
+	public void systemAddsPatientCondition(){
+		assertNotNull(conditionsPage.getConditionsList());
+		dashboardPage = conditionsPage.clickReturn();
 	}
 
-	@And("User enters {string} condition")
-	public void enterExistingCondition(String activity) {
-		if ("active".equals(activity)) {
+	@And("User enters active condition")
+	public void enterActiveCondition() {
 			conditionPage.typeInCondition("Diarrhea");
 			conditionPage.clickOnActive();
-		} else if ("inactive".equals(activity)) {
+	}
+	
+	@And("User enters inactive condition")
+	public void enterInactiveCondition(){
 			conditionPage.typeInCondition("Diabetes mellitus");
 			conditionPage.clickOnInActive();
 		}
-	}
 
 	@Then("Then System on {string} Page")
 	public void persist(String page) {
@@ -123,8 +133,9 @@ public class ConditionsSteps extends Steps {
 	@Then("System should move condition to inactive section")
 	public void moveInActive() {
 		conditionsPage.clickInActiveTab();
-		assertNotNull(conditionsPage.getFirstConditionName());
-		assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
+		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
+			assertNotNull(getElement(ConditionsPage.SET_ACTIVE));
+		}
 	}
 
 	@Then("System should move condition to active section")
@@ -138,20 +149,18 @@ public class ConditionsSteps extends Steps {
 	@And("User edits active")
 	public void editActive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionPage = (ConditionPage) conditionsPage.editFirstActive().waitForPage();
+			conditionPage = conditionsPage.editFirstActive();
 			conditionPage.clickOnInActive();
 			conditionPage.clickSave();
-			conditionsPage.waitForPage();
 		}
 	}
 
 	@And("User edits inactive")
 	public void editInactive() {
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
-			conditionPage = (ConditionPage) conditionsPage.editFirstInActive().waitForPage();
+			conditionPage = conditionsPage.editFirstInActive();
 			conditionPage.clickOnActive();
 			conditionPage.clickSave();
-			conditionsPage.waitForPage();
 		}
 	}
 
@@ -171,33 +180,35 @@ public class ConditionsSteps extends Steps {
 		}
 	}
 
-	@And("User clicks delete condition")
-	public void delete() {
-		String name = conditionsPage.getFirstConditionName();
-		if (StringUtils.isNotBlank(name)) {
+	@And("User clicks delete first active condition")
+	public void deleteFirstActiveCondition() {
+		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionsPage.deleteFirstActive();
+			conditionsPage.confirmDeleteCondition();
 		}
-		driver.findElement(By.cssSelector(".confirm")).click();
-
-		conditionsPage.clickInActiveTab();
-		name = conditionsPage.getFirstConditionName();
-		if (StringUtils.isNotBlank(name)) {
-			conditionsPage.deleteFirstInActive();
-		}
-		driver.findElement(By.cssSelector(".confirm")).click();
 	}
 
-	@Then("System should trash first condition")
-	public void SuccessfulDeletion() {
+   @And("User clicks delete first inactive condition")
+   public void deleteFirstInactiveCondition() {
+		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
+			conditionsPage.deleteFirstInActive();
+			conditionsPage.confirmDeleteCondition();
+		}
+	}
+
+	@Then("System should trash first active condition")
+	public void systemDeletesActiveCondition() {
 		String name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {
-			assertNull(driver.findElement(By.linkText(name)));
+			assertNull(driver.findElement(By.xpath(name)));
 		}
-
-		conditionsPage.clickInActiveTab();
-		name = conditionsPage.getFirstConditionName();
+	}
+		
+	@Then("System should trash first inactive condition")
+		public void systemDeletesInActiveCondition() {
+		String name = conditionsPage.getFirstConditionName();
 		if (StringUtils.isNotBlank(name)) {
-			assertNull(driver.findElement(By.linkText(name)));
+			assertNull(driver.findElement(By.xpath(name)));
 		}
 	}
 }

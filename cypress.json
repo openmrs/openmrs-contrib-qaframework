@@ -16,5 +16,10 @@
     "DEFAULT_LOCATION_NAME": "Registration Desk"
   },
   "viewportWidth": 1800,
-  "viewportHeight": 900
+  "viewportHeight": 900,
+
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  }
 }

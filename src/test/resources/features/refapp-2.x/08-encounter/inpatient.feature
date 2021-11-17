@@ -13,11 +13,9 @@ Feature: Inpatient Management
     # User story: Admission encounter
     When a user clicks on Admit to Inpatient button and selects location
     Then the system confirms admission encounter is made
- 
     # User story: Trasfer encounter
     When a user clicks on Trasfer to Ward service button and selects location
     Then the system confirms trasfer within hospital encounter is made
-
     # User story: Discharge encounter
     When a user clicks on Exit from Inpatient button and selects location
     Then the system confirms discharge encounter is made

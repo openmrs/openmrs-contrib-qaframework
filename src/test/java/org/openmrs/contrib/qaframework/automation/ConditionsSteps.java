@@ -157,6 +157,7 @@ public class ConditionsSteps extends Steps {
 
 	@And("User edits inactive")
 	public void editInactive() {
+		conditionsPage.clickInActiveTab();
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionPage = conditionsPage.editFirstInActive();
 			conditionPage.clickOnActive();
@@ -190,6 +191,7 @@ public class ConditionsSteps extends Steps {
 
    @And("User clicks delete first inactive condition")
    public void deleteFirstInactiveCondition() {
+	   conditionsPage.clickInActiveTab();
 		if (StringUtils.isNotBlank(conditionsPage.getFirstConditionName())) {
 			conditionsPage.deleteFirstInActive();
 			conditionsPage.confirmDeleteCondition();

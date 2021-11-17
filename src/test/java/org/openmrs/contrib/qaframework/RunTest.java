@@ -25,7 +25,6 @@ public class RunTest {
 
 	public class HOOK {
 		public static final String LOGIN = "@login";
-		public static final String CONDITION = "@condition";
 		public static final String SELENIUM = "@selenium";
 		public static final String DASHBOARD = "@dashboard";
 		public static final String INITIAL_SETUP = "@initialSetup";
@@ -43,16 +42,15 @@ public class RunTest {
 		public static final String FIND_PATIENT = "@findPatient";
 		public static final String PATIENT_DEMOGRAPHICS = "@patientDemographics";
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
-		public static final String SELENIUM_CONDITION = SELENIUM + " and "+ CONDITION;
-		public static final String SELENIUM_DASHBOARD = SELENIUM + " and "+ DASHBOARD;
-		public static final String SELENIUM_INITIAL_SETUP = SELENIUM + " and "+ INITIAL_SETUP;
-		public static final String SELENIUM_VITALS = SELENIUM + " and "+ VITALS;
-		public static final String SELENIUM_CLINICAL_VISIT = SELENIUM + " and "+ CLINICAL_VISIT;
-		public static final String SELENIUM_ENCOUNTER = SELENIUM + " and "+ INPATIENT;
-		public static final String SELENIUM_REGISTRATION = SELENIUM + " and "+ REGISTRATION;
-		public static final String SELENIUM_FIND_PATIENT = SELENIUM + " and "+ FIND_PATIENT;
-		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "+ USER_ACCOUNT;
-		public static final String SELENIUM_REPORT = SELENIUM + " and "+ REPORT;
+		public static final String SELENIUM_DASHBOARD = SELENIUM + " and " + DASHBOARD;
+		public static final String SELENIUM_INITIAL_SETUP = SELENIUM + " and " + INITIAL_SETUP;
+		public static final String SELENIUM_VITALS = SELENIUM + " and " + VITALS;
+		public static final String SELENIUM_CLINICAL_VISIT = SELENIUM + " and " + CLINICAL_VISIT;
+		public static final String SELENIUM_ENCOUNTER = SELENIUM + " and " + INPATIENT;
+		public static final String SELENIUM_REGISTRATION = SELENIUM + " and " + REGISTRATION;
+		public static final String SELENIUM_FIND_PATIENT = SELENIUM + " and " + FIND_PATIENT;
+		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and " + USER_ACCOUNT;
+		public static final String SELENIUM_REPORT = SELENIUM + " and " + REPORT;
 		public static final String SELENIUM_PATIENT_DEMOGRAPHICS = SELENIUM + " and " + PATIENT_DEMOGRAPHICS;
 	}
 }

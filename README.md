@@ -36,6 +36,8 @@ Install & Upgrade Tests |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
 [![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml/badge.svg)](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml)
 [Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) 
+[openmrs core sonaqube](https://ci.openmrs.org/browse/SON-OPENMRSCOREMASTER) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) 
+[openmrs sonaqube dashboard](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) 
 ###### * Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs-distro-referenceapplication/tree/master/ui-tests/src/test/java/org/openmrs/reference).
 
 

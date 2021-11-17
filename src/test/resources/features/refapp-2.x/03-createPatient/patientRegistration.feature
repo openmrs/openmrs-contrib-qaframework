@@ -7,6 +7,7 @@ Feature: Patient Registration
     And User clicks on Registration App
     And User enters "<validity>" details for John Smith
     Then User's patient registration is "<status>"
+
     Examples:
       | validity   | status       |
       | right      | successful   |

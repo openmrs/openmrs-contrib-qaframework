@@ -17,14 +17,14 @@ Feature: Vitals Management
     When a user enters a vital below minimum value and the system alerts until valid
     And a user clicks on save button
     Then the system adds patient vitals into the vitals table
-    
+
   @selenium
   @vitals 
   Scenario: Vitals over maximum value
     When a user enters a vital above maximum value and the system alerts until valid
     And a user clicks on save button
     Then the system adds patient vitals into the vitals table
-    
+
   @selenium
   @vitals 
   Scenario: Editing Vitals
@@ -32,7 +32,6 @@ Feature: Vitals Management
     When a user enters normal patient vitals
     And a user clicks on save button
     Then the system adds patient vitals into the vitals table 
-    
     #User Story: Edit vitals
     When a user clicks on edit vitals icon from patient visits dashboard
     And the system loads the edit vitals page

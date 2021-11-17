@@ -3,7 +3,7 @@ Feature: Reports Management
   Background:
     Given a user go to system administartion app
     Then the system loads system administrationpage
-     
+
   @selenium
   @report
   Scenario: Report Management

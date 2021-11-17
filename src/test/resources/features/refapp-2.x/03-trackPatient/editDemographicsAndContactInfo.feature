@@ -13,7 +13,6 @@ Feature: Edit Demographics and contact info from Patient Dashboard
     And a user edits demographics
     And a user clicks on the confirm button
     Then the system saves the updated patient demographics
-    
     # User story: Edit Patient Contact Information
     When a user clicks on Edit link under contact info section from Registration Summary Page
     Then the system loads the edit contact information section

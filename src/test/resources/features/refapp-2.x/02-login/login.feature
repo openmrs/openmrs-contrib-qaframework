@@ -11,7 +11,6 @@ Feature: User Login
     And User Selects "<location>" Login Location
     And User Logs in
     Then System Evaluates Login "<status>"
-
     Examples:
       | username  | password  | location      | status |
       | admin     | wrongPas  | firstLocation | false  |

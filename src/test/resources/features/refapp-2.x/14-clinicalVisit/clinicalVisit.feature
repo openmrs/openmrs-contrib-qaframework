@@ -18,8 +18,7 @@ Feature: Clinical Visit Management
     Then the system adds known allergies into the allergies table
     And a user clicks on the delete Allergy
     And a user confirms delete action
-    Then the system deletes an allergy from the allergy table
-          
+    Then the system deletes an allergy from the allergy table   
     # User story: Add known conditions
     When a user clicks on Conditions link from Patient dashboard
     Then the system loads Manage Conditions Page
@@ -30,21 +29,18 @@ Feature: Clinical Visit Management
     Then the system adds New Condition in Conditions table
     And a user clicks on the delete button from dashboard
     Then the system deletes a condition from the conditions table
-     
     # User story: Book an appointment
     When a user clicks on Request appointment link from Patient dashboard
     Then the system loads Request appointment page
     When a user fills the Request appointment form
     And a user clicks on save appointment button
     Then the system adds Appointment request into the appointment table 
-    
     # User story: Complete visit note
     When a user clicks visit note link from the patient dashboard
     Then the system loads visit note page
     When a user fills the visit note
     And a user clicks on save visit note button
     Then the system adds the note into visit note table
-    
     # User story: End patient visit
     When a user clicks on end visit button
     Then the system ends the patient visit

@@ -58,7 +58,7 @@ OpenMRS Dictionary Manager|
 [![Organization Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml)
 Loading into EMR ____ Coming soon
 
-OCL Module (Subscription Module)
+OCL Module (Subscription Module) |
 -----|
 [![OCL Subscription Module](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ocl-subscription-module.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ocl-subscription-module.yml)
 

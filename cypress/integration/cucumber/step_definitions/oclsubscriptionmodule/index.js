@@ -99,5 +99,10 @@ Then('the data should be correct', async () => {
     expect(omrsConcept.name.conceptNameType).to.equal(oclConcept.names[0].name_type);
     expect(omrsConcept.conceptClass.display).to.equal(oclConcept.concept_class);
     expect(omrsConcept.names.length).to.equal(oclConcept.names.length);
+
+    const omrsConceptNamesDisplay = omrsConcept.names.map(n => n.display);
+    oclConcept.names.forEach(n => {
+      expect(omrsConceptNamesDisplay.includes(n.name)).to.be.true;
+    })
   });
 });

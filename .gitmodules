@@ -1,0 +1,3 @@
+[submodule "openmrs-distro-referenceapplication"]
+	path = openmrs-distro-referenceapplication
+	url = https://github.com/sherrif10/openmrs-distro-referenceapplication.git

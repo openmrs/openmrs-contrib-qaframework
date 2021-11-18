@@ -15,7 +15,7 @@ Install & Upgrade Tests |
  [![Platform Advanced Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml) 
  [![Platform Postgres Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml) 
  [![Platform Upgrade](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml) | 
-[openmrs sonaqube dashboard](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) |
+[openmrs sonaqube dashboard](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU)
 
 
 ## Reference Application

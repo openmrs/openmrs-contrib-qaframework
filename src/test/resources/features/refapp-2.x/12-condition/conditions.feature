@@ -12,7 +12,6 @@ Feature: Patient's Conditions Managment
     # User story: Adding an active condition
     And User enters active condition
     And User clicks save
-    
     # User story: Set first condition to inactive
     And User clicks on set inactive button
     Then System should move condition to inactive section

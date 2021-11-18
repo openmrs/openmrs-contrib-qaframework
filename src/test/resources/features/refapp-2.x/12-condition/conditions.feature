@@ -42,7 +42,6 @@ Feature: Patient's Conditions Managment
   Scenario: Editing First Inactive condition
     And User enters inactive condition
     And User clicks save
-    
     # User story: Edit first inactive condition
     And User edits inactive
     Then System should edit all inactive adjustable fields

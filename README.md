@@ -6,11 +6,8 @@ ___
 ## Platform (core)
 
 [TRUNK](https://ci.openmrs.org/browse/TRUNK-MASTER) | [REST API](https://ci.openmrs.org/browse/RESTWS-RESTWS) | [FHIR API](https://ci.openmrs.org/browse/FHIR-FM2) | [SONAQUBE DASHBOARD](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs)
-
-------------| -------------  | -------------   | -------------
-
-![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/TRUNK-MASTER) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/RESTWS-RESTWS) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2) |
-![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/SON-OPENMRSCOREMASTER)
+------------ | ------------- | ------------- | -------------
+![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/TRUNK-MASTER) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/RESTWS-RESTWS) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/SON-OPENMRSCOREMASTER)
 
 
 Install & Upgrade Tests |

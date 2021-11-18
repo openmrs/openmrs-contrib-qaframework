@@ -31,7 +31,6 @@ Feature: Patient's Conditions Managment
   Scenario: Editing First Active condition
     And User enters active condition
     And User clicks save
-    
     # User story: Edit first active condition
     And User edits active
     Then System should edit all active adjustable fields

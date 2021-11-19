@@ -6,11 +6,15 @@
     <version>1.0-SNAPSHOT</version>
     <name>OpenMRS QA Framework</name>
     <description>OpenMRS QA framework</description>
+    <packaging>pom</packaging>
     <url>https://wiki.openmrs.org</url>
     <organization>
         <name>OpenMRS</name>
         <url>http://openmrs.org</url>
     </organization>
+    <modules>
+    <module>ui-tests</module>
+    </modules>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>

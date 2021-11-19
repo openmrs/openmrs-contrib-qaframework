@@ -40,7 +40,7 @@ public class ConditionsSteps extends Steps {
         findPatientPage.enterPatient(testPatient.identifier);
         dashboardPage = findPatientPage.clickOnFirstPatient();
     }
- 
+    
     @After(RunTest.HOOK.SELENIUM_CONDITION)
     public void destroy() {
         deletePatient(testPatient);

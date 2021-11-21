@@ -12,9 +12,11 @@
         <name>OpenMRS</name>
         <url>http://openmrs.org</url>
     </organization>
+    
     <modules>
     <module>ui-tests</module>
     </modules>
+    
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>

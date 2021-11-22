@@ -16,6 +16,20 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <skipTests>true</skipTests>
     </properties>
+    <depedencies>
+		<dependency>
+			<groupId>org.hamcrest</groupId>
+			<artifactId>hamcrest-all</artifactId>
+			<version>1.3</version>
+			<scope>test</scope>
+		</dependency>
+		 <dependency>
+            <groupId>org.openmrs.contrib</groupId>
+            <artifactId>qaframework</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>test</scope>
+        </dependency>
+        </depedencies>
     <profiles>
         <profile>
             <id>ci</id>

@@ -9,5 +9,4 @@
 *.idea
 *.iml
 chromedriver.log
-
 /target

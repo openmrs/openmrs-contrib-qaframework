@@ -5,9 +5,10 @@
 ___
 ## Platform (core)
 
-[TRUNK](https://ci.openmrs.org/browse/TRUNK-MASTER) | [REST API](https://ci.openmrs.org/browse/RESTWS-RESTWS) | [FHIR API](https://ci.openmrs.org/browse/FHIR-FM2)
------------- | ------------- | -------------
-![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/TRUNK-MASTER) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/RESTWS-RESTWS) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2)
+[TRUNK](https://ci.openmrs.org/browse/TRUNK-MASTER) | [REST API](https://ci.openmrs.org/browse/RESTWS-RESTWS) | [FHIR API](https://ci.openmrs.org/browse/FHIR-FM2) | [SONAQUBE DASHBOARD](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs)
+------------ | ------------- | ------------- | -------------
+![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/TRUNK-MASTER) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/RESTWS-RESTWS) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/SON-OPENMRSCOREMASTER)
+
 
 Install & Upgrade Tests |
 ------------- |
@@ -17,7 +18,6 @@ Install & Upgrade Tests |
  [![Platform Upgrade](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml) | 
 [openmrs sonaqube dashboard](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU)
 
-
 ## Reference Application
 
 2.x RefApp Workflow Tests |
@@ -25,6 +25,7 @@ Install & Upgrade Tests |
 [All Chrome Tests](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
 [![All Firefox Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
 [![RefApp 2.x Clinical Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml)
+[![RefApp 2.x Patient Condition](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2.x-condition.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2.x-condition.yml)
 [![RefApp 2.x Vitals And Triaging](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml) 
 [![RefApp 2.x Inpatient](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-inpatient.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-inpatient.yml)
 [![RefApp 2.x Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml)
@@ -37,8 +38,6 @@ Install & Upgrade Tests |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
 [![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml/badge.svg)](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml)
 [Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) 
-[openmrs core sonaqube](https://ci.openmrs.org/browse/SON-OPENMRSCOREMASTER) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) 
-[openmrs sonaqube dashboard](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) 
 ###### * Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs-distro-referenceapplication/tree/master/ui-tests/src/test/java/org/openmrs/reference).
 
 

@@ -16,32 +16,31 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class OpenConceptLabPage extends Page {
+public class SubscriptionPage extends Page {
     
 //    private static final By SUBSCRIPTION_URL_FIELD = By.id("subscription-url");
     private static final By SETUP_SUBSCRIPTION_BUTTON = By.cssSelector("#body-wrapperhome div:nth-child(2) div:nth-child(2) a");
     private static final By RELEASE_DICTIONARY_URL_FIELD = By.id("subscription-url");
     private static final By USER_URL_FIELD = By.id("subscription-token");
-    private static final By SAVE_BUTTON = By.className("saveSubscription");
-    private static final By CANCEL_BUTTON = By.cssSelector("#body-wrapper > subscription > div:nth-child(1) > form > fieldset > div:nth-child(4) > button:nth-child(2)");
+    private static final By SAVE_CHANGES_BUTTON = By.cssSelector("#body-wrapper > subscription > div:nth-child(1) > form > fieldset > div:nth-child(4) > button:nth-child(1)");
+    private static final By CANCEL_CHANGES_BUTTON = By.cssSelector("#body-wrapper > subscription > div:nth-child(1) > form > fieldset > div:nth-child(4) > button:nth-child(2)");
     private static final By EDIT_SUBSCRIPTION_BUTTON = By.cssSelector("#body-wrapper > home > div:nth-child(3) > div:nth-child(1) > a");
     private static final By IMPORT_FROM_SUBSCRIPTION_BUTTON = By.cssSelector("#body-wrapper > home > div:nth-child(3) > div:nth-child(2) > fieldset > div:nth-child(2) > div > p:nth-child(1) > button");
     private static final By CHOOSE_FILE = By.cssSelector("#body-wrapper > home > div:nth-child(3) > div:nth-child(2) > fieldset > div:nth-child(2) > form > p:nth-child(2) > input");
     private static final By IMPORT_FROM_FILE = By.cssSelector("#body-wrapper > home > div:nth-child(3) > div:nth-child(2) > fieldset > div:nth-child(2) > form > p:nth-child(3) > button");
     private static final By IMPORTS_LIST = By.cssSelector("#body-wrapper > home > div:nth-child(3) > div:nth-child(5) > fieldset > table");
-
-    public OpenConceptLabPage(Page page) {
+    
+    public SubscriptionPage(Page page) {
         super(page);
     }
 
     @Override
     public String getPageUrl() {
-        return "/owa/openconceptlab/index.html#/";
+        return "/owa/openconceptlab/index.html#/subscription";
     }
 
-    public SubscriptionPage clickOnsetupSubscription() {
+    public void clickOnsetupSubscription() {
         clickOn(SETUP_SUBSCRIPTION_BUTTON);
-        return new SubscriptionPage(this);
     }
 
     public void enterSubscriptionURL(String conceptUrl) {
@@ -53,13 +52,14 @@ public class OpenConceptLabPage extends Page {
         findElement(USER_URL_FIELD).clear(); 
         findElement(USER_URL_FIELD).sendKeys(tokenUrl);
     }
-
-    public void clickSaveButton() {
-        clickOn(SAVE_BUTTON);
+    
+    public OpenConceptLabSuccessPage clickSaveChangesButton() {
+        clickOn(SETUP_SUBSCRIPTION_BUTTON);
+        return new OpenConceptLabSuccessPage(this);
     }
 
     public void clickCancelButton() {
-        clickOn(CANCEL_BUTTON);
+        clickOn(CANCEL_CHANGES_BUTTON);
     }
 
     public void goToEditsubscriptionForm() {

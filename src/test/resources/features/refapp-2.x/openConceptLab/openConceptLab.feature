@@ -1,19 +1,28 @@
 Feature: OCL Subscription module
  
 Background:
-    Given User clicks on configure Metadata link from home page
-    When User selects Manage OCL
+    Given a user clicks on configure Metadata link from home page
+    When a user clicks Manage OCL link
     Then System loads Open Concept Lab page
  
   @selenium
-  @subscription
+  @openConceptLab
   Scenario: OCL MANAGEMENT
-     And User clicks on Setup subscription button
-     Then System on Subscription page
-      And  the user enters the URL of a new released dictionary
-     Then the "Token" title is visible
-      And the user enters the "User url
-      And User clicks on the Save Changes button
-     Then the user should be on the "Open Concept Lab" page
-      And the API should be displayed on the previous imports
-     
+     #user story: setup subscription
+     When a user clicks on Setup subscription button
+     Then System loads Subscription page
+      And a user enters the URL of a new released dictionary
+      And a user enters the Token url
+      And a user clicks on the Save Changes button
+      And the system loads Open Concept Lab Success page
+      And a user clicks import from Subscription server button
+     Then the API should be displayed on the previous imports
+     #user story:Edit subscription
+     #When a user clicks edit subscription button
+     #Then System loads Subscription page
+      #And a user edits the URL of a released dictionary
+      #And a user edits the Token url
+      #And a user clicks on the Save Changes button
+      #And the system loads Open Concept Lab page
+      #And a user clicks import from Subscription server button
+     #Then the API should be displayed on the previous imports

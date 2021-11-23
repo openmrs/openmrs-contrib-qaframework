@@ -16,7 +16,7 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class OpenConceptLabPage extends Page {
+public class OpenConceptLabSuccessPage extends Page {
     
 //    private static final By SUBSCRIPTION_URL_FIELD = By.id("subscription-url");
     private static final By SETUP_SUBSCRIPTION_BUTTON = By.cssSelector("#body-wrapperhome div:nth-child(2) div:nth-child(2) a");
@@ -30,18 +30,17 @@ public class OpenConceptLabPage extends Page {
     private static final By IMPORT_FROM_FILE = By.cssSelector("#body-wrapper > home > div:nth-child(3) > div:nth-child(2) > fieldset > div:nth-child(2) > form > p:nth-child(3) > button");
     private static final By IMPORTS_LIST = By.cssSelector("#body-wrapper > home > div:nth-child(3) > div:nth-child(5) > fieldset > table");
 
-    public OpenConceptLabPage(Page page) {
+    public OpenConceptLabSuccessPage(Page page) {
         super(page);
     }
 
     @Override
     public String getPageUrl() {
-        return "/owa/openconceptlab/index.html#/";
+        return "/owa/openconceptlab/index.html#/?successToast=Subscription%20saved";
     }
 
-    public SubscriptionPage clickOnsetupSubscription() {
+    public void clickOnsetupSubscription() {
         clickOn(SETUP_SUBSCRIPTION_BUTTON);
-        return new SubscriptionPage(this);
     }
 
     public void enterSubscriptionURL(String conceptUrl) {

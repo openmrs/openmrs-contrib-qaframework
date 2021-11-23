@@ -295,13 +295,13 @@ Cypress.Commands.add('generateLabResults', (uuid) => {
     });
 })
 
-Cypress.Commands.add('createPatient', (identifier = null) => {
+Cypress.Commands.add('createPatient', (identifier = null, name) => {
     const patient = {
         person: {
             names: [
                 {
                     preferred: true,
-                    givenName: 'John',
+                    givenName: name || 'John',
                     middleName: '',
                     familyName: 'Doe'
                 }

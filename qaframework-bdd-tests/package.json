@@ -10,6 +10,7 @@
     "refappCypress": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and not @microfrontend'",
     "refappSelenium": "mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup'",
     "refapp2VitalsAndTriaging": "mvn test -Dcucumber.filter.tags='@selenium and @vitals'",
+    "refapp2LocationManagement": "mvn test -Dcucumber.filter.tags='@selenium and @location'",
     "refapp2Condition": "mvn test -Dcucumber.filter.tags='@selenium and @condition'",
     "refapp2ClinicalVisit": "mvn test -Dcucumber.filter.tags='@selenium and @clinicalVisit'",
     "refapp2UserAccount": "mvn test -Dcucumber.filter.tags='@selenium and @userAccount'",

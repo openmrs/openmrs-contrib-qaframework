@@ -20,7 +20,8 @@ public class ManageLocationAttributeTypesPage extends Page {
 	private static final By ATTRIBUTE_TYPE_DESCRIPTION_FIELD = By.cssSelector("#description-field");
 	private static final By MIN_OCCURS_FIELD = By.cssSelector("#minOccurs-field");
 	private static final By MAX_OCCURS_FIELD = By.cssSelector("#maxOccurs-field");
-	private static final By DATA_TYPE_FIELD = By.cssSelector("#datatypeClassname-field");
+	//private static final By DATA_TYPE_FIELD = By.cssSelector("#datatypeClassname-field");
+	private static final By DATA_TYPE_FIELD = By.id("datatypeClassname-field");
 	private static final By DATA_TYPE_CONFIGURATION_FIELD = By.cssSelector("#datatypeConfig-field");
 	private static final By PREFERRED_HANDLER_FIELD = By.cssSelector("#preferredHandlerClassname-field");
 	private static final By HANDLER_CONFIGURATION_FILED = By.cssSelector("#handlerConfig-field");

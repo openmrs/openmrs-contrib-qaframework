@@ -1,8 +1,7 @@
 Feature: Location Management
 
   Background:
-    When a user clicks on configure metadata link from the home page
-    Then the system loads configure metadata dashboard
+
 
   @selenium
   @location

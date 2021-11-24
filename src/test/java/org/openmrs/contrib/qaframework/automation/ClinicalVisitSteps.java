@@ -292,3 +292,4 @@ public class ClinicalVisitSteps extends Steps {
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 }
+

@@ -49,7 +49,6 @@ public class LocationManagementSteps extends Steps {
     private ManageLocationTagsPage manageLocationTagsPage;
     private ManageLocationAttributeTypesPage manageLocationAttributeTypesPage;
 
-
     @Before(RunTest.HOOK.SELENIUM_LOCATION_MANAGEMENT)
     public void visitHomePage() {
         initiateWithLogin();
@@ -59,7 +58,6 @@ public class LocationManagementSteps extends Steps {
     public void destroy() {
         quit();
     }
-
 
     @When("a user clicks on the configure metadata link from the home page")
     public void clicksConfigureMetaDataLink(){
@@ -91,7 +89,6 @@ public class LocationManagementSteps extends Steps {
         manageLocationAttributeTypesPage.enterDatatypeConfiguration(DATATYPE_CONFIGURATION);
         manageLocationAttributeTypesPage.selectPreferredHandler("Location Field Gen Datatype Handler");
         manageLocationAttributeTypesPage.enterHandlerConfiguration(HANDLER_CONFIGURATION);
-
     }
 
     @And("the user saves the form")
@@ -153,3 +150,4 @@ public class LocationManagementSteps extends Steps {
         manageLocationsPage.setParentLocation();
     }
 }
+

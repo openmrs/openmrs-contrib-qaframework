@@ -58,3 +58,4 @@ public class RunTest {
 		public static final String SELENIUM_LOCATION_MANAGEMENT = SELENIUM + " and " + LOCATION_MANAGEMENT;
 	}
 }
+

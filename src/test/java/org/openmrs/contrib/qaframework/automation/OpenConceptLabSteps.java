@@ -31,7 +31,7 @@ import io.cucumber.java.en.When;
 public class OpenConceptLabSteps extends Steps  {
     private By subscriptionUrl = By.id("subscription-url");
     private OpenConceptLabPage openconceptlabpage;
-    private ConfigureMetadataPage configuremetadatapage;
+    private ConfigureMetadataPage configureMetadataPage;
     private static final String releasedDictionaryUrl = "https://api.staging.openconceptlab.org/users/openmrs/collections/TD-ecly/65725685/";
     private static final String tokenUrl = "bd022mad6d3df24f5c42ewewa94b53a23edf6eee7r";
     private static final String newDictionaryUrl = "http://api.openconceptlab.com/orgs/CIEL/sources/CIEL/";
@@ -52,22 +52,32 @@ public class OpenConceptLabSteps extends Steps  {
     
     @Given("a user clicks on configure Metadata link from home page")
     public void launchMetadataDashboard() {
-        configuremetadatapage = homePage.goToConfigureMetadata();
+    	configureMetadataPage = (ConfigureMetadataPage) homePage.goToConfigureMetadata();
+    }
+    
+    @When("the system loads the configure metadata page")
+    public void systemLoadsConfigureMetadataPage() {
+    	assertPage(configureMetadataPage.waitForPage());
     }
  
-    @When("a user clicks Manage OCL link")
-    public void manageOclPage() {
-        openconceptlabpage = configuremetadatapage.goToOpenConceptLabPage();
+    @And("a user clicks Manage OCL link from configure metadata page")
+    public void loadOpenConceptLabPage() {
+        openconceptlabpage = (OpenConceptLabPage) configureMetadataPage.goToOpenConceptLabPage();
     }
- 
-    @Then("System loads Open Concept Lab page")
+    
+    @Then("the system loads Open Concept Lab page")
     public void systemLoadsOpenConceptPage() {
         assertPage(openconceptlabpage.waitForPage());
     }
  
     @When ("a user clicks on Setup subscription button")
     public void loadSubscriptionPage() {
-    	subscriptionPage = (SubscriptionPage) openconceptlabpage.clickOnsetupSubscription();
+    	subscriptionPage = (SubscriptionPage) openconceptlabpage.clickOnsetupSubscriptionButton();	
+    }
+    
+    @Then("the system loads Subscription page")
+    public void systemLoadsSubscriptionPage() {
+        assertPage(subscriptionPage.waitForPage());
     }
     
     @And("a user enters the URL of a new released dictionary")
@@ -95,7 +105,7 @@ public class OpenConceptLabSteps extends Steps  {
     	assertPage(openConceptLabSuccessPage.waitForPage());  
     }
     
-    @And ("the API should be displayed on the previous imports")
+    @Then ("the API should be displayed on the previous imports")
     public void displayAmongPreviousImports(){
         assertNotNull(openConceptLabSuccessPage.getpreviousImportsList());
     }

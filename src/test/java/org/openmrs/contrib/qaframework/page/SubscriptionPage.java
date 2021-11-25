@@ -19,7 +19,7 @@ import org.openqa.selenium.WebElement;
 public class SubscriptionPage extends Page {
     
 //    private static final By SUBSCRIPTION_URL_FIELD = By.id("subscription-url");
-    private static final By SETUP_SUBSCRIPTION_BUTTON = By.cssSelector("#body-wrapperhome div:nth-child(2) div:nth-child(2) a");
+    private static final By SETUP_SUBSCRIPTION_BUTTON = By.cssSelector("#body-wrapper > home > div:nth-child(2) > div:nth-child(2) > a");
     private static final By RELEASE_DICTIONARY_URL_FIELD = By.id("subscription-url");
     private static final By USER_URL_FIELD = By.id("subscription-token");
     private static final By SAVE_CHANGES_BUTTON = By.cssSelector("#body-wrapper > subscription > div:nth-child(1) > form > fieldset > div:nth-child(4) > button:nth-child(1)");
@@ -54,7 +54,7 @@ public class SubscriptionPage extends Page {
     }
     
     public OpenConceptLabSuccessPage clickSaveChangesButton() {
-        clickOn(SETUP_SUBSCRIPTION_BUTTON);
+        clickOn(SAVE_CHANGES_BUTTON);
         return new OpenConceptLabSuccessPage(this);
     }
 

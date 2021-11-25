@@ -18,7 +18,9 @@ public class ConfigureMetadataPage extends Page {
 	private static final By MANAGE_LOCATION_ATTRIBUTE_TYPE_LINK = By.id("org-openmrs-module-adminui-manageLocationAttributeTypes-link-org-openmrs-module-adminui-manageLocationAttributeTypes-link-extension");
 	private static final By MANAGE_LOCATIONS_LINK = By.id("org-openmrs-module-adminui-manageLocations-link-org-openmrs-module-adminui-manageLocations-link-extension");
 	private static final By MANAGE_LOCATION_TAGS_LINK = By.id("org-openmrs-module-adminui-manageLocationTags-link-org-openmrs-module-adminui-manageLocationTags-link-extension");
-
+	private static final By MANAGE_PRIVILEGES_LINK = By.cssSelector("#org-openmrs-module-adminui-Privileges-org-openmrs-module-adminui-Privileges-extension");
+	private static final By MANAGE_ROLES_LINK = By.cssSelector("#org-openmrs-module-adminui-roles-org-openmrs-module-adminui-roles-extension");
+	
 	public ConfigureMetadataPage(Page parent) {
 		super(parent);
 	}
@@ -32,6 +34,17 @@ public class ConfigureMetadataPage extends Page {
 		clickOn(MANAGE_LOCATIONS_LINK);
 		return new ManageLocationsPage(this);
 	}
+	
+	public ManagePrivilegesPage goToManagePrivileges(){
+		clickOn(MANAGE_PRIVILEGES_LINK);
+		return new ManagePrivilegesPage(this);
+	}
+	
+	public ManageRolesPage goToManageRoles(){
+		clickOn(MANAGE_ROLES_LINK);
+		return new ManageRolesPage(this);
+	}
+	
 
 	public ManageLocationTagsPage goToManageLocationTagPage() {
 		clickOn(MANAGE_LOCATION_TAGS_LINK);

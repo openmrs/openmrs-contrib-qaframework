@@ -15,9 +15,9 @@ Background:
       And a user enters the URL of a new released dictionary
       And a user enters the Token url
       And a user clicks on the Save Changes button
-      And the system loads Open Concept Lab Success page
-      And a user clicks import from Subscription server button
-     Then the API should be displayed on the previous imports
+      Then the system loads Open Concept Lab Success page
+        And a user clicks import from Subscription server button
+        And the API should be displayed on the previous imports
      
      #user story:Edit subscription
      #When a user clicks edit subscription button

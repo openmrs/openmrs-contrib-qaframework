@@ -16,6 +16,7 @@
     "refapp2Registration": "mvn test -Dcucumber.filter.tags='@selenium and @registration'",
     "refapp2Report": "mvn test -Dcucumber.filter.tags='@selenium and @report'",
     "refapp2FindPatient": "mvn test -Dcucumber.filter.tags='@selenium and @findPatient'",
+    "refapp2OpenConceptLab": "mvn test -Dcucumber.filter.tags='@selenium and @openConceptLab'",
     "refapp2PatientDemographics": "mvn test -Dcucumber.filter.tags='@selenium and @patientDemographics'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
@@ -29,8 +30,7 @@
     "refapp3PatientSearch": "cypress run --spec src/test/resources/features/refapp-3.x/06-patient-search/patient-search.feature",
     "refapp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature",
     "refapp3ClinicalVisit": "cypress run --spec src/test/resources/features/refapp-3.x/04-clinical-visit/clinical-visit.feature",
-    "refapp3VitalsAndTriage": "cypress run --spec src/test/resources/features/refapp-3.x/05-vitals-and-triage/vitals-and-triage.feature",
-    "refapp2OpenConceptLab": "mvn test -Dcucumber.filter.tags='@selenium and @openConceptLab'"
+    "refapp3VitalsAndTriage": "cypress run --spec src/test/resources/features/refapp-3.x/05-vitals-and-triage/vitals-and-triage.feature"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.0",

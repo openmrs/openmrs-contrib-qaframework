@@ -10,7 +10,9 @@
 package org.openmrs.contrib.qaframework.automation;
  
 import static org.junit.Assert.assertNotNull;
- 
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
+
 import java.util.List;
  
 import org.openmrs.contrib.qaframework.RunTest;
@@ -29,7 +31,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
  
 public class OpenConceptLabSteps extends Steps  {
-    private By subscriptionUrl = By.id("subscription-url");
     private OpenConceptLabPage openconceptlabpage;
     private ConfigureMetadataPage configureMetadataPage;
     private static final String releasedDictionaryUrl = "https://api.staging.openconceptlab.org/users/openmrs/collections/TD-ecly/65725685/";
@@ -69,60 +70,46 @@ public class OpenConceptLabSteps extends Steps  {
     public void systemLoadsOpenConceptPage() {
         assertPage(openconceptlabpage.waitForPage());
     }
- 
-    @When ("a user clicks on Setup subscription button")
+
+   @When ("a user clicks on Setup subscription button")
     public void loadSubscriptionPage() {
-    	subscriptionPage = (SubscriptionPage) openconceptlabpage.clickOnsetupSubscriptionButton();	
+      subscriptionPage = openconceptlabpage.clickOnsetupSubscriptionButton();
     }
-    
+ 
     @Then("the system loads Subscription page")
     public void systemLoadsSubscriptionPage() {
-        assertPage(subscriptionPage.waitForPage());
-    }
-    
-    @And("a user enters the URL of a new released dictionary")
-    public void enterDictionaryUrl() {
-		openconceptlabpage.enterSubscriptionURL(releasedDictionaryUrl);
-    }   
-    
-    @And("a user enters the Token url")
-    public void enterTokenUrl(){
-        openconceptlabpage.enterTokenURL(tokenUrl);
-    }
-    
-    @And ("a user clicks on the Save Changes button")
-    public void saveChanges(){
-    	openConceptLabSuccessPage = (OpenConceptLabSuccessPage) subscriptionPage.clickSaveChangesButton();
-    }
-    
-    @And ("the system loads Open Concept Lab Success page")
-    public void systemLoadsOpenConceptLabSuccessPage(){
-    	assertPage(openConceptLabSuccessPage.waitForPage());  
-    }
-    
-    @And ("a user clicks import from Subscription server button")
-    public void LoadsOpenConceptLabPage(){
-    	assertPage(openConceptLabSuccessPage.waitForPage());  
-    }
-    
-    @Then ("the API should be displayed on the previous imports")
-    public void displayAmongPreviousImports(){
-        assertNotNull(openConceptLabSuccessPage.getpreviousImportsList());
-    }
-    
-//    @When ("a user clicks edit subscription button")
-//    public void loadsOpenConceptLabPage(){
-//    	assertPage(openConceptLabPage.waitForPage());  
-//    }
-//    
-//    @And("a user edits the URL of a released dictionary")
-//    public void editDictionaryUrl() {
-//		openconceptlabpage.enterSubscriptionURL(newDictionaryUrl);
-//    }   
-//    
-//    @And("a user edits the Token url")
-//    public void editTokenUrl(){
-//        openconceptlabpage.enterTokenURL(newTokenUrl);
-//    }
-}
+        assertTrue(textExists("Show/hide advanced..."));
+   }
 
+     @And("a user enters the URL of a new released dictionary")
+    public void enterDictionaryUrl() {
+        subscriptionPage.enterSubscriptionURL(releasedDictionaryUrl);
+     }   
+    
+     @And("a user enters the Token url")
+     public void enterTokenUrl(){
+        subscriptionPage.enterTokenURL(tokenUrl);
+     }
+ 
+     @And ("a user clicks on the Save Changes button")
+    public void saveChanges(){
+       openConceptLabSuccessPage = (OpenConceptLabSuccessPage) subscriptionPage.clickSaveChangesButton();
+     }
+
+     @And ("a user clicks import from Subscription server button")
+     public void LoadsOpenConceptLabPage(){
+        openConceptLabSuccessPage.clickOnImportFromSubscriptionButton();
+        openConceptLabSuccessPage.waitForPageToLoad();
+     }
+  
+      @Then ("the API should be displayed on the previous imports")
+      public void displayAmongPreviousImports(){
+          assertNotNull(openConceptLabSuccessPage.getpreviousImportsList());
+     }
+ }   
+
+// //    @When ("a user clicks edit subscription button")
+// //    public void loadsOpenConceptLabPage(){
+// //    	assertPage(openConceptLabPage.waitForPage());  
+// //    } 
+// }

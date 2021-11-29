@@ -20,7 +20,7 @@ public class SubscriptionPage extends Page {
 //    private static final By SUBSCRIPTION_URL_FIELD = By.id("subscription-url");
     private static final By SETUP_SUBSCRIPTION_BUTTON = By.cssSelector("#body-wrapper > home > div:nth-child(2) > div:nth-child(2) > a");
     private static final By RELEASE_DICTIONARY_URL_FIELD = By.id("subscription-url");
-    private static final By USER_URL_FIELD = By.id("subscription-token");
+    private static final By TOKEN_URL_FIELD = By.id("subscription-token");
     private static final By SAVE_CHANGES_BUTTON = By.cssSelector("#body-wrapper > subscription > div:nth-child(1) > form > fieldset > div:nth-child(4) > button:nth-child(1)");
     private static final By CANCEL_CHANGES_BUTTON = By.cssSelector("#body-wrapper > subscription > div:nth-child(1) > form > fieldset > div:nth-child(4) > button:nth-child(2)");
     private static final By EDIT_SUBSCRIPTION_BUTTON = By.cssSelector("#body-wrapper > home > div:nth-child(3) > div:nth-child(1) > a");
@@ -37,10 +37,11 @@ public class SubscriptionPage extends Page {
     public String getPageUrl() {
         return "/owa/openconceptlab/index.html#/subscription";
     }
-
-    public void clickOnsetupSubscription() {
-        clickOn(SETUP_SUBSCRIPTION_BUTTON);
-    }
+    
+    public SubscriptionPage clickOnSetupSubscriptionButton() {
+		clickOn(SETUP_SUBSCRIPTION_BUTTON);
+		return new SubscriptionPage(this);
+	}
 
     public void enterSubscriptionURL(String conceptUrl) {
         findElement(RELEASE_DICTIONARY_URL_FIELD ).clear();
@@ -48,8 +49,8 @@ public class SubscriptionPage extends Page {
     }
 
     public void enterTokenURL(String tokenUrl) {
-        findElement(USER_URL_FIELD).clear(); 
-        findElement(USER_URL_FIELD).sendKeys(tokenUrl);
+        findElement(TOKEN_URL_FIELD).clear(); 
+        findElement(TOKEN_URL_FIELD).sendKeys(tokenUrl);
     }
     
     public OpenConceptLabSuccessPage clickSaveChangesButton() {

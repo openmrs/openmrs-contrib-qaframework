@@ -82,7 +82,7 @@ public class OpenConceptLabSteps extends Steps  {
    }
 
      @And("a user enters the URL of a new released dictionary")
-    public void enterDictionaryUrl() {
+     public void enterDictionaryUrl() {
         subscriptionPage.enterSubscriptionURL(releasedDictionaryUrl);
      }   
     
@@ -92,8 +92,13 @@ public class OpenConceptLabSteps extends Steps  {
      }
  
      @And ("a user clicks on the Save Changes button")
-    public void saveChanges(){
+     public void saveChanges(){
        openConceptLabSuccessPage = (OpenConceptLabSuccessPage) subscriptionPage.clickSaveChangesButton();
+     }
+     
+     @Then ("the system loads Open Concept Lab Success page")
+     public void systemLoadsOpenConceptLabSuccessPage(){
+     	assertPage(openConceptLabSuccessPage.waitForPage());  
      }
 
      @And ("a user clicks import from Subscription server button")
@@ -103,13 +108,12 @@ public class OpenConceptLabSteps extends Steps  {
      }
   
       @Then ("the API should be displayed on the previous imports")
-      public void displayAmongPreviousImports(){
+       public void displayAmongPreviousImports(){
           assertNotNull(openConceptLabSuccessPage.getpreviousImportsList());
-     }
- }   
+     }  
 
-// //    @When ("a user clicks edit subscription button")
-// //    public void loadsOpenConceptLabPage(){
-// //    	assertPage(openConceptLabPage.waitForPage());  
-// //    } 
-// }
+//     @When ("a user clicks edit subscription button")
+//     public void loadsOpenConceptLabPage(){
+//        assertPage(openConceptLabPage.waitForPage());  
+//      } 
+ }

@@ -1,18 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
     <groupId>org.openmrs.contrib</groupId>
     <artifactId>qaframework</artifactId>
     <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <name>OpenMRS QA Framework</name>
-	<description>Parent project for the OpenMRS QA Framework Module</description>
-    <url>https://wiki.openmrs.org</url>
-    <organization>
-        <name>OpenMRS</name>
-        <url>http://openmrs.org</url>
-    </organization>
-    <properties>
+  </parent>
+  <groupId>org.openmrs.contrib</groupId>
+  <artifactId>qaframework-bdd-tests</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0-SNAPSHOT</version>
+  <name>qaframework-bdd-tests</name>
+  <url>http://maven.apache.org</url>
+  <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
         <cucumber.version>6.7.0</cucumber.version>
@@ -151,7 +150,7 @@
                         <phase>process-test-classes</phase>
                         <configuration>
                             <target>
-                                <chmod file="target/test-classes/firefoxdriver/windows/geckodriver.exe" perm="755"/>
+                                <chmod file="target/test-classes/firefoxdriver/windows/geckodriver" perm="755"/>
                             </target>
                             <failOnError>false</failOnError>
                         </configuration>

@@ -42,7 +42,6 @@ public class AllergiesSteps extends Steps {
 
 	@Then("the system loads Allergies page")
 	public void systemLoadsAllergiesPage() {
-		assertEquals(getElement(patientHeaderId).getText(),getElement(patientHeaderId).getText());
 		assertTrue(textExists("Allergies"));
 	}
 

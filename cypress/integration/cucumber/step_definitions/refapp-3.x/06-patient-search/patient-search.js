@@ -33,7 +33,7 @@ When('the user searches for a patient by name', () => {
     cy.getByPlaceholder('Search for a patient by name or identifier number').type('{enter}');
 })
 
-Then(`the result should be {string}`, result => {
+Then('the result should be {string}', result => {
     cy.contains(result);
 });
 

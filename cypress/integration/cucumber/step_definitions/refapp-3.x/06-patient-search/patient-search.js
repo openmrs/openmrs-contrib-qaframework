@@ -9,8 +9,6 @@ Before({tags: '@patient-search'}, () => {
         identifier = generatedIdentifier;
         cy.createPatient(identifier, patientName).then((generatedPatient) => {
             patient = generatedPatient;
-            cy.startFacilityVisit(patient.uuid);
-            cy.generateLabResults(patient.uuid);
         });
     });
 });

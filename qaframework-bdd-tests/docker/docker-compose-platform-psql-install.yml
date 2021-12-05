@@ -1,0 +1,22 @@
+version: '2.2'
+
+services:
+  db:
+    image: postgres:13
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: root
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: Admin123
+
+  web:
+    depends_on:
+      - db
+    image: tomcat:7
+    volumes:
+      - ./openmrs.war:/usr/local/tomcat/webapps/openmrs.war
+    links:
+      - db:openmrs
+    ports:
+      - '8080:8080'

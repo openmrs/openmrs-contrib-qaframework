@@ -16,6 +16,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: '12.x'
+      - name: Navigate into qaframework-bdd-tests
+        run: cd qaframework-bdd-tests 
       - name: Installing dependencies
         run: npm install
       - name: Run login workflow tests

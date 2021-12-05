@@ -5,6 +5,7 @@
     <artifactId>qaframework</artifactId>
     <version>1.0-SNAPSHOT</version>
     <name>OpenMRS QA Framework</name>
+    <packaging>pom</packaging>
     <description>OpenMRS QA framework</description>
     <url>https://wiki.openmrs.org</url>
     <organization>
@@ -17,175 +18,10 @@
         <cucumber.version>6.7.0</cucumber.version>
     </properties>
     <dependencies>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
-        </dependency>
-        <dependency>
-        	<groupId>org.apache.commons</groupId>
-			<artifactId>commons-vfs2</artifactId>
-			<version>2.0</version>
-		</dependency>
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>2.7</version>
-		</dependency>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-			<version>3.11</version>
-		</dependency>
-		<dependency>
-			<groupId>org.seleniumhq.selenium</groupId>
-			<artifactId>selenium-java</artifactId>
-			<version>4.0.0-alpha-6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.core</groupId>
-			<artifactId>jersey-client</artifactId>
-			<version>3.0.0-M6</version>
-		</dependency>
-		<dependency>
-			<groupId>org.glassfish.jersey.inject</groupId>
-			<artifactId>jersey-hk2</artifactId>
-			<version>3.0.0-M6</version>
-		</dependency>
-		<dependency>
-			<groupId>com.fasterxml.jackson.core</groupId>
-			<artifactId>jackson-databind</artifactId>
-			<version>2.11.2</version>
-		</dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-            <version>1.5.6</version>
-        </dependency>
-        <dependency>
-		    <groupId>com.saucelabs</groupId>
-		    <artifactId>sauce_junit</artifactId>
-		    <version>2.1.18</version>
-		</dependency>
+
     </dependencies>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <version>1.8</version>
-                <executions>
-                    <execution>
-                        <id>make-mac-chromedriver-executable</id>
-                        <phase>process-test-classes</phase>
-                        <configuration>
-                            <target>
-                                <chmod file="target/test-classes/chromedriver/mac/chromedriver" perm="755" />
-                            </target>
-                            <failOnError>false</failOnError>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>make-linux-chromedriver-executable</id>
-                        <phase>process-test-classes</phase>
-                        <configuration>
-                            <target>
-                                <chmod file="target/test-classes/chromedriver/linux/chromedriver" perm="755" />
-                            </target>
-                            <failOnError>false</failOnError>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>make-windows-chromedriver-executable</id>
-                        <phase>process-test-classes</phase>
-                        <configuration>
-                            <target>
-                                <chmod file="target/test-classes/chromedriver/windows/chromedriver.exe" perm="755" />
-                            </target>
-                            <failOnError>false</failOnError>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>make-mac-firefoxdriver-executable</id>
-                        <phase>process-test-classes</phase>
-                        <configuration>
-                            <target>
-                                <chmod file="target/test-classes/firefoxdriver/mac/geckodriver" perm="755"/>
-                            </target>
-                            <failOnError>false</failOnError>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>make-linux-firefoxdriver-executable</id>
-                        <phase>process-test-classes</phase>
-                        <configuration>
-                            <target>
-                                <chmod file="target/test-classes/firefoxdriver/linux/geckodriver" perm="755"/>
-                            </target>
-                            <failOnError>false</failOnError>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                    <execution>
-                        <id>make-windows-firefoxdriver-executable</id>
-                        <phase>process-test-classes</phase>
-                        <configuration>
-                            <target>
-                                <chmod file="target/test-classes/firefoxdriver/windows/geckodriver.exe" perm="755"/>
-                            </target>
-                            <failOnError>false</failOnError>
-                        </configuration>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>com.github.eirslett</groupId>
-                <artifactId>frontend-maven-plugin</artifactId>
-                <version>1.11.3</version>
-                <executions>
-                    <execution>
-                        <id>install node and npm</id>
-                        <goals>
-                            <goal>install-node-and-npm</goal>
-                        </goals>
-                        <phase>generate-resources</phase>
-                        <configuration>
-                            <nodeVersion>v15.8.0</nodeVersion>
-                            <installDirectory>./</installDirectory>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+    	<module>qaframework-legacy-tests</module>
+    <module>qaframework-bdd-tests</module>
+  </modules>
 </project>

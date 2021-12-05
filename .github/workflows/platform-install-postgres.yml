@@ -41,6 +41,7 @@ jobs:
       - name: Run qaframework on selenium
         run: |
           echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
+          cd qaframework-bdd-tests
           mvn clean install -DskipTests=true
           cp -f src/test/resources/org/openmrs/uitestframework/test-local.properties src/test/resources/org/openmrs/uitestframework/test.properties
           npm run postgresCoreInstall

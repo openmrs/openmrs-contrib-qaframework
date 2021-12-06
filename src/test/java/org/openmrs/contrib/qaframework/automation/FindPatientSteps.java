@@ -71,6 +71,6 @@ public class FindPatientSteps extends Steps {
 
 	@Then("System loads patient dashboard")
 	public void loadPatientDashboard() {
-		matchPatientIds(firstPatientIdentifier);
+		assertPage(dashboardPage.waitForPage());
 	}
 }

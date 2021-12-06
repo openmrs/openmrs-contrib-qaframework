@@ -9,8 +9,11 @@
  */
 package org.openmrs.contrib.qaframework.page;
 
+import java.util.List;
+
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class AllergyPage extends Page {
 
@@ -21,8 +24,8 @@ public class AllergyPage extends Page {
 	private static final By REACTION = By.cssSelector(".reaction");
 	private static final By ALLERGEN = By.cssSelector(".allergen");
 	private static final By ALLERGY_STATUS = By.cssSelector(".allergyStatus");
-	private static final By ADD_NO_KNOWN = By.xpath("//*[contains(text(),'No Known Allergy')]");
-	private static final By DELETE_NO_KNOWN = By.className("delete-action");
+	private static final By ADD_NO_KNOWN_ALLERGY = By.xpath("//*[contains(text(),'No Known Allergy')]");
+	private static final By DELETE_NO_KNOWN_ALLERGY = By.className("delete-action");
 
 	public AllergyPage(Page page) {
 		super(page);
@@ -59,11 +62,11 @@ public class AllergyPage extends Page {
 	}
 
 	public void addNoKnownAllergy() {
-		driver.findElement(ADD_NO_KNOWN).click();
+		clickOn(ADD_NO_KNOWN_ALLERGY);
 	}
 
 	public void removeNoKnownAllergy() {
-		driver.findElement(DELETE_NO_KNOWN).click();
+		clickOn(DELETE_NO_KNOWN_ALLERGY);
 	}
 
 	@Override

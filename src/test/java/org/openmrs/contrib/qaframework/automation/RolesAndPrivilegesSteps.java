@@ -63,7 +63,16 @@ public class RolesAndPrivilegesSteps extends Steps {
     public void launchAddNewPrivilegePage(){
     	manageprivilegesPage = addNewPrivilegePage.enterPrivilegeName(PRIVILEGE_NAME_TO_BE_CREATED_AND_EDITED);
     	manageprivilegesPage = addNewPrivilegePage.enterPrivilegeDescription(PRIVILEGE_DESCRIPTION_TO_BE_CREATED);
+    }
+    
+    @And ("User clicks the save button")
+    public void savePrivilege(){
     	manageprivilegesPage = addNewPrivilegePage.clickSaveButton();
+    }
+    
+    @And ("User saves role")
+    public void saveRole(){
+    	manageRolesPage = addNewRolePage.clickSaveButton();
     }
     
     @And ("User fills the new role form")
@@ -71,7 +80,6 @@ public class RolesAndPrivilegesSteps extends Steps {
     	manageRolesPage = addNewRolePage.enterRoleName(ROLE_NAME_TO_BE_CREATED_AND_EDITED);
     	manageRolesPage = addNewRolePage.enterRoleDescription(ROLE_DESCRIPTION_TO_BE_CREATED);
     	manageRolesPage = addNewRolePage.clickOnFullPrivilegeLevelCheckbox();
-    	manageRolesPage = addNewRolePage.clickSaveButton();
     }
     
     @And ("User search for the created privilege")
@@ -96,6 +104,11 @@ public class RolesAndPrivilegesSteps extends Steps {
     @And ("User clicks delete privilege")
     public void deletePrivilege(){
     	manageprivilegesPage.deletePrivilege();
+    }
+    
+    @Then ("System confirms delete")
+    public void confirmPrivilegeDeletion(){
+    	manageprivilegesPage.confirmPrivilegeDelete();
     }
     
     @And ("User clicks delete Role")

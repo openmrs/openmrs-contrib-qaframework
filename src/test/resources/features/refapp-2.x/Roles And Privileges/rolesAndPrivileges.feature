@@ -14,6 +14,7 @@ Feature: Roles & Privileges Management
     When User clicks on manage privileges link on the configure metadata page
     And User clicks the Add New Privilege button
     And User fills the new privilege form
+    And User clicks the save button
 
   @selenium
   @rolesAndPrivileges
@@ -21,6 +22,7 @@ Feature: Roles & Privileges Management
     When User clicks on manage privileges link on the configure metadata page
     And User clicks the Add New Privilege button
     And User fills the new privilege form
+    And User clicks the save button
     And User search for the created privilege
     And User edits privilege
 
@@ -30,8 +32,10 @@ Feature: Roles & Privileges Management
     When User clicks on manage privileges link on the configure metadata page
     And User clicks the Add New Privilege button
     And User fills the new privilege form
+    And User clicks the save button
     And User search for the created privilege
     And User clicks delete privilege
+    Then System confirms delete
 
   @selenium
   @rolesAndPrivileges
@@ -39,6 +43,7 @@ Feature: Roles & Privileges Management
     When User clicks on manage roles link on the configure metadata page
     And User clicks the Add New Role button
     And User fills the new role form
+    And User saves role
 
   @selenium
   @rolesAndPrivileges
@@ -46,13 +51,12 @@ Feature: Roles & Privileges Management
     When User clicks on manage roles link on the configure metadata page
     And User clicks the Add New Role button
     And User fills the new role form
+    And User saves role
     And User edits Role
 
-  @selenium
-  @rolesAndPrivileges
   Scenario: Delete the role
     When User clicks on manage roles link on the configure metadata page
     And User clicks the Add New Role button
     And User fills the new role form
+    And User saves role
     And User clicks delete Role
-

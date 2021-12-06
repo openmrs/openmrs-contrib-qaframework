@@ -18,8 +18,8 @@ public class ManagePrivilegesPage extends Page{
 	public static final By EDIT_PRIVILEGE = By.cssSelector("i.icon-pencil.edit-action");
 	public static final By DELETE_PRIVILEGE = By.cssSelector("i.icon-trash.delete-action.right");
 	public static final By SEARCH_CREATED_PRIVILEGE = By.cssSelector("#list-privileges_filter > label > input[type=text]");
+	public static final By CONFIRM_DELETION = By.cssSelector("#purgePrivilegeForm > div > button.confirm.right");
 	
-
 	public ManagePrivilegesPage(Page configureMetadataPage) {
 		super(configureMetadataPage);
 	}
@@ -27,6 +27,10 @@ public class ManagePrivilegesPage extends Page{
 	public AddEditNewPrivilegePage goToAddNewPrivilege(){
 		clickOn(ADD_NEW_PRIVILEGE);
 		return new AddEditNewPrivilegePage(this);
+	}
+	
+	public void confirmPrivilegeDelete(){
+		clickOn(CONFIRM_DELETION);
 	}
 	
 	public void goToEditPrivilege(){

@@ -11,6 +11,7 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ManageLocationAttributeTypesPage extends Page {
 
@@ -20,10 +21,11 @@ public class ManageLocationAttributeTypesPage extends Page {
 	private static final By ATTRIBUTE_TYPE_DESCRIPTION_FIELD = By.cssSelector("#description-field");
 	private static final By MIN_OCCURS_FIELD = By.cssSelector("#minOccurs-field");
 	private static final By MAX_OCCURS_FIELD = By.cssSelector("#maxOccurs-field");
-	//private static final By DATA_TYPE_FIELD = By.cssSelector("#datatypeClassname-field");
-	private static final By DATA_TYPE_FIELD = By.id("datatypeClassname-field");
+	private static final By DATA_TYPE_FIELD = By.cssSelector("#datatypeClassname-field");
+	private static final By CLICK_DATA_TYPE_NAME = By.cssSelector("#datatypeClassname-field > option:nth-child(8)");
 	private static final By DATA_TYPE_CONFIGURATION_FIELD = By.cssSelector("#datatypeConfig-field");
 	private static final By PREFERRED_HANDLER_FIELD = By.cssSelector("#preferredHandlerClassname-field");
+	private static final By CLICK_PREFERRED_HANDLER_NAME = By.cssSelector("#preferredHandlerClassname-field > option:nth-child(7)");
 	private static final By HANDLER_CONFIGURATION_FILED = By.cssSelector("#handlerConfig-field");
 	private static final By SAVE_BUTTON = By.cssSelector("#save-button");
 	private static final By CANCEL_BUTTON = By.cssSelector("#locationAttributeTypeForm input.cancel");
@@ -71,7 +73,10 @@ public class ManageLocationAttributeTypesPage extends Page {
 	}
 
 	public void selectDatatype(String datatype) {
-		selectFrom(DATA_TYPE_FIELD, datatype);
+		//selectFrom(DATA_TYPE_FIELD, datatype);
+		clickOn(DATA_TYPE_FIELD);
+		waiter.until(ExpectedConditions.presenceOfElementLocated(DATA_TYPE_FIELD));
+		clickOn(CLICK_DATA_TYPE_NAME);
 	}
 
 	public void enterDatatypeConfiguration(String datatypeConfiguration) {
@@ -80,11 +85,14 @@ public class ManageLocationAttributeTypesPage extends Page {
 	}
 
 	public void selectPreferredHandler(String preferredHandler) {
-		selectFrom(PREFERRED_HANDLER_FIELD, preferredHandler);
+		//selectFrom(PREFERRED_HANDLER_FIELD, preferredHandler);
+		clickOn(PREFERRED_HANDLER_FIELD);
+		waiter.until(ExpectedConditions.presenceOfElementLocated(PREFERRED_HANDLER_FIELD));
+		clickOn(CLICK_PREFERRED_HANDLER_NAME);
 	}
 
-	public void enterHandlerConfiguration(String handlerConfiguarion) {
-		selectFrom(HANDLER_CONFIGURATION_FILED, handlerConfiguarion);
+	public void enterHandlerConfiguration(String handlerConfiguration) {
+		selectFrom(HANDLER_CONFIGURATION_FILED, handlerConfiguration);
 	}
 
 	public void clickOnSaveButton() {

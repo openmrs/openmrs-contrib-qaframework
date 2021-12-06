@@ -25,12 +25,10 @@ import org.openmrs.contrib.qaframework.page.ManageLocationsPage;
 import org.openmrs.contrib.qaframework.page.AddEditLocationPage;
 import org.openmrs.contrib.qaframework.page.ManageLocationTagsPage;
 import org.openmrs.contrib.qaframework.page.ConfigureMetadataPage;
+import org.openqa.selenium.By;
 
 
 public class LocationManagementSteps extends Steps {
-
-    private static final String HANDLER_CONFIGURATION = "I have entered the handler configuration";
-    private static final String DATATYPE_CONFIGURATION = "I have entered the data configuration";
     private static final String TAG_NAME = "This is a tag name";
     private static final String MAX_VALUE = "20";
     private static final String MIN_VALUE = "1";
@@ -85,10 +83,10 @@ public class LocationManagementSteps extends Steps {
         manageLocationAttributeTypesPage.enterLocationAttributeTypeDescription(DESCRIPTION);
         manageLocationAttributeTypesPage.enterMinimumOccurs(MIN_VALUE);
         manageLocationAttributeTypesPage.enterMaximumOccurs(MAX_VALUE);
-        manageLocationAttributeTypesPage.selectDatatype("Location Datatype");
-        manageLocationAttributeTypesPage.enterDatatypeConfiguration(DATATYPE_CONFIGURATION);
-        manageLocationAttributeTypesPage.selectPreferredHandler("Location Field Gen Datatype Handler");
-        manageLocationAttributeTypesPage.enterHandlerConfiguration(HANDLER_CONFIGURATION);
+        manageLocationAttributeTypesPage.selectDatatype("Provider Datatype");
+        manageLocationAttributeTypesPage.enterDatatypeConfiguration("I have entered the data configuration");
+        manageLocationAttributeTypesPage.selectPreferredHandler("Provider Field Gen Datatype Handler");
+        manageLocationAttributeTypesPage.enterHandlerConfiguration("I have entered the handler configuration");
     }
 
     @And("the user saves the form")

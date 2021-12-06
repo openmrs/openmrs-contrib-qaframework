@@ -9,11 +9,8 @@
  */
 package org.openmrs.contrib.qaframework.page;
 
-import java.util.List;
-
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class AllergyPage extends Page {
 

@@ -59,11 +59,11 @@ public class AllergyPage extends Page {
 	}
 
 	public void addNoKnownAllergy() {
-		driver.findElement(ADD_NO_KNOWN).click();
+		clickOn(ADD_NEW_ALLERGY);
 	}
 
 	public void removeNoKnownAllergy() {
-		driver.findElement(DELETE_NO_KNOWN).click();
+		clickOn(DELETE_NO_KNOWN);
 	}
 
 	@Override

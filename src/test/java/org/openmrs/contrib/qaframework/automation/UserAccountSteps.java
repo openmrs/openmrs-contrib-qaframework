@@ -48,7 +48,7 @@ public class UserAccountSteps extends Steps {
 
 	@Then("the system loads system administration page")
 	public void systemLoadsSystemAdministrationPage() {
-		assertTrue(textExists("System Administration"));
+		assertPage(systemAdministrationPage.waitForPage());
 	}
 
 	@When("a user clicks on manage accounts app")
@@ -58,7 +58,7 @@ public class UserAccountSteps extends Steps {
 
 	@Then("the system loads manage acccount page")
 	public void systemLoadsManageAccountsPage() {
-		assertTrue(textExists("Manage Accounts"));
+		assertPage(userAccountPage.waitForPage());
 	}
 
 	@And("a user clicks add new account button")

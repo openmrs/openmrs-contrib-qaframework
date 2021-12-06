@@ -9,7 +9,6 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.qaframework.RunTest;
@@ -42,8 +41,7 @@ public class AllergiesSteps extends Steps {
 
 	@Then("the system loads Allergies page")
 	public void systemLoadsAllergiesPage() {
-		assertEquals(getElement(patientHeaderId).getText(),getElement(patientHeaderId).getText());
-		assertTrue(textExists("Allergies"));
+		assertPage(allergyPage.waitForPage());
 	}
 
 	@And("a user clicks No Known Allergy button")

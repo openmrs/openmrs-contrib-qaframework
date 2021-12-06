@@ -1,14 +1,14 @@
 Feature: Location Management
 
   Background:
+    Given a user clicks on the configure metadata link from the home page
 
 
   @selenium
   @location
   Scenario: LOCATION_MANAGEMENT
     # User story: Add Location Attribute type
-    When a user clicks on the configure metadata link from the home page
-    Then the system loads configure metadata link dashboard
+    When the system loads configure metadata link dashboard
     And a user clicks on Manage Location Attribute Types
     And a user clicks on add new location attribute type
     And a user fills the form

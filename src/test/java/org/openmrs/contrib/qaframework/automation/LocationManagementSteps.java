@@ -14,6 +14,7 @@ import static org.junit.Assert.assertTrue;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openmrs.contrib.qaframework.RunTest;
@@ -57,12 +58,12 @@ public class LocationManagementSteps extends Steps {
         quit();
     }
 
-    @When("a user clicks on the configure metadata link from the home page")
+    @Given("a user clicks on the configure metadata link from the home page")
     public void clicksConfigureMetaDataLink(){
         configureMetadataPage = homePage.goToConfigureMetadata();
     }
 
-    @Then("the system loads configure metadata link dashboard")
+    @When("the system loads configure metadata link dashboard")
     public void loadsConfigureMetaData(){
         assertTrue(textExists("Configure Metadata"));
     }
@@ -97,6 +98,7 @@ public class LocationManagementSteps extends Steps {
     @Then("the form is saved")
     public void theFormIsSaved(){
         assertTrue(textExists("Noah"));
+        configureMetadataPage = homePage.goToConfigureMetadata();
     }
 
     @When("a user clicks on manage location tag")
@@ -123,6 +125,7 @@ public class LocationManagementSteps extends Steps {
     @Then("the New location tag form is saved")
     public void locationTagFormIsSaved(){
         assertTrue(textExists("This is a tag name"));
+        configureMetadataPage = homePage.goToConfigureMetadata();
     }
 
     @When("a user clicks on manager locations")

@@ -69,7 +69,7 @@ public class OpenConceptLabSteps extends Steps  {
     public void systemLoadsOpenConceptPage() {
         assertPage(openconceptlabpage.waitForPage());
     }
-
+    
    @When ("a user clicks on Setup subscription button")
     public void loadSubscriptionPage() {
       subscriptionPage = openconceptlabpage.clickOnsetupSubscriptionButton();
@@ -78,42 +78,42 @@ public class OpenConceptLabSteps extends Steps  {
     @Then("the system loads Subscription page")
     public void systemLoadsSubscriptionPage() {
         assertTrue(textExists("Show/hide advanced..."));
-   }
+    }
 
      @And("a user enters the URL of a new released dictionary")
      public void enterDictionaryUrl() {
         subscriptionPage.enterSubscriptionURL(releasedDictionaryUrl);
-     }   
+    }   
 
      @And("a user enters the Token url")
      public void enterTokenUrl(){
         subscriptionPage.enterTokenURL(tokenUrl);
-     }
+    }
 
      @And ("a user clicks on the Save Changes button")
      public void saveChanges(){
        openConceptLabSuccessPage = (OpenConceptLabSuccessPage) subscriptionPage.clickSaveChangesButton();
-     }
+    }
 
      @Then ("the system loads Open Concept Lab Success page")
      public void systemLoadsOpenConceptLabSuccessPage(){
      	assertPage(openConceptLabSuccessPage.waitForPage());  
-     }
+    }
 
      @And ("a user clicks import from Subscription server button")
      public void LoadsOpenConceptLabPage(){
         openConceptLabSuccessPage.clickOnImportFromSubscriptionButton();
         openConceptLabSuccessPage.waitForPageToLoad();
-     }
+    }
 
-     @Then ("the API should be displayed on the previous imports")
-     public void displayAmongPreviousImports(){
-        assertNotNull(openConceptLabSuccessPage.getpreviousImportsList());
-     } 
+      @Then ("the API should be displayed on the previous imports")
+       public void displayAmongPreviousImports(){
+          assertNotNull(openConceptLabSuccessPage.getpreviousImportsList());
+    } 
 
-     @When ("a user clicks edit subscription button")
-     public void loadsOpenConceptLabPage(){
-        assertPage(openConceptLabPage.waitForPage());  
+      @When ("a user clicks edit subscription button")
+      public void loadsOpenConceptLabPage(){
+         assertPage(openConceptLabPage.waitForPage());  
     } 
  }
  

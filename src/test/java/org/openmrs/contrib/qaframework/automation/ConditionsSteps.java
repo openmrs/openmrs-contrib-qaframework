@@ -64,7 +64,7 @@ public class ConditionsSteps extends Steps {
 
 	@Then("System returns to patient dashboard")
 	public void returnToDashboard() {
-		assertPage(dashboardPage.waitForPage());
+		matchPatientIds(patientDashboardId);
 	}
 
 	@And("User clicks on Add new condition")

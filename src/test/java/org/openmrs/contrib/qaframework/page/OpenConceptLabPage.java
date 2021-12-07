@@ -37,7 +37,7 @@ public class OpenConceptLabPage extends Page {
         return "/owa/openconceptlab/index.html#/";
     }
 
-    public SubscriptionPage clickOnsetupSubscription() {
+    public SubscriptionPage clickOnsetupSubscriptionButton() {
         clickOn(SETUP_SUBSCRIPTION_BUTTON);
         return new SubscriptionPage(this);
     }

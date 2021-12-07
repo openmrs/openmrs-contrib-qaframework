@@ -32,7 +32,7 @@ jobs:
         run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/login.htm)" != "200" ]]; do sleep 1; done
       - name: Run qaframework on selenium
         run: |
-          cd qaframework-legacy-tests
           mvn clean install -DskipTests=true
           cp -f src/test/resources/org/openmrs/uitestframework/test-local.properties src/test/resources/org/openmrs/uitestframework/test.properties
+          cd qaframework-legacy-tests
           mvn clean install -DskipTests=false

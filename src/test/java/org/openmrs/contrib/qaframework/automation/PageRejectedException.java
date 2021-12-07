@@ -27,5 +27,4 @@ public class PageRejectedException extends RuntimeException {
 			boolean enableSuppression, boolean writableStackTrace) {
 		super(message, cause, enableSuppression, writableStackTrace);
 	}
-
 }

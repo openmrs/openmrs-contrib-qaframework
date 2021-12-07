@@ -54,7 +54,7 @@ public class ConditionsSteps extends Steps {
 
 	@Then("System loads Manage Conditions Page")
 	public void systemLoadsManageConditions() {
-		assertNotNull(getElement(addNewCondition));
+		assertPage(conditionsPage.waitForPage());
 	}
 
 	@And("User clicks on Return")

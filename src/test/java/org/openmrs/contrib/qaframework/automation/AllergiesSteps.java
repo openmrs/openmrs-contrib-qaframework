@@ -9,7 +9,7 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.qaframework.RunTest;
@@ -42,13 +42,13 @@ public class AllergiesSteps extends Steps {
 
 	@Then("the system loads Allergies page")
 	public void systemLoadsAllergiesPage() {
-		assertEquals(getElement(patientHeaderId).getText(),getElement(patientHeaderId).getText());
-		assertTrue(textExists("Allergies"));
+		assertPage(allergyPage.waitForPage());
 	}
 
 	@And("a user clicks No Known Allergy button")
 	public void addNoKnownAllergy() {
 		allergyPage.addNoKnownAllergy();
+		allergyPage.waitForPage();
 	}
 
 	@Then("the system add no known allergies into the allergies table")
@@ -59,6 +59,7 @@ public class AllergiesSteps extends Steps {
 	@And("a user clicks Remove No Known Allergy icon")
 	public void removeNoKnownAllergy() {
 		allergyPage.removeNoKnownAllergy();
+		allergyPage.waitForPage();
 	}
 
 	@Then("the system displays unknown in the allergies table")

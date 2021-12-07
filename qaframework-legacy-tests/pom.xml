@@ -77,6 +77,12 @@
 		    <version>2.1</version>
 		    <scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.openmrs.contrib</groupId>
+			<artifactId>qaframework-bdd-tests</artifactId>
+			<version>${project.parent.version}</version>
+			<scope>test</scope>
+		</dependency>
         </dependencies>
   <profiles>
         <profile>

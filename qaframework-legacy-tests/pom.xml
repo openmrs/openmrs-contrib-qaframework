@@ -77,7 +77,7 @@
 		    <version>2.1</version>
 		    <scope>test</scope>
 		</dependency>
-  </dependencies>
+        </dependencies>
   <profiles>
         <profile>
             <id>ci</id>

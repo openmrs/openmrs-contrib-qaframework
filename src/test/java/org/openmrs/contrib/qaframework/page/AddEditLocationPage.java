@@ -23,6 +23,7 @@ public class AddEditLocationPage extends Page {
 		super(parent);
 	}
 
+	//Tes
 	@Override
 	public String getPageUrl() {
 		return PAGE_URL;

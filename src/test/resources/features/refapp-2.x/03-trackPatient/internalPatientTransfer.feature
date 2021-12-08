@@ -1,1 +1,0 @@
-Feature: Admit patient Management

@@ -46,7 +46,7 @@ public class InpatientSteps extends Steps {
 
 	@Then("the system loads find patient record page")
 	public void systemLoadsFindPatientRecordPage() {
-		assertTrue(textExists("Find Patient Record"));
+		assertPage(findPatientPage.waitForPage());
 	}
 
 	@When("a user searches an existing patient from find patient record page")
@@ -63,7 +63,7 @@ public class InpatientSteps extends Steps {
 
 	@Then("the system loads patient visit dashboard page")
 	public void systemLoadsPatientVisitDashboardPage() {
-		assertTrue(visitsDashboardPage.containsText("Visits"));
+		assertPage(visitsDashboardPage.waitForPage());
 	}
 
 	@When("a user clicks on Admit to Inpatient button and selects location")

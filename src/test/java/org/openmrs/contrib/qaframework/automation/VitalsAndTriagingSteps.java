@@ -57,7 +57,7 @@ public class VitalsAndTriagingSteps extends Steps {
 
 	@Then("the system loads Vitals page")
 	public void systemloadsVitalsPage() {
-		assertTrue(textExists("Vitals"));
+		assertPage(patientCaptureVitalsPage.waitForPage());
 	}
 
 	@When("a user enters normal patient vitals")

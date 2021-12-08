@@ -109,7 +109,6 @@ public class ClinicalVisitSteps extends Steps {
 	public void systemAddsVisitNote() {
 		assertEquals(DIAGNOSIS_PRIMARY, visitNotePage.primaryDiagnosis());
 		assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.secondaryDiagnosis());
-		visitsDashboardPage.waitForPage();
 	}
 
 	@When("a user clicks on Allergies link from Patient dashboard page")
@@ -288,7 +287,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@Then("the system ends the patient visit")
 	public void systemEndsPatientVisit() {
-		assertNull(visitsDashboardPage.getActiveVisit());
+		assertTrue(textExists("No active visit"));
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 }

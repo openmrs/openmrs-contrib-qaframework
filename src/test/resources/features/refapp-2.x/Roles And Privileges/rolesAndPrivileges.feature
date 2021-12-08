@@ -5,12 +5,10 @@ Feature: Roles & Privileges Management
   Go to roles,add a new role, edit it and delete a role.
   lastly,Return to home page
 
-  Background: 
-    Given User clicks on configure metadata link from home page
-
   @selenium
   @rolesAndPrivileges
-  Scenario: Adding a New Privilege
+  Scenario: Adding the privilege
+    Given User clicks on configure metadata link from home page
     When User clicks on manage privileges link on the configure metadata page
     And User clicks the Add New Privilege button
     And User fills the new privilege form
@@ -18,7 +16,8 @@ Feature: Roles & Privileges Management
 
   @selenium
   @rolesAndPrivileges
-  Scenario: Edit the privilege
+  Scenario: Editing the privilege
+    Given User clicks on configure metadata link from home page
     When User clicks on manage privileges link on the configure metadata page
     And User clicks the Add New Privilege button
     And User fills the new privilege form
@@ -28,7 +27,8 @@ Feature: Roles & Privileges Management
 
   @selenium
   @rolesAndPrivileges
-  Scenario: Delete the privilege
+  Scenario: Deleting the privilege
+    Given User clicks on configure metadata link from home page
     When User clicks on manage privileges link on the configure metadata page
     And User clicks the Add New Privilege button
     And User fills the new privilege form
@@ -40,23 +40,30 @@ Feature: Roles & Privileges Management
   @selenium
   @rolesAndPrivileges
   Scenario: Adding a new Role
-    When User clicks on manage roles link on the configure metadata page
-    And User clicks the Add New Role button
+    Given User clicks on System Administration Link from home page
+    When User clicks on Advanced Administration link from the System Administration Page
+    Then User clicks on manage roles link on the advanced administration page
+    And User clicks the Add New Role button on the manage roles page
     And User fills the new role form
     And User saves role
 
   @selenium
   @rolesAndPrivileges
-  Scenario: Edit the role
-    When User clicks on manage roles link on the configure metadata page
-    And User clicks the Add New Role button
-    And User fills the new role form
+  Scenario: Editing Role
+    Given User clicks on System Administration Link from home page
+    When User clicks on Advanced Administration link from the System Administration Page
+    Then User clicks on manage roles link on the advanced administration page
+    And User edits the role
     And User saves role
-    And User edits Role
 
+  @selenium
+  @rolesAndPrivileges
   Scenario: Delete the role
-    When User clicks on manage roles link on the configure metadata page
-    And User clicks the Add New Role button
+    Given User clicks on System Administration Link from home page
+    When User clicks on Advanced Administration link from the System Administration Page
+    Then User clicks on manage roles link on the advanced administration page
+    And User clicks the Add New Role button on the manage roles page
     And User fills the new role form
     And User saves role
-    And User clicks delete Role
+    And User selects the role to be deleted
+    And User deletes role

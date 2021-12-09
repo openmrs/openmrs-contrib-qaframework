@@ -11,15 +11,15 @@ package org.openmrs.contrib.qaframework.automation;
 
 import static org.junit.Assert.assertNotNull;
 
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class LoginSteps extends Steps {
 

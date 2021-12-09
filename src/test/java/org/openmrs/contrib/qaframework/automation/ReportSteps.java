@@ -1,5 +1,12 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
+
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManageReportsPage;
@@ -7,13 +14,6 @@ import org.openmrs.contrib.qaframework.page.RenderDefaultReportPage;
 import org.openmrs.contrib.qaframework.page.ReportHistoryPage;
 import org.openmrs.contrib.qaframework.page.RunReportPage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
-
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
 
 public class ReportSteps extends Steps {
 

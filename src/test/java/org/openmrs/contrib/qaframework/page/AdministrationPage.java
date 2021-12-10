@@ -17,6 +17,8 @@ public class AdministrationPage extends Page {
 
 	private static final String URL = "/admin/index.htm";
 	private static final By MANAGE_USERS = By.cssSelector("#content a[href='/openmrs/admin/users/users.list']");
+	private static final By MANAGE_PRIVILEGES = By.cssSelector("#legacyui-managePrivileges > a");
+	private static final By MANAGE_ROLES = By.cssSelector("#legacyui-manageRoles > a");
 	private static final By MANAGE_MODULES = By.cssSelector("#legacyui-manageModules a");
 	private final static By MANAGE_VISIT_TYPES = By.cssSelector("#legacyui-manageVisitTypes a");
 	private static final By MANAGE_PROVIDERS = By.cssSelector("#content a[href='/openmrs/admin/provider/index.htm']");
@@ -36,6 +38,11 @@ public class AdministrationPage extends Page {
 	public ManageUserPage clickOnManageUsers() {
 		findElement(MANAGE_USERS).click();
 		return new ManageUserPage(this);
+	}
+	
+	public AdministrationManageRolesPage clickOnManageRoles(){
+		clickOn(MANAGE_ROLES);
+		return new AdministrationManageRolesPage(this);
 	}
 
 	public ManageProviderPage clickOnManageProviders() {

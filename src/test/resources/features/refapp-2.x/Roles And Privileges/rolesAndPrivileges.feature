@@ -53,8 +53,10 @@ Feature: Roles & Privileges Management
     Given User clicks on System Administration Link from home page
     When User clicks on Advanced Administration link from the System Administration Page
     Then User clicks on manage roles link on the advanced administration page
-    And User edits the role
+    And User clicks the Add New Role button on the manage roles page
+    And User fills the new role form
     And User saves role
+    And User edits the role
 
   @selenium
   @rolesAndPrivileges

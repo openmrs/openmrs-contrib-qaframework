@@ -33,6 +33,6 @@ jobs:
       - name: Run qaframework on selenium
         run: |
           mvn clean install -DskipTests=true
+          cp -f qaframework-legacy-tests/src/test/resources/org/openmrs/uitestframework/test-local.properties qaframework-legacy-tests/src/test/resources/org/openmrs/uitestframework/test.properties
           cd qaframework-legacy-tests
-          cp -f src/test/resources/org/openmrs/uitestframework/test-local.properties src/test/resources/org/openmrs/uitestframework/test.properties
           mvn clean install -DskipTests=false

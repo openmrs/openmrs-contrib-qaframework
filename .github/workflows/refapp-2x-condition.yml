@@ -38,4 +38,3 @@ jobs:
           cd qaframework-bdd-tests
           npm run refapp2Condition
           curl -sX POST -F messages=@target/cucumber.ndjson https://studio.cucumber.io/cucumber_project/results -H "project-access-token: ${{secrets.CUCUMBER_IO_TOKEN}}" -H "provider: github" -H "repo: ${{github.repository}}" -H "branch: master" -H "revision: ${{github.sha}}"
-

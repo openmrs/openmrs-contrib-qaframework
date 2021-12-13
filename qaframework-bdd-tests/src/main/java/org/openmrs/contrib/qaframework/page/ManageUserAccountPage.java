@@ -23,7 +23,7 @@ public class ManageUserAccountPage extends Page {
 	private static final By GIVEN_NAME = By.cssSelector("#adminui-givenName-field");
 	private static final By GENDER_FEMALE = By.cssSelector("#adminui-gender-1-field");
 	private static final By ADD_USER_ACCOUNT = By.id("adminui-addUserAccount");
-	private static final By USER_NAME = By.cssSelector("#adminui-username-field");
+	private static final By USERNAME_FIELD = By.cssSelector("#adminui-username-field");
 	private static final By PRIVILEGE_LEVEL = By.cssSelector("#adminui-privilegeLevel-field");
 	private static final By PASSWORD = By.cssSelector("#adminui-password-field");
 	private static final By CONFIRM_PASSWORD = By.cssSelector("#adminui-confirmPassword-field");
@@ -74,9 +74,8 @@ public class ManageUserAccountPage extends Page {
 		clickOn(ADD_USER_ACCOUNT);
 	}
 
-	public void enterUsername(String username) {
-		findElement(USER_NAME).clear();
-		findElement(USER_NAME).sendKeys(username);
+	public void setUsername(String username) {
+		setTextToFieldNoEnter(USERNAME_FIELD, username);
 	}
 
 	public void setUserPrivilegeLevel(String privilegeLevel) {

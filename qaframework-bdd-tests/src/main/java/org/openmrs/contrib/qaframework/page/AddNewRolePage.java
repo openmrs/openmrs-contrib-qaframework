@@ -13,9 +13,10 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class AddNewRolePage extends Page{
+	protected static final String PAGE_URL = "/openmrs/admin/users/role.form";
 	private static final By ENTER_ROLE_NAME = By.cssSelector("#role");
 	private static final By SELECT_OR_UNSELECT_ALL_PRIVILEGES = By.id("toggleSelectionCheckbox");
-	private static final By ENTER_DESCRIPTION = By.cssSelector("#content > form > table > tbody > tr:nth-child(2) > td > textarea");
+	private static final By ENTER_DESCRIPTION = By.cssSelector("#content textarea");
 	private static final By SAVE = By.cssSelector("#content > form > input[type=submit]");
 
 	public AddNewRolePage(Page parent) {
@@ -46,7 +47,7 @@ public class AddNewRolePage extends Page{
 
 	@Override
 	public String getPageUrl() {
-		return null;
+		return PAGE_URL;
 	}
 	
 }

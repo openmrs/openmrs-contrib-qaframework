@@ -21,6 +21,7 @@ import io.cucumber.java.en.When;
 
 import java.util.List;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.ManageUserAccountPage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
@@ -28,6 +29,9 @@ import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 public class UserAccountSteps extends Steps {
 
 	private static final String SYSTEM_ALERT = "Atleast 8 character(s) are required";
+	private static final String CLERK = RandomStringUtils.randomAlphabetic(8);
+	private static final String NURSE = RandomStringUtils.randomAlphabetic(8);
+	private static final String DOCTOR = RandomStringUtils.randomAlphabetic(8);
 	private SystemAdministrationPage systemAdministrationPage;
 	private ManageUserAccountPage userAccountPage;
 
@@ -76,7 +80,7 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.enterPersonalDetails("Clerk", "Data");
 		userAccountPage.selectGender();
 		userAccountPage.clickOnAddUserAccount();
-		userAccountPage.enterUsername("dclerk");
+		userAccountPage.setUsername(CLERK);
 		userAccountPage.setUserPrivilegeLevel("High");
 		userAccountPage.setUserPassword("Dataclerk123", "Dataclerk123");
 		assertFalse(userAccountPage.containsText(SYSTEM_ALERT));
@@ -96,7 +100,7 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.enterPersonalDetails("Nurse", "Senior");
 		userAccountPage.selectGender();
 		userAccountPage.clickOnAddUserAccount();
-		userAccountPage.enterUsername("snurse");
+		userAccountPage.setUsername(NURSE);
 		userAccountPage.setUserPrivilegeLevel("High");
 		userAccountPage.setUserPassword("Seniornurse123", "Seniornurse123");
 		assertFalse(userAccountPage.containsText(SYSTEM_ALERT));
@@ -116,7 +120,7 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.enterPersonalDetails("Doctor", "Senior");
 		userAccountPage.selectGender();
 		userAccountPage.clickOnAddUserAccount();
-		userAccountPage.enterUsername("sdoctor");
+		userAccountPage.setUsername(DOCTOR);
 		userAccountPage.setUserPrivilegeLevel("Full");
 		userAccountPage.setUserPassword("Seniordoctor123", "Seniordoctor123");
 		assertFalse(userAccountPage.containsText(SYSTEM_ALERT));

@@ -10,7 +10,7 @@ Feature: User Account Management
 
   @selenium
   @userAccount
-  Scenario: Creating user account for Nurse
+  Scenario: Creating user account for Clerk
     And a user enters data clerk details in the user account form
     And a user clicks on save account button
     Then the system adds user account into the users table

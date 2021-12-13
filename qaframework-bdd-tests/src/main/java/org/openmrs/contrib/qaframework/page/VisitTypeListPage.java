@@ -20,7 +20,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class VisitTypeListPage extends AdminManagementPage {
 
 	private static final By ERROR = By.cssSelector("span.error");
-	private static final By VISIT_TYPE_LIST = By.cssSelector("#content  form  table  tbody  tr td");
+	private static final By VISIT_TYPE_LIST = By.cssSelector("#content form table tbody tr td");
 	private static final By RETIRED_VISIT_TYPE_LIST = By.cssSelector("#content form table tbody tr td del");
 
 	public VisitTypeListPage(Page parent) {
@@ -44,7 +44,7 @@ public class VisitTypeListPage extends AdminManagementPage {
 
 	public List<String> getVisitTypeList() {
 		List<String> visitTypeList = new ArrayList<String>();
-		waiter.until(ExpectedConditions.visibilityOfElementLocated(VISIT_TYPE_LIST));
+		driver.navigate().refresh();
 		for (WebElement webElement : findElements(VISIT_TYPE_LIST)) {
 			visitTypeList.add(webElement.getText());
 		}

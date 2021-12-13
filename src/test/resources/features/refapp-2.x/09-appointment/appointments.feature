@@ -1,1 +1,0 @@
-Feature: Appointments Management

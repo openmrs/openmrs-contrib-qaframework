@@ -1,7 +1,5 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertNotNull;
-
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
@@ -14,7 +12,6 @@ import org.openqa.selenium.By;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -85,42 +82,42 @@ public class FormSteps extends Steps {
 		//		assertNotNull("Eye Report", patientDashboardPage.FORM_EXIST);
 	}
 	
-	@And("a user edits a form")
-	public void editFormTest() throws Exception {
-		instantiateFormPresence();
-		ManageFormsPage manageForm = new ManageFormsPage(driver);
-		manageForm.add();
-		manageForm.addLabel("Eye Report");
-		manageForm.addIcon("icon-align-justify");
-		manageForm.formIdFromUrl();
-		manageForm.save();
-		homePage.go();
-		//		assertNotNull("Eye Report", patientDashboardPage.FORM_EXIST);
-		homePage.goToManageForm();
-		ManageFormsPage manageForm1 = new ManageFormsPage(driver);
-		manageForm1.waitForPage();
-		manageForm1.editPath();
-		manageForm1.addLabel("Eye Test");
-		manageForm1.save();
-		homePage.go();
-		//		assertNotNull("Eye Test", patientDashboardPage.FORM_EXIST);
-	}
-	
-	@Then("a user deletes a form")
-	public void deleteFormTest() throws Exception {
-		instantiateFormPresence();
-		ManageFormsPage manageForm = new ManageFormsPage(driver);
-		manageForm.add();
-		manageForm.addLabel("Eye Report");
-		manageForm.addIcon("icon-align-justify");
-		manageForm.formIdFromUrl();
-		manageForm.save();
-		homePage.go();
-		//		assertNotNull("Eye Report", patientDashboardPage.FORM_EXIST);
-		homePage.goToManageForm();
-		manageForm.waitForPage();
-		manageForm.deletePath();
-		assertNotNull("Add", manageForm.ADD);
-		homePage.go();
-	}
+	//	@And("a user edits a form")
+	//	public void editFormTest() throws Exception {
+	//		instantiateFormPresence();
+	//		ManageFormsPage manageForm = new ManageFormsPage(driver);
+	//		manageForm.add();
+	//		manageForm.addLabel("Eye Report");
+	//		manageForm.addIcon("icon-align-justify");
+	//		manageForm.formIdFromUrl();
+	//		manageForm.save();
+	//		homePage.go();
+	//		//		assertNotNull("Eye Report", patientDashboardPage.FORM_EXIST);
+	//		homePage.goToManageForm();
+	//		ManageFormsPage manageForm1 = new ManageFormsPage(driver);
+	//		manageForm1.waitForPage();
+	//		manageForm1.editPath();
+	//		manageForm1.addLabel("Eye Test");
+	//		manageForm1.save();
+	//		homePage.go();
+	//		//		assertNotNull("Eye Test", patientDashboardPage.FORM_EXIST);
+	//	}
+	//	
+	//	@Then("a user deletes a form")
+	//	public void deleteFormTest() throws Exception {
+	//		instantiateFormPresence();
+	//		ManageFormsPage manageForm = new ManageFormsPage(driver);
+	//		manageForm.add();
+	//		manageForm.addLabel("Eye Report");
+	//		manageForm.addIcon("icon-align-justify");
+	//		manageForm.formIdFromUrl();
+	//		manageForm.save();
+	//		homePage.go();
+	//		//		assertNotNull("Eye Report", patientDashboardPage.FORM_EXIST);
+	//		homePage.goToManageForm();
+	//		manageForm.waitForPage();
+	//		manageForm.deletePath();
+	//		assertNotNull("Add", manageForm.ADD);
+	//		homePage.go();
+	//	}
 }

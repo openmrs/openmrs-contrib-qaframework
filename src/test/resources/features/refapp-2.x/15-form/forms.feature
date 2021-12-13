@@ -8,6 +8,6 @@ Feature: Form Management
   Scenario: Form management
    When check the availability of forms
    Then a user adds a form in the system
-   And  a user edits a form
-   Then a user deletes a form
+   #And  a user edits a form
+  # Then a user deletes a form
 

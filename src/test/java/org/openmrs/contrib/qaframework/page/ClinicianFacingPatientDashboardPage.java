@@ -26,7 +26,7 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	public static final By END_VISIT = By.id("referenceapplication.realTime.endVisit");
 	public static final By VISIT_LINK = By.className("toast-item-wrapper");
 	public static final By SELECT_LOCATION = By.id("w5");
-	public static final By FORM_EXIST = By.className("action-section");
+	public final By FORM_EXIST = By.className("action-section");
 	private static final By START_VISIT = By.id("org.openmrs.module.coreapps.createVisit");
 	private static final By CONFIRM = By.cssSelector("#quick-visit-creation-dialog .confirm");
 	private static final By STARTED_AT = By.className("active-visit-started-at-message");

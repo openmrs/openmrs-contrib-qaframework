@@ -9,8 +9,15 @@
  */
 package org.openmrs.contrib.qaframework.page;
 
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.Writer;
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
+import org.apache.commons.io.IOUtils;
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -33,6 +40,22 @@ public class AttachmentsPage extends Page {
 	public void setFileUrl(String fileUrl) {
 		WebElement element = driver.findElement(By.xpath("//input[@type='file']"));
 		element.sendKeys(fileUrl);
+	}
+	
+	private String createTemporaryFile() throws IOException {
+		File tempFile = File.createTempFile("file", ".pdf");
+		tempFile.deleteOnExit();
+		try (InputStream pdf = getClass().getClassLoader().getResourceAsStream("data/file.pdf")) {
+			try (Writer writer = new FileWriter(tempFile)) {
+				IOUtils.copy(pdf, writer, StandardCharsets.UTF_8);
+			}
+		}
+		return tempFile.getAbsolutePath();
+	}
+	
+	public void attachFile() throws IOException {
+		WebElement element = driver.findElement(By.xpath("//input[@type='file']"));
+		element.sendKeys(createTemporaryFile());
 	}
 
 	public void addAttachmentNote(String note) {

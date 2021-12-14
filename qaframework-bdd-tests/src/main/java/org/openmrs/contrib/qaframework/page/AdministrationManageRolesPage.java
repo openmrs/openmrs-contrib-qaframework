@@ -16,9 +16,9 @@ public class AdministrationManageRolesPage extends Page{
 
 	protected static final String PAGE_URL = "/openmrs/admin/users/role.list";
 	private static final By ADD_NEW_ROLE_LINK= By.cssSelector("#content > a");
-	private static final By DELETE_SELECTED_ROLES = By.cssSelector("#content > form > input[type=submit]");
+	private static final By DELETE_SELECTED_ROLES_BUTTON = By.cssSelector("#content > form > input[type=submit]");
 	private static final By CHECKBOX = By.cssSelector("#content > form > table > tbody input[type=checkbox]");
-	private static final By EDIT_ROLE = By.cssSelector("#content > form > table > tbody > tr:nth-child(3) > td:nth-child(2) > a");
+	private static final By EDIT_ROLE_LINK = By.cssSelector("#content > form > table > tbody > tr:nth-child(3) > td:nth-child(2) > a");
 
 	public AdministrationManageRolesPage(Page parent) {
 		super(parent);
@@ -30,11 +30,11 @@ public class AdministrationManageRolesPage extends Page{
 	}
 	
 	public void goToEditRole(){
-		clickOn(EDIT_ROLE);
+		clickOn(EDIT_ROLE_LINK);
 	}
 	
 	public void deleteSelectedRoles(){
-		clickOn(DELETE_SELECTED_ROLES);
+		clickOn(DELETE_SELECTED_ROLES_BUTTON);
 	}
 	
 	public void selectRole(){

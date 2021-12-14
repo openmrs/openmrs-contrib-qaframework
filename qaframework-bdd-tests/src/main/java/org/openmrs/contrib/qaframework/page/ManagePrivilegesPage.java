@@ -15,23 +15,23 @@ import org.openqa.selenium.By;
 public class ManagePrivilegesPage extends Page{
 
 	protected static final String PAGE_URL = "adminui/metadata/privileges/managePrivileges.page";
-	private static final By ADD_NEW_PRIVILEGE = By.cssSelector("#content > input");
+	private static final By ADD_NEW_PRIVILEGE_BUTTON = By.cssSelector("#content > input");
 	private static final By EDIT_PRIVILEGE = By.cssSelector("i.icon-pencil.edit-action");
-	private static final By DELETE_PRIVILEGE = By.cssSelector("i.icon-trash.delete-action.right");
-	private static final By SEARCH_CREATED_PRIVILEGE = By.cssSelector("#list-privileges_filter > label > input[type=text]");
-	private static final By CONFIRM_DELETION = By.cssSelector("#purgePrivilegeForm > div > button.confirm.right");
+	private static final By DELETE = By.cssSelector("i.icon-trash.delete-action.right");
+	private static final By SEARCH_FIELD = By.cssSelector("#list-privileges_filter > label > input[type=text]");
+	private static final By CONFIRM_BUTTON = By.cssSelector("#purgePrivilegeForm > div > button.confirm.right");
 	
 	public ManagePrivilegesPage(Page configureMetadataPage) {
 		super(configureMetadataPage);
 	}
 	
 	public AddEditNewPrivilegePage goToAddNewPrivilege(){
-		clickOn(ADD_NEW_PRIVILEGE);
+		clickOn(ADD_NEW_PRIVILEGE_BUTTON);
 		return new AddEditNewPrivilegePage(this);
 	}
 	
 	public void confirmPrivilegeDelete(){
-		clickOn(CONFIRM_DELETION);
+		clickOn(CONFIRM_BUTTON);
 	}
 	
 	public void goToEditPrivilege(){
@@ -39,11 +39,11 @@ public class ManagePrivilegesPage extends Page{
 	}
 	
 	public void searchForPrivilege(String searchInput){
-		setText(SEARCH_CREATED_PRIVILEGE, searchInput);
+		setText(SEARCH_FIELD, searchInput);
 	}
 	
 	public void deletePrivilege(){
-		clickOn(DELETE_PRIVILEGE);
+		clickOn(DELETE);
 	}
 
 	@Override

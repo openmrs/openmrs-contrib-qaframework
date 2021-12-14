@@ -49,5 +49,4 @@ public class AddNewRolePage extends Page{
 	public String getPageUrl() {
 		return PAGE_URL;
 	}
-	
 }

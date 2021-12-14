@@ -44,5 +44,4 @@ public class AdministrationManageRolesPage extends Page{
 	public String getPageUrl() {
 		return PAGE_URL;
 	}
-	
 }

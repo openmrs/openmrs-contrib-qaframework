@@ -15,8 +15,8 @@ import org.openqa.selenium.WebElement;
 
 public class AddEditNewPrivilegePage extends Page{
 	protected static final String PAGE_URL = "/adminui/metadata/privileges/privilege.page?action=add&";
-	public static final By ENTER_PRIVILEGE_FIELD = By.cssSelector("#privilege-field");
-	public static final By ENTER_DESCRIPTION_FIELD = By.cssSelector("#description-field");
+	public static final By PRIVILEGE_FIELD = By.cssSelector("#privilege-field");
+	public static final By DESCRIPTION_FIELD = By.cssSelector("#description-field");
 	public static final By SAVE_BUTTON = By.cssSelector("#save-button");
 	public static final By CANCEL_BUTTON = By.cssSelector("#privilegeForm input.cancel");
 	
@@ -29,14 +29,14 @@ public class AddEditNewPrivilegePage extends Page{
 	}
 	
 	public ManagePrivilegesPage enterPrivilegeName(String privilegeName){
-		findElement(ENTER_PRIVILEGE_FIELD).clear();
-		findElement(ENTER_PRIVILEGE_FIELD).sendKeys(privilegeName);
+		findElement(PRIVILEGE_FIELD).clear();
+		findElement(PRIVILEGE_FIELD).sendKeys(privilegeName);
 		return new ManagePrivilegesPage(this);
 	}
 	
 	public ManagePrivilegesPage enterPrivilegeDescription(String privilegeDescription){
-		findElement(ENTER_DESCRIPTION_FIELD).clear();
-		findElement(ENTER_DESCRIPTION_FIELD).sendKeys(privilegeDescription);
+		findElement(DESCRIPTION_FIELD).clear();
+		findElement(DESCRIPTION_FIELD).sendKeys(privilegeDescription);
 		return new ManagePrivilegesPage(this);
 	}
 	

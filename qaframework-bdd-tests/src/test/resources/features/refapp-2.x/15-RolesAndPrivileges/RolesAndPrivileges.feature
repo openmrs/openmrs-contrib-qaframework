@@ -1,9 +1,4 @@
 Feature: Roles & Privileges Management
-  
-  i want the user to Log in as an admin.Go to configure meta data.
-  Go to privileges, add a new privilege, edit it and delete the privilege
-  Go to roles,add a new role, edit it and delete a role.
-  lastly,Return to home page
 
   @selenium
   @rolesAndPrivileges

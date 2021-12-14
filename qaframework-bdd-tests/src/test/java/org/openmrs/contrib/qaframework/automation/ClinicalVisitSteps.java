@@ -287,7 +287,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@Then("the system ends the patient visit")
 	public void systemEndsPatientVisit() {
-		assertNull(visitsDashboardPage.getActiveVisit());
+		assertTrue(textExists("No active visit"));
 		dashboardPage = visitsDashboardPage.goToPatientDashboard();
 	}
 }

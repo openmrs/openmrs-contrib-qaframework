@@ -26,6 +26,7 @@ import org.openmrs.contrib.qaframework.page.ManagePrivilegesPage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
 public class RolesAndPrivilegesSteps extends Steps {
+
 	private static final String PRIVILEGE_NAME_TO_BE_CREATED_AND_EDITED = "PrivilegeTest";
 	private static final String ROLE_NAME_TO_BE_CREATED_AND_EDITED = "appletest";
 	private static final String ROLE_DESCRIPTION_TO_BE_CREATED = "for e2e automation test";

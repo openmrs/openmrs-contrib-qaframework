@@ -13,6 +13,7 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class AdministrationManageRolesPage extends Page{
+
 	protected static final String PAGE_URL = "/openmrs/admin/users/role.list";
 	private static final By ADD_NEW_ROLE = By.cssSelector("#content > a");
 	private static final By DELETE_SELECTED_ROLES = By.cssSelector("#content > form > input[type=submit]");

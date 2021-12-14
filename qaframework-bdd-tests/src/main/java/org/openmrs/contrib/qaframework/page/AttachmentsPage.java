@@ -41,21 +41,9 @@ public class AttachmentsPage extends Page {
 		WebElement element = driver.findElement(By.xpath("//input[@type='file']"));
 		element.sendKeys(fileUrl);
 	}
-	
-	private String createTemporaryFile() throws IOException {
-		File tempFile = File.createTempFile("file", ".pdf");
-		tempFile.deleteOnExit();
-		try (InputStream pdf = getClass().getClassLoader().getResourceAsStream("data/file.pdf")) {
-			try (Writer writer = new FileWriter(tempFile)) {
-				IOUtils.copy(pdf, writer, StandardCharsets.UTF_8);
-			}
-		}
-		return tempFile.getAbsolutePath();
-	}
-	
+
 	public void attachFile() throws IOException {
-		WebElement element = driver.findElement(By.xpath("//input[@type='file']"));
-		element.sendKeys(createTemporaryFile());
+		setFileUrl(createTemporaryFile());
 	}
 
 	public void addAttachmentNote(String note) {
@@ -91,5 +79,16 @@ public class AttachmentsPage extends Page {
 	@Override
 	public String getPageUrl() {
 		return URL;
+	}
+
+	private String createTemporaryFile() throws IOException {
+		File tempFile = File.createTempFile("file", ".pdf");
+		tempFile.deleteOnExit();
+		try (InputStream pdf = getClass().getClassLoader().getResourceAsStream("data/file.pdf")) {
+			try (Writer writer = new FileWriter(tempFile)) {
+				IOUtils.copy(pdf, writer, StandardCharsets.UTF_8);
+			}
+		}
+		return tempFile.getAbsolutePath();
 	}
 }

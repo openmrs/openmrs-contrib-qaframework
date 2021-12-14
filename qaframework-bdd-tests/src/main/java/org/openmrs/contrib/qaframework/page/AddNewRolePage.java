@@ -15,9 +15,9 @@ import org.openqa.selenium.By;
 public class AddNewRolePage extends Page{
 
 	protected static final String PAGE_URL = "/openmrs/admin/users/role.form";
-	private static final By ENTER_ROLE_NAME = By.cssSelector("#role");
+	private static final By ROLE_NAME_FIELD = By.cssSelector("#role");
 	private static final By SELECT_OR_UNSELECT_ALL_PRIVILEGES = By.id("toggleSelectionCheckbox");
-	private static final By ENTER_DESCRIPTION = By.cssSelector("#content textarea");
+	private static final By DESCRIPTION_FIELD = By.cssSelector("#content textarea");
 	private static final By SAVE = By.cssSelector("#content > form > input[type=submit]");
 
 	public AddNewRolePage(Page parent) {
@@ -25,14 +25,14 @@ public class AddNewRolePage extends Page{
 	}
 	
 	public AdministrationManageRolesPage addRoleName(String roleName){
-		findElement(ENTER_ROLE_NAME).clear();
-		findElement(ENTER_ROLE_NAME).sendKeys(roleName);
+		findElement(ROLE_NAME_FIELD).clear();
+		findElement(ROLE_NAME_FIELD).sendKeys(roleName);
 		return new AdministrationManageRolesPage(this);
 	}
 	
 	public AdministrationManageRolesPage addDescription(String description){
-		findElement(ENTER_DESCRIPTION).clear();
-		findElement(ENTER_DESCRIPTION).sendKeys(description);
+		findElement(DESCRIPTION_FIELD).clear();
+		findElement(DESCRIPTION_FIELD).sendKeys(description);
 		return new AdministrationManageRolesPage(this);
 	}
 	

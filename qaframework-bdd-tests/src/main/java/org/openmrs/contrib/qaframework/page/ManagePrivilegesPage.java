@@ -14,11 +14,11 @@ import org.openqa.selenium.By;
 
 public class ManagePrivilegesPage extends Page{
 	protected static final String PAGE_URL = "adminui/metadata/privileges/managePrivileges.page";
-	public static final By ADD_NEW_PRIVILEGE = By.cssSelector("#content > input");
-	public static final By EDIT_PRIVILEGE = By.cssSelector("i.icon-pencil.edit-action");
-	public static final By DELETE_PRIVILEGE = By.cssSelector("i.icon-trash.delete-action.right");
-	public static final By SEARCH_CREATED_PRIVILEGE = By.cssSelector("#list-privileges_filter > label > input[type=text]");
-	public static final By CONFIRM_DELETION = By.cssSelector("#purgePrivilegeForm > div > button.confirm.right");
+	private static final By ADD_NEW_PRIVILEGE = By.cssSelector("#content > input");
+	private static final By EDIT_PRIVILEGE = By.cssSelector("i.icon-pencil.edit-action");
+	private static final By DELETE_PRIVILEGE = By.cssSelector("i.icon-trash.delete-action.right");
+	private static final By SEARCH_CREATED_PRIVILEGE = By.cssSelector("#list-privileges_filter > label > input[type=text]");
+	private static final By CONFIRM_DELETION = By.cssSelector("#purgePrivilegeForm > div > button.confirm.right");
 	
 	public ManagePrivilegesPage(Page configureMetadataPage) {
 		super(configureMetadataPage);

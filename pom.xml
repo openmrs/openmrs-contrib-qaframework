@@ -22,6 +22,6 @@
     </dependencies>
     <modules>
     	<module>qaframework-legacy-tests</module>
-    <module>qaframework-bdd-tests</module>
-  </modules>
+        <module>qaframework-bdd-tests</module>
+    </modules>
 </project>

@@ -124,7 +124,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User clicks the Add New Role button on the manage roles page")
     public void clickNewRoleLink(){
-    	addNewRolePage = administrationManageRolesPage.goToaddNewRolePage();
+    	addNewRolePage = administrationManageRolesPage.goToAddNewRolePage();
     }
     
     @Then ("User clicks on manage roles link on the advanced administration page")

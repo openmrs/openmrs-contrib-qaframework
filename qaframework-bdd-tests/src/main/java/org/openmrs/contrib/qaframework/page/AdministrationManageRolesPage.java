@@ -24,7 +24,7 @@ public class AdministrationManageRolesPage extends Page{
 		super(parent);
 	}
 	
-	public AddNewRolePage goToaddNewRolePage(){
+	public AddNewRolePage goToAddNewRolePage(){
 		clickOn(ADD_NEW_ROLE_LINK);
 		return new AddNewRolePage(this);
 	}

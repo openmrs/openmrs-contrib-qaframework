@@ -29,11 +29,6 @@ public class AdministrationPage extends Page {
 		super(page);
 	}
 
-	@Override
-	public String getPageUrl() {
-		return URL;
-	}
-
 	public ManageUserPage clickOnManageUsers() {
 		findElement(MANAGE_USERS_LINK).click();
 		return new ManageUserPage(this);
@@ -73,5 +68,10 @@ public class AdministrationPage extends Page {
 		waiter.until(ExpectedConditions.visibilityOfElementLocated(REPORT_ADMINISTRATION_LINK));
 		clickOn(REPORT_ADMINISTRATION_LINK);
 		return new ManageReportsPage(this);
+	}
+	
+	@Override
+	public String getPageUrl() {
+		return URL;
 	}
 }

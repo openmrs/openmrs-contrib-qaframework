@@ -78,25 +78,25 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User fills the new privilege form")
     public void launchAddNewPrivilegePage(){
-    	manageprivilegesPage = addNewPrivilegePage.enterPrivilegeName(PRIVILEGE_NAME_TO_BE_CREATED_AND_EDITED);
-    	manageprivilegesPage = addNewPrivilegePage.enterPrivilegeDescription(PRIVILEGE_DESCRIPTION_TO_BE_CREATED);
+    	addNewPrivilegePage.enterPrivilegeName(PRIVILEGE_NAME_TO_BE_CREATED_AND_EDITED);
+    	addNewPrivilegePage.enterPrivilegeDescription(PRIVILEGE_DESCRIPTION_TO_BE_CREATED);
     }
     
     @And ("User clicks the save button")
     public void savePrivilege(){
-    	manageprivilegesPage = addNewPrivilegePage.clickSaveButton();
+    	addNewPrivilegePage.clickSaveButton();
     }
     
     @And ("User saves role")
     public void saveRole(){
-    	administrationManageRolesPage = addNewRolePage.saveRole();
+    	addNewRolePage.saveRole();
     }
     
     @And ("User fills the new role form")
     public void launchAddNewRolePage(){
-    	administrationManageRolesPage = addNewRolePage.addRoleName(ROLE_NAME_TO_BE_CREATED_AND_EDITED);
-    	administrationManageRolesPage = addNewRolePage.addDescription(ROLE_DESCRIPTION_TO_BE_CREATED);
-    	administrationManageRolesPage = addNewRolePage.selectPrivileges();
+    	addNewRolePage.addRoleName(ROLE_NAME_TO_BE_CREATED_AND_EDITED);
+    	addNewRolePage.addDescription(ROLE_DESCRIPTION_TO_BE_CREATED);
+    	addNewRolePage.selectPrivileges();
     }
     
     @And ("User search for the created privilege")
@@ -107,16 +107,16 @@ public class RolesAndPrivilegesSteps extends Steps {
     @And ("User edits privilege")
     public void editPrivilege(){
     	manageprivilegesPage.goToEditPrivilegePage();
-    	manageprivilegesPage = addNewPrivilegePage.enterPrivilegeDescription("just testing the editing of a privilege");
-    	manageprivilegesPage = addNewPrivilegePage.clickSaveButton();
+    	addNewPrivilegePage.enterPrivilegeDescription("just testing the editing of a privilege");
+    	addNewPrivilegePage.clickSaveButton();
     }
     
     @And ("User edits the role")
     public void editRole(){
     	administrationManageRolesPage.goToEditRolePage();
-    	administrationManageRolesPage = addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
-    	administrationManageRolesPage = addNewRolePage.selectPrivileges();
-    	administrationManageRolesPage = addNewRolePage.saveRole();
+    	addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
+    	addNewRolePage.selectPrivileges();
+    	addNewRolePage.saveRole();
     }
     
     @And ("User clicks delete privilege")
@@ -139,7 +139,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     	manageprivilegesPage.confirmPrivilegeDelete();
     }
     
-    @And ("User deletes role")
+    @Then ("User deletes role")
     public void deleteRole(){
     	administrationManageRolesPage.deleteSelectedRoles();
     }

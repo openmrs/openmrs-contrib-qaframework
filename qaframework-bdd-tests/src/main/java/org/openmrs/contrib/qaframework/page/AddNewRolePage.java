@@ -24,26 +24,22 @@ public class AddNewRolePage extends Page{
 		super(parent);
 	}
 	
-	public AdministrationManageRolesPage addRoleName(String roleName){
+	public void addRoleName(String roleName){
 		findElement(ROLE_NAME_FIELD).clear();
 		findElement(ROLE_NAME_FIELD).sendKeys(roleName);
-		return new AdministrationManageRolesPage(this);
 	}
 	
-	public AdministrationManageRolesPage addDescription(String description){
+	public void addDescription(String description){
 		findElement(DESCRIPTION_FIELD).clear();
 		findElement(DESCRIPTION_FIELD).sendKeys(description);
-		return new AdministrationManageRolesPage(this);
 	}
 	
-	public AdministrationManageRolesPage selectPrivileges(){
+	public void selectPrivileges(){
 		clickOn(SELECT_OR_UNSELECT_ALL_PRIVILEGES);
-		return new AdministrationManageRolesPage(this);
 	}
 	
-	public AdministrationManageRolesPage saveRole(){
+	public void saveRole(){
 		clickOn(SAVE_BUTTON);
-		return new AdministrationManageRolesPage(this);
 	}
 
 	@Override

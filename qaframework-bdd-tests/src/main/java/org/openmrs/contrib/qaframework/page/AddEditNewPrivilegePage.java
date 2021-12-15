@@ -24,25 +24,18 @@ public class AddEditNewPrivilegePage extends Page{
 		super(parent);
 	}
 	
-	public AddEditNewPrivilegePage(Page parent, WebElement waitForStaleness) {
-		super(parent, waitForStaleness);
-	}
-	
-	public ManagePrivilegesPage enterPrivilegeName(String privilegeName){
+	public void enterPrivilegeName(String privilegeName){
 		findElement(PRIVILEGE_FIELD).clear();
 		findElement(PRIVILEGE_FIELD).sendKeys(privilegeName);
-		return new ManagePrivilegesPage(this);
 	}
 	
-	public ManagePrivilegesPage enterPrivilegeDescription(String privilegeDescription){
+	public void enterPrivilegeDescription(String privilegeDescription){
 		findElement(DESCRIPTION_FIELD).clear();
 		findElement(DESCRIPTION_FIELD).sendKeys(privilegeDescription);
-		return new ManagePrivilegesPage(this);
 	}
 	
-	public ManagePrivilegesPage clickSaveButton() {
+	public void clickSaveButton() {
 		clickOn(SAVE_BUTTON);
-		return new ManagePrivilegesPage(this);
 	}
 
 	@Override

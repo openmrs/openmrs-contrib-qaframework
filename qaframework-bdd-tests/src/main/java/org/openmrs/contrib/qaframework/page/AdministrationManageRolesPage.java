@@ -24,12 +24,12 @@ public class AdministrationManageRolesPage extends Page{
 		super(parent);
 	}
 	
-	public AddNewRolePage goToaddNewRole(){
+	public AddNewRolePage goToaddNewRolePage(){
 		clickOn(ADD_NEW_ROLE_LINK);
 		return new AddNewRolePage(this);
 	}
 	
-	public void goToEditRole(){
+	public void goToEditRolePage(){
 		clickOn(EDIT_ROLE_LINK);
 	}
 	

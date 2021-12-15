@@ -16,8 +16,8 @@ public class ManagePrivilegesPage extends Page{
 
 	protected static final String PAGE_URL = "adminui/metadata/privileges/managePrivileges.page";
 	private static final By ADD_NEW_PRIVILEGE_BUTTON = By.cssSelector("#content > input");
-	private static final By EDIT_PRIVILEGE = By.cssSelector("i.icon-pencil.edit-action");
-	private static final By DELETE = By.cssSelector("i.icon-trash.delete-action.right");
+	private static final By EDIT_PRIVILEGE_ICON = By.cssSelector("i.icon-pencil.edit-action");
+	private static final By DELETE_ICON = By.cssSelector("i.icon-trash.delete-action.right");
 	private static final By SEARCH_FIELD = By.cssSelector("#list-privileges_filter > label > input[type=text]");
 	private static final By CONFIRM_BUTTON = By.cssSelector("#purgePrivilegeForm > div > button.confirm.right");
 	
@@ -25,7 +25,7 @@ public class ManagePrivilegesPage extends Page{
 		super(configureMetadataPage);
 	}
 	
-	public AddEditNewPrivilegePage goToAddNewPrivilege(){
+	public AddEditNewPrivilegePage goToAddNewPrivilegePage(){
 		clickOn(ADD_NEW_PRIVILEGE_BUTTON);
 		return new AddEditNewPrivilegePage(this);
 	}
@@ -34,8 +34,8 @@ public class ManagePrivilegesPage extends Page{
 		clickOn(CONFIRM_BUTTON);
 	}
 	
-	public void goToEditPrivilege(){
-		clickOn(EDIT_PRIVILEGE);
+	public void goToEditPrivilegePage(){
+		clickOn(EDIT_PRIVILEGE_ICON);
 	}
 	
 	public void searchForPrivilege(String searchInput){
@@ -43,7 +43,7 @@ public class ManagePrivilegesPage extends Page{
 	}
 	
 	public void deletePrivilege(){
-		clickOn(DELETE);
+		clickOn(DELETE_ICON);
 	}
 
 	@Override

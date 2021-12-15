@@ -61,7 +61,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @When("User clicks on manage privileges link on the configure metadata page")
     public void clickManagePrivilegesLink(){
-    	manageprivilegesPage = configuremetadatapage.goToManagePrivileges();
+    	manageprivilegesPage = configuremetadatapage.goToManagePrivilegesPage();
     }
     
     @When ("User clicks on Advanced Administration link from the System Administration Page")
@@ -71,7 +71,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User clicks the Add New Privilege button")
     public void clickAddNewPrivilegeButton(){
-    	addNewPrivilegePage = manageprivilegesPage.goToAddNewPrivilege();
+    	addNewPrivilegePage = manageprivilegesPage.goToAddNewPrivilegePage();
     }
     
     @And ("User fills the new privilege form")
@@ -104,14 +104,14 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User edits privilege")
     public void editPrivilege(){
-    	manageprivilegesPage.goToEditPrivilege();
+    	manageprivilegesPage.goToEditPrivilegePage();
     	manageprivilegesPage = addNewPrivilegePage.enterPrivilegeDescription("just testing the editing of a privilege");
     	manageprivilegesPage = addNewPrivilegePage.clickSaveButton();
     }
     
     @And ("User edits the role")
     public void editRole(){
-    	administrationManageRolesPage.goToEditRole();
+    	administrationManageRolesPage.goToEditRolePage();
     	administrationManageRolesPage = addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
     	administrationManageRolesPage = addNewRolePage.selectPrivileges();
     	administrationManageRolesPage = addNewRolePage.saveRole();
@@ -124,12 +124,12 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User clicks the Add New Role button on the manage roles page")
     public void clickNewRoleLink(){
-    	addNewRolePage = administrationManageRolesPage.goToaddNewRole();
+    	addNewRolePage = administrationManageRolesPage.goToaddNewRolePage();
     }
     
     @Then ("User clicks on manage roles link on the advanced administration page")
     public void clickManageRolesLink(){
-    	administrationManageRolesPage = administrationPage.clickOnManageRoles();
+    	administrationManageRolesPage = administrationPage.goToManageRolesPage();
     }
     
     @Then ("System confirms delete")

@@ -51,7 +51,7 @@ public class ConfigureMetadataPage extends Page {
 	}
 
 	public OpenConceptLabPage goToOpenConceptLabPage() {
-                clickOn(MANAGE_OCL_LINK);
-                return new OpenConceptLabPage(this);
+        clickOn(MANAGE_OCL_LINK);
+        return new OpenConceptLabPage(this);
     }
 }

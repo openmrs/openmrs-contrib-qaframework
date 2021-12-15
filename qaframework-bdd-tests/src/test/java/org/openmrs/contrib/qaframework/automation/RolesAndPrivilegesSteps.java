@@ -134,11 +134,6 @@ public class RolesAndPrivilegesSteps extends Steps {
     	administrationManageRolesPage = administrationPage.goToManageRolesPage();
     }
     
-    @Then ("Role is deleted successfully")
-    public void roleSuccessfullyDeleted(){
-    	assertTrue(textExists(ROLE_NAME_TO_BE_CREATED_AND_EDITED + "deleted"));
-    }
-    
     @Then ("System confirms delete")
     public void confirmPrivilegeDeletion(){
     	manageprivilegesPage.confirmPrivilegeDelete();

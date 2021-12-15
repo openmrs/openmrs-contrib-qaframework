@@ -67,5 +67,4 @@ Feature: Roles & Privileges Management
     And User fills the new role form
     And User saves role
     And User selects the role to be deleted
-    And User deletes role
-    Then Role is deleted successfully
+    Then User deletes role

@@ -16,6 +16,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.Assert.assertTrue;
+
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AddEditNewPrivilegePage;
 import org.openmrs.contrib.qaframework.page.AddNewRolePage;
@@ -127,9 +129,14 @@ public class RolesAndPrivilegesSteps extends Steps {
     	addNewRolePage = administrationManageRolesPage.goToAddNewRolePage();
     }
     
-    @Then ("User clicks on manage roles link on the advanced administration page")
+    @And ("User clicks on manage roles link on the advanced administration page")
     public void clickManageRolesLink(){
     	administrationManageRolesPage = administrationPage.goToManageRolesPage();
+    }
+    
+    @Then ("Role is deleted successfully")
+    public void roleSuccessfullyDeleted(){
+    	assertTrue(textExists(ROLE_NAME_TO_BE_CREATED_AND_EDITED + "deleted"));
     }
     
     @Then ("System confirms delete")
@@ -140,6 +147,16 @@ public class RolesAndPrivilegesSteps extends Steps {
     @And ("User deletes role")
     public void deleteRole(){
     	administrationManageRolesPage.deleteSelectedRoles();
+    }
+    
+    @Then ("Privilege is saved successfully")
+    public void privilegeSuccessfullySaved(){
+    	assertTrue(textExists("Saved privilege"));
+    }
+    
+    @Then ("Role is saved successfully")
+    public void roleSuccessfullySaved(){
+    	assertTrue(textExists("Role saved"));
     }
     
     @And ("User selects the role to be deleted")

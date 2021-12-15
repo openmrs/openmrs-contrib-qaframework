@@ -11,7 +11,6 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class AddEditNewPrivilegePage extends Page{
 

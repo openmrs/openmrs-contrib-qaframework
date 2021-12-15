@@ -21,8 +21,8 @@ public class ManagePrivilegesPage extends Page{
 	private static final By SEARCH_FIELD = By.cssSelector("#list-privileges_filter > label > input[type=text]");
 	private static final By CONFIRM_BUTTON = By.cssSelector("#purgePrivilegeForm > div > button.confirm.right");
 	
-	public ManagePrivilegesPage(Page configureMetadataPage) {
-		super(configureMetadataPage);
+	public ManagePrivilegesPage(Page parent) {
+		super(parent);
 	}
 	
 	public AddEditNewPrivilegePage goToAddNewPrivilegePage(){

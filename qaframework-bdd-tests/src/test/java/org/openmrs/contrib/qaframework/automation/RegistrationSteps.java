@@ -18,7 +18,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.helper.PatientGenerator;
+import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.helper.TestPatient;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.HomePage;
@@ -50,7 +50,7 @@ public class RegistrationSteps extends Steps {
 
 	@And("User enters {string} details for John Smith")
 	public void userEntersPatient(String validity) throws InterruptedException {
-		patient = PatientGenerator.generateTestPatient();
+		patient = TestData.PatientGenerator.generateTestPatient();
 		patient.givenName = "John";
 		patient.familyName = "Smith";
 		if ("wrong".equals(validity)) {

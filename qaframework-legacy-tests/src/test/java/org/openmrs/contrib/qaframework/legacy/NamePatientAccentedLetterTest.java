@@ -19,7 +19,6 @@ import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.helper.TestPatient;
-import org.openmrs.contrib.qaframework.helper.PatientGenerator;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
@@ -29,7 +28,7 @@ public class NamePatientAccentedLetterTest extends ReferenceApplicationTestBase 
 
     @Before
     public void setUp() throws Exception {
-        patient = PatientGenerator.generateTestPatient();
+        patient = TestData.PatientGenerator.generateTestPatient();
     }
 
     @Test

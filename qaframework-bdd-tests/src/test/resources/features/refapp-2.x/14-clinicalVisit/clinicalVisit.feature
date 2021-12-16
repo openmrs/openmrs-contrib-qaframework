@@ -41,14 +41,12 @@ Feature: Clinical Visit Management
     When a user fills the visit note
     And a user clicks on save visit note button
     Then the system adds the note into visit note table
-    # User story: End patient visit
-    When a user clicks on end visit button
-    Then the system ends the patient visit
-  
-  Scenario: Clinical Visit for uploading supporting file
     # User story: Attach supporting document
     When a user clicks on Attachments link from patient visits dashboard
     Then the system loads Attachments page
-    When a user attaches patient supporting file
+    And a user attaches patient supporting file
     And a user clicks the upload file button
     Then the system uploads the file
+    # User story: End patient visit
+    When a user clicks on end visit button
+    Then the system ends the patient visit

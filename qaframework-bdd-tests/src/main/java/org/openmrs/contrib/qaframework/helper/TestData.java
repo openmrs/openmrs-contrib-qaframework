@@ -153,9 +153,8 @@ public class TestData {
 
 	/**
 	 * Add a Person to the database and return its uuid.
-	 * 
 	 * @param person
-	 *            The (test) Person to add to the database.
+	 * The (test) Person to add to the database.
 	 * @return The new Person's uuid.
 	 */
 	public static String createPerson(PersonInfo person) {
@@ -170,9 +169,8 @@ public class TestData {
 
 	/**
 	 * Create a location without tags
-	 * 
 	 * @param locationName
-	 *            the name of the location
+	 * the name of the location
 	 * @return the location's uuid
 	 */
 	public static String createLocation(String locationName) {
@@ -183,9 +181,8 @@ public class TestData {
 
 	/**
 	 * Delete a resource permanently
-	 * 
 	 * @param uuid
-	 *            of the resource
+	 * of the resource
 	 */
 	public static void permanentDelete(String uuid) {
 
@@ -241,7 +238,6 @@ public class TestData {
 
 	/**
 	 * Check if patient with given id exists
-	 * 
 	 * @param id
 	 * @return true if patient exists, false otherwise
 	 */
@@ -275,14 +271,12 @@ public class TestData {
 
 		/**
 		 * Return the REST name of the object/class.
-		 * 
 		 * @return the REST name of the object/class.
 		 */
 		public abstract String name();
 
 		/**
 		 * Create the object in the database using REST. Return the uuid.
-		 * 
 		 * @return uuid of the new object.
 		 */
 		public String create() {

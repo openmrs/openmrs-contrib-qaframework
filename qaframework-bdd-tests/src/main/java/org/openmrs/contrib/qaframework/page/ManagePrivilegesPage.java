@@ -18,8 +18,8 @@ public class ManagePrivilegesPage extends Page{
 	private static final By ADD_NEW_PRIVILEGE_BUTTON = By.cssSelector("#content > input");
 	private static final By EDIT_PRIVILEGE_ICON = By.cssSelector("i.icon-pencil.edit-action");
 	private static final By DELETE_ICON = By.cssSelector("i.icon-trash.delete-action.right");
-	private static final By SEARCH_FIELD = By.cssSelector("#list-privileges_filter > label > input[type=text]");
-	private static final By CONFIRM_BUTTON = By.cssSelector("#purgePrivilegeForm > div > button.confirm.right");
+	private static final By SEARCH_FIELD = By.cssSelector("#list-privileges_filter label input[type=text]");
+	private static final By CONFIRM_BUTTON = By.cssSelector("#purgePrivilegeForm button.confirm.right");
 	
 	public ManagePrivilegesPage(Page parent) {
 		super(parent);

@@ -18,7 +18,7 @@ public class AdministrationManageRolesPage extends Page{
 	private static final By ADD_NEW_ROLE_LINK= By.cssSelector("#content > a");
 	private static final By DELETE_SELECTED_ROLES_BUTTON = By.cssSelector("#content > form > input[type=submit]");
 	private static final By CHECKBOX = By.cssSelector("#content > form > table > tbody input[type=checkbox]");
-	private static final By EDIT_ROLE_LINK = By.cssSelector("#content > form > table > tbody > tr:nth-child(3) > td:nth-child(2) > a");
+	private static final By EDIT_ROLE_LINK = By.cssSelector("#content form table tbody td:nth-child(2)");
 
 	public AdministrationManageRolesPage(Page parent) {
 		super(parent);

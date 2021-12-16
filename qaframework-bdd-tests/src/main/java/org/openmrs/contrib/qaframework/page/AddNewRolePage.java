@@ -18,7 +18,7 @@ public class AddNewRolePage extends Page{
 	private static final By ROLE_NAME_FIELD = By.cssSelector("#role");
 	private static final By SELECT_OR_UNSELECT_ALL_PRIVILEGES = By.id("toggleSelectionCheckbox");
 	private static final By DESCRIPTION_FIELD = By.cssSelector("#content textarea");
-	private static final By SAVE_BUTTON = By.cssSelector("#content > form > input[type=submit]");
+	private static final By SAVE_BUTTON = By.cssSelector("#content form input[type=submit]");
 
 	public AddNewRolePage(Page parent) {
 		super(parent);

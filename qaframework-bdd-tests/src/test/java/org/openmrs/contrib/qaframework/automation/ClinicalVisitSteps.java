@@ -11,8 +11,9 @@ package org.openmrs.contrib.qaframework.automation;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+
+import java.io.IOException;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -223,8 +224,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@When("a user clicks on Attachments link from patient visits dashboard")
 	public void loadAttachmentsPage() {
-		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
-		attachmentsPage = (AttachmentsPage) dashboardPage.goToAttachmentsPage().waitForPage();
+		attachmentsPage = (AttachmentsPage) visitsDashboardPage.goToAttachmentsPage().waitForPage();
 	}
 
 	@Then("the system loads Attachments page")
@@ -232,9 +232,9 @@ public class ClinicalVisitSteps extends Steps {
 		assertTrue(textExists("Attachments"));
 	}
 
-	@When("a user attaches patient supporting file")
-	public void addSupportingFile() {
-		attachmentsPage.setFileUrl("/home/opensource/Documents/Form.pdf");
+	@And("a user attaches patient supporting file")
+	public void addSupportingFile() throws IOException {
+		attachmentsPage.attachFile();
 		attachmentsPage.addAttachmentNote("Client medical history form");
 	}
 
@@ -247,6 +247,7 @@ public class ClinicalVisitSteps extends Steps {
 	public void systemAddsSupportingFile() {
 		assertNotNull(attachmentsPage.getAttachmentsList());
 		dashboardPage = attachmentsPage.goToPatientDashboardPage();
+		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
 	}
 
 	@When("a user clicks on Request appointment link from Patient dashboard")

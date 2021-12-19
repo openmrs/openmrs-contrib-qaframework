@@ -51,7 +51,7 @@ public class OpenConceptLabSuccessPage extends Page {
         clickOn(IMPORT_FROM_FILE);
     }
 
-	public List<WebElement> getpreviousImportsList() {
-		return findElements(IMPORTS_LIST);   
-	}	
+    public List<WebElement> getpreviousImportsList() {
+	return findElements(IMPORTS_LIST);   
+   }	
 }

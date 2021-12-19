@@ -57,5 +57,4 @@ public class OpenConceptLabSuccessPage extends Page {
     public List<WebElement> getpreviousImportsList() {
 	    return findElements(IMPORTS_LIST);   
    }	
-
 }

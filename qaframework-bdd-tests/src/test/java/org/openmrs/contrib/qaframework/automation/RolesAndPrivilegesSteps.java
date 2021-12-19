@@ -113,7 +113,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User edits the role")
     public void editRole(){
-		administrationManageRolesPage.goToEditRolePage();
+		administrationManageRolesPage.goToEditRolePage(ROLE_NAME);
 	    addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
 	    addNewRolePage.selectPrivileges();
 	    addNewRolePage.saveRole();

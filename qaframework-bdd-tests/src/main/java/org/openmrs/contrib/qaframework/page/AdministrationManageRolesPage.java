@@ -18,7 +18,6 @@ public class AdministrationManageRolesPage extends Page{
 	private static final By ADD_NEW_ROLE_LINK= By.cssSelector("#content > a");
 	private static final By DELETE_SELECTED_ROLES_BUTTON = By.cssSelector("#content form input[type=submit]");
 	private static final By CHECKBOX = By.cssSelector("#content form table tbody input[type=checkbox");
-	private static final By EDIT_ROLE_LINK = By.cssSelector("#content form table tbody tr:nth-child(3) td:nth-child(2) a");
 
 	public AdministrationManageRolesPage(Page parent) {
 		super(parent);
@@ -29,8 +28,12 @@ public class AdministrationManageRolesPage extends Page{
 		return new AddNewRolePage(this);
 	}
 	
-	public void goToEditRolePage(){
-		clickOn(EDIT_ROLE_LINK);
+	public void goToEditRolePage(String roleName) {
+	    if (roleName == null || roleName.isEmpty()) {
+	        throw new IllegalArgumentException("roleName must be provided");
+	    }
+
+	    clickOn(By.linkText(roleName));
 	}
 	
 	public void deleteSelectedRoles(){

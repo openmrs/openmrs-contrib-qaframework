@@ -42,7 +42,7 @@ public class RolesAndPrivilegesSteps extends Steps {
 	String privilegeName = TestData.createRandomName();
 	String roleName = TestData.createRandomName();
 	
-	@Before(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
+    @Before(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
 	public void visitDashboard(){
 		initiateWithLogin();
 	}
@@ -114,10 +114,10 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User edits the role")
     public void editRole(){
-		administrationManageRolesPage.goToEditRolePage(roleName);
-	    addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
-	    addNewRolePage.selectPrivileges();
-	    addNewRolePage.saveRole();
+        administrationManageRolesPage.goToEditRolePage(roleName);
+	addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
+	addNewRolePage.selectPrivileges();
+	addNewRolePage.saveRole();
 	}
     
     @And ("User clicks delete privilege")

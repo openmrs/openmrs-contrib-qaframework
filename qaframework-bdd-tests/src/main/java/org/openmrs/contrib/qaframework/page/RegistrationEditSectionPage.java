@@ -17,9 +17,9 @@ import org.openqa.selenium.By;
 public class RegistrationEditSectionPage extends Page {
 
 	private static final By PHONE_NUMBER = By.name("phoneNumber");
-	private static final By CONFIRM_EDIT = By.xpath("//ul[@id='formBreadcrumb']/li[2]/span");
+	private static final By CONFIRM_EDIT = By.cssSelector("#formBreadcrumb > li:nth-child(2) span");
 	private static final By CONFIRM_BUTTON = By.id("registration-submit");
-	private static final By PHONE_NUMBER_EDIT = By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[2]/span");
+	private static final By PHONE_NUMBER_EDIT = By.linkText("Phone Number");
 	private static final By GIVEN_NAME_FIELD = By.cssSelector("#demographics-name input[name='givenName']");
 	private static final By MIDDLE_NAME_FIELD = By.cssSelector("#demographics-name input[name='middleName']");
 	private static final By FAMILY_NAME_FIELD = By.cssSelector("#demographics-name input[name='familyName']");

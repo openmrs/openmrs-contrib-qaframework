@@ -28,9 +28,9 @@ public class PatientVisitsDashboardPage extends Page {
 	private static final By ACTIONS_DROPDOWN = By.cssSelector("#content span.dropdown-name");
 	private static final By MERGE_VISITS = By.cssSelector("#content div.actions.dropdown ul li:nth-child(2) > a");
 	private static final By FAMILY_NAME = By.cssSelector(".patient-header .demographics .name .PersonName-familyName");
-	private static final By VISIT_NOTE_ENCOUNTER = By.xpath("//div[@id='visit-details']/ul/li/ul/li/div/strong/span[text()='Visit Note']");
+	private static final By VISIT_NOTE_ENCOUNTER = By.className("encounter-name");
 	private static final By VISIT_NOTE = By.id("referenceapplication.realTime.simpleVisitNote");
-	private static final By RETURN_TO_DASHBOARD = By.xpath("/html/body/ul/li[2]/a");
+	private static final By RETURN_TO_DASHBOARD = By.cssSelector("#breadcrumbs > li:nth-child(2) > a");
 	private static final By VITALS_LIST = By.cssSelector("#encountersList .encounter-details i.icon-vitals");
 	private static final By EDIT_VITALS_ICON = By.cssSelector("#encountersList i.editEncounter.edit-action.icon-pencil");
 	private static final By VIEW_VITALS_ICON  = By.cssSelector("#encountersList i.viewEncounter.view-action.icon-file-alt");
@@ -128,12 +128,12 @@ public class PatientVisitsDashboardPage extends Page {
 
 	public void deleteVisitNote() {
 		String visitNoteId = findElement(VISIT_NOTE_ENCOUNTER).getAttribute("data-encounter-id");
-		clickOn(By.xpath("//div[@id='visit-details']/ul/li/span/i[@data-encounter-id='"+ visitNoteId + "'][2]"));
+		clickOn(By.cssSelector("#encountersList > li:nth-child(1) i.deleteEncounterId.delete-action.icon-remove"+ visitNoteId + "'][2]"));
 	}
 
 	public EditVisitNotePage goToEditVisitNote() throws InterruptedException {
 		String visitNoteId = findElement(VISIT_NOTE_ENCOUNTER).getAttribute("data-encounter-id");
-		clickOn(By.xpath("//*[@id=\"encountersList\"]/li/span/i[2]"));
+		clickOn(By.cssSelector("#encountersList li:nth-child(1) i.editEncounter.edit-action.icon-pencil"));
 		return new EditVisitNotePage(this);
 	}
 
@@ -143,7 +143,7 @@ public class PatientVisitsDashboardPage extends Page {
 	 */
 	public int getEncountersCount() {
 		try {
-			return findElements(By.xpath("//*[@id='encountersList']/li"))
+			return findElements(By.id("encountersList"))
 					.size();
 		} catch (TimeoutException e) {
 			return 0;

@@ -47,7 +47,7 @@ public class RegistrationPage extends Page {
 	static final By UNKNOWN_PATIENT = By.id("checkbox-unknown-patient");
 	// These xpath expressions should be replaced by id's or cssSelectors if
 	// possible.
-	static final By CONFIRM_EDIT = By.xpath("//ul[@id='formBreadcrumb']/li[2]/span");
+	static final By CONFIRM_EDIT = By.id("confirmation_label");
 	static final String CONFIRMATION_DIV = "//div[@id='confirmation']";
 	public static final By NAME_CONFIRM = By.xpath(CONFIRMATION_DIV+ "//div/div/p[1]");
 	public static final By GENDER_CONFIRM = By.xpath(CONFIRMATION_DIV+ "//div/div/p[2]");

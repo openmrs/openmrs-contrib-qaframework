@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ActiveVisitsPage extends Page {
 
-	private static final By ACTIVE_PATIENT = By.xpath("//td[2]/a");
+	private static final By ACTIVE_PATIENT = By.cssSelector("td:nth-child(2)");
 	private By SEARCH_INPUT = By.tagName("input");
 	private By FIRST_ACTIVE_VISIT = By.className("odd");
 

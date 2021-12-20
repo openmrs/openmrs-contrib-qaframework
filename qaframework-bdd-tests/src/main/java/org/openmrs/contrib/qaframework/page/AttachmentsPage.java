@@ -24,7 +24,7 @@ public class AttachmentsPage extends Page {
 	private static final By CLEAR_FORMS = By.cssSelector("button[ng-click='clearForms()']");
 	private static final By CAMERA_ICON = By.cssSelector("button[ng-click='snap()']");
 	private static final By SAVE_IMAGE = By.cssSelector("button[ng-click='finalise()']");
-	private static final By RETURN_TO_DASHBOARD = By.xpath("//*[@id='breadcrumbs']/li[2]/a");
+	private static final By RETURN_TO_DASHBOARD = By.cssSelector("#breadcrumbs li:nth-child(2)");
 
 	public AttachmentsPage(Page page) {
 		super(page);

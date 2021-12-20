@@ -19,12 +19,12 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class ConditionsPage extends Page {
 
 	public static final By ADD_NEW_CONDITION = By.id("conditionui-addNewCondition");
-	public static final By SET_ACTIVE = By.xpath("//button[text()='Set Active']");
-	public static final By SET_INACTIVE = By.xpath("//button[text()='Set Inactive']");
+	public static final By SET_ACTIVE = By.cssSelector("#INACTIVE tbody.ng-scope button");
+	public static final By SET_INACTIVE = By.cssSelector("#ACTIVE tbody.ng-scope button");
 	private static final By RETURN = By.cssSelector(".actions .cancel");
 	private static final By TAB_ACTIVE = By.cssSelector("a[href='#ACTIVE']");
 	private static final By TAB_INACTIVE = By.cssSelector("a[href='#INACTIVE']");
-	private static final By FIRST_CONDITION_NAME = By.xpath("//table/tbody[2]/tr[1]/td[1]");
+	private static final By FIRST_CONDITION_NAME = By.cssSelector("#ACTIVE tbody.ng-scope td:nth-child(1)");
 	private static final By EDIT_ACTIVE_CONDITION = By.cssSelector("#ACTIVE tbody:nth-child(3) i.icon-pencil.edit-action.ng-scope");
 	private static final By EDIT_INACTIVE_CONDITION = By.cssSelector("#INACTIVE td:nth-child(4) i.icon-pencil.edit-action.ng-scope");
 	private static final By DELETE_FIRST_ACTIVE_CONDITION = By.cssSelector("#ACTIVE tbody:nth-child(3) i.icon-remove.delete-action.ng-scope");

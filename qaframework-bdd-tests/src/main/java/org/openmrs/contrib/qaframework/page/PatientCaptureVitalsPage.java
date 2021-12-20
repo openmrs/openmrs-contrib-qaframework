@@ -24,9 +24,9 @@ public class PatientCaptureVitalsPage extends Page {
 	private static final By BLOOD_PRESSURE_FIELD_1 = By.id("w18");
 	private static final By BLOOD_PRESSURE_FIELD_2 = By.id("w20");
 	private static final By BLOOD_OXYGEN_SATURATION_FIELD = By.id("w22");
-	private static final By CONFIRM_BUTTON = By.xpath("//ul[@id='formBreadcrumb']/li[2]/span");
+	private static final By CONFIRM_BUTTON = By.cssSelector("#formBreadcrumb li.doing span");
 	private static final By CONFIRM_BUTTON_2 = By.id("coreapps-vitals-confirm");
-	private static final By SAVE_BUTTON = By.xpath("//button[@type='submit']");
+	private static final By SAVE_BUTTON = By.className("submitButton confirm right focused");
 
 	public PatientCaptureVitalsPage(Page page) {
 		super(page);
@@ -45,7 +45,7 @@ public class PatientCaptureVitalsPage extends Page {
 		WebElement heightField = findElement(HEIGHT_FIELD);
 		heightField.clear();
 		heightField.sendKeys(value);
-		findElement(By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[2]")).click();
+		findElement(By.linkText("Weight (kg)")).click();
 	}
 
 	public void clearPatientWeight() {
@@ -56,7 +56,7 @@ public class PatientCaptureVitalsPage extends Page {
 		WebElement weightField = findElement(WEIGHT_FIELD);
 		weightField.clear();
 		weightField.sendKeys(value);
-		findElement(By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[4]")).click();
+		findElement(By.linkText("Température (c)")).click();
 	}
 
 	public void clearPatientTemperature() {
@@ -67,7 +67,7 @@ public class PatientCaptureVitalsPage extends Page {
 		WebElement temperatureField = findElement(TEMPERATURE_FIELD);
 		temperatureField.clear();
 		temperatureField.sendKeys(value);
-		findElement(By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[5]")).click();
+		findElement(By.linkText("Pulse")).click();
 	}
 
 	public void clearPatientPulse() {
@@ -78,7 +78,7 @@ public class PatientCaptureVitalsPage extends Page {
 		WebElement pulseField = findElement(PULSE_FIELD);
 		pulseField.clear();
 		pulseField.sendKeys(value);
-		findElement(By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[6]")).click();
+		findElement(By.linkText("Respiratory rate")).click();
 	}
 
 	public void clearPatientRespiratoryRate() {
@@ -89,7 +89,7 @@ public class PatientCaptureVitalsPage extends Page {
 		WebElement respiratoryField = findElement(RESPIRATORY_FIELD);
 		respiratoryField.clear();
 		respiratoryField.sendKeys(value);
-		findElement(By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[7]")).click();
+		findElement(By.linkText("Blood Pressure")).click();
 	}
 
 	public void clearPatientBloodPressure1() {
@@ -108,7 +108,7 @@ public class PatientCaptureVitalsPage extends Page {
 		WebElement bloodPressureField2 = findElement(BLOOD_PRESSURE_FIELD_2);
 		bloodPressureField2.clear();
 		bloodPressureField2.sendKeys(value2);
-		findElement(By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[8]")).click();
+		findElement(By.linkText("Arterial blood oxygen saturation (pulse oximeter)")).click();
 	}
 
 	public void clearPatientBloodOxygenSaturation() {
@@ -119,7 +119,7 @@ public class PatientCaptureVitalsPage extends Page {
 		WebElement bloodOxygenSaturationField = findElement(BLOOD_OXYGEN_SATURATION_FIELD);
 		bloodOxygenSaturationField.clear();
 		bloodOxygenSaturationField.sendKeys(value);
-		findElement(By.xpath("//ul[@id='formBreadcrumb']/li/ul/li[2]")).click();
+		findElement(By.linkText("Weight (kg)")).click();
 	}
 
 	public void confirm() {

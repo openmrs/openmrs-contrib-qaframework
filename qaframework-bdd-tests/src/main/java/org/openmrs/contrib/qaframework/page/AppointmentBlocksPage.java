@@ -23,23 +23,23 @@ public class AppointmentBlocksPage extends Page {
 	private static final By APPOINTMENT_SCHEDULING = By.id("appointmentschedulingui-homeAppLink-appointmentschedulingui-homeAppLink-extension");
 	private static final By MANAGE_PROVIDER_SCHEDULES = By.id("appointmentschedulingui-scheduleProviders-app");
 	private static final By LOCATION = By.className("ng-pristine");
-	private static final By START_TIME = By.xpath("(//input[@type='text'])[5]");
+	private static final By START_TIME = By.cssSelector("#start-time table");
 	private static final By SERVICE = By.id("createAppointmentBlock");
 	private static final By SERVICE_DROPDOWN = By.cssSelector("a.ng-scope.ng-binding");
 	private static final By EDIT_BLOCK = By.linkText("Edit");
 	private static final By SAVE = By.cssSelector("button.confirm");
-	private static final By PROVIDER = By.xpath("(//input[@type='text'])[3]");
+	private static final By PROVIDER = By.cssSelector("#select-provider input");
 	// This identifier works if the calendar shows only the day
 	private static final By SERVICE_TITLE_OF_THE_DAY = By.className("fc-event-title");
-	private static final By DAY = By.xpath("/html/body/div/div[3]/div[2]/div[1]/div[2]/div[1]/table/tbody/tr/td[1]/span[5]");
+	private static final By DAY = By.cssSelector("#calendar table tbody tr td.fc-header-left span.fc-button.fc-button-basicDay.fc-state-default.fc-corner-left.fc-corner-right");
 	private static final By DAY_CLASS = By.className("fc-day-content");
-	private static final By LOCATION_IN_BLOCK = By.xpath("//div[@id='select-location']/select");
+	private static final By LOCATION_IN_BLOCK = By.cssSelector("#filter-location select");
 	private static final By DELETE_CONFIRM = By.cssSelector("#delete-appointment-block-modal-buttons .confirm");
-	private static final By SERVICE_DELETE = By.xpath("//div[@id='appointment-block-form']/selectmultipleappointmenttypes/div/div/div/div/i");
+	private static final By SERVICE_DELETE = By.cssSelector("#filter-parameters > selectmultipleappointmenttypes > div > div.selectmultipleWidget > div.selectmultipleBox > div.selectedAppointmentTypesList.ng-scope > i");
 	private static final By CLOSE_WINDOW = By.cssSelector("#delete-appointment-block-modal > div.dialog-header > h3");
 	private static final By SERVICE_BLOCK = By.className("fc-event-inner");
-	private static final By DAY_BLOCK = By.xpath("//table[@class='fc-border-separate']/tbody/tr/td/div");
-	private static final By REMOVE_APPOINTMENT = By.xpath("//div[@id='appointment-block-form']/selectmultipleappointmenttypes/div/div/div/div/i");
+	private static final By DAY_BLOCK = By.className("fc-day-number");
+	private static final By REMOVE_APPOINTMENT = By.linkText("Delete");
 	private static final By CANCEL = By.className("cancel");
 
 	public AppointmentBlocksPage(Page page) {

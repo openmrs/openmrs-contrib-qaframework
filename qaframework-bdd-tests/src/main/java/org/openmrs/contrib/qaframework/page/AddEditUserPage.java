@@ -27,7 +27,7 @@ public class AddEditUserPage extends Page {
 	private static final By GENDER_FEMALE = By.id("F");
 	private static final By USERNAME = By.name("username");
 	private static final By CREATE_NEW_PERSON = By.id("createNewPersonButton");
-	private static final By DELETE_USER = By.xpath("(//input[@name='action'])[3]");
+	private static final By DELETE_USER = By.linkText("Delete User");
 
 	public AddEditUserPage(Page parent) {
 		super(parent);

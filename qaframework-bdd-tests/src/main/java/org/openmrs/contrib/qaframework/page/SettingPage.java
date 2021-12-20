@@ -16,7 +16,7 @@ import org.openqa.selenium.WebElement;
 
 public class SettingPage extends Page {
 
-	private static final By SETTING = By.xpath("//a[contains(@href, '/openmrs/admin/maintenance/settings.list')]");
+	private static final By SETTING = By.cssSelector("#menu li.active a");
 	private static final By REGISTRATIONCORE = By.linkText("Registrationcore");
 	private static final By FAMILY_NAME_LIST = By.id("settings0.globalProperty.propertyValue");
 	private static final By GIVEN_NAME_LIST = By.id("settings2.globalProperty.propertyValue");

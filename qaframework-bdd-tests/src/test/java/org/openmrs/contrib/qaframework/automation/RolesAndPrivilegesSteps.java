@@ -39,8 +39,8 @@ public class RolesAndPrivilegesSteps extends Steps {
 	private SystemAdministrationPage systemAdministrationPage;
 	private AdministrationPage administrationPage;
 	private AdministrationManageRolesPage administrationManageRolesPage;
-	String privilegeName =  RandomStringUtils.randomAlphabetic(64);
-	String roleName =  RandomStringUtils.randomAlphabetic(64);
+	String privilegeName =  RandomStringUtils.randomAlphabetic(10);
+	String roleName =  RandomStringUtils.randomAlphabetic(10);
 	
     @Before(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
 	public void visitDashboard(){

@@ -19,6 +19,7 @@ import io.cucumber.java.en.When;
 import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.AddEditNewPrivilegePage;
 import org.openmrs.contrib.qaframework.page.AddNewRolePage;
 import org.openmrs.contrib.qaframework.page.AdministrationManageRolesPage;
@@ -29,8 +30,6 @@ import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
 public class RolesAndPrivilegesSteps extends Steps {
 
-	private static final String PRIVILEGE_NAME = "PrivilegeTest";
-	private static final String ROLE_NAME = "appletest";
 	private static final String ROLE_DESCRIPTION = "for e2e automation test";
 	private static final String PRIVILEGE_DESCRIPTION = "This privilege is just one developed for the roles&privileges e2e test";
 	private ManagePrivilegesPage manageprivilegesPage;
@@ -40,6 +39,8 @@ public class RolesAndPrivilegesSteps extends Steps {
 	private SystemAdministrationPage systemAdministrationPage;
 	private AdministrationPage administrationPage;
 	private AdministrationManageRolesPage administrationManageRolesPage;
+	String privilegeName = TestData.createRandomName();
+	String roleName = TestData.createRandomName();
 	
 	@Before(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
 	public void visitDashboard(){
@@ -78,7 +79,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User fills the new privilege form")
     public void launchAddNewPrivilegePage(){
-    	addNewPrivilegePage.enterPrivilegeName(PRIVILEGE_NAME);
+    	addNewPrivilegePage.enterPrivilegeName(privilegeName);
     	addNewPrivilegePage.enterPrivilegeDescription(PRIVILEGE_DESCRIPTION);
     }
     
@@ -94,14 +95,14 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User fills the new role form")
     public void launchAddNewRolePage(){
-    	addNewRolePage.addRoleName(ROLE_NAME);
+    	addNewRolePage.addRoleName(roleName);
     	addNewRolePage.addDescription(ROLE_DESCRIPTION);
     	addNewRolePage.selectPrivileges();
     }
     
     @And ("User search for the created privilege")
     public void searchPrivilege(){
-    	manageprivilegesPage.searchForPrivilege(PRIVILEGE_NAME);
+    	manageprivilegesPage.searchForPrivilege(privilegeName);
     }
     
     @And ("User edits privilege")
@@ -113,7 +114,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User edits the role")
     public void editRole(){
-		administrationManageRolesPage.goToEditRolePage(ROLE_NAME);
+		administrationManageRolesPage.goToEditRolePage(roleName);
 	    addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
 	    addNewRolePage.selectPrivileges();
 	    addNewRolePage.saveRole();

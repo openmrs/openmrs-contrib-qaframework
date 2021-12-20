@@ -32,7 +32,6 @@ public class AdministrationManageRolesPage extends Page{
 	    if (roleName == null || roleName.isEmpty()) {
 	        throw new IllegalArgumentException("roleName must be provided");
 	    }
-
 	    clickOn(By.linkText(roleName));
 	}
 	

@@ -14,7 +14,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
@@ -684,15 +683,5 @@ public class TestData {
 		public PatientInfo patient;
 		public String datetime;
 		public String uuid;
-	}
-	
-	public static String createRandomName(){
-		int lengthOfRandomString = 5;
-		String characters = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz!@#$%&";
-        Random random = new Random();
-        StringBuffer stringBuffer = new StringBuffer(lengthOfRandomString);
-		for (int i = 0; i < lengthOfRandomString; i++)
-			stringBuffer.append(characters.charAt(random.nextInt(characters.length())));
-		return stringBuffer.toString() + "test";
 	}
 }

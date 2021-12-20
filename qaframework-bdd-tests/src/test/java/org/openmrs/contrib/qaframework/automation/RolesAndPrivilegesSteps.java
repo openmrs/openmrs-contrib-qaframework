@@ -18,8 +18,8 @@ import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertTrue;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.AddEditNewPrivilegePage;
 import org.openmrs.contrib.qaframework.page.AddNewRolePage;
 import org.openmrs.contrib.qaframework.page.AdministrationManageRolesPage;
@@ -39,8 +39,8 @@ public class RolesAndPrivilegesSteps extends Steps {
 	private SystemAdministrationPage systemAdministrationPage;
 	private AdministrationPage administrationPage;
 	private AdministrationManageRolesPage administrationManageRolesPage;
-	String privilegeName = TestData.createRandomName();
-	String roleName = TestData.createRandomName();
+	String privilegeName =  RandomStringUtils.randomAlphabetic(64);
+	String roleName =  RandomStringUtils.randomAlphabetic(64);
 	
 	@Before(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
 	public void visitDashboard(){

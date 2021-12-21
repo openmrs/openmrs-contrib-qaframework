@@ -17,16 +17,15 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import static org.junit.Assert.assertTrue;
-
-import org.apache.commons.lang3.RandomStringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.page.AddEditNewPrivilegePage;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openmrs.contrib.qaframework.page.AddNewRolePage;
-import org.openmrs.contrib.qaframework.page.AdministrationManageRolesPage;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
-import org.openmrs.contrib.qaframework.page.ConfigureMetadataPage;
 import org.openmrs.contrib.qaframework.page.ManagePrivilegesPage;
+import org.openmrs.contrib.qaframework.page.ConfigureMetadataPage;
+import org.openmrs.contrib.qaframework.page.AddEditNewPrivilegePage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
+import org.openmrs.contrib.qaframework.page.AdministrationManageRolesPage;
 
 public class RolesAndPrivilegesSteps extends Steps {
 
@@ -39,8 +38,8 @@ public class RolesAndPrivilegesSteps extends Steps {
 	private SystemAdministrationPage systemAdministrationPage;
 	private AdministrationPage administrationPage;
 	private AdministrationManageRolesPage administrationManageRolesPage;
-	final String PRIVILEGE_NAME =  RandomStringUtils.randomAlphabetic(10);
-	final String ROLE_NAME =  RandomStringUtils.randomAlphabetic(10);
+	private final String PRIVILEGE_NAME =  RandomStringUtils.randomAlphabetic(10);
+	private final String ROLE_NAME =  RandomStringUtils.randomAlphabetic(10);
 	
     @Before(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
 	public void visitDashboard(){

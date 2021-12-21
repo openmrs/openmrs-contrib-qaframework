@@ -9,6 +9,8 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertTrue;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -16,6 +18,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AddNewRolePage;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
@@ -24,8 +27,6 @@ import org.openmrs.contrib.qaframework.page.ConfigureMetadataPage;
 import org.openmrs.contrib.qaframework.page.AddEditNewPrivilegePage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 import org.openmrs.contrib.qaframework.page.AdministrationManageRolesPage;
-import org.apache.commons.lang3.RandomStringUtils;
-import static org.junit.Assert.assertTrue;
 
 public class RolesAndPrivilegesSteps extends Steps {
 

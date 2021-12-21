@@ -27,6 +27,7 @@ public class RunTest {
 		public static final String LOGIN = "@login";
 		public static final String CONDITION = "@condition";
 		public static final String SELENIUM = "@selenium";
+		public static final String FORM = "@form";
 		public static final String DASHBOARD = "@dashboard";
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
@@ -54,5 +55,6 @@ public class RunTest {
 		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "+ USER_ACCOUNT;
 		public static final String SELENIUM_REPORT = SELENIUM + " and "+ REPORT;
 		public static final String SELENIUM_PATIENT_DEMOGRAPHICS = SELENIUM + " and " + PATIENT_DEMOGRAPHICS;
+		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;
 	}
 }

@@ -24,7 +24,7 @@ Install & Upgrade Tests |
 [All Chrome Tests](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
 [![All Firefox Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
 [![RefApp 2.x Clinical Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml)
-[![RefApp 2.x Patient Condition](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2.x-condition.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2.x-condition.yml)
+[![RefApp 2.x Patient Condition](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-condition.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-condition.yml)
 [![RefApp 2.x Vitals And Triaging](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-vitals-and-triaging.yml) 
 [![RefApp 2.x Inpatient](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-inpatient.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-inpatient.yml)
 [![RefApp 2.x Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml)
@@ -36,9 +36,9 @@ Install & Upgrade Tests |
 2.x RefApp Feature-Specific Tests* |
 ------------- |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
-[![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml/badge.svg)](https://github.com/openmrs/openmrs-distro-referenceapplication/actions/workflows/ci.yml)
+[![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-legacy.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-legacy.ym)
 [Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) 
-###### * Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs-distro-referenceapplication/tree/master/ui-tests/src/test/java/org/openmrs/reference).
+###### * Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs-contrib-qaframework/tree/master/qaframework-legacy-tests/src/test/java/org/openmrs/contrib/qaframework/legacy).
 
 
 3.x RefApp Workflow Tests|

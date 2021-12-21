@@ -43,6 +43,6 @@ jobs:
           echo "cucumber.publish.enabled=true" > qaframework-bdd-tests/src/test/resources/cucumber.properties
           mvn clean install -DskipTests=true
           cp -f qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test-local.properties qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test.properties
-          qaframework-bdd-tests
+          cd qaframework-bdd-tests
           npm run postgresCoreInstall
           curl -sX POST -F messages=@target/cucumber.ndjson https://studio.cucumber.io/cucumber_project/results -H "project-access-token: ${{secrets.CUCUMBER_IO_TOKEN}}" -H "provider: github" -H "repo: ${{github.repository}}" -H "branch: master" -H "revision: ${{github.sha}}"

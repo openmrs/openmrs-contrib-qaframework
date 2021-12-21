@@ -70,7 +70,7 @@ public class FormSteps extends Steps {
 	}
 	
 	@Then("a user adds a form in the system")
-	public void userClicksOnAddForm() throws Exception {
+	public void addFormTest() throws Exception {
 		instantiateFormPresence();
 		manageForm.add();
 		manageForm.addLabel("Eye Report");
@@ -82,7 +82,7 @@ public class FormSteps extends Steps {
 	}
 
 	@And("user clicks on edit form")	
-	public void userClicksOnEditForm() throws InterruptedException{
+	public void editFormTest() throws InterruptedException{
 		homePage.goToManageForm();
 		manageForm.waitForPage();
 		manageForm.editPath();
@@ -93,7 +93,7 @@ public class FormSteps extends Steps {
 	}
 
 	@Then("user clicks on delete form")	
-	public void userClicksOnDeleteForm() {
+	public void deleteFormTest() {
 		homePage.goToManageForm();
 		manageForm.waitForPage();
 		manageForm.deletePath();

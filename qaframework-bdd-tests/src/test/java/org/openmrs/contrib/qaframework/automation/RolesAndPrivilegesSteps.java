@@ -39,8 +39,8 @@ public class RolesAndPrivilegesSteps extends Steps {
 	private SystemAdministrationPage systemAdministrationPage;
 	private AdministrationPage administrationPage;
 	private AdministrationManageRolesPage administrationManageRolesPage;
-	String privilegeName =  RandomStringUtils.randomAlphabetic(10);
-	String roleName =  RandomStringUtils.randomAlphabetic(10);
+	final String PRIVILEGE_NAME =  RandomStringUtils.randomAlphabetic(10);
+	final String ROLE_NAME =  RandomStringUtils.randomAlphabetic(10);
 	
     @Before(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
 	public void visitDashboard(){
@@ -79,7 +79,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User fills the new privilege form")
     public void launchAddNewPrivilegePage(){
-    	addNewPrivilegePage.enterPrivilegeName(privilegeName);
+    	addNewPrivilegePage.enterPrivilegeName(PRIVILEGE_NAME);
     	addNewPrivilegePage.enterPrivilegeDescription(PRIVILEGE_DESCRIPTION);
     }
     
@@ -95,14 +95,14 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User fills the new role form")
     public void launchAddNewRolePage(){
-    	addNewRolePage.addRoleName(roleName);
+    	addNewRolePage.addRoleName(ROLE_NAME);
     	addNewRolePage.addDescription(ROLE_DESCRIPTION);
     	addNewRolePage.selectPrivileges();
     }
     
     @And ("User search for the created privilege")
     public void searchPrivilege(){
-    	manageprivilegesPage.searchForPrivilege(privilegeName);
+    	manageprivilegesPage.searchForPrivilege(PRIVILEGE_NAME);
     }
     
     @And ("User edits privilege")
@@ -114,7 +114,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @And ("User edits the role")
     public void editRole(){
-        administrationManageRolesPage.goToEditRolePage(roleName);
+        administrationManageRolesPage.goToEditRolePage(ROLE_NAME);
 	addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
 	addNewRolePage.selectPrivileges();
 	addNewRolePage.saveRole();

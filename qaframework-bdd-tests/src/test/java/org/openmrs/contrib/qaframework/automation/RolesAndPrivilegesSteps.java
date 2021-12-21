@@ -53,32 +53,32 @@ public class RolesAndPrivilegesSteps extends Steps {
     }
     
     @Given("User clicks on configure metadata link from home page")
-    public void launchHomeconfigureMetaData(){
+    public void launchConfigureMetadataPage(){
     	configuremetadatapage = homePage.goToConfigureMetadata();
     }
     
     @Given ("User clicks on System Administration Link from home page")
-    public void launchSystemAdministration(){
+    public void launchSystemAdministrationPage(){
     	systemAdministrationPage = homePage.goToSystemAdministrationPage();
     }
     
     @When("User clicks on manage privileges link on the configure metadata page")
-    public void clickManagePrivilegesLink(){
+    public void launchManagePrivilegesPage(){
     	manageprivilegesPage = configuremetadatapage.goToManagePrivilegesPage();
     }
     
     @When ("User clicks on Advanced Administration link from the System Administration Page")
-    public void clickAdvancedAdministrationLink(){
+    public void launchAdvancedAdministrationPage(){
     	administrationPage = systemAdministrationPage.goToAdvancedAdministration();
     }
     
     @And ("User clicks the Add New Privilege button")
-    public void clickAddNewPrivilegeButton(){
+    public void launchAddNewPrivilegePage(){
     	addNewPrivilegePage = manageprivilegesPage.goToAddNewPrivilegePage();
     }
     
     @And ("User fills the new privilege form")
-    public void launchAddNewPrivilegePage(){
+    public void addNewPrivilegeForm(){
     	addNewPrivilegePage.enterPrivilegeName(PRIVILEGE_NAME);
     	addNewPrivilegePage.enterPrivilegeDescription(PRIVILEGE_DESCRIPTION);
     }
@@ -94,7 +94,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     }
     
     @And ("User fills the new role form")
-    public void launchAddNewRolePage(){
+    public void addNewRoleForm(){
     	addNewRolePage.addRoleName(ROLE_NAME);
     	addNewRolePage.addDescription(ROLE_DESCRIPTION);
     	addNewRolePage.selectPrivileges();
@@ -106,14 +106,14 @@ public class RolesAndPrivilegesSteps extends Steps {
     }
     
     @And ("User edits privilege")
-    public void editPrivilege(){
+    public void editPrivilegeForm(){
     	manageprivilegesPage.goToEditPrivilegePage();
     	addNewPrivilegePage.enterPrivilegeDescription("just testing the editing of a privilege");
     	addNewPrivilegePage.clickSaveButton();
     }
     
     @And ("User edits the role")
-    public void editRole(){
+    public void editRoleForm(){
         administrationManageRolesPage.goToEditRolePage(ROLE_NAME);
 	addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
 	addNewRolePage.selectPrivileges();
@@ -126,12 +126,12 @@ public class RolesAndPrivilegesSteps extends Steps {
     }
     
     @And ("User clicks the Add New Role button on the manage roles page")
-    public void clickNewRoleLink(){
+    public void launchAddNewRolePage(){
     	addNewRolePage = administrationManageRolesPage.goToAddNewRolePage();
     }
     
     @And ("User clicks on manage roles link on the advanced administration page")
-    public void clickManageRolesLink(){
+    public void launchManageRolesPage(){
     	administrationManageRolesPage = administrationPage.goToManageRolesPage();
     }
     

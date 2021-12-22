@@ -15,11 +15,11 @@ jobs:
       - name: Using Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: '12.x'
-      - name: Navigate into qaframework-bdd-tests
-        run: cd qaframework-bdd-tests 
+          node-version: '12.x' 
       - name: Installing dependencies
         run: npm install
+      - name: Navigate into qaframework-bdd-tests
+        run: cd qaframework-bdd-tests
       - name: Run patient registration workflow tests
         run: npm run refapp3PatientRegistration
       - name: Upload screen recordings of failed tests

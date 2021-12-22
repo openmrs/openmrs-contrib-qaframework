@@ -16,5 +16,4 @@ Feature: User Login
       | admin     | wrongPas  | firstLocation | false  |
       | wrongUser | Admin123  | firstLocation | false  |
       | wrongUser | wrongPas  | firstLocation | false  |
-      | admin     | Admin123  | noLocation    | false  |
       | setupUser | setupPass | setupLocation | true   |

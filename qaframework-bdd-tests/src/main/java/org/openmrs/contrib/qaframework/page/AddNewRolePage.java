@@ -14,7 +14,7 @@ import org.openqa.selenium.By;
 
 public class AddNewRolePage extends Page{
 
-	protected static final String PAGE_URL = "/openmrs/admin/users/role.form";
+	private static final String PAGE_URL = "/openmrs/admin/users/role.form";
 	private static final By ROLE_NAME_FIELD = By.cssSelector("#role");
 	private static final By SELECT_OR_UNSELECT_ALL_PRIVILEGES = By.id("toggleSelectionCheckbox");
 	private static final By DESCRIPTION_FIELD = By.cssSelector("#content textarea");

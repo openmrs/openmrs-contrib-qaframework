@@ -14,7 +14,7 @@ import org.openqa.selenium.By;
 
 public class ManagePrivilegesPage extends Page{
 
-	protected static final String PAGE_URL = "adminui/metadata/privileges/managePrivileges.page";
+	private static final String PAGE_URL = "adminui/metadata/privileges/managePrivileges.page";
 	private static final By ADD_NEW_PRIVILEGE_BUTTON = By.cssSelector("#content > input");
 	private static final By EDIT_PRIVILEGE_ICON = By.cssSelector("i.icon-pencil.edit-action");
 	private static final By DELETE_ICON = By.cssSelector("i.icon-trash.delete-action.right");

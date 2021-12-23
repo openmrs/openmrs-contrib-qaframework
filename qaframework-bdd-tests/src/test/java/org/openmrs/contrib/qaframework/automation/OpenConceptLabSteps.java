@@ -122,6 +122,6 @@ public class OpenConceptLabSteps extends Steps  {
     
     @And("a user clicks unsubscribe button")
     public void getSubscriptionPage(){
-       subscriptionPage.clickOnUnSubscribeButton();  
+        subscriptionPage.clickOnUnSubscribeButton();  
     } 
 }

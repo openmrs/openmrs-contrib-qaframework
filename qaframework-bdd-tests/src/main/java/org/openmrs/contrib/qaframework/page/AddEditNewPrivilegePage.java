@@ -36,7 +36,6 @@ public class AddEditNewPrivilegePage extends Page{
 	public void clickSaveButton() {
 		clickOn(SAVE_BUTTON);
 	}
-
 	@Override
 	public String getPageUrl() {
 		return PAGE_URL;

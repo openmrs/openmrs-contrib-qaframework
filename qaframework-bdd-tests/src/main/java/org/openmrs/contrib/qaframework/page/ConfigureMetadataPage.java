@@ -55,5 +55,3 @@ public class ConfigureMetadataPage extends Page {
         return new OpenConceptLabPage(this);
     }
 }
-
-  

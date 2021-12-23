@@ -19,7 +19,6 @@ import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.helper.TestPatient;
-import org.openmrs.contrib.qaframework.helper.PatientGenerator;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
@@ -34,7 +33,7 @@ public class RegisterUnidentifiedPatientTest extends ReferenceApplicationTestBas
     @Category(BuildTests.class)
     public void registerUnidentifiedPatientTest() throws InterruptedException {
         RegistrationPage registrationPage = homePage.goToRegisterPatientApp();
-        patient = PatientGenerator.generateTestPatient();
+        patient = TestData.PatientGenerator.generateTestPatient();
         registrationPage.enterUnidentifiedPatient(patient);
         assertTrue(registrationPage.getGenderInConfirmationPage().contains(patient.gender));
 

@@ -16,7 +16,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
 import org.openmrs.contrib.qaframework.helper.BuildTests;
-import org.openmrs.contrib.qaframework.helper.PatientGenerator;
 import org.openmrs.contrib.qaframework.helper.TestBase;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.helper.TestPatient;
@@ -43,7 +42,7 @@ public class UnidentifiedPatientKeyboardTest extends TestBase {
     @Category(BuildTests.class)
     public void unidentifiedPatientKeyboardTest() throws InterruptedException {
         homePage.goToRegisterPatientApp();
-        patient = PatientGenerator.generateTestPatient();
+        patient = TestData.PatientGenerator.generateTestPatient();
         registrationPage.enterUnidentifiedPatient(patient);
 
         assertTrue(registrationPage.getNameInConfirmationPage().contains("--"));

@@ -697,28 +697,28 @@ public class TestData {
 		private static final String[] PATIENT_GENDER = {"Male", "Female"};
 
 		public static org.openmrs.contrib.qaframework.helper.TestPatient generateTestPatient() {
-			org.openmrs.contrib.qaframework.helper.TestPatient p = new org.openmrs.contrib.qaframework.helper.TestPatient();
-			p.givenName = randomArrayEntry(PATIENT_GIVEN_NAMES);
-			p.middleName = "";
-			p.familyName = randomArrayEntry(PATIENT_FAMILY_NAMES);
-			p.gender = randomArrayEntry(PATIENT_GENDER);
-			p.birthDay = randomArrayEntry(PATIENT_BIRTH_DAY);
-			p.birthMonth = randomArrayEntry(PATIENT_BIRTH_MONTH);
-			p.birthYear = randomArrayEntry(PATIENT_BIRTH_YEAR);
+			org.openmrs.contrib.qaframework.helper.TestPatient testPatient = new org.openmrs.contrib.qaframework.helper.TestPatient();
+			testPatient.givenName = randomArrayEntry(PATIENT_GIVEN_NAMES);
+			testPatient.middleName = "";
+			testPatient.familyName = randomArrayEntry(PATIENT_FAMILY_NAMES);
+			testPatient.gender = randomArrayEntry(PATIENT_GENDER);
+			testPatient.birthDay = randomArrayEntry(PATIENT_BIRTH_DAY);
+			testPatient.birthMonth = randomArrayEntry(PATIENT_BIRTH_MONTH);
+			testPatient.birthYear = randomArrayEntry(PATIENT_BIRTH_YEAR);
 			String suffix = randomSuffix();
-			p.address1 = "Address1" + suffix;
-			p.address2 = "Address2" + suffix;
-			p.city = "City" + suffix;
-			p.state = "State" + suffix; // TODO shorter string for State perhaps?
-			p.country = "Country" + suffix; // TODO shorter string for Country
+			testPatient.address1 = "Address1" + suffix;
+			testPatient.address2 = "Address2" + suffix;
+			testPatient.city = "City" + suffix;
+			testPatient.state = "State" + suffix; // TODO shorter string for State perhaps?
+			testPatient.country = "Country" + suffix; // TODO shorter string for Country
 			// perhaps?
-			p.phone = randomSuffix(9);
-			p.postalCode = "345234"; // hardwired for now
-			p.latitude = "12"; // hardwired for now
-			p.longitude = "47"; // hardwired for now
-			p.startDate = "01-01-2000"; // hardwired for now
-			p.endDate = "01-01-2010"; // hardwired for now
-			return p;
+			testPatient.phone = randomSuffix(9);
+			testPatient.postalCode = "345234"; // hardwired for now
+			testPatient.latitude = "12"; // hardwired for now
+			testPatient.longitude = "47"; // hardwired for now
+			testPatient.startDate = "01-01-2000"; // hardwired for now
+			testPatient.endDate = "01-01-2010"; // hardwired for now
+			return testPatient;
 		}
 
 		static String randomArrayEntry(String[] array) {

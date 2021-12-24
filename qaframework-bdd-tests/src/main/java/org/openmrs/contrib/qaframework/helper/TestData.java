@@ -713,7 +713,7 @@ public class TestData {
 			testPatient.country = "Country" + suffix; // TODO shorter string for Country perhaps?
 			testPatient.phone = randomSuffix(9);
 			testPatient.postalCode = "345234"; // hardwired for now
-			testPatient.latitude = "12"; // hardwired for  now
+			testPatient.latitude = "12"; // hardwired for now
 			testPatient.longitude = "47"; // hardwired for now
 			testPatient.startDate = "01-01-2000"; // hardwired for now
 			testPatient.endDate = "01-01-2010"; // hardwired for now

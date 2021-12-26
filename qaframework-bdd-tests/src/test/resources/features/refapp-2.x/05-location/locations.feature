@@ -26,3 +26,4 @@ Feature: Location Management
     When a user clicks on manager locations
     Then the user click on add new location
     And a user fills add new location form
+    

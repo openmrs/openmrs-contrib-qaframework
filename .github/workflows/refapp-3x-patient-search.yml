@@ -22,7 +22,7 @@ jobs:
         run: cd qaframework-bdd-tests
       - name: Run patient search workflow tests
         run: |
-          echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
+          echo "cucumber.publish.enabled=true" > qaframework-bdd-tests/src/test/resources/cucumber.properties
           npm run refapp3PatientSearch
           curl -sX POST -F messages=@target/cucumber.ndjson https://studio.cucumber.io/cucumber_project/results -H "project-access-token: ${{secrets.CUCUMBER_IO_TOKEN}}" -H "provider: github" -H "repo: ${{github.repository}}" -H "branch: master" -H "revision: ${{github.sha}}"
       - name: Upload screen recordings of failed tests
@@ -30,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Screen recordings of failed tests
-          path: cypress/videos/refapp-3.x
+          path: qaframework-bdd-tests/cypress/videos/refapp-3.x

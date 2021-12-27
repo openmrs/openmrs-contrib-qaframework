@@ -37,7 +37,7 @@ public class FormSteps extends Steps {
 	public void visitDashboard() {
 		initiateWithLogin();
 		manageForm = new ManageFormsPage(driver);
-		htmlFormsPage = new HtmlFormsPage(page);
+		htmlFormsPage = new HtmlFormsPage(manageHtmlFormsPage);
 	}
 	
 	@After(RunTest.HOOK.SELENIUM_FORM)

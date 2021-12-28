@@ -11,7 +11,6 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 public class HtmlFormsPage extends Page {
 
@@ -20,8 +19,8 @@ public class HtmlFormsPage extends Page {
 	private static By SAVE_FORM = By.cssSelector("input[type='submit']");
 	private static By VERSION = By.name("form.version");
 	
-	public HtmlFormsPage(Page parent) {
-		super(parent);
+	public HtmlFormsPage(Page page) {
+		super(page);
 	}
 
 	public void createNewFormTest(String name, String description,String version) throws InterruptedException {

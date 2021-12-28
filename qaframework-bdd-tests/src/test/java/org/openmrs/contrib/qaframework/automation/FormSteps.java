@@ -36,8 +36,7 @@ public class FormSteps extends Steps {
 	@Before(RunTest.HOOK.SELENIUM_FORM)
 	public void visitDashboard() {
 		initiateWithLogin();
-		manageForm = new ManageFormsPage(driver);
-		htmlFormsPage = new HtmlFormsPage(page);
+		manageForm = new ManageFormsPage(driver);	
 	}
 	
 	@After(RunTest.HOOK.SELENIUM_FORM)
@@ -58,7 +57,7 @@ public class FormSteps extends Steps {
 	@When("a user check the availability of forms")
 	public void instantiateFormPresence() throws InterruptedException {
 		if (manageHtmlFormsPage.getElementsIfExisting(By.xpath("//*[contains(text(), '" + NAME + "')]")).isEmpty()) {
-			manageHtmlFormsPage.clickOnNewHtmlForm();
+			htmlFormsPage =	manageHtmlFormsPage.clickOnNewHtmlForm();
 			htmlFormsPage.createNewFormTest(NAME, DESCRIPTION, VERSION);
 		}
 		

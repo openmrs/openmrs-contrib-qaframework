@@ -9,4 +9,4 @@ Feature: Allery Management
   Scenario: Allergy management
    When a user adds a known allergy into the system
    Then a user edits a known allergy
-   Then a user deletes a known allergy
+   And a user deletes a known allergy

@@ -11,6 +11,7 @@ import org.openmrs.contrib.qaframework.page.FindPatientPage;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -75,7 +76,7 @@ public class AllergySteps extends Steps {
 		assertTrue(allergyPage.getReaction().contains(NEW_REACTION));
 	}
 	
-	@Then("a user deletes a known allergy")
+	@And("a user deletes a known allergy")
 	public void DeleteKnownAllergy() {
 		allergyPage.clickOnDeleteAllergy();
 		allergyPage.clickOnConfirmDeleteAllergy();

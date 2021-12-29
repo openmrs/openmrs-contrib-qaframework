@@ -56,13 +56,13 @@ public class AllergySteps extends Steps {
 	@When("a user adds a known allergy into the system")
 	public void addKnownAllergy() {
 		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
-        addOrEditAllergyPage.enterDrug(DRUG_NAME);
-        addOrEditAllergyPage.drugId();
-        addOrEditAllergyPage.enterReaction(REACTION);
-        addOrEditAllergyPage.reactionId();
-        addOrEditAllergyPage.addAllergyNote(ALLERGY_NOTE);
-        allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
-        assertTrue(allergyPage.getAllergen().contains(DRUG_NAME));
+		addOrEditAllergyPage.enterDrug(DRUG_NAME);
+		addOrEditAllergyPage.drugId();
+		addOrEditAllergyPage.enterReaction(REACTION);
+		addOrEditAllergyPage.reactionId();
+		addOrEditAllergyPage.addAllergyNote(ALLERGY_NOTE);
+		allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
+		assertTrue(allergyPage.getAllergen().contains(DRUG_NAME));
 	}
 	
 	@Then("a user edits a known allergy")
@@ -71,14 +71,14 @@ public class AllergySteps extends Steps {
 		addOrEditAllergyPage.enterReaction(NEW_REACTION);
 		addOrEditAllergyPage.reactionId();
 		addOrEditAllergyPage.addAllergyNote(NEW_ALLERGY_NOTE);
-        allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
-        assertTrue(allergyPage.getReaction().contains(NEW_REACTION));
+		allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
+		assertTrue(allergyPage.getReaction().contains(NEW_REACTION));
 	}
 	
 	@Then("a user deletes a known allergy")
 	public void DeleteKnownAllergy() {
 		allergyPage.clickOnDeleteAllergy();
-        allergyPage.clickOnConfirmDeleteAllergy();
-        assertTrue(allergyPage.getAllergyStatus().contains("Unknown"));
+		allergyPage.clickOnConfirmDeleteAllergy();
+		assertTrue(allergyPage.getAllergyStatus().contains("Unknown"));
 	}
 }

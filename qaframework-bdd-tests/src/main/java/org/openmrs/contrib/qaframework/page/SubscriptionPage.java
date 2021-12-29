@@ -20,6 +20,7 @@ public class SubscriptionPage extends Page {
     private static final By TOKEN_URL_FIELD = By.id("subscription-token");
     private static final By SAVE_CHANGES_BUTTON = By.cssSelector("#body-wrapper subscription form fieldset div:nth-child(4) button:nth-child(1)");
     private static final By UNSUBSCRIBE_BUTTON = By.linkText("Unsubscribe");
+    
     public SubscriptionPage(Page page) {
         super(page);
     }

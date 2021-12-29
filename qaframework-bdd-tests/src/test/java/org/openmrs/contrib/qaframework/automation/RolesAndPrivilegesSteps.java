@@ -44,8 +44,8 @@ public class RolesAndPrivilegesSteps extends Steps {
 	
     @Before(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
     public void visitDashboard(){
-		initiateWithLogin();
-	}
+	initiateWithLogin();
+    }
 	
     @After(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
     public void destroy() {

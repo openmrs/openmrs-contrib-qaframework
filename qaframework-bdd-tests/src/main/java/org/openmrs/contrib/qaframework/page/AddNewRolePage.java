@@ -12,7 +12,7 @@ package org.openmrs.contrib.qaframework.page;
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
-public class AddNewRolePage extends Page{
+public class AddNewRolePage extends Page {
 
 	private static final String PAGE_URL = "/openmrs/admin/users/role.form";
 	private static final By ROLE_NAME_FIELD = By.cssSelector("#role");

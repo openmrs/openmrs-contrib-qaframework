@@ -12,7 +12,7 @@ package org.openmrs.contrib.qaframework.page;
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
-public class AddEditNewPrivilegePage extends Page{
+public class AddEditNewPrivilegePage extends Page {
 
 	private static final String PAGE_URL = "/adminui/metadata/privileges/privilege.page";
 	private static final By PRIVILEGE_FIELD = By.cssSelector("#privilege-field");

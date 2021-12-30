@@ -17,21 +17,38 @@ import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.AddOrEditAllergyPage;
 import org.openmrs.contrib.qaframework.page.AllergyPage;
+import org.openmrs.contrib.qaframework.page.FindPatientPage;
 
 public class AllergiesSteps extends Steps {
 	
+	private static final String DRUG_NAME = "Morphine";
+	private static final String REACTION = "Itching";
+	private static final String NEW_REACTION = "Rash";
+	private static final String ALLERGY_NOTE = "The whole body itches";
+	private static final String NEW_ALLERGY_NOTE = "There's a rash on the body";
 	private AllergyPage allergyPage;
+	private AddOrEditAllergyPage addOrEditAllergyPage;
+	private TestData.PatientInfo testPatient;
 
-	@Before(RunTest.HOOK.SELENIUM_DASHBOARD)
+	@Before(RunTest.HOOK.SELENIUM_ALLERGIES)
 	public void visitDashboard() {
-		initiatePatientDashboard();
+		initiateWithLogin();
+		testPatient = createTestPatient();
+		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
+		findPatientPage.enterPatient(testPatient.identifier);
+		findPatientPage.waitForPageToLoad();
+		dashboardPage = findPatientPage.clickOnFirstPatient();	
 	}
 
-	@After(RunTest.HOOK.SELENIUM_DASHBOARD)
+	@After(RunTest.HOOK.SELENIUM_ALLERGIES)
 	public void destroy() {
+		deletePatient(testPatient);
 		quit();
 	}
 
@@ -64,5 +81,34 @@ public class AllergiesSteps extends Steps {
 	@Then("the system displays unknown in the allergies table")
 	public void systemRemovesNoKnownAllergies() {
 		assertTrue(textExists("Unknown"));
+	}
+	
+	@When("a user adds a known allergy into the system")
+	public void addKnownAllergy() {
+		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
+		addOrEditAllergyPage.enterDrug(DRUG_NAME);
+		addOrEditAllergyPage.drugId();
+		addOrEditAllergyPage.enterReaction(REACTION);
+		addOrEditAllergyPage.reactionId();
+		addOrEditAllergyPage.addAllergyNote(ALLERGY_NOTE);
+		allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
+		assertTrue(allergyPage.getAllergen().contains(DRUG_NAME));
+	}
+	
+	@Then("a user edits a known allergy")
+	public void EditKnownAllergy() {
+		addOrEditAllergyPage = allergyPage.clickOnEditAllergy();
+		addOrEditAllergyPage.enterReaction(NEW_REACTION);
+		addOrEditAllergyPage.reactionId();
+		addOrEditAllergyPage.addAllergyNote(NEW_ALLERGY_NOTE);
+		allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
+		assertTrue(allergyPage.getReaction().contains(NEW_REACTION));
+	}
+	
+	@And("a user deletes a known allergy")
+	public void DeleteKnownAllergy() {
+		allergyPage.clickOnDeleteAllergy();
+		allergyPage.clickOnConfirmDeleteAllergy();
+		assertTrue(allergyPage.getAllergyStatus().contains("Unknown"));
 	}
 }

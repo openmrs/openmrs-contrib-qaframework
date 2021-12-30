@@ -33,7 +33,7 @@ Install & Upgrade Tests |
 [![RefApp 2.x User Account](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user-account.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user-account.yml)
 [![RefApp 2.x Report](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-report.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-report.yml)
 [![RefApp 2.x Form](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-form.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-form.yml)
-[![RefApp 2.x Allergy](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-allergy.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-allergy.yml)
+[![RefApp 2.x Patient Allergies](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-allergies.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-allergies.yml)
 2.x RefApp Feature-Specific Tests* |
 ------------- |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)

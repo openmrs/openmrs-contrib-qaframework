@@ -1,4 +1,4 @@
-name: RefApp 2.x Allergy
+name: RefApp 2.x Patient Allergies
 on:
   push:
     branches: [master]

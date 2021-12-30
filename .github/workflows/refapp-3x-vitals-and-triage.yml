@@ -17,11 +17,9 @@ jobs:
         with:
           node-version: '12.x'
       - name: Installing dependencies
-        run: npm install
-      - name: Navigate into qaframework-bdd-tests
-        run: cd qaframework-bdd-tests
+        run: cd qaframework-bdd-tests && npm install
       - name: Run vitals and triage workflow tests
-        run: npm run refapp3VitalsAndTriage
+        run: cd qaframework-bdd-tests && npm run refapp3VitalsAndTriage
       - name: Upload screen recordings of failed tests
         if: ${{ failure() }}
         uses: actions/upload-artifact@v2

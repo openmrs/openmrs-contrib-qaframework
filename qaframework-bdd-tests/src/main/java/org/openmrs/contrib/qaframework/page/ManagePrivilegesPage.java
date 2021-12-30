@@ -25,24 +25,24 @@ public class ManagePrivilegesPage extends Page{
 		super(parent);
 	}
 	
-	public AddEditNewPrivilegePage goToAddNewPrivilegePage(){
+	public AddEditNewPrivilegePage goToAddNewPrivilegePage() {
 		clickOn(ADD_NEW_PRIVILEGE_BUTTON);
 		return new AddEditNewPrivilegePage(this);
 	}
 	
-	public void confirmPrivilegeDelete(){
+	public void confirmPrivilegeDelete() {
 		clickOn(CONFIRM_BUTTON);
 	}
 	
-	public void goToEditPrivilegePage(){
+	public void goToEditPrivilegePage() {
 		clickOn(EDIT_PRIVILEGE_ICON);
 	}
 	
-	public void searchForPrivilege(String searchInput){
+	public void searchForPrivilege(String searchInput) {
 		setText(SEARCH_FIELD, searchInput);
 	}
 	
-	public void deletePrivilege(){
+	public void deletePrivilege() {
 		clickOn(DELETE_ICON);
 	}
 

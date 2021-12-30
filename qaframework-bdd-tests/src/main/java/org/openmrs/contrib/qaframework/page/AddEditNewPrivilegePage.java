@@ -23,12 +23,12 @@ public class AddEditNewPrivilegePage extends Page{
 		super(parent);
 	}
 	
-	public void enterPrivilegeName(String privilegeName){
+	public void enterPrivilegeName(String privilegeName) {
 		findElement(PRIVILEGE_FIELD).clear();
 		findElement(PRIVILEGE_FIELD).sendKeys(privilegeName);
 	}
 	
-	public void enterPrivilegeDescription(String privilegeDescription){
+	public void enterPrivilegeDescription(String privilegeDescription) {
 		findElement(DESCRIPTION_FIELD).clear();
 		findElement(DESCRIPTION_FIELD).sendKeys(privilegeDescription);
 	}

@@ -34,7 +34,7 @@ public class AdministrationPage extends Page {
 		return new ManageUserPage(this);
 	}
 	
-	public AdministrationManageRolesPage goToManageRolesPage(){
+	public AdministrationManageRolesPage goToManageRolesPage() {
 		clickOn(MANAGE_ROLES_LINK);
 		return new AdministrationManageRolesPage(this);
 	}

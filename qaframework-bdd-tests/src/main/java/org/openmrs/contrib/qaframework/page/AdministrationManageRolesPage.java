@@ -23,7 +23,7 @@ public class AdministrationManageRolesPage extends Page{
 		super(parent);
 	}
 	
-	public AddNewRolePage goToAddNewRolePage(){
+	public AddNewRolePage goToAddNewRolePage() {
 		clickOn(ADD_NEW_ROLE_LINK);
 		return new AddNewRolePage(this);
 	}
@@ -35,11 +35,11 @@ public class AdministrationManageRolesPage extends Page{
 	    clickOn(By.linkText(roleName));
 	}
 	
-	public void deleteSelectedRoles(){
+	public void deleteSelectedRoles() {
 		clickOn(DELETE_SELECTED_ROLES_BUTTON);
 	}
 	
-	public void selectRole(){
+	public void selectRole() {
 		clickOn(CHECKBOX);
 	}
 

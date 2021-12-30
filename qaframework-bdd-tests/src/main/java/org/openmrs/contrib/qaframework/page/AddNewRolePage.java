@@ -24,21 +24,21 @@ public class AddNewRolePage extends Page{
 		super(parent);
 	}
 	
-	public void addRoleName(String roleName){
+	public void addRoleName(String roleName) {
 		findElement(ROLE_NAME_FIELD).clear();
 		findElement(ROLE_NAME_FIELD).sendKeys(roleName);
 	}
 	
-	public void addDescription(String description){
+	public void addDescription(String description) {
 		findElement(DESCRIPTION_FIELD).clear();
 		findElement(DESCRIPTION_FIELD).sendKeys(description);
 	}
 	
-	public void selectPrivileges(){
+	public void selectPrivileges() {
 		clickOn(SELECT_OR_UNSELECT_ALL_PRIVILEGES);
 	}
 	
-	public void saveRole(){
+	public void saveRole() {
 		clickOn(SAVE_BUTTON);
 	}
 

@@ -34,7 +34,7 @@ public class ConfigureMetadataPage extends Page {
 		return new ManageLocationsPage(this);
 	}
 	
-	public ManagePrivilegesPage goToManagePrivilegesPage(){
+	public ManagePrivilegesPage goToManagePrivilegesPage() {
 		clickOn(MANAGE_PRIVILEGES_LINK);
 		return new ManagePrivilegesPage(this);
 	}

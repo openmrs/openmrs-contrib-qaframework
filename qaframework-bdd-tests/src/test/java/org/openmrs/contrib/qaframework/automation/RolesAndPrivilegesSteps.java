@@ -43,7 +43,7 @@ public class RolesAndPrivilegesSteps extends Steps {
 	private final String ROLE_NAME = RandomStringUtils.randomAlphabetic(10);
 	
     @Before(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
-    public void visitDashboard(){
+    public void visitDashboard() {
 	initiateWithLogin();
     }
 	
@@ -53,67 +53,67 @@ public class RolesAndPrivilegesSteps extends Steps {
     }
     
     @Given("User clicks on configure metadata link from home page")
-    public void launchConfigureMetadataPage(){
+    public void launchConfigureMetadataPage() {
     	configuremetadatapage = homePage.goToConfigureMetadata();
     }
     
     @Given ("User clicks on System Administration Link from home page")
-    public void launchSystemAdministrationPage(){
+    public void launchSystemAdministrationPage() {
     	systemAdministrationPage = homePage.goToSystemAdministrationPage();
     }
     
     @When("User clicks on manage privileges link on the configure metadata page")
-    public void launchManagePrivilegesPage(){
+    public void launchManagePrivilegesPage() {
     	manageprivilegesPage = configuremetadatapage.goToManagePrivilegesPage();
     }
     
     @When ("User clicks on Advanced Administration link from the System Administration Page")
-    public void launchAdvancedAdministrationPage(){
+    public void launchAdvancedAdministrationPage() {
     	administrationPage = systemAdministrationPage.goToAdvancedAdministration();
     }
     
     @And ("User clicks the Add New Privilege button")
-    public void launchAddNewPrivilegePage(){
+    public void launchAddNewPrivilegePage() {
     	addNewPrivilegePage = manageprivilegesPage.goToAddNewPrivilegePage();
     }
     
     @And ("User fills the new privilege form")
-    public void addNewPrivilegeForm(){
+    public void addNewPrivilegeForm() {
     	addNewPrivilegePage.enterPrivilegeName(PRIVILEGE_NAME);
     	addNewPrivilegePage.enterPrivilegeDescription(PRIVILEGE_DESCRIPTION);
     }
     
     @And ("User clicks the save button")
-    public void savePrivilege(){
+    public void savePrivilege() {
     	addNewPrivilegePage.clickSaveButton();
     }
     
     @And ("User saves role")
-    public void saveRole(){
+    public void saveRole() {
     	addNewRolePage.saveRole();
     }
     
     @And ("User fills the new role form")
-    public void addNewRoleForm(){
+    public void addNewRoleForm() {
     	addNewRolePage.addRoleName(ROLE_NAME);
     	addNewRolePage.addDescription(ROLE_DESCRIPTION);
     	addNewRolePage.selectPrivileges();
     }
     
     @And ("User search for the created privilege")
-    public void searchPrivilege(){
+    public void searchPrivilege() {
     	manageprivilegesPage.searchForPrivilege(PRIVILEGE_NAME);
     }
     
     @And ("User edits privilege")
-    public void editPrivilegeForm(){
+    public void editPrivilegeForm() {
     	manageprivilegesPage.goToEditPrivilegePage();
     	addNewPrivilegePage.enterPrivilegeDescription("just testing the editing of a privilege");
     	addNewPrivilegePage.clickSaveButton();
     }
     
     @And ("User edits the role")
-    public void editRoleForm(){
+    public void editRoleForm() {
         administrationManageRolesPage.goToEditRolePage(ROLE_NAME);
 	addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
 	addNewRolePage.selectPrivileges();
@@ -121,42 +121,42 @@ public class RolesAndPrivilegesSteps extends Steps {
 	}
     
     @And ("User clicks delete privilege")
-    public void deletePrivilege(){
+    public void deletePrivilege() {
     	manageprivilegesPage.deletePrivilege();
     }
     
     @And ("User clicks the Add New Role button on the manage roles page")
-    public void launchAddNewRolePage(){
+    public void launchAddNewRolePage() {
     	addNewRolePage = administrationManageRolesPage.goToAddNewRolePage();
     }
     
     @And ("User clicks on manage roles link on the advanced administration page")
-    public void launchManageRolesPage(){
+    public void launchManageRolesPage() {
     	administrationManageRolesPage = administrationPage.goToManageRolesPage();
     }
     
     @Then ("System confirms delete")
-    public void confirmPrivilegeDeletion(){
+    public void confirmPrivilegeDeletion() {
     	manageprivilegesPage.confirmPrivilegeDelete();
     }
     
     @Then ("User deletes role")
-    public void deleteRole(){
+    public void deleteRole() {
     	administrationManageRolesPage.deleteSelectedRoles();
     }
     
     @Then ("Privilege is saved successfully")
-    public void privilegeSuccessfullySaved(){
+    public void systemAddsPrivilege() {
     	assertTrue(textExists("Saved privilege"));
     }
     
     @Then ("Role is saved successfully")
-    public void roleSuccessfullySaved(){
+    public void systemAddsRole() {
     	assertTrue(textExists("Role saved"));
     }
     
     @And ("User selects the role to be deleted")
-    public void selectRole(){
+    public void selectRole() {
     	administrationManageRolesPage.selectRole();
     }
 }

@@ -118,7 +118,7 @@ public class RolesAndPrivilegesSteps extends Steps {
 	addNewRolePage.addDescription("Developers of the OpenMRS...edited for the e2e automation test");
 	addNewRolePage.selectPrivileges();
 	addNewRolePage.saveRole();
-	}
+    }
     
     @And ("User clicks delete privilege")
     public void deletePrivilege() {

@@ -15,6 +15,7 @@ import org.openqa.selenium.By;
 public class ConfigureMetadataPage extends Page {
 
 	protected static final String PAGE_URL = "adminui/metadata/configureMetadata.page";
+	private static final By MANAGE_PRIVILEGES_LINK = By.cssSelector("#org-openmrs-module-adminui-Privileges-org-openmrs-module-adminui-Privileges-extension"); 
 	private static final By MANAGE_LOCATION_ATTRIBUTE_TYPE_LINK = By.id("org-openmrs-module-adminui-manageLocationAttributeTypes-link-org-openmrs-module-adminui-manageLocationAttributeTypes-link-extension");
 	private static final By MANAGE_LOCATIONS_LINK = By.id("org-openmrs-module-adminui-manageLocations-link-org-openmrs-module-adminui-manageLocations-link-extension");
 	private static final By MANAGE_LOCATION_TAGS_LINK = By.id("org-openmrs-module-adminui-manageLocationTags-link-org-openmrs-module-adminui-manageLocationTags-link-extension");
@@ -31,6 +32,11 @@ public class ConfigureMetadataPage extends Page {
 	public ManageLocationsPage goToManageLocations() {
 		clickOn(MANAGE_LOCATIONS_LINK);
 		return new ManageLocationsPage(this);
+	}
+	
+	public ManagePrivilegesPage goToManagePrivilegesPage() {
+		clickOn(MANAGE_PRIVILEGES_LINK);
+		return new ManagePrivilegesPage(this);
 	}
 
 	public ManageLocationTagsPage goToManageLocationTagPage() {

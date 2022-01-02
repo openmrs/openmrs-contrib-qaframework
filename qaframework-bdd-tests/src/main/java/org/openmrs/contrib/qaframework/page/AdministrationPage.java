@@ -16,50 +16,51 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AdministrationPage extends Page {
 
 	private static final String URL = "/admin/index.htm";
-	private static final By MANAGE_USERS = By.cssSelector("#content a[href='/openmrs/admin/users/users.list']");
-	private static final By MANAGE_MODULES = By.cssSelector("#legacyui-manageModules a");
-	private final static By MANAGE_VISIT_TYPES = By.cssSelector("#legacyui-manageVisitTypes a");
-	private static final By MANAGE_PROVIDERS = By.cssSelector("#content a[href='/openmrs/admin/provider/index.htm']");
-	private static final By MANAGE_PERSONS = By.cssSelector("#content a[href='/openmrs/admin/person/index.htm']");
-	private static final By MANAGE_HTMLFORMS_PAGE = By.cssSelector("#content a[href*='/module/htmlformentry/htmlForms.list']");
+	private static final By MANAGE_USERS_LINK = By.cssSelector("#content a[href='/openmrs/admin/users/users.list']");
+	private static final By MANAGE_ROLES_LINK = By.cssSelector("#legacyui-manageRoles > a");
+	private static final By MANAGE_MODULES_LINK = By.cssSelector("#legacyui-manageModules a");
+	private final static By MANAGE_VISIT_TYPES_LINK = By.cssSelector("#legacyui-manageVisitTypes a");
+	private static final By MANAGE_PROVIDERS_LINK = By.cssSelector("#content a[href='/openmrs/admin/provider/index.htm']");
+	private static final By MANAGE_PERSONS_LINK = By.cssSelector("#content a[href='/openmrs/admin/person/index.htm']");
+	private static final By MANAGE_HTMLFORMS_PAGE_LINK = By.cssSelector("#content a[href*='/module/htmlformentry/htmlForms.list']");
 	private static final By REPORT_ADMINISTRATION_LINK = By.cssSelector("#content a[href*='/module/reporting/reports/manageReports.form']");
 
 	public AdministrationPage(Page page) {
 		super(page);
 	}
 
-	@Override
-	public String getPageUrl() {
-		return URL;
-	}
-
 	public ManageUserPage clickOnManageUsers() {
-		findElement(MANAGE_USERS).click();
+		findElement(MANAGE_USERS_LINK).click();
 		return new ManageUserPage(this);
+	}
+	
+	public AdministrationManageRolesPage goToManageRolesPage() {
+		clickOn(MANAGE_ROLES_LINK);
+		return new AdministrationManageRolesPage(this);
 	}
 
 	public ManageProviderPage clickOnManageProviders() {
-		clickOn(MANAGE_PROVIDERS);
+		clickOn(MANAGE_PROVIDERS_LINK);
 		return new ManageProviderPage(this);
 	}
 
 	public VisitTypeListPage goToVisitTypePage() {
-		findElement(MANAGE_VISIT_TYPES).click();
+		findElement(MANAGE_VISIT_TYPES_LINK).click();
 		return new VisitTypeListPage(this);
 	}
 
 	public ModulesPage goToManageModulesPage() {
-		findElement(MANAGE_MODULES).click();
+		findElement(MANAGE_MODULES_LINK).click();
 		return new ModulesPage(this);
 	}
 
 	public ManageHtmlFormsPage clickOnManageHtmlForms() {
-		clickOn(MANAGE_HTMLFORMS_PAGE);
+		clickOn(MANAGE_HTMLFORMS_PAGE_LINK);
 		return new ManageHtmlFormsPage(this);
 	}
 
 	public ManagePersonPage clickOnManagePersons() {
-		findElement(MANAGE_PERSONS).click();
+		findElement(MANAGE_PERSONS_LINK).click();
 		return new ManagePersonPage(this);
 	}
 
@@ -67,5 +68,10 @@ public class AdministrationPage extends Page {
 		waiter.until(ExpectedConditions.visibilityOfElementLocated(REPORT_ADMINISTRATION_LINK));
 		clickOn(REPORT_ADMINISTRATION_LINK);
 		return new ManageReportsPage(this);
+	}
+	
+	@Override
+	public String getPageUrl() {
+		return URL;
 	}
 }

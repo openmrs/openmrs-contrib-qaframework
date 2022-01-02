@@ -18,6 +18,7 @@
     "refapp2Form": "mvn test -Dcucumber.filter.tags='@selenium and @form'",
     "refapp2Allergy": "mvn test -Dcucumber.filter.tags='@selenium and @allergies'",
     "refapp2Report": "mvn test -Dcucumber.filter.tags='@selenium and @report'",
+    "refapp2RolesAndPrivileges":"mvn test -Dcucumber.filter.tags='@selenium and @rolesAndPrivileges'",
     "refapp2FindPatient": "mvn test -Dcucumber.filter.tags='@selenium and @findPatient'",
     "refapp2PatientDemographics":"mvn test -Dcucumber.filter.tags='@selenium and @patientDemographics'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",

@@ -52,28 +52,28 @@ public class AllergiesSteps extends Steps {
 		quit();
 	}
 
-	@Given("a user clicks on Allergies link from Patient dashboard")
-	public void loadAllergiesPage() {
+	@Given("a user clicks on Allergies link from the Patient dashboard")
+	public void loadAllergiesBoardPage() {
 		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink().waitForPage();
 	}
 
-	@Then("the system loads Allergies page")
-	public void systemLoadsAllergiesPage() {
+	@Then("the system loads the Allergies board page")
+	public void systemLoadsAllergiesBoardPage() {
 		assertEquals(getElement(patientHeaderId).getText(),getElement(patientHeaderId).getText());
 		assertTrue(textExists("Allergies"));
 	}
 
-	@And("a user clicks No Known Allergy button")
+	@When("a user clicks No Known Allergy button")
 	public void addNoKnownAllergy() {
 		allergyPage.addNoKnownAllergy();
 	}
 
-	@Then("the system add no known allergies into the allergies table")
+	@Then("the system adds no known allergies into the allergies table")
 	public void systemAddsNoKnownAllergies() {
 		assertTrue(textExists("No known allergies"));
 	}
 
-	@And("a user clicks Remove No Known Allergy icon")
+	@When("a user clicks Remove No Known Allergy icon")
 	public void removeNoKnownAllergy() {
 		allergyPage.removeNoKnownAllergy();
 	}
@@ -83,32 +83,70 @@ public class AllergiesSteps extends Steps {
 		assertTrue(textExists("Unknown"));
 	}
 	
-	@When("a user adds a known allergy into the system")
-	public void addKnownAllergy() {
+	@When("a user clicks Add New Allergy button")
+	public void loadAddAllergyPage() {
 		addOrEditAllergyPage = allergyPage.clickOnAddNewAllergy();
+	}
+	
+	@Then("the system loads add new allergy page")
+	public void systemLoadsAddAllergyPage() {
+		assertTrue(textExists("Add New Allergy"));
+	}
+	
+	@And("a user selects an allergy")
+	public void selectKnownAllergy() {
 		addOrEditAllergyPage.enterDrug(DRUG_NAME);
 		addOrEditAllergyPage.drugId();
 		addOrEditAllergyPage.enterReaction(REACTION);
 		addOrEditAllergyPage.reactionId();
 		addOrEditAllergyPage.addAllergyNote(ALLERGY_NOTE);
-		allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
+	}
+	
+	@And("a user clicks on the save allergy button")
+	public void saveAllergy() {
+		addOrEditAllergyPage.clickOnSaveAllergy();
+	}
+	
+	@Then("the system adds known allergies into allergies table")
+	public void systemAddsKnownAllergies() {
 		assertTrue(allergyPage.getAllergen().contains(DRUG_NAME));
 	}
 	
-	@Then("a user edits a known allergy")
-	public void EditKnownAllergy() {
+	@When("a user clicks on the edit Allergy icon")
+	public void loadEditAllergyPage() {
 		addOrEditAllergyPage = allergyPage.clickOnEditAllergy();
+	}
+	
+	@Then("the system loads edit allergy page")
+	public void systemLoadsEditAllergyPage() {
+		assertTrue(textExists("Edit Allergy"));
+	}
+	
+	@And("a user edits an allergy")
+	public void EditKnownAllergy() {
 		addOrEditAllergyPage.enterReaction(NEW_REACTION);
 		addOrEditAllergyPage.reactionId();
 		addOrEditAllergyPage.addAllergyNote(NEW_ALLERGY_NOTE);
-		allergyPage = addOrEditAllergyPage.clickOnSaveAllergy();
-		assertTrue(allergyPage.getReaction().contains(NEW_REACTION));
 	}
 	
-	@And("a user deletes a known allergy")
-	public void DeleteKnownAllergy() {
+	@Then("the system adds edited allergies into the allergies table")
+	public void systemAddsEditedAllergies() {
+		assertTrue(allergyPage.getReaction().contains(NEW_REACTION));
+	}
+		
+	@When("a user clicks on the delete Allergy icon")
+	public void clickOnDeleteAllergyIcon() {
 		allergyPage.clickOnDeleteAllergy();
+	}
+	
+	@Then("a user confirms the delete action")
+	public void clickOnConfirmDeleteAllergy() {
 		allergyPage.clickOnConfirmDeleteAllergy();
+	}
+	
+	@And("the system deletes an allergy from the allergies table")
+	public void systemDeletesAllergy() {
 		assertTrue(allergyPage.getAllergyStatus().contains("Unknown"));
+		allergyPage.clickOnReturn();
 	}
 }

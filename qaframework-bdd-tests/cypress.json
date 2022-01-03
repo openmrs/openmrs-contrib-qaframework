@@ -11,7 +11,7 @@
     "API_BASE_URL": "https://o3.openmrs.org/openmrs/ws/rest/v1",
     "ADMIN_USERNAME": "admin",
     "ADMIN_PASSWORD": "Admin123",
-    "ADMIN_UUID": "8f24ac87-2d71-4574-991e-978036f8095",
+    "ADMIN_UUID": "82f18b44-6814-11e8-923f-e9a88dcb533f",
     "DEFAULT_LOCATION_UUID": "ba685651-ed3b-4e63-9b35-78893060758a",
     "DEFAULT_LOCATION_NAME": "Inpatient Ward",
     "OCL_USER_TOKEN": "",

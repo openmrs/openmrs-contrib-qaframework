@@ -11,6 +11,8 @@ package org.openmrs.contrib.qaframework.automation;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -22,6 +24,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 public class LoginSteps extends Steps {
+	Logger log = Logger.getLogger(LoginSteps.class.getName());
 
 	@After(RunTest.HOOK.SELENIUM)
 	public void destroy() {
@@ -46,6 +49,7 @@ public class LoginSteps extends Steps {
 
 	@Given("User visits login page")
 	public void visitLoginPage() throws Exception {
+		log.info(".... Login.......");
 		goToLoginPage();
 	}
 

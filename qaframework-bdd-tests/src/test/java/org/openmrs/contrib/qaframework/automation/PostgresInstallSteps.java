@@ -16,10 +16,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.logging.Logger;
+
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 
 public class PostgresInstallSteps extends InitialSetupSteps {
+	Logger log = Logger.getLogger(PostgresInstallSteps.class.getName());
 	
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.POSTGRES_INSTALL)
 	public void init() {
@@ -33,6 +36,7 @@ public class PostgresInstallSteps extends InitialSetupSteps {
 
 	@Given("User selects Language on step one of postgres Installation")
 	public void selectLanguage() {
+		log.info(".... postgres Installation.......");
 		initialSetupPage.installationSelectLanguage();
 	}
 

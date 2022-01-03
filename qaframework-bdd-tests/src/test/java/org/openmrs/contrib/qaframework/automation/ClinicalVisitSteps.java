@@ -68,6 +68,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@Given("a user clicks on active visits link from home page")
 	public void launchPatientDashboardActiveVisits() {
+		System.out.println(".... Clinical visits.......");
 		activeVisitsPage = homePage.goToActiveVisitsSearch();
 	}
 

@@ -12,6 +12,8 @@ package org.openmrs.contrib.qaframework.automation;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -22,6 +24,7 @@ import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AllergyPage;
 
 public class AllergiesSteps extends Steps {
+	Logger log = Logger.getLogger(AllergiesSteps.class.getName());
 	
 	private AllergyPage allergyPage;
 
@@ -37,6 +40,7 @@ public class AllergiesSteps extends Steps {
 
 	@Given("a user clicks on Allergies link from Patient dashboard")
 	public void loadAllergiesPage() {
+		log.info(".... Allergies.......");
 		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink().waitForPage();
 	}
 

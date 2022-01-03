@@ -7,6 +7,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.logging.Logger;
+
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManageReportsPage;
@@ -16,6 +18,7 @@ import org.openmrs.contrib.qaframework.page.RunReportPage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
 public class ReportSteps extends Steps {
+	Logger log = Logger.getLogger(ReportSteps.class.getName());
 
 	private SystemAdministrationPage systemAdministrationPage;
 	private AdministrationPage administrationPage;
@@ -38,6 +41,7 @@ public class ReportSteps extends Steps {
 
 	@Given("a user go to system administartion app")
 	public void clickOnSystemAdministrationPage() {
+		log.info(".... Report.......");
 		systemAdministrationPage = homePage.goToSystemAdministrationPage();
 	}
 

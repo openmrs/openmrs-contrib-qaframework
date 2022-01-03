@@ -16,6 +16,8 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.logging.Logger;
+
 import org.junit.Assert;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.StylesGuidePage;
@@ -23,7 +25,8 @@ import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 import org.openqa.selenium.By;
 
 public class StylesGuideSteps extends Steps {
-	
+	Logger log = Logger.getLogger(StylesGuidePage.class.getName());
+
 	private SystemAdministrationPage systemAdministrationPage;
 	private StylesGuidePage stylesGuidePage;
 
@@ -39,6 +42,7 @@ public class StylesGuideSteps extends Steps {
 
 	@Given("user navigates to the systems admin page")
 	public void navigateToSystemsPage() {
+		System.out.println(".... styles Guide.......");
 		systemAdministrationPage = homePage.goToSystemAdministrationPage();
 	}
 

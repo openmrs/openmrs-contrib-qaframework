@@ -11,6 +11,8 @@ package org.openmrs.contrib.qaframework.automation;
 
 import static org.junit.Assert.assertNotNull;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -23,6 +25,7 @@ import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openqa.selenium.By;
 
 public class FindPatientSteps extends Steps {
+	Logger log = Logger.getLogger(FindPatientPage.class.getName());
 
 	private TestData.PatientInfo testPatient;
 
@@ -40,6 +43,7 @@ public class FindPatientSteps extends Steps {
 
 	@Given("User clicks on Find Patient App")
 	public void visitFindPatientPage() {
+		log.info(".... Find patient .......");
 		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
 	}
 

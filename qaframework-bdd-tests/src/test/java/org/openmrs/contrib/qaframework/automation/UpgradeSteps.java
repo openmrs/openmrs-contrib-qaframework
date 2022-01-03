@@ -15,10 +15,13 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.logging.Logger;
+
 import org.openmrs.contrib.qaframework.RunTest;
 
 public class UpgradeSteps extends InitialSetupSteps {
-	
+	Logger log = Logger.getLogger(UpgradeSteps.class.getName());
+
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)
 	public void init() {
 		initialSetup();
@@ -31,6 +34,7 @@ public class UpgradeSteps extends InitialSetupSteps {
 
 	@Given("User enters credentials")
 	public void enterCredentials() {
+		log.info(".... Upgrade credentials.......");
 		initialSetupPage.enterUsernameAndPassword();
 	}
 

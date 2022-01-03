@@ -12,6 +12,8 @@ package org.openmrs.contrib.qaframework.automation;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -26,6 +28,8 @@ import org.openmrs.contrib.qaframework.page.ConditionsPage;
 import org.openqa.selenium.By;
 
 public class ConditionsSteps extends Steps {
+	Logger log = Logger.getLogger(ConditionsSteps.class.getName());
+
     private ConditionsPage conditionsPage;
     private String patientDashboardId;
     private By addNewCondition = By.id("conditionui-addNewCondition");
@@ -49,6 +53,7 @@ public class ConditionsSteps extends Steps {
     
 	@Given("User clicks on Conditions from Patient dashboard")
 	public void launchManageConditions() {
+		log.info("....conditions.......");
 		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
 	}
 

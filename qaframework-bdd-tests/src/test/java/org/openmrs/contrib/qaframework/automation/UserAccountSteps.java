@@ -20,6 +20,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import java.util.List;
+import java.util.logging.Logger;
 
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openmrs.contrib.qaframework.RunTest;
@@ -27,6 +28,7 @@ import org.openmrs.contrib.qaframework.page.ManageUserAccountPage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
 public class UserAccountSteps extends Steps {
+	Logger log = Logger.getLogger(UserAccountSteps.class.getName());
 
 	private static final String SYSTEM_ALERT = "Atleast 8 character(s) are required";
 	private static final String CLERK = RandomStringUtils.randomAlphabetic(8);
@@ -47,6 +49,7 @@ public class UserAccountSteps extends Steps {
 
 	@Given("a user clicks on system administartion app from home page")
 	public void goToSystemAdministrationPage() {
+		log.info(".... User account .......");
 		systemAdministrationPage = homePage.goToSystemAdministrationPage();
 	}
 

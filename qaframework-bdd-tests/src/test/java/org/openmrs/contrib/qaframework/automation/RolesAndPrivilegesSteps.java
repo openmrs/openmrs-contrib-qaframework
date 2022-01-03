@@ -11,6 +11,8 @@ package org.openmrs.contrib.qaframework.automation;
 
 import static org.junit.Assert.assertTrue;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -29,6 +31,7 @@ import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 import org.openmrs.contrib.qaframework.page.AdministrationManageRolesPage;
 
 public class RolesAndPrivilegesSteps extends Steps {
+    Logger log = Logger.getLogger(RolesAndPrivilegesSteps.class.getName());
 
 	private static final String ROLE_DESCRIPTION = "for e2e automation test";
 	private static final String PRIVILEGE_DESCRIPTION = "This privilege is just one developed for the roles&privileges e2e test";
@@ -44,7 +47,7 @@ public class RolesAndPrivilegesSteps extends Steps {
 	
     @Before(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
     public void visitDashboard() {
-	initiateWithLogin();
+	    initiateWithLogin();
     }
 	
     @After(RunTest.HOOK.SELENIUM_ROLES_AND_PRIVILEGES)
@@ -54,6 +57,7 @@ public class RolesAndPrivilegesSteps extends Steps {
     
     @Given("User clicks on configure metadata link from home page")
     public void launchConfigureMetadataPage() {
+        log.info(".... Roles and Privileges.......");
     	configuremetadatapage = homePage.goToConfigureMetadata();
     }
     

@@ -14,6 +14,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -28,6 +30,7 @@ import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.PatientCaptureVitalsPage;
 
 public class VitalsAndTriagingSteps extends Steps {
+	Logger log = Logger.getLogger(VitalsAndTriagingSteps.class.getName());
 
 	private PatientCaptureVitalsPage patientCaptureVitalsPage;
 	private TestData.PatientInfo testPatient;
@@ -52,6 +55,7 @@ public class VitalsAndTriagingSteps extends Steps {
 
 	@Given("a user clicks on Capture Vitals link from Patient dashboard")
 	public void loadVitalsPage() {
+		log.info(".... Vitals and Trianging.......");
 		patientCaptureVitalsPage = (PatientCaptureVitalsPage) dashboardPage.goToPatientCaptureVitalsPage().waitForPage();
 	}
 

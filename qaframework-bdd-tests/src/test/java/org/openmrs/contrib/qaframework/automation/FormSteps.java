@@ -12,6 +12,8 @@ package org.openmrs.contrib.qaframework.automation;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -26,6 +28,8 @@ import org.openmrs.contrib.qaframework.page.ManageHtmlFormsPage;
 import org.openqa.selenium.By;
 
 public class FormSteps extends Steps {
+	Logger log = Logger.getLogger(FormSteps.class.getName());
+
 	private static final String NAME = "newFormTest1";
 	private static final String DESCRIPTION = "description of new form";
 	private static final String VERSION = "1.2";
@@ -46,6 +50,7 @@ public class FormSteps extends Steps {
 	
 	@Given("a user click on manage html forms")
 	public void clickOnManageHtmlFormsPage() {
+		log.info(".... Forms.......");
 		manageHtmlFormsPage = homePage.goToAdministration().clickOnManageHtmlForms();
 	}
 

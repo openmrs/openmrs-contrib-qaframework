@@ -16,11 +16,14 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import java.util.logging.Logger;
+
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 
 public class SimpleInstallSteps extends InitialSetupSteps {
-	
+	Logger log = Logger.getLogger(SimpleInstallSteps.class.getName());
+
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.SIMPLE_INSTALL)
 	public void init() {
 		initialSetup();
@@ -33,6 +36,7 @@ public class SimpleInstallSteps extends InitialSetupSteps {
 
 	@Given("User selects Language on step one of Simple Installation")
 	public void selectLanguage() {
+		log.info(".... simple installation.......");
 		initialSetupPage.installationSelectLanguage();
 	}
 

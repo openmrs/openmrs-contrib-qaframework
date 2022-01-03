@@ -12,6 +12,8 @@ package org.openmrs.contrib.qaframework.automation;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.After;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -26,6 +28,7 @@ import org.openmrs.contrib.qaframework.page.RegistrationPage;
 import org.openqa.selenium.By;
 
 public class RegistrationSteps extends Steps {
+	Logger log = Logger.getLogger(RegistrationSteps.class.getName());
 
 	private RegistrationPage registrationPage;
 	private TestPatient patient;
@@ -37,6 +40,7 @@ public class RegistrationSteps extends Steps {
 
 	@Given("Registered user rightly logs in")
 	public void registrationLogin() throws Exception {
+		log.info(".... Registration.......");
 		goToLoginPage();
 		loginPage = getLoginPage();
 		loginPage.login("clerk", "Clerk123", "Registration Desk");

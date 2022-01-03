@@ -13,6 +13,8 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertTrue;
 
+import java.util.logging.Logger;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -24,6 +26,7 @@ import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
 
 public class InpatientSteps extends Steps {
+	Logger log = Logger.getLogger(InpatientSteps.class.getName());
 
 	private TestData.PatientInfo testPatient;
 
@@ -41,6 +44,7 @@ public class InpatientSteps extends Steps {
 
 	@Given("a user clicks on Find Patient app from Home page")
 	public void goToFindPatientRecordPage() {
+		log.info(".... Inpatient Test.......");
 		findPatientPage = homePage.goToFindPatientRecord();
 	}
 

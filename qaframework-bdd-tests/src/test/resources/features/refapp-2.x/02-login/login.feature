@@ -11,6 +11,10 @@ Feature: User Login
     And User Selects "<location>" Login Location
     And User Logs in
     Then System Evaluates Login "<status>"
+    Then User logs in as clerk
+    And  User logs in as doctor
+    And  User logs in as Nurse
+    Then User logs in system admin
     Examples:
       | username  | password  | location      | status |
       | admin     | wrongPas  | firstLocation | false  |

@@ -24,7 +24,6 @@ public class AllergyPage extends Page {
 	private static final By ADD_NO_KNOWN = By.xpath("//*[contains(text(),'No Known Allergy')]");
 	private static final By DELETE_NO_KNOWN = By.className("delete-action");
 	private static final By RETURN_BUTTON = By.cssSelector("#content > button.cancel");
-	
 
 	public AllergyPage(Page page) {
 		super(page);

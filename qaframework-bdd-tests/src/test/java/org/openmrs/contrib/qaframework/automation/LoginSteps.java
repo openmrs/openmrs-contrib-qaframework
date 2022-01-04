@@ -89,12 +89,6 @@ public class LoginSteps extends Steps {
 		getLoginButton().click();
 	}
 
-	public void initiateHomePage(){
-		homePage = new HomePage(page);
-		assertPage(homePage.waitForPage());
-
-	}
-	
 	@Then("System Evaluates Login {string}")
 	public void evaluateLogin(String status) {
 		if (status.trim().endsWith("true")) {
@@ -107,7 +101,8 @@ public class LoginSteps extends Steps {
 	@Then("User logs in as clerk")
 	public void verifyClerkModulesAvailableOnHomePage() {
 		goToLoginPage().loginAsClerk();
-		initiateHomePage();
+		HomePage homePage = new HomePage(page);
+		assertPage(homePage.waitForPage());
 		assertTrue(homePage.isActiveVisitsAppPresent());
 		assertTrue(homePage.isAppointmentSchedulingAppPresent());
 		assertTrue(homePage.isRegisterPatientCustomizedForRefAppPresent());
@@ -116,7 +111,8 @@ public class LoginSteps extends Steps {
 	@And("User logs in as doctor")
 	public void verifyDoctorModulesAvailableOnHomePage() {
 		goToLoginPage().loginAsDoctor();
-		initiateHomePage();
+		HomePage homePage = new HomePage(page);
+		assertPage(homePage.waitForPage());
 		assertTrue(homePage.isFindAPatientAppPresent());
 		assertTrue(homePage.isActiveVisitsAppPresent());
 		assertTrue(homePage.isAppointmentSchedulingAppPresent());
@@ -125,7 +121,8 @@ public class LoginSteps extends Steps {
 	@And("User logs in as Nurse")
 	public void verifyNurseModulesAvailableOnHomePage() {
 		goToLoginPage().loginAsNurse();
-		initiateHomePage();
+		HomePage homePage = new HomePage(page);
+		assertPage(homePage.waitForPage());
 		assertTrue(homePage.isFindAPatientAppPresent());
 		assertTrue(homePage.isActiveVisitsAppPresent());
 		assertTrue(homePage.isAppointmentSchedulingAppPresent());
@@ -135,7 +132,8 @@ public class LoginSteps extends Steps {
 	@Then("User logs in system admin")
 	public void verifySysadminModulesAvailableOnHomePage() {
 		goToLoginPage().loginAsSysadmin();
-		initiateHomePage();
+		HomePage homePage = new HomePage(page);
+		assertPage(homePage.waitForPage());
 		assertTrue(homePage.isAppointmentSchedulingAppPresent());
 		assertTrue(homePage.isSystemAdministrationAppPresent());
 	}

@@ -101,7 +101,7 @@ public class LoginSteps extends Steps {
 	@Then("User logs in as clerk")
 	public void verifyClerkModulesAvailableOnHomePage() {
 		goToLoginPage().loginAsClerk();
-		HomePage homePage = new HomePage(page);
+		homePage = new HomePage(page);
 		assertPage(homePage.waitForPage());
 		assertTrue(homePage.isActiveVisitsAppPresent());
 		assertTrue(homePage.isAppointmentSchedulingAppPresent());
@@ -111,7 +111,7 @@ public class LoginSteps extends Steps {
 	@And("User logs in as doctor")
 	public void verifyDoctorModulesAvailableOnHomePage() {
 		goToLoginPage().loginAsDoctor();
-		HomePage homePage = new HomePage(page);
+		homePage = new HomePage(page);
 		assertPage(homePage.waitForPage());
 		assertTrue(homePage.isFindAPatientAppPresent());
 		assertTrue(homePage.isActiveVisitsAppPresent());
@@ -121,7 +121,7 @@ public class LoginSteps extends Steps {
 	@And("User logs in as Nurse")
 	public void verifyNurseModulesAvailableOnHomePage() {
 		goToLoginPage().loginAsNurse();
-		HomePage homePage = new HomePage(page);
+		homePage = new HomePage(page);
 		assertPage(homePage.waitForPage());
 		assertTrue(homePage.isFindAPatientAppPresent());
 		assertTrue(homePage.isActiveVisitsAppPresent());
@@ -132,7 +132,7 @@ public class LoginSteps extends Steps {
 	@Then("User logs in system admin")
 	public void verifySysadminModulesAvailableOnHomePage() {
 		goToLoginPage().loginAsSysadmin();
-		HomePage homePage = new HomePage(page);
+		homePage = new HomePage(page);
 		assertPage(homePage.waitForPage());
 		assertTrue(homePage.isAppointmentSchedulingAppPresent());
 		assertTrue(homePage.isSystemAdministrationAppPresent());

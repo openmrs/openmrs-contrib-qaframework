@@ -53,12 +53,12 @@ public class AllergiesSteps extends Steps {
 	}
 
 	@Given("a user clicks on Allergies link from the Patient dashboard")
-	public void loadAllergiesBoardPage() {
+	public void loadAllergiesPage() {
 		allergyPage = (AllergyPage) dashboardPage.clickOnAllergiesWidgetLink().waitForPage();
 	}
 
 	@Then("the system loads the Allergies board page")
-	public void systemLoadsAllergiesBoardPage() {
+	public void systemLoadsAllergiesPage() {
 		assertEquals(getElement(patientHeaderId).getText(),getElement(patientHeaderId).getText());
 		assertTrue(textExists("Allergies"));
 	}

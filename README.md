@@ -30,7 +30,7 @@ Install & Upgrade Tests |
 [![RefApp 2.x Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-registration.yml)
 [![RefApp 2.x Roles And Privileges](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-roles-and-privileges.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-roles-and-privileges.yml)
 [![RefApp 2.x Find Patient](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-find-Patient.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-find-Patient.yml)
-[![RefApp 2.x Patient Demographics](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-demograpics.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-demograpics.yml)
+[![RefApp 2.x Patient Demographics](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-demographics.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-demographics.yml)
 [![RefApp 2.x User Account](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user-account.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user-account.yml)
 [![RefApp 2.x Report](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-report.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-report.yml)
 [![RefApp 2.x Form](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-form.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-form.yml)
@@ -76,10 +76,13 @@ OpenMRS [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) QA fram
 - `mvn clean install -DskipTests=true`
 
 ## Configuration
-Set Your test configurations in `src/test/resources/org/openmrs/uitestframework/test.properties`.
+Set Your test configurations in `qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test.properties`.
 MySQL password should be the same for initialSetupTests as openmrs password
 
 ## Running test projects
+
+### Navigate into bdd tests module
+- `cd qaframework-bdd-tests`
 
 ### Running Ref app selenium tests
 - `npm run refappSelenium`
@@ -109,13 +112,17 @@ MySQL password should be the same for initialSetupTests as openmrs password
      git clone git@github.com:openmrs/openmrs-contrib-qaframework.git
      cd openmrs-contrib-qaframework
     ```
+1. Navigate into bdd tests module
+    ```
+     cd qaframework-bdd-tests
+    ```
 1. Install the dependencies
     ```
     npm install
     ```
 You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://openmrs-spa.org/openmrs/spa) for the test backend.
 
-## Running tests
+## Running tests`
 
 There are two ways of running tests:
 
@@ -134,7 +141,7 @@ There are two ways of running tests:
     npm run refapp3Login
     ```
     
-    See the `scripts` section of [package.json](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/package.json).
+    See the `scripts` section of [package.json](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/qaframework-bdd-tests/package.json).
 
 Tests might be timed out on slow internet connections. In that case, try increasing the `defaultCommandTimeout` setting in the 'cypress.json' file.
 
@@ -180,11 +187,11 @@ Tests might be timed out on slow internet connections. In that case, try increas
 
 
 ## Writing a new test
-1. Create a new directory with your feature file under `/src/test/resources/features/refapp-3.x/`.
+1. Create a new directory with your feature file under `/qaframework-bdd-tests/src/test/resources/features/refapp-3.x/`.
     
     The name of the directory should be `<sequence>-<name>`.
     
-    [Example feature file](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/src/test/resources/features/refapp-2.x/stylesGuide.feature)
+    [Example of a feature file](https://github.com/openmrs/openmrs-contrib-qaframework/blob/master/qaframework-bdd-tests/src/test/resources/features/refapp-2.x/stylesGuide.feature)
     
 1. Create a new directory with the same name under  `cypress/integration/cucumber/step_definitions/refapp-3.x/` to store the step definition file.
     See the [cypress-cucumber-preprocessor docs](https://github.com/TheBrainFamily/cypress-cucumber-preprocessor#readme)

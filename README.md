@@ -121,11 +121,7 @@ MySQL password should be the same for initialSetupTests as openmrs password
     ```
 You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://openmrs-spa.org/openmrs/spa) for the test backend.
 
-## Running tests
-Navigate into bdd tests module
-   ```
-   cd qaframework-bdd-tests
-   ```
+## Running tests`
 
 There are two ways of running tests:
 

@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./qaframework-bdd-tests
     steps:
       - uses: actions/checkout@v2
       - name: Using Node.js
@@ -24,8 +27,6 @@ jobs:
           docker-compose -f docker-compose-refqa.yml up -d
       - name: wait for openmrs instance to start
         run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/login.htm)" != "200" ]]; do sleep 1; done
-      - name: Navigate into qaframework-bdd-tests
-        run: cd qaframework-bdd-tests
       - name: Run ocl subscription module
         env:
           CYPRESS_OCL_USER_NAME: ${{secrets.OCL_USER_NAME}}

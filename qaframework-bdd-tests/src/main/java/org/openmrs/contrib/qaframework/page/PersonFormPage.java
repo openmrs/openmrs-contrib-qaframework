@@ -14,26 +14,26 @@ import org.openqa.selenium.By;
 
 public class PersonFormPage extends Page {
 
-	private static final By FAMILY_NAME_FIELD = By.cssSelector("#namePortlet > div > table > tbody > tr:nth-child(4) > td:nth-child(2) > input[type=\"text\"]");
-	private static final By SAVE_PERSON = By.id("saveButton");
+	private static final By FAMILY_NAME_FIELD = By.name("names[0].familyName");
+	private static final By SAVE_PERSON_BUTTON = By.id("saveButton");
 	private static final By OPENMRS_MSG = By.id("openmrs_msg");
-	private static final By DELETE_PERSON_FOREVER = By.id("deletePersonButton");
-	private static final By DELETE_PERSON_CONFIRM = By.cssSelector("#deletePersonDiv > div > input[type=\"submit\"]:nth-child(1)");
+	private static final By DELETE_PERSON_FOREVER_BUTTON = By.id("deletePersonButton");
+	private static final By DELETE_PERSON_CONFIRM_BUTTON= By.cssSelector("#deletePersonDiv > div > input[type=\"submit\"]:nth-child(1)");
 	private static final By RETIRE_REASON_FIELD = By.cssSelector("#content input[name=\"voidReason\"]");
-	private static final By RETIRE_PERSON = By.cssSelector("#content > form:nth-child(10) > fieldset:nth-child(1) > input:nth-child(6)");
+	private static final By RETIRE_PERSON_BUTTON = By.cssSelector("#content fieldset input[type=submit]:nth-child(6)");
 
 	public PersonFormPage(Page parent) {
 		super(parent);
 	}
 
 	public void savePerson() {
-		clickOn(SAVE_PERSON);
+		clickOn(SAVE_PERSON_BUTTON);
 		waitForTextToBePresentInElement(OPENMRS_MSG, "Person saved");
 	}
 
 	public ManagePersonPage deletePersonForever() {
-		clickOn(DELETE_PERSON_FOREVER);
-		clickOn(DELETE_PERSON_CONFIRM);
+		clickOn(DELETE_PERSON_FOREVER_BUTTON);
+		clickOn(DELETE_PERSON_CONFIRM_BUTTON);
 		acceptAlert();
 		ManagePersonPage managePersonPage = new ManagePersonPage(this);
 		managePersonPage.waitForPersonToBeDeleted();
@@ -60,7 +60,7 @@ public class PersonFormPage extends Page {
 	}
 
 	public void retirePerson() {
-		clickOn(RETIRE_PERSON);
+		clickOn(RETIRE_PERSON_BUTTON);
 		waitForTextToBePresentInElement(OPENMRS_MSG, "Person deleted");
 	}
 }

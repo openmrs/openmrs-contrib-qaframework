@@ -20,6 +20,7 @@
     "refapp2RolesAndPrivileges":"mvn test -Dcucumber.filter.tags='@selenium and @rolesAndPrivileges'",
     "refapp2FindPatient": "mvn test -Dcucumber.filter.tags='@selenium and @findPatient'",
     "refapp2PatientDemographics":"mvn test -Dcucumber.filter.tags='@selenium and @patientDemographics'",
+    "refapp2Person": "mvn test -Dcucumber.filter.tags='@selenium and @person'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
     "postgresCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",

@@ -25,6 +25,7 @@ public class RunTest {
 
 	public class HOOK {
 		public static final String LOGIN = "@login";
+		public static final String PERSON = "@person";
 		public static final String CONDITION = "@condition";
 		public static final String SELENIUM = "@selenium";
 		public static final String FORM = "@form";
@@ -51,6 +52,7 @@ public class RunTest {
 		public static final String SELENIUM_VITALS = SELENIUM + " and "+ VITALS;
 		public static final String SELENIUM_CLINICAL_VISIT = SELENIUM + " and "+ CLINICAL_VISIT;
 		public static final String SELENIUM_ENCOUNTER = SELENIUM + " and "+ INPATIENT;
+		public static final String SELENIUM_PERSON = SELENIUM + " and "+ PERSON;
 		public static final String SELENIUM_REGISTRATION = SELENIUM + " and "+ REGISTRATION;
 		public static final String SELENIUM_FIND_PATIENT = SELENIUM + " and "+ FIND_PATIENT;
 		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "+ USER_ACCOUNT;

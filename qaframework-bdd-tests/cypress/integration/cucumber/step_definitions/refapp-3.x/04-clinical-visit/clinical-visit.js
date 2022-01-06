@@ -111,7 +111,7 @@ Then('the added condition should be listed', () => {
 });
 
 Then('the test results should be shown', () => {
-    cy.contains('Viral load');
+    cy.contains('Prothrombin time');
 })
 
 When('the user clicks on timeline of a test', () => {
@@ -119,7 +119,7 @@ When('the user clicks on timeline of a test', () => {
 })
 
 Then('the timeline table should be shown', () => {
-    cy.contains('copies/ml');
+    cy.contains('Minute');
 })
 
 When('the user clicks on trend of a test', () => {

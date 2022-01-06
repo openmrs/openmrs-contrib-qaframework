@@ -147,6 +147,6 @@ public class AllergiesSteps extends Steps {
 	@And("the system deletes an allergy from the allergies table")
 	public void systemDeletesAllergy() {
 		assertTrue(allergyPage.getAllergyStatus().contains("Unknown"));
-		allergyPage.clickOnReturn();
+		dashboardPage = addOrEditAllergyPage.clickReturn();
 	}
 }

@@ -107,8 +107,8 @@ public class AllergiesSteps extends Steps {
 		addOrEditAllergyPage.clickOnSaveAllergy();
 	}
 	
-	@Then("the system adds known allergies into allergies table")
-	public void systemAddsKnownAllergies() {
+	@Then("the system adds known allergy into allergies table")
+	public void systemAddsKnownAllergy() {
 		assertTrue(allergyPage.getAllergen().contains(DRUG_NAME));
 	}
 	
@@ -123,14 +123,14 @@ public class AllergiesSteps extends Steps {
 	}
 	
 	@And("a user edits an allergy")
-	public void EditKnownAllergy() {
+	public void editKnownAllergy() {
 		addOrEditAllergyPage.enterReaction(NEW_REACTION);
 		addOrEditAllergyPage.reactionId();
 		addOrEditAllergyPage.addAllergyNote(NEW_ALLERGY_NOTE);
 	}
 	
-	@Then("the system adds edited allergies into the allergies table")
-	public void systemAddsEditedAllergies() {
+	@Then("the system adds edited allergy into the allergies table")
+	public void systemAddsEditedAllergy() {
 		assertTrue(allergyPage.getReaction().contains(NEW_REACTION));
 	}
 		

@@ -18,13 +18,13 @@ Feature: Allergies Management
     Then the system loads add new allergy page
     And a user selects an allergy
     And a user clicks on the save allergy button
-    Then the system adds known allergies into allergies table
+    Then the system adds known allergy into allergies table
     # User story: Edit known allergy
     When a user clicks on the edit Allergy icon
     Then the system loads edit allergy page
     And a user edits an allergy
     And a user clicks on the save allergy button
-    Then the system adds edited allergies into the allergies table
+    Then the system adds edited allergy into the allergies table
     # User story: Delete known allergy
     When a user clicks on the delete Allergy icon
     Then a user confirms the delete action

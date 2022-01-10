@@ -9,19 +9,19 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.helper.RestClient;
-import org.openmrs.contrib.qaframework.helper.TestData;
-import org.openmrs.contrib.qaframework.page.AdministrationPage;
-import org.openmrs.contrib.qaframework.page.ManageProviderPage;
-import org.openmrs.contrib.qaframework.page.ProviderPage;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.RestClient;
+import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.AdministrationPage;
+import org.openmrs.contrib.qaframework.page.ManageProviderPage;
+import org.openmrs.contrib.qaframework.page.ProviderPage;
 
 public class ProviderSteps extends Steps {
 	
@@ -47,7 +47,6 @@ public class ProviderSteps extends Steps {
     @After(RunTest.HOOK.SELENIUM_PROVIDER)
     public void tearDown() {
 	    quit();
-//	    RestClient.delete("person/" + personUuid, true);
 	    RestClient.delete("provider/" + providerUuid, true);
     }
     

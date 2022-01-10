@@ -46,8 +46,8 @@ public class ProviderSteps extends Steps {
     
     @After(RunTest.HOOK.SELENIUM_PROVIDER)
     public void tearDown() {
-	    quit();
-	    RestClient.delete("provider/" + providerUuid, true);
+	quit();
+	RestClient.delete("provider/" + providerUuid, true);
     }
     
     @Given("User clicks the system administration link on the home page")
@@ -78,25 +78,25 @@ public class ProviderSteps extends Steps {
     	providerPage = manageProviderPage.clickOnProvider(person.getName());
     }
 	
-	@Then ("User deletes provider forever")
-	public void deleteProviderForever() {
-		providerPage.deleteForever();
-	}
+    @Then ("User deletes provider forever")
+    public void deleteProviderForever() {
+	providerPage.deleteForever();
+    }
 	
-	@Then ("User edits provider details")
-	public void editProviderDetails() {
+    @Then ("User edits provider details")
+    public void editProviderDetails() {
         providerPage.setIdentifier("uitest-" + person.uuid);
         providerPage.clickOnSave();
-	}
+    }
 	
-	@Then ("User retires a provider")
-	public void retireProvider() {
+    @Then ("User retires a provider")
+    public void retireProvider() {
         providerPage.setRetireReason("retire reason");
         providerPage.clickOnRetire();
-	}
+    }
 	
-	@Then ("User deletes provider")
-	public void deleteProvider() {
-		providerPage.deleteForever();
-	}	
+    @Then ("User deletes provider")
+    public void deleteProvider() {
+	providerPage.deleteForever();
+    }	
 }

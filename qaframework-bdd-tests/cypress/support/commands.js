@@ -76,7 +76,7 @@ Cypress.Commands.add('generateLabResults', (uuid) => {
     const labResults = {
         patient: uuid,
         encounterDatetime: "2012-02-05T04:03:02",
-        location: DEFAULT_LOCATION_UUID,
+        location: '6351fcf4-e311-4a19-90f9-35667d99a8af',
         encounterProviders: [
           {
             provider: "b917e518-9186-4981-90a0-f95625c18641",
@@ -333,7 +333,7 @@ Cypress.Commands.add('createPatient', (identifier = null) => {
             {
                 identifier,
                 identifierType: '05a29f94-c0ed-11e2-94be-8c13b969e334',
-                location: DEFAULT_LOCATION_UUID,
+                location: '6351fcf4-e311-4a19-90f9-35667d99a8af',
                 preferred: true
             }
         ]

@@ -23,7 +23,6 @@ import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.AddOrEditAllergyPage;
 import org.openmrs.contrib.qaframework.page.AllergyPage;
-import org.openmrs.contrib.qaframework.page.FindPatientPage;
 
 public class AllergiesSteps extends Steps {
 	
@@ -38,9 +37,9 @@ public class AllergiesSteps extends Steps {
 
 	@Before(RunTest.HOOK.SELENIUM_ALLERGIES)
 	public void visitDashboard() {
-		initiateWithLogin();
 		testPatient = createTestPatient();
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
+		initiateWithLogin();
+		findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
 		dashboardPage = findPatientPage.clickOnFirstPatient();	

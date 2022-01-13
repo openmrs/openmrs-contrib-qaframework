@@ -49,8 +49,8 @@ public class PersonSteps extends Steps {
 	
     @After(RunTest.HOOK.SELENIUM_PERSON)
     public void teardown() {
-	quit();
 	RestClient.delete("person/" + personUuid, true);
+	quit();
     }
 	
     @Given ("User clicks the system administration link on the home page")

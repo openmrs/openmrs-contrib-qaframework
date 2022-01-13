@@ -1,0 +1,23 @@
+# Resources to provision on app creation
+setup:
+  addons:
+    - plan: heroku-postgresql
+      as: DATABASE
+  config:
+    S3_BUCKET: openmrs-reference-application-distro
+# Reference the Dockerfile to build into Docker image
+build:
+  docker:
+    web: docker/docker-compose-refapp.yml
+# Run a command on each release 
+release:
+  command:
+    - ./deployment-tasks.sh
+  # Use the web image to execute the release command
+  image: web
+# The process types and commands to run
+run:
+  web: bundle exec puma -C config/puma.rb
+  asset-syncer:
+    command:
+      - python asset-syncer.py

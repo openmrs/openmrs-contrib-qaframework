@@ -1,8 +1,5 @@
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertNotNull;
-// import static org.hamcrest.Matchers.not;
-
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
@@ -11,7 +8,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
+// import io.cucumber.java.en.Then;
 
 public class VisitSteps extends Steps {
     
@@ -23,45 +20,34 @@ public class VisitSteps extends Steps {
         patient = createTestPatient();
         initiateWithLogin();
         new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
-        new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
+        findPatientPage = homePage.goToFindPatientRecord();
+        findPatientPage.enterPatient(patient.identifier);
+        dashboardPage = findPatientPage.clickOnFirstPatient();  
     }
 
     @After
     public void tearDown() throws Exception {
         quit();
-        // deletePatient(patient);
+        deletePatient(patient);
     }
 
-   @Given("User click on first Patient")
-   public void userClicksOnFirstPatient() {
-       findPatientPage = homePage.goToFindPatientRecord();
-       findPatientPage.enterPatient(patient.identifier);
-       dashboardPage = findPatientPage.clickOnFirstPatient();   
-   }
-   
-   @Then("User clicks on start visit")
+   @Given("User clicks on start visit")
    public void userClicksOnStartVisit(){
-       visitsDashboardPage = dashboardPage.startVisit();
+         dashboardPage.startVisit();
    }
 
    @And("the system loads patient visits dashboardPage")
    public void systemLoadsPatientVisitsDashboardPage() {
-       assertNotNull(visitsDashboardPage.getActiveVisit());
+      dashboardPage.waitForPage();
    }
 
-   @And("user goes back to the dashboardPage")
+   @And("user click on recent visit")
+   public void clickOnEndVisit(){
+       visitsDashboardPage= dashboardPage.goToRecentVisits();
+   }
+
+   @And("user clicks on end visit")
    public void systemGoesBackToHomePage() {
-       dashboardPage.go();
+       visitsDashboardPage.endVisit();
    }
-
-//    @Then("user clicks on past visit")
-//    public void userClickOnAddPastVisit(){
-//        visitsDashboardPage = dashboardPage.addPastVisit();
-//    }
-
-//    @And("system loads patient dashboard page")
-//    public void userloadsPatientDashboardPage(){
-//     //    assertThat(visitsDashboardPage.getVisitList().get(0).getAttribute("class"), is(not("no-results")));
-//    }
-   
 }

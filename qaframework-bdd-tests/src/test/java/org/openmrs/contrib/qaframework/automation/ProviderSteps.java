@@ -46,8 +46,9 @@ public class ProviderSteps extends Steps {
     
     @After(RunTest.HOOK.SELENIUM_PROVIDER)
     public void tearDown() {
+    RestClient.delete("provider/" + providerUuid, true);
+    RestClient.delete("person/" + personUuid, true);
 	quit();
-	RestClient.delete("provider/" + providerUuid, true);
     }
     
     @Given("User clicks the system administration link on the home page")

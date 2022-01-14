@@ -28,4 +28,4 @@ Feature: Provider Management
   @provider
   Scenario: Deleting Provider
     And User searches for the created provider
-    Then User deletes  a provider
+    Then User deletes a provider

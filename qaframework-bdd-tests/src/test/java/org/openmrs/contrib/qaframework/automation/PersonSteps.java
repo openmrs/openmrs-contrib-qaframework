@@ -53,17 +53,17 @@ public class PersonSteps extends Steps {
 	quit();
     }
 	
-    @Given ("User clicks the system administration link on the home page")
+    @Given ("User clicks on the system administration link on the home page")
     public void launchSystemAdministrationPage() {
     	administrationPage = homePage.goToAdministration();
     }
     
-    @When ("User clicks the manage Persons link on the administration page")
+    @When ("User clicks on the manage Persons link on the administration page")
     public void launchAdvancedAdministrationPage() {
     	managePersonPage = administrationPage.clickOnManagePersons();
     }
     
-    @And ("User clicks the create person link on the manage persons page")
+    @And ("User clicks on the create person link on the manage persons page")
     public void clickOnCreatePersonPage() {
     	addPersonPage = managePersonPage.createPerson();
     	addPersonPage.createPerson();
@@ -85,7 +85,7 @@ public class PersonSteps extends Steps {
     	managePersonPage.setPersonName(personInfo.givenName);
     }
     
-    @And ("User clicks the first person found from the search results")
+    @And ("User clicks on the first person found from the search results")
     public void clickFirstPersonFound() {
     	personFormPage = managePersonPage.clickFirstFoundPerson();
     }
@@ -97,7 +97,7 @@ public class PersonSteps extends Steps {
     	assertThat(personFormPage.getFamilyName(), is("newFamilyName"));
     }
     
-    @Then ("User clicks delete person forever button")
+    @Then ("User clicks on the delete person forever button")
     public void deletePersonForever() {
     	personFormPage.deletePersonForever();
     }
@@ -107,7 +107,7 @@ public class PersonSteps extends Steps {
     	personFormPage.setRetireReason("retire reason");
     }
     
-    @Then ("User clicks retire person button")
+    @Then ("User clicks on the retire person button")
     public void retirePerson() {
     	personFormPage.retirePerson();
     }

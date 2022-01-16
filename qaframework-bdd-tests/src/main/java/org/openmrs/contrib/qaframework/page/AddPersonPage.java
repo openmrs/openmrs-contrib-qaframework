@@ -15,10 +15,8 @@ import org.openqa.selenium.By;
 public class AddPersonPage extends Page {
 
 	private static final By PERSON_NAME= By.id("personName");
-	private static final By BIRTHDATE = By.id("birthdate");
 	private static final By AGE = By.id("age");
 	private static final By BIRTHDATE_FIELD = By.className("hasDatepicker");
-	private static final By AGE_FIELD = By.id("age");
 	private static final By GENDER_MALE = By.id("gender-M");
 	private static final By CREATE_PERSON_BUTTON = By.cssSelector("#createPatient input[type=\"submit\"]");
 
@@ -32,7 +30,7 @@ public class AddPersonPage extends Page {
 	}
 
 	public void setPersonName(String personName) {
-		setTextField(personName, PERSON_NAME_FIELD);
+		setTextField(personName, PERSON_NAME);
 	}
 
 	public void setBirthdate(String birthdate) {
@@ -40,7 +38,7 @@ public class AddPersonPage extends Page {
 	}
 
 	public void setAge(String age) {
-		setTextField(age, AGE_FIELD);
+		setTextField(age, AGE);
 	}
 
 	public void clickGenderMale() {

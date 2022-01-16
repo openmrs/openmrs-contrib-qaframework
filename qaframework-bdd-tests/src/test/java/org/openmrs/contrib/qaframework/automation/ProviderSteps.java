@@ -51,17 +51,17 @@ public class ProviderSteps extends Steps {
 	quit();
     }
     
-    @Given("User clicks the system administration link on the home page")
+    @Given("User clicks on the system administration link on the home page")
     public void launchSystemAdministrationPage() {
     	administrationPage = homePage.goToAdministration();
     }
     
-    @When ("User clicks the manage Provider link on the administration page")
+    @When ("User clicks on the manage Provider link on the administration page")
     public void launchAdvancedAdministrationPage() {
     	manageProviderPage = administrationPage.clickOnManageProviders();
     }
     
-    @And ("User clicks on add provider link")
+    @And ("User clicks on the add provider link")
     public void clickOnAddProviderLink() {
     	providerPage = manageProviderPage.clickOnAddProvider();
     }

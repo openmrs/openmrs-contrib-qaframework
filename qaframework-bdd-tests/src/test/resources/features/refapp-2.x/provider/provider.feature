@@ -1,13 +1,13 @@
 Feature: Provider Management
 
   Background: 
-    Given User clicks the system administration link on the home page
-    When User clicks the manage Provider link on the administration page
+    Given User clicks on the system administration link on the home page
+    When User clicks on the manage Provider link on the administration page
 
   @selenium
   @provider
   Scenario: Adding Provider
-    And User clicks on add provider link
+    And User clicks on the add provider link
     And User fills the provider form
     And User searches for the created provider
     Then User deletes provider forever

@@ -121,7 +121,7 @@ public class ProviderSteps extends Steps {
     }
     
     @Then ("a user retires the provider")
-    public void hjj() {
+    public void clickOnRetireButton() {
     	providerPage.clickOnRetire();
     }	
 }

@@ -13,6 +13,7 @@ Feature: Provider Management
     Then system loads add provider page
     And a user fills the provider form
     When a user searches for the created provider
+    And a user clicks on the provider in the search results
     Then a user deletes provider forever
 
   @selenium

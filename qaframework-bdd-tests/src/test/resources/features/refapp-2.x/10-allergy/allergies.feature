@@ -6,13 +6,17 @@ Feature: Allergies Management
 
   @selenium
   @allergies
-  Scenario: Allergies management
+  Scenario: Add and Remove No Known Allergy
     # User story: Add No known allergies
     When a user clicks No Known Allergy button
     Then the system adds no known allergies into the allergies table
     # User story: Remove No known allergies
     When a user clicks Remove No Known Allergy icon
     Then the system displays unknown in the allergies table
+
+  @selenium
+  @allergies
+  Scenario: Add, Edit and Delete A Known Allergy
     # User story: Add known allergy
     When a user clicks Add New Allergy button
     Then the system loads add new allergy page

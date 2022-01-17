@@ -16,12 +16,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.Assert.assertTrue;
+
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.RestClient;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManageProviderPage;
 import org.openmrs.contrib.qaframework.page.ProviderPage;
+import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
 public class ProviderSteps extends Steps {
 	
@@ -31,6 +34,7 @@ public class ProviderSteps extends Steps {
     private TestData.TestProvider provider;
     private AdministrationPage administrationPage;
     private ManageProviderPage manageProviderPage;
+    private SystemAdministrationPage systemAdministrationPage;
     private ProviderPage providerPage;
 	
     @Before(RunTest.HOOK.SELENIUM_PROVIDER)
@@ -53,17 +57,32 @@ public class ProviderSteps extends Steps {
     
     @Given("User clicks on the system administration link on the home page")
     public void launchSystemAdministrationPage() {
-    	administrationPage = homePage.goToAdministration();
+    	administrationPage = homePage.goToAdministration(); 	
     }
     
-    @When ("User clicks on the manage Provider link on the administration page")
+    @Then ("System loads system administration page")
+    public void systemLoadsSystemAdministrationPage() {
+    	assertPage(systemAdministrationPage.waitForPage());
+    }
+    
+    @And ("User clicks on the manage Provider link on the administration page")
     public void launchAdvancedAdministrationPage() {
     	manageProviderPage = administrationPage.clickOnManageProviders();
     }
     
-    @And ("User clicks on the add provider link")
+    @Then ("System loads manage provider page")
+    public void systemLoadsManageProviderPage() {
+    	assertTrue(textExists("Manage Providers"));
+    }
+    
+    @When ("User clicks on the add provider link")
     public void clickOnAddProviderLink() {
     	providerPage = manageProviderPage.clickOnAddProvider();
+    }
+    
+    @Then ("System loads add provider page")
+    public void systemLoadsAddProviderPage() {
+    	assertTrue(textExists("Add Provider"));
     }
     
     @And ("User fills the provider form")
@@ -73,7 +92,7 @@ public class ProviderSteps extends Steps {
         manageProviderPage = providerPage.clickOnSave();
     }
     
-    @And ("User searches for the created provider")
+    @When ("User searches for the created provider")
     public void searchForProvider() {
     	manageProviderPage.setProviderNameOrId(person.getName());
     	providerPage = manageProviderPage.clickOnProvider(person.getName());

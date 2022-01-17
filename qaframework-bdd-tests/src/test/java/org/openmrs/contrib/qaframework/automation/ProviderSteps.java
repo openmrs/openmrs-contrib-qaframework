@@ -24,7 +24,6 @@ import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManageProviderPage;
 import org.openmrs.contrib.qaframework.page.ProviderPage;
-import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
 
 public class ProviderSteps extends Steps {
 	
@@ -34,7 +33,6 @@ public class ProviderSteps extends Steps {
     private TestData.TestProvider provider;
     private AdministrationPage administrationPage;
     private ManageProviderPage manageProviderPage;
-    private SystemAdministrationPage systemAdministrationPage;
     private ProviderPage providerPage;
 	
     @Before(RunTest.HOOK.SELENIUM_PROVIDER)
@@ -55,67 +53,79 @@ public class ProviderSteps extends Steps {
 	quit();
     }
     
-    @Given("User clicks on the administration app")
+    @Given("a user clicks on the administration app")
     public void launchSystemAdministrationPage() {
     	administrationPage = homePage.goToAdministration(); 	
     }
     
-    @Then ("System loads administration page")
+    @Then ("system loads administration page")
     public void systemLoadsAdministrationPage() {
     	assertPage(administrationPage.waitForPage());
     }
     
-    @And ("User clicks on the manage Provider link on the administration page")
+    @And ("a user clicks on the manage provider link")
     public void launchAdvancedAdministrationPage() {
     	manageProviderPage = administrationPage.clickOnManageProviders();
     }
     
-    @Then ("System loads manage provider page")
+    @Then ("system loads manage provider page")
     public void systemLoadsManageProviderPage() {
     	assertTrue(textExists("Manage Providers"));
     }
     
-    @When ("User clicks on the add provider link")
+    @When ("a user clicks on the add provider link")
     public void clickOnAddProviderLink() {
     	providerPage = manageProviderPage.clickOnAddProvider();
     }
     
-    @Then ("System loads add provider page")
+    @Then ("system loads add provider page")
     public void systemLoadsAddProviderPage() {
     	assertPage(providerPage.waitForPage());
     }
     
-    @And ("User fills the provider form")
+    @And ("a user fills the provider form")
     public void fillProviderForm() {
         providerPage.setIdentifier(personUuid);
         providerPage.setPerson(person.getName());
         manageProviderPage = providerPage.clickOnSave();
     }
     
-    @When ("User searches for the created provider")
+    @When ("a user searches for the created provider")
     public void searchForProvider() {
     	manageProviderPage.setProviderNameOrId(person.getName());
+    }
+    
+    @And ("a user clicks on the provider in the search results")
+    public void clickOnProvider() {
     	providerPage = manageProviderPage.clickOnProvider(person.getName());
     }
 	
-    @Then ("User deletes provider forever")
+    @Then ("a user deletes provider forever")
     public void deleteProviderForever() {
 	providerPage.deleteForever();
     }
 	
-    @Then ("User edits provider details")
+    @And ("a user edits provider details")
     public void editProviderDetails() {
         providerPage.setIdentifier("uitest-" + person.uuid);
-        providerPage.clickOnSave();
+    }
+    
+    @Then ("a user clicks the save button")
+    public void savedEditedProvider() {
+    	providerPage.clickOnSave();
     }
 	
-    @Then ("User retires a provider")
+    @And ("a user sets the reason for retiring a provider")
     public void retireProvider() {
         providerPage.setRetireReason("retire reason");
-        providerPage.clickOnRetire();
+    }
+    
+    @Then ("a user retires the provider")
+    public void hjj() {
+    	providerPage.clickOnRetire();
     }
 	
-    @Then ("User deletes a provider")
+    @Then ("a user deletes a provider")
     public void deleteProvider() {
 	providerPage.deleteForever();
     }	

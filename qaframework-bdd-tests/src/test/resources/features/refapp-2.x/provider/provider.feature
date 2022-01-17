@@ -1,34 +1,39 @@
 Feature: Provider Management
 
   Background: 
-    Given User clicks on the administration app
-    Then System loads administration page
-    And User clicks on the manage Provider link on the administration page
-    Then System loads manage provider page
+    Given a user clicks on the administration app
+    Then system loads administration page
+    And a user clicks on the manage provider link
+    Then system loads manage provider page
 
   @selenium
   @provider
   Scenario: Adding Provider
-    When User clicks on the add provider link
-    Then System loads add provider page
-    And User fills the provider form
-    And User searches for the created provider
-    Then User deletes provider forever
+    When a user clicks on the add provider link
+    Then system loads add provider page
+    And a user fills the provider form
+    When a user searches for the created provider
+    Then a user deletes provider forever
 
   @selenium
   @provider
   Scenario: Editing Provider
-    When User searches for the created provider
-    Then User edits provider details
+    When a user searches for the created provider
+    And a user clicks on the provider in the search results
+    And a user edits provider details
+    Then a user clicks the save button
 
   @selenium
   @provider
   Scenario: Retiring Provider
-    When User searches for the created provider
-    Then User retires a provider
+    When a user searches for the created provider
+    And a user clicks on the provider in the search results
+    And a user sets the reason for retiring a provider
+    Then a user retires the provider
 
   @selenium
   @provider
   Scenario: Deleting Provider
-    When User searches for the created provider
-    Then User deletes a provider
+    When a user searches for the created provider
+    And a user clicks on the provider in the search results
+    Then a user deletes a provider

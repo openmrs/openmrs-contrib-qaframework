@@ -1,8 +1,8 @@
 Feature: Provider Management
 
   Background: 
-    Given User clicks on the system administration link on the home page
-    Then System loads system administration page
+    Given User clicks on the administration app
+    Then System loads administration page
     And User clicks on the manage Provider link on the administration page
     Then System loads manage provider page
 

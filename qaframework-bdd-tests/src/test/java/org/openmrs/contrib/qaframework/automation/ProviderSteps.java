@@ -55,14 +55,14 @@ public class ProviderSteps extends Steps {
 	quit();
     }
     
-    @Given("User clicks on the system administration link on the home page")
+    @Given("User clicks on the administration app")
     public void launchSystemAdministrationPage() {
     	administrationPage = homePage.goToAdministration(); 	
     }
     
-    @Then ("System loads system administration page")
-    public void systemLoadsSystemAdministrationPage() {
-    	assertPage(systemAdministrationPage.waitForPage());
+    @Then ("System loads administration page")
+    public void systemLoadsAdministrationPage() {
+    	assertPage(administrationPage.waitForPage());
     }
     
     @And ("User clicks on the manage Provider link on the administration page")
@@ -82,7 +82,7 @@ public class ProviderSteps extends Steps {
     
     @Then ("System loads add provider page")
     public void systemLoadsAddProviderPage() {
-    	assertTrue(textExists("Add Provider"));
+    	assertPage(providerPage.waitForPage());
     }
     
     @And ("User fills the provider form")

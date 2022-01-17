@@ -123,10 +123,5 @@ public class ProviderSteps extends Steps {
     @Then ("a user retires the provider")
     public void hjj() {
     	providerPage.clickOnRetire();
-    }
-	
-    @Then ("a user deletes a provider")
-    public void deleteProvider() {
-	providerPage.deleteForever();
     }	
 }

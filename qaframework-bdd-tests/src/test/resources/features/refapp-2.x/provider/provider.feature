@@ -36,4 +36,4 @@ Feature: Provider Management
   Scenario: Deleting Provider
     When a user searches for the created provider
     And a user clicks on the provider in the search results
-    Then a user deletes a provider
+    Then a user deletes provider forever

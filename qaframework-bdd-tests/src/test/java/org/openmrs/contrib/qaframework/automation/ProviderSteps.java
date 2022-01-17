@@ -9,14 +9,14 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertTrue;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.RestClient;
@@ -60,7 +60,7 @@ public class ProviderSteps extends Steps {
     
     @Then ("system loads administration page")
     public void systemLoadsAdministrationPage() {
-    	assertPage(administrationPage.waitForPage());
+    	assertTrue(textExists("Advanced Administration"));
     }
     
     @And ("a user clicks on the manage provider link")

@@ -46,8 +46,9 @@ public class DeleteAppointmentBlockTest extends ManageProviderSchedulesTest {
         appointmentBlocksPage.enterStartTime(outboundStartTime);
         assertTrue(!appointmentBlocksPage.isSaveEnabled());
         appointmentBlocksPage.enterStartTime(correctStartTimeFirtAppointment);
-        appointmentBlocksPage.enterService("gyne");
         appointmentBlocksPage.enterProvider(provider);
+        appointmentBlocksPage.enterService("Gynecology");
+        
         appointmentBlocksPage.clickOnSave();
         assertTrue(appointmentBlocksPage.getServiceOfDay(firstAppointmentIndex).equals(firstAppointment));
         // let'remove the appointment

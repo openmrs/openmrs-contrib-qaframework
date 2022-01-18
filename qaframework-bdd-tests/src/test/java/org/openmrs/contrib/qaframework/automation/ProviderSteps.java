@@ -87,7 +87,6 @@ public class ProviderSteps extends Steps {
     public void fillProviderForm() {
         providerPage.setIdentifier(personUuid);
         providerPage.setPerson(person.getName());
-        manageProviderPage = providerPage.clickOnSave();
     }
     
     @When ("a user searches for the created provider")

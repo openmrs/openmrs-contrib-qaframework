@@ -12,9 +12,7 @@ Feature: Provider Management
     When a user clicks on the add provider link
     Then system loads add provider page
     And a user fills the provider form
-    When a user searches for the created provider
-    And a user clicks on the provider in the search results
-    Then a user deletes provider forever
+    Then a user clicks the save button
 
   @selenium
   @provider

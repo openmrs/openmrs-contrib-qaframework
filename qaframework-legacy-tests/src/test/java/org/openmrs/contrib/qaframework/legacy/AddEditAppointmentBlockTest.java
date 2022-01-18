@@ -46,8 +46,9 @@ public class AddEditAppointmentBlockTest extends ManageProviderSchedulesTest {
         appointmentBlocksPage.selectLocation(locationName);
         appointmentBlocksPage.clickOnDay();
         appointmentBlocksPage.enterStartTime(startTimeFirstAppointment);
-        appointmentBlocksPage.enterService("gyne");
         appointmentBlocksPage.enterProvider(provider);
+        appointmentBlocksPage.enterService("Gynecology");
+        
         appointmentBlocksPage.clickOnSave();
         assertTrue(appointmentBlocksPage.getServiceOfDay(firstAppointmentIndex).equals(firstAppointment));
         appointmentBlocksPage.clickOnAppointment();

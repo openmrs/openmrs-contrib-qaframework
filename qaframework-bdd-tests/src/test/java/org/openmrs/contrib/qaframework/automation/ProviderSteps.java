@@ -60,7 +60,7 @@ public class ProviderSteps extends Steps {
     
     @Then ("system loads administration page")
     public void systemLoadsAdministrationPage() {
-    	assertTrue(textExists("Advanced Administration"));
+    	assertTrue(textExists("Administration"));
     }
     
     @And ("a user clicks on the manage provider link")
@@ -80,7 +80,7 @@ public class ProviderSteps extends Steps {
     
     @Then ("system loads add provider page")
     public void systemLoadsAddProviderPage() {
-    	assertPage(providerPage.waitForPage());
+    	assertTrue(textExists("Provider Management"));
     }
     
     @And ("a user fills the provider form")

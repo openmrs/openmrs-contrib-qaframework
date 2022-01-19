@@ -49,13 +49,13 @@ public class PersonSteps extends Steps {
     }
 	
     @After(RunTest.HOOK.SELENIUM_PERSON)
-    public void teardown() {
+    public void tearDown() {
 	RestClient.delete("person/" + personUuid, true);
 	quit();
     }
 	
     @Given ("a user clicks on the system administration link on the home page")
-    public void launchSystemAdministrationPage() {
+    public void launchAdministrationPage() {
     	administrationPage = homePage.goToAdministration();
     }
     
@@ -65,7 +65,7 @@ public class PersonSteps extends Steps {
     }
     
     @And ("a user clicks on the manage Persons link on the administration page")
-    public void launchAdvancedAdministrationPage() {
+    public void launchManagePersonsPage() {
     	managePersonPage = administrationPage.clickOnManagePersons();
     }
     
@@ -75,7 +75,7 @@ public class PersonSteps extends Steps {
     }
     
     @When ("a user clicks on the create person link on the manage persons page")
-    public void clickOnCreatePersonPage() {
+    public void clickOnCreatePersonLink() {
     	addPersonPage = managePersonPage.createPerson();
     }
     

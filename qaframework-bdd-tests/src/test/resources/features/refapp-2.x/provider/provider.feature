@@ -6,8 +6,8 @@ Feature: Provider Management
     And a user clicks on the manage provider link
     Then system loads manage provider page
 
-  @selenium
-  @provider
+  #@selenium
+  #@provider
   Scenario: Adding Provider
     When a user clicks on the add provider link
     Then system loads add provider page

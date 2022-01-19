@@ -49,7 +49,6 @@ public class ProviderSteps extends Steps {
     @After(RunTest.HOOK.SELENIUM_PROVIDER)
     public void tearDown() {
         RestClient.delete("provider/" + providerUuid, true);
-        RestClient.delete("person/" + personUuid, true);
 	quit();
     }
     

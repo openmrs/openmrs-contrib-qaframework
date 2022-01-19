@@ -41,14 +41,5 @@ public class AddProviderTest extends ReferenceApplicationTestBase {
         providerPage.setIdentifier(personUuid);
         providerPage.setPerson(person.getName());
         manageProviderPage = providerPage.clickOnSave();
-
-        manageProviderPage.setProviderNameOrId(person.getName());
-        providerPage = manageProviderPage.clickOnProvider(person.getName());
-        providerPage.deleteForever();
-    }
-
-    @After
-    public void tearDown() throws InterruptedException {
-        RestClient.delete("person/" + personUuid, true);
     }
 }

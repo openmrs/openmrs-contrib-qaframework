@@ -28,7 +28,7 @@ public class RunTest {
 		public static final String CONDITION = "@condition";
 		public static final String SELENIUM = "@selenium";
 		public static final String FORM = "@form";
-		public static final String DASHBOARD = "@dashboard";
+		public static final String ALLERGIES = "@allergies";
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
 		public static final String ADVANCED_INSTALL = "@advancedInstall";
@@ -48,7 +48,6 @@ public class RunTest {
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
 		public static final String SELENIUM_PROVIDER = SELENIUM + " and " + PROVIDER;
 		public static final String SELENIUM_CONDITION = SELENIUM + " and "+ CONDITION;
-		public static final String SELENIUM_DASHBOARD = SELENIUM + " and "+ DASHBOARD;
 		public static final String SELENIUM_INITIAL_SETUP = SELENIUM + " and "+ INITIAL_SETUP;
 		public static final String SELENIUM_VITALS = SELENIUM + " and "+ VITALS;
 		public static final String SELENIUM_CLINICAL_VISIT = SELENIUM + " and "+ CLINICAL_VISIT;
@@ -60,5 +59,6 @@ public class RunTest {
 		public static final String SELENIUM_PATIENT_DEMOGRAPHICS = SELENIUM + " and " + PATIENT_DEMOGRAPHICS;
 		public static final String SELENIUM_ROLES_AND_PRIVILEGES = SELENIUM + " and " + ROLES_AND_PRIVILEGES;
 		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;
+		public static final String SELENIUM_ALLERGIES = SELENIUM + " and " + ALLERGIES;
 	}
 }

@@ -45,6 +45,5 @@ public class CreatePersonTest extends ReferenceApplicationTestBase {
         PersonFormPage personFormPage = personPage.createPerson();
         personFormPage.setFamilyNameField(personFamilyName);
         personFormPage.savePerson();
-        personFormPage.deletePersonForever();
     }
 }

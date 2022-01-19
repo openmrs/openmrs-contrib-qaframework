@@ -27,7 +27,7 @@ Feature: Person Management
   Scenario: Deleting a Person
     When a user searches for the person
     And a user clicks on the first person found from the search results
-    And a user clicks on the delete person forever button
+    Then a user clicks on the delete person forever button
 
   @selenium
   @person

@@ -63,7 +63,7 @@ public class ProviderSteps extends Steps {
     }
     
     @And ("a user clicks on the manage provider link")
-    public void launchAdvancedAdministrationPage() {
+    public void launchManageProvidersPage() {
     	manageProviderPage = administrationPage.clickOnManageProviders();
     }
     

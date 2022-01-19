@@ -13,6 +13,8 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class OpenConceptLabPage extends Page {
+	
+	private static final String PAGE_URL = "/owa/openconceptlab/index.html#/";
     private static final By SETUP_SUBSCRIPTION_BUTTON = By.linkText("Setup Subscription");
     public OpenConceptLabPage(Page page) {
         super(page);
@@ -20,7 +22,7 @@ public class OpenConceptLabPage extends Page {
     
     @Override
     public String getPageUrl() {
-        return "/owa/openconceptlab/index.html#/";
+        return PAGE_URL;
     }
 
     public SubscriptionPage clickOnsetupSubscriptionButton() {

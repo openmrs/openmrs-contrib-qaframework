@@ -29,7 +29,6 @@ public class RunTest {
 		public static final String SELENIUM = "@selenium";
 		public static final String FORM = "@form";
 		public static final String PERSON = "@person";
-		public static final String DASHBOARD = "@dashboard";
 		public static final String ALLERGIES = "@allergies";
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";

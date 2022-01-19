@@ -134,4 +134,3 @@ public class PersonSteps extends Steps {
     	personFormPage.retirePerson();
     }
 }
-

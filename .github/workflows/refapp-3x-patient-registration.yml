@@ -10,6 +10,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./qaframework-bdd-tests
     steps:
       - uses: actions/checkout@v2
       - name: Using Node.js
@@ -18,8 +21,6 @@ jobs:
           node-version: '12.x' 
       - name: Installing dependencies
         run: npm install
-      - name: Navigate into qaframework-bdd-tests
-        run: cd qaframework-bdd-tests
       - name: Run patient registration workflow tests
         run: npm run refapp3PatientRegistration
       - name: Upload screen recordings of failed tests
@@ -27,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: Screen recordings of failed tests
-          path: cypress/videos/refapp-3.x
+          path: qaframework-bdd-tests/cypress/videos/refapp-3.x

@@ -13,8 +13,7 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class SubscriptionPage extends Page {
-    
-    
+   
     private static final String PAGE_URL = "/owa/openconceptlab/index.html#/subscription";
     private static final By RELEASE_DICTIONARY_URL_FIELD = By.id("subscription-url");
     private static final By TOKEN_URL_FIELD = By.id("subscription-token");

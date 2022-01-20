@@ -19,6 +19,7 @@
     "refapp2Allergy": "mvn test -Dcucumber.filter.tags='@selenium and @allergies'",
     "refapp2Report": "mvn test -Dcucumber.filter.tags='@selenium and @report'",
     "refapp2RolesAndPrivileges":"mvn test -Dcucumber.filter.tags='@selenium and @rolesAndPrivileges'",
+    "refapp2Person": "mvn test -Dcucumber.filter.tags='@selenium and @person'",
     "refapp2FindPatient": "mvn test -Dcucumber.filter.tags='@selenium and @findPatient'",
     "refapp2Provider":"mvn test -Dcucumber.filter.tags='@selenium and @provider'",
     "refapp2PatientDemographics":"mvn test -Dcucumber.filter.tags='@selenium and @patientDemographics'",

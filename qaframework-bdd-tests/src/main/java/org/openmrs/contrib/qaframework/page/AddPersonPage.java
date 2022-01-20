@@ -14,18 +14,18 @@ import org.openqa.selenium.By;
 
 public class AddPersonPage extends Page {
 
-	private static final By PERSON_NAME = By.id("personName");
-	private static final By BIRTHDATE = By.id("birthdate");
+	private static final By PERSON_NAME= By.id("personName");
 	private static final By AGE = By.id("age");
+	private static final By BIRTHDATE_FIELD = By.className("hasDatepicker");
 	private static final By GENDER_MALE = By.id("gender-M");
-	private static final By CREATE_PERSON = By.cssSelector("#createPatient input[type=\"submit\"]");
+	private static final By CREATE_PERSON_BUTTON = By.cssSelector("#createPatient input[type=\"submit\"]");
 
 	public AddPersonPage(Page parent) {
 		super(parent);
 	}
 
 	public PersonFormPage createPerson() {
-		clickOn(CREATE_PERSON);
+		clickOn(CREATE_PERSON_BUTTON);
 		return new PersonFormPage(this);
 	}
 
@@ -34,7 +34,7 @@ public class AddPersonPage extends Page {
 	}
 
 	public void setBirthdate(String birthdate) {
-		setTextField(birthdate, BIRTHDATE);
+		setTextField(birthdate, BIRTHDATE_FIELD);
 	}
 
 	public void setAge(String age) {

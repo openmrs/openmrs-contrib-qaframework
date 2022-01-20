@@ -85,7 +85,7 @@ public class PersonSteps extends Steps {
     }
 
     @And ("a user fills the create person form")
-    public void createPersonForm() {
+    public void fillPersonForm() {
     	addPersonPage.setPersonName(PERSON_NAME);
     	addPersonPage.setAge(PERSON_AGE);
     	addPersonPage.clickGenderMale();

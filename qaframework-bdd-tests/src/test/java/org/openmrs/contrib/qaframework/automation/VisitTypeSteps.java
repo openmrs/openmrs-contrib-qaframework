@@ -56,7 +56,7 @@ public class VisitTypeSteps extends Steps {
     }
 
     @And("a user clicks on the manage Visit Types link")
-    public void launchAdvancedAdministrationPage() {
+    public void launchManageVisitTypePage() {
         visitTypeListPage = administrationPage.goToVisitTypePage();
     }
 

@@ -48,7 +48,7 @@ Then("the address should be updated", () => {
 });
 
 When("the user clicks on Record Vitals", () => {
-  cy.contains("Record Vitals").click({ force: true });
+  cy.contains("Record vitals").click({ force: true });
 });
 
 Then("the Vitals form should load", () => {
@@ -80,7 +80,7 @@ Then("the abnormal vital signs should show up as red", () => {
 });
 
 When("the user saves the form", () => {
-  cy.contains("Sign & Save").click({ force: true });
+  cy.contains("Save and close").click({ force: true });
   cy.reload();
 });
 

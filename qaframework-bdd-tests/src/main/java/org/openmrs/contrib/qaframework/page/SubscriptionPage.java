@@ -13,13 +13,13 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 
 public class SubscriptionPage extends Page {
-   
+
     private static final String PAGE_URL = "/owa/openconceptlab/index.html#/subscription";
     private static final By RELEASE_DICTIONARY_URL_FIELD = By.id("subscription-url");
     private static final By TOKEN_URL_FIELD = By.id("subscription-token");
     private static final By SAVE_CHANGES_BUTTON = By.cssSelector("#body-wrapper subscription form fieldset div:nth-child(4) button:nth-child(1)");
     private static final By UNSUBSCRIBE_BUTTON = By.cssSelector("#body-wrapper subscription div:nth-child(2) form fieldset p:nth-child(3) button");
-    
+    private static final By UNSUBSCRIBE_BUTTON = By.linkText("Unsubscribe");
     public SubscriptionPage(Page page) {
         super(page);
     }

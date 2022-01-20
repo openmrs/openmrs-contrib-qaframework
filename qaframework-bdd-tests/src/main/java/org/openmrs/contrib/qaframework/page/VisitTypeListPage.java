@@ -69,3 +69,4 @@ public class VisitTypeListPage extends AdminManagementPage {
 		return "/admin/visits/visitType.list";
 	}
 }
+

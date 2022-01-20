@@ -22,6 +22,7 @@
     "refapp2Person": "mvn test -Dcucumber.filter.tags='@selenium and @person'",
     "refapp2FindPatient": "mvn test -Dcucumber.filter.tags='@selenium and @findPatient'",
     "refapp2Provider":"mvn test -Dcucumber.filter.tags='@selenium and @provider'",
+    "refapp2OpenConceptLab": "mvn test -Dcucumber.filter.tags='@selenium and @openConceptLab'",
     "refapp2PatientDemographics":"mvn test -Dcucumber.filter.tags='@selenium and @patientDemographics'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",

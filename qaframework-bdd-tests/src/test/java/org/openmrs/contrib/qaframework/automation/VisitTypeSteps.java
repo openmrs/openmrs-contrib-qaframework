@@ -60,6 +60,11 @@ public class VisitTypeSteps extends Steps {
         visitTypeListPage = administrationPage.goToVisitTypePage();
     }
 
+    @Then("the manage visit types page is loaded")
+    public void systemLoadsManageVisitTypePage() {
+        assertTrue(textExists("Visit Type Management"));
+    }
+
     @When("a user clicks on the add visit type link on the manage visit type page")
     public void clickOnAddVisitTypeLink() {
         visitTypePage = visitTypeListPage.addVisitType();

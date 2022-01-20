@@ -4,6 +4,7 @@ Feature: Visit types Management
     Given a user clicks on the system administration link from the home page
     Then the administration page gets loaded
     And a user clicks on the manage Visit Types link
+    Then the manage visit types page is loaded
 
   @selenium
   @visitType

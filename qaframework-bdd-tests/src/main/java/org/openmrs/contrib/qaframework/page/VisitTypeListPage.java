@@ -15,13 +15,13 @@ import java.util.List;
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class VisitTypeListPage extends AdminManagementPage {
 
 	private static final By ERROR = By.cssSelector("span.error");
 	private static final By VISIT_TYPE_LIST = By.cssSelector("#content form table tbody tr td");
 	private static final By RETIRED_VISIT_TYPE_LIST = By.cssSelector("#content form table tbody tr td del");
+	private static final By ALREADY_SAVED_VISIT_TYPE_LINK = By.cssSelector("#content tr:nth-child(3) a");
 
 	public VisitTypeListPage(Page parent) {
 		super(parent);
@@ -57,6 +57,11 @@ public class VisitTypeListPage extends AdminManagementPage {
 			retiredVisitTypeList.add(webElement.getText());
 		}
 		return retiredVisitTypeList;
+	}
+
+	public VisitTypePage clickAlreadySavedVisitType() {
+		clickOn(ALREADY_SAVED_VISIT_TYPE_LINK);
+		return new VisitTypePage(this);
 	}
 
 	@Override

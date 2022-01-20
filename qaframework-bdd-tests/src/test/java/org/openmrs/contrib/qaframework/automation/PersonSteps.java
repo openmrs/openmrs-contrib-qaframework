@@ -80,7 +80,7 @@ public class PersonSteps extends Steps {
     }
     
     @Then ("the system loads the create person page")
-    public void loadPersonFormPage() {
+    public void loadPersonForm() {
     	assertTrue(textExists("Adding a Person"));
     }
 

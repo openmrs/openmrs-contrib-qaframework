@@ -12,18 +12,18 @@ package org.openmrs.contrib.qaframework.automation;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.page.ConfigureMetadataPage;
+import org.openmrs.contrib.qaframework.page.OpenConceptLabPage;
+import org.openmrs.contrib.qaframework.page.OpenConceptLabSuccessPage;
+import org.openmrs.contrib.qaframework.page.SubscriptionPage;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.page.ConfigureMetadataPage;
-import org.openmrs.contrib.qaframework.page.OpenConceptLabPage;
-import org.openmrs.contrib.qaframework.page.OpenConceptLabSuccessPage;
-import org.openmrs.contrib.qaframework.page.SubscriptionPage;
  
 public class OpenConceptLabSteps extends Steps  {
 	
@@ -122,6 +122,6 @@ public class OpenConceptLabSteps extends Steps  {
     
     @And("a user clicks unsubscribe button")
     public void getSubscriptionPage(){
-        subscriptionPage.clickOnUnSubscribeButton();  
+       subscriptionPage.clickOnUnSubscribeButton();  
     } 
 }

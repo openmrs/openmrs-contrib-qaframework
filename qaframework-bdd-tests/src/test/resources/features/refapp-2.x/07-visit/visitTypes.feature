@@ -2,7 +2,7 @@ Feature: Visit types Management
 
   Background:
     Given a user clicks on the system administration link from the home page
-    Then the system loads the administration page
+    Then the administration page gets loaded
     And a user clicks on the manage Visit Types link
 
   @selenium

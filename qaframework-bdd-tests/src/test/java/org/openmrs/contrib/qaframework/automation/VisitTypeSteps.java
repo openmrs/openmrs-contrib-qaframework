@@ -35,12 +35,12 @@ public class VisitTypeSteps extends Steps {
     private static final String VISIT_TYPE_DESCRIPTION = "Description for Visit Type test workflow";
 
     @Before(RunTest.HOOK.SELENIUM_VISIT_TYPE)
-    public void setup() {
+    public void setUp() {
         initiateWithLogin();
     }
 
     @After(RunTest.HOOK.SELENIUM_VISIT_TYPE)
-    public void teardown() {
+    public void tearDown() {
         RestClient.delete("visittype/" + visitTypeUuid, true);
         quit();
     }
@@ -50,9 +50,9 @@ public class VisitTypeSteps extends Steps {
         administrationPage = homePage.goToAdministration();
     }
 
-    @Then("the system loads the administration page")
+    @Then("the administration page gets loaded")
     public void systemLoadsAdministrationPage() {
-        assertTrue(textExists("Manage Visit Types"));
+        assertTrue(textExists("Administration"));
     }
 
     @And("a user clicks on the manage Visit Types link")

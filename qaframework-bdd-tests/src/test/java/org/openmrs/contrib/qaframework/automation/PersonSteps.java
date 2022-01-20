@@ -110,7 +110,7 @@ public class PersonSteps extends Steps {
     }
     
     @And ("a user clicks on the first person found from the search results")
-    public void clickFirstPersonFound() {
+    public void clickOnFirstPerson() {
     	personFormPage = managePersonPage.clickFirstFoundPerson();
     }
     

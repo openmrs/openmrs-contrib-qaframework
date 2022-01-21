@@ -72,7 +72,7 @@ public class VisitTypeSteps extends Steps {
 
     @Then("the system loads the visit type form page")
     public void systemLoadsVisitTypeFormPage() {
-        assertTrue(textExists("Description"));
+        assertTrue(textExists("Visit Type"));
     }
 
     @And("a user fills the add visit type form")

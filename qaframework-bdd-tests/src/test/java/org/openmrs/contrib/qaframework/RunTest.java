@@ -30,6 +30,7 @@ public class RunTest {
 		public static final String FORM = "@form";
 		public static final String DASHBOARD = "@dashboard";
 		public static final String INITIAL_SETUP = "@initialSetup";
+		public static final String XSS_VULNERABILITY = "@xssVulnerability";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
 		public static final String ADVANCED_INSTALL = "@advancedInstall";
 		public static final String POSTGRES_INSTALL = "@postgresInstall";
@@ -58,5 +59,6 @@ public class RunTest {
 		public static final String SELENIUM_PATIENT_DEMOGRAPHICS = SELENIUM + " and " + PATIENT_DEMOGRAPHICS;
 		public static final String SELENIUM_ROLES_AND_PRIVILEGES = SELENIUM + " and " + ROLES_AND_PRIVILEGES;
 		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;
+		public static final String SELENIUM_XSS_VULNERABILITY = SELENIUM + " and " + XSS_VULNERABILITY;
 	}
 }

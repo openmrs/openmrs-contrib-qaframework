@@ -98,7 +98,7 @@ public class VisitTypeSteps extends Steps {
 
     @And("a user edits the visit type name")
     public void editVisitType() {
-        visitTypePage.setName("edited VisitTypeName");
+        visitTypePage.setName("edited Visit Type name");
         visitTypePage.save();
     }
 
@@ -112,7 +112,7 @@ public class VisitTypeSteps extends Steps {
         visitTypePage.retire();
     }
 
-    @And("a user clicks on delete visit type forever button")
+    @And("a user deletes a visit type forever")
     public void deleteVisitType() {
         visitTypePage.delete();
     }

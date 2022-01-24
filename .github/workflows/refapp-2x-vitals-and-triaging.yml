@@ -25,9 +25,12 @@ jobs:
         uses: actions/checkout@master
         with:
           repository: ${{github.repository}}
-      - name: run db and web containers
-        run: |
-          docker-compose -f docker/docker-compose-refqa.yml up -d
+      - name:  Start the Remote web driver in docker  
+        run:  |
+              docker-compose up -d chrome
+      - name: Sleep for 3 minutes 
+        run: sleep 3m
+        shell: bash 
       - name: wait for openmrs instance to start
         run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/login.htm)" != "200" ]]; do sleep 1; done
       - name: Run qaframework on selenium

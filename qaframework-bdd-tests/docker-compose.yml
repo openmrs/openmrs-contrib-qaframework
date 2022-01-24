@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  chrome:
+    image: selenium/standalone-chrome
+    hostname: chrome
+    container_name: chrome
+    ports:
+      - "4444:4444"
+      - "7900:7900"
+
+  firefox:
+    image: selenium/standalone-firefox
+    hostname: firefox
+    container_name: firefox
+    ports:
+      - "4445:4444"
+      - "7901:7900"

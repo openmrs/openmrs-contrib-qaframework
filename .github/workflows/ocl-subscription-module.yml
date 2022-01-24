@@ -18,10 +18,12 @@ jobs:
           node-version: '12.x'
       - name: Installing dependencies
         run: npm install
-      - name: run db and web containers
-        run: |
-          cd docker
-          docker-compose -f docker-compose-refqa.yml up -d
+      - name:  Start the Remote web driver in docker  
+        run:  |
+              docker-compose up -d chrome
+      - name: Sleep for 3 minutes 
+        run: sleep 3m
+        shell: bash    
       - name: wait for openmrs instance to start
         run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/login.htm)" != "200" ]]; do sleep 1; done
       - name: Navigate into qaframework-bdd-tests

@@ -2,12 +2,6 @@ package org.openmrs.contrib.qaframework.automation;
 
 import static org.junit.Assert.assertTrue;
 
-import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.helper.TestData;
-import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
-import org.openmrs.contrib.qaframework.page.ClinicianFacingPatientDashboardPage;
-import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -15,11 +9,15 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
+import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
+
 public class  XssOnPhoneNumberFieldSteps  extends Steps {
     
     private TestData.PatientInfo patient;
     private ActiveVisitsPage activeVisitsPage;
-    private ClinicianFacingPatientDashboardPage patientDashboardPage;
     private RegistrationEditSectionPage registrationEditSectionPage;
 
     @Before(RunTest.HOOK.SELENIUM_XSS_VULNERABILITY)
@@ -32,10 +30,11 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
     @After(RunTest.HOOK.SELENIUM_XSS_VULNERABILITY)
     public void tearDown() throws Exception {
         deletePatient(patient);
+        quit();
     }  
     
     @Given("User goes to active visit search page")
-    public void userGoesToActivVisitSearch() {
+    public void userGoesToActiveVisitSearch() {
         activeVisitsPage = homePage.goToActiveVisitsSearch();
     }
 
@@ -46,17 +45,17 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
 
     @And("User goes to patient dashboard of last Active visit")
     public void systemGoesToPatientDashboardOfLastActiveVisit() {
-        patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+        dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
     }
     
     @Then("User clicks on show contact link")
     public void clickOnShowContact() {
-        patientDashboardPage.clickOnShowContact();
+        dashboardPage.clickOnShowContact();
     }
 
     @And("User clicks on editContact info")
     public void clickOnEditContact() {
-        registrationEditSectionPage = patientDashboardPage.clickOnEditContact();
+        registrationEditSectionPage = dashboardPage.clickOnEditContact();
     }
 
     @And("User clicks on phone Number edit")
@@ -84,8 +83,8 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
         assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification().contains(("Must be a valid phone number (with +, -, numbers or parentheses)")));
     }
 
-    @And("User re clears the phone Number input area")
-    public void userReClearsPhoneNumber() {
+    @And("User clears the phone Number input area")
+    public void userClearPhoneNumber() {
         registrationEditSectionPage.clearPhoneNumber();
     }
 
@@ -101,17 +100,16 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
 
     @Then("User clicks on confirm Patient")
     public void userClicksOnConfirmPatient() throws Exception {
-        patientDashboardPage = registrationEditSectionPage.confirmPatient();
+        dashboardPage = registrationEditSectionPage.confirmPatient();
     }
 
     @And("User clicks on show contact")
     public void userClicksOnShowContact() {
-        patientDashboardPage.clickOnShowContact();
+        dashboardPage.clickOnShowContact();
     }
 
     @Then("User validate the collect number to be entered into the input area")
     public void systemChecksTheCollectPhoneNumber() {
-        assertTrue(patientDashboardPage.getTelephoneNumber().contains("111111111"));
+        assertTrue(dashboardPage.getTelephoneNumber().contains("111111111"));
     }
 }
-

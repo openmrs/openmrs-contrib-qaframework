@@ -36,5 +36,5 @@ Feature: Visit types Management
   Scenario: Deleting a Visit Type Test
     When a user clicks on the already saved visit type link
     Then the system loads the visit type form page
-    And a user deletes a visit type forever
+    And a user clicks on delete visit type button
     Then a visit type is deleted successfully

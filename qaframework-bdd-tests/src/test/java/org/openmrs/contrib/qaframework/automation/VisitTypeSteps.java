@@ -112,7 +112,7 @@ public class VisitTypeSteps extends Steps {
         visitTypePage.retire();
     }
 
-    @And("a user deletes a visit type forever")
+    @And("a user clicks on delete visit type button")
     public void deleteVisitType() {
         visitTypePage.delete();
     }

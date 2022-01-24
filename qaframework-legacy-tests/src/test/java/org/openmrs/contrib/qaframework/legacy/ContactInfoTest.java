@@ -58,12 +58,6 @@ public class ContactInfoTest extends ReferenceApplicationTestBase {
         registrationEditSectionPage.enterPhoneNumber("111111111");
         registrationEditSectionPage.clickOnConfirmEdit();
         patientDashboardPage = registrationEditSectionPage.confirmPatient();
-        homePage = patientDashboardPage.goToHomePage();
-        activeVisitsPage = homePage.goToActiveVisitsSearch();
-        activeVisitsPage.search(patient.identifier);
-        patientDashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
-        patientDashboardPage.clickOnShowContact();
-        assertTrue(patientDashboardPage.getTelephoneNumber().contains("111111111"));
     }
 
     @After

@@ -9,7 +9,11 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertEquals;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+import static org.junit.Assert.assertTrue;
+
+import org.apache.commons.lang3.RandomStringUtils;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -20,24 +24,25 @@ import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
-import org.openmrs.contrib.qaframework.page.RegistrationSummaryPage;
 
 public class EditDemographicsAndContactInfoSteps extends Steps {
 
+	private String prefix;
 	private TestData.PatientInfo testPatient;
+	private ActiveVisitsPage activeVisitsPage;
 	private RegistrationEditSectionPage registrationEditSectionPage;
-	private RegistrationSummaryPage registrationSummaryPage;
+	private FindPatientPage findPatientPage;
+	private static final String VISIT_TYPE_UUID = "7b0f5697-27e3-40c4-8bae-f4049abfb4ed";
 
 	@Before(RunTest.HOOK.SELENIUM_PATIENT_DEMOGRAPHICS)
 	public void visitPatientDashboard() {
-		testPatient = createTestPatient();
 		initiateWithLogin();
-		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
-		findPatientPage.enterPatient(testPatient.identifier);
-		findPatientPage.waitForPageToLoad();
-		dashboardPage = findPatientPage.clickOnFirstPatient();
+		prefix = RandomStringUtils.randomAlphanumeric(6);
+		testPatient = createTestPatient();
+		new TestData.TestVisit(testPatient.uuid, VISIT_TYPE_UUID, getLocationUuid(homePage)).create();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_PATIENT_DEMOGRAPHICS)
@@ -45,70 +50,106 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 		deletePatient(testPatient);
 		quit();
 	}
+	
+	@Given("a user clicks on the find patient app on the home page")
+	public void clickOnFindPatientRecordApp() {
+		findPatientPage = homePage.goToFindPatientRecord();
+	}
+	
+	@Given("a user clicks on the active visits app on the home page")
+	public void clickOnActiveVisitsApp() {
+		activeVisitsPage = homePage.goToActiveVisitsSearch();
+	}
+	
+	@Then("the system loads the active visits page")
+	public void systemLoadsActiveVisitsPage() {
+		assertTrue(textExists("Active Visits"));
+	}
+	
+	@Then("the system loads the find patient page")
+	public void systemLoadsFindPatientPage() {
+		assertTrue(textExists("Find Patient Record"));
+	}
+	
+	@And("a user searches for the patient to edit")
+	public void searchForPatientToEdit() {
+		findPatientPage.enterPatient(testPatient.identifier);
+	}
+	
+	@And("a user searches for the active visit patient to edit")
+	public void searchForActiveVisitPatientToEdit() {
+		activeVisitsPage.search(testPatient.identifier);
+	}
+	
+	@And("a user clicks on the first patient")
+	public void clickOnTheFirstPatient() {
+		dashboardPage = findPatientPage.clickOnFirstPatient();
+	}
+	
+	@And("a user clicks on the active visit patient to edit")
+	public void clickOnActivePatientToEdit() {
+		dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+	}
 
-	@Given("a user clicks on Edit Registration Information link from Patient dashboard")
+	@And("a user clicks on Edit Registration Information link from Patient dashboard")
 	public void loadRegistrationSummaryPage() {
-		registrationSummaryPage = (RegistrationSummaryPage) dashboardPage.goToRegistrationSummary();
+		registrationEditSectionPage = dashboardPage.clickOnEditPatient();
 	}
 
 	@Then("the system loads Registration Summary Page")
 	public void systemLoadsRegistrationSummaryPage() {
-		assertPage(registrationSummaryPage.waitForPage());
+		assertTrue(textExists("Demographics"));
 	}
 
-	@When("a user clicks on Edit link from Registration Summary Page")
-	public void loadEditDemographicsSection() {
-		registrationEditSectionPage = (RegistrationEditSectionPage) registrationSummaryPage.clickOnEditDemographics();
-	}
-
-	@Then("the system loads edit demographics section")
-	public void systemLoadsEditDemographicsSection() {
-		assertPage(registrationEditSectionPage.waitForPage());
-	}
-
-	@And("a user edits demographics")
+	@When("a user edits demographics")
 	public void editDemographics() {
-		testPatient.givenName = "Yuan";
-		testPatient.middleName = "Youn";
-		testPatient.familyName = "Ching";
 		testPatient.gender = "Male";
-		testPatient.birthDay = "23";
+		testPatient.birthDay = "21";
 		testPatient.birthMonth = "May";
-		testPatient.birthYear = "1990";
-		registrationEditSectionPage.enterGivenName(testPatient.givenName);
-		registrationEditSectionPage.enterMiddleName(testPatient.middleName);
-		registrationEditSectionPage.enterFamilyName(testPatient.familyName);
+		testPatient.birthYear = "1992";
+		registrationEditSectionPage.enterGivenName(testPatient.givenName + prefix);
+		registrationEditSectionPage.enterMiddleName(testPatient.middleName + prefix);
+		registrationEditSectionPage.enterFamilyName(testPatient.familyName + prefix);
 		registrationEditSectionPage.selectPatientGender(testPatient.gender);
 		registrationEditSectionPage.clickOnBirthdateLabel();
 		registrationEditSectionPage.enterBirthDay(testPatient.birthDay);
 		registrationEditSectionPage.selectBirthMonth(testPatient.birthMonth);
 		registrationEditSectionPage.enterBirthYear(testPatient.birthYear);
 	}
+	
+	@And ("a user confirms the changes")
+	public void confirmChanges() throws InterruptedException {
+		registrationEditSectionPage.clickOnConfirmEdit();
+		dashboardPage = registrationEditSectionPage.confirmPatient();
+	}
 
 	@Then("the system saves the updated patient demographics")
 	public void systemSavesUpdatedDemographics() {
-		assertEquals(registrationSummaryPage.getPatientGivenName(), testPatient.givenName);
-		assertEquals(registrationSummaryPage.getPatientFamilyName(), testPatient.familyName);
+		assertThat(dashboardPage.getPatientGivenName(), is(testPatient.givenName + prefix));
+	}
+	
+	@And("a user clicks on the show contact downdrop")
+	public void clickOnShowContactDropDown() {
+		dashboardPage.clickOnShowContact();
 	}
 
-	@When("a user clicks on Edit link under contact info section from Registration Summary Page")
+	@And("a user clicks on Edit link under contact info section from Registration Summary Page")
 	public void loadContactInfoEditSection() {
-		registrationSummaryPage.clickOnShowContact();
-		registrationEditSectionPage = (RegistrationEditSectionPage) registrationSummaryPage.clickOnEditContact();
+		registrationEditSectionPage = dashboardPage.clickOnEditContact();
 	}
 
 	@Then("the system loads the edit contact information section")
 	public void systemLoadsEditContactInfoSection() {
-		assertPage(registrationEditSectionPage.waitForPage());
+		assertTrue(textExists("Contact Info"));
 	}
 
 	@And("a user edits contact information")
 	public void editContactInfo() {
-		testPatient.city = "Kyambogo";
-		testPatient.state = "Central";
-		testPatient.country = "Uganda";
-		testPatient.postalCode = "256";
-		testPatient.phone = "0785456654";
+		testPatient.city = "Adidas Abbeba";
+		testPatient.state = "Adidas Abbeba";
+		testPatient.country = "Ethiopia";
+		testPatient.postalCode = "3822";
+		testPatient.phone = "aaaaaaaaa";
 		registrationEditSectionPage.clearVillage();
 		registrationEditSectionPage.enterVillage(testPatient.city );
 		registrationEditSectionPage.clearState();
@@ -119,17 +160,14 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 		registrationEditSectionPage.enterPostalCode(testPatient.postalCode);
 		registrationEditSectionPage.clickOnPhoneNumberEdit();
 		registrationEditSectionPage.enterPhoneNumber(testPatient.phone);
-	}
-
-	@And("a user clicks on the confirm button")
-	public void saveUpdatedPatientDetails() throws InterruptedException {
+		assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification().contains("Must be a valid phone number (with +, -, numbers or parentheses)"));
+		registrationEditSectionPage.clearPhoneNumber();
+		registrationEditSectionPage.enterPhoneNumber("111111111");
 		registrationEditSectionPage.clickOnConfirmEdit();
-		registrationSummaryPage = registrationEditSectionPage.confirmPatientEdit();
 	}
 
-	@Then("the system saves the updated patient contact information")
-	public void systemSavesUpdatedContactInfo() {
-		registrationSummaryPage.clickOnShowContact();
-		assertEquals(registrationSummaryPage.getTelephoneNumber(), testPatient.phone);
+	@Then("a user clicks on the confirm button")
+	public void saveUpdatedPatientDetails() throws InterruptedException {
+		registrationEditSectionPage.confirmPatient();
 	}
 }

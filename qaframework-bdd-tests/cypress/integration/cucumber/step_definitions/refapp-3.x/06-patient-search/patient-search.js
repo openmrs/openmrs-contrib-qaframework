@@ -1,9 +1,17 @@
-import {Given} from 'cypress-cucumber-preprocessor/steps';
+import {Given, After, Before} from 'cypress-cucumber-preprocessor/steps';
 
-Given('the user login to the Registration Desk', () => {    
+let patient_uuid = null;
+
+Before({tags: '@patient-search'}, () => {
+    cy.createPatient().then((user) => {
+        patient_uuid = user.uuid;
+    });
+});
+
+Given('the user login to the Registration Desk', () => {
     cy.on('uncaught:exception', (err, runnable) => {
-    	console.log(err);
-    	return false;
+        console.log(err);
+        return false;
     });
     cy.login();
     cy.visit('home');
@@ -19,4 +27,8 @@ When('the user search for {string}', patientName => {
 
 Then('the result should be {string}', result => {
     cy.contains(result);
+});
+
+After({tags: '@patient-search'}, () => {
+    cy.deletePatient(patient_uuid);
 });

@@ -396,4 +396,3 @@ Cypress.Commands.add('deletePatient', (uuid) => {
         },
     });
 });
-

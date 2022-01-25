@@ -6,4 +6,3 @@ Feature: Patient Search
   Scenario: Search for a patient
     When the user search for "John Doe"
     Then the result should be "Found 1 patient"
-    

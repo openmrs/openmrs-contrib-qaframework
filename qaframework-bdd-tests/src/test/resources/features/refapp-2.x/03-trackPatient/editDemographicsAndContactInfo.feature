@@ -10,7 +10,7 @@ Feature: Edit Demographics and contact info from Patient Dashboard
     And a user clicks on Edit Registration Information link from Patient dashboard
     Then the system loads Registration Summary Page
     And a user edits demographics
-    And a user confirms the changes
+    And a user clicks on the confirm button to save the changes
     Then the system saves the updated patient demographics
 
   @selenium

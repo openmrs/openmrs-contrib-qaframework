@@ -35,14 +35,13 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 	private ActiveVisitsPage activeVisitsPage;
 	private RegistrationEditSectionPage registrationEditSectionPage;
 	private FindPatientPage findPatientPage;
-	private static final String VISIT_TYPE_UUID = "7b0f5697-27e3-40c4-8bae-f4049abfb4ed";
 
 	@Before(RunTest.HOOK.SELENIUM_PATIENT_DEMOGRAPHICS)
 	public void visitPatientDashboard() {
 		initiateWithLogin();
 		prefix = RandomStringUtils.randomAlphanumeric(6);
 		testPatient = createTestPatient();
-		new TestData.TestVisit(testPatient.uuid, VISIT_TYPE_UUID, getLocationUuid(homePage)).create();
+		new TestData.TestVisit(testPatient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_PATIENT_DEMOGRAPHICS)
@@ -104,7 +103,7 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 	@When("a user edits demographics")
 	public void editDemographics() {
 		testPatient.gender = "Male";
-		testPatient.birthDay = "21";
+		testPatient.birthDay = "23";
 		testPatient.birthMonth = "May";
 		testPatient.birthYear = "1992";
 		registrationEditSectionPage.enterGivenName(testPatient.givenName + prefix);
@@ -117,8 +116,8 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 		registrationEditSectionPage.enterBirthYear(testPatient.birthYear);
 	}
 	
-	@And ("a user confirms the changes")
-	public void confirmChanges() throws InterruptedException {
+	@And ("a user clicks on the confirm button to save the changes")
+	public void clickOnTheConfirmButton() throws InterruptedException {
 		registrationEditSectionPage.clickOnConfirmEdit();
 		dashboardPage = registrationEditSectionPage.confirmPatient();
 	}

@@ -41,11 +41,12 @@ Then('the user should be able to expand header to see more information', () => {
 Then('the Patient Summary should load properly', () => {
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Care Programs');
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Active Medications');
+    cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Recent Results');
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Biometrics');
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Vitals');
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Forms');
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Conditions');
-    cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Notes');
+    cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Visit notes');
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Appointments');
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Allergies');
     cy.get('div[data-extension-slot-name="patient-chart-summary-dashboard-slot"]').contains('Immunizations');
@@ -57,11 +58,11 @@ When('the user clicks on {string} in the menu', (menu) => {
 });
 
 Then('the program list should be empty', () => {
-    cy.contains('There are no program enrollments to display for this patient');
+    cy.contains('There are no programs to display for this patient');
 });
 
 When('the user enrolls the patient into a program', () => {
-    cy.contains('Record program enrollments').click();
+    cy.contains('Record programs').click();
     cy.get('#program').select('HIV Care and Treatment');
     cy.get('button[type="submit"').click();
 });
@@ -89,7 +90,6 @@ When('the user adds an allergy', () => {
 
 Then('the added allergy should be listed', () => {
     cy.contains('Allergy saved');
-    cy.reload();
     cy.contains('ACE inhibitors');
 });
 
@@ -106,7 +106,6 @@ When('the user adds a condition', () => {
 
 Then('the added condition should be listed', () => {
     cy.contains('Condition saved successfully');
-    cy.reload();
     cy.contains('Fever');
 });
 
@@ -133,11 +132,11 @@ Then('the trend line should be shown', () => {
 })
 
 When('the user changes the time range of a trend line', () => {
-    cy.contains('5 days').click({force: true});
+    cy.contains('5 years').click({force: true});
 })
 
 Then('the time range of the trend line should be changed', () => {
-    cy.contains('Jan 20');
+    cy.contains('2017');
 })
 
 Then('the form entry widget should load properly', () => {
@@ -161,15 +160,15 @@ Then('the forms list should load properly', () => {
 });
 
 When('the user completes a form', () => {
-    cy.contains('Record Vitals').click({force: true});
-    cy.get('#Temperature').type("38");
-    cy.contains('Sign & Save').click({force: true});
+    cy.contains('POC CES Consult Note').click({force: true});
+    cy.get('textarea').type('Filled', {force: true});
+    cy.contains('Save').click({force: true});
+    cy.contains('The form has been submitted successfully');
+    cy.reload();
 });
 
 Then('the completed form should be listed', () => {
-    cy.contains('Vitals and Biometrics saved');
-    cy.reload();
-    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('Vitals');
+    cy.get('div[data-extension-id="patient-form-dashboard"]').contains('POC CES Consult Note');
 });
 
 After({tags: '@clinical-visit'}, () => {

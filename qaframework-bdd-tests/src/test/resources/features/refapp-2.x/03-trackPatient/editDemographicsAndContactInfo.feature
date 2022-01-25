@@ -2,7 +2,7 @@ Feature: Edit Demographics and contact info from Patient Dashboard
 
   @selenium
   @patientDemographics
-  Scenario: Edit Patient Demographics and Contact Info
+  Scenario: Edit Patient Demographics
     Given a user clicks on the find patient app on the home page
     Then the system loads the find patient page
     And a user searches for the patient to edit

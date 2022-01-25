@@ -10,7 +10,7 @@ Feature: Visit types Management
   @visitType
   Scenario: Adding a Visit Type
     When a user clicks on the add visit type link on the manage visit type page
-    Then the system loads the visit type form page
+    Then the system loads the visit type form
     And a user fills the add visit type form
     And a user saves visit type
     Then a visit type is saved successfully
@@ -19,7 +19,7 @@ Feature: Visit types Management
   @visitType
   Scenario: Editing a Visit Type Test
     When a user clicks on the already saved visit type link
-    Then the system loads the visit type form page
+    Then the system loads the visit type form
     And a user edits the visit type name
     Then a visit type is saved successfully
 
@@ -27,7 +27,7 @@ Feature: Visit types Management
   @visitType
   Scenario: Retiring a Visit Type Test
     When a user clicks on the already saved visit type link
-    Then the system loads the visit type form page
+    Then the system loads the visit type form
     And a user fills in the reason for retiring visit type
     Then a user clicks on retire visit type button
 
@@ -35,6 +35,6 @@ Feature: Visit types Management
   @visitType
   Scenario: Deleting a Visit Type Test
     When a user clicks on the already saved visit type link
-    Then the system loads the visit type form page
+    Then the system loads the visit type form
     And a user clicks on delete visit type button
     Then a visit type is deleted successfully

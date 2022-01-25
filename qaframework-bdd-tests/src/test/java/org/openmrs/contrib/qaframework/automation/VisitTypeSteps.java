@@ -70,7 +70,7 @@ public class VisitTypeSteps extends Steps {
         visitTypePage = visitTypeListPage.addVisitType();
     }
 
-    @Then("the system loads the visit type form page")
+    @Then("the system loads the visit type form")
     public void systemLoadsVisitTypeFormPage() {
         assertTrue(textExists("Visit Type"));
     }

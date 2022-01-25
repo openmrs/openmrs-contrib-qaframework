@@ -46,6 +46,7 @@ public class RunTest {
 		public static final String ROLES_AND_PRIVILEGES = "@rolesAndPrivileges";
 		public static final String FIND_PATIENT = "@findPatient";
 		public static final String PATIENT_DEMOGRAPHICS = "@patientDemographics";
+		public static final String VISIT_TYPE = "@visitType";
 		public static final String SELENIUM_PERSON = SELENIUM + " and "+ PERSON;
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
 		public static final String SELENIUM_PROVIDER = SELENIUM + " and " + PROVIDER;
@@ -57,6 +58,7 @@ public class RunTest {
 		public static final String SELENIUM_REGISTRATION = SELENIUM + " and "+ REGISTRATION;
 		public static final String SELENIUM_FIND_PATIENT = SELENIUM + " and "+ FIND_PATIENT;
 		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and "+ USER_ACCOUNT;
+		public static final String SELENIUM_VISIT_TYPE = SELENIUM + " and " + VISIT_TYPE;
 		public static final String SELENIUM_REPORT = SELENIUM + " and "+ REPORT;
 		public static final String SELENIUM_PATIENT_DEMOGRAPHICS = SELENIUM + " and " + PATIENT_DEMOGRAPHICS;
 		public static final String SELENIUM_ROLES_AND_PRIVILEGES = SELENIUM + " and " + ROLES_AND_PRIVILEGES;

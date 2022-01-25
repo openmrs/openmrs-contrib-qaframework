@@ -14,7 +14,6 @@ import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertTrue;
 
 import org.apache.commons.lang3.RandomStringUtils;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -25,7 +24,6 @@ import io.cucumber.java.en.When;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
-import org.openmrs.contrib.qaframework.page.FindPatientPage;
 import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
 
 public class EditDemographicsAndContactInfoSteps extends Steps {
@@ -34,7 +32,6 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 	private TestData.PatientInfo testPatient;
 	private ActiveVisitsPage activeVisitsPage;
 	private RegistrationEditSectionPage registrationEditSectionPage;
-	private FindPatientPage findPatientPage;
 
 	@Before(RunTest.HOOK.SELENIUM_PATIENT_DEMOGRAPHICS)
 	public void visitPatientDashboard() {

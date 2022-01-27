@@ -98,4 +98,3 @@ Feature: Patient Management
   	And the system returns to capture patient ID section
   	And a user captures IDs for patients to merge
     Then the system displays Continue button
- 		

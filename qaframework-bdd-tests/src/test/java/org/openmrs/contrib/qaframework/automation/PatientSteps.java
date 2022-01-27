@@ -3,7 +3,7 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
- * 
+ *
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
@@ -89,7 +89,7 @@ public class PatientSteps extends Steps {
 			assertTrue(textExists("No matching records found"));
 		}
 	}
-    
+	
 	@And("a user searches for an existing patient by name")
 	public void searchPatient() {
 		findPatientPage.enterPatient(testPatient.givenName);
@@ -112,113 +112,113 @@ public class PatientSteps extends Steps {
 	public void loadRegisterPatientPage() throws InterruptedException {
   		registrationPage = homePage.goToRegisterPatientApp();
 	}
-  	
-  	@When("the system loads Register a patient page")
+	
+	@When("the system loads Register a patient page")
 	public void systemLoadsRegisterPatientPage() {
 		assertTrue(textExists("Register a patient"));
 	}
-  	
-  	@And("a user clicks on the Unidentified Patient checkbox")
+	
+	@And("a user clicks on the Unidentified Patient checkbox")
 	public void clickOnUndefinedPatientCheckbox() {
   		registrationPage.selectUnidentifiedPatient();
 	}
-  	
-  	@And("a user selects a gender")
+	
+	@And("a user selects a gender")
 	public void selectGender() throws InterruptedException {
   		registrationPage.clickOnGenderLink();
   		registrationPage.selectPatientGender("Male");
   		registrationPage.clickOnConfirmSection();
 	}
-  	
-  	@And("a user clicks Confirm button")
+	
+	@And("a user clicks Confirm button")
 	public void clickOnConfirmButton() throws InterruptedException {
   		dashboardPage = registrationPage.confirmPatient();
 	}
-  	
-  	@Then("the system adds patient record into the patients table")
+	
+	@Then("the system adds patient record into the patients table")
 	public void systemAddsPatientRecord() {
-  		assertThat(dashboardPage.getPatientGivenName(), equalTo("UNKNOWN"));
-        assertThat(dashboardPage.getPatientFamilyName(), equalTo("UNKNOWN"));
+		assertThat(dashboardPage.getPatientGivenName(), equalTo("UNKNOWN"));
+		assertThat(dashboardPage.getPatientFamilyName(), equalTo("UNKNOWN"));
 		dashboardPage.goToHomePage();
 	}
-  	
-  	@Then("the system loads unidentified patient keyboard")
+	
+	@Then("the system loads unidentified patient keyboard")
 	public void systemLoadsUnidentifiedPatientKeyboard() {
   		assertTrue(textExists("UNKNOWN UNKNOWN"));
 		dashboardPage.goToHomePage();
 	}
-  	
-  	@And("a user captures the patient details")
+	
+	@And("a user captures the patient details")
 	public void capturePatientDetails() throws InterruptedException {
-  		patient = PatientGenerator.generateTestPatient();
-        patient.givenName = "Jowella";
-        patient.middleName = "Jane";
-        patient.familyName = "Kate";
-        patient.gender = "Female";
-        patient.birthDay = "01";
-        patient.birthMonth = "January";
-        patient.birthYear = "2000";
-        patient.address1 ="Nakwero";
-        patient.address2 ="Canaan Estate";
-        patient.city = "Kampala";
-        patient.state ="Central";
-        patient.country ="Uganda";
-        patient.postalCode ="235";
-        patient.phone ="0786987987";
-        registrationPage.enterPatient(patient);
+		patient = PatientGenerator.generateTestPatient();
+		patient.givenName = "Jowella";
+		patient.middleName = "Jane";
+		patient.familyName = "Kate";
+		patient.gender = "Female";
+		patient.birthDay = "01";
+		patient.birthMonth = "January";
+		patient.birthYear = "2000";
+		patient.address1 ="Nakwero";
+		patient.address2 ="Canaan Estate";
+		patient.city = "Kampala";
+		patient.state ="Central";
+		patient.country ="Uganda";
+		patient.postalCode ="235";
+		patient.phone ="0786987987";
+		registrationPage.enterPatient(patient);
 	}
-  	
-  	@And("the system alerts that similar patient found")
+	
+	@And("the system alerts that similar patient found")
 	public void systemAllertsSimilarPatient() {
-  		String birthDate = patient.birthDay + "." + patient.birthMonth.substring(0,3) + "." + patient.birthYear;
-        String name = registrationPage.getSimilarPatientName();
-        assertEquals(name, (patient.givenName + " " + patient.familyName));
-        String info = registrationPage.getSimilarPatientInfo();
-        assertEquals(info, (patient.gender + ", " + birthDate + ", " + patient.address1 + " " + patient.address2 + " " + patient.city + patient.state + patient.country + patient.postalCode ));
+		String birthDate = patient.birthDay + "." + patient.birthMonth.substring(0,3) + "." + patient.birthYear;
+		String name = registrationPage.getSimilarPatientName();
+		assertEquals(name, (patient.givenName + " " + patient.familyName));
+		String info = registrationPage.getSimilarPatientInfo();
+		assertEquals(info, (patient.gender + ", " + birthDate + ", " + patient.address1 + " " + patient.address2 + " " + patient.city + patient.state + patient.country + patient.postalCode ));
 	}
-  	
-  	@Then("the system displays patient dashboard")
+	
+	@Then("the system displays patient dashboard")
 	public void systemDisplaysPatientDashboard() {
 		assertThat(dashboardPage.getPatientGivenName(), equalTo(patient.givenName));
 		assertThat(dashboardPage.getPatientFamilyName(), equalTo(patient.familyName));
 		dashboardPage.goToHomePage();
 	}
-  	
-  	@And("a user captures patient name with accented letter")
+	
+	@And("a user captures patient name with accented letter")
 	public void namePatientAccentedLetter() throws InterruptedException {
-  		patient = PatientGenerator.generateTestPatient();
-        patient.givenName = "Jowellał";
-        patient.familyName = "Katè";
-        patient.gender = "Female";
-        registrationPage.enterPatient(patient);
+		patient = PatientGenerator.generateTestPatient();
+		patient.givenName = "Jowellał";
+		patient.familyName = "Katè";
+		patient.gender = "Female";
+		registrationPage.enterPatient(patient);
 	}
-  	
-  	@Given("a user creates two patients")
+	
+	@Given("a user creates two patients")
 	public void createTwoPatients() {
   		testPatient = createTestPatient();
   		testPatient2 = createTestPatient();
 	}
-  	
-  	@When("a user clicks on Data Management App from the home page")
+	
+	@When("a user clicks on Data Management App from the home page")
 	public void loadDataManagementPage() {
   		dataManagementPage = homePage.goToDataManagement();
 	}
-  	
-  	@And("the system loads data management page")
+	
+	@And("the system loads data management page")
 	public void systemLoadsDataManagementPage() {
   		assertTrue(textExists("Data Management"));
 	}
-  	
-  	@And("a user clicks on Merge Patient Electronic Records app")
+	
+	@And("a user clicks on Merge Patient Electronic Records app")
 	public void loadMergePatientsPage() {
   		mergePatientsPage = dataManagementPage.goToMergePatient();
 	}
-  	
-  	@And("the system loads merge patients page")
+	
+	@And("the system loads merge patients page")
 	public void systemLoadsMergePatientsPage() {
   		assertTrue(textExists("Merge Patient Electronic Records"));
 	}
-  	
+	
 	@And("a user captures IDs for patients to merge")
 	public void capturePatientIds() {
 		mergePatientsPage.enterPatient1(testPatient.identifier);
@@ -258,5 +258,5 @@ public class PatientSteps extends Steps {
 	@Then("the system displays Continue button")
 	public void systemDisplaysContinueButton() {
 		assertNotNull(dataManagementPage.CONTINUE);
-	}
+	}	
 }

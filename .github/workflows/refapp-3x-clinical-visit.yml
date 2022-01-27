@@ -14,7 +14,14 @@ jobs:
       run:
         working-directory: ./qaframework-bdd-tests
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout qaframework
+        uses: actions/checkout@master
+        with:
+          repository: ${{github.repository}}
+      - name: Run db and web containers
+        run: docker-compose -f docker/docker-compose-refqa-3x.yml up -d
+      - name: Wait for Openmrs instance to start
+        run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost/openmrs/spa/login)" != "200" ]]; do sleep 2; done
       - name: Using Node.js
         uses: actions/setup-node@v1
         with:

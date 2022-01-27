@@ -61,7 +61,7 @@ Cypress.Commands.add('login', () => {
 Cypress.Commands.add('generateIdentifier', () => {
     cy.request({
         method: 'POST',
-        url: `${API_BASE_URL}/idgen/identifiersource/691eed12-c0f1-11e2-94be-8c13b969e334/identifier`,
+        url: `${API_BASE_URL}/idgen/identifiersource/8549f706-7e85-4c1d-9424-217d50a2988b/identifier`,
         body: {},
         headers: {
             'Content-Type': 'application/json',
@@ -76,14 +76,14 @@ Cypress.Commands.add('generateLabResults', (uuid) => {
     const labResults = {
         patient: uuid,
         encounterDatetime: "2012-02-05T04:03:02",
-        location: '6351fcf4-e311-4a19-90f9-35667d99a8af',
+        location: DEFAULT_LOCATION_UUID,
         encounterProviders: [
           {
-            provider: "b917e518-9186-4981-90a0-f95625c18641",
+            provider: "8d94f280-c2cc-11de-8d13-0010c6dffd0f",
             encounterRole: "240b26f9-dd88-4172-823d-4a8bfeb7841f"
           }
         ],
-        encounterType: "d7151f82-c1f3-4152-a605-2f9ea7414a79",
+        encounterType: "e22e39fd-7db2-45e7-80f1-60fa0d5a4378",
         obs: [
           {
             concept: "856AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
@@ -333,7 +333,7 @@ Cypress.Commands.add('createPatient', (identifier = null) => {
             {
                 identifier,
                 identifierType: '05a29f94-c0ed-11e2-94be-8c13b969e334',
-                location: '6351fcf4-e311-4a19-90f9-35667d99a8af',
+                location: DEFAULT_LOCATION_UUID,
                 preferred: true
             }
         ]
@@ -396,4 +396,3 @@ Cypress.Commands.add('deletePatient', (uuid) => {
         },
     });
 });
-

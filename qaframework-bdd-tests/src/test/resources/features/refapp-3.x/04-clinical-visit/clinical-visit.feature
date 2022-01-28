@@ -14,7 +14,7 @@ Feature: Clinical Visit
     Then the Patient Summary should load properly
 
   @clinical-visit
-  Scenario: The programs page should function properly
+  Scenario: The Programs page should function properly
     When the user clicks on "Programs" in the menu
     Then the program list should be empty
     When the user enrolls the patient into a program
@@ -46,8 +46,8 @@ Feature: Clinical Visit
     Then the time range of the trend line should be changed
 
   @clinical-visit
-  Scenario: The Form Entry page should function properly
-    When the user clicks on "Form Entry" in the menu
+  Scenario: The Forms & Notes page should function properly
+    When the user clicks on "Forms & Notes" in the menu
     Then the form entry widget should load properly
     When the user clicks on "Recommended" in the form widget
     Then the forms list should be empty
@@ -56,4 +56,5 @@ Feature: Clinical Visit
     When the user clicks on "All" in the form widget
     Then the forms list should load properly
     When the user completes a form
+    And  the user clicks on "Completed" in the form widget
     Then the completed form should be listed

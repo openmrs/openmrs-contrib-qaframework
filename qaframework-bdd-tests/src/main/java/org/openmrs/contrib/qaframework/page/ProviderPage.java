@@ -16,12 +16,12 @@ public class ProviderPage extends Page {
 
 	private static final By IDENTIFIER_FIELD = By.cssSelector("#content input[name=\"identifier\"]");
 	private static final By PERSON_FIELD = By.id("person_id_selection");
-	private static final By SAVE = By.cssSelector("#content input[type=\"submit\"]");
-	private static final By CANCEL = By.cssSelector("#content input[type=\"button\"]:nth-child(5)");
-	private static final By DELETE_FOREVER = By.cssSelector("#content input[name='purgeProviderButton']");
+	private static final By SAVE_BUTTON = By.cssSelector("#content input[type=\"submit\"]");
+	private static final By CANCEL_BUTTON = By.cssSelector("#content input[type=\"button\"]:nth-child(5)");
+	private static final By DELETE_FOREVER_BUTTON = By.cssSelector("#content input[name='purgeProviderButton']");
 	private static final By FIRST_AUTOCOMPLETE_RESULT = By.cssSelector("body > ul");
-	private static final By RETIRE_REASON = By.id("retire");
-	private static final By RETIRE = By.cssSelector("input[name='retireProviderButton']");
+	private static final By RETIRE_REASON_FIELD = By.id("retire");
+	private static final By RETIRE_BUTTON = By.cssSelector("input[name='retireProviderButton']");
 
 	public ProviderPage(Page parent) {
 		super(parent);
@@ -38,14 +38,14 @@ public class ProviderPage extends Page {
 	}
 
 	public ManageProviderPage clickOnSave() {
-		clickOn(SAVE);
+		clickOn(SAVE_BUTTON);
 		ManageProviderPage manageProviderPage = new ManageProviderPage(this);
 		manageProviderPage.waitForProviderToBeSaved();
 		return manageProviderPage;
 	}
 
 	public ManageProviderPage clickOnCancel() {
-		clickOn(CANCEL);
+		clickOn(CANCEL_BUTTON);
 		return new ManageProviderPage(this);
 	}
 
@@ -55,7 +55,7 @@ public class ProviderPage extends Page {
 	}
 
 	public ManageProviderPage deleteForever() {
-		clickOn(DELETE_FOREVER);
+		clickOn(DELETE_FOREVER_BUTTON);
 		acceptAlert();
 		ManageProviderPage manageProviderPage = new ManageProviderPage(this);
 		manageProviderPage.waitForProviderToBeDeleted();
@@ -63,11 +63,11 @@ public class ProviderPage extends Page {
 	}
 
 	public void setRetireReason(String retireReason) {
-		setTextToFieldNoEnter(RETIRE_REASON, retireReason);
+		setTextToFieldNoEnter(RETIRE_REASON_FIELD, retireReason);
 	}
 
 	public ManageProviderPage clickOnRetire() {
-		clickOn(RETIRE);
+		clickOn(RETIRE_BUTTON);
 		ManageProviderPage manageProviderPage = new ManageProviderPage(this);
 		manageProviderPage.waitForProviderToBeRetired();
 		return manageProviderPage;

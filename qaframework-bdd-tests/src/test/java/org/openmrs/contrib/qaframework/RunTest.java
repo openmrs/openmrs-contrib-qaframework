@@ -64,10 +64,7 @@ public class RunTest {
 		public static final String SELENIUM_PATIENT_DEMOGRAPHICS = SELENIUM + " and " + PATIENT_DEMOGRAPHICS;
 		public static final String SELENIUM_ROLES_AND_PRIVILEGES = SELENIUM + " and " + ROLES_AND_PRIVILEGES;
 		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;
-<<<<<<< HEAD
 		public static final String SELENIUM_XSS_VULNERABILITY = SELENIUM + " and " + XSS_VULNERABILITY;
-=======
 		public static final String SELENIUM_ALLERGIES = SELENIUM + " and " + ALLERGIES;
->>>>>>> master
 	}
 }

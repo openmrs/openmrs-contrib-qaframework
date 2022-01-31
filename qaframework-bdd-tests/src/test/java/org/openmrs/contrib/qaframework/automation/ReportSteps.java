@@ -84,6 +84,7 @@ public class ReportSteps extends Steps {
 
 	@Then("user clicks on view report link")
 	public void userClicksOnViewReport() {
+		reportHistoryPage.waitForPage();
 		renderDefaultReportPage = reportHistoryPage.clickOnViewLink();
 	}
 }

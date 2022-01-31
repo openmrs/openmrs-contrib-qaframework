@@ -37,8 +37,8 @@ public class AllergiesSteps extends Steps {
 
 	@Before(RunTest.HOOK.SELENIUM_ALLERGIES)
 	public void visitDashboard() {
-		testPatient = createTestPatient();
 		initiateWithLogin();
+		testPatient = createTestPatient();
 		findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();

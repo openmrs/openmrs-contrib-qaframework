@@ -29,8 +29,8 @@ public class InpatientSteps extends Steps {
 
 	@Before(RunTest.HOOK.SELENIUM_ENCOUNTER)
 	public void visitHomePage() {
-		testPatient = createTestPatient();
 		initiateWithLogin();
+		testPatient = createTestPatient();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_ENCOUNTER)

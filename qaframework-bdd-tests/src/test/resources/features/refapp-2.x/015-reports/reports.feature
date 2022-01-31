@@ -14,4 +14,5 @@ Feature: Reports Management
     And user enters start date
     And user enters end date
     And user clicks on request report button
-    Then user clicks on view report link
+    #And user clicks on save report
+    #Then user clicks on view report link

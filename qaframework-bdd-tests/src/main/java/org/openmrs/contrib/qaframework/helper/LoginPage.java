@@ -11,9 +11,12 @@ package org.openmrs.contrib.qaframework.helper;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Set;
 
 import org.apache.commons.io.IOUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Cookie;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
@@ -40,6 +43,9 @@ public class LoginPage extends Page {
 	private String username;
 
 	private String password;
+	
+	private static String csrfToken;
+	private static Set<Cookie> cookies;
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
@@ -70,7 +76,15 @@ public class LoginPage extends Page {
 			IOUtils.closeQuietly(in);
 		}
 
+		cookies = driver.manage().getCookies();
+		
 		String post = postJs + " post('" + getContextPageUrl() + "', {username: '" + user + "', password: '" + password;
+
+		csrfToken = driver.findElement(By.name("OWASP-CSRFTOKEN")).getAttribute("value");
+		if (StringUtils.isNotBlank(csrfToken)) {
+			post += "', 'OWASP-CSRFTOKEN': '" + csrfToken;
+		}
+		
 		if (location != null) {
 			post += "', sessionLocation: " + location + "});";
 		} else {
@@ -79,6 +93,14 @@ public class LoginPage extends Page {
 		((JavascriptExecutor) driver).executeScript(post);
 	}
 
+	public static String getCsrfToken() {
+		return csrfToken;
+	}
+	
+	public static Set<Cookie> getCookies() {
+		return cookies;
+	}
+	
 	public Page login(String user, String password) {
 		String value = findElement(By.cssSelector("#sessionLocation li")).getAttribute("value");
 		return login(user, password, Integer.parseInt(value));

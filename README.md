@@ -77,7 +77,7 @@ OpenMRS [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) QA fram
 - `mvn clean install -DskipTests=true`
 
 ## Configuration
-Set Your test configurations in `qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test.properties`.
+Set your test configurations in `qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test.properties`.
 MySQL password should be the same for initialSetupTests as openmrs password
 
 ## Running test projects
@@ -223,3 +223,11 @@ See the [Cypress docs](https://docs.cypress.io/guides/guides/environment-variabl
 ## Before Releasing
 - [ ] For the platform, manually run both Installation and upgrade workflows again.
 - [ ] Check all relevant builds to the release above to be sure they pass
+
+
+## Wiki
+* We use JIRA to track issues and monitor project development. Refer to this link to view all issues and project summary: [QA Kanban board JIRA](https://issues.openmrs.org/secure/RapidBoard.jspa?rapidView=240). 
+
+* To get started contributing, start working on introductory issues in JIRA and check out  [OpenMRS Pull Request Tips](https://wiki.openmrs.org/display/docs/Pull+Request+Tips). 
+
+* There is a detailed guide for setting up the OpenMRS QA Framework locally, checkout the guide [here](https://wiki.openmrs.org/pages/viewpage.action?pageId=235277297).

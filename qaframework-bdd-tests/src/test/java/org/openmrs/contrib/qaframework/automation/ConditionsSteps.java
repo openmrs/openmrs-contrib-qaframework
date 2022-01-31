@@ -33,9 +33,9 @@ public class ConditionsSteps extends Steps {
     private TestData.PatientInfo testPatient;
 
     @Before(RunTest.HOOK.SELENIUM_CONDITION)
-    public void visitDashboard() {
-        testPatient = createTestPatient();
+    public void visitDashboard() {     
         initiateWithLogin();
+        testPatient = createTestPatient();
         findPatientPage = homePage.goToFindPatientRecord();
         findPatientPage.enterPatient(testPatient.identifier);
         dashboardPage = findPatientPage.clickOnFirstPatient();

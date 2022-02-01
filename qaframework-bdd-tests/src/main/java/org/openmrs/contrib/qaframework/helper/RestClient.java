@@ -10,9 +10,11 @@
 package org.openmrs.contrib.qaframework.helper;
 
 import java.io.IOException;
+import java.util.Set;
 
 import org.glassfish.jersey.client.authentication.HttpAuthenticationFeature;
 import org.openmrs.contrib.qaframework.helper.TestData.JsonTestClass;
+import org.openqa.selenium.Cookie;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -22,6 +24,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.ws.rs.client.Client;
 import jakarta.ws.rs.client.ClientBuilder;
 import jakarta.ws.rs.client.Entity;
+import jakarta.ws.rs.client.Invocation;
 import jakarta.ws.rs.client.WebTarget;
 import jakarta.ws.rs.core.MediaType;
 
@@ -64,7 +67,10 @@ public class RestClient {
 	public static void delete(String restPath, Boolean purge) {
 		WebTarget target = newClient().target(getWebAppUrl()).path(REST_ROOT + restPath).queryParam("purge", purge);
 		try {
-			String jsonString = target.request().delete(String.class);
+			Invocation.Builder builder = target.request();
+			addCsrfHeaders(builder);
+			
+			String jsonString = builder.delete(String.class);
 			if (!jsonString.isEmpty()) {
 				throw new RuntimeException(jsonString);
 			}
@@ -83,12 +89,26 @@ public class RestClient {
 		try {
 			String objectAsJson = object.asJson();
 			Entity<String> entity = Entity.entity(objectAsJson, MediaType.APPLICATION_JSON_TYPE);
-			String json = target.request(MediaType.APPLICATION_JSON_TYPE).post(entity, String.class);
+			Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON_TYPE);
+			
+			addCsrfHeaders(builder);
+			
+			String json = builder.post(entity, String.class);
 			return new ObjectMapper().readValue(json, JsonNode.class);
 		} catch (Exception e) {
 			log("POST " + restPath + " failed", e);
 			return null;
 		}
+	}
+	
+	private static void addCsrfHeaders(Invocation.Builder builder) {
+		builder.header("OWASP-CSRFTOKEN", LoginPage.getCsrfToken());
+		builder.header("X-Requested-With", "XMLHttpRequest");
+		
+		Set<Cookie> cookies = LoginPage.getCookies();
+		for (Cookie cookie : cookies) {
+			builder.cookie(cookie.getName(), cookie.getValue());
+		}	
 	}
 
 	private static Client newClient() {

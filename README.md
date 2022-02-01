@@ -34,6 +34,7 @@ Install & Upgrade Tests |
 [![RefApp 2.x Provider](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-provider.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-provider.yml)
 [![RefApp 2.x Form](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-form.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-form.yml)
 [![RefApp 2.x Patient Allergies](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-allergies.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-allergies.yml)
+[![RefApp 2.x Visit Type](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-visit-type.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-visit-type.yml)
 2.x RefApp Feature-Specific Tests* |
 ------------- |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
@@ -75,7 +76,7 @@ OpenMRS [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) QA fram
 - `mvn clean install -DskipTests=true`
 
 ## Configuration
-Set Your test configurations in `qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test.properties`.
+Set your test configurations in `qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test.properties`.
 MySQL password should be the same for initialSetupTests as openmrs password
 
 ## Running test projects
@@ -221,3 +222,11 @@ See the [Cypress docs](https://docs.cypress.io/guides/guides/environment-variabl
 ## Before Releasing
 - [ ] For the platform, manually run both Installation and upgrade workflows again.
 - [ ] Check all relevant builds to the release above to be sure they pass
+
+
+## Wiki
+* We use JIRA to track issues and monitor project development. Refer to this link to view all issues and project summary: [QA Kanban board JIRA](https://issues.openmrs.org/secure/RapidBoard.jspa?rapidView=240). 
+
+* To get started contributing, start working on introductory issues in JIRA and check out  [OpenMRS Pull Request Tips](https://wiki.openmrs.org/display/docs/Pull+Request+Tips). 
+
+* There is a detailed guide for setting up the OpenMRS QA Framework locally, checkout the guide [here](https://wiki.openmrs.org/pages/viewpage.action?pageId=235277297).

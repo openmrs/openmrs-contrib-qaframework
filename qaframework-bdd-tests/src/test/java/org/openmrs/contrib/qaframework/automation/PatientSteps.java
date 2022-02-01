@@ -29,14 +29,12 @@ import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.helper.TestPatient;
 import org.openmrs.contrib.qaframework.page.DataManagementPage;
 import org.openmrs.contrib.qaframework.page.MergePatientsPage;
-import org.openmrs.contrib.qaframework.page.PatientVisitsDashboardPage;
 import org.openmrs.contrib.qaframework.page.RegistrationPage;
 
 public class PatientSteps extends Steps {
 	
 	private DataManagementPage dataManagementPage;
 	private MergePatientsPage mergePatientsPage;
-	private PatientVisitsDashboardPage VisitsDashboardPage;
 	private RegistrationPage registrationPage;
 	private TestData.PatientInfo testPatient;
 	private TestData.PatientInfo testPatient2;
@@ -237,12 +235,12 @@ public class PatientSteps extends Steps {
 	
 	@And("a user clicks yes continue button")
 	public void confirmMergePatientRecord() {
-		VisitsDashboardPage = mergePatientsPage.clickOnContinue();
+		visitsDashboardPage = mergePatientsPage.clickOnContinue();
 	}
 	
 	@Then("the system loads patient visits dashboard")
 	public void systemReturnsPatientDashboard() {
-		assertThat(VisitsDashboardPage.getPatientFamilyName(), equalTo(testPatient2.familyName));
+		assertThat(visitsDashboardPage.getPatientFamilyName(), equalTo(testPatient2.familyName));
 	}
 	
 	@And("a user clicks No button")

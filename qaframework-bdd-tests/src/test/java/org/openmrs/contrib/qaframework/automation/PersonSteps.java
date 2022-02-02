@@ -43,15 +43,15 @@ public class PersonSteps extends Steps {
 	
     @Before(RunTest.HOOK.SELENIUM_PERSON)
     public void setUp() {
-	initiateWithLogin();
-	personInfo = TestData.generateRandomPerson();
-	personUuid = TestData.createPerson(personInfo);
+        initiateWithLogin();
+        personInfo = TestData.generateRandomPerson();
+        personUuid = TestData.createPerson(personInfo);
     }
 	
     @After(RunTest.HOOK.SELENIUM_PERSON)
     public void tearDown() {
-	RestClient.delete("person/" + personUuid, true);
-	quit();
+        RestClient.delete("person/" + personUuid, true);
+        quit();
     }
 	
     @Given ("a user clicks on the system administration link on the home page")

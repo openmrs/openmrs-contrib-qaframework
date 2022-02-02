@@ -78,19 +78,12 @@ public class ReportSteps extends Steps {
 	}
 
 	@And("user clicks on request report button")
-	public void userclicksOnRequestReport() throws InterruptedException {
+	public void userclicksOnRequestReport() {
 		reportHistoryPage = runReportsPage.clickOnRequestReport();
-		reportHistoryPage.waitForPageToLoad();
 	}
 	
-    @And("user clicks on save report")
-	public void userClickOnSaveReport() {
-		reportHistoryPage.clickOnSaveReportLink();
-		reportHistoryPage.waitForPage();
-	}
-
 	@Then("user clicks on view report link")
 	public void userClicksOnViewReport() {
-		reportHistoryPage.clickOnViewLink();
+		renderDefaultReportPage = reportHistoryPage.clickOnViewLink();
 	}
 }

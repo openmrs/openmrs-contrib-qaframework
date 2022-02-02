@@ -16,21 +16,15 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class ReportHistoryPage extends Page {
 
 	private static final By VIEW_REPORT = By.cssSelector("#content a[href*='/module/reporting/reports/viewReport.form']");
-	private static final By SAVE_REPORT = By.xpath("/html/body/div[1]/div[3]/div[3]/div/table/tbody/tr/td[2]/div[2]/a");
 
 	public ReportHistoryPage(Page page) {
 		super(page);
 	}
 
-	public void clickOnViewLink() {
+	public RenderDefaultReportPage clickOnViewLink() {
 		waiter.until(ExpectedConditions.visibilityOfElementLocated(VIEW_REPORT));
 		clickOn(VIEW_REPORT);
-		// return new RenderDefaultReportPage(this);
-	}
-
-	public void clickOnSaveReportLink() {
-		waiter.until(ExpectedConditions.visibilityOfElementLocated(SAVE_REPORT));
-		clickOn(SAVE_REPORT);
+		return new RenderDefaultReportPage(this);
 	}
 
 	@Override

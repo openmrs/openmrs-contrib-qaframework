@@ -167,7 +167,7 @@ public class PatientSteps extends Steps {
 	}
 	
 	@And("the system alerts that similar patient found")
-	public void systemAllertsSimilarPatient() {
+	public void systemAllertsSimilarPatientFound() {
 		String birthDate = patient.birthDay + "." + patient.birthMonth.substring(0,3) + "." + patient.birthYear;
 		String name = registrationPage.getSimilarPatientName();
 		assertEquals(name, (patient.givenName + " " + patient.familyName));

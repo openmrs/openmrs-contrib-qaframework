@@ -77,11 +77,6 @@ public class ConditionsSteps extends Steps {
 		assertNotNull(getElement(ConditionPage.SAVE));
 	}
 
-	@And("User clicks on cancel")
-	public void cancelAddNewCondition() {
-		conditionPage.clickCancel();
-	}
-
 	@And("User clicks save")
 	public void saveCondition() {
 		conditionPage.clickSave();
@@ -100,19 +95,10 @@ public class ConditionsSteps extends Steps {
 	}
 	
 	@And("User enters inactive condition")
-	public void enterInactiveCondition(){
+	public void enterInactiveCondition() {
 			conditionPage.typeInCondition("Diabetes mellitus");
 			conditionPage.clickOnInActive();
 		}
-
-	@Then("Then System on {string} Page")
-	public void persist(String page) {
-		if ("parent".equals(page)) {
-			assertNotNull(getElement(addNewCondition));
-		} else if ("current".equals(page)) {
-			assertNotNull(getElement(ConditionPage.SAVE));
-		}
-	}
 
 	@And("User clicks on set inactive button")
 	public void setInActive() {

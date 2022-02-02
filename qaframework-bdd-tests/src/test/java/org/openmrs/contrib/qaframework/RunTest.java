@@ -29,6 +29,7 @@ public class RunTest {
 		public static final String SELENIUM = "@selenium";
 		public static final String FORM = "@form";
 		public static final String PERSON = "@person";
+		public static final String DEFAULT_LOGIN = "@defaultLogin";
 		public static final String ALLERGIES = "@allergies";
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
@@ -64,5 +65,6 @@ public class RunTest {
 		public static final String SELENIUM_ROLES_AND_PRIVILEGES = SELENIUM + " and " + ROLES_AND_PRIVILEGES;
 		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;
 		public static final String SELENIUM_ALLERGIES = SELENIUM + " and " + ALLERGIES;
+		public static final String SELENIUM_DEFAULT_LOGIN = SELENIUM + " and " + DEFAULT_LOGIN;
 	}
 }

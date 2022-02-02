@@ -10,7 +10,6 @@ import io.cucumber.java.en.When;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.ManageReportsPage;
-import org.openmrs.contrib.qaframework.page.RenderDefaultReportPage;
 import org.openmrs.contrib.qaframework.page.ReportHistoryPage;
 import org.openmrs.contrib.qaframework.page.RunReportPage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
@@ -22,7 +21,6 @@ public class ReportSteps extends Steps {
 	private ManageReportsPage manageReportsPage;
 	private ReportHistoryPage reportHistoryPage;
 	private RunReportPage runReportsPage;
-	private RenderDefaultReportPage renderDefaultReportPage;
 	private static final String START_DATE = "05/07/2008";
 	private static final String END_DATE = "20/06/2020";
 
@@ -84,6 +82,6 @@ public class ReportSteps extends Steps {
 
 	@Then("user clicks on view report link")
 	public void userClicksOnViewReport() {
-		renderDefaultReportPage = reportHistoryPage.clickOnViewLink();
+		reportHistoryPage.clickOnViewLink();
 	}
 }

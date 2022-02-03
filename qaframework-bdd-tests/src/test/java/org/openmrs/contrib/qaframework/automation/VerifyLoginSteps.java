@@ -18,6 +18,7 @@ public class VerifyLoginSteps  extends Steps {
     
     @After(RunTest.HOOK.SELENIUM_DEFAULT_LOGIN)
     public void destroy() {
+        quit();
 
     }
 

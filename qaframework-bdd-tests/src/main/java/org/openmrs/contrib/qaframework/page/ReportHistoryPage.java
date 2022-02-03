@@ -22,7 +22,7 @@ public class ReportHistoryPage extends Page {
 	}
 
 	public RenderDefaultReportPage clickOnViewLink() {
-		waiter.until(ExpectedConditions.visibilityOfElementLocated(VIEW_REPORT));
+		waiter.until(ExpectedConditions.elementToBeSelected(VIEW_REPORT));
 		clickOn(VIEW_REPORT);
 		return new RenderDefaultReportPage(this);
 	}

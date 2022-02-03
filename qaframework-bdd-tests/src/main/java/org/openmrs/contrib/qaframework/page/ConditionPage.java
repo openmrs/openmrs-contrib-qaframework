@@ -14,6 +14,7 @@ import java.util.List;
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ConditionPage extends Page {
 
@@ -58,7 +59,9 @@ public class ConditionPage extends Page {
 		clickOn(INACTIVE);
 		List<WebElement> elements = findElements(ICON_CALENDAR);
 		for (int i = 0; i < elements.size(); i++) {
-			elements.get(i).click();
+			WebElement element = elements.get(i);
+			waiter.until(ExpectedConditions.elementToBeClickable(element));
+			element.click();
 			findElements(ICON_CALENDAR_TODATE).get(i).click();
 		}
 	}

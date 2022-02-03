@@ -68,7 +68,7 @@ public class PatientSteps extends Steps {
 	}
 	
 	@And("a user enters the patient's {string}")
-	public void findPatient(String name) {
+	public void enterPatientName(String name) {
 		if ("rightName".equals(name)) {
 			findPatientPage.enterPatient(testPatient.givenName);
 			findPatientPage.waitForPageToLoad();
@@ -89,7 +89,7 @@ public class PatientSteps extends Steps {
 	}
 	
 	@And("a user searches for an existing patient by name")
-	public void searchPatient() {
+	public void searchPatientByName() {
 		findPatientPage.enterPatient(testPatient.givenName);
 		firstPatientIdentifier = findPatientPage.getFirstPatientIdentifier();
 		assertNotNull(firstPatientIdentifier);
@@ -183,7 +183,7 @@ public class PatientSteps extends Steps {
 	}
 	
 	@And("a user captures patient name with accented letter")
-	public void namePatientAccentedLetter() throws InterruptedException {
+	public void capturePatientNameWithAccentedLetter() throws InterruptedException {
 		patient = PatientGenerator.generateTestPatient();
 		patient.givenName = "Jowellał";
 		patient.familyName = "Katè";
@@ -239,7 +239,7 @@ public class PatientSteps extends Steps {
 	}
 	
 	@Then("the system loads patient visits dashboard")
-	public void systemReturnsPatientDashboard() {
+	public void systemLoadsPatientVisitsDashboard() {
 		assertThat(visitsDashboardPage.getPatientFamilyName(), equalTo(testPatient2.familyName));
 	}
 	
@@ -249,7 +249,7 @@ public class PatientSteps extends Steps {
 	}
 	
 	@And("the system returns to capture patient ID section")
-	public void systemReturnsCapturePatientIDSection() {
+	public void systemReturnsCapturePatientIdSection() {
 		assertTrue(textExists("Merge Patient Electronic Records"));
 	}
 	

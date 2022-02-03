@@ -74,7 +74,7 @@ Feature: Patient Management
   Scenario: Merge Patients
     Given a user creates two patients
     When a user clicks on Data Management App from the home page
-    And  the system loads data management page
+    And the system loads data management page
     And a user clicks on Merge Patient Electronic Records app
     And the system loads merge patients page
     And a user captures IDs for patients to merge
@@ -88,7 +88,7 @@ Feature: Patient Management
   Scenario: Using Back Button In Merge Patient
     Given a user creates two patients
     When a user clicks on Data Management App from the home page
-    And  the system loads data management page
+    And the system loads data management page
     And a user clicks on Merge Patient Electronic Records app
     And the system loads merge patients page
     And a user captures IDs for patients to merge

@@ -12,18 +12,16 @@ package org.openmrs.contrib.qaframework.page;
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 // import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ReportHistoryPage extends Page {
 
-	private static final By VIEW_REPORT = By.cssSelector("#content a[href='/module/reporting/reports/viewReport.form']");
+	private static final By VIEW_REPORT = By.xpath("/html/body/div[1]/div[3]/div[3]/div/table/tbody/tr/td[2]/div[1]/a");
 
 	public ReportHistoryPage(Page page) {
 		super(page);
 	}
 
 	public RenderDefaultReportPage clickOnViewLink() {
-		waiter.until(ExpectedConditions.elementToBeClickable(VIEW_REPORT));
 		clickOn(VIEW_REPORT);
 		return new RenderDefaultReportPage(this);
 	}

@@ -15,7 +15,7 @@ import org.openqa.selenium.By;
 
 public class ReportHistoryPage extends Page {
 
-	private static final By VIEW_REPORT = By.xpath("/html/body/div[1]/div[3]/div[3]/div/table/tbody/tr/td[2]/div[1]/a");
+	private static final By VIEW_REPORT = By.xpath("#content a[href*='/module/reporting/reports/viewReport.form']");
 
 	public ReportHistoryPage(Page page) {
 		super(page);

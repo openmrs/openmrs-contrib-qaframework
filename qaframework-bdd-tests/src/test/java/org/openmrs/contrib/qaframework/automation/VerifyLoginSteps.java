@@ -19,7 +19,6 @@ public class VerifyLoginSteps  extends Steps {
     @After(RunTest.HOOK.SELENIUM_DEFAULT_LOGIN)
     public void destroy() {
         quit();
-
     }
 
     @When("user verifies modules available on home page")
@@ -64,6 +63,5 @@ public class VerifyLoginSteps  extends Steps {
         goToLoginPage().loginAsSysadmin();
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
         assertTrue(homePage.isSystemAdministrationAppPresent());
-    }
-    
+    }  
 }

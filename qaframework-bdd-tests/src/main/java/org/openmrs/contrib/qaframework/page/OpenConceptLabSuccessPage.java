@@ -6,6 +6,8 @@
  * 
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
  */
 package org.openmrs.contrib.qaframework.page;
 
@@ -19,7 +21,7 @@ public class OpenConceptLabSuccessPage extends Page {
 
     private static final String PAGE_URL = "/owa/openconceptlab/index.html#/";
     private static final By EDIT_SUBSCRIPTION_BUTTON = By.linkText("Edit subscription");
-    private static final By IMPORT_FROM_SUBSCRIPTION_BUTTON = By.linkText("Import from subscription server");
+    private static final By IMPORT_FROM_SUBSCRIPTION_BUTTON = By.cssSelector("#body-wrapper home div:nth-child(3) div:nth-child(2) fieldset div:nth-child(2) div p:nth-child(1) > button");
     private static final By CHOOSE_FILE = By.linkText("Choose file");
     private static final By IMPORT_FROM_FILE = By.linkText("Import from file");
     private static final By IMPORTS_LIST = By.cssSelector("#body-wrapper home fieldset table tbody");
@@ -52,5 +54,5 @@ public class OpenConceptLabSuccessPage extends Page {
 
     public List<WebElement> getpreviousImportsList() {
 	    return findElements(IMPORTS_LIST);   
-   }	   	
+   }	
 }

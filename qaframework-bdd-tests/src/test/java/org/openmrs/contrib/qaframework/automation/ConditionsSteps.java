@@ -57,16 +57,6 @@ public class ConditionsSteps extends Steps {
 		assertNotNull(getElement(addNewCondition));
 	}
 
-	@And("User clicks on Return")
-	public void clickReturn() {
-		conditionsPage.clickReturn();
-	}
-
-	@Then("System returns to patient dashboard")
-	public void returnToDashboard() {
-		matchPatientIds(patientDashboardId);
-	}
-
 	@And("User clicks on Add new condition")
 	public void userClicksAddNewCondition() {
 		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
@@ -80,12 +70,6 @@ public class ConditionsSteps extends Steps {
 	@And("User clicks save")
 	public void saveCondition() {
 		conditionPage.clickSave();
-	}
-	
-	@Then ("System adds New Condition in Conditions table")
-	public void systemAddsPatientCondition(){
-		assertNotNull(conditionsPage.getConditionsList());
-		dashboardPage = conditionsPage.clickReturn();
 	}
 
 	@And("User enters active condition")

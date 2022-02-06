@@ -26,7 +26,7 @@ public class PatientVisitsDashboardPage extends Page {
 	private static final By TRANSFER_TO_WARD = By.id("referenceapplication.realTime.simpleTransfer");
 	private static final By EXIT_FROM_INPATIENT = By.id("referenceapplication.realTime.simpleDischarge");
 	private static final By ACTIONS_DROPDOWN = By.cssSelector("#content span.dropdown-name");
-	private static final By MERGE_VISITS = By.cssSelector("#content div.actions.dropdown ul li:nth-child(2) > a");
+	private static final By MERGE_VISITS = By.linkText("Merge Visits");
 	private static final By ATTACHMENTS_LINK = By.cssSelector("a[id='attachments.attachments.visitActions.default']");
 	private static final By FAMILY_NAME = By.cssSelector(".patient-header .demographics .name .PersonName-familyName");
 	private static final By VISIT_NOTE_ENCOUNTER = By.xpath("//div[@id='visit-details']/ul/li/ul/li/div/strong/span[text()='Visit Note']");

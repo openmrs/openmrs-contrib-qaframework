@@ -15,9 +15,9 @@ Feature: User Settings
   Scenario: The user should be able to change the location
     When the user clicks on the users icon
     Then the current location should be there
-    When the user change the location to "Pharmacy"
+    When the user change the location to "Inpatient Ward"
     Then the user should be on the patient’s chart
-    And the current location should be "Pharmacy"
+    And the current location should be "Inpatient Ward"
 
   @logout
   Scenario: The user should be able to log out and find themselves back on the login

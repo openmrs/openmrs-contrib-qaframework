@@ -31,7 +31,14 @@ When('the user can change the locale to Spanish', () => {
 
 Then('the text should change into spanish', () => {
     cy.get('button[name="SearchPatientIcon"]').click({force: true});
-    cy.getByPlaceholder('Buscar un paciente');
+    cy.get('input').then(($input) => {
+        if (cy.get($input).invoke('attr', 'placeholder').should('contain', 'Buscar un paciente') === true) {
+            cy.getByPlaceholder('Buscar un paciente');
+        }else{
+            cy.reload();
+            cy.get('button[name="SearchPatientIcon"]').click({force: true});
+            cy.getByPlaceholder('Buscar un paciente');
+    }});
 });
 
 When('the user clicks on the users icon', () => {

@@ -75,6 +75,7 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	private static final By TELEPHONE_NUMBER_TEXT = By.cssSelector("#coreapps-telephoneNumber");
 	private static final By RECENT_VISITS = By.cssSelector("visitbyencountertype > ul > li:nth-child(1) > a");
 	private static final By PATIENT_GIVENNAME = By.cssSelector("#content div span.PersonName-givenName");
+	private static final By PATIENT_MIDDLE_NAME = By.cssSelector("#content div span.PersonName-middleName");
 	private static final By ACTIVE_VISIT_MESSAGE = By.cssSelector("active-visit-message");
 	private static final By ALLERGIES_LINK = By.id("allergyui-editAllergies");
 	private static final By CONDITIONS_LINK = By.cssSelector(".conditions .info-header i.right");
@@ -391,6 +392,10 @@ public class ClinicianFacingPatientDashboardPage extends Page {
 	public String getPatientFamilyName() {
 		String patientFamilyName = findElement(By.cssSelector(".patient-header .demographics .name .PersonName-familyName")).getText();
 		return patientFamilyName;
+	}
+	
+	public String getPatientMiddleName() {
+		return findElement(PATIENT_MIDDLE_NAME).getText();
 	}
 
 	public String getTelephoneNumber() {

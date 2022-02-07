@@ -15,6 +15,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 import org.openmrs.contrib.qaframework.helper.TestBase;
+import org.openqa.selenium.By;
 
 public class InitialSetupSteps extends TestBase {
 	
@@ -50,5 +51,9 @@ public class InitialSetupSteps extends TestBase {
 		if (StringUtils.isNotBlank(errorMsg)) {
 			Assert.fail(errorMsg);
 		}
+	}
+
+	protected boolean textExists(String text) {
+		return driver.findElements(By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
 	}
 }

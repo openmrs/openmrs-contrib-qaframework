@@ -9,8 +9,11 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertTrue;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -18,6 +21,9 @@ import io.cucumber.java.en.When;
 import org.openmrs.contrib.qaframework.RunTest;
 
 public class UpgradeSteps extends InitialSetupSteps {
+
+	private static final String HEADER_TEXT = "The OpenMRS server is currently in maintenance mode";
+	private static final String SUPER_USER = "System Developer";
 	
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)
 	public void init() {
@@ -29,13 +35,20 @@ public class UpgradeSteps extends InitialSetupSteps {
 		complete();
 	}
 
-	@Given("User enters credentials")
+	@Given("User is on login page")
+	public void visitLoginPage() {	
+		assertTrue(textExists(HEADER_TEXT));
+		assertTrue(textExists(SUPER_USER));
+	}
+
+	@And("User enters credentials")
 	public void enterCredentials() {
 		initialSetupPage.enterUsernameAndPassword();
 	}
 
 	@When("User proceeds with Upgrade")
 	public void submitUpgrade() {
+		
 		initialSetupPage.upgrade();
 	}
 

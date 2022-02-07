@@ -1,12 +1,13 @@
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertTrue;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static org.junit.Assert.assertTrue;
 import org.openmrs.contrib.qaframework.RunTest;
 
 public class VerifyLoginSteps  extends Steps {

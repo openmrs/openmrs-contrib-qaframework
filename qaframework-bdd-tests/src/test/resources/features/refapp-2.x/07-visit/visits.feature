@@ -16,6 +16,8 @@ Feature: Visits management
     And user clicks on the add past visit link
     Then the system adds the patient past visit
 
+  @selenium
+  @visit
   Scenario: Merging visits
     Given user initiates login with two patient visits
     When user clicks on the find patient record app

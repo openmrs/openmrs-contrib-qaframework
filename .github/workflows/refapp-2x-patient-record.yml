@@ -1,4 +1,4 @@
-name: RefApp 2.x Patient
+name: RefApp 2.x Patient Record
 on:
   push:
     branches: [master]

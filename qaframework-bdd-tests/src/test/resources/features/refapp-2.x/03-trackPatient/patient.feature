@@ -1,4 +1,4 @@
-Feature: Patient Management
+Feature: Patient Record Management
 
   @selenium
   @patient

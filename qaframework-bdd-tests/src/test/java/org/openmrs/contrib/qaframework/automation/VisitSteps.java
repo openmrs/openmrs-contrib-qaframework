@@ -35,14 +35,12 @@ public class VisitSteps extends Steps {
     
     @When("a patient is initiated with two visits")
     public void setUpLoginWithVisits() {
-    	initiateLogin();
     	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
     	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
     }
     
     @When("a patient is initiated with one visit")
     public void loginWithPatientVisit() {
-    	initiateLogin();
     	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
     }
      

@@ -22,7 +22,7 @@ import org.openmrs.contrib.qaframework.RunTest;
 
 public class UpgradeSteps extends InitialSetupSteps {
 
-	private static final String HEADER_TEXT = "The OpenMRS server is currently in maintenance mode";
+	private static final String HEADER_TEXT = "server is currently in maintenance mode";
 	private static final String SUPER_USER = "System Developer";
 	
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)

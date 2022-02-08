@@ -22,7 +22,7 @@ public class VisitSteps extends Steps {
 	private MergeVisitsPage mergeVisitsPage;
 
     @After(RunTest.HOOK.SELENIUM_VISIT)
-    public void tearDown() throws Exception {
+    public void tearDown() {
     	deletePatient(patient);
     	quit();
     }

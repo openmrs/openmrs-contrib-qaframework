@@ -21,7 +21,7 @@ Feature: Patient Management
     And the system loads find patient page
     And a user searches for an existing patient by name
     And a user clicks on first patient
-    Then the system loads the patient dashboard
+    Then the system loads the patient dashboard page
 
   @selenium
   @patient
@@ -51,14 +51,14 @@ Feature: Patient Management
     When the system loads Register a patient page
     And a user captures the patient details
     And a user clicks Confirm button
-    Then the system displays patient dashboard
+    Then the system displays patient dashboard page
     # User Story: Register second patient
     Given a user clicks on Register a patient App from the home page
     When the system loads Register a patient page
     And a user captures the patient details
     And the system alerts that similar patient found
     And a user clicks Confirm button
-    Then the system displays patient dashboard
+    Then the system displays patient dashboard page
 
   @selenium
   @patient
@@ -67,7 +67,7 @@ Feature: Patient Management
     When the system loads Register a patient page
     And a user captures patient name with accented letter
     And a user clicks Confirm button
-    Then the system displays patient dashboard
+    Then the system displays patient dashboard page
 
   @selenium
   @patient
@@ -78,10 +78,10 @@ Feature: Patient Management
     And a user clicks on Merge Patient Electronic Records app
     And the system loads merge patients page
     And a user captures IDs for patients to merge
-    And a user clicks Continue button
+    And a user clicks on Continue button
     And a user selects the preferred record
-    And a user clicks yes continue button
-    Then the system loads patient visits dashboard
+    And a user clicks on yes continue button
+    Then the system loads patient visits dashboard page
 
   @selenium
   @patient
@@ -92,8 +92,8 @@ Feature: Patient Management
     And a user clicks on Merge Patient Electronic Records app
     And the system loads merge patients page
     And a user captures IDs for patients to merge
-    And a user clicks Continue button
-    And a user clicks No button
+    And a user clicks on Continue button
+    And a user clicks on No button
     And the system returns to capture patient ID section
     And a user captures IDs for patients to merge
     Then the system displays Continue button

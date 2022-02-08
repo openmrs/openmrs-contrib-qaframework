@@ -96,12 +96,12 @@ public class PatientSteps extends Steps {
 	}
 	
 	@And("a user clicks on first patient")
-	public void loadPatientDashboard() {
+	public void loadPatientDashboardPage() {
 		dashboardPage = findPatientPage.clickOnFirstPatient();
 	}
 	
-	@Then("the system loads the patient dashboard")
-	public void systemLoadsPatientDashboard() {
+	@Then("the system loads the patient dashboard page")
+	public void systemLoadsPatientDashboardPage() {
 		matchPatientIds(firstPatientIdentifier);
 		dashboardPage.goToHomePage();
 	}
@@ -175,8 +175,8 @@ public class PatientSteps extends Steps {
 		assertEquals(info, (patient.gender + ", " + birthDate + ", " + patient.address1 + " " + patient.address2 + " " + patient.city + patient.state + patient.country + patient.postalCode ));
 	}
 	
-	@Then("the system displays patient dashboard")
-	public void systemDisplaysPatientDashboard() {
+	@Then("the system displays patient dashboard page")
+	public void systemDisplaysPatientDashboardPage() {
 		assertThat(dashboardPage.getPatientGivenName(), equalTo(patient.givenName));
 		assertThat(dashboardPage.getPatientFamilyName(), equalTo(patient.familyName));
 		dashboardPage.goToHomePage();
@@ -223,7 +223,7 @@ public class PatientSteps extends Steps {
 		mergePatientsPage.enterPatient2(testPatient2.identifier);
 	}
 	
-	@And("a user clicks Continue button")
+	@And("a user clicks on Continue button")
 	public void clickOnContinueButton() {
 		mergePatientsPage.clickOnContinue();
 	}
@@ -233,23 +233,23 @@ public class PatientSteps extends Steps {
 		mergePatientsPage.clickOnMergePatient();
 	}
 	
-	@And("a user clicks yes continue button")
+	@And("a user clicks on yes continue button")
 	public void confirmMergePatientRecord() {
 		visitsDashboardPage = mergePatientsPage.clickOnContinue();
 	}
 	
-	@Then("the system loads patient visits dashboard")
-	public void systemLoadsPatientVisitsDashboard() {
+	@Then("the system loads patient visits dashboard page")
+	public void systemLoadsPatientVisitsDashboardPage() {
 		assertThat(visitsDashboardPage.getPatientFamilyName(), equalTo(testPatient2.familyName));
 	}
 	
-	@And("a user clicks No button")
-	public void clickNoButton() {
+	@And("a user clicks on No button")
+	public void clickOnNoButton() {
 		mergePatientsPage.clickOnNo();
 	}
 	
 	@And("the system returns to capture patient ID section")
-	public void systemReturnsCapturePatientIdSection() {
+	public void systemReturnsToCapturePatientIdSection() {
 		assertTrue(textExists("Merge Patient Electronic Records"));
 	}
 	

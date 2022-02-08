@@ -1,5 +1,7 @@
 Feature: Visits management
 
+  @selenium
+  @visit
   Scenario: Starting a visit
     Given user logins into the system
     When user clicks on the find patient record app

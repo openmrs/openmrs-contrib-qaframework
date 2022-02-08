@@ -68,10 +68,16 @@ public class VerifyLoginSteps  extends Steps {
         assertTrue(homePage.isCaptureVitalsAppPresent());
     }
 
-    @Then("user verifies modules available on home page after login as sysadmin")
+    @And("user verifies modules available on home page after login as sysadmin")
     public void verifySysadminModulesAvailableOnHomePage() {
         goToLoginPage().loginAsSysadmin();
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
         assertTrue(homePage.isSystemAdministrationAppPresent());
+    }
+    
+    @Then("system goes back to login page")
+    public void comeBackToApplicationAfterLogoutTest() throws Exception {
+        getLoginPage().go();
+        assertPage(getLoginPage());
     }
 }

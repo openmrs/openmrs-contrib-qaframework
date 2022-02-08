@@ -7,4 +7,5 @@ Scenario Outline: User Based login verification
    And user verifies modules available on homepage after login as clerk
    And user verifies modules available on home page after login as Docter
    And user verifies modules available on home page after login as Nurse
-   Then user verifies modules available on home page after login as sysadmin
+   And user verifies modules available on home page after login as sysadmin
+   Then system goes back to login page

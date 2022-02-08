@@ -73,5 +73,5 @@ public class VerifyLoginSteps  extends Steps {
         goToLoginPage().loginAsSysadmin();
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
         assertTrue(homePage.isSystemAdministrationAppPresent());
-    }  
+    }
 }

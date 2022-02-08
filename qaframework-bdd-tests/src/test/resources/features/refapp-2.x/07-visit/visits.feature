@@ -1,9 +1,11 @@
 Feature: Visits management
 
+  Background: 
+    Given user logins into the system
+
   @selenium
   @visit
   Scenario: Starting a visit
-    Given user logins into the system
     When user clicks on the find patient record app
     And user searches for the patient record
     And user clicks on the first patient record
@@ -13,7 +15,6 @@ Feature: Visits management
   @selenium
   @visit
   Scenario: Adding a past visit
-    Given user logins into the system
     When user clicks on the find patient record app
     And user searches for the patient record
     And user clicks on the first patient record
@@ -23,8 +24,8 @@ Feature: Visits management
   @selenium
   @visit
   Scenario: Merging visits
-    Given user initiates login with two patient visits
-    When user clicks on the find patient record app
+    When a patient is initiated with two visits
+    And user clicks on the find patient record app
     And user searches for the patient record
     And user clicks on the first patient record
     And user clicks on the recent visits link in the recent visits section
@@ -37,8 +38,8 @@ Feature: Visits management
   @selenium
   @visit
   Scenario: Ending a visit
-    Given user initiates login with a patient visit
-    When user clicks on the find patient record app
+    When a patient is initiated with one visit
+    And user clicks on the find patient record app
     And user searches for the patient record
     And user clicks on the first patient record
     And user clicks on the recent visits link in the recent visits section

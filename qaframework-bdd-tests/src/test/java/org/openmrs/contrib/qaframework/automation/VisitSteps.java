@@ -33,20 +33,20 @@ public class VisitSteps extends Steps {
     	patient = createTestPatient();
     }
     
-    @Given("user initiates login with two patient visits")
+    @When("a patient is initiated with two visits")
     public void setUpLoginWithVisits() {
     	initiateLogin();
     	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
     	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
     }
     
-    @Given("user initiates login with a patient visit")
+    @When("a patient is initiated with one visit")
     public void loginWithPatientVisit() {
     	initiateLogin();
     	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
     }
      
-    @When("user clicks on the find patient record app")
+    @And("user clicks on the find patient record app")
     public void clickOnFindPatientRecord() {
     	findPatientPage = homePage.goToFindPatientRecord();
     }

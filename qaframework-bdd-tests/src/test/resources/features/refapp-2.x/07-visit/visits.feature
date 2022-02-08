@@ -8,6 +8,8 @@ Feature: Visits management
     And user clicks on the start visit link
     Then the system starts the patient visit
 
+  @selenium
+  @visit
   Scenario: Adding a past visit
     Given user logins into the system
     When user clicks on the find patient record app

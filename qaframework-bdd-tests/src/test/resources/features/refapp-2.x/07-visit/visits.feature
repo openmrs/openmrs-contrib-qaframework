@@ -17,7 +17,7 @@ Feature: Visits management
     When user clicks on the find patient record app
     And user searches for the patient record
     And user clicks on the first patient record
-    When user clicks on the add past visit link
+    And user clicks on the add past visit link
     Then the system adds the patient past visit
 
   @selenium
@@ -27,7 +27,7 @@ Feature: Visits management
     When user clicks on the find patient record app
     And user searches for the patient record
     And user clicks on the first patient record
-    When user clicks on the recent visits link in the recent visits section
+    And user clicks on the recent visits link in the recent visits section
     And user clicks on the actions button
     And user clicks on the merge visits link
     And user selects the available visits to be merged
@@ -38,9 +38,9 @@ Feature: Visits management
   @visit
   Scenario: Ending a visit
     Given user initiates login with a patient visit
-    When user clicks on the find patient record app
+    And user clicks on the find patient record app
     And user searches for the patient record
     And user clicks on the first patient record
-    When user clicks on the recent visits link in the recent visits section
+    And user clicks on the recent visits link in the recent visits section
     And user clicks on the end visit button
     Then the system ends the visit

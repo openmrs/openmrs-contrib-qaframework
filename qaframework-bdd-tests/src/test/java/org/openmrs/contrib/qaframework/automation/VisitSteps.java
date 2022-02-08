@@ -72,7 +72,7 @@ public class VisitSteps extends Steps {
     	assertNotNull(visitsDashboardPage.getActiveVisit());
     }
     
-    @When("user clicks on the add past visit link")
+    @And("user clicks on the add past visit link")
     public void clickOnAddPastVisitLink() {
     	visitsDashboardPage = dashboardPage.addPastVisit();
     }
@@ -82,7 +82,7 @@ public class VisitSteps extends Steps {
     	assertThat(visitsDashboardPage.getVisitList().get(0).getAttribute("class"), is(not("no-results")));
     }
     
-    @When("user clicks on the recent visits link in the recent visits section")
+    @And("user clicks on the recent visits link in the recent visits section")
     public void clickOnRecentVisitsLink() {
     	visitsDashboardPage = dashboardPage.goToRecentVisits();
     	visitsDashboardPage.waitForPage();

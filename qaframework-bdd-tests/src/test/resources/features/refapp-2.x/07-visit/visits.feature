@@ -38,7 +38,7 @@ Feature: Visits management
   @visit
   Scenario: Ending a visit
     Given user initiates login with a patient visit
-    And user clicks on the find patient record app
+    When user clicks on the find patient record app
     And user searches for the patient record
     And user clicks on the first patient record
     And user clicks on the recent visits link in the recent visits section

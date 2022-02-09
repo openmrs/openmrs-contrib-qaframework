@@ -33,9 +33,9 @@ public class ConditionsSteps extends Steps {
     private TestData.PatientInfo testPatient;
 
     @Before(RunTest.HOOK.SELENIUM_CONDITION)
-    public void visitDashboard() {
-        testPatient = createTestPatient();
+    public void visitDashboard() {     
         initiateWithLogin();
+        testPatient = createTestPatient();
         findPatientPage = homePage.goToFindPatientRecord();
         findPatientPage.enterPatient(testPatient.identifier);
         dashboardPage = findPatientPage.clickOnFirstPatient();
@@ -57,16 +57,6 @@ public class ConditionsSteps extends Steps {
 		assertNotNull(getElement(addNewCondition));
 	}
 
-	@And("User clicks on Return")
-	public void clickReturn() {
-		conditionsPage.clickReturn();
-	}
-
-	@Then("System returns to patient dashboard")
-	public void returnToDashboard() {
-		matchPatientIds(patientDashboardId);
-	}
-
 	@And("User clicks on Add new condition")
 	public void userClicksAddNewCondition() {
 		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
@@ -77,20 +67,9 @@ public class ConditionsSteps extends Steps {
 		assertNotNull(getElement(ConditionPage.SAVE));
 	}
 
-	@And("User clicks on cancel")
-	public void cancelAddNewCondition() {
-		conditionPage.clickCancel();
-	}
-
 	@And("User clicks save")
 	public void saveCondition() {
 		conditionPage.clickSave();
-	}
-	
-	@Then ("System adds New Condition in Conditions table")
-	public void systemAddsPatientCondition(){
-		assertNotNull(conditionsPage.getConditionsList());
-		dashboardPage = conditionsPage.clickReturn();
 	}
 
 	@And("User enters active condition")
@@ -100,19 +79,10 @@ public class ConditionsSteps extends Steps {
 	}
 	
 	@And("User enters inactive condition")
-	public void enterInactiveCondition(){
+	public void enterInactiveCondition() {
 			conditionPage.typeInCondition("Diabetes mellitus");
 			conditionPage.clickOnInActive();
 		}
-
-	@Then("Then System on {string} Page")
-	public void persist(String page) {
-		if ("parent".equals(page)) {
-			assertNotNull(getElement(addNewCondition));
-		} else if ("current".equals(page)) {
-			assertNotNull(getElement(ConditionPage.SAVE));
-		}
-	}
 
 	@And("User clicks on set inactive button")
 	public void setInActive() {

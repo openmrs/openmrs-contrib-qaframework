@@ -13,4 +13,3 @@ Feature: Add New Identifier
     And a user clicks on add new identifier
     And a user mentions preferred, adds identifier, identifier type and location
     Then the system adds the new identifier
-

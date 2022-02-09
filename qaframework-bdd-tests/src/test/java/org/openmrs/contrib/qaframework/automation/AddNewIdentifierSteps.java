@@ -21,7 +21,6 @@ public class AddNewIdentifierSteps extends Steps{
     private PatientFormPage patientFormPage;
     private static final String IDENTIFIER = "100397A";
     
-
 	@Before(RunTest.HOOK.SELENIUM_ADD_NEW_IDENTIFIER)
     public void setUp() {
 	initiateWithLogin();
@@ -42,7 +41,6 @@ public class AddNewIdentifierSteps extends Steps{
     	assertTrue(textExists("Administration"));
     }
    
-    
     @And("a user clicks on the Manage Patients link on the administration page")
     public void clickManagePatientsLink() {
     	patientPage = (PatientPage) administrationPage.clickOnManagePatients().waitForPage();
@@ -76,4 +74,3 @@ public class AddNewIdentifierSteps extends Steps{
     	patientFormPage.savePatient();
     }
 }
-

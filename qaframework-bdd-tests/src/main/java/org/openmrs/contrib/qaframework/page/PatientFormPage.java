@@ -47,4 +47,3 @@ public class PatientFormPage extends Page {
 		clickOn(SAVE_PATIENT_BUTTON);
 	}
 }
-

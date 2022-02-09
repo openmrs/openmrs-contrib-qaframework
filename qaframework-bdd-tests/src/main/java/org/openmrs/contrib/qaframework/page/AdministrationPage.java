@@ -76,8 +76,6 @@ public class AdministrationPage extends Page {
 		return new PatientPage(this);
 	}
 
-
-	
 	@Override
 	public String getPageUrl() {
 		return URL;

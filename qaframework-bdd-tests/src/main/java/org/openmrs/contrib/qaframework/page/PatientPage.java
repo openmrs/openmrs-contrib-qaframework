@@ -24,4 +24,3 @@ public class PatientPage extends Page{
 		waitForTextToBePresentInElement(SEARCH_STATUS,text.substring(0, text.length() - 1));
 	}
 }
-

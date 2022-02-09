@@ -7,6 +7,7 @@ import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -21,35 +22,26 @@ public class VisitSteps extends Steps {
 	private TestData.PatientInfo patient;
 	private MergeVisitsPage mergeVisitsPage;
 
+    @Before(RunTest.HOOK.SELENIUM_VISIT)
+    public void setUp() {
+        initiateWithLogin();
+    	patient = createTestPatient();
+        new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
+    	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
+    }
+    
     @After(RunTest.HOOK.SELENIUM_VISIT)
     public void tearDown() {
     	deletePatient(patient);
     	quit();
     }
-    
-    @Given("user logins into the system")
-    public void initiateLogin() {
-    	initiateWithLogin();
-    	patient = createTestPatient();
-    }
-    
-    @When("a patient is initiated with two visits")
-    public void setUpLoginWithVisits() {
-    	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
-    	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
-    }
-    
-    @When("a patient is initiated with one visit")
-    public void loginWithPatientVisit() {
-    	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
-    }
      
-    @And("user clicks on the find patient record app")
+    @Given("user clicks on the find patient record app")
     public void clickOnFindPatientRecord() {
     	findPatientPage = homePage.goToFindPatientRecord();
     }
     
-    @And("user searches for the patient record")
+    @When("user searches for the patient record")
     public void searchForPatientRecord() {
     	findPatientPage.enterPatient(patient.identifier);
     	findPatientPage.waitForPageToLoad();
@@ -59,8 +51,8 @@ public class VisitSteps extends Steps {
     public void clickTheFirstPatientRecord() {
     	dashboardPage = findPatientPage.clickOnFirstPatient();
     }
-    
-    @And("user clicks on the start visit link")
+ 
+    @When("user clicks on the start visit link")
     public void clickOnStartVisitLink() {
     	visitsDashboardPage = dashboardPage.startVisit();
     }
@@ -70,7 +62,7 @@ public class VisitSteps extends Steps {
     	assertNotNull(visitsDashboardPage.getActiveVisit());
     }
     
-    @And("user clicks on the add past visit link")
+    @When("user clicks on the add past visit link")
     public void clickOnAddPastVisitLink() {
     	visitsDashboardPage = dashboardPage.addPastVisit();
     }
@@ -80,7 +72,7 @@ public class VisitSteps extends Steps {
     	assertThat(visitsDashboardPage.getVisitList().get(0).getAttribute("class"), is(not("no-results")));
     }
     
-    @And("user clicks on the recent visits link in the recent visits section")
+    @When("user clicks on the recent visits link in the recent visits section")
     public void clickOnRecentVisitsLink() {
     	visitsDashboardPage = dashboardPage.goToRecentVisits();
     	visitsDashboardPage.waitForPage();
@@ -112,7 +104,7 @@ public class VisitSteps extends Steps {
     	assertThat(mergeVisitsPage.getAllVisit().size(), is(1));
     }
       
-    @And("user clicks on the end visit button")
+    @When("user clicks on the end visit button")
     public void clickOnTheEndVisitButton() {
     	visitsDashboardPage.endVisit();
     	visitsDashboardPage.waitForPageToLoad();

@@ -68,7 +68,9 @@ public class Steps extends ReferenceApplicationTestBase {
 
 	protected void initiateWithLogin() {
 		goToLoginPage();
-		goToLoginPage().login(testProperties.getUsername(), testProperties.getPassword(), testProperties.getLocation());
+		loginPage = getLoginPage();
+		loginPage.login("admin", "Admin123", "Pharmacy");
+		//goToLoginPage().login(testProperties.getUsername(), testProperties.getPassword(), testProperties.getLocation());
 		homePage = (HomePage) new HomePage(loginPage).waitForPage();
 	}
 

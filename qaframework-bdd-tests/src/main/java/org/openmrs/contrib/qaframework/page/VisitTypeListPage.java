@@ -50,7 +50,7 @@ public class VisitTypeListPage extends AdminManagementPage {
 		}
 		return visitTypeList;
 	}
-
+//
 	public List<String> getRetiredVisitTypeList() {
 		List<String> retiredVisitTypeList = new ArrayList<String>();
 		for (WebElement webElement : findElements(RETIRED_VISIT_TYPE_LIST)) {

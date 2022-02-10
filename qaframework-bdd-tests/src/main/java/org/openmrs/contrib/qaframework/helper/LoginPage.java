@@ -46,6 +46,7 @@ public class LoginPage extends Page {
 	
 	private static String csrfToken;
 	private static Set<Cookie> cookies;
+	private static boolean includesCSRFToken;
 
 	public LoginPage(WebDriver driver) {
 		super(driver);
@@ -76,13 +77,18 @@ public class LoginPage extends Page {
 			IOUtils.closeQuietly(in);
 		}
 
-		cookies = driver.manage().getCookies();
-		
 		String post = postJs + " post('" + getContextPageUrl() + "', {username: '" + user + "', password: '" + password;
 
-		csrfToken = driver.findElement(By.name("OWASP-CSRFTOKEN")).getAttribute("value");
-		if (StringUtils.isNotBlank(csrfToken)) {
-			post += "', 'OWASP-CSRFTOKEN': '" + csrfToken;
+		includesCSRFToken = properties.includesCSRFToken();
+		
+		if (includesCSRFToken) {
+			
+			cookies = driver.manage().getCookies();
+			
+			csrfToken = driver.findElement(By.name("OWASP-CSRFTOKEN")).getAttribute("value");
+			if (StringUtils.isNotBlank(csrfToken)) {
+				post += "', 'OWASP-CSRFTOKEN': '" + csrfToken;
+			}
 		}
 		
 		if (location != null) {
@@ -99,6 +105,10 @@ public class LoginPage extends Page {
 	
 	public static Set<Cookie> getCookies() {
 		return cookies;
+	}
+	
+	public static boolean includesCSRFToken() {
+		return includesCSRFToken;
 	}
 	
 	public Page login(String user, String password) {

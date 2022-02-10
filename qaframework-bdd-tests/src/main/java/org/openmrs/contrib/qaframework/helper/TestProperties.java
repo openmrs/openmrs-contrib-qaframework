@@ -58,6 +58,8 @@ public class TestProperties {
 	public static final String DB_HOST = "db.host";
 
 	public static final String DEFAULT_HEADLESS = "false";
+	
+	public static final String INCLUDES_CSRFTOKEN = "includes.csrftoken";
 
 	private static TestProperties SINGLETON;
 
@@ -106,6 +108,10 @@ public class TestProperties {
 
 	public String getDbHost() {
 		return getProperty(DB_HOST, null);
+	}
+	
+	public boolean includesCSRFToken() {
+		return "true".equals(getProperty(INCLUDES_CSRFTOKEN, "false"));
 	}
 
 	public boolean automaticallyLoginAtStartup() {

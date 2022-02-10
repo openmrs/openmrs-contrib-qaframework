@@ -1,9 +1,9 @@
 name: RefApp 3.x User Settings
 on:
   push:
-    branches: [ master ]
+    branches: [ master, dockerize-3.x ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, dockerize-3.x ]
   repository_dispatch:
     types: [ qa ]
   workflow_dispatch:

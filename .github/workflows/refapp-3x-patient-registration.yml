@@ -1,9 +1,9 @@
 name: RefApp 3.x Patient Registration
 on:
   push:
-    branches: [ dockerize-3.x ]
+    branches: [ master, dockerize-3.x ]
   pull_request:
-    branches: [ dockerize-3.x ]
+    branches: [ master, dockerize-3.x ]
   repository_dispatch:
     types: [ qa ]
   workflow_dispatch:

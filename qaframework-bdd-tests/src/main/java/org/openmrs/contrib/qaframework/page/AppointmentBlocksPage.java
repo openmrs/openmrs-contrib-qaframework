@@ -18,7 +18,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AppointmentBlocksPage extends Page {
 
-	public static final By CURRENT_DAY = By.className("fc-button fc-button-today fc-state-default fc-corner-left fc-corner-right fc-state-disabled");
 	public static final By DELETE = By.linkText("Delete");
 	private static final By APPOINTMENT_SCHEDULING = By.id("appointmentschedulingui-homeAppLink-appointmentschedulingui-homeAppLink-extension");
 	private static final By MANAGE_PROVIDER_SCHEDULES = By.id("appointmentschedulingui-scheduleProviders-app");
@@ -92,10 +91,6 @@ public class AppointmentBlocksPage extends Page {
 
 	public void enterProvider(String provider) {
 		setTextToFieldNoEnter(PROVIDER, provider);
-	}
-
-	public void clickOnCurrentDay() throws InterruptedException {
-		clickOn(CURRENT_DAY);
 	}
 
 	public void enterStartTime(String start) {

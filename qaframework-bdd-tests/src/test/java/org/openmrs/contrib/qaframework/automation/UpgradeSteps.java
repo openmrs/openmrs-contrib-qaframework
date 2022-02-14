@@ -9,6 +9,7 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.After;
@@ -24,6 +25,8 @@ public class UpgradeSteps extends InitialSetupSteps {
 
 	private static final String HEADER_TEXT = "server is currently in maintenance mode";
 	private static final String SUPER_USER = "System Developer";
+	private static final String SETUP_PAGE_URL = "initialsetup";
+	private static final String OPENMRS_VERSION = "The OpenMRS 2.";
 	
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)
 	public void init() {
@@ -39,6 +42,8 @@ public class UpgradeSteps extends InitialSetupSteps {
 	public void visitLoginPage() {	
 		assertTrue(textExists(HEADER_TEXT));
 		assertTrue(textExists(SUPER_USER));
+		assertTrue(textExists(OPENMRS_VERSION));
+		assertTrue(SETUP_PAGE_URL, driver.getCurrentUrl().contains(SETUP_PAGE_URL));
 	}
 
 	@And("User enters credentials")
@@ -48,7 +53,6 @@ public class UpgradeSteps extends InitialSetupSteps {
 
 	@When("User proceeds with Upgrade")
 	public void submitUpgrade() {
-		
 		initialSetupPage.upgrade();
 	}
 

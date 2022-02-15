@@ -9,7 +9,6 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import org.apache.commons.lang3.StringUtils;
@@ -23,7 +22,6 @@ import org.openqa.selenium.WebElement;
 public class InitialSetupSteps extends TestBase {
 	
 	protected InitialSetupPage initialSetupPage;
-	private static final String HEADER_TEXT = "Installation Wizard";
 
 	public InitialSetupSteps() {
 		try {
@@ -42,7 +40,6 @@ public class InitialSetupSteps extends TestBase {
 	protected void initialSetup() {
 		initialSetupPage = new InitialSetupPage(driver);
 		initialSetupPage.go();
-		assertTrue(textExists(HEADER_TEXT));
 		initialSetupPage.waitForPage();
 	}
 

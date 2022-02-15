@@ -9,7 +9,6 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.After;

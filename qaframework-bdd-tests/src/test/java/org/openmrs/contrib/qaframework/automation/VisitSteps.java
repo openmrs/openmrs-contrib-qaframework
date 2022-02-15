@@ -51,6 +51,11 @@ public class VisitSteps extends Steps {
     public void clickTheFirstPatientRecord() {
     	dashboardPage = findPatientPage.clickOnFirstPatient();
     }
+
+    @Then("the system loads the clinician facing patient dashboard")
+    public void systemLoadsClinicianFacingPatientDashboard() {
+    	assertPage(dashboardPage);
+    }
  
     @When("user clicks on the start visit link")
     public void clickOnStartVisitLink() {

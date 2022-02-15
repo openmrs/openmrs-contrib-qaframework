@@ -115,7 +115,6 @@
                             <target>
                                 <chmod file="target/test-classes/chromedriver/windows/chromedriver" perm="755"/>
                             </target>
-                            <failOnError>false</failOnError>
                         </configuration>
                         <goals>
                             <goal>run</goal>
@@ -154,7 +153,6 @@
                             <target>
                                 <chmod file="target/test-classes/firefoxdriver/windows/geckodriver" perm="755"/>
                             </target>
-                            <failOnError>false</failOnError>
                         </configuration>
                         <goals>
                             <goal>run</goal>

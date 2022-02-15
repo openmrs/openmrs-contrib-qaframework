@@ -60,10 +60,6 @@ public class InitialSetupSteps extends TestBase {
 	}
 
 	protected WebElement getElement(By elementBy) {
-		try {
-			return driver.findElement(elementBy);
-		} catch (NoSuchElementException exception) {
-			return null;
-		}
+		return driver.findElement(elementBy);
 	}
 }

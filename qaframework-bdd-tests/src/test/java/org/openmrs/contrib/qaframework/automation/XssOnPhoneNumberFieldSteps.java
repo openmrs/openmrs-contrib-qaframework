@@ -53,7 +53,7 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
         activeVisitsPage.search(patient.identifier);
     }
 
-    @And("system loads  patient dashboard page of last Active visit")
+    @Then("system loads  patient dashboard page of last Active visit")
     public void systemGoesToPatientDashboardOfLastActiveVisit() {
         dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
     }

@@ -17,6 +17,8 @@ import org.junit.Assert;
 import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 import org.openmrs.contrib.qaframework.helper.TestBase;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.WebElement;
 
 public class InitialSetupSteps extends TestBase {
 	
@@ -39,8 +41,8 @@ public class InitialSetupSteps extends TestBase {
 
 	protected void initialSetup() {
 		initialSetupPage = new InitialSetupPage(driver);
+		initialSetupPage.go();
 		assertTrue(textExists(HEADER_TEXT));
-		initialSetupPage.go();	
 		initialSetupPage.waitForPage();
 	}
 
@@ -58,5 +60,13 @@ public class InitialSetupSteps extends TestBase {
 
 	protected boolean textExists(String text) {
 		return driver.findElements(By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
+	}
+
+	protected WebElement getElement(By elementBy) {
+		try {
+			return driver.findElement(elementBy);
+		} catch (NoSuchElementException exception) {
+			return null;
+		}
 	}
 }

@@ -9,6 +9,7 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.After;
@@ -19,13 +20,13 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
+import org.openqa.selenium.By;
 
 public class UpgradeSteps extends InitialSetupSteps {
 
 	private static final String HEADER_TEXT = "server is currently in maintenance mode";
 	private static final String SUPER_USER = "System Developer";
 	private static final String SETUP_PAGE_URL = "initialsetup";
-	private static final String OPENMRS_VERSION = "The OpenMRS 2.";
 	
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)
 	public void init() {
@@ -41,7 +42,7 @@ public class UpgradeSteps extends InitialSetupSteps {
 	public void visitLoginPage() {	
 		assertTrue(textExists(HEADER_TEXT));
 		assertTrue(textExists(SUPER_USER));
-		assertTrue(textExists(OPENMRS_VERSION));
+		assertNotNull(getElement(By.cssSelector("div.bar")));
 		assertTrue(SETUP_PAGE_URL, driver.getCurrentUrl().contains(SETUP_PAGE_URL));
 	}
 

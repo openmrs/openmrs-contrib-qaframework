@@ -118,6 +118,6 @@ public class VisitSteps extends Steps {
     
     @Then("the system ends the visit")
     public void systemEndsVisit() {
-    	assertTrue(textExists("Visits"));
+    	assertTrue(textExists("No active visit"));
     }   
 }

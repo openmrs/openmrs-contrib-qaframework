@@ -4,7 +4,7 @@ Feature: Visits management
     Given user clicks on the find patient record app
     When user searches for the patient record
     And user clicks on the first patient record
-    Then the system loads the clinician facing patient dashboard
+    #Then the system loads the clinician facing patient dashboard
 
   @selenium
   @visit

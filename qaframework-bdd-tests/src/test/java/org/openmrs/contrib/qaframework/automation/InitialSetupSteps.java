@@ -16,7 +16,6 @@ import org.junit.Assert;
 import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 import org.openmrs.contrib.qaframework.helper.TestBase;
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public class InitialSetupSteps extends TestBase {

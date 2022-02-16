@@ -17,10 +17,10 @@ import org.openmrs.contrib.qaframework.page.MergeVisitsPage;
 
 public class VisitSteps extends Steps { 
 	
-	private TestData.PatientInfo patient;
-	private MergeVisitsPage mergeVisitsPage;
+    private TestData.PatientInfo patient;
+    private MergeVisitsPage mergeVisitsPage;
 
-	@After(RunTest.HOOK.SELENIUM_PATIENT_VISIT)
+    @After(RunTest.HOOK.SELENIUM_PATIENT_VISIT)
     public void tearDown() {
     	deletePatient(patient);
     	quit();

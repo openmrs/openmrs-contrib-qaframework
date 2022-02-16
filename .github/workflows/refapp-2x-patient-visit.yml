@@ -1,4 +1,4 @@
-name: RefApp 2.x Visit
+name: RefApp 2.x Patient Visit
 on:
   push:
     branches: [master]

@@ -40,7 +40,7 @@ public class VisitSteps extends Steps {
     }
      
     @When("user clicks on the find patient record app")
-    public void clickOnFindPatientRecord() {
+    public void clickOnFindPatientRecordApp() {
     	findPatientPage = homePage.goToFindPatientRecord();
     }
     
@@ -87,7 +87,7 @@ public class VisitSteps extends Steps {
     }
     
     @And("user clicks on the actions button")
-    public void clickActionsButton() {
+    public void clickOnTheActionsButton() {
     	visitsDashboardPage.clickOnActions();
     }
     
@@ -97,7 +97,7 @@ public class VisitSteps extends Steps {
     }
     
     @And("user selects the available visits to be merged")
-    public void selectFirstVisit() {
+    public void selectVisitsToBeMerged() {
     	mergeVisitsPage.checkFirstVisit();
     	mergeVisitsPage.checkSecondVisit();
     }

@@ -48,7 +48,7 @@ public class RunTest {
 		public static final String FIND_PATIENT = "@findPatient";
 		public static final String PATIENT_DEMOGRAPHICS = "@patientDemographics";
 		public static final String VISIT_TYPE = "@visitType";
-		public static final String PATIENT_VISIT = "@visit";
+		public static final String PATIENT_VISIT = "@patientVisit";
 		public static final String SELENIUM_PERSON = SELENIUM + " and " + PERSON;
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
 		public static final String SELENIUM_PROVIDER = SELENIUM + " and " + PROVIDER;

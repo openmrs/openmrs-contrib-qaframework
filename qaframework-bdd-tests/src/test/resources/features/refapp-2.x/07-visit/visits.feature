@@ -1,4 +1,4 @@
-Feature: Visits management
+Feature: Patient Visits management
 
   @selenium
   @patientVisit

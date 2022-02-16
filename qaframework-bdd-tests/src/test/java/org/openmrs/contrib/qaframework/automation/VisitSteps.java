@@ -3,12 +3,9 @@ package org.openmrs.contrib.qaframework.automation;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.After;
-import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -23,18 +20,23 @@ public class VisitSteps extends Steps {
 	private TestData.PatientInfo patient;
 	private MergeVisitsPage mergeVisitsPage;
 
-    @Before(RunTest.HOOK.SELENIUM_VISIT)
-    public void setUp() {
-        initiateWithLogin();
-    	patient = createTestPatient();
-        new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
-    	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
-    }
-    
-    @After(RunTest.HOOK.SELENIUM_VISIT)
-    public void tearDown() {
+	@After(RunTest.HOOK.SELENIUM_VISIT)
+    public void tearDown() throws Exception {
     	deletePatient(patient);
     	quit();
+    }
+    
+    @Given("user logins into the system with initiated patient visits")
+    public void initiateLogin() {
+    	initiateWithLogin();
+    	patient = createTestPatient();
+    }
+    
+    @Given("user initiates login with patient visits")
+    public void setUpLoginWithVisits() {
+    	initiateLogin();
+    	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
+    	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
     }
      
     @Given("user clicks on the find patient record app")

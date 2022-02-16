@@ -3,7 +3,7 @@ Feature: Visits management
   @selenium
   @visit
   Scenario: Starting a visit
-    Given user logins into the system with initiated patient visits
+    Given user logins into the system with no initiated patient visits
     When user clicks on the find patient record app
     And user searches for the patient record
     And user clicks on the first patient record

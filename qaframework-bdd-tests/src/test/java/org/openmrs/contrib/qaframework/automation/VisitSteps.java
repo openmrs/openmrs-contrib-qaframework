@@ -26,7 +26,7 @@ public class VisitSteps extends Steps {
     	quit();
     }
     
-    @Given("user logins into the system with initiated patient visits")
+    @Given("user logins into the system with no initiated patient visits")
     public void initiateLogin() {
     	initiateWithLogin();
     	patient = createTestPatient();
@@ -39,12 +39,12 @@ public class VisitSteps extends Steps {
     	new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
     }
      
-    @Given("user clicks on the find patient record app")
+    @When("user clicks on the find patient record app")
     public void clickOnFindPatientRecord() {
     	findPatientPage = homePage.goToFindPatientRecord();
     }
     
-    @When("user searches for the patient record")
+    @And("user searches for the patient record")
     public void searchForPatientRecord() {
     	findPatientPage.enterPatient(patient.identifier);
     	findPatientPage.waitForPageToLoad();
@@ -60,7 +60,7 @@ public class VisitSteps extends Steps {
     	assertPage(dashboardPage.waitForPage());
     }
  
-    @When("user clicks on the start visit link")
+    @And("user clicks on the start visit link")
     public void clickOnStartVisitLink() {
     	visitsDashboardPage = dashboardPage.startVisit();
     }
@@ -70,7 +70,7 @@ public class VisitSteps extends Steps {
     	assertTrue(textExists("Visits"));
     }
     
-    @When("user clicks on the add past visit link")
+    @And("user clicks on the add past visit link")
     public void clickOnAddPastVisitLink() {
     	visitsDashboardPage = dashboardPage.addPastVisit();
     }
@@ -80,7 +80,7 @@ public class VisitSteps extends Steps {
     	assertThat(visitsDashboardPage.getVisitList().get(0).getAttribute("class"), is(not("no-results")));
     }
     
-    @When("user clicks on the recent visits link in the recent visits section")
+    @And("user clicks on the recent visits link in the recent visits section")
     public void clickOnRecentVisitsLink() {
     	visitsDashboardPage = dashboardPage.goToRecentVisits();
     	visitsDashboardPage.waitForPage();
@@ -112,7 +112,7 @@ public class VisitSteps extends Steps {
     	assertThat(mergeVisitsPage.getAllVisit().size(), is(1));
     }
       
-    @When("user clicks on the end visit button")
+    @And("user clicks on the end visit button")
     public void clickOnTheEndVisitButton() {
     	visitsDashboardPage.endVisit();
     	visitsDashboardPage.waitForPageToLoad();

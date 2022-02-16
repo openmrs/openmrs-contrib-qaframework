@@ -34,7 +34,7 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
         initiateWithLogin();
         patient = createTestPatient();
         new TestData.TestVisit(patient.uuid, TestData.getAVisitType(),
-         getLocationUuid(homePage)).create();
+        getLocationUuid(homePage)).create();
     }
 
     @After(RunTest.HOOK.SELENIUM_XSS_VULNERABILITY)

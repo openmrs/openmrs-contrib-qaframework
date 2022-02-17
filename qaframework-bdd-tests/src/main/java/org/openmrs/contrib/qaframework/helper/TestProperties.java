@@ -15,6 +15,8 @@ import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.Properties;
 
+import org.openqa.selenium.remote.BrowserType;
+
 /**
  * Exposes test properties. This class is typically used like this:
  * TestProperties properties = TestProperties.instance();
@@ -30,6 +32,9 @@ import java.util.Properties;
  * &lt;/properties&gt;
  */
 public class TestProperties {
+	public static final String WEBDRIVER_TYPE_PROPERTY = "webdriver.type";
+
+	public static final String DEFAULT_WEBDRIVER_TYPE = "remote";
 
 	public static final String WEBDRIVER_PROPERTY = "webdriver";
 
@@ -126,7 +131,7 @@ public class TestProperties {
 		try {
 			return WebDriverType.valueOf(getBrowser());
 		} catch (IllegalArgumentException e) {
-			return WebDriverType.firefox;
+			return WebDriverType.remote;
 		}
 	}
 
@@ -148,7 +153,36 @@ public class TestProperties {
 		return getProperty("webdriver.gecko.driver", null);
 	}
 
+	public enum BrowserType {
+		chrome,
+		firefox
+	}
+	
 	public enum WebDriverType {
-		chrome, firefox
+		remote,
+		local
+	}
+
+	public String getDriver() {
+		return getProperty(WEBDRIVER_TYPE_PROPERTY, DEFAULT_WEBDRIVER_TYPE);
+	}
+
+	
+	public BrowserType getBrowserType() {
+		try {
+			return BrowserType.valueOf(getBrowser());
+		}
+		catch (IllegalArgumentException e) {
+			return BrowserType.firefox;
+		}
+	}
+
+	public WebDriverType getDriverType() {
+		try {
+			return WebDriverType.valueOf(getDriver());
+		}
+		catch (IllegalArgumentException e) {
+			return WebDriverType.remote;
+		}
 	}
 }

@@ -3,17 +3,21 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
- * 
+ *
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
 package org.openmrs.contrib.qaframework.helper;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import jakarta.ws.rs.ProcessingException;
-import jakarta.ws.rs.ServerErrorException;
-import jakarta.ws.rs.client.ClientBuilder;
-import jakarta.ws.rs.core.Response;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+import java.io.File;
+import java.io.IOException;
+import java.net.URL;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.TimeoutException;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
@@ -30,23 +34,29 @@ import org.junit.rules.TestName;
 import org.junit.rules.TestRule;
 import org.junit.rules.TestWatcher;
 import org.junit.runner.Description;
+import org.openmrs.contrib.qaframework.helper.TestData.EncounterInfo;
+import org.openmrs.contrib.qaframework.helper.TestData.PatientInfo;
+import org.openmrs.contrib.qaframework.helper.TestData.RoleInfo;
 import org.openmrs.contrib.qaframework.helper.TestData.TestPatient;
-import org.openmrs.contrib.qaframework.helper.TestData.*;
-import org.openqa.selenium.*;
+import org.openmrs.contrib.qaframework.helper.TestData.UserInfo;
+import org.openqa.selenium.By;
+import org.openqa.selenium.NotFoundException;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
+import org.openqa.selenium.UnexpectedAlertBehaviour;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.TimeoutException;
+import com.fasterxml.jackson.databind.JsonNode;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import jakarta.ws.rs.ProcessingException;
+import jakarta.ws.rs.ServerErrorException;
+import jakarta.ws.rs.client.ClientBuilder;
+import jakarta.ws.rs.core.Response;
 
 /**
  * Superclass for all UI Tests. Contains lots of handy "utilities" needed to
@@ -86,7 +96,7 @@ public class TestBase {
 
 	/**
 	 * Create a User in the database with the given Role and return its info.
-	 * 
+	 *
 	 * @param username
 	 *            the username to create
 	 * @param role
@@ -205,8 +215,8 @@ public class TestBase {
 	WebDriver setupFirefoxDriver() {
 		if (StringUtils.isBlank(System.getProperty("webdriver.gecko.driver"))) {
 			System.setProperty("webdriver.gecko.driver", Thread.currentThread()
-							.getContextClassLoader().getResource(TestProperties.
-									instance().getFirefoxDriverLocation()).getPath());
+					.getContextClassLoader().getResource(TestProperties.
+							instance().getFirefoxDriverLocation()).getPath());
 		}
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
@@ -282,7 +292,7 @@ public class TestBase {
 
 	/**
 	 * Assert we're on the expected page.
-	 * 
+	 *
 	 * @param expected
 	 *            page
 	 */
@@ -303,7 +313,7 @@ public class TestBase {
 	/**
 	 * Delete the given patient from the various tables that contain portions of
 	 * a patient's info.
-	 * 
+	 *
 	 * @param patientInfo
 	 *            containing hhe uuid of the patient to delete.
 	 */
@@ -336,7 +346,7 @@ public class TestBase {
 	/**
 	 * Create a Patient in the database and return its Patient Identifier. The
 	 * Patient Identifier is obtained from the database.
-	 * 
+	 *
 	 * @param personUuid
 	 *            The person
 	 * @param patientIdentifierType
@@ -346,7 +356,7 @@ public class TestBase {
 	 * @return The Patient Identifier for the newly created patient
 	 */
 	public String createPatient(String personUuid,
-			String patientIdentifierType, String source) {
+								String patientIdentifierType, String source) {
 		String patientIdentifier = generatePatientIdentifier(source);
 		RestClient.post("patient", new TestPatient(personUuid,
 				patientIdentifier, patientIdentifierType));
@@ -359,7 +369,7 @@ public class TestBase {
 
 	/**
 	 * Returns the entire text of the "content" part of the current page
-	 * 
+	 *
 	 * @return the entire text of the "content" part of the current page
 	 */
 	public String pageContent() {

@@ -51,7 +51,7 @@ public class VerifyLoginSteps  extends Steps {
         assertTrue(homePage.isRegisterPatientCustomizedForRefAppPresent());
     }
 
-    @And("user verifies modules available on home page after login as Doctor")
+    @And("user verifies modules available on home page after login as doctor")
     public void verifyDoctorModulesAvailableOnHomePage() {
         goToLoginPage().loginAsDoctor();
         assertTrue(homePage.isFindAPatientAppPresent());
@@ -59,7 +59,7 @@ public class VerifyLoginSteps  extends Steps {
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
     }
 
-    @And("user verifies modules available on home page after login as Nurse")
+    @And("user verifies modules available on home page after login as nurse")
     public void verifyNurseModulesAvailableOnHomePage() {
         goToLoginPage().loginAsNurse();
         assertTrue(homePage.isFindAPatientAppPresent());

@@ -26,7 +26,6 @@ public class UpgradeSteps extends InitialSetupSteps {
 
 	private static final String HEADER_TEXT = "server is currently in maintenance mode";
 	private static final String SUPER_USER = "System Developer";
-	private static final String SETUP_PAGE_URL = "initialsetup";
 	
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)
 	public void init() {

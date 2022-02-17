@@ -51,7 +51,7 @@ public class VerifyLoginSteps  extends Steps {
         assertTrue(homePage.isRegisterPatientCustomizedForRefAppPresent());
     }
 
-    @And("user verifies modules available on home page after login as Docter")
+    @And("user verifies modules available on home page after login as Doctor")
     public void verifyDoctorModulesAvailableOnHomePage() {
         goToLoginPage().loginAsDoctor();
         assertTrue(homePage.isFindAPatientAppPresent());

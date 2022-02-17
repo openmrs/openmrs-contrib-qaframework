@@ -21,6 +21,7 @@ import org.openqa.selenium.WebElement;
 public class InitialSetupSteps extends TestBase {
 	
 	protected InitialSetupPage initialSetupPage;
+	protected static final String SETUP_PAGE_URL = "initialsetup";
 
 	public InitialSetupSteps() {
 		try {
@@ -39,6 +40,8 @@ public class InitialSetupSteps extends TestBase {
 	protected void initialSetup() {
 		initialSetupPage = new InitialSetupPage(driver);
 		initialSetupPage.go();
+		Assert.assertNotNull(getElement(By.cssSelector("div.bar")));
+		Assert.assertTrue(SETUP_PAGE_URL, driver.getCurrentUrl().contains(SETUP_PAGE_URL));
 		initialSetupPage.waitForPage();
 	}
 

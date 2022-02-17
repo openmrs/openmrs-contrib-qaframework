@@ -52,7 +52,7 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
         activeVisitsPage.search(patient.identifier);
     }
 
-    @Then("system loads  patient dashboard page of last Active visit")
+    @Then("system loads  patient dashboard page of last active visit")
     public void systemGoesToPatientDashboardOfLastActiveVisit() {
         dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
     }
@@ -62,12 +62,12 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
         dashboardPage.clickOnShowContact();
     }
 
-    @And("user clicks on edit Contact info")
+    @And("user clicks on edit contact info")
     public void clickOnEditContact() {
         registrationEditSectionPage = dashboardPage.clickOnEditContact();
     }
 
-    @And("user clicks on phone Number edit")
+    @And("user clicks on phone number edit")
     public void userClicksOnPhoneNumberEdit(){
         registrationEditSectionPage.clickOnPhoneNumberEdit();
     }
@@ -82,7 +82,7 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
         registrationEditSectionPage.enterPhoneNumber("<script>alert(0)</script>");
     }
 
-    @And("user clicks on confirm Edit button")
+    @And("user clicks on confirm edit button")
     public void userClicksOnComfirmEditButton() {
         registrationEditSectionPage.clickOnConfirmEdit();
     }
@@ -92,7 +92,7 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
         assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification().contains(("Must be a valid phone number (with +, -, numbers or parentheses)")));
     }
 
-    @And("user clears the phone Number input area")
+    @And("user clears the phone number input area")
     public void userClearPhoneNumber() {
         registrationEditSectionPage.clearPhoneNumber();
     }
@@ -102,12 +102,12 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
         registrationEditSectionPage.enterPhoneNumber("111111111");
     }
 
-    @And("user clicks on confirm edit button")
-    public void userClicksOnConfirmsEditButton() {
+    @And("user clicks again on confirm edit button")
+    public void userReClicksOnConfirmsEditButton() {
         registrationEditSectionPage.clickOnConfirmEdit();
     }
 
-    @And("user clicks on confirm Patient")
+    @And("user clicks on confirm patient")
     public void userClicksOnConfirmPatient() throws Exception {
         dashboardPage = registrationEditSectionPage.confirmPatient();
     }

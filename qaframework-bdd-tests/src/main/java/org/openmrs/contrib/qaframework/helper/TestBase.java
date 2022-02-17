@@ -14,6 +14,7 @@ import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
@@ -78,6 +79,8 @@ import jakarta.ws.rs.core.Response;
  */
 public class TestBase implements SauceOnDemandSessionIdProvider {
 
+	public static String REMOTE_URL_FIREFOX = "http://localhost:4445/wd/hub";
+    public static final String REMOTE_URL_CHROME = "http://localhost:4444/wd/hub";
 	public static final int MAX_WAIT_IN_SECONDS = 120;
 	public static final int MAX_PAGE_LOAD_IN_SECONDS = 120;
 	public static final int MAX_SERVER_STARTUP_IN_MILLISECONDS = 10 * 60 * 1000;
@@ -86,6 +89,12 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 	public String sessionId;
 	public SauceOnDemandAuthentication sauceLabsAuthentication;
 	public String sauceLabsHubUrl;
+
+	protected static ThreadLocal<RemoteWebDriver> remoteDriver = new ThreadLocal<>();
+	TestProperties.BrowserType browserType;
+	TestProperties.WebDriverType driverType;
+	final TestProperties properties = TestProperties.instance();
+
 	@Rule
 	public SauceOnDemandTestWatcher sauceLabsResultReportingTestWatcher;
 	@Rule
@@ -101,8 +110,12 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 		}
 	};
 
+
+
 	public TestBase() {
 		TestProperties testProperties = TestProperties.instance();
+		browserType = properties.getBrowserType();
+		driverType = properties.getDriverType();
 		String sauceLabsUsername = testProperties.getProperty("SAUCELABS_USERNAME", null);
 		String sauceLabsAccessKey = testProperties.getProperty("SAUCELABS_ACCESSKEY", null);
 		sauceLabsHubUrl = testProperties.getProperty("saucelabs.hub.url","ondemand.saucelabs.com:80");
@@ -140,11 +153,43 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 	@Before
 	public void startWebDriver() throws Exception {
+		browserType = properties.getBrowserType();
+		driverType = properties.getDriverType();
 		if (serverFailure) {
 			fail("Test killed due to server failure");
 		}
+		switch (driverType) {
+			case local:
+				launchBrowser();
+				break;
+			case remote:
+				setupThread();
+				break;
+		}
+	}
 
-		launchBrowser();
+	private void setupThread() throws MalformedURLException {
+		switch (browserType) {
+			case chrome:
+				System.out.println("Inside Chrome");
+				ChromeOptions chromeOptions = new ChromeOptions();
+				String chromeUrl = System.getenv("REMOTE_URL_CHROME");
+				if (chromeUrl == null || chromeUrl.isEmpty()) {
+					chromeUrl = REMOTE_URL_CHROME;
+				}
+				remoteDriver.set(new RemoteWebDriver(new URL(chromeUrl), chromeOptions));
+				break;
+			
+			case firefox:
+				System.out.println("Inside Firefox");
+				FirefoxOptions fireFoxOptions = new FirefoxOptions();
+				String fireFoxUrl = System.getenv("REMOTE_URL_FIREFOX");
+				if (fireFoxUrl == null || fireFoxUrl.isEmpty()) {
+					fireFoxUrl = REMOTE_URL_FIREFOX;
+				}
+				remoteDriver.set(new RemoteWebDriver(new URL(fireFoxUrl), fireFoxOptions));
+				break;
+		}
 	}
 
 	public void launchBrowser() throws Exception {
@@ -187,8 +232,8 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 			System.out.println("Running " + testMethod + " at https://saucelabs.com/tests/" + this.sessionId);
 		} else {
 			System.out.println("Running locally...");
-			final TestProperties.WebDriverType webDriverType = properties.getWebDriver();
-			switch (webDriverType) {
+			//final TestProperties.WebDriverType webDriverType = properties.getWebDriver();
+			switch (browserType) {
 				case chrome :
 					driver = setupChromeDriver();
 					break;
@@ -240,6 +285,23 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 	public void stopWebDriver() {
 		if (driver != null) {
 			driver.quit();
+		}
+	}
+
+	protected WebDriver getWebDriver() {
+		switch (driverType) {
+			case local:
+				return driver;
+			case remote:
+				return remoteDriver.get();
+			default:
+				return remoteDriver.get();
+		}
+	}
+	
+	protected void quit() {
+		if (getWebDriver() != null) {
+			getWebDriver().quit();
 		}
 	}
 

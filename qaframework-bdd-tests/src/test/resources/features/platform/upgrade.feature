@@ -4,6 +4,7 @@ Feature: Upgrading
   @initialSetup
   @upgrade
   Scenario: Upgrading an Installation
-    Given User enters credentials
+    Given User is on login page
+    And User enters credentials
     When User proceeds with Upgrade
     Then System should run upgrade

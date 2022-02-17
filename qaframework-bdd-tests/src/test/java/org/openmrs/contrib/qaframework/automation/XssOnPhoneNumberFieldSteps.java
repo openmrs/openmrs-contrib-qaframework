@@ -62,7 +62,7 @@ public class  XssOnPhoneNumberFieldSteps  extends Steps {
         dashboardPage.clickOnShowContact();
     }
 
-    @And("user clicks on editContact info")
+    @And("user clicks on edit Contact info")
     public void clickOnEditContact() {
         registrationEditSectionPage = dashboardPage.clickOnEditContact();
     }

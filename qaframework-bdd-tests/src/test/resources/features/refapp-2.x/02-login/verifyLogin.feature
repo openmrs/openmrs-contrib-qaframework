@@ -9,3 +9,4 @@ Scenario Outline: User Based login verification
    And user verifies modules available on home page after login as nurse
    And user verifies modules available on home page after login as sysadmin
    Then system goes back to login page
+   

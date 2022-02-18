@@ -29,7 +29,7 @@ public class RunTest {
 		public static final String SELENIUM = "@selenium";
 		public static final String FORM = "@form";
 		public static final String PERSON = "@person";
-		public static final String XSS_VULNERABILITY = "@xssVulnerability";
+		public static final String PHONE_NUMBER_VALIDATION= "@phoneNumberValidation";
 		public static final String ALLERGIES = "@allergies";
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
@@ -69,6 +69,6 @@ public class RunTest {
 		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;
 		public static final String SELENIUM_ALLERGIES = SELENIUM + " and " + ALLERGIES;
 		public static final String SELENIUM_PATIENT_VISIT = SELENIUM + " and " + PATIENT_VISIT;
-		public static final String SELENIUM_XSS_VULNERABILITY = SELENIUM + " and " + XSS_VULNERABILITY;
+		public static final String SELENIUM_PHONE_NUMBER_VALIDATION = SELENIUM + " and " + PHONE_NUMBER_VALIDATION;
 	}
 }

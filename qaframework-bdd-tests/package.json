@@ -13,7 +13,7 @@
     "refapp2Condition": "mvn test -Dcucumber.filter.tags='@selenium and @condition'",
     "refapp2ClinicalVisit": "mvn test -Dcucumber.filter.tags='@selenium and @clinicalVisit'",
     "refapp2UserAccount": "mvn test -Dcucumber.filter.tags='@selenium and @userAccount'",
-    "refapp2XssVunerability": "mvn test -Dcucumber.filter.tags='@selenium and @xssVulnerability'",
+    "refapp2PhoneNumberValidation": "mvn test -Dcucumber.filter.tags='@selenium and @phoneNumberValidation'",
     "refapp2Inpatient": "mvn test -Dcucumber.filter.tags='@selenium and @inpatient'",
     "refapp2Registration": "mvn test -Dcucumber.filter.tags='@selenium and @registration'",
     "refapp2Form": "mvn test -Dcucumber.filter.tags='@selenium and @form'",

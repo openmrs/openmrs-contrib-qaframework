@@ -23,19 +23,20 @@ import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
 
-public class XssOnPhoneNumberFieldSteps  extends Steps {
+public class PhoneNumberValidationSteps  extends Steps {
+    
     private TestData.PatientInfo patient;
     private ActiveVisitsPage activeVisitsPage;
     private RegistrationEditSectionPage registrationEditSectionPage;
 
-    @Before(RunTest.HOOK.SELENIUM_XSS_VULNERABILITY)
+    @Before(RunTest.HOOK.SELENIUM_PHONE_NUMBER_VALIDATION)
     public void setUp() throws Exception {
         initiateWithLogin();
         patient = createTestPatient();
         new TestData.TestVisit(patient.uuid, TestData.getAVisitType(), getLocationUuid(homePage)).create();
     }
 
-    @After(RunTest.HOOK.SELENIUM_XSS_VULNERABILITY)
+    @After(RunTest.HOOK.SELENIUM_PHONE_NUMBER_VALIDATION)
     public void tearDown() throws Exception {
         deletePatient(patient);
         quit();
@@ -51,7 +52,7 @@ public class XssOnPhoneNumberFieldSteps  extends Steps {
         activeVisitsPage.search(patient.identifier);
     }
 
-    @Then("system loads  patient dashboard page of last active visit")
+    @Then("system loads patient dashboard page of last active visit")
     public void systemGoesToPatientDashboardOfLastActiveVisit() {
         dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
     }
@@ -61,13 +62,13 @@ public class XssOnPhoneNumberFieldSteps  extends Steps {
         dashboardPage.clickOnShowContact();
     }
 
-    @And("user clicks on edit contact info")
+    @And("user clicks on edit contact info link")
     public void clickOnEditContact() {
         registrationEditSectionPage = dashboardPage.clickOnEditContact();
     }
 
-    @And("user clicks on phone number edit")
-    public void userClicksOnPhoneNumberEdit(){
+    @And("user clicks on phone number button")
+    public void userClicksOnPhoneNumber(){
         registrationEditSectionPage.clickOnPhoneNumberEdit();
     }
 
@@ -76,18 +77,18 @@ public class XssOnPhoneNumberFieldSteps  extends Steps {
         registrationEditSectionPage.clearPhoneNumber();
     }
 
-    @And("user enters new phone number with xss check script")
+    @And("user enters new phone number using script element")
     public void userEntersPhoneNumber() {
         registrationEditSectionPage.enterPhoneNumber("<script>alert(0)</script>");
     }
 
     @And("user clicks on confirm edit button")
-    public void userClicksOnComfirmEditButton() {
+    public void userClicksOnConfirmEditButton() {
         registrationEditSectionPage.clickOnConfirmEdit();
     }
 
     @Then("system returns a message validator")
-    public void checkXssVulnerabilityValidator() {
+    public void validatePhoneNumber() {
         assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification().contains(("Must be a valid phone number (with +, -, numbers or parentheses)")));
     }
 
@@ -96,8 +97,8 @@ public class XssOnPhoneNumberFieldSteps  extends Steps {
         registrationEditSectionPage.clearPhoneNumber();
     }
 
-    @And("user enters the collect phone number")
-    public void userReEntersCorrectPhonrNumber() {
+    @And("user enters the correct phone number")
+    public void userReEntersCorrectPhoneNumber() {
         registrationEditSectionPage.enterPhoneNumber("111111111");
     }
 
@@ -106,17 +107,17 @@ public class XssOnPhoneNumberFieldSteps  extends Steps {
         registrationEditSectionPage.clickOnConfirmEdit();
     }
 
-    @And("user clicks on confirm patient")
+    @And("user clicks on confirm patient button")
     public void userClicksOnConfirmPatient() throws Exception {
         dashboardPage = registrationEditSectionPage.confirmPatient();
     }
 
-    @And("user clicks on show contact")
-    public void userClicksOnShowContact() {
+    @And("user clicks again on show contact link")
+    public void userReClicksOnShowContact() {
         dashboardPage.clickOnShowContact();
     }
 
-    @Then("user validate the collect number to be entered into the input area")
+    @Then("system validates the correct phone number to be entered into the input area")
     public void systemChecksTheCollectPhoneNumber() {
         assertTrue(dashboardPage.getTelephoneNumber().contains("111111111"));
     }

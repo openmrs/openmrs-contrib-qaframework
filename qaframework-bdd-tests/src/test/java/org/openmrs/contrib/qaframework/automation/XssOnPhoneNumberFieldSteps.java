@@ -22,6 +22,7 @@ import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.RegistrationEditSectionPage;
+
 public class XssOnPhoneNumberFieldSteps  extends Steps {
     private TestData.PatientInfo patient;
     private ActiveVisitsPage activeVisitsPage;

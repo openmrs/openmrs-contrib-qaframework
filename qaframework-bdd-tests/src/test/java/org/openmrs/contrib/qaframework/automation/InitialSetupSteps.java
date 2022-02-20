@@ -22,6 +22,8 @@ public class InitialSetupSteps extends TestBase {
 	
 	protected InitialSetupPage initialSetupPage;
 	protected static final String SETUP_PAGE_URL = "initialsetup";
+	private static final String HEADER_TEXT = "OpenMRS Core";
+	private static final String WIZARD_TYPE = "Installation Wizard";
 
 	public InitialSetupSteps() {
 		try {
@@ -40,6 +42,8 @@ public class InitialSetupSteps extends TestBase {
 	protected void initialSetup() {
 		initialSetupPage = new InitialSetupPage(driver);
 		initialSetupPage.go();
+		Assert.assertTrue(textExists(HEADER_TEXT));
+		Assert.assertTrue(textExists(WIZARD_TYPE));
 		Assert.assertNotNull(getElement(By.cssSelector("div.bar")));
 		Assert.assertTrue(SETUP_PAGE_URL, driver.getCurrentUrl().contains(SETUP_PAGE_URL));
 		initialSetupPage.waitForPage();

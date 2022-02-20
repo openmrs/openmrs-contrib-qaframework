@@ -22,7 +22,7 @@ jobs:
       - name: Checkout openmrs-core
         uses: actions/checkout@master
         with:
-          repository: openmrs/openmrs-core
+          repository: kdaud/openmrs-core
       - name: build platform
         run: |
           pwd

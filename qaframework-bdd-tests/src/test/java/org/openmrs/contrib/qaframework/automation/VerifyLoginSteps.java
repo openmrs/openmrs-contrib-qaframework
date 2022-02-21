@@ -9,6 +9,7 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.After;
@@ -20,6 +21,7 @@ import io.cucumber.java.en.When;
 import org.openmrs.contrib.qaframework.RunTest;
 
 public class VerifyLoginSteps extends Steps {
+    
     @Before(RunTest.HOOK.SELENIUM_DEFAULT_LOGIN)
     public void visitHomePage() {
         initiateWithLogin();
@@ -40,6 +42,7 @@ public class VerifyLoginSteps extends Steps {
         assertTrue(homePage.isDataManagementAppPresent());
         assertTrue(homePage.isConfigureMetadataAppPresent());
         assertTrue(homePage.isSystemAdministrationAppPresent());
+        assertFalse(homePage.isSystemAdministrationAppPresent());
     }
 
     @And("user verifies modules available on homepage after login as clerk")

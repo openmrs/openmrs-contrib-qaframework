@@ -32,7 +32,7 @@ public class VerifyLoginSteps extends Steps {
         quit();
     }
 
-    @When("user verifies modules available on home page")
+    @And("user verifies modules available on home page after login as super user")
     public void verifyModulesAvailableOnHomePage() {
         assertTrue(homePage.isFindAPatientAppPresent());
         assertTrue(homePage.isActiveVisitsAppPresent());
@@ -50,6 +50,11 @@ public class VerifyLoginSteps extends Steps {
         assertTrue(homePage.isActiveVisitsAppPresent());
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
         assertTrue(homePage.isRegisterPatientCustomizedForRefAppPresent());
+        assertFalse(homePage.isConfigureMetadataAppPresent());
+        assertFalse(homePage.isDataManagementAppPresent());
+        assertFalse(homePage.isSystemAdministrationAppPresent());
+        assertFalse(homePage.isCaptureVitalsAppPresent());
+        assertFalse(homePage.isFindAPatientAppPresent());
     }
 
     @And("user verifies modules available on home page after login as doctor")
@@ -58,6 +63,11 @@ public class VerifyLoginSteps extends Steps {
         assertTrue(homePage.isFindAPatientAppPresent());
         assertTrue(homePage.isActiveVisitsAppPresent());
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
+        assertFalse(homePage.isConfigureMetadataAppPresent());
+        assertFalse(homePage.isCaptureVitalsAppPresent());
+        assertFalse(homePage.isRegisterPatientCustomizedForRefAppPresent());
+        assertFalse(homePage.isDataManagementAppPresent());
+        assertFalse(homePage.isSystemAdministrationAppPresent());
     }
 
     @And("user verifies modules available on home page after login as nurse")
@@ -67,6 +77,10 @@ public class VerifyLoginSteps extends Steps {
         assertTrue(homePage.isActiveVisitsAppPresent());
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
         assertTrue(homePage.isCaptureVitalsAppPresent());
+        assertFalse(homePage.isRegisterPatientCustomizedForRefAppPresent());
+        assertFalse(homePage.isDataManagementAppPresent());
+        assertFalse(homePage.isSystemAdministrationAppPresent());
+        assertFalse(homePage.isConfigureMetadataAppPresent());
     }
 
     @And("user verifies modules available on home page after login as sysadmin")
@@ -74,6 +88,12 @@ public class VerifyLoginSteps extends Steps {
         goToLoginPage().loginAsSysadmin();
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
         assertTrue(homePage.isSystemAdministrationAppPresent());
+        assertFalse(homePage.isFindAPatientAppPresent());
+        assertFalse(homePage.isActiveVisitsAppPresent());
+        assertFalse(homePage.isCaptureVitalsAppPresent());
+        assertFalse(homePage.isRegisterPatientCustomizedForRefAppPresent());
+        assertFalse(homePage.isDataManagementAppPresent());
+        assertFalse(homePage.isConfigureMetadataAppPresent());
     }
     
     @Then("system goes back to login page")

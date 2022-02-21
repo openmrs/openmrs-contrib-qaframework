@@ -12,10 +12,6 @@ jobs:
     runs-on: ubuntu-latest
     services:
       firefox:
-        image: selenium/node-firefox:3.141.59-gold
-        env:
-          HUB_HOST: hub
-          HUB_PORT: 4444
     steps:
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
@@ -25,10 +21,12 @@ jobs:
         uses: actions/checkout@master
         with:
           repository: ${{github.repository}}
-      - name: run db and web containers
-        run: |
-          docker-compose -f docker/docker-compose-refqa.yml up -d
-      - name: wait for openmrs instance to start
+       - name:  Start the Remote web driver in docker  
+        run:  |
+              docker-compose up -d chrome
+      - name: Sleep for 3 minutes 
+        run: sleep 3m
+        shell: bash  
         run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/login.htm)" != "200" ]]; do sleep 1; done
       - name: Run qaframework on selenium
         run: |

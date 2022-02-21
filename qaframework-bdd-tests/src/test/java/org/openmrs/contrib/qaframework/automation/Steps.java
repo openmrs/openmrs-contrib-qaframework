@@ -42,7 +42,7 @@ public class Steps extends ReferenceApplicationTestBase {
 	public Steps() {
 		try {
 			startWebDriver();
-			loginPage = getLoginPage();
+			loginPage = new LoginPage(getWebDriver());
 		} catch (Exception e) {
 			fail(e.getMessage());
 		}

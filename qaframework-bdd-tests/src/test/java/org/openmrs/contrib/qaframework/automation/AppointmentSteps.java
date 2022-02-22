@@ -208,6 +208,8 @@ public class AppointmentSteps extends Steps {
 	@When("a user clicks on the Schedule Appointment link from the Patient dashboard")
 	public void manageAppointmentsPage() {
 		findPatientPage = homePage.goToFindPatientRecord();
+		findPatientPage.enterPatient(testPatient.identifier);
+		findPatientPage.waitForPageToLoad();
 		dashboardPage = findPatientPage.clickOnFirstPatient();
 		dashboardPage.waitForPageToLoad();
 		manageAppointmentsPage = (ManageAppointmentsPage) dashboardPage.goToManageAppointments();

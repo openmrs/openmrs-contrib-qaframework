@@ -21,7 +21,7 @@ public class OpenConceptLabSuccessPage extends Page {
 
     private static final String PAGE_URL = "/owa/openconceptlab/index.html#/";
     private static final By EDIT_SUBSCRIPTION_BUTTON = By.linkText("Edit subscription");
-    private static final By IMPORT_FROM_SUBSCRIPTION_BUTTON = By.cssSelector("#body-wrapper home div:nth-child(3) div:nth-child(2) fieldset div:nth-child(2) div p:nth-child(1) > button");
+    private static final By IMPORT_FROM_SUBSCRIPTION_BUTTON = By.cssSelector("button[ng-click='vm.startImportIfNoErrors()']");
     private static final By CHOOSE_FILE = By.linkText("Choose file");
     private static final By IMPORT_FROM_FILE = By.linkText("Import from file");
     private static final By IMPORTS_LIST = By.cssSelector("#body-wrapper home fieldset table tbody");

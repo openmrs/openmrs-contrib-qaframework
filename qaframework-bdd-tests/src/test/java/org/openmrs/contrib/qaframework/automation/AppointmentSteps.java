@@ -145,6 +145,7 @@ public class AppointmentSteps extends Steps {
 	@Then("the system saves the appointment block")
 	public void systemSavesAppointmentBlockDetails() {
 		assertTrue(manageProviderSchedulesPage.containsText(FIRST_SERVICE_NAME));
+		dashboardPage.goToHomePage();
 	}
 
 	@And("a user clicks on the Manage Provider Schedules app")
@@ -188,6 +189,7 @@ public class AppointmentSteps extends Steps {
 	@Then("the system saves the edited appointment block")
 	public void systemSavesEditedAppointmentBlock() {
 		assertTrue(appointmentBlocksPage.containsText(SECOND_SERVICE_NAME));
+		dashboardPage.goToHomePage();
 	}
 
 	@And("a user clicks on Delete appointment block")
@@ -200,11 +202,11 @@ public class AppointmentSteps extends Steps {
 	@Then("the system deletes appointment block from the appointment Blocks table")
 	public void systemDeletesAppointmentBlock() {
 		assertTrue(appointmentBlocksPage.containsText("Manage Appointment Blocks"));
+		dashboardPage.goToHomePage();
 	}
 
 	@When("a user clicks on the Schedule Appointment link from the Patient dashboard")
 	public void manageAppointmentsPage() {
-		dashboardPage.goToHomePage();
 		findPatientPage = homePage.goToFindPatientRecord();
 		dashboardPage = findPatientPage.clickOnFirstPatient();
 		dashboardPage.waitForPageToLoad();

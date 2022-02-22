@@ -46,6 +46,7 @@ public class RunTest {
 		public static final String VITALS = "@vitals";
 		public static final String ROLES_AND_PRIVILEGES = "@rolesAndPrivileges";
 		public static final String FIND_PATIENT = "@findPatient";
+		public static final String OPEN_CONCEPT_LAB = "@openConceptLab";
 		public static final String PATIENT_DEMOGRAPHICS = "@patientDemographics";
 		public static final String VISIT_TYPE = "@visitType";
 		public static final String PATIENT_VISIT = "@patientVisit";
@@ -68,5 +69,6 @@ public class RunTest {
 		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;
 		public static final String SELENIUM_ALLERGIES = SELENIUM + " and " + ALLERGIES;
 		public static final String SELENIUM_PATIENT_VISIT = SELENIUM + " and " + PATIENT_VISIT;
+		public static final String SELENIUM_OPEN_CONCEPT_LAB = SELENIUM + " and " + OPEN_CONCEPT_LAB;
 	}
 }

@@ -122,3 +122,4 @@ public class VisitTypeSteps extends Steps {
         assertTrue(textExists("Visit Type deleted forever successfully"));
     }
 }
+

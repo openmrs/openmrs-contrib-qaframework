@@ -96,7 +96,7 @@ public class LocationManagementSteps extends Steps {
     @Then("the form is saved")
     public void theFormIsSaved(){
         assertTrue(textExists("Noah"));
-        configureMetadataPage = homePage.goToConfigureMetadata();
+        manageLocationAttributeTypesPage.returnToConfigureMetaDataPage();
     }
 
     @When("a user clicks on manage location tag")
@@ -116,14 +116,14 @@ public class LocationManagementSteps extends Steps {
     }
 
     @And("a user saves add New location tag form")
-    public void savesAddNewLocatioonTagForm(){
-        manageLocationAttributeTypesPage.clickOnSaveButton();
+    public void savesAddNewLocationTagForm(){
+        manageLocationTagsPage.saveLocationTag();
     }
 
     @Then("the New location tag form is saved")
     public void locationTagFormIsSaved(){
         assertTrue(textExists("This is a tag name"));
-        configureMetadataPage = homePage.goToConfigureMetadata();
+        manageLocationTagsPage.returnToConfigureMetaDataHomePage();
     }
 
     @When("a user clicks on manager locations")
@@ -146,7 +146,12 @@ public class LocationManagementSteps extends Steps {
         manageLocationsPage.enterState(STATE);
         manageLocationsPage.enterCountry(COUNTRY);
         manageLocationsPage.enterPostalCode("5678");
-        manageLocationsPage.setParentLocation();
+        manageLocationsPage.selectLocationTag();
+    }
+
+    @Then("the add new location form is saved")
+    public void saveNewLocationForm(){
+        manageLocationsPage.saveLocation();
     }
 }
 

@@ -16,7 +16,7 @@ import org.openqa.selenium.TimeoutException;
 public class ManageLocationsPage extends Page {
 
 	protected static final String PAGE_URL = "/adminui/metadata/locations/manageLocations.page";
-	private static final String PARENT_LOCATION = "Pharmacy";
+	private static final String PARENT_LOCATION = "Laboratory";
 	private static final By EDIT_LOCATION_LINK = By.cssSelector("i.icon-pencil.edit-action");
 	public static final By CONFIRM_PURGE_BUTTON = By.cssSelector("#adminui-purge-location-dialog button.confirm.right");
 	public static final By CONFIRM_RETIRE_BUTTON = By.cssSelector("#adminui-retire-location-dialog > div.dialog-content > form > button.confirm.right");

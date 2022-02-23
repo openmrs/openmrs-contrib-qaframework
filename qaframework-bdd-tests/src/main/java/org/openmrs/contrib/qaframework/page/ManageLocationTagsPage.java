@@ -27,6 +27,7 @@ public class ManageLocationTagsPage extends Page {
 	private static final By CANCEL_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationTagForm button.cancel");
 	private static final By SAVE_LOCATION_BUTTON = By.cssSelector("#save-button");
 	private static final By CANCEL_LOCATION_BUTTON = By.cssSelector("input.cancel");
+	private static final By RETURN_TO_CONFIGURE_META_DATA_PAGE = By.cssSelector("#breadcrumbs > li:nth-child(2) > a");
 
 	public ManageLocationTagsPage(Page parent) {
 		super(parent);
@@ -83,5 +84,9 @@ public class ManageLocationTagsPage extends Page {
 		clickOn(CANCEL_RETIRE_LOCATION_ICON);
 		waitForElement(CONFIRM_RETIRE_LOCATION_BUTTON);
 		clickOn(CONFIRM_RETIRE_LOCATION_BUTTON);
+	}
+	
+	public void returnToConfigureMetaDataHomePage() {
+		clickOn(RETURN_TO_CONFIGURE_META_DATA_PAGE);
 	}
 }

@@ -83,9 +83,9 @@ public class ManageLocationAttributeTypesPage extends Page {
 		selectFrom(PREFERRED_HANDLER_FIELD, preferredHandler);
 	}
 
-	public void enterHandlerConfiguration(String handlerConfiguarion) {
+	public void enterHandlerConfiguration(String handlerConfiguration) {
 		findElement(HANDLER_CONFIGURATION_FILED).clear();
-		findElement(HANDLER_CONFIGURATION_FILED).sendKeys(handlerConfiguarion);
+		findElement(HANDLER_CONFIGURATION_FILED).sendKeys(handlerConfiguration);
 	}
 
 	public void clickOnSaveButton() {

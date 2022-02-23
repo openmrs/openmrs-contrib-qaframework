@@ -32,7 +32,7 @@ public class ManageLocationsPage extends Page {
 	private static final By COUNTRY_FIELD = By.cssSelector("#country-field");
 	private static final By POSTAL_CODE_FIELD = By.cssSelector("#postalCode-field");
 	private static final By PARENT_LOCATION_FIELD = By.className("parentLocation");
-	private static final By SAVE_BUTTON = By.id("save-button");
+	private static final By SAVE_BUTTON = By.cssSelector("#save-button");
 
 	public ManageLocationsPage(Page parent) {
 		super(parent);

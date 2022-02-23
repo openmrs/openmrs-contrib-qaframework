@@ -11,17 +11,26 @@ package org.openmrs.contrib.qaframework.automation;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import org.junit.Assert;
 import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
+import org.openqa.selenium.By;
 
 public class UpgradeSteps extends InitialSetupSteps {
+
+	private static final String HEADER_TEXT = "server is currently in maintenance mode";
+	private static final String SUPER_USER = "System Developer";
 	
 	@Before(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)
 	public void init() {
-		initialSetup();
+		initialSetupPage = new InitialSetupPage(driver);
+		initialSetupPage.go();
+		initialSetupPage.waitForPage();
 	}
 
 	@After(RunTest.HOOK.SELENIUM_INITIAL_SETUP + " and " + RunTest.HOOK.UPGRADE)
@@ -29,7 +38,15 @@ public class UpgradeSteps extends InitialSetupSteps {
 		complete();
 	}
 
-	@Given("User enters credentials")
+	@Given("User is on login page")
+	public void visitLoginPage() {	
+		Assert.assertTrue(textExists(HEADER_TEXT));
+		Assert.assertTrue(textExists(SUPER_USER));
+		Assert.assertNotNull(getElement(By.cssSelector("div.bar")));
+		Assert.assertTrue(SETUP_PAGE_URL, driver.getCurrentUrl().contains(SETUP_PAGE_URL));
+	}
+
+	@And("User enters credentials")
 	public void enterCredentials() {
 		initialSetupPage.enterUsernameAndPassword();
 	}

@@ -102,6 +102,10 @@ public class RestClient {
 	}
 	
 	private static void addCsrfHeaders(Invocation.Builder builder) {
+		if (!LoginPage.includesCSRFToken()) {
+			return;
+		}
+		
 		builder.header("OWASP-CSRFTOKEN", LoginPage.getCsrfToken());
 		builder.header("X-Requested-With", "XMLHttpRequest");
 		

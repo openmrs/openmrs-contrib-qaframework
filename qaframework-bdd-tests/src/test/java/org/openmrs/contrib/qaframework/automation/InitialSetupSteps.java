@@ -15,10 +15,15 @@ import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 import org.openmrs.contrib.qaframework.helper.InitialSetupPage;
 import org.openmrs.contrib.qaframework.helper.TestBase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class InitialSetupSteps extends TestBase {
 	
 	protected InitialSetupPage initialSetupPage;
+	protected static final String SETUP_PAGE_URL = "initialsetup";
+	private static final String HEADER_TEXT = "OpenMRS Core";
+	private static final String WIZARD_TYPE = "Installation Wizard";
 
 	public InitialSetupSteps() {
 		try {
@@ -38,6 +43,10 @@ public class InitialSetupSteps extends TestBase {
 		initialSetupPage = new InitialSetupPage(driver);
 		initialSetupPage.go();
 		initialSetupPage.waitForPage();
+		Assert.assertTrue(textExists(HEADER_TEXT));
+		Assert.assertTrue(textExists(WIZARD_TYPE));
+		Assert.assertNotNull(getElement(By.cssSelector("div.bar")));
+		Assert.assertTrue(SETUP_PAGE_URL, driver.getCurrentUrl().contains(SETUP_PAGE_URL));	
 	}
 
 	protected void submitInstallationStep1() {
@@ -50,5 +59,13 @@ public class InitialSetupSteps extends TestBase {
 		if (StringUtils.isNotBlank(errorMsg)) {
 			Assert.fail(errorMsg);
 		}
+	}
+
+	protected boolean textExists(String text) {
+		return driver.findElements(By.xpath("//*[contains(text(),'" + text + "')]")).size() > 0;
+	}
+
+	protected WebElement getElement(By elementBy) {
+		return driver.findElement(elementBy);
 	}
 }

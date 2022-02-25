@@ -88,9 +88,6 @@ public class TestBase {
 		}
 	};
 
-	public TestBase() {
-	}
-
 	/**
 	 * Create a User in the database with the given Role and return its info.
 	 *

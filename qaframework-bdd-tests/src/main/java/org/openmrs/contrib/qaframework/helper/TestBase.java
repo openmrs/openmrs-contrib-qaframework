@@ -43,7 +43,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
@@ -76,7 +75,6 @@ public class TestBase {
 	public static final int MAX_PAGE_LOAD_IN_SECONDS = 120;
 	public static final int MAX_SERVER_STARTUP_IN_MILLISECONDS = 10 * 60 * 1000;
 	private static volatile boolean serverFailure = false;
-	public String sessionId;
 	@Rule
 	public TestName testName = new TestName();
 	protected Page page;
@@ -91,7 +89,6 @@ public class TestBase {
 	};
 
 	public TestBase() {
-		TestProperties testProperties = TestProperties.instance();
 	}
 
 	/**

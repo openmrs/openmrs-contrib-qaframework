@@ -3,7 +3,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: [qa-initialSetup]
+    types: [qa]
   workflow_dispatch:
 jobs:
   build:

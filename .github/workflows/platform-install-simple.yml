@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: [qa-initialSetup]
+    types: [qa]
 jobs:
   build:
     runs-on: ubuntu-latest

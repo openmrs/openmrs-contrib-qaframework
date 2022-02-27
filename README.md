@@ -37,6 +37,7 @@ Install & Upgrade Tests |
 [![RefApp 2.x Patient Allergies](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-allergies.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-allergies.yml)
 [![RefApp 2.x Visit Type](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-visit-type.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-visit-type.yml)
 [![RefApp 2.x Patient Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-visit.yml)
+[![RefApp 2.x Location Management](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-location-management.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-location-management.yml)
 2.x RefApp Feature-Specific Tests* |
 ------------- |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)

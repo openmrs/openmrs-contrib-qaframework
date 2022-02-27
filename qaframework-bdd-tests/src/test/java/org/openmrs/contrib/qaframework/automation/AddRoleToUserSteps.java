@@ -137,7 +137,6 @@ public class AddRoleToUserSteps extends Steps {
 	 
 	 @And("user logins into the system as an admin")
 	 public void loginIntoSystemAsAnAdmin() {
-		 administrationPage.clickOnLogOut();
          goToLoginPage().loginAsAdmin();
          homePage.goToAdministration();
          administrationPage.clickOnManageUsers();

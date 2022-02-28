@@ -28,7 +28,7 @@ public class AddRoleToUserSteps extends Steps {
 	private AddEditUserPage addEditUserPage;
 	private AdministrationPage administrationPage;
     private static final String NURSE_PASSWORD = "Nurse321";
-    private static final String NURSE_USERNAME = "newNurse" + new Random().nextInt(1024);
+       private static final String NURSE_USERNAME = "newNurse" + new Random().nextInt(1024);
     
     private void reLoginAsUser() throws InterruptedException {
         goToLoginPage().login(NURSE_USERNAME, NURSE_PASSWORD);
@@ -151,13 +151,5 @@ public class AddRoleToUserSteps extends Steps {
 	 @Then("the system confirms the deletion of the user")
 	 public void systemConfirmsDelete() {
 		 assertTrue(manageUserPage.getUserSavedNotification().contains("Successfully deleted user."));
-	 }
-	
-	
-	
-	
-	
-	
-	
-	
+	 }	
 }

@@ -38,6 +38,7 @@ public class LocationManagementSteps extends Steps {
     private static final String CITY = "Kampala";
     private static final String STATE = "Central";
     private static final String COUNTRY = "Uganda";
+    
     private ConfigureMetadataPage configureMetadataPage;
     private LocationPage locationPage;
     private ManageLocationsPage manageLocationsPage;

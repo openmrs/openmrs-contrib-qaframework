@@ -35,7 +35,6 @@ public class ManageLocationAttributeTypesPage extends Page {
 	private static final By CANCEL_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationAttributeTypeForm button.cancel");
 	private static final By RETURN_TO_CONFIGURE_META_DATA_PAGE = By.cssSelector("#breadcrumbs > li:nth-child(2) > a");
 
-
 	public ManageLocationAttributeTypesPage(Page configureMetadataPage) {
 		super(configureMetadataPage);
 	}
@@ -86,7 +85,7 @@ public class ManageLocationAttributeTypesPage extends Page {
 
 	public void enterHandlerConfiguration(String handlerConfiguration) {
 		findElement(HANDLER_CONFIGURATION_FILED).clear();
-        findElement(HANDLER_CONFIGURATION_FILED).sendKeys(handlerConfiguration);
+		findElement(HANDLER_CONFIGURATION_FILED).sendKeys(handlerConfiguration);
 	}
 
 	public void clickOnSaveButton() {

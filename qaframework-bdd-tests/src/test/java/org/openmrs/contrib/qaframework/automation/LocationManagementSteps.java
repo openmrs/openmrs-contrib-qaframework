@@ -56,7 +56,7 @@ public class LocationManagementSteps extends Steps {
     }
 
     @Given("a user clicks on the configure metadata link from the home page")
-    public void clicksConfigureMetaDataLink(){
+    public void clickOnConfigureMetaDataLink(){
         configureMetadataPage = homePage.goToConfigureMetadata();
     }
 
@@ -66,7 +66,7 @@ public class LocationManagementSteps extends Steps {
     }
 
     @And("a user clicks on Manage Location Attribute Types")
-    public void clickManageLocationAttributesTypes(){
+    public void clickOnManageLocationAttributesTypes(){
         manageLocationAttributeTypesPage = configureMetadataPage.goToManageLocationAttributeTypesPage();
     }
 
@@ -100,7 +100,7 @@ public class LocationManagementSteps extends Steps {
     }
 
     @When("a user clicks on manage location tag")
-    public void clicksManageLocationTag(){
+    public void clicksOnManageLocationTag(){
         manageLocationTagsPage = configureMetadataPage.goToManageLocationTagPage();
     }
 

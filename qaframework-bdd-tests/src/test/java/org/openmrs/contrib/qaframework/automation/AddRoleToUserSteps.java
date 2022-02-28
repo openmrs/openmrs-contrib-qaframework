@@ -27,8 +27,8 @@ public class AddRoleToUserSteps extends Steps {
 	private ManageUserPage manageUserPage;
 	private AddEditUserPage addEditUserPage;
 	private AdministrationPage administrationPage;
-    private static final String NURSE_PASSWORD = "Nurse321";
-       private static final String NURSE_USERNAME = "newNurse" + new Random().nextInt(1024);
+        private static final String NURSE_PASSWORD = "Nurse321";
+        private static final String NURSE_USERNAME = "newNurse" + new Random().nextInt(1024);
     
     private void reLoginAsUser() throws InterruptedException {
         goToLoginPage().login(NURSE_USERNAME, NURSE_PASSWORD);
@@ -71,13 +71,13 @@ public class AddRoleToUserSteps extends Steps {
 	
 	@When("user fills in person details")
 	public void fillInPersonDetails() {
-        manageUserPage.clickOnAddUser().createNewPerson().fillInPersonName("Super", "Nurse", NURSE_USERNAME, NURSE_PASSWORD);
+                manageUserPage.clickOnAddUser().createNewPerson().fillInPersonName("Super", "Nurse", NURSE_USERNAME, NURSE_PASSWORD);
 	}
 	
 	@When("user clicks the add user link")
 	public void clickOnAddUserLink() {
-        addEditUserPage = manageUserPage.clickOnAddUser();
-        addEditUserPage.createNewPerson();
+                addEditUserPage = manageUserPage.clickOnAddUser();
+                addEditUserPage.createNewPerson();
 	}
 	
 	@And("user assigns roles to the created user")
@@ -108,44 +108,43 @@ public class AddRoleToUserSteps extends Steps {
 	 @And("user enters the details of the user")
 	 public void enterUserDetails() {
 		 addEditUserPage.saveUser();
-         List<String> validationErrors = addEditUserPage.getValidationErrors();
-         assertTrue(validationErrors.contains("You must define at least one name"));
-         assertTrue(validationErrors.contains("Cannot be empty or null"));
-         assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-         addEditUserPage.enterGivenFamily("Super", "Nurse");
-         addEditUserPage.saveUser();
-         validationErrors = addEditUserPage.getValidationErrors();
-         assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-         addEditUserPage.clickOnFemale();
-         addEditUserPage.enterUsernamePassword("super_nurse", "supernurse", "supernurse123");
-         addEditUserPage.saveUser();
-         assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-         addEditUserPage.enterUsernamePassword("super_nurse", "Nurse123", "Nurse123");
-         addEditUserPage.saveUser();
-         assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-         manageUserPage.waitForPage();
-         assertTrue(manageUserPage.getUserSavedNotification().contains("User Saved"));
-
+                 List<String> validationErrors = addEditUserPage.getValidationErrors();
+                 assertTrue(validationErrors.contains("You must define at least one name"));
+                 assertTrue(validationErrors.contains("Cannot be empty or null"));
+                 assertFalse(addEditUserPage.isDataCorrect(validationErrors));
+                 addEditUserPage.enterGivenFamily("Super", "Nurse");
+                 addEditUserPage.saveUser();
+                 validationErrors = addEditUserPage.getValidationErrors();
+                 assertFalse(addEditUserPage.isDataCorrect(validationErrors));
+                 addEditUserPage.clickOnFemale();
+                 addEditUserPage.enterUsernamePassword("super_nurse", "supernurse", "supernurse123");
+                 addEditUserPage.saveUser();
+                 assertFalse(addEditUserPage.isDataCorrect(validationErrors));
+                 addEditUserPage.enterUsernamePassword("super_nurse", "Nurse123", "Nurse123");
+                 addEditUserPage.saveUser();
+                 assertFalse(addEditUserPage.isDataCorrect(validationErrors));
+                 manageUserPage.waitForPage();
+                 assertTrue(manageUserPage.getUserSavedNotification().contains("User Saved"));
 	 }
 	 
 	 @And("user logins into the system as the created user")
 	 public void loginIntoSystemAsUser() {
-         homePage = new HomePage(goToLoginPage().login("super_nurse", "Nurse123"));
-         homePage.waitForPage();
-         assertTrue(homePage.containsText("super_nurse"));
+                 homePage = new HomePage(goToLoginPage().login("super_nurse", "Nurse123"));
+                 homePage.waitForPage();
+                 assertTrue(homePage.containsText("super_nurse"));
 	 }
 	 
 	 @And("user logins into the system as an admin")
 	 public void loginIntoSystemAsAnAdmin() {
-         goToLoginPage().loginAsAdmin();
-         homePage.goToAdministration();
-         administrationPage.clickOnManageUsers();
+                 goToLoginPage().loginAsAdmin();
+                 homePage.goToAdministration();
+                 administrationPage.clickOnManageUsers();
 	 }
 	 
 	 @And("user deletes the user")
 	 public void deleteUser() {
-         manageUserPage.removeUser("super_nurse");
-         manageUserPage.waitForPage();
+                 manageUserPage.removeUser("super_nurse");
+                 manageUserPage.waitForPage();
 	 }
 	 
 	 @Then("the system confirms the deletion of the user")

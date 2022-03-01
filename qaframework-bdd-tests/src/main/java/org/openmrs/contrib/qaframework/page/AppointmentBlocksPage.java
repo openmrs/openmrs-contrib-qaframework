@@ -19,7 +19,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AppointmentBlocksPage extends Page {
 
 	public static final By DELETE = By.linkText("Delete");
-	public static final By CURRENT_DAY = By.cssSelector("#calendar table tbody tr td.fc-header-left span.fc-button.fc-button-basicDay.fc-state-default.fc-corner-left.fc-corner-right");
+	public static final By CURRENT_DAY_BUTTON = By.cssSelector("#calendar table tbody tr td.fc-header-left span.fc-button.fc-button-basicDay.fc-state-default.fc-corner-left.fc-corner-right");
 	private static final By APPOINTMENT_SCHEDULING = By.id("appointmentschedulingui-homeAppLink-appointmentschedulingui-homeAppLink-extension");
 	private static final By MANAGE_PROVIDER_SCHEDULES = By.id("appointmentschedulingui-scheduleProviders-app");
 	private static final By LOCATION = By.className("ng-pristine");
@@ -99,7 +99,7 @@ public class AppointmentBlocksPage extends Page {
 	}
 	
 	public void clickOnCurrentDay() throws InterruptedException {
-		clickOn(CURRENT_DAY);
+		clickOn(CURRENT_DAY_BUTTON);
 	}
 
 	/**

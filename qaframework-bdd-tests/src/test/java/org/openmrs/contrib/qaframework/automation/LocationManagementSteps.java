@@ -67,17 +67,17 @@ public class LocationManagementSteps extends Steps {
     }
 
     @And("a user clicks on Manage Location Attribute Types")
-    public void clickOnManageLocationAttributesTypes(){
+    public void clickOnManageLocationAttributesTypes() {
         manageLocationAttributeTypesPage = configureMetadataPage.goToManageLocationAttributeTypesPage();
     }
 
     @And("a user clicks on add new location attribute type")
-    public void addNewLocationAttributeType(){
+    public void addNewLocationAttributeType() {
         manageLocationAttributeTypesPage.goToAddNewLocationAttributeTypeForm();
     }
 
     @And("a user fills the form")
-    public void fillsTheForm(){
+    public void fillsTheForm() {
         manageLocationAttributeTypesPage.enterLocationAttributeTypeName(NAME);
         manageLocationAttributeTypesPage.enterLocationAttributeTypeDescription(DESCRIPTION);
         manageLocationAttributeTypesPage.enterMinimumOccurs(MIN_VALUE);
@@ -89,19 +89,19 @@ public class LocationManagementSteps extends Steps {
     }
 
     @Then("the user saves the form")
-    public void userSavesForm(){
+    public void userSavesForm() {
         manageLocationAttributeTypesPage.clickOnSaveButton();
         manageLocationAttributeTypesPage.returnToConfigureMetaDataPage();
     }
 
     @Then("the form is saved")
-    public void theFormIsSaved(){
+    public void theFormIsSaved() {
         assertTrue(textExists("Noah"));
         manageLocationAttributeTypesPage.returnToConfigureMetaDataPage();
     }
 
     @When("a user clicks on manage location tag")
-    public void clicksOnManageLocationTag(){
+    public void clicksOnManageLocationTag() {
         manageLocationTagsPage = configureMetadataPage.goToManageLocationTagPage();
     }
 
@@ -111,7 +111,7 @@ public class LocationManagementSteps extends Steps {
     }
 
     @And("a user fills add new location tag form")
-    public void fillsAddNewLocationTagForm(){
+    public void fillsAddNewLocationTagForm() {
         manageLocationTagsPage.enterLocationTagName(TAG_NAME);
         manageLocationTagsPage.enterLocationTagDescription("This is the location tag description");
     }
@@ -122,7 +122,7 @@ public class LocationManagementSteps extends Steps {
     }
 
     @Then("the New location tag form is saved")
-    public void locationTagFormIsSaved(){
+    public void locationTagFormIsSaved() {
         assertTrue(textExists("This is a tag name"));
         manageLocationTagsPage.returnToConfigureMetaDataHomePage();
     }
@@ -138,7 +138,7 @@ public class LocationManagementSteps extends Steps {
     }
 
     @And("a user fills add new location form")
-    public void fillAddNewLocationForm(){
+    public void fillAddNewLocationForm() {
         manageLocationsPage.enterLocationName(LOCATION_NAME);
         manageLocationsPage.enterLocationDescription("This is the location description");
         manageLocationsPage.enterAddress1(ADDRESS_ONE);

@@ -104,21 +104,6 @@ public class VerifyLoginSteps extends Steps {
         assertFalse(homePage.isConfigureMetadataAppPresent());
     }
 
-    @Then("check modules loaded into the system")
-    public void checkModulesTest() {
-        administrationPage = homePage.goToAdministration();
-        modulesPage = administrationPage.goToManageModulesPage();
-        // Get the modulesListing <div>, which contains the table of modules.
-        moduleListing = modulesPage.findElementById("moduleListing");
-        // Grab all the <input> elements from the first column of the table.
-        List<WebElement> firstColumn = moduleListing.findElements(By.cssSelector("#moduleListing table tbody td"));       
-        for (WebElement eachModule : firstColumn) {
-            // The name attr on the <input> elements should all be "stop" which indicates the module is correctly started.
-            // If not, then grab the text from the 3rd column to show which module is not started.
-            assertFalse(eachModule.getText().contains("moduleNotStarted"));
-        }
-    }
-    
     @Then("system goes back to login page")
     public void comeBackToApplicationAfterLogoutTest() throws Exception {
         getLoginPage().go();

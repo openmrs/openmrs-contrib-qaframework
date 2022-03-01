@@ -28,6 +28,7 @@ public class PhoneNumberValidationSteps  extends Steps {
     private TestData.PatientInfo patient;
     private ActiveVisitsPage activeVisitsPage;
     private RegistrationEditSectionPage registrationEditSectionPage;
+    private static final String INVALID_PHONE_NUMBER = "abcdefgh1";
 
     @Before(RunTest.HOOK.SELENIUM_PHONE_NUMBER_VALIDATION)
     public void setUp() throws Exception {
@@ -79,7 +80,7 @@ public class PhoneNumberValidationSteps  extends Steps {
 
     @And("user enters an invalid phone number")
     public void userEntersPhoneNumber() {
-        registrationEditSectionPage.enterPhoneNumber("<script>alert(0)</script>");
+        registrationEditSectionPage.enterPhoneNumber(INVALID_PHONE_NUMBER);
     }
 
     @And("user clicks on confirm edit button")

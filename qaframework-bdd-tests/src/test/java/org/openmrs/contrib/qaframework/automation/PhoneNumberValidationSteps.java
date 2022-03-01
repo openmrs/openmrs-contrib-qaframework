@@ -77,7 +77,7 @@ public class PhoneNumberValidationSteps  extends Steps {
         registrationEditSectionPage.clearPhoneNumber();
     }
 
-    @And("user enters new phone number using script element")
+    @And("user enters an invalid phone number")
     public void userEntersPhoneNumber() {
         registrationEditSectionPage.enterPhoneNumber("<script>alert(0)</script>");
     }

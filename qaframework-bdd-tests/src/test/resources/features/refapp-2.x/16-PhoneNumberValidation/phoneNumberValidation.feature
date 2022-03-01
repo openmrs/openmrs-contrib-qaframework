@@ -12,7 +12,7 @@ Feature:Phone Number validation
     And user clicks on edit contact info link
     And user clicks on phone number button
     And user clears phone number
-    And user enters new phone number using script element
+    And user enters an invalid phone number
     And user clicks on confirm edit button
     Then system returns a message validator
     And user clears the phone number input area

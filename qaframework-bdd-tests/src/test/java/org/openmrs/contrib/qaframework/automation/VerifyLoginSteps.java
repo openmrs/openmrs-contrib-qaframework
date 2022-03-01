@@ -12,15 +12,23 @@ package org.openmrs.contrib.qaframework.automation;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.util.List;
+
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-
 import org.openmrs.contrib.qaframework.RunTest;
+import org.openmrs.contrib.qaframework.page.AdministrationPage;
+import org.openmrs.contrib.qaframework.page.ModulesPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class VerifyLoginSteps extends Steps {
+
+    private AdministrationPage administrationPage;
+    private ModulesPage modulesPage;
+    private  WebElement moduleListing;
     
     @Before(RunTest.HOOK.SELENIUM_DEFAULT_LOGIN)
     public void visitHomePage() {
@@ -95,10 +103,26 @@ public class VerifyLoginSteps extends Steps {
         assertFalse(homePage.isDataManagementAppPresent());
         assertFalse(homePage.isConfigureMetadataAppPresent());
     }
+
+    @Then("check modules loaded into the system")
+    public void checkModulesTest() {
+        administrationPage = homePage.goToAdministration();
+        modulesPage = administrationPage.goToManageModulesPage();
+        // Get the modulesListing <div>, which contains the table of modules.
+        moduleListing = modulesPage.findElementById("moduleListing");
+        // Grab all the <input> elements from the first column of the table.
+        List<WebElement> firstColumn = moduleListing.findElements(By.cssSelector("#moduleListing table tbody td"));       
+        for (WebElement eachModule : firstColumn) {
+            // The name attr on the <input> elements should all be "stop" which indicates the module is correctly started.
+            // If not, then grab the text from the 3rd column to show which module is not started.
+            assertFalse(eachModule.getText().contains("moduleNotStarted"));
+        }
+    }
     
     @Then("system goes back to login page")
     public void comeBackToApplicationAfterLogoutTest() throws Exception {
         getLoginPage().go();
         assertPage(getLoginPage());
     }
+
 }

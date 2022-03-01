@@ -12,24 +12,14 @@ package org.openmrs.contrib.qaframework.automation;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import java.util.List;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import org.openmrs.contrib.qaframework.RunTest;
-import org.openmrs.contrib.qaframework.page.AdministrationPage;
-import org.openmrs.contrib.qaframework.page.ModulesPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 
 public class VerifyLoginSteps extends Steps {
 
-    private AdministrationPage administrationPage;
-    private ModulesPage modulesPage;
-    private  WebElement moduleListing;
-    
     @Before(RunTest.HOOK.SELENIUM_DEFAULT_LOGIN)
     public void visitHomePage() {
         initiateWithLogin();

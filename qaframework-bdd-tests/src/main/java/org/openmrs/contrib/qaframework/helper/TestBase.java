@@ -209,8 +209,8 @@ public class TestBase {
 	WebDriver setupFirefoxDriver() {
 		if (StringUtils.isBlank(System.getProperty("webdriver.gecko.driver"))) {
 			System.setProperty("webdriver.gecko.driver", Thread.currentThread()
-					.getContextClassLoader().getResource(TestProperties.
-							instance().getFirefoxDriverLocation()).getPath());
+							.getContextClassLoader().getResource(TestProperties.
+									instance().getFirefoxDriverLocation()).getPath());
 		}
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {

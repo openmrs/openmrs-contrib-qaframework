@@ -21,7 +21,7 @@ public class ManageAppointmentsPage extends Page {
 	private static final By SEARCH_BUTTON = By.cssSelector("#searchButtons button.confirm");
 	private static final By NEXT_BUTTON = By.cssSelector("#selectAppointment button.confirm");
 	private static final By BOOK_APPOINTMENT_ICON = By.cssSelector("i.icon-calendar:nth-child(1)");
-	private static final By YES_DELETE_REQUEST_BUTTON = By.xpath("//div[@id='confirm-cancel-appointment-request']/div[2]/button");
+	private static final By CONFIRM_CANCEL_APPOINTMENT_REQUEST_BUTTON  = By.xpath("//div[@id='confirm-cancel-appointment-request']/div[2]/button");
 	private static final By VIEW_ALL_TYPES_LINK = By.cssSelector("#viewAllAppointmentTypes a");
 
 	public ManageAppointmentsPage(Page page) {
@@ -45,7 +45,7 @@ public class ManageAppointmentsPage extends Page {
 	public void deleteRequest() {
 		waitForElement(DELETE_REQUEST_ICON);
 		clickOn(DELETE_REQUEST_ICON);
-		clickOn(YES_DELETE_REQUEST_BUTTON);
+		clickOn(CONFIRM_CANCEL_APPOINTMENT_REQUEST_BUTTON);
 	}
 
 	public String getAppointmentServiceType() {

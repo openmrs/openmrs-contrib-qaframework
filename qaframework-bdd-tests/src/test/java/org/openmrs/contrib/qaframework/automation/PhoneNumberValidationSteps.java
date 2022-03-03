@@ -107,7 +107,7 @@ public class PhoneNumberValidationSteps  extends Steps {
     }
 
     @And("user clicks again on confirm edit button")
-    public void clicksOnConfirmEditButton() {
+    public void userClicksAgainOnConfirmEditButton() {
         registrationEditSectionPage.clickOnConfirmEdit();
     }
 

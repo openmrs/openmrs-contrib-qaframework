@@ -40,6 +40,9 @@ public class VerifyLoginSteps extends Steps {
         assertTrue(homePage.isDataManagementAppPresent());
         assertTrue(homePage.isConfigureMetadataAppPresent());
         assertTrue(homePage.isSystemAdministrationAppPresent());
+        assertTrue(homePage.isDataManagementAppPresent());
+        
+
     }
 
     @And("user verifies modules available on homepage after login as clerk")

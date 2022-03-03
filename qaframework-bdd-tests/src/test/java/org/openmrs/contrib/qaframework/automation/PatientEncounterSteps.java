@@ -73,6 +73,7 @@ public class PatientEncounterSteps extends Steps {
 	public void fillEncounterForm() {
 		encounterFormPage.enterPatient(testPatient.identifier);
 		encounterFormPage.enterEncounterDateTime(ENCOUNTER_DATE_TIME);
+		encounterFormPage.closeCalenderWithEnterButton();
 		encounterFormPage.selectRole(ROLE);
 		encounterFormPage.enterProviderName(PROVIDER_NAME);
 	}

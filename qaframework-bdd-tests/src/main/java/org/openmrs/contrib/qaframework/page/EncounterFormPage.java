@@ -11,6 +11,8 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class EncounterFormPage extends Page {
@@ -41,6 +43,11 @@ public class EncounterFormPage extends Page {
 		clickOn(ENCOUNTER_DATE_TIME_FIELD);
 		setTextToFieldNoEnter(ENCOUNTER_DATE_TIME_FIELD, ENCOUNTER_DATE_TIME);
 		clickOn(CLOSE_CALENDER_BUTTON);
+	}
+
+	public void closeCalenderWithEnterButton() {
+		WebElement dateTimeElement = driver.findElement(By.xpath("//*[@id=\"encounterDatetime\"]"));
+		dateTimeElement.sendKeys(Keys.RETURN);
 	}
 
 	public void selectRole(String role) {

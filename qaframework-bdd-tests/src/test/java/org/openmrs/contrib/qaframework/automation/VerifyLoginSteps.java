@@ -9,7 +9,6 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.After;
@@ -32,6 +31,7 @@ public class VerifyLoginSteps extends Steps {
 
     @And("user verifies modules available on home page after login as admin")
     public void verifyModulesAvailableOnHomePage() {
+        goToLoginPage().loginAsAdmin();
         assertTrue(homePage.isFindAPatientAppPresent());
         assertTrue(homePage.isActiveVisitsAppPresent());
         assertTrue(homePage.isAppointmentSchedulingAppPresent());

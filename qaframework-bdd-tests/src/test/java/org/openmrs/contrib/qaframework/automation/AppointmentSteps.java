@@ -64,8 +64,8 @@ public class AppointmentSteps extends Steps {
 		assertTrue(textExists("Request Appointment"));
 	}
 
-	@And("a user fills in the request details")
-	public void captureRequestDetails() {
+	@And("a user fills in the appointment request details")
+	public void captureAppointmentRequestDetails() {
 		requestAppointmentPage.enterAppointmentType("Oncology");
 		requestAppointmentPage.enterMinimumValue("0");
 		requestAppointmentPage.selectMinimumUnits("Day(s)");
@@ -193,7 +193,7 @@ public class AppointmentSteps extends Steps {
 	}
 
 	@And("a user clicks on Delete appointment block")
-	public void clickOnDelete() throws InterruptedException {
+	public void deleteAppointmentBlock() throws InterruptedException {
 		appointmentBlocksPage.clickOnDelete();
 		appointmentBlocksPage.clickOnConfirmDelete();
 		appointmentBlocksPage.waitForPage();
@@ -206,7 +206,7 @@ public class AppointmentSteps extends Steps {
 	}
 
 	@When("a user clicks on the Schedule Appointment link from the Patient dashboard")
-	public void manageAppointmentsPage() {
+	public void launchManageAppointmentsPage() {
 		findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
@@ -216,7 +216,7 @@ public class AppointmentSteps extends Steps {
 	}
 
 	@And("a user searches appointment request")
-	public void searchAppointment() {
+	public void searchAppointmentRequest() {
 		manageAppointmentsPage.clickOnViewAllTypes();
 		manageAppointmentsPage.clickOnService(FIRST_SERVICE_NAME);
 		manageAppointmentsPage.searchAppointment();
@@ -229,7 +229,7 @@ public class AppointmentSteps extends Steps {
 	}
 
 	@And("a user clicks the Save button")
-	public void clickOnSaveButton() {
+	public void saveScheduledAppointment() {
 		manageAppointmentsPage.saveAppointment();
 	}
 

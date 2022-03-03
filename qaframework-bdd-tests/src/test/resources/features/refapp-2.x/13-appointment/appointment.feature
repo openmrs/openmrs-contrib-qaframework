@@ -3,7 +3,7 @@ Feature: Appointment Management
   Background:
     Given a user clicks on Request Appointment link from the Patient dashboard
     When the system loads Request Appointment page
-    And a user fills in the request details
+    And a user fills in the appointment request details
     And a user clicks save button
     Then the system adds appointment request into the appointment requests table
 

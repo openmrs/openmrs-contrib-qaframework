@@ -67,7 +67,7 @@ public class PhoneNumberValidationSteps  extends Steps {
     }
 
     @And("user clicks on edit contact info link")
-    public void userClickOnEditContact() {
+    public void userClicksOnEditContact() {
         registrationEditSectionPage = dashboardPage.clickOnEditContact();
     }
 

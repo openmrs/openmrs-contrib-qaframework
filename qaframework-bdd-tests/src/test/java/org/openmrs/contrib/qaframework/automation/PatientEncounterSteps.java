@@ -33,7 +33,7 @@ public class PatientEncounterSteps extends Steps {
 	private SystemAdministrationPage systemAdministrationPage;
 	private TestData.PatientInfo testPatient;
 	private static final String ENCOUNTER_DATE_TIME = "24/02/2022 00:00";
-	private static final String ROLE = "Unknown";
+	private static final String ROLE = "Clinician";
 	private static final String PROVIDER_NAME = "Super User";
 	private static final String REASON_FOR_DELETION = "Testing purpose";
 
@@ -73,7 +73,7 @@ public class PatientEncounterSteps extends Steps {
 	public void fillEncounterForm() {
 		encounterFormPage.enterPatient(testPatient.identifier);
 		encounterFormPage.enterEncounterDateTime(ENCOUNTER_DATE_TIME);
-		encounterFormPage.closeCalenderWithEnterButton();
+		encounterFormPage.pressReturnKey();
 		encounterFormPage.selectRole(ROLE);
 		encounterFormPage.enterProviderName(PROVIDER_NAME);
 	}

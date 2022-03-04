@@ -45,7 +45,7 @@ public class EncounterFormPage extends Page {
 		clickOn(CLOSE_CALENDER_BUTTON);
 	}
 
-	public void closeCalenderWithEnterButton() {
+	public void pressReturnKey() {
 		WebElement dateTimeElement = driver.findElement(By.xpath("//input[@name='encounterDatetime']"));
 		dateTimeElement.sendKeys(Keys.RETURN);
 	}

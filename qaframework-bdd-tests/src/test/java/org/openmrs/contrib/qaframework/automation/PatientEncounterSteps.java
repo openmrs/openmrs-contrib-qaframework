@@ -71,7 +71,7 @@ public class PatientEncounterSteps extends Steps {
 
 	@And("a user fills the ecounter form")
 	public void fillEncounterForm() {
-		encounterFormPage.enterPatient(testPatient.identifier);
+		encounterFormPage.enterPatientIdentifier(testPatient.identifier);
 		encounterFormPage.enterEncounterDateTime(ENCOUNTER_DATE_TIME);
 		encounterFormPage.pressReturnKey();
 		encounterFormPage.selectRole(ROLE);

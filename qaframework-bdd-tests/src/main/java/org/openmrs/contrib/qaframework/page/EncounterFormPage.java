@@ -32,16 +32,16 @@ public class EncounterFormPage extends Page {
 		super(page);
 	}
 
-	public void enterPatient(String patient) {
-		findElement(PATIENT_FIELD).sendKeys(patient);
+	public void enterPatientIdentifier(String patientIdentifier) {
+		findElement(PATIENT_FIELD).sendKeys(patientIdentifier);
 		waitForElement(FIRST_AUTOCOMPLETE_RESULT);
 		clickOn(FIRST_AUTOCOMPLETE_RESULT);
 	}
 
-	public void enterEncounterDateTime(String ENCOUNTER_DATE_TIME) {
+	public void enterEncounterDateTime(String encounterDateTime) {
 		waiter.until(ExpectedConditions.elementToBeClickable(ENCOUNTER_DATE_TIME_FIELD));
 		clickOn(ENCOUNTER_DATE_TIME_FIELD);
-		setTextToFieldNoEnter(ENCOUNTER_DATE_TIME_FIELD, ENCOUNTER_DATE_TIME);
+		setTextToFieldNoEnter(ENCOUNTER_DATE_TIME_FIELD, encounterDateTime);
 		clickOn(CLOSE_CALENDER_BUTTON);
 	}
 

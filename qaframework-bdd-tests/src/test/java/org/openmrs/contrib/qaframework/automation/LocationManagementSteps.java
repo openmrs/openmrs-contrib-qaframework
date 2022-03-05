@@ -124,6 +124,21 @@ public class LocationManagementSteps extends Steps {
     @Then("the New location tag form is saved")
     public void locationTagFormIsSaved() {
         assertTrue(textExists("This is a tag name"));
+    }
+
+    @And("the the user clicks on the retire location button")
+    public void clickOnRetireLocation() {
+        manageLocationTagsPage.retireLocation();
+    }
+
+    @And("the user cancels retire location")
+    public void cancelRetireLocation() {
+        manageLocationTagsPage.restoreLocation();
+    }
+
+    @Then("a user deletes location tag")
+    public void deleteLocationTag() {
+        manageLocationTagsPage.deleteLocationTag();
         manageLocationTagsPage.returnToConfigureMetaDataHomePage();
     }
 

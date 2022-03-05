@@ -82,7 +82,7 @@ public class ManageLocationTagsPage extends Page {
 	}
 
 	public void restoreLocation() {
-		clickOn(RESTORE_RETIRE_LOCATION_ICON);
+        clickOn(RESTORE_RETIRE_LOCATION_ICON);
 	}
 
 	public void cancelRetireLocation() {

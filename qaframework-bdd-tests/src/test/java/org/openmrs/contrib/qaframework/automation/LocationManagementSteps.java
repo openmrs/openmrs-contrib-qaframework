@@ -171,3 +171,4 @@ public class LocationManagementSteps extends Steps {
         manageLocationsPage.saveLocation();
     }
 }
+    

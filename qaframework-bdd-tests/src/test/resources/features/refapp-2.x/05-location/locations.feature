@@ -26,3 +26,4 @@ Feature: Location Management
     Then the user click on add new location
     And a user fills add new location form
     Then the add new location form is saved
+    

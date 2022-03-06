@@ -32,6 +32,7 @@ public class UserAccountSteps extends Steps {
 	private static final String CLERK = RandomStringUtils.randomAlphabetic(8);
 	private static final String NURSE = RandomStringUtils.randomAlphabetic(8);
 	private static final String DOCTOR = RandomStringUtils.randomAlphabetic(8);
+	private static final String LAB_ASSISTANT = RandomStringUtils.randomAlphanumeric(8);
 	private SystemAdministrationPage systemAdministrationPage;
 	private ManageUserAccountPage userAccountPage;
 
@@ -45,7 +46,7 @@ public class UserAccountSteps extends Steps {
 		quit();
 	}
 
-	@Given("a user clicks on system administartion app from home page")
+	@Given("a user clicks on system administration app from home page")
 	public void goToSystemAdministrationPage() {
 		systemAdministrationPage = homePage.goToSystemAdministrationPage();
 	}
@@ -145,5 +146,38 @@ public class UserAccountSteps extends Steps {
 	@Then("the system adds user account into the users table")
 	public void systemAddsUserAccount() {
 		assertTrue(textExists("Account Saved Successfully"));
+	}
+
+	@And("a user enters person details in the user account form") 
+	public void enterPersonalDetails() {
+		userAccountPage.enterPersonalDetails("Lab", "Assistant");
+		userAccountPage.selectGender();
+	}
+
+	@And("a user enters user account details in the user account form")
+	public void enterUserAccountDetails() {
+		userAccountPage.clickOnAddUserAccount();
+		userAccountPage.setUsername(LAB_ASSISTANT);
+		userAccountPage.setUserPrivilegeLevel("Full");
+	}
+
+	@And("a user sets the passwords with only upper case letters")
+	public void setPasswordWithOnlyUpperCaseLetters() {
+		userAccountPage.setUserPassword("LABASSISTANT123", "LABASSISTANT123");
+	}
+
+	@And("a user sets the passwords with only digits")
+	public void setPasswordsWithOnlyDigits() {
+		userAccountPage.setUserPassword("123459876", "123459876");
+	}
+
+	@And("a user sets the passwords with only letters")
+	public void setPasswordsWithOnlyLetters() {
+		userAccountPage.setUserPassword("Labassistant", "Labassistant");
+	}
+
+	@And("a user sets the passwords which are lower than 8 characters")
+	public void setPasswordBelowTheMinimumLength() {
+		userAccountPage.setUserPassword("123Abc", "123Abc");
 	}
 }

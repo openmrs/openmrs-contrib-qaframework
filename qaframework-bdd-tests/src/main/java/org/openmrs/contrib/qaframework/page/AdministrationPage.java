@@ -16,7 +16,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AdministrationPage extends Page {
 
 	private static final String URL = "/admin/index.htm";
-	private static final By LOGOUT = By.linkText("Log out");
 	private static final By MANAGE_USERS_LINK = By.cssSelector("#content a[href='/openmrs/admin/users/users.list']");
 	private static final By MANAGE_ROLES_LINK = By.cssSelector("#legacyui-manageRoles > a");
 	private static final By MANAGE_MODULES_LINK = By.cssSelector("#legacyui-manageModules a");
@@ -33,10 +32,6 @@ public class AdministrationPage extends Page {
 	public ManageUserPage clickOnManageUsers() {
 		findElement(MANAGE_USERS_LINK).click();
 		return new ManageUserPage(this);
-	}
-	
-	public void clickOnLogOut() {
-		clickOn(LOGOUT);
 	}
 	
 	public AdministrationManageRolesPage goToManageRolesPage() {

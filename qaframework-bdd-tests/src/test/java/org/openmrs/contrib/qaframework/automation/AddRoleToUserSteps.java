@@ -18,7 +18,6 @@ import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AddEditUserPage;
-import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.ManageUserPage;
 
@@ -26,7 +25,6 @@ public class AddRoleToUserSteps extends Steps {
 	
     private ManageUserPage manageUserPage;
     private AddEditUserPage addEditUserPage;
-    private AdministrationPage administrationPage;
     private static final String NURSE_PASSWORD = "Nurse321";
     private static final String NURSE_USERNAME = "newNurse" + new Random().nextInt(1024);
     

@@ -17,7 +17,7 @@ public class ManageUserPage extends Page {
 	private static final By ADD_USER = By.linkText("Add User");
 	private static final By SAVE_BUTTON = By.id("saveButton");
 	private static final By HOME = By.id("homeNavLink");
-	private static final By ACTION = By.name("action");
+	private static final By ACTION = By.linkText("Search");
 	private static final By USER_LINK = By.xpath("//table[@class='openmrsSearchTable']/tbody/tr/td/a");
 	private static final By FIND_USER = By.name("name");
 	private static final By USER_SAVED_NOTIFICATION = By.id("openmrs_msg");

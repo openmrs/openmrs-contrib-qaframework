@@ -11,6 +11,7 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ManageUserPage extends Page {
 
@@ -56,6 +57,7 @@ public class ManageUserPage extends Page {
 
 	public void removeUser(String user) {
 		setText(FIND_USER, user);
+		waiter.until(ExpectedConditions.elementToBeClickable(ACTION));
 		clickOn(ACTION);
 		clickOn(USER_LINK);
 		new AddEditUserPage(this).deleteUser();

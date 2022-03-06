@@ -137,8 +137,7 @@ public class AddRoleToUserSteps extends Steps {
 	 @And("user logins into the system as an admin")
 	 public void loginIntoSystemAsAnAdmin() {
                  goToLoginPage().loginAsAdmin();
-                 homePage.goToAdministration();
-                 administrationPage.clickOnManageUsers();
+                 homePage.goToSystemAdministrationPage().goToAdvancedAdministration().clickOnManageUsers();
 	 }
 	 
 	 @And("user deletes the user")

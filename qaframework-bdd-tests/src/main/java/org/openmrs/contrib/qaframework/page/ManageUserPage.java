@@ -11,14 +11,13 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ManageUserPage extends Page {
 
 	private static final By ADD_USER = By.linkText("Add User");
 	private static final By SAVE_BUTTON = By.id("saveButton");
 	private static final By HOME = By.id("homeNavLink");
-	private static final By ACTION = By.linkText("Search");
+	private static final By ACTION = By.cssSelector("#content form table input[type=submit]");
 	private static final By USER_LINK = By.xpath("//table[@class='openmrsSearchTable']/tbody/tr/td/a");
 	private static final By FIND_USER = By.name("name");
 	private static final By USER_SAVED_NOTIFICATION = By.id("openmrs_msg");
@@ -57,7 +56,6 @@ public class ManageUserPage extends Page {
 
 	public void removeUser(String user) {
 		setText(FIND_USER, user);
-		waiter.until(ExpectedConditions.elementToBeClickable(ACTION));
 		clickOn(ACTION);
 		clickOn(USER_LINK);
 		new AddEditUserPage(this).deleteUser();

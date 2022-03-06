@@ -27,6 +27,7 @@ import org.openmrs.contrib.qaframework.page.ManageLocationTagsPage;
 import org.openmrs.contrib.qaframework.page.ConfigureMetadataPage;
 
 public class LocationManagementSteps extends Steps {
+
     private static final String TAG_NAME = "This is a tag name";
     private static final String MAX_VALUE = "20";
     private static final String MIN_VALUE = "1";
@@ -91,13 +92,13 @@ public class LocationManagementSteps extends Steps {
     @Then("the user saves the form")
     public void userSavesForm() {
         manageLocationAttributeTypesPage.clickOnSaveButton();
-        manageLocationAttributeTypesPage.returnToConfigureMetaDataPage();
+        manageLocationAttributeTypesPage.returnToConfigureMetaDataDashboard();
     }
 
     @Then("the form is saved")
     public void theFormIsSaved() {
         assertTrue(textExists("Noah"));
-        manageLocationAttributeTypesPage.returnToConfigureMetaDataPage();
+        manageLocationAttributeTypesPage.returnToConfigureMetaDataDashboard();
     }
 
     @When("a user clicks on manage location tag")
@@ -139,7 +140,7 @@ public class LocationManagementSteps extends Steps {
     @Then("a user deletes location tag")
     public void deleteLocationTag() {
         manageLocationTagsPage.deleteLocationTag();
-        manageLocationTagsPage.returnToConfigureMetaDataHomePage();
+        manageLocationTagsPage.returnToConfigureMetaDataHomeDashboard();
     }
 
     @When("a user clicks on manager locations")

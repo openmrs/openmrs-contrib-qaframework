@@ -57,28 +57,28 @@ public class AddRoleToUserSteps extends Steps {
         quit();
     }
 	
-    @Given("user clicks on system administration app")
+    @Given("a user clicks on system administration app")
     public void clickOnSystemAdministrationApp() {
         manageUserPage = homePage.goToAdministration().clickOnManageUsers();
     }
 	
-    @Then("system loads manage users page")
+    @Then("the system loads manage users page")
     public void systemLoadsManageUsersPage() {
         assertTrue(textExists("User Management"));
     }
 	
-    @When("user fills in person details")
+    @When("a user fills in person details")
     public void fillInPersonDetails() {
         manageUserPage.clickOnAddUser().createNewPerson().fillInPersonName("Super", "Nurse", NURSE_USERNAME, NURSE_PASSWORD);
     }
 	
-    @When("user clicks the add user link")
+    @When("a user clicks the add user link")
     public void clickOnAddUserLink() {
         addEditUserPage = manageUserPage.clickOnAddUser();
         addEditUserPage.createNewPerson();
     }
 	
-    @And("user assigns roles to the created user")
+    @And("a user assigns roles to the created user")
     public void assignRolesToUser() throws InterruptedException {
         Map<String, Integer> roleModules = new HashMap<>();
         fillInRoleModules(roleModules);
@@ -103,7 +103,7 @@ public class AddRoleToUserSteps extends Steps {
         assertTrue(textExists("Add/Edit User"));
     }
 	
-    @And("user enters the details of the user")
+    @And("a user enters the details of the user")
     public void enterUserDetails() {
         addEditUserPage.saveUser();
         List<String> validationErrors = addEditUserPage.getValidationErrors();
@@ -125,20 +125,20 @@ public class AddRoleToUserSteps extends Steps {
         assertTrue(manageUserPage.getUserSavedNotification().contains("User Saved"));
     }
 	 
-    @And("user logins into the system as the created user")
+    @And("a user logins into the system as the created user")
     public void loginIntoSystemAsUser() {
         homePage = new HomePage(goToLoginPage().login("super_nurse", "Nurse123"));
         homePage.waitForPage();
         assertTrue(homePage.containsText("super_nurse"));
     }
 	 
-    @And("user logins into the system as an admin")
+    @And("a user logins into the system as an admin")
     public void loginIntoSystemAsAnAdmin() {
         goToLoginPage().loginAsAdmin();
         homePage.goToSystemAdministrationPage().goToAdvancedAdministration().clickOnManageUsers();
     }
 	 
-    @And("user deletes the user")
+    @And("a user deletes the user")
     public void deleteUser() {
         manageUserPage.removeUser("super_nurse");
         manageUserPage.waitForPage();

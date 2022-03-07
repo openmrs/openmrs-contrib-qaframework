@@ -91,10 +91,8 @@ public class TestBase {
 	/**
 	 * Create a User in the database with the given Role and return its info.
 	 *
-	 * @param username
-	 *            the username to create
-	 * @param role
-	 *            the roles to grant them
+	 * @param username the username to create
+	 * @param role     the roles to grant them
 	 * @return the user that was created
 	 */
 	public static UserInfo createUser(String username, RoleInfo role) {
@@ -120,20 +118,20 @@ public class TestBase {
 		String testMethod = getClass().getSimpleName() + "."
 				+ testName.getMethodName();
 		final TestProperties properties = TestProperties.instance();
-			System.out.println("Running locally...");
-			final TestProperties.WebDriverType webDriverType = properties.getWebDriver();
-			switch (webDriverType) {
-				case chrome :
-					driver = setupChromeDriver();
-					break;
-				case firefox :
-					driver = setupFirefoxDriver();
-					break;
-				default :
-					// shrug, choose chrome as default
-					driver = setupChromeDriver();
-					break;
-			}
+		System.out.println("Running locally...");
+		final TestProperties.WebDriverType webDriverType = properties.getWebDriver();
+		switch (webDriverType) {
+			case chrome:
+				driver = setupChromeDriver();
+				break;
+			case firefox:
+				driver = setupFirefoxDriver();
+				break;
+			default:
+				// shrug, choose chrome as default
+				driver = setupChromeDriver();
+				break;
+		}
 
 		driver.manage().timeouts().implicitlyWait(MAX_WAIT_IN_SECONDS, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(MAX_PAGE_LOAD_IN_SECONDS, TimeUnit.SECONDS);
@@ -156,7 +154,7 @@ public class TestBase {
 					failTest(testMethod, e);
 				} else {
 					// log that connection timed out, and try again in next iteration
-					System.out.println("Failed to login in " + testMethod+ ", trying again...");
+					System.out.println("Failed to login in " + testMethod + ", trying again...");
 				}
 			}
 		}
@@ -285,8 +283,7 @@ public class TestBase {
 	/**
 	 * Assert we're on the expected page.
 	 *
-	 * @param expected
-	 *            page
+	 * @param expected page
 	 */
 	public void assertPage(Page expected) {
 		assertTrue(driver.getCurrentUrl().contains(expected.getPageUrl()));
@@ -306,8 +303,7 @@ public class TestBase {
 	 * Delete the given patient from the various tables that contain portions of
 	 * a patient's info.
 	 *
-	 * @param patientInfo
-	 *            containing hhe uuid of the patient to delete.
+	 * @param patientInfo containing hhe uuid of the patient to delete.
 	 */
 	public void deletePatient(PatientInfo patientInfo) throws NotFoundException {
 		if (patientInfo != null) {
@@ -339,16 +335,13 @@ public class TestBase {
 	 * Create a Patient in the database and return its Patient Identifier. The
 	 * Patient Identifier is obtained from the database.
 	 *
-	 * @param personUuid
-	 *            The person
-	 * @param patientIdentifierType
-	 *            The type of Patient Identifier to use
-	 * @param source
-	 *            the idgen source to use to generate an identifier
+	 * @param personUuid            The person
+	 * @param patientIdentifierType The type of Patient Identifier to use
+	 * @param source                the idgen source to use to generate an identifier
 	 * @return The Patient Identifier for the newly created patient
 	 */
 	public String createPatient(String personUuid,
-			String patientIdentifierType, String source) {
+								String patientIdentifierType, String source) {
 		String patientIdentifier = generatePatientIdentifier(source);
 		RestClient.post("patient", new TestPatient(personUuid,
 				patientIdentifier, patientIdentifierType));
@@ -398,5 +391,4 @@ public class TestBase {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
 }

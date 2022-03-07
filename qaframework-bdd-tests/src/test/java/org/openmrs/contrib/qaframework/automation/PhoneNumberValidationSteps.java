@@ -51,7 +51,7 @@ public class PhoneNumberValidationSteps  extends Steps {
     	findPatientPage.waitForPageToLoad();
     }
 
-    @And("user clicks on the first patient")
+    @And("user clicks on returned patient in the patient table")
     public void userClicksOnFirstPatient() {
         dashboardPage = findPatientPage.clickOnFirstPatient();
     }

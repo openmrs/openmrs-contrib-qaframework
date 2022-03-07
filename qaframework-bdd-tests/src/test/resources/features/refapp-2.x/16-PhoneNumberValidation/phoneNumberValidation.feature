@@ -7,7 +7,7 @@ Feature:Phone Number validation
   @phoneNumberValidation
   Scenario: Phone Number validation
     When user searches for patient using patient identifier
-    And user clicks on the first patient
+    And user clicks on returned patient in the patient table
     Then system loads patient dashboard page
     And user clicks on show contact link
     And user clicks on edit contact info link

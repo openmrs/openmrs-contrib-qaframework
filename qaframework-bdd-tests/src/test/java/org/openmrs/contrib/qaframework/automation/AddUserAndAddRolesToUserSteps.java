@@ -21,7 +21,7 @@ import org.openmrs.contrib.qaframework.page.AddEditUserPage;
 import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.ManageUserPage;
 
-public class AddRoleToUserSteps extends Steps {
+public class AddUserAndAddRolesToUserSteps extends Steps {
 	
     private ManageUserPage manageUserPage;
     private AddEditUserPage addEditUserPage;

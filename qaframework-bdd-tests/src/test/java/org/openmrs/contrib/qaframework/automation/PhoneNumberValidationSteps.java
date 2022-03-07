@@ -53,7 +53,7 @@ public class PhoneNumberValidationSteps  extends Steps {
 
     @And("user clicks on returned patient in the patient table")
     public void userClicksOnReturnedPatient() {
-        dashboardPage = findPatientPage.clickOnFirstPatient();
+        dashboardPage = findPatientPage.clickOnReturnedPatient();
     }
 
     @Then("system loads patient dashboard page")

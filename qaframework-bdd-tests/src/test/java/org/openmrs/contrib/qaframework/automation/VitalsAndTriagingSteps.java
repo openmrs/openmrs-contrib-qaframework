@@ -40,7 +40,7 @@ public class VitalsAndTriagingSteps extends Steps {
 		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
-		dashboardPage = findPatientPage.clickOnFirstPatient();
+		dashboardPage = findPatientPage.clickOnReturnedPatient();
 		visitsDashboardPage = dashboardPage.startVisit();
 	}
 

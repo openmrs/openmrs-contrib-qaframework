@@ -42,7 +42,7 @@ public class AllergiesSteps extends Steps {
 		findPatientPage = homePage.goToFindPatientRecord();
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
-		dashboardPage = findPatientPage.clickOnFirstPatient();	
+		dashboardPage = findPatientPage.clickOnReturnedPatient();	
 	}
 
 	@After(RunTest.HOOK.SELENIUM_ALLERGIES)

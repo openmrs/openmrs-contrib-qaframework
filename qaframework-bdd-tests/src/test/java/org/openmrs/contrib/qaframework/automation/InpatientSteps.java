@@ -53,7 +53,7 @@ public class InpatientSteps extends Steps {
 	public void searchExistingPatient() {
 		findPatientPage.enterPatient(testPatient.identifier);
 		findPatientPage.waitForPageToLoad();
-		dashboardPage = findPatientPage.clickOnFirstPatient();
+		dashboardPage = findPatientPage.clickOnReturnedPatient();
 	}
 
 	@And("a user starts visit from the patient dashboard page")

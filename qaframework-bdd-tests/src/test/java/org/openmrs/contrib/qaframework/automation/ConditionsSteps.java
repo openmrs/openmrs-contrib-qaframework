@@ -38,7 +38,7 @@ public class ConditionsSteps extends Steps {
         testPatient = createTestPatient();
         findPatientPage = homePage.goToFindPatientRecord();
         findPatientPage.enterPatient(testPatient.identifier);
-        dashboardPage = findPatientPage.clickOnFirstPatient();
+        dashboardPage = findPatientPage.clickOnReturnedPatient();
     }
     
     @After(RunTest.HOOK.SELENIUM_CONDITION)

@@ -50,9 +50,9 @@ public class VisitSteps extends Steps {
     	findPatientPage.waitForPageToLoad();
     }
     
-    @And("user clicks on the first patient record")
-    public void clickTheFirstPatientRecord() {
-    	dashboardPage = findPatientPage.clickOnFirstPatient();
+    @And("user clicks on the patient returned in the patient table")
+    public void clickTheReturnedPatient() {
+    	dashboardPage = findPatientPage.clickOnReturnedPatient();
     }
 
     @Then("the system loads the clinician facing patient dashboard")

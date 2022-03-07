@@ -77,9 +77,9 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 		activeVisitsPage.search(testPatient.identifier);
 	}
 	
-	@And("a user clicks on the first patient")
-	public void clickOnTheFirstPatient() {
-		dashboardPage = findPatientPage.clickOnFirstPatient();
+	@And("a user clicks on returned patient in the patient table")
+	public void clickOnTheReturnedPatientInThePatientTable() {
+		dashboardPage = findPatientPage.clickOnReturnedPatient();
 	}
 	
 	@And("a user clicks on the active visit patient to edit")

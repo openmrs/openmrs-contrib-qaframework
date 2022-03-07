@@ -6,7 +6,7 @@ Feature: Patient Visits management
     Given user logins into the system with no initiated patient visits
     When user clicks on the find patient record app
     And user searches for the patient record
-    And user clicks on the first patient record
+    And user clicks on the patient returned in the patient table
     Then the system loads the clinician facing patient dashboard
     And user clicks on the start visit link
     Then the system starts the patient visit

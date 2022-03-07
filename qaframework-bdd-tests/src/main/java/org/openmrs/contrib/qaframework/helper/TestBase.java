@@ -340,8 +340,7 @@ public class TestBase {
 	 * @param source                the idgen source to use to generate an identifier
 	 * @return The Patient Identifier for the newly created patient
 	 */
-	public String createPatient(String personUuid,
-			String patientIdentifierType, String source) {
+	public String createPatient(String personUuid, String patientIdentifierType, String source) {
 		String patientIdentifier = generatePatientIdentifier(source);
 		RestClient.post("patient", new TestPatient(personUuid,
 				patientIdentifier, patientIdentifierType));

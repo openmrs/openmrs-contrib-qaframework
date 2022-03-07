@@ -33,7 +33,7 @@ public class RunTest {
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
 		public static final String ADVANCED_INSTALL = "@advancedInstall";
-		public static final String ADD_ROLE_TO_USER = "@addRoleToUser";
+		public static final String ADD_ROLE_TO_USER = "@addRolesToUser";
 		public static final String POSTGRES_INSTALL = "@postgresInstall";
 		public static final String TESTING_INSTALL = "@testingInstall";
 		public static final String CLINICAL_VISIT = "@clinicalVisit";

@@ -91,7 +91,7 @@ public class PhoneNumberValidationSteps  extends Steps {
         registrationEditSectionPage.clickOnConfirmEdit();
     }
 
-    @Then("system returns a message validator")
+    @Then("system returns a validation error message")
     public void validatePhoneNumber() {
         assertTrue(registrationEditSectionPage.getInvalidPhoneNumberNotification().contains(("Must be a valid phone number (with +, -, numbers or parentheses)")));
     }

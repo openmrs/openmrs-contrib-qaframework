@@ -15,7 +15,7 @@ Feature:Phone Number validation
     And user clears phone number
     And user enters an invalid phone number
     And user clicks on confirm edit button
-    Then system returns a message validator
+    Then system returns a validation error message
     And user clears the phone number input area
     And user enters the correct phone number
     And user clicks again on confirm edit button

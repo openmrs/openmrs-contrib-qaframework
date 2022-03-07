@@ -182,7 +182,7 @@ public class UserAccountSteps extends Steps {
 	}
 
 	@Then("the system throws a validation error")
-	public void systemThrowsAvalidationError() {
-		assertTrue(userAccountPage.isDataCorrect());
-	}
+	// public void systemThrowsAvalidationError() {
+	// 	assertTrue(userAccountPage.isDataCorrect());
+	// }
 }

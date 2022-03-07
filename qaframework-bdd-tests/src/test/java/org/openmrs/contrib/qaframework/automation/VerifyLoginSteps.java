@@ -30,7 +30,7 @@ public class VerifyLoginSteps extends Steps {
     }
 
     @And("user verifies modules available on home page after login as admin")
-    public void verifyModulesAvailableOnHomePage() {
+    public void verifyAdminModulesAvailableOnHomePage() {
         goToLoginPage().loginAsAdmin();
         assertTrue(homePage.isFindAPatientAppPresent());
         assertTrue(homePage.isActiveVisitsAppPresent());

@@ -47,12 +47,12 @@ public class AddRoleToUserSteps extends Steps {
         roleModules.put("roleStrings.Organizational:RegistrationClerk", 3);
     }
 	
-    @Before(RunTest.HOOK.SELENIUM_ADD_ROLE_TO_USER)
+    @Before(RunTest.HOOK.SELENIUM_ADD_USER_AND_ADD_ROLES_TO_USER)
     public void visitHomePage() {
         initiateWithLogin();
     }
 
-    @After(RunTest.HOOK.SELENIUM_ADD_ROLE_TO_USER)
+    @After(RunTest.HOOK.SELENIUM_ADD_USER_AND_ADD_ROLES_TO_USER)
     public void destroy() throws InterruptedException {
         quit();
     }

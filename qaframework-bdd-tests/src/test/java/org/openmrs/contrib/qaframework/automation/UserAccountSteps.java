@@ -181,7 +181,7 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.setUserPassword("123Abc", "123Abc");
 	}
 
-	@Then("the system throws a validation error")
+	// @Then("the system throws a validation error")
 	// public void systemThrowsAvalidationError() {
 	// 	assertTrue(userAccountPage.isDataCorrect());
 	// }

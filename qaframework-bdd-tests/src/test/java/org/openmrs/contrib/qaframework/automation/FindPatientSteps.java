@@ -64,9 +64,9 @@ public class FindPatientSteps extends Steps {
 		assertNotNull(firstPatientIdentifier);
 	}
 
-	@And("User clicks on first patient")
+	@And("User clicks on returned patient")
 	public void clickFirstPatient() {
-		dashboardPage = findPatientPage.clickOnFirstPatient();
+		dashboardPage = findPatientPage.clickOnReturnedPatient();
 	}
 
 	@Then("System loads patient dashboard")

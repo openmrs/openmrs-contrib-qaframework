@@ -14,5 +14,5 @@ Feature: Patient Search
   Scenario: Searching an existing patient
     And User enters patient identifer
     Then Search Page returns patients
-    And User clicks on first patient
+    And User clicks on returned patient
     Then System loads patient dashboard

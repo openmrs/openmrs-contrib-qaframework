@@ -1,11 +1,4 @@
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
-import { 
-  OCL_USER_NAME, 
-  OCL_USER_PASSWORD, 
-  OCL_USER_TOKEN,
-  OPENMRS_USER_NAME, 
-  OPENMRS_USER_PASSWORD
-} from '../../../../support/commands';
 
 const subscriptionUrl = 'https://api.staging.openconceptlab.org/users/openmrs/collections/TCM/1/';
 
@@ -25,15 +18,15 @@ Given('the user goes to the openmrs application', () => {
 });
 
 When('the user logs into the Dictionary Manager', () => {
-  cy.get("#username").type("openmrs");
-  cy.get("#password").type("Openmrs123");
+  cy.get("#username").type(Cypress.env("OCL_USER_NAME"));
+  cy.get("#password").type(Cypress.env("OCL_USER_PASSWORD"));
   cy.get("#login-form form").submit();
   cy.url().should('contain', 'https://openmrs.staging.openconceptlab.org/user/collections/');
 });
 
 When('the user logs into the openmrs Ref App', () => {
-  cy.get("#username").type("admin");
-  cy.get("#password").type("Admin123");
+  cy.get("#username").type(Cypress.env('OPENMRS_USER_NAME'));
+  cy.get("#password").type(Cypress.env('OPENMRS_USER_PASSWORD'));
   cy.get("#Pharmacy").click();
   cy.get("#loginButton").click();
   cy.url().should('contain', 'https://demo.openmrs.org/openmrs/referenceapplication/home.page')

@@ -78,8 +78,8 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 	}
 	
 	@And("a user clicks on returned patient in the patient table")
-	public void clickOnTheReturnedPatientInThePatientTable() {
-		dashboardPage = findPatientPage.clickOnReturnedPatient();
+	public void clickOnTheReturnedPatient() {
+		dashboardPage = findPatientPage.clickOnFirstPatient();
 	}
 	
 	@And("a user clicks on the active visit patient to edit")

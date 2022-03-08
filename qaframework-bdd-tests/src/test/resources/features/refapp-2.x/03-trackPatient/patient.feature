@@ -20,7 +20,7 @@ Feature: Patient Record Management
     When a user clicks on Find Patient Record app from the home page
     And the system loads find patient page
     And a user searches for an existing patient by name
-    And a user clicks on returned patient
+    And a user clicks on first patient
     Then the system loads the patient dashboard page
 
   @selenium

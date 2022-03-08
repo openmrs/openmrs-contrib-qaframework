@@ -65,8 +65,8 @@ public class FindPatientSteps extends Steps {
 	}
 
 	@And("User clicks on returned patient")
-	public void clickFirstPatient() {
-		dashboardPage = findPatientPage.clickOnReturnedPatient();
+	public void clickOnReturnedPatient() {
+		dashboardPage = findPatientPage.clickOnFirstPatient();
 	}
 
 	@Then("System loads patient dashboard")

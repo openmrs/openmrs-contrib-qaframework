@@ -47,12 +47,12 @@ public class VisitSteps extends Steps {
     @And("user searches for the patient record")
     public void searchForPatientRecord() {
     	findPatientPage.enterPatient(patient.identifier);
-    	findPatientPage.waitForPageToLoad();
+        findPatientPage.waitForPageToLoad();
     }
     
     @And("user clicks on the patient returned in the patient table")
-    public void clickTheReturnedPatient() {
-    	dashboardPage = findPatientPage.clickOnReturnedPatient();
+    public void clickOnTheFirstPatientRecord() {
+    	dashboardPage = findPatientPage.clickOnFirstPatient();
     }
 
     @Then("the system loads the clinician facing patient dashboard")

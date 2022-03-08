@@ -76,7 +76,7 @@ public class Steps extends ReferenceApplicationTestBase {
 		initiateWithLogin();
 		findPatientPage = (FindPatientPage) homePage.goToFindPatientRecord().waitForPage();
 		findPatientPage.enterPatient("John Smith");
-		dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage.clickOnReturnedPatient().waitForPage();
+		dashboardPage = (ClinicianFacingPatientDashboardPage) findPatientPage.clickOnFirstPatient().waitForPage();
 	}
 
 	protected String trimPatientId(String id) {

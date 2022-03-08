@@ -5,7 +5,7 @@ Feature: Patient Visits management
   Scenario: Starting a visit
     Given user logins into the system with no initiated patient visits
     When user clicks on the find patient record app
-    And user searches for the patient record
+    And  user searches for the patient record
     And user clicks on the patient returned in the patient table
     Then the system loads the clinician facing patient dashboard
     And user clicks on the start visit link
@@ -16,7 +16,7 @@ Feature: Patient Visits management
   Scenario: Adding a past visit
     Given user initiates login with patient visits
     When user clicks on the find patient record app
-    And user searches for the patient record
+    And user clicks on the patient returned in the patient table
     And user clicks on the first patient record
     Then the system loads the clinician facing patient dashboard
     And user clicks on the add past visit link
@@ -27,7 +27,7 @@ Feature: Patient Visits management
   Scenario: Merging visits
     Given user initiates login with patient visits
     When user clicks on the find patient record app
-    And user searches for the patient record
+    And user clicks on the patient returned in the patient table
     And user clicks on the first patient record
     Then the system loads the clinician facing patient dashboard
     And user clicks on the recent visits link in the recent visits section
@@ -43,7 +43,7 @@ Feature: Patient Visits management
     Given user initiates login with patient visits
     When user clicks on the find patient record app
     And user searches for the patient record
-    And user clicks on the first patient record
+    And user clicks on the patient returned in the patient table
     Then the system loads the clinician facing patient dashboard
     And user clicks on the recent visits link in the recent visits section
     And user clicks on the end visit button

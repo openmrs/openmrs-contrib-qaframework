@@ -26,7 +26,7 @@ public class FindPatientPage extends Page {
 		setTextToFieldNoEnter(PATIENT_SEARCH, patient);
 	}
 
-	public ClinicianFacingPatientDashboardPage clickOnReturnedPatient() {
+	public ClinicianFacingPatientDashboardPage clickOnFirstPatient() {
 		clickOn(PATIENT_NAME_SEARCH_RESULT);
 		return new ClinicianFacingPatientDashboardPage(this);
 	}

@@ -33,11 +33,13 @@ Install & Upgrade Tests |
 [![RefApp 2.x Patient Record](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-record.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-record.yml)
 [![RefApp 2.x Report](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-report.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-report.yml)
 [![RefApp 2.x Appointment](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-appointment.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-appointment.yml)
+[![RefApp 2.x Phone Number Validation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-phoneNumberValidation.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-phoneNumberValidation.yml)
 [![RefApp 2.x Provider](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-provider.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-provider.yml)
 [![RefApp 2.x Form](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-form.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-form.yml)
 [![RefApp 2.x Patient Allergies](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-allergies.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-allergies.yml)
 [![RefApp 2.x Visit Type](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-visit-type.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-visit-type.yml)
 [![RefApp 2.x Patient Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-visit.yml)
+[![RefApp 2.x Login](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-login.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-login.yml)
 2.x RefApp Feature-Specific Tests* |
 ------------- |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)

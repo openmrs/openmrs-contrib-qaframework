@@ -11,13 +11,14 @@ Feature: Patient Visits management
     And user clicks on the start visit link
     Then the system starts the patient visit
 
+  
   @selenium
   @patientVisit
   Scenario: Adding a past visit
     Given user initiates login with patient visits
     When user clicks on the find patient record app
+    And user searches for the patient record
     And user clicks on the patient returned in the patient table
-    And user clicks on the first patient record
     Then the system loads the clinician facing patient dashboard
     And user clicks on the add past visit link
     Then the system adds the patient past visit
@@ -27,8 +28,8 @@ Feature: Patient Visits management
   Scenario: Merging visits
     Given user initiates login with patient visits
     When user clicks on the find patient record app
+    And user searches for the patient record
     And user clicks on the patient returned in the patient table
-    And user clicks on the first patient record
     Then the system loads the clinician facing patient dashboard
     And user clicks on the recent visits link in the recent visits section
     And user clicks on the actions button

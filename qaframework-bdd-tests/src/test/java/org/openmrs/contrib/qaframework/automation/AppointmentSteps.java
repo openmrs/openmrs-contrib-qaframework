@@ -37,6 +37,7 @@ public class AppointmentSteps extends Steps {
 	private TestData.PatientInfo testPatient;
 	private static final String FIRST_SERVICE_NAME = "Oncology";
 	private static final String SECOND_SERVICE_NAME = "Dermatology";
+	private static final String LOCATION = "Laboratory";
 
 	@Before(RunTest.HOOK.SELENIUM_APPOINTMENT)
 	public void visitDashboard() {
@@ -66,7 +67,7 @@ public class AppointmentSteps extends Steps {
 
 	@And("a user fills in the appointment request details")
 	public void captureAppointmentRequestDetails() {
-		requestAppointmentPage.enterAppointmentType("Oncology");
+		requestAppointmentPage.enterAppointmentType(FIRST_SERVICE_NAME);
 		requestAppointmentPage.enterMinimumValue("0");
 		requestAppointmentPage.selectMinimumUnits("Day(s)");
 		requestAppointmentPage.enterMaximumValue("2");
@@ -127,9 +128,9 @@ public class AppointmentSteps extends Steps {
 
 	@And("a user fills in the details of the appointment block")
 	public void captureAppointmentBlockDetails() {
-		manageProviderSchedulesPage.selectLocation("Laboratory");
+		manageProviderSchedulesPage.selectLocation(LOCATION);
 		manageProviderSchedulesPage.clickOnNextWeekday();
-		manageProviderSchedulesPage.selectLocationBlock("Laboratory");
+		manageProviderSchedulesPage.selectLocationBlock(LOCATION);
 		manageProviderSchedulesPage.enterMinimumTimeValue("06", "30");
 		manageProviderSchedulesPage.clickOnStartTimeButton();
 		manageProviderSchedulesPage.enterMaximumTimeValue("09", "30");
@@ -160,7 +161,7 @@ public class AppointmentSteps extends Steps {
 
 	@And("a user clicks on an appointment block")
 	public void clickOnAppointmentBlock() throws InterruptedException {
-		appointmentBlocksPage.selectLocation("Laboratory");
+		appointmentBlocksPage.selectLocation(LOCATION);
 		appointmentBlocksPage.clickOnCurrentDay();
 		appointmentBlocksPage.clickOnAppointment();
 	}

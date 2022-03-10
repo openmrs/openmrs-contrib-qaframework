@@ -8,9 +8,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: qaframework-bdd-tests
     services:
       firefox:
         image: selenium/node-firefox:3.141.59-gold
@@ -43,6 +40,7 @@ jobs:
         run: while ! nc -z localhost 8080 </dev/null; do sleep 1; done
       - name: Run qaframework on selenium
         run: |
+          cd qaframework-bdd-tests
           echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
           mvn clean install -DskipTests=true
           cp -f src/test/resources/org/openmrs/uitestframework/test-local.properties src/test/resources/org/openmrs/uitestframework/test.properties

@@ -11,7 +11,7 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+//import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class FindPatientPage extends Page {
 
@@ -28,7 +28,7 @@ public class FindPatientPage extends Page {
 	}
 
 	public ClinicianFacingPatientDashboardPage clickOnFirstPatient() {
-		waiter.until(ExpectedConditions.elementToBeClickable(PATIENT_NAME_SEARCH_RESULT));
+		//waiter.until(ExpectedConditions.elementToBeClickable(PATIENT_NAME_SEARCH_RESULT));
 		clickOn(PATIENT_NAME_SEARCH_RESULT);
 		return new ClinicianFacingPatientDashboardPage(this);
 	}

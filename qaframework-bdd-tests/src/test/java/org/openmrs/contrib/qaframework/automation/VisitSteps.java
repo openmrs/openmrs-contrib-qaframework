@@ -51,7 +51,7 @@ public class VisitSteps extends Steps {
     }
     
     @And("user clicks on the patient returned in the patient table")
-    public void clickOnTheFirstPatientRecord() {
+    public void clickOnTheReturnedPatient() {
     	dashboardPage = findPatientPage.clickOnFirstPatient();
     }
 

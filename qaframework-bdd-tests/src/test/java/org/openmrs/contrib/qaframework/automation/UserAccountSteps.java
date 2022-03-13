@@ -32,7 +32,6 @@ public class UserAccountSteps extends Steps {
 	private static final String CLERK = RandomStringUtils.randomAlphabetic(8);
 	private static final String NURSE = RandomStringUtils.randomAlphabetic(8);
 	private static final String DOCTOR = RandomStringUtils.randomAlphabetic(8);
-	private static final String LAB_ASSISTANT = RandomStringUtils.randomAlphanumeric(8);
 	private SystemAdministrationPage systemAdministrationPage;
 	private ManageUserAccountPage userAccountPage;
 
@@ -150,20 +149,20 @@ public class UserAccountSteps extends Steps {
 
 	@And("a user enters person details in the user account form") 
 	public void enterPersonalDetails() {
-		userAccountPage.enterPersonalDetails("Lab", "Assistant");
+		userAccountPage.enterPersonalDetails("Clerk", "Data");
 		userAccountPage.selectGender();
 	}
 
 	@And("a user enters user account details in the user account form")
 	public void enterUserAccountDetails() {
 		userAccountPage.clickOnAddUserAccount();
-		userAccountPage.setUsername(LAB_ASSISTANT);
+		userAccountPage.setUsername(CLERK);
 		userAccountPage.setUserPrivilegeLevel("Full");
 	}
 
 	@And("a user sets the passwords with only upper case letters")
 	public void setPasswordWithOnlyUpperCaseLetters() {
-		userAccountPage.setUserPassword("LABASSISTANT123", "LABASSISTANT123");
+		userAccountPage.setUserPassword("SENIORCLERK", "SENIORCLERK");
 	}
 
 	@And("a user sets the passwords with only digits")
@@ -173,12 +172,12 @@ public class UserAccountSteps extends Steps {
 
 	@And("a user sets the passwords with only letters")
 	public void setPasswordsWithOnlyLetters() {
-		userAccountPage.setUserPassword("Labassistant", "Labassistant");
+		userAccountPage.setUserPassword("Seniorclerk", "Seniorclerk");
 	}
 
 	@And("a user sets the passwords which are lower than 8 characters")
 	public void setPasswordBelowTheMinimumLength() {
-		userAccountPage.setUserPassword("123Abc", "123Abc");
+		userAccountPage.setUserPassword("clerk", "clerk");
 	}
 
 	 @Then("the system throws a validation error")

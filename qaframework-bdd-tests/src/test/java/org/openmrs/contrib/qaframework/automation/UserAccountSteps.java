@@ -160,27 +160,22 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.setUserPrivilegeLevel("Full");
 	}
 
-	@And("a user sets the passwords with only upper case letters")
-	public void setPasswordWithOnlyUpperCaseLetters() {
-		userAccountPage.setUserPassword("SENIORCLERK", "SENIORCLERK");
+	@And("a user enters password that meets the password criteria")
+	public void userEnterPasswordThatMeetsThePasswordCriteria() {
+		userAccountPage.setUserPassword("Dataclerk!23", "Dataclerk!23");
+	}
+	
+	@And("a user enters password that doesn't meet the password criteria") 
+	public void userEntersPasswordThatDoesntMeetThePasswordCriteria() {
+		userAccountPage.setUserPassword("DATACLERK!23", "DATACLERK!23");
+	}
+	
+	@Then("the system saves the password")
+	public void systemSavesThePassword() {
+		assertTrue(textExists("Account Saved Successfully"));
 	}
 
-	@And("a user sets the passwords with only digits")
-	public void setPasswordsWithOnlyDigits() {
-		userAccountPage.setUserPassword("123459876", "123459876");
-	}
-
-	@And("a user sets the passwords with only letters")
-	public void setPasswordsWithOnlyLetters() {
-		userAccountPage.setUserPassword("Seniorclerk", "Seniorclerk");
-	}
-
-	@And("a user sets the passwords which are lower than 8 characters")
-	public void setPasswordBelowTheMinimumLength() {
-		userAccountPage.setUserPassword("clerk", "clerk");
-	}
-
-	 @Then("the system throws a validation error")
+	 @Then("the system throws a validation error message")
 	 public void systemThrowsAvalidationError() {
 		 List<String> validationErrors = userAccountPage.getValidationErrors();
 	 	assertTrue(userAccountPage.isDataCorrect(validationErrors));

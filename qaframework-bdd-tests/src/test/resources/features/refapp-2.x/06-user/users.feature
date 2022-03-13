@@ -31,32 +31,16 @@ Feature: User Account Management
 
   @selenium
   @userAccount
-  Scenario: Password Requires Upper and Lower case
+  Scenario: Password that doesn't meet the password criteria
     And a user enters person details in the user account form
     And a user enters user account details in the user account form
-    And a user sets the passwords with only upper case letters
-    Then the system throws a validation error
+    And a user enters password that doesn't meet the password criteria
+    Then the system throws a validation error message
 
   @selenium
   @userAccount
-  Scenario: Password Requires Non-digits
+  Scenario: Password that meets the password criteria
     And a user enters person details in the user account form
     And a user enters user account details in the user account form
-    And a user sets the passwords with only digits
-    Then the system throws a validation error
-
-  @selenium
-  @userAccount
-  Scenario: Password Requires digits
-    And a user enters person details in the user account form
-    And a user enters user account details in the user account form
-    And a user sets the passwords with only letters
-    Then the system throws a validation error
-
-  @selenium
-  @userAccount
-  Scenario: Password Requires minimum length
-    And a user enters person details in the user account form
-    And a user enters user account details in the user account form
-    And a user sets the passwords which are lower than 8 characters
-    Then the system throws a validation error
+    And a user enters password that meets the password criteria
+    Then the system saves the password

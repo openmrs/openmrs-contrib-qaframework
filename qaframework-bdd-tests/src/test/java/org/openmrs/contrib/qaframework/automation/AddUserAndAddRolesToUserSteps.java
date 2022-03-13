@@ -58,7 +58,7 @@ public class AddUserAndAddRolesToUserSteps extends Steps {
     }
 	
     @Given("a user clicks on system administration app")
-    public void clickOnSystemAdministrationApp() {
+    public void userClicksOnSystemAdministrationApp() {
         manageUserPage = homePage.goToAdministration().clickOnManageUsers();
     }
 	
@@ -68,18 +68,18 @@ public class AddUserAndAddRolesToUserSteps extends Steps {
     }
 	
     @When("a user fills in person details")
-    public void fillInPersonDetails() {
+    public void userFillsInPersonDetails() {
         manageUserPage.clickOnAddUser().createNewPerson().fillInPersonName("Super", "Nurse", NURSE_USERNAME, NURSE_PASSWORD);
     }
 	
     @When("a user clicks the add user link")
-    public void clickOnAddUserLink() {
+    public void userClicksOnTheAddUserLink() {
         addEditUserPage = manageUserPage.clickOnAddUser();
         addEditUserPage.createNewPerson();
     }
 	
     @And("a user assigns roles to the created user")
-    public void assignRolesToUser() throws InterruptedException {
+    public void userAssignsRolesToUser() throws InterruptedException {
         Map<String, Integer> roleModules = new HashMap<>();
         fillInRoleModules(roleModules);
         String oldRole = null;
@@ -104,7 +104,7 @@ public class AddUserAndAddRolesToUserSteps extends Steps {
     }
 	
     @And("a user enters the details of the user")
-    public void enterUserDetails() {
+    public void userEntersDetailsOfTheUser() {
         addEditUserPage.saveUser();
         List<String> validationErrors = addEditUserPage.getValidationErrors();
         assertTrue(validationErrors.contains("You must define at least one name"));
@@ -126,25 +126,25 @@ public class AddUserAndAddRolesToUserSteps extends Steps {
     }
 	 
     @And("a user logins into the system as the created user")
-    public void loginIntoSystemAsUser() {
+    public void userLoginsIntoSystemAsUser() {
         homePage = new HomePage(goToLoginPage().login("super_nurse", "Nurse123"));
         homePage.waitForPage();
         assertTrue(homePage.containsText("super_nurse"));
     }
 	 
     @And("a user logins into the system as an admin")
-    public void loginIntoSystemAsAnAdmin() {
+    public void userLoginsIntoSystemAsAnAdmin() {
         goToLoginPage().loginAsAdmin();
         homePage.goToSystemAdministrationPage().goToAdvancedAdministration().clickOnManageUsers();
     }
 	 
-    @And("a user deletes the user")
-    public void deleteUser() {
+    @And("a user deletes the user account")
+    public void userDeletesUserAccount() {
         manageUserPage.removeUser("super_nurse");
         manageUserPage.waitForPage();
     }
 	 
-    @Then("the system confirms the deletion of the user")
+    @Then("the system confirms the deletion of the user account")
     public void systemConfirmsDelete() {
         assertTrue(manageUserPage.getUserSavedNotification().contains("Successfully deleted user."));
     }	

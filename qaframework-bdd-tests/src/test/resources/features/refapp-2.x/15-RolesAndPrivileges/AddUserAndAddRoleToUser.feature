@@ -18,5 +18,5 @@ Feature: Add User and Add Roles To User
     And a user enters the details of the user
     And a user logins into the system as the created user
     And a user logins into the system as an admin
-    And a user deletes the user
-    Then the system confirms the deletion of the user
+    And a user deletes the user account
+    Then the system confirms the deletion of the user account

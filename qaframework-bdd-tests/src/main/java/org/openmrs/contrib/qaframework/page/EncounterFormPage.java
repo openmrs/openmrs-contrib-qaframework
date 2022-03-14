@@ -46,7 +46,7 @@ public class EncounterFormPage extends Page {
 	}
 
 	public void pressReturnKey() {
-		WebElement dateTimeElement = driver.findElement(By.xpath("//input[@name='encounterDatetime']"));
+		WebElement dateTimeElement = driver.findElement(ENCOUNTER_DATE_TIME_FIELD);
 		dateTimeElement.sendKeys(Keys.RETURN);
 	}
 

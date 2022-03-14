@@ -6,7 +6,7 @@ Feature: Edit Demographics and contact info from Patient Dashboard
     Given a user clicks on the find patient app on the home page
     Then the system loads the find patient page
     And a user searches for the patient to edit
-    And a user clicks on the first patient
+    And a user clicks on returned patient in the patient table
     And a user clicks on Edit Registration Information link from Patient dashboard
     Then the system loads Registration Summary Page
     And a user edits demographics

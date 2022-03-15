@@ -152,7 +152,8 @@ public class InitialSetupPage extends Page {
 		new WebDriverWait(driver, Duration.ofSeconds(720L))
 				.until(ExpectedConditions.or(
 						ExpectedConditions.urlContains("index.htm"),
-						ExpectedConditions.urlContains("home.page")));
+						ExpectedConditions.urlContains("home.page"),
+						ExpectedConditions.urlContains("initialsetup")));
 	}
 
 	public String getErrorMessage() {

@@ -170,11 +170,6 @@ public class UserAccountSteps extends Steps {
          	userAccountPage.setUserPassword("DATACLERK!23", "DATACLERK!23");
      	}
 
-     	@Then("the system saves the password")
-     	public void systemSavesThePassword() {
-         	assertTrue(textExists("Account Saved Successfully"));
-     	}
-
       	@Then("the system throws a validation error message")
       	public void systemThrowsAvalidationError() {
           	List<String> validationErrors = userAccountPage.getValidationErrors();

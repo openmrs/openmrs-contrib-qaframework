@@ -148,37 +148,36 @@ public class UserAccountSteps extends Steps {
 	}
 	
 	@And("a user enters person details in the user account form") 
-    public void enterPersonalDetails() {
-        userAccountPage.enterPersonalDetails("Clerk", "Data");
-        userAccountPage.selectGender();
-     }
+    	public void enterPersonalDetails() {
+        	userAccountPage.enterPersonalDetails("Clerk", "Data");
+        	userAccountPage.selectGender();
+    	}
 
-    @And("a user enters user account details in the user account form")
-     public void enterUserAccountDetails() {
-         userAccountPage.clickOnAddUserAccount();
-         userAccountPage.setUsername(CLERK);
-         userAccountPage.setUserPrivilegeLevel("Full");
-     }
+    	@And("a user enters user account details in the user account form")
+     	public void enterUserAccountDetails() {
+         	userAccountPage.clickOnAddUserAccount();
+         	userAccountPage.setUsername(CLERK);
+         	userAccountPage.setUserPrivilegeLevel("Full");
+     	}
 
-    @And("a user enters password that meets the password criteria")
-     public void userEnterPasswordThatMeetsThePasswordCriteria() {
-         userAccountPage.setUserPassword("Dataclerk!23", "Dataclerk!23");
-     }
+    	@And("a user enters password that meets the password criteria")
+     	public void userEnterPasswordThatMeetsThePasswordCriteria() {
+         	userAccountPage.setUserPassword("Dataclerk!23", "Dataclerk!23");
+     	}
 
-     @And("a user enters password that doesn't meet the password criteria") 
-     public void userEntersPasswordThatDoesntMeetThePasswordCriteria() {
-         userAccountPage.setUserPassword("DATACLERK!23", "DATACLERK!23");
-     }
+     	@And("a user enters password that doesn't meet the password criteria") 
+     	public void userEntersPasswordThatDoesntMeetThePasswordCriteria() {
+         	userAccountPage.setUserPassword("DATACLERK!23", "DATACLERK!23");
+     	}
 
-     @Then("the system saves the password")
-     public void systemSavesThePassword() {
-         assertTrue(textExists("Account Saved Successfully"));
-     }
+     	@Then("the system saves the password")
+     	public void systemSavesThePassword() {
+         	assertTrue(textExists("Account Saved Successfully"));
+     	}
 
-      @Then("the system throws a validation error message")
-      public void systemThrowsAvalidationError() {
-          List<String> validationErrors = userAccountPage.getValidationErrors();
-          assertTrue(userAccountPage.isDataCorrect(validationErrors));
-      }
-	
+      	@Then("the system throws a validation error message")
+      	public void systemThrowsAvalidationError() {
+          	List<String> validationErrors = userAccountPage.getValidationErrors();
+          	assertTrue(userAccountPage.isDataCorrect(validationErrors));
+      	}
 }

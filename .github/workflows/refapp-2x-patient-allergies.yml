@@ -4,12 +4,18 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
+    paths:
+      - "qaframework-bdd-tests/src/**/*.*"
+      - "qaframework-bdd-tests/package.json"
   repository_dispatch:
     types: [qa]
   workflow_dispatch:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: qaframework-bdd-tests
     services:
       firefox:
         image: selenium/node-firefox:3.141.59-gold
@@ -32,9 +38,8 @@ jobs:
         run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/login.htm)" != "200" ]]; do sleep 1; done
       - name: Run qaframework on selenium
         run: |
-          echo "cucumber.publish.enabled=true" > qaframework-bdd-tests/src/test/resources/cucumber.properties
+          echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
           mvn clean install -DskipTests=true
-          cp -f qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test-local.properties qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test.properties
-          cd qaframework-bdd-tests
+          cp -f src/test/resources/org/openmrs/uitestframework/test-local.properties src/test/resources/org/openmrs/uitestframework/test.properties
           npm run refapp2Allergy
           curl -sX POST -F messages=@target/cucumber.ndjson https://studio.cucumber.io/cucumber_project/results -H "project-access-token: ${{secrets.CUCUMBER_IO_TOKEN}}" -H "provider: github" -H "repo: ${{github.repository}}" -H "branch: master" -H "revision: ${{github.sha}}"

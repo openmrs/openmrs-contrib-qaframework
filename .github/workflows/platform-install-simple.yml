@@ -4,7 +4,7 @@ on:
   push:
     branches: [ master ]
   repository_dispatch:
-    types: [qa-initialSetup]
+    types: [qa]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -41,9 +41,9 @@ jobs:
         run: while ! nc -z localhost 8080 </dev/null; do sleep 1; done
       - name: Run qaframework on selenium
         run: |
-          echo "cucumber.publish.enabled=true" > qaframework-bdd-tests/src/test/resources/cucumber.properties
-          mvn clean install -DskipTests=true
-          cp -f qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test-local.properties qaframework-bdd-tests/src/test/resources/org/openmrs/uitestframework/test.properties
           cd qaframework-bdd-tests
+          echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
+          mvn clean install -DskipTests=true
+          cp -f src/test/resources/org/openmrs/uitestframework/test-local.properties src/test/resources/org/openmrs/uitestframework/test.properties
           npm run simpleCoreInstall
           curl -sX POST -F messages=@target/cucumber.ndjson https://studio.cucumber.io/cucumber_project/results -H "project-access-token: ${{secrets.CUCUMBER_IO_TOKEN}}" -H "provider: github" -H "repo: ${{github.repository}}" -H "branch: master" -H "revision: ${{github.sha}}"

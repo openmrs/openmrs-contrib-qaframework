@@ -3,7 +3,7 @@
  * v. 2.0. If a copy of the MPL was not distributed with this file, You can
  * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
  * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
- * 
+ *
  * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
  * graphic logo is a trademark of OpenMRS Inc.
  */
@@ -44,21 +44,14 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import org.openqa.selenium.UnexpectedAlertBehaviour;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.saucelabs.common.SauceOnDemandAuthentication;
-import com.saucelabs.common.SauceOnDemandSessionIdProvider;
-import com.saucelabs.junit.SauceOnDemandTestWatcher;
 
 import jakarta.ws.rs.ProcessingException;
 import jakarta.ws.rs.ServerErrorException;
@@ -77,20 +70,13 @@ import jakarta.ws.rs.core.Response;
  * <li>@see {@link #assertPage(Page)} - @see {@link #pageContent()}</li>
  * </ul>
  */
-public class TestBase implements SauceOnDemandSessionIdProvider {
+public class TestBase {
 
 	public static final int MAX_WAIT_IN_SECONDS = 120;
 	public static final int MAX_PAGE_LOAD_IN_SECONDS = 120;
 	public static final int MAX_SERVER_STARTUP_IN_MILLISECONDS = 10 * 60 * 1000;
-	public static final int MAX_SAUCELAB_COMMAND_TIMEOUT_IN_SECONDS = 600;
 	private static volatile boolean serverFailure = false;
-	public String sessionId;
-	public SauceOnDemandAuthentication sauceLabsAuthentication;
-	public String sauceLabsHubUrl;
-	public static final String REMOTE_URL_CHROME = "http://localhost:4444/wd/hub";
-	public static String REMOTE_URL_FIREFOX = "http://localhost:4445/wd/hub";
-	@Rule
-	public SauceOnDemandTestWatcher sauceLabsResultReportingTestWatcher;
+
 	@Rule
 	public TestName testName = new TestName();
 	protected Page page;
@@ -108,28 +94,11 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 		}
 	};
 
-	public TestBase() {
-		browserType = properties.getBrowserType();
-		driverType = properties.getDriverType();
-		TestProperties testProperties = TestProperties.instance();
-		String sauceLabsUsername = testProperties.getProperty("SAUCELABS_USERNAME", null);
-		String sauceLabsAccessKey = testProperties.getProperty("SAUCELABS_ACCESSKEY", null);
-		sauceLabsHubUrl = testProperties.getProperty("saucelabs.hub.url","ondemand.saucelabs.com:80");
-
-		if (!StringUtils.isBlank(sauceLabsUsername)&& !StringUtils.isBlank(sauceLabsAccessKey)) {
-			sauceLabsAuthentication = new SauceOnDemandAuthentication(sauceLabsUsername, sauceLabsAccessKey);
-			sauceLabsResultReportingTestWatcher = new SauceOnDemandTestWatcher(this, sauceLabsAuthentication);
-		}
-
-	}
-
 	/**
 	 * Create a User in the database with the given Role and return its info.
-	 * 
-	 * @param username
-	 *            the username to create
-	 * @param role
-	 *            the roles to grant them
+	 *
+	 * @param username the username to create
+	 * @param role     the roles to grant them
 	 * @return the user that was created
 	 */
 	public static UserInfo createUser(String username, RoleInfo role) {
@@ -140,11 +109,6 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 		ui.addRole("Privilege Level: Full");
 		TestData.createUser(ui);
 		return ui;
-	}
-
-	@Override
-	public String getSessionId() {
-		return sessionId;
 	}
 
 	@Before
@@ -241,6 +205,20 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 					driver = setupChromeDriver();
 					break;
 			}
+
+		System.out.println("Running locally...");
+		final TestProperties.WebDriverType webDriverType = properties.getWebDriver();
+		switch (webDriverType) {
+			case chrome:
+				driver = setupChromeDriver();
+				break;
+			case firefox:
+				driver = setupFirefoxDriver();
+				break;
+			default:
+				// shrug, choose chrome as default
+				driver = setupChromeDriver();
+				break;
 		}
 
 		driver.manage().timeouts().implicitlyWait(MAX_WAIT_IN_SECONDS, TimeUnit.SECONDS);
@@ -264,7 +242,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 					failTest(testMethod, e);
 				} else {
 					// log that connection timed out, and try again in next iteration
-					System.out.println("Failed to login in " + testMethod+ ", trying again...");
+					System.out.println("Failed to login in " + testMethod + ", trying again...");
 				}
 			}
 		}
@@ -282,10 +260,6 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 		if (driver != null) {
 			driver.quit();
 		}
-	}
-
-	private boolean isRunningOnSauceLabs() {
-		return sauceLabsAuthentication != null;
 	}
 
 	public Page login() {
@@ -320,9 +294,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 	WebDriver setupFirefoxDriver() {
 		if (StringUtils.isBlank(System.getProperty("webdriver.gecko.driver"))) {
-			System.setProperty("webdriver.gecko.driver", Thread.currentThread()
-							.getContextClassLoader().getResource(TestProperties.
-									instance().getFirefoxDriverLocation()).getPath());
+			System.setProperty("webdriver.gecko.driver", Thread.currentThread().getContextClassLoader().getResource(TestProperties.instance().getFirefoxDriverLocation()).getPath());
 		}
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
@@ -409,16 +381,15 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 	/**
 	 * Assert we're on the expected page.
-	 * 
-	 * @param expected
-	 *            page
+	 *
+	 * @param expected page
 	 */
 	public void assertPage(Page expected) {
 		assertTrue(driver.getCurrentUrl().contains(expected.getPageUrl()));
 	}
 
 	public void takeScreenshot(String filename) {
-		if (!isRunningOnSauceLabs() && driver != null) {
+		if (driver != null) {
 			File tempFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 			try {
 				FileUtils.copyFile(tempFile, new File("target/screenshots/" + filename + ".png"));
@@ -430,9 +401,8 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 	/**
 	 * Delete the given patient from the various tables that contain portions of
 	 * a patient's info.
-	 * 
-	 * @param patientInfo
-	 *            containing hhe uuid of the patient to delete.
+	 *
+	 * @param patientInfo containing hhe uuid of the patient to delete.
 	 */
 	public void deletePatient(PatientInfo patientInfo) throws NotFoundException {
 		if (patientInfo != null) {
@@ -463,17 +433,13 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 	/**
 	 * Create a Patient in the database and return its Patient Identifier. The
 	 * Patient Identifier is obtained from the database.
-	 * 
-	 * @param personUuid
-	 *            The person
-	 * @param patientIdentifierType
-	 *            The type of Patient Identifier to use
-	 * @param source
-	 *            the idgen source to use to generate an identifier
+	 *
+	 * @param personUuid            The person
+	 * @param patientIdentifierType The type of Patient Identifier to use
+	 * @param source                the idgen source to use to generate an identifier
 	 * @return The Patient Identifier for the newly created patient
 	 */
-	public String createPatient(String personUuid,
-			String patientIdentifierType, String source) {
+	public String createPatient(String personUuid, String patientIdentifierType, String source) {
 		String patientIdentifier = generatePatientIdentifier(source);
 		RestClient.post("patient", new TestPatient(personUuid,
 				patientIdentifier, patientIdentifierType));
@@ -486,7 +452,7 @@ public class TestBase implements SauceOnDemandSessionIdProvider {
 
 	/**
 	 * Returns the entire text of the "content" part of the current page
-	 * 
+	 *
 	 * @return the entire text of the "content" part of the current page
 	 */
 	public String pageContent() {

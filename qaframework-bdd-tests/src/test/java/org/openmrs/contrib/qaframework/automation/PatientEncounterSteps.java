@@ -59,12 +59,12 @@ public class PatientEncounterSteps extends Steps {
 		administrationPage = systemAdministrationPage.goToAdvancedAdministration();
 	}
 
-	@And("a user clicks on Manage Encounters link from the Administration page")
+	@Then("a user clicks on Manage Encounters link from the Administration page")
 	public void loadManageEncountersPage() {
 		manageEncountersPage = administrationPage.clickOnManageEncounters();
 	}
 
-	@And("a user clicks on Add Encounter link from the encounters page")
+	@When("a user clicks on Add Encounter link from the encounters page")
 	public void loadEncounterFormPage() {
 		encounterFormPage = manageEncountersPage.clickOnAddEncounter();
 	}

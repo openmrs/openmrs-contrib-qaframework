@@ -142,7 +142,7 @@ public class InitialSetupPage extends Page {
 	public void upgrade() {
 		pressContinue();
 		pressContinue();
-	}
+	} 
 
 	public enum Type {
 		SIMPLE, ADVANCED, TESTING, POSTGRES

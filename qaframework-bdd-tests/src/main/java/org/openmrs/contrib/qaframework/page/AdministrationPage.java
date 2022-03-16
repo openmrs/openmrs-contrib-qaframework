@@ -71,9 +71,9 @@ public class AdministrationPage extends Page {
 		return new ManageReportsPage(this);
 	}
 	
-	public PatientPage clickOnManagePatients() {
+	public ManagePatientsPage clickOnManagePatients() {
 		findElement(MANAGE_PATIENTS_LINK).click();
-		return new PatientPage(this);
+		return new ManagePatientsPage(this);
 	}
 
 	@Override

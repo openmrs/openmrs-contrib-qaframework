@@ -4,8 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
+import org.openmrs.contrib.qaframework.page.ManagePatientsPage;
 import org.openmrs.contrib.qaframework.page.PatientFormPage;
-import org.openmrs.contrib.qaframework.page.PatientPage;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -17,7 +17,7 @@ import io.cucumber.java.en.When;
 public class AddNewIdentifierSteps extends Steps{
 	
 	private AdministrationPage administrationPage;
-	private PatientPage patientPage;
+	private ManagePatientsPage managePatientsPage;
     private PatientFormPage patientFormPage;
     private static final String IDENTIFIER = "100397A";
     
@@ -43,7 +43,7 @@ public class AddNewIdentifierSteps extends Steps{
    
     @And("a user clicks on the Manage Patients link on the administration page")
     public void clickManagePatientsLink() {
-    	patientPage = (PatientPage) administrationPage.clickOnManagePatients().waitForPage();
+    	managePatientsPage = administrationPage.clickOnManagePatients();
     }
     
     @Then("the system loads patient page")
@@ -53,7 +53,7 @@ public class AddNewIdentifierSteps extends Steps{
     
     @When("a user searches for the patient")
     public void searchPatientIdentifierOrPatientName() {
-    	patientPage.searchPatientIdentifierOrPatientName(firstPatientIdentifier);
+    	managePatientsPage.searchPatientIdentifierOrPatientName(firstPatientIdentifier);
     }
     
     @And("a user clicks on add new identifier")

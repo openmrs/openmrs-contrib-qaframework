@@ -81,7 +81,7 @@ jobs:
         with:
           allowUpdates: true
           artifacts: "${{ github.workspace }}/target/*.jar"
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.DEPLOYMENT_TOKEN }}
       - name: Publish to the Maven Central Repository
         run: |
           mvn \

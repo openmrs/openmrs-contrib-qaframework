@@ -139,7 +139,6 @@ public class UserAccountSteps extends Steps {
 	@And("a user clicks on save account button")
 	public void clickOnSaveUserAccountButton() {
 		userAccountPage.saveUserAccount();
-		userAccountPage.waitForPage();
 	}
 
 	@Then("the system adds user account into the users table")

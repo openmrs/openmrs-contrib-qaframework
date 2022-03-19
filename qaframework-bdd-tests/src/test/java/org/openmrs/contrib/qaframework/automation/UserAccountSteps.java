@@ -161,7 +161,7 @@ public class UserAccountSteps extends Steps {
 
     	@And("a user enters password that meets the password criteria")
      	public void userEnterPasswordThatMeetsThePasswordCriteria() {
-         	userAccountPage.setUserPassword("Dataclerk!23", "Dataclerk!23");
+         	userAccountPage.setUserPassword("Dataclerk123", "Dataclerk123");
      	}
 
      	@And("a user enters password that doesn't meet the password criteria") 
@@ -171,8 +171,7 @@ public class UserAccountSteps extends Steps {
      	
      	@Then("the system confirms the password meets the password criteria")
      	public void systemConfirmsPasswordMeetsPasswordCriteria() {
-          	List<String> validationErrors = userAccountPage.getValidationErrors();
-          	assertFalse(userAccountPage.isDataCorrect(validationErrors));
+     		assertTrue(textExists("Account Saved Successfully"));
      	}
 
       	@Then("the system throws a validation error message")

@@ -143,6 +143,7 @@ public class UserAccountSteps extends Steps {
 
 	@Then("the system adds user account into the users table")
 	public void systemAddsUserAccount() {
+		userAccountPage.waitForPage();
 		assertTrue(textExists("Account Saved Successfully"));
 	}
 	

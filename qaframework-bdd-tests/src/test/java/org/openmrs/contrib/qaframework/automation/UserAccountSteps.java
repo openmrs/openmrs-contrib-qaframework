@@ -139,11 +139,11 @@ public class UserAccountSteps extends Steps {
 	@And("a user clicks on save account button")
 	public void clickOnSaveUserAccountButton() {
 		userAccountPage.saveUserAccount();
+		userAccountPage.waitForPage();
 	}
 
 	@Then("the system adds user account into the users table")
 	public void systemAddsUserAccount() {
-		userAccountPage.waitForPage();
 		assertTrue(textExists("Account Saved Successfully"));
 	}
 	
@@ -168,6 +168,12 @@ public class UserAccountSteps extends Steps {
      	@And("a user enters password that doesn't meet the password criteria") 
      	public void userEntersPasswordThatDoesntMeetThePasswordCriteria() {
          	userAccountPage.setUserPassword("DATACLERK!23", "DATACLERK!23");
+     	}
+     	
+     	@Then("the system confirms the password meets the password criteria")
+     	public void systemConfirmsPasswordMeetsPasswordCriteria() {
+          	List<String> validationErrors = userAccountPage.getValidationErrors();
+          	assertFalse(userAccountPage.isDataCorrect(validationErrors));
      	}
 
       	@Then("the system throws a validation error message")

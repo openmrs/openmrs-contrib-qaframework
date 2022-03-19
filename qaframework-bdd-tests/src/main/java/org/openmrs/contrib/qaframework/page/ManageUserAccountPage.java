@@ -13,6 +13,7 @@ import java.util.List;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ManageUserAccountPage extends Page {
 
@@ -147,6 +148,7 @@ public class ManageUserAccountPage extends Page {
 	}
 
 	public void saveUserAccount() {
+		waiter.until(ExpectedConditions.elementToBeClickable(SAVE_BUTTON));
 		clickOn(SAVE_BUTTON);
 	}
 

@@ -1,11 +1,4 @@
 import { Given, Then, When } from 'cypress-cucumber-preprocessor/steps';
-import { 
-  OCL_USER_NAME, 
-  OCL_USER_PASSWORD, 
-  OCL_USER_TOKEN,
-  OPENMRS_USER_NAME, 
-  OPENMRS_USER_PASSWORD
-} from '../../../../support/commands';
 
 const subscriptionUrl = 'https://api.staging.openconceptlab.org/users/openmrs/collections/TCM/1/';
 
@@ -21,22 +14,22 @@ Given('the user goes to the Dictionary Manager App', () => {
 });
 
 Given('the user goes to the openmrs application', () => {
-  cy.visit('http://localhost:8080/openmrs/login.htm');
+  cy.visit('https://demo.openmrs.org/openmrs/login.htm');
 });
 
 When('the user logs into the Dictionary Manager', () => {
-  cy.get("#username").type(OCL_USER_NAME);
-  cy.get("#password").type(OCL_USER_PASSWORD);
+  cy.get("#username").type("openmrs");
+  cy.get("#password").type("Openmrs123");
   cy.get("#login-form form").submit();
   cy.url().should('contain', 'https://openmrs.staging.openconceptlab.org/user/collections/');
 });
 
 When('the user logs into the openmrs Ref App', () => {
-  cy.get("#username").type(OPENMRS_USER_NAME);
-  cy.get("#password").type(OPENMRS_USER_PASSWORD);
+  cy.get("#username").type("admin");
+  cy.get("#password").type("Admin123");
   cy.get("#Pharmacy").click();
   cy.get("#loginButton").click();
-  cy.url().should('contain', 'http://localhost:8080/openmrs/referenceapplication/home.page')
+  cy.url().should('contain', 'https://demo.openmrs.org/openmrs/referenceapplication/home.page')
 });
 
 When('the user goes to the dictionary details page', () => {
@@ -60,13 +53,13 @@ Then('the user should copy the subscription url', () => {
 });
 
 When('the user visit the OCL module page', () => {
-  cy.visit('http://localhost:8080/openmrs/owa/openconceptlab/index.html#/subscription')
+  cy.visit('https://demo.openmrs.org/openmrs/owa/openconceptlab/index.html#/subscription')
 });
 
 When('the user pastes the subscription url and user API token', () => {
   // TODO: We need to unsubscribe at some point 
   cy.get("#subscription-url").type(subscriptionUrl);
-  cy.get("#subscription-token").type(OCL_USER_TOKEN);
+  cy.get("#subscription-token").type("bd022mad6d3df24f5c42ewewa94b53a23edf6eee7r");
 });
 
 When('the user saves changes', () => {
@@ -93,7 +86,7 @@ Then('the data should be correct', async () => {
     .then((data) => {
       return data;
     });
-    const omrsConcept = await fetchData(`http://localhost:8080/openmrs/ws/rest/v1/concept/${c.external_id}`)
+    const omrsConcept = await fetchData(`https://demo.openmrs.org/openmrs/ws/rest/v1/concept/${c.external_id}`)
     .then((response) => {
       return response;
     });

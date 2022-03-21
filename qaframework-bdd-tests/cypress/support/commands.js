@@ -7,12 +7,6 @@ const ADMIN_PASSWORD = Cypress.env('ADMIN_PASSWORD');
 const DEFAULT_LOCATION_UUID = Cypress.env('DEFAULT_LOCATION_UUID');
 const TOKEN = window.btoa(`${ADMIN_USERNAME}:${ADMIN_PASSWORD}`);
 
-export const OCL_USER_NAME = Cypress.env('OCL_USER_NAME');
-export const OCL_USER_PASSWORD = Cypress.env('OCL_USER_PASSWORD');
-export const OPENMRS_USER_NAME = Cypress.env('OPENMRS_USER_NAME');
-export const OPENMRS_USER_PASSWORD = Cypress.env('OPENMRS_USER_PASSWORD');
-export const OCL_USER_TOKEN = Cypress.env('OCL_USER_TOKEN');
-
 Cypress.Commands.add('runAndAwait', (callable, method='GET', addArtificialWait=false) => {
     const requestId = `apiRequest-${uuid()}`;
 

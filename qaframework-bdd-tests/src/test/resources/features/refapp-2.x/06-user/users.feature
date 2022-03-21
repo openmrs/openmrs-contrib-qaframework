@@ -32,7 +32,7 @@ Feature: User Account Management
   @selenium
   @userAccount
   Scenario: Password that doesn't meet the password criteria
-    And a user enters person details in the user account form
+    When a user enters person details in the user account form
     And a user enters user account details in the user account form
     And a user enters password that doesn't meet the password criteria
     And a user clicks on save account button
@@ -41,7 +41,7 @@ Feature: User Account Management
   @selenium
   @userAccount
   Scenario: Password that meets the password criteria
-    And a user enters person details in the user account form
+    When a user enters person details in the user account form
     And a user enters user account details in the user account form
     And a user enters password that meets the password criteria
     And a user clicks on save account button

@@ -146,7 +146,7 @@ public class UserAccountSteps extends Steps {
 		assertTrue(textExists("Account Saved Successfully"));
 	}
 	
-	@And("a user enters person details in the user account form") 
+	@When("a user enters person details in the user account form") 
     	public void enterPersonalDetails() {
         	userAccountPage.enterPersonalDetails("Clerk", "Data");
         	userAccountPage.selectGender();
@@ -171,7 +171,6 @@ public class UserAccountSteps extends Steps {
      	
      	@Then("the system confirms the password meets the password criteria")
      	public void systemConfirmsPasswordMeetsPasswordCriteria() {
-     		// assertTrue(textExists("Account Saved Successfully"));
           	assertFalse(textExists("Validation errors found Failed to save account details"));
      	}
 

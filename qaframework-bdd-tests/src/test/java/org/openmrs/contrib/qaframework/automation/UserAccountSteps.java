@@ -171,7 +171,7 @@ public class UserAccountSteps extends Steps {
      	
      	@Then("the system confirms the password meets the password criteria")
      	public void systemConfirmsPasswordMeetsPasswordCriteria() {
-          	assertFalse(textExists("Validation errors found Failed to save account details"));
+          	assertTrue(textExists("Account Saved Successfully"));
      	}
 
       	@Then("the system throws a validation error message")

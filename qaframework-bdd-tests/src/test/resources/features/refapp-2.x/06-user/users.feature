@@ -70,5 +70,5 @@ Feature: User Account Management
   Scenario: Password Requires minimum length
     And a user enters person details in the user account form
     And a user enters user account details in the user account form
-    And a user sets the password which are lower than 8 characters
+    And a user sets the password which is lower than 8 characters
     Then the system throws validation error on the password input field

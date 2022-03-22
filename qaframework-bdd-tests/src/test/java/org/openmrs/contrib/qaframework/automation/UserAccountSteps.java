@@ -179,7 +179,7 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.setUserPassword("dataclerk", "dataclerk");
 	}
 
-	@And("a user sets the password which are lower than 8 characters")
+	@And("a user sets the password which is lower than 8 characters")
 	public void setPasswordBelowTheMinimumLength() {
 		userAccountPage.setUserPassword("123Abc", "123Abc");
 	}

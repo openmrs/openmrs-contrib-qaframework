@@ -14,7 +14,7 @@ Given('the user goes to the Dictionary Manager App', () => {
 });
 
 Given('the user goes to the openmrs application', () => {
-  cy.visit('https://demo.openmrs.org/openmrs/login.htm');
+  cy.visit('http://localhost:8080/openmrs/login.htm');
 });
 
 When('the user logs into the Dictionary Manager', () => {
@@ -29,7 +29,7 @@ When('the user logs into the openmrs Ref App', () => {
   cy.get("#password").type("Admin123");
   cy.get("#Pharmacy").click();
   cy.get("#loginButton").click();
-  cy.url().should('contain', 'https://demo.openmrs.org/openmrs/referenceapplication/home.page')
+  cy.url().should('contain', 'http://localhost:8080/openmrs/referenceapplication/home.page')
 });
 
 When('the user goes to the dictionary details page', () => {
@@ -53,7 +53,7 @@ Then('the user should copy the subscription url', () => {
 });
 
 When('the user visit the OCL module page', () => {
-  cy.visit('https://demo.openmrs.org/openmrs/owa/openconceptlab/index.html#/subscription')
+  cy.visit('http://localhost:8080/openmrs/owa/openconceptlab/index.html#/subscription')
 });
 
 When('the user pastes the subscription url and user API token', () => {
@@ -86,7 +86,7 @@ Then('the data should be correct', async () => {
     .then((data) => {
       return data;
     });
-    const omrsConcept = await fetchData(`https://demo.openmrs.org/openmrs/ws/rest/v1/concept/${c.external_id}`)
+    const omrsConcept = await fetchData(`http://localhost:8080/openmrs/ws/rest/v1/concept/${c.external_id}`)
     .then((response) => {
       return response;
     });

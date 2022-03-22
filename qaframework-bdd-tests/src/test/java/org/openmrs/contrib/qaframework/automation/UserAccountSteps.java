@@ -180,14 +180,14 @@ public class UserAccountSteps extends Steps {
 	}
 
 	@And("a user sets the passwords which are lower than 8 characters")
-	     public void setPasswordBelowTheMinimumLength() {
+	public void setPasswordBelowTheMinimumLength() {
 		userAccountPage.setUserPassword("123Abc", "123Abc");
 	}
 
 	@And("a user enters password that meets the password criteria")
-    public void userEnterPasswordThatMeetsThePasswordCriteria() {
-        userAccountPage.setUserPassword("Dataclerk123", "Dataclerk123");
-    }
+        public void userEnterPasswordThatMeetsThePasswordCriteria() {
+                userAccountPage.setUserPassword("Dataclerk123", "Dataclerk123");
+        }
 
 	@Then("the system throws validation error on the password input field")
 	public void systemThrowsValidationErrorOnPasswordInputField() {
@@ -195,8 +195,8 @@ public class UserAccountSteps extends Steps {
 	}
 
 	@Then("the system throws a validation error message")
-         public void systemThrowsAvalidationError() {
-        List<String> validationErrors = userAccountPage.getValidationErrors();
-        assertTrue(userAccountPage.isDataCorrect(validationErrors));
-    }
+        public void systemThrowsAvalidationError() {
+                List<String> validationErrors = userAccountPage.getValidationErrors();
+                assertTrue(userAccountPage.isDataCorrect(validationErrors));
+        }
 }

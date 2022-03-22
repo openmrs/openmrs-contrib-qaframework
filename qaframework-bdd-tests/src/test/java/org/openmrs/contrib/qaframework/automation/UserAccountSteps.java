@@ -164,22 +164,22 @@ public class UserAccountSteps extends Steps {
 		userAccountPage.setUserPrivilegeLevel("Full");
 	}
 
-	@And("a user sets the passwords with only upper case letters")
+	@And("a user sets the password with only upper case letters")
 	public void setPasswordWithOnlyUpperCaseLetters() {
 		userAccountPage.setUserPassword("DATACLERK123", "DATACLERK123");
 	}
 
-	@And("a user sets the passwords with only digits")
+	@And("a user sets the password with only digits")
 	public void setPasswordsWithOnlyDigits() {
 		userAccountPage.setUserPassword("123459876", "123459876");
 	}
 
-	@And("a user sets the passwords with only letters")
+	@And("a user sets the password with only letters")
 	public void setPasswordsWithOnlyLetters() {
 		userAccountPage.setUserPassword("dataclerk", "dataclerk");
 	}
 
-	@And("a user sets the passwords which are lower than 8 characters")
+	@And("a user sets the password which are lower than 8 characters")
 	public void setPasswordBelowTheMinimumLength() {
 		userAccountPage.setUserPassword("123Abc", "123Abc");
 	}

@@ -12,7 +12,8 @@ Install & Upgrade Tests |
  [![Platform Simple Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-simple.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-simple.yml) 
  [![Platform Advanced Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml) 
  [![Platform Postgres Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml) 
- [![Platform Upgrade](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml) | 
+ [![Platform Upgrade](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-upgrade.yml) 
+ [![Platform Testing Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-testing.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-testing.yml) | 
 
 ## Reference Application
 
@@ -40,6 +41,8 @@ Install & Upgrade Tests |
 [![RefApp 2.x Visit Type](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-visit-type.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-visit-type.yml)
 [![RefApp 2.x Patient Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-visit.yml)
 [![RefApp 2.x Login](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-login.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-login.yml)
+[![RefApp 2.x Open Concept Lab](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-open-concept-lab.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-open-concept-lab.yml)
+
 2.x RefApp Feature-Specific Tests* |
 ------------- |
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)

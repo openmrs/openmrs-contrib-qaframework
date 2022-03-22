@@ -63,7 +63,7 @@ Feature: User Account Management
   And a user enters user account details in the user account form
   And a user enters password that meets the password criteria
   And a user clicks on save account button
-  Then the system adds user account into the users table
+  Then the system confirms password meets the password criteria
 
   @selenium
   @userAccount

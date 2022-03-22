@@ -146,6 +146,11 @@ public class UserAccountSteps extends Steps {
 		assertTrue(textExists("Account Saved Successfully"));
 	}
 
+	@Then("the system confirms password meets the password criteria")
+	public void systemConfirmsPasswordMeetsPasswordCriteria() {
+		assertFalse(textExists("Validation errors found Failed to save account details"));
+	}
+
 	@And("a user enters person details in the user account form") 
 	public void enterPersonalDetails() {
 		userAccountPage.enterPersonalDetails("Clerk", "Data");
@@ -175,7 +180,7 @@ public class UserAccountSteps extends Steps {
 	}
 
 	@And("a user sets the passwords which are lower than 8 characters")
-	public void setPasswordBelowTheMinimumLength() {
+	     public void setPasswordBelowTheMinimumLength() {
 		userAccountPage.setUserPassword("123Abc", "123Abc");
 	}
 
@@ -190,7 +195,7 @@ public class UserAccountSteps extends Steps {
 	}
 
 	@Then("the system throws a validation error message")
-    public void systemThrowsAvalidationError() {
+         public void systemThrowsAvalidationError() {
         List<String> validationErrors = userAccountPage.getValidationErrors();
         assertTrue(userAccountPage.isDataCorrect(validationErrors));
     }

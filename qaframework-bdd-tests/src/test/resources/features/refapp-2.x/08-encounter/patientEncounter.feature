@@ -14,7 +14,7 @@ Feature: Patient Encounter Management
     And a user clicks Save Encounter button
     Then the system saves encounter in the encounters table
     #User story: Delete Encounter
-    Given a user checks delete checkbox
-    When a user provides a reason for deletion
+    When a user checks delete checkbox
+    And a user provides a reason for deletion
     And a user clicks Save Encounter button
     Then the system saves encounter in the encounters table

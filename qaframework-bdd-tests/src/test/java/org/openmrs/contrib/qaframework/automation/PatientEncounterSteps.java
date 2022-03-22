@@ -88,12 +88,12 @@ public class PatientEncounterSteps extends Steps {
 		assertTrue(textExists("Encounter saved"));
 	}
 
-	@Given("a user checks delete checkbox")
+	@When("a user checks delete checkbox")
 	public void checkDelete() {
 		encounterFormPage.checkDelete();
 	}
 
-	@When("a user provides a reason for deletion")
+	@And("a user provides a reason for deletion")
 	public void reasonForDeletion() {
 		encounterFormPage.enterVoidReason(REASON_FOR_DELETION);
 	}

@@ -24,7 +24,7 @@ public class EncounterFormPage extends Page {
 	private static final By ROLE_SELECT = By.id("roleIds[0]");
 	private static final By PROVIDER_NAME_FIELD = By.name("providerName");
 	private static final By SAVE_ENCOUNTER_BUTTON = By.id("saveEncounterButton");
-	private static final By DELETE_CHECKBOX = By.id("voided");
+	private static final By DELETED_CHECKBOX = By.id("voided");
 	private static final By VOID_REASON_FIELD = By.name("voidReason");
 	private static final By CLOSE_CALENDER_BUTTON = By.xpath("//button[@class='ui-datepicker-close ui-state-default ui-priority-primary ui-corner-all']");
 
@@ -64,8 +64,8 @@ public class EncounterFormPage extends Page {
 		clickOn(SAVE_ENCOUNTER_BUTTON);
 	}
 
-	public void checkDelete() {
-		clickOn(DELETE_CHECKBOX);
+	public void clickOnDeletedCheckBox() {
+		clickOn(DELETED_CHECKBOX);
 	}
 
 	public void enterVoidReason(String voidReason) {

@@ -43,12 +43,14 @@ public class RunTest {
 		public static final String USER_ACCOUNT = "@userAccount";
 		public static final String INPATIENT = "@inpatient";
 		public static final String PATIENT = "@patient";
+		public static final String PATIENT_ENCOUNTER = "@patientEncounter";
 		public static final String UPGRADE = "@upgrade";
 		public static final String REPORT = "@report";
 		public static final String PROVIDER = "@provider";
 		public static final String VITALS = "@vitals";
 		public static final String ROLES_AND_PRIVILEGES = "@rolesAndPrivileges";
 		public static final String FIND_PATIENT = "@findPatient";
+		public static final String OPEN_CONCEPT_LAB = "@openConceptLab";
 		public static final String PATIENT_DEMOGRAPHICS = "@patientDemographics";
 		public static final String VISIT_TYPE = "@visitType";
 		public static final String PATIENT_VISIT = "@patientVisit";
@@ -61,6 +63,7 @@ public class RunTest {
 		public static final String SELENIUM_CLINICAL_VISIT = SELENIUM + " and " + CLINICAL_VISIT;
 		public static final String SELENIUM_ENCOUNTER = SELENIUM + " and " + INPATIENT;
 		public static final String SELENIUM_PATIENT = SELENIUM + " and " + PATIENT;
+		public static final String SELENIUM_PATIENT_ENCOUNTER = SELENIUM + " and " + PATIENT_ENCOUNTER;
 		public static final String SELENIUM_REGISTRATION = SELENIUM + " and " + REGISTRATION;
 		public static final String SELENIUM_FIND_PATIENT = SELENIUM + " and " + FIND_PATIENT;
 		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and " + USER_ACCOUNT;
@@ -71,6 +74,7 @@ public class RunTest {
 		public static final String SELENIUM_ADD_USER_AND_ADD_ROLES_TO_USER  = SELENIUM + " and " + ADD_USER_AND_ADD_ROLES_TO_USER;
 		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;
 		public static final String SELENIUM_ALLERGIES = SELENIUM + " and " + ALLERGIES;
+		public static final String SELENIUM_OPEN_CONCEPT_LAB = SELENIUM + " and " + OPEN_CONCEPT_LAB;
 		public static final String SELENIUM_PATIENT_VISIT = SELENIUM + " and " + PATIENT_VISIT;
 		public static final String SELENIUM_DEFAULT_LOGIN = SELENIUM + " and " + DEFAULT_LOGIN;
 		public static final String SELENIUM_PHONE_NUMBER_VALIDATION = SELENIUM + " and " + PHONE_NUMBER_VALIDATION;

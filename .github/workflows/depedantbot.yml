@@ -5,6 +5,14 @@ updates:
     schedule:
       interval: "daily"
     pull-request-branch-name:
+     paths:
+      - "qaframework-bdd-tests/cypress/**/*.*"
+      - "qaframework-bdd-tests/cypress.json"
+      - "qaframework-bdd-tests/package.json"
+  repository_dispatch:
+    types: [qa]
+  workflow_dispatch:
+  
       separator: "-"
     reviewers:
       - "openmrs/dev-2"

@@ -64,3 +64,11 @@ Feature: Appointment Management
     And a user clicks on book appointment icon
     And a user clicks the Save button
     Then the system saves the scheduled appointment
+    #User Story: Delete Booked Appointment
+    When a user clicks Appointment scheduling app from the home page
+    Then the system loads the appointment scheduling page
+    And a user clicks on the Manage Provider Schedules app
+    And the system loads Appointment Blocks page
+    And a user clicks on an appointment block
+    And a user clicks on Delete appointment block
+    Then the system deletes appointment block from the appointment Blocks table

@@ -190,7 +190,6 @@ public class AppointmentSteps extends Steps {
 	@Then("the system saves the edited appointment block")
 	public void systemSavesEditedAppointmentBlock() {
 		assertTrue(appointmentBlocksPage.containsText(SECOND_SERVICE_NAME));
-		dashboardPage.goToHomePage();
 	}
 
 	@And("a user clicks on Delete appointment block")
@@ -237,5 +236,6 @@ public class AppointmentSteps extends Steps {
 	@Then("the system saves the scheduled appointment")
 	public void systemSavesScheduledAppointment() {
 		assertTrue(manageAppointmentsPage.containsText(FIRST_SERVICE_NAME));
+		dashboardPage.goToHomePage();
 	}
 }

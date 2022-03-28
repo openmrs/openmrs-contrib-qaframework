@@ -18,6 +18,7 @@
     "refapp2Inpatient": "mvn test -Dcucumber.filter.tags='@selenium and @inpatient'",
     "refapp2Registration": "mvn test -Dcucumber.filter.tags='@selenium and @registration'",
     "refapp2Form": "mvn test -Dcucumber.filter.tags='@selenium and @form'",
+    "refapp2Service": "mvn test -Dcucumber.filter.tags='@selenium and @service'",
     "refapp2Patient": "mvn test -Dcucumber.filter.tags='@selenium and @patient'",
     "refapp2Allergy": "mvn test -Dcucumber.filter.tags='@selenium and @allergies'",
     "refapp2Report": "mvn test -Dcucumber.filter.tags='@selenium and @report'",

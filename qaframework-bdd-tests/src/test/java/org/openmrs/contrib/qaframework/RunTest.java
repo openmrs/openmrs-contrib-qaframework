@@ -51,6 +51,7 @@ public class RunTest {
 		public static final String OPEN_CONCEPT_LAB = "@openConceptLab";
 		public static final String PATIENT_DEMOGRAPHICS = "@patientDemographics";
 		public static final String VISIT_TYPE = "@visitType";
+		public static final String SERVICE = "@service";
 		public static final String PATIENT_VISIT = "@patientVisit";
 		public static final String SELENIUM_PERSON = SELENIUM + " and " + PERSON;
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
@@ -74,5 +75,6 @@ public class RunTest {
 		public static final String SELENIUM_PATIENT_VISIT = SELENIUM + " and " + PATIENT_VISIT;
 		public static final String SELENIUM_DEFAULT_LOGIN = SELENIUM + " and " + DEFAULT_LOGIN;
 		public static final String SELENIUM_PHONE_NUMBER_VALIDATION = SELENIUM + " and " + PHONE_NUMBER_VALIDATION;
+		public static final String SELENIUM_SERVICE = SELENIUM + " and " + SERVICE;
 	}
 }

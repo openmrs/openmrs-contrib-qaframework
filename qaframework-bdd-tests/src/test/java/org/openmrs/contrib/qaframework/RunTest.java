@@ -18,7 +18,7 @@ import io.cucumber.junit.CucumberOptions;
 @CucumberOptions(
 // defining ordered by name features folder
 features = {"src/test/resources/features"},
-// defining the definition steps package
+// defining the definition steps package 
 glue = "org.openmrs.contrib.qaframework.automation", plugin = {
 		"html:target/index.html", "message:target/cucumber.ndjson"}, monochrome = true)
 public class RunTest {

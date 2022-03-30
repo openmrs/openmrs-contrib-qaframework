@@ -4,12 +4,12 @@ Feature: Visit Note Management
     Given a user clicks on an active visits link from home page
     When a user selects a patient from an active patient list
     Then the system loads the Patient dashboard page
+    When a user clicks visit note link from a patient dashboard
+    Then the system loads the visit note page
 
   @selenium
   @visitNote
   Scenario: Adding a Visit Note
-    When a user clicks visit note link from a patient dashboard
-    Then the system loads the visit note page
     When a user fills the visit note form
     And a user clicks on save visit note button to save
     Then the system saves the note into visit note table
@@ -17,8 +17,6 @@ Feature: Visit Note Management
   @selenium
   @visitNote
   Scenario: Editing a Visit Note
-    When a user clicks visit note link from a patient dashboard
-    Then the system loads the visit note page
     When a user fills the visit note form
     And a user clicks on save visit note button to save
     Then the system saves the note into visit note table
@@ -31,8 +29,6 @@ Feature: Visit Note Management
   @selenium
   @visitNote
   Scenario: Deleting a Visit Note
-    When a user clicks visit note link from a patient dashboard
-    Then the system loads the visit note page
     When a user fills the visit note form
     And a user clicks on save visit note button to save
     Then the system saves the note into visit note table

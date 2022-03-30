@@ -11,7 +11,6 @@ Feature: Patient Visits management
     And user clicks on the start visit link
     Then the system starts the patient visit
 
-  
   @selenium
   @patientVisit
   Scenario: Adding a past visit
@@ -49,3 +48,12 @@ Feature: Patient Visits management
     And user clicks on the recent visits link in the recent visits section
     And user clicks on the end visit button
     Then the system ends the visit
+
+  @selenium
+  @patientVisit
+  Scenario: Search Active Visit
+    Given user initiates login with patient visits
+    When user clicks on the Active Visits app from the home page
+    And user searches for the patient with active visit
+    And user clicks on the patient returned with active visit
+    Then the system loads the clinician facing patient dashboard

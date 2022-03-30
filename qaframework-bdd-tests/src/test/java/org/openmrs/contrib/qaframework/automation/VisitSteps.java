@@ -13,12 +13,14 @@ import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.MergeVisitsPage;
 
 public class VisitSteps extends Steps { 
 	
     private TestData.PatientInfo patient;
     private MergeVisitsPage mergeVisitsPage;
+    private ActiveVisitsPage activeVisitsPage;
 
     @After(RunTest.HOOK.SELENIUM_PATIENT_VISIT)
     public void tearDown() {
@@ -121,5 +123,21 @@ public class VisitSteps extends Steps {
     @Then("the system ends the visit")
     public void systemEndsVisit() {
     	assertTrue(textExists("No active visit"));
-    }   
+    }
+
+    @When("user clicks on the Active Visits app from the home page")
+    public void loadActiveVisitsPage() {
+    	activeVisitsPage = homePage.goToActiveVisitsSearch();
+    }
+
+    @And("user searches for the patient with active visit")
+    public void searchForPatientWithActiveVisit() {
+    	activeVisitsPage.search(patient.identifier);
+    	activeVisitsPage.waitForPageToLoad();
+    }
+
+    @And("user clicks on the patient returned with active visit")
+    public void loadPatientDashboardPage() {
+    	dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+    }
 }

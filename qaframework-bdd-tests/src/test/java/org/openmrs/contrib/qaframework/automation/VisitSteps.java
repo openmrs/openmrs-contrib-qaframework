@@ -1,3 +1,12 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ *
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework.automation;
 
 import static org.hamcrest.MatcherAssert.assertThat;
@@ -13,11 +22,13 @@ import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.MergeVisitsPage;
 
 public class VisitSteps extends Steps { 
 	
     private TestData.PatientInfo patient;
+    private ActiveVisitsPage activeVisitsPage;
     private MergeVisitsPage mergeVisitsPage;
 
     @After(RunTest.HOOK.SELENIUM_PATIENT_VISIT)
@@ -121,5 +132,21 @@ public class VisitSteps extends Steps {
     @Then("the system ends the visit")
     public void systemEndsVisit() {
     	assertTrue(textExists("No active visit"));
-    }   
+    }
+
+    @When("user clicks on the Active Visits app from the home page")
+    public void loadActiveVisitsPage() {
+    	activeVisitsPage = homePage.goToActiveVisitsSearch();
+    }
+
+    @And("user searches for the patient with active visit")
+    public void searchForPatientWithActiveVisit() {
+    	activeVisitsPage.search(patient.identifier);
+    	activeVisitsPage.waitForPageToLoad();
+    }
+
+    @And("user clicks on the patient returned with active visit")
+    public void loadPatientDashboardPage() {
+    	dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+    }
 }

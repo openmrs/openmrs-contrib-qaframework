@@ -74,6 +74,10 @@ public class ServiceSteps extends Steps {
     @And("user clicks on edit service type icon")
     public void userClicksOnEditServiceType() {
         servicePage = manageServiceTypesPage.editServiceType(name);
+    }
+    
+    @And("user enters new name")
+    public void userEntersNewName() {
         servicePage.setName(name + name);
     }
 

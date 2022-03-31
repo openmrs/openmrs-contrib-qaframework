@@ -13,6 +13,7 @@ Feature:Service Management
     And system checks the saved service
     #edit service type section
     And user clicks on edit service type icon
+    And user enters new name
     And user clicks again on save button
     And system checks the editted service type
     #delete service type section

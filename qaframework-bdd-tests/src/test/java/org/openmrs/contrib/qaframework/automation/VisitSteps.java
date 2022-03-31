@@ -10,6 +10,8 @@
 package org.openmrs.contrib.qaframework.automation;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertTrue;
@@ -139,14 +141,64 @@ public class VisitSteps extends Steps {
     	activeVisitsPage = homePage.goToActiveVisitsSearch();
     }
 
-    @And("user searches for the patient with active visit")
-    public void searchForPatientWithActiveVisit() {
+    @And("user searches for the patient with active visit using patient Identifier")
+    public void searchForPatientUsingPatientIdentifier() {
     	activeVisitsPage.search(patient.identifier);
     	activeVisitsPage.waitForPageToLoad();
+    }
+
+    @And("the system returns patient with the provided patient Identifier")
+    public void systemReturnsPatientWithProvidedIdentifier() {
+    	assertThat(activeVisitsPage.getPatientIdOfLastActiveVisit(), containsString(patient.identifier));
     }
 
     @And("user clicks on the patient returned with active visit")
     public void loadPatientDashboardPage() {
     	dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+    }
+
+    @Then("the system loads the patient dashboard")
+    public void systemLoadsPatientDashboard() {
+    	assertPage(dashboardPage.waitForPage());
+    	dashboardPage.goToHomePage();
+    }
+
+    @And("user searches for the patient with active visit using patient Id")
+    public void searchForPatientUsingPatientId() {
+    	String PATIENT_ID = activeVisitsPage.getPatientIdOfLastActiveVisit();
+    	activeVisitsPage.search(PATIENT_ID);
+    	activeVisitsPage.waitForPageToLoad();
+    }
+
+    @And("the system returns patient with the provided patient Id")
+    public void systemReturnsPatientWithProvidedId() {
+    	String PATIENT_ID = activeVisitsPage.getPatientIdOfLastActiveVisit();
+    	assertThat(activeVisitsPage.getPatientIdOfLastActiveVisit(), is(equalTo(PATIENT_ID)));
+    }
+
+    @And("user searches for the patient with active visit using patient name")
+    public void searchForPatientUsingPatientName() {
+    	String PATIENT_NAME = activeVisitsPage.getPatientNameOfLastActiveVisit();
+    	activeVisitsPage.search(PATIENT_NAME);
+    	activeVisitsPage.waitForPageToLoad();
+    }
+
+    @And("the system returns patient with the provided patient name")
+    public void systemReturnsPatientWithProvidedName() {
+    	String PATIENT_NAME = activeVisitsPage.getPatientNameOfLastActiveVisit();
+    	assertThat(activeVisitsPage.getPatientNameOfLastActiveVisit(), is(equalTo(PATIENT_NAME)));
+    }
+
+    @And("user searches for the patient with active visit using last seen value")
+    public void searchForPatientUsingLastSeenValue() {
+    	String LAST_SEEN = activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit();
+    	activeVisitsPage.search(LAST_SEEN);
+    	activeVisitsPage.waitForPageToLoad();
+    }
+
+    @And("the system returns patient with the provided last seen value")
+    public void systemReturnsPatientWithLastSeenValue() {
+    	String LAST_SEEN = activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit();
+    	assertThat(activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit(), is(equalTo(LAST_SEEN)));
     }
 }

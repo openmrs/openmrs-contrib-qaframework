@@ -11,26 +11,26 @@ Feature: Visit Note Management
   @visitNote
   Scenario: Adding a Visit Note
     When a user fills the visit note form
-    And a user clicks on save visit note button to save
+    And a user clicks on save a visit note button
     Then the system saves the note into visit note table
 
   @selenium
   @visitNote
   Scenario: Editing a Visit Note
     When a user fills the visit note form
-    And a user clicks on save visit note button to save
+    And a user clicks on save a visit note button
     Then the system saves the note into visit note table
     When a user clicks on the edit icon of a saved visit note
     Then the system loads the visit note page
     When a user edits the visit note
-    And  a user clicks on save visit note button to save
+    And  a user clicks on save a visit note button
     Then the system saves the updated note into visit note table
 
   @selenium
   @visitNote
   Scenario: Deleting a Visit Note
     When a user fills the visit note form
-    And a user clicks on save visit note button to save
+    And a user clicks on save a visit note button
     Then the system saves the note into visit note table
     When a user clicks on the delete icon of a saved visit note
     Then the system deletes the visit note

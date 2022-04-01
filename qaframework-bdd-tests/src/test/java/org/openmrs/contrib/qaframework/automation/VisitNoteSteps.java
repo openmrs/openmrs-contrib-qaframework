@@ -62,7 +62,6 @@ public class VisitNoteSteps extends Steps{
         assertNotNull(dashboardPage.getActiveVisitList());
     }
 
-
     @When("a user clicks visit note link from a patient dashboard")
     public void loadVisitNotePage() {
         visitsDashboardPage = dashboardPage.goToRecentVisits();
@@ -82,7 +81,7 @@ public class VisitNoteSteps extends Steps{
         visitNotePage.addNote("This is a new visit note.");
     }
 
-    @And("a user clicks on save visit note button to save")
+    @And("a user clicks on save a visit note button")
     public void addVisitNote() {
         visitNotePage.save();
     }
@@ -94,7 +93,7 @@ public class VisitNoteSteps extends Steps{
     }
 
     @When("a user clicks on the edit icon of a saved visit note")
-    public void clickOnEditVisitNote() {
+    public void userclicksOnEditVisitNote() {
         visitNotePage.editVisitNote();
 
     }

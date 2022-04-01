@@ -165,40 +165,40 @@ public class VisitSteps extends Steps {
 
     @And("user searches for the patient with active visit using patient Id")
     public void searchForPatientUsingPatientId() {
-    	String PATIENT_ID = activeVisitsPage.getPatientIdOfLastActiveVisit();
-    	activeVisitsPage.search(PATIENT_ID);
+    	String patientId = activeVisitsPage.getPatientIdOfLastActiveVisit();
+    	activeVisitsPage.search(patientId);
     	activeVisitsPage.waitForPageToLoad();
     }
 
     @And("the system returns patient with the provided patient Id")
     public void systemReturnsPatientWithProvidedId() {
-    	String PATIENT_ID = activeVisitsPage.getPatientIdOfLastActiveVisit();
-    	assertThat(activeVisitsPage.getPatientIdOfLastActiveVisit(), is(equalTo(PATIENT_ID)));
+    	String patientId = activeVisitsPage.getPatientIdOfLastActiveVisit();
+    	assertThat(activeVisitsPage.getPatientIdOfLastActiveVisit(), is(equalTo(patientId)));
     }
 
     @And("user searches for the patient with active visit using patient name")
     public void searchForPatientUsingPatientName() {
-    	String PATIENT_NAME = activeVisitsPage.getPatientNameOfLastActiveVisit();
-    	activeVisitsPage.search(PATIENT_NAME);
+    	String patientName = activeVisitsPage.getPatientNameOfLastActiveVisit();
+    	activeVisitsPage.search(patientName);
     	activeVisitsPage.waitForPageToLoad();
     }
 
     @And("the system returns patient with the provided patient name")
     public void systemReturnsPatientWithProvidedName() {
-    	String PATIENT_NAME = activeVisitsPage.getPatientNameOfLastActiveVisit();
-    	assertThat(activeVisitsPage.getPatientNameOfLastActiveVisit(), is(equalTo(PATIENT_NAME)));
+    	String patientName = activeVisitsPage.getPatientNameOfLastActiveVisit();
+    	assertThat(activeVisitsPage.getPatientNameOfLastActiveVisit(), is(equalTo(patientName)));
     }
 
     @And("user searches for the patient with active visit using last seen value")
     public void searchForPatientUsingLastSeenValue() {
-    	String LAST_SEEN = activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit();
-    	activeVisitsPage.search(LAST_SEEN);
+    	String lastSeen = activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit();
+    	activeVisitsPage.search(lastSeen);
     	activeVisitsPage.waitForPageToLoad();
     }
 
     @And("the system returns patient with the provided last seen value")
     public void systemReturnsPatientWithLastSeenValue() {
-    	String LAST_SEEN = activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit();
-    	assertThat(activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit(), is(equalTo(LAST_SEEN)));
+    	String lastSeen = activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit();
+    	assertThat(activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit(), is(equalTo(lastSeen)));
     }
 }

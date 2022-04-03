@@ -359,7 +359,7 @@ public abstract class Page {
 		waiter.until(ExpectedConditions.visibilityOfElementLocated(by));
 	}
 
-	public void waitForElementWithSpecifiedMaxTimeout(By by, long secs) {
+	public void waitForElementWithSpecifiedMaxTimeout(By by, Duration secs) {
 		WebDriverWait waiter = new WebDriverWait(driver, secs);
 		waiter.until(pageReady);
 		waiter.until(ExpectedConditions.visibilityOfElementLocated(by));

@@ -144,7 +144,6 @@ public class VisitSteps extends Steps {
     @And("user searches for the patient with active visit using patient Identifier")
     public void searchForPatientUsingPatientIdentifier() {
     	activeVisitsPage.search(patient.identifier);
-    	activeVisitsPage.waitForPageToLoad();
     }
 
     @And("the system returns patient with the provided patient Identifier")
@@ -167,7 +166,6 @@ public class VisitSteps extends Steps {
     public void searchForPatientUsingPatientId() {
     	String patientId = activeVisitsPage.getPatientIdOfLastActiveVisit();
     	activeVisitsPage.search(patientId);
-    	activeVisitsPage.waitForPageToLoad();
     }
 
     @And("the system returns patient with the provided patient Id")
@@ -180,7 +178,6 @@ public class VisitSteps extends Steps {
     public void searchForPatientUsingPatientName() {
     	String patientName = activeVisitsPage.getPatientNameOfLastActiveVisit();
     	activeVisitsPage.search(patientName);
-    	activeVisitsPage.waitForPageToLoad();
     }
 
     @And("the system returns patient with the provided patient name")
@@ -193,7 +190,6 @@ public class VisitSteps extends Steps {
     public void searchForPatientUsingLastSeenValue() {
     	String lastSeen = activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit();
     	activeVisitsPage.search(lastSeen);
-    	activeVisitsPage.waitForPageToLoad();
     }
 
     @And("the system returns patient with the provided last seen value")

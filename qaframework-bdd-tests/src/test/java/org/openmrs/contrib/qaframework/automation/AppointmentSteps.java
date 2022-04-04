@@ -76,7 +76,7 @@ public class AppointmentSteps extends Steps {
 	}
 
 	@And("a user clicks save button")
-	public void saveAppointmentRequest() {
+	public void userClicksOnSaveAppointmentRequest() {
 		dashboardPage = requestAppointmentPage.saveRequest();
 	}
 
@@ -96,7 +96,7 @@ public class AppointmentSteps extends Steps {
 	}
 
 	@And("a user clicks on Cancel this Request icon")
-	public void deleteAppointmentRequest() {
+	public void userClicksOnDeleteAppointmentRequest() {
 		manageAppointmentsPage.deleteRequest() ;
 	}
 

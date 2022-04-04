@@ -48,7 +48,7 @@ Feature: Appointment Management
 
   @selenium
   @appointment
-  Scenario: Booking An Appointment
+  Scenario: Booking and Deleting An Appointment
     # User Story: Create appointment block
     When a user clicks Appointment scheduling app from the home page
     Then the system loads the appointment scheduling page

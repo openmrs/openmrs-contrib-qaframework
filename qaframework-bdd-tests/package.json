@@ -25,7 +25,7 @@
     "refapp2Report": "mvn test -Dcucumber.filter.tags='@selenium and @report'",
     "refapp2RolesAndPrivileges":"mvn test -Dcucumber.filter.tags='@selenium and @rolesAndPrivileges'",
     "refapp2Person": "mvn test -Dcucumber.filter.tags='@selenium and @person'",
-    "refapp2PatientVisit": "mvn test -Dcucumber.filter.tags='@selenium and @visit'",
+    "refapp2PatientVisit": "mvn test -Dcucumber.filter.tags='@selenium and @patientVisit'",
     "refapp2FindPatient": "mvn test -Dcucumber.filter.tags='@selenium and @findPatient'",
     "refapp2OpenConceptLab": "mvn test -Dcucumber.filter.tags='@selenium and @openConceptLab'",
     "refapp2Provider":"mvn test -Dcucumber.filter.tags='@selenium and @provider'",

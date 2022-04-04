@@ -196,8 +196,6 @@ public class UserAccountSteps extends Steps {
 
 	@Then("the system throws a validation error message")
         public void systemThrowsAvalidationError() {
-			List<String> validationErrors = userAccountPage.getValidationErrors();
-            userAccountPage.isValidationErrorsFound(validationErrors);
-
+			assertTrue(userAccountPage.getValidationErrors().contains("Validation errors found Failed to save account details"));
         }
 }

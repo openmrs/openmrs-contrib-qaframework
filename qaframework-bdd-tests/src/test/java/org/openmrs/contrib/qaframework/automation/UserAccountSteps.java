@@ -9,6 +9,7 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
@@ -196,6 +197,7 @@ public class UserAccountSteps extends Steps {
 
 	@Then("the system throws a validation error message")
         public void systemThrowsAvalidationError() {
-			assertTrue(userAccountPage.getValidationErrors().contains("Validation errors found Failed to save account details"));
+			List<String> validationErrors = userAccountPage.getValidationErrors();
+			assertThat(userAccountPage.isDataCorrect(validationErrors),equalTo("Validation errors found Failed to save account details"));
         }
 }

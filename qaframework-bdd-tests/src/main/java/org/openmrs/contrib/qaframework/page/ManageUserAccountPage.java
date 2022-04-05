@@ -93,10 +93,6 @@ public class ManageUserAccountPage extends Page {
 		return !validationErrors.contains("Passwords don't match");
 	}
 
-	public boolean isValidationErrorsFound(List<String> validationErrors) {
-		return !validationErrors.contains("Validation errors found Failed to save account details");
-	}
-
 	public void selectAdministersSystem() {
 		clickOn(ADMINISTER_SYSTEM);
 	}

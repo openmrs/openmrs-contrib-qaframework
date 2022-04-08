@@ -4,13 +4,13 @@ Feature: Add User and Add Roles To User
     Given a user clicks on system administration app
     Then the system loads manage users page
 
-  #@selenium 
-  #@addUserAndAddRolesToUser
+  @selenium
+  @addUserAndAddRolesToUser
   Scenario: Adding role to user
     When a user fills in person details
     Then a user assigns roles to the created user
 
-  @selenium 
+  @selenium
   @addUserAndAddRolesToUser
   Scenario: Adding user
     When a user clicks the add user link

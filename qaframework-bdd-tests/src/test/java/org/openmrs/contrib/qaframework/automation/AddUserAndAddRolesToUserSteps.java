@@ -37,8 +37,8 @@ public class AddUserAndAddRolesToUserSteps extends Steps {
     }
     
     private void fillInRoleModules(Map<String, Integer> roleModules) {
-        roleModules.put("roleStrings.Anonymous", 0);
-        roleModules.put("roleStrings.Authenticated", 0);
+//        roleModules.put("roleStrings.Anonymous", 0);
+//        roleModules.put("roleStrings.Authenticated", 0);
         roleModules.put("roleStrings.Organizational:SystemAdministrator", 2);
         roleModules.put("roleStrings.SystemDeveloper", 9);
         roleModules.put("roleStrings.Application:AdministersSystem", 1);
@@ -121,8 +121,6 @@ public class AddUserAndAddRolesToUserSteps extends Steps {
         addEditUserPage.enterUsernamePassword("super_nurse", "Nurse123", "Nurse123");
         addEditUserPage.saveUser();
         assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-        manageUserPage.waitForPage();
-        assertTrue(manageUserPage.getUserSavedNotification().contains("User Saved"));
     }
 	 
     @And("a user logins into the system as the created user")

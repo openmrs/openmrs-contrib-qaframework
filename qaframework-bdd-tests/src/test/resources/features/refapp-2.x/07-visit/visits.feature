@@ -49,3 +49,32 @@ Feature: Patient Visits management
     And user clicks on the recent visits link in the recent visits section
     And user clicks on the end visit button
     Then the system ends the visit
+
+  @selenium
+  @patientVisit
+  Scenario: Search Active Visit
+    #User Story: Search by patient Identifier
+    Given user initiates login with patient visits
+    When user clicks on the Active Visits app from the home page
+    And user searches for the patient with active visit using patient Identifier
+    And the system returns patient with the provided patient Identifier
+    And user clicks on the patient returned with active visit
+    Then the system loads the patient dashboard
+    #User Story: Search by patient Id
+    When user clicks on the Active Visits app from the home page
+    And user searches for the patient with active visit using patient Id
+    And the system returns patient with the provided patient Id
+    And user clicks on the patient returned with active visit
+    Then the system loads the patient dashboard
+    #User Story: Search by patient name
+    When user clicks on the Active Visits app from the home page
+    And user searches for the patient with active visit using patient name
+    And the system returns patient with the provided patient name
+    And user clicks on the patient returned with active visit
+    Then the system loads the patient dashboard
+    #User Story: Search by patient Last seen value
+    When user clicks on the Active Visits app from the home page
+    And user searches for the patient with active visit using last seen value
+    And the system returns patient with the provided last seen value
+    And user clicks on the patient returned with active visit
+    Then the system loads the patient dashboard

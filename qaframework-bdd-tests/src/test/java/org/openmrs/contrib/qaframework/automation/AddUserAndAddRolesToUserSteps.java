@@ -102,32 +102,44 @@ public class AddUserAndAddRolesToUserSteps extends Steps {
     public void systemLoadsCreateNewUserPage() {
         assertTrue(textExists("Add/Edit User"));
     }
-	
-    @And("a user enters the details of the user")
-    public void userEntersDetailsOfTheUser() {
-        addEditUserPage.saveUser();
+    
+    @And("a user checks whether the form can save with empty fields")
+    public void checkIfFormCanSaveWithEmptyFields() {
+      addEditUserPage.saveUser();
+    }
+    
+    @Then("the system throws validations indicating an empty form cant be saved")
+    public void systemThrowsValidationErrors() {
         List<String> validationErrors = addEditUserPage.getValidationErrors();
         assertTrue(validationErrors.contains("You must define at least one name"));
         assertTrue(validationErrors.contains("Cannot be empty or null"));
         assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-        addEditUserPage.enterGivenFamily("Super", "Nurse");
-        addEditUserPage.saveUser();
-        validationErrors = addEditUserPage.getValidationErrors();
-        assertFalse(addEditUserPage.isDataCorrect(validationErrors));
-        addEditUserPage.clickOnFemale();
+    }
+    
+    @And("a user enters the demorgraphic information")
+    public void UserEntersDemorgraphicInfo() {
+    	addEditUserPage.enterGivenFamily("Super", "Nurse");
+    	addEditUserPage.clickOnFemale();
+    }
+	
+    @And("a user enters the login information")
+    public void userEntersLoginDetails() {      
         addEditUserPage.enterUsernamePassword("super_nurse", "supernurse", "supernurse123");
-        addEditUserPage.saveUser();
-        assertFalse(addEditUserPage.isDataCorrect(validationErrors));
         addEditUserPage.enterUsernamePassword("super_nurse", "Nurse123", "Nurse123");
+    }
+    
+    @And("a user saves the addedit user form")
+    public void userSavesTheForm() {
         addEditUserPage.saveUser();
-        assertFalse(addEditUserPage.isDataCorrect(validationErrors));
+        manageUserPage.waitForPage();
+        assertTrue(textExists("User Saved"));
     }
 	 
     @And("a user logins into the system as the created user")
     public void userLoginsIntoSystemAsUser() {
         homePage = new HomePage(goToLoginPage().login("super_nurse", "Nurse123"));
         homePage.waitForPage();
-        assertTrue(homePage.containsText("super_nurse"));
+        assertTrue(textExists("super_nurse"));
     }
 	 
     @And("a user logins into the system as an admin")

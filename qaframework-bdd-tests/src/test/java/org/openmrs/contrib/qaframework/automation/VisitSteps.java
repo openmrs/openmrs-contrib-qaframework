@@ -1,6 +1,17 @@
+/**
+ * This Source Code Form is subject to the terms of the Mozilla Public License,
+ * v. 2.0. If a copy of the MPL was not distributed with this file, You can
+ * obtain one at http://mozilla.org/MPL/2.0/. OpenMRS is also distributed under
+ * the terms of the Healthcare Disclaimer located at http://openmrs.org/license.
+ *
+ * Copyright (C) OpenMRS Inc. OpenMRS is a registered trademark and the OpenMRS
+ * graphic logo is a trademark of OpenMRS Inc.
+ */
 package org.openmrs.contrib.qaframework.automation;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.CoreMatchers.containsString;
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.not;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertTrue;
@@ -13,11 +24,13 @@ import io.cucumber.java.en.When;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
+import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.MergeVisitsPage;
 
 public class VisitSteps extends Steps { 
 	
     private TestData.PatientInfo patient;
+    private ActiveVisitsPage activeVisitsPage;
     private MergeVisitsPage mergeVisitsPage;
 
     @After(RunTest.HOOK.SELENIUM_PATIENT_VISIT)
@@ -121,5 +134,67 @@ public class VisitSteps extends Steps {
     @Then("the system ends the visit")
     public void systemEndsVisit() {
     	assertTrue(textExists("No active visit"));
-    }   
+    }
+
+    @When("user clicks on the Active Visits app from the home page")
+    public void loadActiveVisitsPage() {
+    	activeVisitsPage = homePage.goToActiveVisitsSearch();
+    }
+
+    @And("user searches for the patient with active visit using patient Identifier")
+    public void searchForPatientUsingPatientIdentifier() {
+    	activeVisitsPage.search(patient.identifier);
+    }
+
+    @And("the system returns patient with the provided patient Identifier")
+    public void systemReturnsPatientWithProvidedIdentifier() {
+    	assertThat(activeVisitsPage.getPatientIdOfLastActiveVisit(), containsString(patient.identifier));
+    }
+
+    @And("user clicks on the patient returned with active visit")
+    public void loadPatientDashboardPage() {
+    	dashboardPage = activeVisitsPage.goToPatientDashboardOfLastActiveVisit();
+    }
+
+    @Then("the system loads the patient dashboard")
+    public void systemLoadsPatientDashboard() {
+    	assertPage(dashboardPage.waitForPage());
+    	dashboardPage.goToHomePage();
+    }
+
+    @And("user searches for the patient with active visit using patient Id")
+    public void searchForPatientUsingPatientId() {
+    	String patientId = activeVisitsPage.getPatientIdOfLastActiveVisit();
+    	activeVisitsPage.search(patientId);
+    }
+
+    @And("the system returns patient with the provided patient Id")
+    public void systemReturnsPatientWithProvidedId() {
+    	String patientId = activeVisitsPage.getPatientIdOfLastActiveVisit();
+    	assertThat(activeVisitsPage.getPatientIdOfLastActiveVisit(), is(equalTo(patientId)));
+    }
+
+    @And("user searches for the patient with active visit using patient name")
+    public void searchForPatientUsingPatientName() {
+    	String patientName = activeVisitsPage.getPatientNameOfLastActiveVisit();
+    	activeVisitsPage.search(patientName);
+    }
+
+    @And("the system returns patient with the provided patient name")
+    public void systemReturnsPatientWithProvidedName() {
+    	String patientName = activeVisitsPage.getPatientNameOfLastActiveVisit();
+    	assertThat(activeVisitsPage.getPatientNameOfLastActiveVisit(), is(equalTo(patientName)));
+    }
+
+    @And("user searches for the patient with active visit using last seen value")
+    public void searchForPatientUsingLastSeenValue() {
+    	String lastSeen = activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit();
+    	activeVisitsPage.search(lastSeen);
+    }
+
+    @And("the system returns patient with the provided last seen value")
+    public void systemReturnsPatientWithLastSeenValue() {
+    	String lastSeen = activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit();
+    	assertThat(activeVisitsPage.getPatientLastSeenValueOfLastActiveVisit(), is(equalTo(lastSeen)));
+    }
 }

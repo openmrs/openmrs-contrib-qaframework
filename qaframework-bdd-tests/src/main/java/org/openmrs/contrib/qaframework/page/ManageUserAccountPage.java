@@ -41,6 +41,7 @@ public class ManageUserAccountPage extends Page {
 	private static final By SCHEDULE_APPOINTMENTS = By.id("adminui-capabilities-Application: Schedules And Overbooks Appointments");
 	private static final By PATIENT_SUMMARY = By.id("adminui-capabilities-Application: Uses Patient Summary");
 	private static final By SAVE_BUTTON = By.id("save-button");
+	private static final By ERROR_MESSAGE = By.cssSelector("#error-message div div.text ul");
 
 	public ManageUserAccountPage(Page page) {
 		super(page);
@@ -148,6 +149,10 @@ public class ManageUserAccountPage extends Page {
 
 	public void saveUserAccount() {
 		clickOn(SAVE_BUTTON);
+	}
+	
+	public String getErrorMessage() {
+		return findElement(ERROR_MESSAGE).getText();
 	}
 
 	public boolean isDataCorrect(List<String> validationErrors) {

@@ -6,10 +6,10 @@
   ],
   "video": true,
   "defaultCommandTimeout": 120000,
-  "baseUrl": "https://openmrs-spa.org/openmrs/spa",
+  "baseUrl": "https://o3.openmrs.org/openmrs/spa",
   "env": {
-    "API_BASE_URL": "https://openmrs-spa.org/openmrs/ws/rest/v1",
-    "ADMIN_USERNAME": "admin2",
+    "API_BASE_URL": "https://o3.openmrs.org/openmrs/ws/rest/v1",
+    "ADMIN_USERNAME": "admin",
     "ADMIN_PASSWORD": "Admin123",
     "ADMIN_UUID": "fbd7a058-88c4-4747-b572-32aaf8ef6ac9",
     "DEFAULT_LOCATION_UUID": "6351fcf4-e311-4a19-90f9-35667d99a8af",

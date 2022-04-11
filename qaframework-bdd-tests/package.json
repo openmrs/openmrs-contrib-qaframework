@@ -31,7 +31,7 @@
     "refapp2Provider":"mvn test -Dcucumber.filter.tags='@selenium and @provider'",
     "refapp2PatientDemographics":"mvn test -Dcucumber.filter.tags='@selenium and @patientDemographics'",
     "refapp2VisitType": "mvn test -Dcucumber.filter.tags='@selenium and @visitType'",
-    "refapp2AddUserAndAddRolesToUser": "mvn test -Dcucumber.filter.tags='@selenium and @addUserAndAddRolesToUser'",
+    "refapp2AddUserAndAddRolesToUser": "mvn test -Dcucumber.filter.tags='@selenium and @user'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
     "postgresCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",

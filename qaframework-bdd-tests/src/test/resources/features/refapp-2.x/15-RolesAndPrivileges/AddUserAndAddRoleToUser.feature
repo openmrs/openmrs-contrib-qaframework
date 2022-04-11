@@ -5,13 +5,13 @@ Feature: Add User and Add Roles To User
     Then the system loads manage users page
 
   @selenium
-  @addUserAndAddRolesToUser
+  @user
   Scenario: Adding role to user
     When a user fills in person details
     Then a user assigns roles to the created user
 
   @selenium
-  @addUserAndAddRolesToUser
+  @user
   Scenario: Adding user
     When a user clicks the add user link
     Then the system loads the create new user page

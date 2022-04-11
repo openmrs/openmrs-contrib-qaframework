@@ -20,8 +20,8 @@ import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.ActiveVisitsPage;
 import org.openmrs.contrib.qaframework.page.VisitNotePage;
 
-import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 public class VisitNoteSteps extends Steps {

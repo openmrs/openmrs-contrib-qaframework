@@ -33,7 +33,7 @@ public class VisitNotePage extends Page {
 	private static final By VIEW_VISIT_NOTE = By.cssSelector("#encountersList > li > span > i.viewEncounter.view-action.icon-file-alt");
 	private static final By DELETE_ENCOUNTER_NOTE = By.cssSelector("#encountersList > li > span > i.deleteEncounterId.delete-action.icon-remove");
 	private static final By COMFIRM_DELETE_BUTTON = By.cssSelector("#delete-encounter-dialog > div.dialog-content > button.confirm.right");
-	private static final By REMOVE_DIAGNOSIS = By.cssSelector(".icon-remove.delete-item");
+	private static final By REMOVE_DIAGNOSIS_BUTTON = By.cssSelector(".icon-remove.delete-item");
 	private static final String NOTES = "This is edited note";
 
 	public VisitNotePage(Page page) {
@@ -90,7 +90,7 @@ public class VisitNotePage extends Page {
 	}
 
 	public void removeDiagnosis() {
-		clickOn(REMOVE_DIAGNOSIS);
+		clickOn(REMOVE_DIAGNOSIS_BUTTON);
 	}
 
 	public void clearNote() {

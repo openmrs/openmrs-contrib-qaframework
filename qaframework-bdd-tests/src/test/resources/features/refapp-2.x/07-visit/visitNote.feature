@@ -28,10 +28,16 @@ Feature: Visit Note Management
 
   @selenium
   @visitNote
+  Scenario: Adding a Diagnosis to Visit Note
+    When a user enters the diagnosis into the visit note form
+    And a user clicks on save a visit note button
+    Then the system saves the diagnosis into the visit note table
+
+  @selenium
+  @visitNote
   Scenario: Deleting a Visit Note
     When a user fills the visit note form
     And a user clicks on save a visit note button
     Then the system saves the note into visit note table
     When a user clicks on the delete icon of a saved visit note
     Then the system deletes the visit note
-

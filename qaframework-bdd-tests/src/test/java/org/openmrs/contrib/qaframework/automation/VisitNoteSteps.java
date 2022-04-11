@@ -24,7 +24,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertEquals;
 
-public class VisitNoteSteps extends Steps{
+public class VisitNoteSteps extends Steps {
 
     private static final String DIAGNOSIS_PRIMARY = "Cancer";
     private static final String DIAGNOSIS_SECONDARY = "Malaria";
@@ -95,7 +95,6 @@ public class VisitNoteSteps extends Steps{
     @When("a user clicks on the edit icon of a saved visit note")
     public void userclicksOnEditVisitNote() {
         visitNotePage.editVisitNote();
-
     }
 
     @When("a user edits the visit note")
@@ -111,8 +110,21 @@ public class VisitNoteSteps extends Steps{
         assertEquals(DIAGNOSIS_SECONDARY_UPDATED, visitNotePage.secondaryDiagnosis());
     }
 
+    @When("a user enters the diagnosis into the visit note form")
+    public void enterDiagnosis() {
+        visitNotePage.selectProviderAndLocation();
+        visitNotePage.enterDiagnosis("Pne");
+        visitNotePage.enterSecondaryDiagnosis("Bleed");
+    }
+
+    @Then("the system saves the diagnosis into the visit note table")
+    public void systemAddsDiagnosis() {
+        assertEquals("Pneumonia", visitNotePage.primaryDiagnosis());
+        assertEquals("Bleeding", visitNotePage.secondaryDiagnosis());
+    }
+
     @When("a user clicks on the delete icon of a saved visit note")
-    public void deleteVisitNote(){
+    public void deleteVisitNote() {
         visitNotePage.viewVisitNote();
         visitNotePage.deleteDiagnosis();
         visitNotePage.confirmDeleteDiagnosis();

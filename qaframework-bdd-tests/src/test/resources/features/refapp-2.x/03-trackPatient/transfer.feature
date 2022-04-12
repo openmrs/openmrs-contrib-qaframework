@@ -1,1 +1,0 @@
-Feature: Patient Transfer Management

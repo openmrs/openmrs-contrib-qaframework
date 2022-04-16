@@ -15,8 +15,6 @@ jobs:
     steps:
       - name: Checkout qaframework
         uses: actions/checkout@master
-        with:
-          repository: ${{github.repository}}
       - name: Run db and web containers
         run: docker-compose -f docker/docker-compose-refqa-3x.yml up -d
       - name: Wait for Openmrs instance to start

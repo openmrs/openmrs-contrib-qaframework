@@ -21,7 +21,7 @@ import org.openmrs.contrib.qaframework.page.AddEditUserPage;
 import org.openmrs.contrib.qaframework.page.HomePage;
 import org.openmrs.contrib.qaframework.page.ManageUserPage;
 
-public class AddUserAndAddRolesToUserSteps extends Steps {
+public class UserSteps  extends Steps {
 	
     private ManageUserPage manageUserPage;
     private AddEditUserPage addEditUserPage;
@@ -45,12 +45,12 @@ public class AddUserAndAddRolesToUserSteps extends Steps {
         roleModules.put("roleStrings.Organizational:RegistrationClerk", 3);
     }
 	
-    @Before(RunTest.HOOK.SELENIUM_ADD_USER_AND_ADD_ROLES_TO_USER)
+    @Before(RunTest.HOOK.SELENIUM_USER)
     public void visitHomePage() {
         initiateWithLogin();
     }
 
-    @After(RunTest.HOOK.SELENIUM_ADD_USER_AND_ADD_ROLES_TO_USER)
+    @After(RunTest.HOOK.SELENIUM_USER)
     public void destroy() throws InterruptedException {
         quit();
     }

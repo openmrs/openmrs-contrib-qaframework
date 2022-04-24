@@ -93,7 +93,7 @@ public class VisitNotePage extends Page {
 		clickOn(REMOVE_DIAGNOSIS_BUTTON);
 	}
 
-	public void clearNote() {
+	public void editNote() {
 		findElement(NOTE).clear();
 		setTextToFieldNoEnter(NOTE, NOTES);
 	}

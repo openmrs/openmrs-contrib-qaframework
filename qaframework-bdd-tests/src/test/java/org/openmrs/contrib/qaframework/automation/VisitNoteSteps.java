@@ -101,8 +101,7 @@ public class VisitNoteSteps extends Steps {
     @When("a user edits the visit note")
     public void editVisitNote() {
         visitNotePage.removeDiagnosis();
-        visitNotePage.clearNote();
-        visitNotePage.addNote("This is edited note");
+        visitNotePage.editNote();
         visitNotePage.addSecondaryDiagnosis(DIAGNOSIS_SECONDARY_UPDATED);
     }
 

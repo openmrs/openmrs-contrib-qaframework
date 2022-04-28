@@ -63,7 +63,7 @@ public class VisitNoteSteps extends Steps {
         assertNotNull(dashboardPage.getActiveVisitList());
     }
 
-    @When("a user clicks visit note link from a patient dashboard")
+    @And("a user clicks visit note link from a patient dashboard")
     public void loadVisitNotePage() {
         visitsDashboardPage = dashboardPage.goToRecentVisits();
         visitNotePage = (VisitNotePage) dashboardPage.goToVisitNote().waitForPage();
@@ -93,12 +93,12 @@ public class VisitNoteSteps extends Steps {
         assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.secondaryDiagnosis());
     }
 
-    @When("a user clicks on the edit icon of a saved visit note")
+    @And("a user clicks on the edit icon of a saved visit note")
     public void userclicksOnEditVisitNote() {
         visitNotePage.editVisitNote();
     }
 
-    @When("a user edits the visit note")
+    @And("a user edits the visit note")
     public void editVisitNote() {
         visitNotePage.removeDiagnosis();
         visitNotePage.editNote();
@@ -123,7 +123,7 @@ public class VisitNoteSteps extends Steps {
         assertEquals("Bleeding", visitNotePage.secondaryDiagnosis());
     }
 
-    @When("a user clicks on the delete icon of a saved visit note")
+    @And("a user clicks on the delete icon of a saved visit note")
     public void deleteVisitNote() {
         visitNotePage.viewVisitNote();
         visitNotePage.deleteDiagnosis();

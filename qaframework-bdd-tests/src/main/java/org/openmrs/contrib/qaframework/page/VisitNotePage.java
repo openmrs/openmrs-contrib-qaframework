@@ -33,6 +33,8 @@ public class VisitNotePage extends Page {
 	private static final By VIEW_VISIT_NOTE = By.cssSelector("#encountersList > li > span > i.viewEncounter.view-action.icon-file-alt");
 	private static final By DELETE_ENCOUNTER_NOTE = By.cssSelector("#encountersList > li > span > i.deleteEncounterId.delete-action.icon-remove");
 	private static final By COMFIRM_DELETE_BUTTON = By.cssSelector("#delete-encounter-dialog > div.dialog-content > button.confirm.right");
+	private static final By REMOVE_DIAGNOSIS_BUTTON = By.cssSelector(".icon-remove.delete-item");
+	private static final String NOTES = "This is edited note";
 
 	public VisitNotePage(Page page) {
 		super(page);
@@ -85,6 +87,15 @@ public class VisitNotePage extends Page {
 		setTextToFieldNoEnter(DIAGNOSIS_SEARCH, diag);
 		waitForElement(UI_ID_1);
 		clickOn(UI_MENU_ITEM);
+	}
+
+	public void removeDiagnosis() {
+		clickOn(REMOVE_DIAGNOSIS_BUTTON);
+	}
+
+	public void editNote() {
+		findElement(NOTE).clear();
+		setTextToFieldNoEnter(NOTE, NOTES);
 	}
 
 	public void deleteDiagnosis() {

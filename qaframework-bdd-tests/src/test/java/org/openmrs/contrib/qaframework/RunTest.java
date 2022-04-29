@@ -53,6 +53,7 @@ public class RunTest {
 		public static final String OPEN_CONCEPT_LAB = "@openConceptLab";
 		public static final String PATIENT_DEMOGRAPHICS = "@patientDemographics";
 		public static final String VISIT_TYPE = "@visitType";
+		public static final String VISIT_NOTE = "@visitNote";
 		public static final String SERVICE = "@service";
 		public static final String PATIENT_VISIT = "@patientVisit";
 		public static final String SELENIUM_PERSON = SELENIUM + " and " + PERSON;
@@ -69,6 +70,7 @@ public class RunTest {
 		public static final String SELENIUM_FIND_PATIENT = SELENIUM + " and " + FIND_PATIENT;
 		public static final String SELENIUM_USER_ACCOUNT = SELENIUM + " and " + USER_ACCOUNT;
 		public static final String SELENIUM_VISIT_TYPE = SELENIUM + " and " + VISIT_TYPE;
+		public static final String SELENIUM_VISIT_NOTE = SELENIUM + " and " + VISIT_NOTE;
 		public static final String SELENIUM_REPORT = SELENIUM + " and " + REPORT;
 		public static final String SELENIUM_PATIENT_DEMOGRAPHICS = SELENIUM + " and " + PATIENT_DEMOGRAPHICS;
 		public static final String SELENIUM_ROLES_AND_PRIVILEGES = SELENIUM + " and " + ROLES_AND_PRIVILEGES;

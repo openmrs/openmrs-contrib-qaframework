@@ -32,6 +32,7 @@
     "refapp2Provider":"mvn test -Dcucumber.filter.tags='@selenium and @provider'",
     "refapp2PatientDemographics":"mvn test -Dcucumber.filter.tags='@selenium and @patientDemographics'",
     "refapp2VisitType": "mvn test -Dcucumber.filter.tags='@selenium and @visitType'",
+    "refapp2VisitNote": "mvn test -Dcucumber.filter.tags='@selenium and @visitNote'",
     "simpleCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @simpleInstall'",
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
     "postgresCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",
@@ -45,7 +46,7 @@
     "refapp3Settings": "cypress run --spec src/test/resources/features/refapp-3.x/03-settings/settings.feature",
     "refapp3ClinicalVisit": "cypress run --spec src/test/resources/features/refapp-3.x/04-clinical-visit/clinical-visit.feature",
     "refapp3VitalsAndTriage": "cypress run --spec src/test/resources/features/refapp-3.x/05-vitals-and-triage/vitals-and-triage.feature",
-    "refappOclSubscriptionModule": "cypress run --spec src/test/resources/features/oclsubscriptionmodule/ocl-subscription-module.feature"
+    "refappOclSubscriptionModule": "cypress run --spec src/test/resources/features/ocl/ocl-subscription-module.feature"
   },
   "devDependencies": {
     "@testing-library/cypress": "^8.0.0",

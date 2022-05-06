@@ -130,7 +130,7 @@ MySQL password should be the same for initialSetupTests as openmrs password
     ```
     npm install
     ```
-You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://openmrs-spa.org/openmrs/spa) for the test backend.
+You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://dev3.openmrs.org/openmrs/spa) for the test backend.
 
 ## Running tests`
 

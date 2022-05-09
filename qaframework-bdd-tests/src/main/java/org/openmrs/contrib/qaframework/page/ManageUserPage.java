@@ -44,6 +44,7 @@ public class ManageUserPage extends Page {
 
 	public void assignRolesToUser(String roleToUnassign, String roleToAssign,String user) throws InterruptedException {
 		setText(FIND_USER, user);
+		waiter.until(ExpectedConditions.elementToBeClickable(ACTION));
 		clickOn(ACTION);
 		clickOn(USER_LINK);
 		AddEditUserPage editPage = new AddEditUserPage(this);

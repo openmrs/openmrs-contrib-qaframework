@@ -44,7 +44,10 @@ Cypress.Commands.add('login', () => {
     cy.request({
         method: 'POST',
         url: `${API_BASE_URL}/session`,
-        body: {sessionLocation: DEFAULT_LOCATION_UUID},
+        body: {
+          sessionLocation: DEFAULT_LOCATION_UUID, 
+          locale: "en_GB",
+        },
         headers: {
             'Content-Type': 'application/json',
             Authorization: `Basic ${TOKEN}`,

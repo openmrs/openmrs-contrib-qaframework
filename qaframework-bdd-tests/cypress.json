@@ -6,9 +6,10 @@
   ],
   "video": true,
   "defaultCommandTimeout": 120000,
-  "baseUrl": "https://dev3.openmrs.org/openmrs/spa",
+  "baseUrl": "https://openmrs-spa.org/openmrs/spa",
   "env": {
     "API_BASE_URL": "https://openmrs-spa.org/openmrs/ws/rest/v1",
+    "FHIR_API_BASE_URL": "https://openmrs-spa.org/openmrs/ws/fhir2/R4",
     "ADMIN_USERNAME": "admin2",
     "ADMIN_PASSWORD": "Admin123",
     "ADMIN_UUID": "fbd7a058-88c4-4747-b572-32aaf8ef6ac9",

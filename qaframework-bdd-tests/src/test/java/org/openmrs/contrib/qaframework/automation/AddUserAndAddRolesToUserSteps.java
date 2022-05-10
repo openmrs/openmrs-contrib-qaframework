@@ -92,7 +92,7 @@ public class AddUserAndAddRolesToUserSteps  extends Steps {
 
         reLoginAsAdmin();
         oldRole = role.getKey();
-        homePage.goToAdministration().clickOnManageUsers();
+            homePage.goToAdministration().clickOnManageUsers();
         }
     }
 	
@@ -103,7 +103,7 @@ public class AddUserAndAddRolesToUserSteps  extends Steps {
     
     @And("a user checks whether the form can save with empty fields")
     public void checkIfFormCanSaveWithEmptyFields() {
-      addEditUserPage.saveUser();
+        addEditUserPage.saveUser();
     }
     
     @Then("the system throws validations indicating an empty form cant be saved")

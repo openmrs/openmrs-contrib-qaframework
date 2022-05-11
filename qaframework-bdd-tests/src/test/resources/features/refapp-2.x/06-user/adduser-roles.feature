@@ -20,7 +20,7 @@ Feature: User and Add Roles To User
     And a user enters the demorgraphic information
     And a user enters the login information
     And a user saves the addedit user form
-    And a user logins into the system as the created user
-    And a user logins into the system as an admin
+    And a user login the system as the created user
+    And a user login the system as an admin
     And a user deletes the user account
     Then the system confirms the deletion of the user account

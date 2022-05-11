@@ -134,14 +134,14 @@ public class AddUserAndAddRolesToUserSteps  extends Steps {
         assertTrue(textExists("User Saved"));
     }
 	 
-    @And("a user logins into the system as the created user")
+    @And("a user login the system as the created user")
     public void userLoginsIntoSystemAsUser() {
         homePage = new HomePage(goToLoginPage().login("super_nurse", "Nurse123"));
         homePage.waitForPage();
         assertTrue(textExists("super_nurse"));
     }
 	 
-    @And("a user logins into the system as an admin")
+    @And("a user login the system as an admin")
     public void userLoginsIntoSystemAsAnAdmin() {
         goToLoginPage().loginAsAdmin();
         homePage.goToSystemAdministrationPage().goToAdvancedAdministration().clickOnManageUsers();

@@ -80,6 +80,7 @@ public class AddUserAndAddRolesToUserSteps  extends Steps {
     public void userAssignsRolesToUser() throws InterruptedException {
         Map<String, Integer> roleModules = new HashMap<>();
         fillInRoleModules(roleModules);
+        
         String oldRole = null;
         for (Entry<String, Integer> role : roleModules.entrySet()) {
              manageUserPage.assignRolesToUser(oldRole, role.getKey(), NURSE_USERNAME);

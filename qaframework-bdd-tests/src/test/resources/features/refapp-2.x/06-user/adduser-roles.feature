@@ -1,4 +1,4 @@
-Feature: User and Add Roles To User
+Feature: Add User and Roles To User
 
   Background: 
     Given a user clicks on system administration app

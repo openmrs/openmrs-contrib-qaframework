@@ -35,7 +35,7 @@ public class RunTest {
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
 		public static final String ADVANCED_INSTALL = "@advancedInstall";
-		public static final String ADD_USER_AND_ROLES_TO_USER  = "@user";
+		public static final String ADD_USER_AND_ROLES = "@user";
 		public static final String POSTGRES_INSTALL = "@postgresInstall";
 		public static final String TESTING_INSTALL = "@testingInstall";
 		public static final String CLINICAL_VISIT = "@clinicalVisit";
@@ -74,7 +74,7 @@ public class RunTest {
 		public static final String SELENIUM_REPORT = SELENIUM + " and " + REPORT;
 		public static final String SELENIUM_PATIENT_DEMOGRAPHICS = SELENIUM + " and " + PATIENT_DEMOGRAPHICS;
 		public static final String SELENIUM_ROLES_AND_PRIVILEGES = SELENIUM + " and " + ROLES_AND_PRIVILEGES;
-		public static final String SELENIUM_ADD_USER_AND_ROLES_TO_USER  = SELENIUM + " and " + ADD_USER_AND_ROLES_TO_USER;
+		public static final String SELENIUM_ADD_USER_AND_ROLES  = SELENIUM + " and " + ADD_USER_AND_ROLES;
 		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;
 		public static final String SELENIUM_ALLERGIES = SELENIUM + " and " + ALLERGIES;
 		public static final String SELENIUM_OPEN_CONCEPT_LAB = SELENIUM + " and " + OPEN_CONCEPT_LAB;

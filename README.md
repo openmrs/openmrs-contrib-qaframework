@@ -37,6 +37,7 @@ Install & Upgrade Tests |
 [![RefApp 2.x Appointment](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-appointment.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-appointment.yml)
 [![RefApp 2.x Phone Number Validation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-phoneNumberValidation.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-phoneNumberValidation.yml)
 [![RefApp 2.x Provider](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-provider.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-provider.yml)
+[![RefApp 2.x Add User & Roles](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-user.yml)
 [![RefApp 2.x Form](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-form.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-form.yml)
 [![RefApp 2.x Patient Allergies](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-allergies.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-patient-allergies.yml)
 [![RefApp 2.x Visit Type](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-visit-type.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-visit-type.yml)
@@ -131,7 +132,7 @@ MySQL password should be the same for initialSetupTests as openmrs password
     ```
     npm install
     ```
-You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://openmrs-spa.org/openmrs/spa) for the test backend.
+You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://dev3.openmrs.org/openmrs/spa) for the test backend.
 
 ## Running tests`
 

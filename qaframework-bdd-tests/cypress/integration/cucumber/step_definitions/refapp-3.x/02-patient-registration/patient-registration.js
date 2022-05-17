@@ -1,6 +1,6 @@
 import {Given} from 'cypress-cucumber-preprocessor/steps';
 
-Given('the user login to the Registration Desk', () => {    
+Given('the user login to the Outpatient Clinic', () => {    
     cy.on('uncaught:exception', (err, runnable) => {
     	console.log(err);
     	return false;

@@ -43,7 +43,10 @@ public class EditDemographicsAndContactInfoSteps extends Steps {
 
 	@After(RunTest.HOOK.SELENIUM_PATIENT_DEMOGRAPHICS)
 	public void destroy() {
-		deletePatient(testPatient);
+		try {
+			deletePatient(testPatient);
+		} catch (IllegalStateException ex) {}
+
 		quit();
 	}
 	

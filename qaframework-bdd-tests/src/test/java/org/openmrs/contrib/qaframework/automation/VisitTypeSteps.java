@@ -41,7 +41,10 @@ public class VisitTypeSteps extends Steps {
 
     @After(RunTest.HOOK.SELENIUM_VISIT_TYPE)
     public void tearDown() {
-        RestClient.delete("visittype/" + visitTypeUuid, true);
+    	try {
+    		  RestClient.delete("visittype/" + visitTypeUuid, true);
+    	} catch(IllegalStateException exception) {}
+
         quit();
     }
 

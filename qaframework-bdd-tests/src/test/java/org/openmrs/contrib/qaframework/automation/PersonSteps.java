@@ -50,7 +50,10 @@ public class PersonSteps extends Steps {
 	
     @After(RunTest.HOOK.SELENIUM_PERSON)
     public void tearDown() {
-        RestClient.delete("person/" + personUuid, true);
+    	try {
+    		RestClient.delete("person/" + personUuid, true);
+    	} catch(IllegalStateException exception) {}
+
         quit();
     }
 	

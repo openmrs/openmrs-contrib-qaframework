@@ -48,8 +48,11 @@ public class ProviderSteps extends Steps {
     
     @After(RunTest.HOOK.SELENIUM_PROVIDER)
     public void tearDown() {
-        RestClient.delete("provider/" + providerUuid, true);
-	quit();
+    	try {
+    		RestClient.delete("provider/" + providerUuid, true);
+    	} catch(IllegalStateException exception) {}
+
+    	quit();
     }
     
     @Given("a user clicks on the administration app")

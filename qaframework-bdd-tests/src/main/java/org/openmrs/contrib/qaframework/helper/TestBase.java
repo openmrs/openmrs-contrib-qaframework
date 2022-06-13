@@ -303,11 +303,13 @@ public class TestBase {
 	 * Delete the given patient from the various tables that contain portions of
 	 * a patient's info.
 	 *
-	 * @param patientInfo containing hhe uuid of the patient to delete.
+	 * @param patientInfo containing the uuid of the patient to delete.
 	 */
 	public void deletePatient(PatientInfo patientInfo) throws NotFoundException {
 		if (patientInfo != null) {
-			RestClient.delete("patient/" + patientInfo.uuid);
+			try {
+				RestClient.delete("patient/" + patientInfo.uuid);
+			} catch (IllegalStateException exception) {}
 		}
 	}
 

@@ -1,7 +1,7 @@
 Feature: Patient Registration
 
   Background:
-    Given the user login to the Registration Desk
+    Given the user login to the Outpatient Clinic
 
   Scenario Outline: Register a patient
     When the user clicks on the add patient icon

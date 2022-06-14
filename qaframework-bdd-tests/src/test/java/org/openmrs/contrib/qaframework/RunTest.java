@@ -31,6 +31,7 @@ public class RunTest {
 		public static final String DEFAULT_LOGIN = "@defaultLogin";
 		public static final String PERSON = "@person";
 		public static final String PHONE_NUMBER_VALIDATION= "@phoneNumberValidation";
+		public static final String LOCATION_MANAGEMENT = "@location";
 		public static final String ALLERGIES = "@allergies";
 		public static final String INITIAL_SETUP = "@initialSetup";
 		public static final String SIMPLE_INSTALL = "@simpleInstall";
@@ -73,6 +74,7 @@ public class RunTest {
 		public static final String SELENIUM_VISIT_NOTE = SELENIUM + " and " + VISIT_NOTE;
 		public static final String SELENIUM_REPORT = SELENIUM + " and " + REPORT;
 		public static final String SELENIUM_PATIENT_DEMOGRAPHICS = SELENIUM + " and " + PATIENT_DEMOGRAPHICS;
+		public static final String SELENIUM_LOCATION_MANAGEMENT = SELENIUM + " and " + LOCATION_MANAGEMENT;
 		public static final String SELENIUM_ROLES_AND_PRIVILEGES = SELENIUM + " and " + ROLES_AND_PRIVILEGES;
 		public static final String SELENIUM_ADD_USER_AND_ROLES  = SELENIUM + " and " + ADD_USER_AND_ROLES;
 		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;

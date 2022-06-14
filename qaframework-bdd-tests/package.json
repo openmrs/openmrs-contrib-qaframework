@@ -15,6 +15,7 @@
     "refapp2UserAccount": "mvn test -Dcucumber.filter.tags='@selenium and @userAccount'",
     "refapp2Login": "mvn test -Dcucumber.filter.tags='@selenium and @defaultLogin'",
     "refapp2PhoneNumberValidation": "mvn test -Dcucumber.filter.tags='@selenium and @phoneNumberValidation'",
+    "refapp2LocationManagement": "mvn test -Dcucumber.filter.tags='@selenium and @location'",
     "refapp2Inpatient": "mvn test -Dcucumber.filter.tags='@selenium and @inpatient'",
     "refapp2Registration": "mvn test -Dcucumber.filter.tags='@selenium and @registration'",
     "refapp2Form": "mvn test -Dcucumber.filter.tags='@selenium and @form'",

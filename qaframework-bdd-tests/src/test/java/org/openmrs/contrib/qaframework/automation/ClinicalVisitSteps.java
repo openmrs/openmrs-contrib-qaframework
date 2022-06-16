@@ -250,6 +250,18 @@ public class ClinicalVisitSteps extends Steps {
 		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
 	}
 
+	@And("a user clicks the clear forms button")
+	public void clickOnClearFormsButton() {
+		attachmentsPage.clickOnClearForms();
+	}
+
+	@Then("the system drops the supporting file")
+	public void systemDropsSupportingFile() {
+		assertTrue(textExists("Attachments"));
+		dashboardPage = attachmentsPage.goToPatientDashboardPage();
+		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
+	}
+
 	@When("a user clicks on Request appointment link from Patient dashboard")
 	public void loadRequestAppointmentPage() {
 		requestAppointmentPage = (RequestAppointmentPage) dashboardPage.clickOnRequest();

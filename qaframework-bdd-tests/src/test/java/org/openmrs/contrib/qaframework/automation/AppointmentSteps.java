@@ -205,14 +205,19 @@ public class AppointmentSteps extends Steps {
 		dashboardPage.goToHomePage();
 	}
 
-	@When("a user clicks on the Schedule Appointment link from the Patient dashboard")
-	public void launchManageAppointmentsPage() {
-		findPatientPage = homePage.goToFindPatientRecord();
-		findPatientPage.enterPatient(testPatient.identifier);
-		findPatientPage.waitForPageToLoad();
-		dashboardPage = findPatientPage.clickOnFirstPatient();
-		dashboardPage.waitForPageToLoad();
-		manageAppointmentsPage = (ManageAppointmentsPage) dashboardPage.goToManageAppointments();
+	@And("a user clicks on Manage Appointments app")
+	public void loadFindPatientPage() {
+		findPatientPage = appointmentSchedulingPage.goToManageAppointments();
+	}
+
+	@And("user searches patient")
+	public void searchPatient() {
+		findPatientPage.enterPatient(testPatient.getName());
+	}
+
+	@And("user selects first patient")
+	public void selectFirstPatient() {
+		manageAppointmentsPage = (ManageAppointmentsPage) findPatientPage.clickOnFirstPatientAppointment();
 	}
 
 	@And("a user searches appointment request")
@@ -235,7 +240,7 @@ public class AppointmentSteps extends Steps {
 
 	@Then("the system saves the scheduled appointment")
 	public void systemSavesScheduledAppointment() {
-		assertTrue(manageAppointmentsPage.containsText(FIRST_SERVICE_NAME));
+		assertTrue(manageAppointmentsPage.containsText("Scheduled"));
 		dashboardPage.goToHomePage();
 	}
 }

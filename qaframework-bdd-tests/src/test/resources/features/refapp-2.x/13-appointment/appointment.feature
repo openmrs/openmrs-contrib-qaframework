@@ -58,8 +58,12 @@ Feature: Appointment Management
     And a user clicks on the save button
     Then the system saves the appointment block
     #User Story: Book Appointment
-    When a user clicks on the Schedule Appointment link from the Patient dashboard
-    Then the system loads Manage Appointments page
+    When a user clicks Appointment scheduling app from the home page
+    Then the system loads the appointment scheduling page
+    And a user clicks on Manage Appointments app
+    And user searches patient
+    And user selects first patient
+    And the system loads Manage Appointments page
     And a user searches appointment request
     And a user clicks on book appointment icon
     And a user clicks the Save button

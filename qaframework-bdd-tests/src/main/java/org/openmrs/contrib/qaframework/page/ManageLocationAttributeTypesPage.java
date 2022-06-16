@@ -33,6 +33,7 @@ public class ManageLocationAttributeTypesPage extends Page {
 	private static final By CONFIRM_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationAttributeTypeForm button.confirm.right");
 	private static final By CANCEL_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationAttributeTypeForm button.cancel");
 	private static final By CANCEL_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationAttributeTypeForm button.cancel");
+	private static final By RETURN_TO_CONFIGURE_META_DATA_DASHBOARD = By.cssSelector("#breadcrumbs > li:nth-child(2) > a");
 
 	public ManageLocationAttributeTypesPage(Page configureMetadataPage) {
 		super(configureMetadataPage);
@@ -82,8 +83,9 @@ public class ManageLocationAttributeTypesPage extends Page {
 		selectFrom(PREFERRED_HANDLER_FIELD, preferredHandler);
 	}
 
-	public void enterHandlerConfiguration(String handlerConfiguarion) {
-		selectFrom(HANDLER_CONFIGURATION_FILED, handlerConfiguarion);
+	public void enterHandlerConfiguration(String handlerConfiguration) {
+		findElement(HANDLER_CONFIGURATION_FILED).clear();
+		findElement(HANDLER_CONFIGURATION_FILED).sendKeys(handlerConfiguration);
 	}
 
 	public void clickOnSaveButton() {
@@ -112,5 +114,9 @@ public class ManageLocationAttributeTypesPage extends Page {
 
 	public void cancelRetireLocation() {
 		clickOn(CANCEL_RETIRE_LOCATION_BUTTON);
+	}
+
+	public void returnToConfigureMetaDataDashboard() {
+		clickOn(RETURN_TO_CONFIGURE_META_DATA_DASHBOARD);
 	}
 }

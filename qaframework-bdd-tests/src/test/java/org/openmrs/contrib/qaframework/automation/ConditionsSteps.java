@@ -26,8 +26,8 @@ import org.openmrs.contrib.qaframework.page.ConditionsPage;
 import org.openqa.selenium.By;
 
 public class ConditionsSteps extends Steps {
+
     private ConditionsPage conditionsPage;
-    private String patientDashboardId;
     private By addNewCondition = By.id("conditionui-addNewCondition");
     private ConditionPage conditionPage;
     private TestData.PatientInfo testPatient;
@@ -40,13 +40,13 @@ public class ConditionsSteps extends Steps {
         findPatientPage.enterPatient(testPatient.identifier);
         dashboardPage = findPatientPage.clickOnFirstPatient();
     }
-    
+
     @After(RunTest.HOOK.SELENIUM_CONDITION)
     public void destroy() {
         deletePatient(testPatient);
         quit();
     }
-    
+
 	@Given("User clicks on Conditions from Patient dashboard")
 	public void launchManageConditions() {
 		conditionsPage = (ConditionsPage) dashboardPage.clickOnConditionsWidgetLink().waitForPage();
@@ -62,7 +62,7 @@ public class ConditionsSteps extends Steps {
 		conditionPage = (ConditionPage) conditionsPage.clickOnAddNewCondition().waitForPage();
 	}
 
-	@Then("System on Add New Condition Page")
+	@Then("System loads Add New Condition Page")
 	public void launchAddNewCondition() {
 		assertNotNull(getElement(ConditionPage.SAVE));
 	}
@@ -77,12 +77,12 @@ public class ConditionsSteps extends Steps {
 			conditionPage.typeInCondition("Diarrhea");
 			conditionPage.clickOnActive();
 	}
-	
+
 	@And("User enters inactive condition")
 	public void enterInactiveCondition() {
 			conditionPage.typeInCondition("Diabetes mellitus");
 			conditionPage.clickOnInActive();
-		}
+	}
 
 	@And("User clicks on set inactive button")
 	public void setInActive() {
@@ -175,7 +175,7 @@ public class ConditionsSteps extends Steps {
 			assertNull(driver.findElement(By.xpath(name)));
 		}
 	}
-		
+
 	@Then("System should trash first inactive condition")
 		public void systemDeletesInActiveCondition() {
 		String name = conditionsPage.getFirstConditionName();

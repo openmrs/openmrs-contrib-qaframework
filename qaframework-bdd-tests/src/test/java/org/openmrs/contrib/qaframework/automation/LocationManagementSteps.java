@@ -9,165 +9,205 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertTrue;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 import org.openmrs.contrib.qaframework.RunTest;
 
-import org.openmrs.contrib.qaframework.page.ManageLocationAttributeTypesPage;
-import org.openmrs.contrib.qaframework.page.LocationPage;
-import org.openmrs.contrib.qaframework.page.ManageLocationsPage;
-import org.openmrs.contrib.qaframework.page.AddEditLocationPage;
-import org.openmrs.contrib.qaframework.page.ManageLocationTagsPage;
-import org.openmrs.contrib.qaframework.page.ConfigureMetadataPage;
-
 public class LocationManagementSteps extends Steps {
-
-    private static final String TAG_NAME = "This is a tag name";
-    private static final String MAX_VALUE = "20";
-    private static final String MIN_VALUE = "1";
-    private static final String DESCRIPTION = "This is the description";
-    private static final String NAME = "Noah";
-    private static final String LOCATION_NAME = "Bugema";
-    private static final String ADDRESS_ONE = "Bugema one";
-    private static final String ADDRESS_TWO = "Bugema two";
-    private static final String CITY = "Kampala";
-    private static final String STATE = "Central";
-    private static final String COUNTRY = "Uganda";
     
-    private ConfigureMetadataPage configureMetadataPage;
-    private LocationPage locationPage;
-    private ManageLocationsPage manageLocationsPage;
-    private AddEditLocationPage addEditLocationPage;
-    private ManageLocationTagsPage manageLocationTagsPage;
-    private ManageLocationAttributeTypesPage manageLocationAttributeTypesPage;
-
     @Before(RunTest.HOOK.SELENIUM_LOCATION_MANAGEMENT)
-    public void visitHomePage() {
-        initiateWithLogin();
+    public void visitDashboard() {
+	    initiateWithLogin();
     }
-
+	
     @After(RunTest.HOOK.SELENIUM_LOCATION_MANAGEMENT)
     public void destroy() {
         quit();
     }
 
     @Given("a user clicks on the configure metadata link from the home page")
-    public void clickOnConfigureMetaDataLink(){
-        configureMetadataPage = homePage.goToConfigureMetadata();
+    public void userClicksTheConfigureMetadataLink() {
+        
     }
 
-    @Then("the system loads configure metadata link dashboard")
-    public void loadsConfigureMetaData(){
-        assertTrue(textExists("Configure Metadata"));
+    @Then ("the system loads configure metadata link dashboard")
+    public void systemLoadsMetadataDashboard() {
+        
     }
 
-    @And("a user clicks on Manage Location Attribute Types")
-    public void clickOnManageLocationAttributesTypes() {
-        manageLocationAttributeTypesPage = configureMetadataPage.goToManageLocationAttributeTypesPage();
+    @When ("a user clicks on Manage Location Attribute Types")
+    public void userClicksOnManageLocationAttributeTypes() {
+        
     }
 
-    @And("a user clicks on add new location attribute type")
-    public void addNewLocationAttributeType() {
-        manageLocationAttributeTypesPage.goToAddNewLocationAttributeTypeForm();
+    @Then ("the system loads the manage location attribute type page")
+    public void theSystemLoadsTheManageLocationAttributeTypePage() {
+
+    }
+    
+    @And ("a user clicks on add new location attribute type")
+    public void userClicksOnAddNewLocationAttributeType() {
+        
     }
 
-    @And("a user fills the form")
-    public void fillsTheForm() {
-        manageLocationAttributeTypesPage.enterLocationAttributeTypeName(NAME);
-        manageLocationAttributeTypesPage.enterLocationAttributeTypeDescription(DESCRIPTION);
-        manageLocationAttributeTypesPage.enterMinimumOccurs(MIN_VALUE);
-        manageLocationAttributeTypesPage.enterMaximumOccurs(MAX_VALUE);
-        manageLocationAttributeTypesPage.selectDatatype("Provider Datatype");
-        manageLocationAttributeTypesPage.enterDatatypeConfiguration("I have entered the data configuration");
-        manageLocationAttributeTypesPage.selectPreferredHandler("Provider Field Gen Datatype Handler");
-        manageLocationAttributeTypesPage.enterHandlerConfiguration("I have entered the handler configuration");
+    @And ("a user fills the add new location attribute type form")
+    public void userFillsTheAddNewLocationAttributeTypeForm() {
+
     }
 
-    @Then("the user saves the form")
-    public void userSavesForm() {
-        manageLocationAttributeTypesPage.clickOnSaveButton();
-        manageLocationAttributeTypesPage.returnToConfigureMetaDataDashboard();
+    @Then ("the user saves the form")
+    public void userSavesTheForm() {
+
     }
 
-    @Then("the form is saved")
-    public void theFormIsSaved() {
-        assertTrue(textExists("Noah"));
-        manageLocationAttributeTypesPage.returnToConfigureMetaDataDashboard();
+    @And ("the user clicks on the edit icon")
+    public void userClicksOnTheEditIcon() {
+
     }
 
-    @When("a user clicks on manage location tag")
-    public void clicksOnManageLocationTag() {
-        manageLocationTagsPage = configureMetadataPage.goToManageLocationTagPage();
+    @And ("the user fills in the prefered details in the edit location attribute type form")
+    public void userFillsInPreferedDetails() {
+
     }
 
-    @Then("the user clicks on add new location")
-    public void clicksAddNewLocation(){
-        manageLocationTagsPage.goToAddNewLocationTagForm();
+    @And ("the user clicks on the retire icon")
+    public void userClicksOnTheRetireIcon() {
+
     }
 
-    @And("a user fills add new location tag form")
-    public void fillsAddNewLocationTagForm() {
-        manageLocationTagsPage.enterLocationTagName(TAG_NAME);
-        manageLocationTagsPage.enterLocationTagDescription("This is the location tag description");
+    @And ("the user clicks the confirm button")
+    public void userClicksTheConfirmButton() {
+
     }
 
-    @And("a user saves add New location tag form")
-    public void savesAddNewLocationTagForm(){
-        manageLocationTagsPage.saveLocationTag();
+    @Then ("the system retires the location attribute type")
+    public void systemRetiresTheLocationAttributeType() {
+
     }
 
-    @Then("the New location tag form is saved")
-    public void locationTagFormIsSaved() {
-        assertTrue(textExists("This is a tag name"));
+    @And ("the user clicks the restore location attribute type icon")
+    public void userClicksRestoreLocationAttributeTypeIcon () {
+
     }
 
-    @And("the the user clicks on the retire location button")
-    public void clickOnRetireLocation() {
-        manageLocationTagsPage.retireLocation();
+    @And ("the user clicks on the delete forever icon")
+    public void userClicksOnTheDeleteForeverIcon() {
+
     }
 
-    @And("the user cancels retire location")
-    public void cancelRetireLocation() {
-        manageLocationTagsPage.restoreLocation();
+    @Then ("the system deletes the location attribute type forever")
+    public void systemDeletesLocationAttributeTypeForever() {
+
     }
 
-    @Then("a user deletes location tag")
-    public void deleteLocationTag() {
-        manageLocationTagsPage.deleteLocationTag();
-        manageLocationTagsPage.returnToConfigureMetaDataHomeDashboard();
+    @When ("a user clicks on manage location tag")
+    public void userClicksOnManageLocationTag() {
+
     }
 
-    @When("a user clicks on manager locations")
-    public void clicksManagerLocations(){
-        manageLocationsPage = configureMetadataPage.goToManageLocations();
+    @Then ("the system loads the manage location tag")
+    public void systemLoadsTheManageLocationTag() {
+
     }
 
-    @And("the user click on add new location")
-    public void clickAddNewLocation(){
-        manageLocationsPage.goToAddLocation();
+    @And ("the user clicks on add new location tag")
+    public void userClicksOnAddNewLocationTag() {
+
     }
 
-    @And("a user fills add new location form")
-    public void fillAddNewLocationForm() {
-        manageLocationsPage.enterLocationName(LOCATION_NAME);
-        manageLocationsPage.enterLocationDescription("This is the location description");
-        manageLocationsPage.enterAddress1(ADDRESS_ONE);
-        manageLocationsPage.enterAddress2(ADDRESS_TWO);
-        manageLocationsPage.enterCity(CITY);
-        manageLocationsPage.enterState(STATE);
-        manageLocationsPage.enterCountry(COUNTRY);
-        manageLocationsPage.enterPostalCode("5678");
-        manageLocationsPage.selectLocationTag();
+    @And ("a user fills add new location tag form")
+    public void userFillsAddNewLocationTagForm() {
+
     }
 
-    @Then("the add new location form is saved")
-    public void saveNewLocationForm(){
-        manageLocationsPage.saveLocation();
+    @Then ("a user saves add New location tag form")
+    public void userSavesAddNewLocationTagForm() {
+
     }
+
+    @And ("the user clicks on the edit location tag icon")
+    public void userClicksOnTheEditLocationTagIcon() {
+
+    }
+
+    @And ("the user fills in the prefered details in the edit location tag form")
+    public void userFillsInThePreferedDetailsInTheEditLocationTagForm() {
+
+    }
+
+    @And ("the user clicks save")
+    public void userClicksSave() {
+
+    }
+
+    @And ("the user clicks on the retire location tag button")
+    public void userClicksOnTheRetireLocationTagButton() {
+
+    }
+
+    @Then ("the system retires the location tag")
+    public void systemRetireTheLocationTag() {
+
+    }
+
+    @And ("the user clicks the restore location tag icon")
+    public void userClicksTheRestoreLocationTagIcon() {
+
+    }
+
+    @And ("the user clicks on the delete location tag forever icon")
+    public void userClicksOnTheDeleteLocationTagForeverIcon() {
+
+    }
+
+    @Then ("the system deletes the location tag forever")
+    public void systemDeletesTheLocationTagForever() {
+
+    }
+
+    @When ("a user clicks on manage location link")
+    public void userClicksOnManageLocation() {
+
+    }
+
+    @Then ("the system loads the manage location page")
+    public void systemLoadsTheManageLocationPage() {
+
+    }
+
+    @And ("the user clicks on add new location button")
+    public void userClicksOnAddNewLocationButton() {
+
+    }
+
+    @And ("the user fills the form")
+    public void userFillsAddNewLocationForm() {
+
+    }
+
+    @Then ("the user saves the location form")
+    public void userSavesAddNewLocationForm() {
+
+    }
+
+    @And ("the user clicks on the edit location icon")
+    public void userClicksOnTheEditLocationIcon() {
+
+    }
+
+    @And ("the user fills in the prefered details in the edit location form")
+    public void userFillsInThePreferedDetailsInTheEditLocationForm() {
+
+    }
+
+    @And ("the user clicks on the retire location button")
+    public void userClicksOnTheRetireLocationIcon() {
+
+    }
+
 }

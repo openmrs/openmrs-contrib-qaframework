@@ -62,7 +62,7 @@ public class LocationManagementSteps extends Steps {
         configureMetadataPage = homePage.goToConfigureMetadata();
     }
 
-    @When("the system loads configure metadata link dashboard")
+    @Then("the system loads configure metadata link dashboard")
     public void loadsConfigureMetaData(){
         assertTrue(textExists("Configure Metadata"));
     }
@@ -148,7 +148,7 @@ public class LocationManagementSteps extends Steps {
         manageLocationsPage = configureMetadataPage.goToManageLocations();
     }
 
-    @Then("the user click on add new location")
+    @And("the user click on add new location")
     public void clickAddNewLocation(){
         manageLocationsPage.goToAddLocation();
     }

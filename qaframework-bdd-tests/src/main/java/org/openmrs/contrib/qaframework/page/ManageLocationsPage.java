@@ -33,6 +33,7 @@ public class ManageLocationsPage extends Page {
 	private static final By POSTAL_CODE_FIELD = By.cssSelector("#postalCode-field");
 	private static final By PARENT_LOCATION_FIELD = By.className("parentLocation");
 	private static final By SAVE_BUTTON = By.id("save-button");
+	private static final By RESTORE_LOCATION = null;
 
 	public ManageLocationsPage(Page parent) {
 		super(parent);
@@ -125,5 +126,9 @@ public class ManageLocationsPage extends Page {
 			findElement(By.xpath("//tr/td[preceding-sibling::td[contains(text(), '"+ locationName+ "')]]/i[@class='icon-reply edit-action']"));
 		} catch (TimeoutException e) { throw new RuntimeException("Couldn't find restore button, failed to retire location "+ locationName);
 		}
+	}
+
+	public void restoreLocation() {
+		clickOn(RESTORE_LOCATION);
 	}
 }

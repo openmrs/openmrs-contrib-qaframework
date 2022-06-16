@@ -19,12 +19,10 @@
     Then the user saves the form
     #User story: Retire Location Attribute type
     And the user clicks on the retire icon
-    And the user clicks the confirm button
     Then the system retires the location attribute type
     #User story: Delete Location Attribute type Forever
     And the user clicks the restore location attribute type icon
     And the user clicks on the delete forever icon
-    And the user clicks the confirm button
     Then the system deletes the location attribute type forever
 
   @selenium
@@ -39,15 +37,13 @@
     # User story: Edit Location Tag
     And the user clicks on the edit location tag icon
     And the user fills in the prefered details in the edit location tag form
-    And the user clicks save
+    Then a user saves add New location tag form
     # User story: Retire Location Tag
     And the user clicks on the retire location tag button
-    And the user clicks the confirm button
     Then the system retires the location tag
     #User story: Delete Location Attribute type Forever
     And the user clicks the restore location tag icon
     And the user clicks on the delete location tag forever icon
-    And the user clicks the confirm button
     Then the system deletes the location tag forever
 
     @selenium
@@ -65,10 +61,8 @@
     And the user saves the location form
     # User story: Retire Location 
     And the the user clicks on the retire location  button
-    And the user clicks the confirm button
     Then the system retires the location 
     #User story: Delete Location Attribute type Forever
     And the user clicks the restore location icon
     And the user clicks on the delete location forever icon
-    And the user clicks the confirm button
-    Then the system deletes the location attribute type forever
+    Then the system deletes the location forever

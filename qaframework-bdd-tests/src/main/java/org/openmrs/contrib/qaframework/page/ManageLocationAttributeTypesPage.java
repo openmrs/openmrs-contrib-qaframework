@@ -34,6 +34,7 @@ public class ManageLocationAttributeTypesPage extends Page {
 	private static final By CANCEL_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationAttributeTypeForm button.cancel");
 	private static final By CANCEL_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationAttributeTypeForm button.cancel");
 	private static final By RETURN_TO_CONFIGURE_META_DATA_DASHBOARD = By.cssSelector("#breadcrumbs > li:nth-child(2) > a");
+	private static final By RESTORE_LOCATION_ATTRIBUTE_TYPE = By.className("i.icon-reply.edit-action");
 
 	public ManageLocationAttributeTypesPage(Page configureMetadataPage) {
 		super(configureMetadataPage);
@@ -119,4 +120,8 @@ public class ManageLocationAttributeTypesPage extends Page {
 	public void returnToConfigureMetaDataDashboard() {
 		clickOn(RETURN_TO_CONFIGURE_META_DATA_DASHBOARD);
 	}
+
+    public void restoreLocationAttributeType() {
+		clickOn(RESTORE_LOCATION_ATTRIBUTE_TYPE);
+    }
 }

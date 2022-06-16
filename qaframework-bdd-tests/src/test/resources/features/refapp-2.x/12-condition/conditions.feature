@@ -4,7 +4,7 @@ Feature: Patient's Conditions Managment
     Given User clicks on Conditions from Patient dashboard
     Then System loads Manage Conditions Page
     And User clicks on Add new condition
-    Then System on Add New Condition Page
+    Then System loads Add New Condition Page
 
   @selenium
   @condition
@@ -19,7 +19,7 @@ Feature: Patient's Conditions Managment
   @selenium
   @condition
   Scenario: Inactive condition management
-    # User story: Adding an active condition
+    # User story: Adding an inactive condition
     And User enters inactive condition
     And User clicks save
     # User story: Set first condition to active
@@ -49,9 +49,10 @@ Feature: Patient's Conditions Managment
   Scenario: Delete first active condition
     And User enters active condition
     And User clicks save
-    # User story: Delete first active active condition
+    # User story: Delete first active condition
     And User clicks delete first active condition
     Then System should trash first active condition
+
   @selenium
   @condition
   Scenario: Delete first inactive condition

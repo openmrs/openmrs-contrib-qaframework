@@ -2,13 +2,12 @@
 ___
 ## Platform (core)
 
-[TRUNK](https://ci.openmrs.org/browse/TRUNK-MASTER) | [REST API](https://ci.openmrs.org/browse/RESTWS-RESTWS) | [FHIR API](https://ci.openmrs.org/browse/FHIR-FM2) | [SONAQUBE DASHBOARD](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs)
------------- | ------------- | ------------- | -------------
-![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/TRUNK-MASTER) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/RESTWS-RESTWS) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/SON-OPENMRSCOREMASTER)
+| [TRUNK](https://ci.openmrs.org/browse/TRUNK-MASTER)                                         | [REST API](https://ci.openmrs.org/browse/RESTWS-RESTWS)                                      | [FHIR API](https://ci.openmrs.org/browse/FHIR-FM2)                                      | [SONAQUBE DASHBOARD](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs)                   |
+|---------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------|
+| ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/TRUNK-MASTER) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/RESTWS-RESTWS) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/SON-OPENMRSCOREMASTER) |
 
-
-Install & Upgrade Tests |
-------------- |
+| Install & Upgrade Tests |
+|-------------------------|
  [![Platform Simple Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-simple.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-simple.yml) 
  [![Platform Advanced Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-advanced.yml) 
  [![Platform Postgres Installation](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/platform-install-postgres.yml) 
@@ -17,8 +16,8 @@ Install & Upgrade Tests |
 
 ## Reference Application
 
-2.x RefApp Workflow Tests |
-------------- |
+| 2.x RefApp Workflow Tests |
+|---------------------------|
 [All Chrome Tests](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
 [![All Firefox Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
 [![RefApp 2.x Clinical Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml)
@@ -46,16 +45,16 @@ Install & Upgrade Tests |
 [![RefApp 2.x Service](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-service.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-service.yml)
 [![RefApp 2.x Open Concept Lab](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-open-concept-lab.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-open-concept-lab.yml)
 
-2.x RefApp Feature-Specific Tests* |
-------------- |
+| 2.x RefApp Feature-Specific Tests* |
+|------------------------------------|
 [Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
 [![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-legacy.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-legacy.yml)
 [Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) 
 ###### * Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs-contrib-qaframework/tree/master/qaframework-legacy-tests/src/test/java/org/openmrs/contrib/qaframework/legacy).
 
 
-3.x RefApp Workflow Tests|
-------------- |
+| 3.x RefApp Workflow Tests |
+|---------------------------|
 [3.x Demo Build](https://ci.openmrs.org/browse/REFAPP-D3X) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-D3X)
 [![RefApp 3.x Login](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-login.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-login.yml)
 [![RefApp 3.x Patient Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-patient-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-patient-registration.yml)
@@ -67,15 +66,15 @@ ___
 
 ## Concept Management Tools 
 
-OpenMRS Dictionary Manager|
-------------- |
+| OpenMRS Dictionary Manager |
+|----------------------------|
 [![Dictionary Manager](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/dictionary-manager.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/dictionary-manager.yml)
 [![Basic Dictionary Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/basic-dictionary.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/basic-dictionary.yml) (Create, Edit, Copy, Version and Release)
 [![Organization Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml)
 Loading into EMR ____ Coming soon
 
-OCL Module (Subscription Module) |
------|
+| OCL Module (Subscription Module) |
+|----------------------------------|
 [![OCL Subscription Module](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ocl-subscription-module.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ocl-subscription-module.yml)
 
 ___
@@ -131,9 +130,39 @@ MySQL password should be the same for initialSetupTests as openmrs password
     ```
     npm install
     ```
-You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://dev3.openmrs.org/openmrs/spa) for the test backend.
 
-## Running tests`
+[//]: # (You don’t need to set up an OpenMRS instance since we use a [cloud instance]&#40;https://dev3.openmrs.org/openmrs/spa&#41; for the test backend.)
+## Setting up the local instance for the test backend.
+
+1. Clone the repository
+    ```
+    git clone -b 3.x git@github.com:openmrs/openmrs-distro-referenceapplication.git
+    cd openmrs-distro-referenceapplication
+    git pull —rebase oirigin 3.x
+    ```
+   
+2. Package the distribution and prepare the run
+    ```
+    mvn clean package
+    ```
+   
+### If the build fails at this point should be destroyed the associated volumes
+```
+cd run/docker
+docker compuse down -v
+mvn clean package
+```
+3. Run the app
+    ```
+    cd run/docker
+    docker-compose up
+    ```
+
+New OpenMRS UI is accessible at http://localhost/openmrs/spa
+
+OpenMRS Legacy UI is accessible at http://localhost/openmrs
+
+## Running tests
 
 There are two ways of running tests:
 

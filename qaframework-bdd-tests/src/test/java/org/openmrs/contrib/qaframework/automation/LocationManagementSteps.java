@@ -72,14 +72,14 @@ public class LocationManagementSteps extends Steps {
 
     @And ("a user fills the add new location attribute type form")
     public void userFillsTheAddNewLocationAttributeTypeForm() {
-        manageLocationAttributeTypesPage.enterLocationAttributeTypeName("locationAttributeTypeName");
-        manageLocationAttributeTypesPage.enterLocationAttributeTypeDescription("locationAttributeTypeDescription");
-        manageLocationAttributeTypesPage.enterMaximumOccurs("4");
+        manageLocationAttributeTypesPage.enterLocationAttributeTypeName("location AttributeType Name");
+        manageLocationAttributeTypesPage.enterLocationAttributeTypeDescription("Location AttributeType Description");
         manageLocationAttributeTypesPage.enterMinimumOccurs("1");
-        manageLocationAttributeTypesPage.selectDatatype("datatype");
-        manageLocationAttributeTypesPage.enterDatatypeConfiguration("datatypeConfiguration");
-        manageLocationAttributeTypesPage.selectPreferredHandler("preferredHandler");
-        manageLocationAttributeTypesPage.enterHandlerConfiguration("handlerConfiguration");
+        manageLocationAttributeTypesPage.enterMaximumOccurs("4");
+        manageLocationAttributeTypesPage.selectDatatype("Location Datatype");
+        manageLocationAttributeTypesPage.enterDatatypeConfiguration("datatype Configuration");
+        manageLocationAttributeTypesPage.selectPreferredHandler("Location Field Gen Datatype Handler");
+        manageLocationAttributeTypesPage.enterHandlerConfiguration("Location Handler Configuration");
     }
 
     @Then ("the user saves the form")
@@ -204,6 +204,7 @@ public class LocationManagementSteps extends Steps {
     @And ("the user clicks on add new location button")
     public void userClicksOnAddNewLocationButton() {
         manageLocationsPage.goToAddNewLocation();
+        assertTrue(textExists("Add New Location"));
     }
 
     @And ("the user fills the form")
@@ -216,7 +217,7 @@ public class LocationManagementSteps extends Steps {
         manageLocationsPage.enterState("stateName");
         manageLocationsPage.enterCountry("countryName");
         manageLocationsPage.enterPostalCode("postalCode");
-        manageLocationsPage.setParentLocation();
+        manageLocationsPage.selectParentLocation("Pharmacy");
         manageLocationsPage.selectLocationTag();
     }
 

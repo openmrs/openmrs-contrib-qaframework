@@ -138,7 +138,7 @@ MySQL password should be the same for initialSetupTests as openmrs password
     ```
     git clone -b 3.x git@github.com:openmrs/openmrs-distro-referenceapplication.git
     cd openmrs-distro-referenceapplication
-    git pull —rebase oirigin 3.x
+    git pull —-rebase oirigin 3.x
     ```
    
 2. Package the distribution and prepare the run
@@ -149,7 +149,7 @@ MySQL password should be the same for initialSetupTests as openmrs password
 ### If the build fails at this point should be destroyed the associated volumes
 ```
 cd run/docker
-docker compuse down -v
+docker compose down -v
 mvn clean package
 ```
 3. Run the app

@@ -9,9 +9,9 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -29,9 +29,9 @@ public class VisitNoteSteps extends Steps {
 
     private static final String DIAGNOSIS_PRIMARY = "Cancer";
     private static final String DIAGNOSIS_SECONDARY = "Malaria";
+    private static final String DIAGNOSIS_SECONDARY_UPDATED = "Pneumonia";
     private ActiveVisitsPage activeVisitsPage;
     private VisitNotePage visitNotePage;
-    private static final String DIAGNOSIS_SECONDARY_UPDATED = "Pneumonia";
     private TestData.PatientInfo testPatient;
 
     @Before(RunTest.HOOK.SELENIUM_VISIT_NOTE)
@@ -131,7 +131,8 @@ public class VisitNoteSteps extends Steps {
     }
 
     @Then("the system deletes the visit note")
-    public void systemdeletesVisitNotePage() {
+    public void systemDeletesVisitNotePage() {
         assertTrue(textExists("deleted"));
     }
+    
 }

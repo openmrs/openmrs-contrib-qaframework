@@ -173,6 +173,5 @@ public class VitalsAndTriagingSteps extends Steps {
 	@And("a user clicks on the save changes button")
 	public void saveUpdatedVitals() {
 		editVitalsPage.saveChanges();
-		editVitalsPage.waitForPage();
 	}
 }

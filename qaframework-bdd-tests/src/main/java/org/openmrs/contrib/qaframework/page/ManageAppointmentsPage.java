@@ -14,22 +14,22 @@ import org.openqa.selenium.By;
 
 public class ManageAppointmentsPage extends Page {
 
-	public static final By DELETE_REQUEST_ICON = By.cssSelector(".delete-item.icon-remove");
+	public static final By DELETE_REQUEST = By.cssSelector(".delete-item.icon-remove");
+	private static final By CANCEL_BUTTON = By.cssSelector("#searchButtons > button");
+	private static final By SEARCH = By.cssSelector("#searchButtons > button.confirm");
 	private static final By APPOINTMENT = By.xpath("//table[@id='appointmentTable']/div[2]/div/div/div/div[2]/div[2]/div");
-	private static final By SAVE_BUTTON = By.xpath("//div[@id='confirmAppointment']/div[2]/button[2]");
-	private static final By CANCEL_BUTTON = By.cssSelector("#searchButtons button");
-	private static final By SEARCH_BUTTON = By.cssSelector("#searchButtons button.confirm");
-	private static final By NEXT_BUTTON = By.cssSelector("#selectAppointment button.confirm");
-	private static final By BOOK_APPOINTMENT_ICON = By.cssSelector("i.icon-calendar:nth-child(1)");
-	private static final By CONFIRM_CANCEL_APPOINTMENT_REQUEST_BUTTON  = By.cssSelector("#confirm-cancel-appointment-request div.dialog-content button.button.confirm.right");
-	private static final By VIEW_ALL_TYPES_LINK = By.cssSelector("#viewAllAppointmentTypes a");
+	private static final By NEXT = By.cssSelector("#selectAppointment > button.confirm");
+	private static final By SAVE = By.xpath("//div[@id='confirmAppointment']/div[2]/button[2]");
+	private static final By BOOK_APPOINTMENT = By.cssSelector("i.icon-calendar:nth-child(1)");
+	private static final By YES_DELETE_REQUEST = By.xpath("//div[@id='confirm-cancel-appointment-request']/div[2]/button");
+	private static final By VIEW_ALL_TYPES_LINK = By.cssSelector("#viewAllAppointmentTypes > a");
 
 	public ManageAppointmentsPage(Page page) {
 		super(page);
 	}
 
 	public void searchAppointment() {
-		clickOn(SEARCH_BUTTON);
+		clickOn(SEARCH);
 	}
 
 	public void clickAppointment() {
@@ -37,15 +37,15 @@ public class ManageAppointmentsPage extends Page {
 	}
 
 	public FindPatientPage saveAppointment() {
-		clickOn(NEXT_BUTTON);
-		clickOn(SAVE_BUTTON);
+		clickOn(NEXT);
+		clickOn(SAVE);
 		return new FindPatientPage(this);
 	}
 
 	public void deleteRequest() {
-		waitForElement(DELETE_REQUEST_ICON);
-		clickOn(DELETE_REQUEST_ICON);
-		clickOn(CONFIRM_CANCEL_APPOINTMENT_REQUEST_BUTTON);
+		waitForElement(DELETE_REQUEST);
+		clickOn(DELETE_REQUEST);
+		clickOn(YES_DELETE_REQUEST);
 	}
 
 	public String getAppointmentServiceType() {
@@ -59,7 +59,7 @@ public class ManageAppointmentsPage extends Page {
 	}
 
 	public void clickOnBookAppointment() {
-		clickOn(BOOK_APPOINTMENT_ICON);
+		clickOn(BOOK_APPOINTMENT);
 	}
 
 	public void clickOnViewAllTypes() {

@@ -14,7 +14,6 @@ import java.util.List;
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class RequestAppointmentPage extends Page {
 
@@ -34,7 +33,7 @@ public class RequestAppointmentPage extends Page {
 
 	public void enterAppointmentType(String type) {
 		setTextToFieldNoEnter(APPOINTMENT_TYPE, type);
-		waiter.until(ExpectedConditions.visibilityOfElementLocated((SERVICE_DROPDOWN)));
+		waitForElement(SERVICE_DROPDOWN);
 		clickOn(SERVICE_DROPDOWN);
 	}
 

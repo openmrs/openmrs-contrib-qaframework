@@ -144,16 +144,13 @@ MySQL password should be the same for initialSetupTests as openmrs password
     cd run/docker
     docker compose down -v
     ```
+* Then package the distribution again
+
 3. Run the app
     ```
     docker-compose up
     ```
 
-New OpenMRS UI is accessible at http://localhost/openmrs/spa
-
-OpenMRS Legacy UI is accessible at http://localhost/openmrs
-
----
 ## Running tests`
 
 There are two ways of running tests:

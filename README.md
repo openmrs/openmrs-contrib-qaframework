@@ -125,18 +125,31 @@ MySQL password should be the same for initialSetupTests as openmrs password
     ```
     npm install
     ```
+   
+## Setup up the local instance.
 
-## Run local instance for the test backend.
+1. Clone the repository and navigate
+    ```
+    git clone -b 3.x git@github.com:openmrs/openmrs-distro-referenceapplication.git
+    cd openmrs-distro-referenceapplication
+    ```
 
-1. Navigate to the docker folder
-    ``` 
-    cd docker
+2. Package the distribution and prepare the run
     ```
-2. Run the app
+    mvn clean package
     ```
-    docker compose -f docker-compose-o3.yml up 
+   
+* If the build fails, try deleting existing containers
     ```
-If the docker file won't up, follow the setup guidelines in [openmrs-distro-referenceapplication 3.x](https://github.com/openmrs/openmrs-distro-referenceapplication/tree/3.x) branch.
+    cd run/docker
+    docker compose down -v
+    ```
+* Then package the distribution again
+
+3. Run the app
+    ```
+    docker-compose up
+    ```
 
 ## Running tests`
 

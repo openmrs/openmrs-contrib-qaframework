@@ -126,7 +126,7 @@ MySQL password should be the same for initialSetupTests as openmrs password
     npm install
     ```
    
-## Setting up the local instance for the test backend.
+## Setup up the local instance.
 
 1. Clone the repository and navigate
     ```
@@ -138,16 +138,14 @@ MySQL password should be the same for initialSetupTests as openmrs password
     ```
     mvn clean package
     ```
-
-### If the build fails at this point should be destroyed the associated volumes
-```
-cd run/docker
-docker compose down -v
-mvn clean package
-```
-3. Run the app
+   
+* If the build fails, try deleting existing containers
     ```
     cd run/docker
+    docker compose down -v
+    ```
+3. Run the app
+    ```
     docker-compose up
     ```
 

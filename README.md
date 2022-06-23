@@ -57,8 +57,6 @@ Install & Upgrade Tests |
 3.x RefApp Workflow Tests|
 ------------- |
 [3.x Demo Build](https://ci.openmrs.org/browse/REFAPP-D3X) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-D3X)
-
-### Under constructions!
 ___
 
 ## Concept Management Tools 

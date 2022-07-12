@@ -58,12 +58,6 @@ Install & Upgrade Tests |
 3.x RefApp Workflow Tests|
 ------------- |
 [3.x Demo Build](https://ci.openmrs.org/browse/REFAPP-D3X) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-D3X)
-[![RefApp 3.x Login](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-login.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-login.yml)
-[![RefApp 3.x Patient Registration](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-patient-registration.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-patient-registration.yml)
-[![RefApp 3.x User settings](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-settings.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-settings.yml)
-[![RefApp 3.x Clinical Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-clinical-visit.yml)
-[![RefApp 3.x Vitals And Triage](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-vitals-and-triage.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-vitals-and-triage.yml)
-[![RefApp 3.x Patient Search](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-patient-search.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-3x-patient-search.yml)
 ___
 
 ## Concept Management Tools 
@@ -132,7 +126,31 @@ MySQL password should be the same for initialSetupTests as openmrs password
     ```
     npm install
     ```
-You don’t need to set up an OpenMRS instance since we use a [cloud instance](https://dev3.openmrs.org/openmrs/spa) for the test backend.
+   
+## Setup up the local instance.
+
+1. Clone the repository and navigate
+    ```
+    git clone -b 3.x git@github.com:openmrs/openmrs-distro-referenceapplication.git
+    cd openmrs-distro-referenceapplication
+    ```
+
+2. Package the distribution and prepare the run
+    ```
+    mvn clean package
+    ```
+   
+* If the build fails, try deleting existing containers
+    ```
+    cd run/docker
+    docker compose down -v
+    ```
+* Then package the distribution again
+
+3. Run the app
+    ```
+    docker-compose up
+    ```
 
 ## Running tests`
 

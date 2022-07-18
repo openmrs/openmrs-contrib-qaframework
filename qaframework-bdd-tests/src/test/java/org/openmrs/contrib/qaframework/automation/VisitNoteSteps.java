@@ -29,9 +29,9 @@ public class VisitNoteSteps extends Steps {
 
     private static final String DIAGNOSIS_PRIMARY = "Cancer";
     private static final String DIAGNOSIS_SECONDARY = "Malaria";
-    private static final String DIAGNOSIS_SECONDARY_UPDATED = "Pneumonia";
     private ActiveVisitsPage activeVisitsPage;
     private VisitNotePage visitNotePage;
+    private static final String DIAGNOSIS_SECONDARY_UPDATED = "Pneumonia";
     private TestData.PatientInfo testPatient;
 
     @Before(RunTest.HOOK.SELENIUM_VISIT_NOTE)
@@ -119,7 +119,7 @@ public class VisitNoteSteps extends Steps {
 
     @Then("the system saves the diagnosis into the visit note table")
     public void systemAddsDiagnosis() {
-        assertEquals("Pneumonia", visitNotePage.primaryDiagnosis());
+        assertEquals(DIAGNOSIS_SECONDARY_UPDATED, visitNotePage.primaryDiagnosis());
         assertEquals("Bleeding", visitNotePage.secondaryDiagnosis());
     }
 

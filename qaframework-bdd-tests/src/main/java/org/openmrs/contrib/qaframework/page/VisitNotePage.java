@@ -20,7 +20,7 @@ public class VisitNotePage extends Page {
 	private static final By CODE = By.className("code");
 	private static final By UI_ID_1 = By.id("ui-id-1");
 	private static final By UI_MENU_ITEM = By.className("ui-menu-item");
-	private static final By PRIMARY_DIAGNOSIS_ELEMENT = By.cssSelector(".diagnosis.primary .matched-name");
+	private static final By PRIMARY_DIAGNOSIS_ELEMENT = By.xpath("//ul[1]/li/span/div/strong");
 	private static final By SECONDARY_DIAGNOSIS_ELEMENT = By.xpath("//ul[2]/li/span/div/strong");
 	private static final By SAVE_VISIT_NOTE = By.cssSelector(".submitButton.confirm");
 	private static final By NOTE = By.id("w10");

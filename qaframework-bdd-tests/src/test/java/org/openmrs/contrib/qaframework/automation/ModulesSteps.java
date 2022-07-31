@@ -62,7 +62,7 @@ public class ModulesSteps extends Steps {
     	assertTrue(textExists("Modules"));
     }
 
-    @And("the user checks the list of started modules")
+    @And("the user confirms that all the modules are started")
     public void checkListOfStartedModules() {
     	WebElement moduleListing = modulesPage.findElementById("moduleListing");
     	List<WebElement> firstColumn = moduleListing.findElements(By.cssSelector("#moduleListing table tbody td"));

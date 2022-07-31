@@ -47,22 +47,22 @@ public class ModulesSteps extends Steps {
     	administrationPage = homePage.goToAdministration();
     }
 
-    @Then ("the system loads administration page")
+    @Then("the system loads administration page")
     public void systemLoadsAdministrationPage() {
     	assertTrue(textExists("Administration"));
     }
  
-    @When ("a user clicks on the modules link")
+    @When("a user clicks on the modules link")
     public void launchModulesPage() {
     	modulesPage = administrationPage.goToManageModulesPage();
     }
 
-    @Then ("the system loads modules page")
+    @Then("the system loads modules page")
     public void systemLoadsModulesPage() {
     	assertTrue(textExists("Modules"));
     }
 
-    @And ("the user checks the list of started modules")
+    @And("the user checks the list of started modules")
     public void checkListOfStartedModules() {
     	WebElement moduleListing = modulesPage.findElementById("moduleListing");
     	List<WebElement> firstColumn = moduleListing.findElements(By.cssSelector("#moduleListing table tbody td"));

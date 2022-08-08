@@ -9,9 +9,9 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertEquals;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
@@ -119,7 +119,7 @@ public class VisitNoteSteps extends Steps {
 
     @Then("the system saves the diagnosis into the visit note table")
     public void systemAddsDiagnosis() {
-        assertEquals("Pneumonia", visitNotePage.primaryDiagnosis());
+        assertEquals(DIAGNOSIS_SECONDARY_UPDATED, visitNotePage.primaryDiagnosis());
         assertEquals("Bleeding", visitNotePage.secondaryDiagnosis());
     }
 
@@ -131,7 +131,8 @@ public class VisitNoteSteps extends Steps {
     }
 
     @Then("the system deletes the visit note")
-    public void systemdeletesVisitNotePage() {
+    public void systemDeletesVisitNotePage() {
         assertTrue(textExists("deleted"));
     }
+    
 }

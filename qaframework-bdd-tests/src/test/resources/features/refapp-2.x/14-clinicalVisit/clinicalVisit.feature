@@ -51,7 +51,7 @@ Feature: Clinical Visit Management
     When a user clicks on Attachments link from patient visits dashboard
     Then the system loads Attachments page
     And a user attaches patient supporting file
-    And a user clicks the clear forms button
+    And a user clicks on clear forms button
     Then the system drops the supporting file
     # User story: End patient visit
     When a user clicks on end visit button

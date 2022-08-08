@@ -250,7 +250,7 @@ public class ClinicalVisitSteps extends Steps {
 		visitsDashboardPage = (PatientVisitsDashboardPage) dashboardPage.goToRecentVisits();
 	}
 
-	@And("a user clicks the clear forms button")
+	@And("a user clicks on clear forms button")
 	public void clickOnClearFormsButton() {
 		attachmentsPage.clickOnClearForms();
 	}

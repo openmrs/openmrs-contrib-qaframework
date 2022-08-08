@@ -4,9 +4,6 @@ on:
     branches: [master]
   pull_request:
     branches: [master]
-    paths:
-      - "qaframework-bdd-tests/src/**/*.*"
-      - "qaframework-bdd-tests/package.json"
   repository_dispatch:
     types: [qa]
   workflow_dispatch:

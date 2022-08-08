@@ -64,10 +64,13 @@ Feature: Appointment Management
     And user searches patient
     And user selects first patient
     And the system loads Manage Appointments page
-    And a user searches appointment request
     And a user clicks on book appointment icon
+    And a user searches appointment request
+    And a user clicks on the appointment
     And a user clicks the Save button
-    Then the system saves the scheduled appointment
+    And user searches the patient
+    And user selects first patient
+    Then the system loads the Manage Appointments page
     #User Story: Delete Booked Appointment
     When a user clicks Appointment scheduling app from the home page
     Then the system loads the appointment scheduling page

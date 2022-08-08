@@ -212,7 +212,7 @@ public class AppointmentSteps extends Steps {
 
 	@And("user searches patient")
 	public void searchPatient() {
-		findPatientPage.enterPatient(testPatient.getName());
+		findPatientPage.enterPatient(testPatient.identifier);
 	}
 
 	@And("user selects first patient")
@@ -220,17 +220,21 @@ public class AppointmentSteps extends Steps {
 		manageAppointmentsPage = (ManageAppointmentsPage) findPatientPage.clickOnFirstPatientAppointment();
 	}
 
+	@And("a user clicks on book appointment icon")
+	public void clickOnBookAppointment() {
+		manageAppointmentsPage.clickOnBookAppointment();
+	}
+
 	@And("a user searches appointment request")
 	public void searchAppointmentRequest() {
 		manageAppointmentsPage.clickOnViewAllTypes();
 		manageAppointmentsPage.clickOnService(FIRST_SERVICE_NAME);
 		manageAppointmentsPage.searchAppointment();
-		manageAppointmentsPage.clickAppointment();
 	}
 
-	@And("a user clicks on book appointment icon")
-	public void clickOnBookAppointment() {
-		manageAppointmentsPage.clickOnBookAppointment();
+	@And("a user clicks on the appointment")
+	public void clickOnAppointment() {
+		manageAppointmentsPage.clickAppointment();
 	}
 
 	@And("a user clicks the Save button")
@@ -238,9 +242,13 @@ public class AppointmentSteps extends Steps {
 		manageAppointmentsPage.saveAppointment();
 	}
 
-	@Then("the system saves the scheduled appointment")
-	public void systemSavesScheduledAppointment() {
+	@And("user searches the patient")
+	public void searchThePatient() {
+		findPatientPage.enterPatient(testPatient.getName());
+	}
+
+	@Then("the system loads the Manage Appointments page")
+	public void systemLoadsTheManageAppointmentsPage() {
 		assertTrue(manageAppointmentsPage.containsText("Scheduled"));
-		dashboardPage.goToHomePage();
 	}
 }

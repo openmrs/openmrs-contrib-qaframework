@@ -29,7 +29,7 @@ public class ManageProviderSchedulesPage extends Page {
 				break;
 		}
 
-		NEXT_WEEKDAY = By.cssSelector(String.format("[data-date=\"%s\"]",
+		NEXT_WEEKDAY = By.cssSelector(String.format("[data-date=\"%s\"] .fc-day-number",
 				nextWeekday));
 	}
 

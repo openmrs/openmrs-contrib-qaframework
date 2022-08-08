@@ -41,6 +41,7 @@ public class AppointmentBlocksPage extends Page {
 	private static final By DAY_BLOCK = By.xpath("//table[@class='fc-border-separate']/tbody/tr/td/div");
 	private static final By REMOVE_APPOINTMENT = By.xpath("//div[@id='appointment-block-form']/selectmultipleappointmenttypes/div/div/div/div/i");
 	private static final By CANCEL = By.className("cancel");
+	private static final By ALERT = By.id("#qtip-0-content");
 
 	public AppointmentBlocksPage(Page page) {
 		super(page);
@@ -150,7 +151,11 @@ public class AppointmentBlocksPage extends Page {
 	}
 
 	public void clickOnConfirmDelete() {
-		clickOn(DELETE_CONFIRM);
+		if (ALERT != null) {
+			driver.findElement(By.cssSelector("#delete-appointment-block-modal > div.dialog-header > h3")).click();
+			clickOn(DELETE_CONFIRM);
+		}else
+			clickOn(DELETE_CONFIRM);
 	}
 
 	public void clickOnEdit() {
@@ -162,7 +167,7 @@ public class AppointmentBlocksPage extends Page {
 	}
 
 	public void clickOnAppointment() {
-		findElement(SERVICE_BLOCK).click();
+		clickOn(SERVICE_BLOCK);
 	}
 
 	/**

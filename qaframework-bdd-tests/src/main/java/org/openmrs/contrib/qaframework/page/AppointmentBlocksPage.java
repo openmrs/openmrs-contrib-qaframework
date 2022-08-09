@@ -154,8 +154,9 @@ public class AppointmentBlocksPage extends Page {
 		if (ALERT != null) {
 			driver.findElement(By.cssSelector("#delete-appointment-block-modal > div.dialog-header > h3")).click();
 			clickOn(DELETE_CONFIRM);
-		}else
+		}else {
 			clickOn(DELETE_CONFIRM);
+		}
 	}
 
 	public void clickOnEdit() {

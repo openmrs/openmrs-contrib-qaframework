@@ -4,7 +4,7 @@ ___
 
 [TRUNK](https://ci.openmrs.org/browse/TRUNK-MASTER) | [REST API](https://ci.openmrs.org/browse/RESTWS-RESTWS) | [FHIR API](https://ci.openmrs.org/browse/FHIR-FM2) | [SONAQUBE DASHBOARD](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs)
 ------------ | ------------- | ------------- | -------------
-![Build Status](https://img.shields.io/github/TRUNK-MASTER) | ![Build Status](https://img.shields.io/github/RESTWS-RESTWS) | ![Build Status](https://img.shields.io/github/FHIR-FM2) | ![Build Status](https://img.shields.io/github/SON-OPENMRSCOREMASTER)
+![Build Status](https://img.shields.io/ci.openmrs.org/browse/TRUNK-MASTER) | ![Build Status](https://img.shields.io/github/RESTWS-RESTWS) | ![Build Status](https://img.shields.io/github/FHIR-FM2) | ![Build Status](https://img.shields.io/github/SON-OPENMRSCOREMASTER)
 
 
 Install & Upgrade Tests |

@@ -207,13 +207,10 @@ public class TestBase {
 	WebDriver setupFirefoxDriver() {
 		if (StringUtils.isBlank(System.getProperty("webdriver.gecko.driver"))) {
 			System.setProperty("webdriver.gecko.driver", Thread.currentThread().getContextClassLoader().getResource(TestProperties.instance().getFirefoxDriverLocation()).getPath());
-			System.setProperty("webdriver.gecko.driver.whitelistedIps", "");
 		}
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
 			firefoxOptions.addArguments("--headless");
-			firefoxOptions.addArguments("--no-sandbox");
-			firefoxOptions.addArguments("--disable-dev-shm-usage");
 		}
 		driver = new FirefoxDriver(firefoxOptions);
 		return driver;
@@ -267,7 +264,7 @@ public class TestBase {
 		}
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY,
 				chromedriverExecutablePath);
-				System.setProperty("webdriver.chrome.whitelistedIps", "");
+				System.setProperty(ChromeDriverService.CHROME_DRIVER_WHITELISTED_IPS_PROPERTY, "");
 		String chromedriverFilesDir = "target/chromedriverlogs";
 		try {
 			FileUtils.forceMkdir(new File(chromedriverFilesDir));
@@ -276,6 +273,7 @@ public class TestBase {
 		}
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY,
 				chromedriverFilesDir + "/chromedriver-" + getClass().getSimpleName() + ".log");
+				System.setProperty(ChromeDriverService.CHROME_DRIVER_WHITELISTED_IPS_PROPERTY, "");
 		ChromeOptions chromeOptions = new ChromeOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
 			chromeOptions.addArguments("--headless");

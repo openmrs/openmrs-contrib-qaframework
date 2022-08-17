@@ -207,6 +207,7 @@ public class TestBase {
 	WebDriver setupFirefoxDriver() {
 		if (StringUtils.isBlank(System.getProperty("webdriver.gecko.driver"))) {
 			System.setProperty("webdriver.gecko.driver", Thread.currentThread().getContextClassLoader().getResource(TestProperties.instance().getFirefoxDriverLocation()).getPath());
+			System.setProperty("webdriver.gecko.driver.whitelistedIps", "");
 		}
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
@@ -266,6 +267,7 @@ public class TestBase {
 		}
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY,
 				chromedriverExecutablePath);
+				System.setProperty("webdriver.chrome.whitelistedIps", "");
 		String chromedriverFilesDir = "target/chromedriverlogs";
 		try {
 			FileUtils.forceMkdir(new File(chromedriverFilesDir));

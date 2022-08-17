@@ -211,6 +211,8 @@ public class TestBase {
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
 			firefoxOptions.addArguments("--headless");
+			firefoxOptions.addArguments("--no-sandbox");
+			firefoxOptions.addArguments("--disable-dev-shm-usage");
 		}
 		driver = new FirefoxDriver(firefoxOptions);
 		return driver;
@@ -275,6 +277,8 @@ public class TestBase {
 		ChromeOptions chromeOptions = new ChromeOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
 			chromeOptions.addArguments("--headless");
+			chromeOptions.addArguments("--no-sandbox");
+			chromeOptions.addArguments("--disable-dev-shm-usage");
 		}
 		driver = new ChromeDriver(chromeOptions);
 		return driver;

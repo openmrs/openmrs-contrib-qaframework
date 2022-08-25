@@ -19,7 +19,7 @@ Feature: Appointment Management
   @appointment
   Scenario: Create, Edit and Delete Appointment Block
     #User Story: Create Appointment Block
-    When a user clicks Appointment scheduling app from the home page
+    When a user clicks on Appointment scheduling app from the home page
     Then the system loads the appointment scheduling page
     And a user clicks on Manage Provider Schedules app
     And the system loads Manage Provider Schedules page
@@ -27,7 +27,7 @@ Feature: Appointment Management
     And a user clicks on the save button
     Then the system saves the appointment block
     #User Story: Edit Appointment Block
-    When a user clicks Appointment scheduling app from the home page
+    When a user clicks on Appointment scheduling app from the home page
     Then the system loads the appointment scheduling page
     And a user clicks on the Manage Provider Schedules app
     And the system loads Appointment Blocks page
@@ -38,7 +38,7 @@ Feature: Appointment Management
     And a user clicks on Save button
     Then the system saves the edited appointment block
     #User Story: Delete Appointment Block
-    When a user clicks Appointment scheduling app from the home page
+    When a user clicks on Appointment scheduling app from the home page
     Then the system loads the appointment scheduling page
     And a user clicks on the Manage Provider Schedules app
     And the system loads Appointment Blocks page
@@ -50,7 +50,7 @@ Feature: Appointment Management
   @appointment
   Scenario: Booking and Deleting An Appointment
     # User Story: Create appointment block
-    When a user clicks Appointment scheduling app from the home page
+    When a user clicks on Appointment scheduling app from the home page
     Then the system loads the appointment scheduling page
     And a user clicks on Manage Provider Schedules app
     And the system loads Manage Provider Schedules page
@@ -58,7 +58,7 @@ Feature: Appointment Management
     And a user clicks on the save button
     Then the system saves the appointment block
     #User Story: Book Appointment
-    When a user clicks Appointment scheduling app from the home page
+    When a user clicks on Appointment scheduling app from the home page
     Then the system loads the appointment scheduling page
     And a user clicks on Manage Appointments app
     And user searches patient
@@ -72,7 +72,7 @@ Feature: Appointment Management
     And user selects first patient
     Then the system loads the Manage Appointments page
     #User Story: Delete Booked Appointment
-    When a user clicks Appointment scheduling app from the home page
+    When a user clicks on Appointment scheduling app from the home page
     Then the system loads the appointment scheduling page
     And a user clicks on the Manage Provider Schedules app
     And the system loads Appointment Blocks page

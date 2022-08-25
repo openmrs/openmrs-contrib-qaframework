@@ -105,7 +105,7 @@ public class AppointmentSteps extends Steps {
 		assertTrue(manageAppointmentsPage.containsText("No appointment requests"));
 	}
 
-	@When("a user clicks Appointment scheduling app from the home page")
+	@When("a user clicks on Appointment scheduling app from the home page")
 	public void loadAppointmentSchedulingPage() {
 		dashboardPage.goToHomePage();
 		appointmentSchedulingPage = (AppointmentSchedulingPage ) homePage.goToAppointmentScheduling();

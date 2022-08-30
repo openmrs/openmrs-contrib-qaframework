@@ -19,6 +19,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AppointmentBlocksPage extends Page {
 
 	public static final By DELETE = By.linkText("Delete");
+	public static final By CURRENT_DAY_BUTTON = By.cssSelector("#calendar table tbody tr td.fc-header-left span.fc-button.fc-button-basicDay.fc-state-default.fc-corner-left.fc-corner-right");
 	private static final By APPOINTMENT_SCHEDULING = By.id("appointmentschedulingui-homeAppLink-appointmentschedulingui-homeAppLink-extension");
 	private static final By MANAGE_PROVIDER_SCHEDULES = By.id("appointmentschedulingui-scheduleProviders-app");
 	private static final By LOCATION = By.className("ng-pristine");
@@ -40,6 +41,7 @@ public class AppointmentBlocksPage extends Page {
 	private static final By DAY_BLOCK = By.xpath("//table[@class='fc-border-separate']/tbody/tr/td/div");
 	private static final By REMOVE_APPOINTMENT = By.xpath("//div[@id='appointment-block-form']/selectmultipleappointmenttypes/div/div/div/div/i");
 	private static final By CANCEL = By.className("cancel");
+	private static final By ALERT = By.id("#qtip-0-content");
 
 	public AppointmentBlocksPage(Page page) {
 		super(page);
@@ -96,6 +98,10 @@ public class AppointmentBlocksPage extends Page {
 	public void enterStartTime(String start) {
 		setTextToFieldNoEnter(START_TIME, start);
 	}
+	
+	public void clickOnCurrentDay() throws InterruptedException {
+		clickOn(CURRENT_DAY_BUTTON);
+	}
 
 	/**
 	 * Scrolls the page up This method has been created since the delete button
@@ -145,7 +151,12 @@ public class AppointmentBlocksPage extends Page {
 	}
 
 	public void clickOnConfirmDelete() {
-		clickOn(DELETE_CONFIRM);
+		if (ALERT != null) {
+			driver.findElement(By.cssSelector("#delete-appointment-block-modal > div.dialog-header > h3")).click();
+			clickOn(DELETE_CONFIRM);
+		}else {
+			clickOn(DELETE_CONFIRM);
+		}
 	}
 
 	public void clickOnEdit() {
@@ -157,7 +168,7 @@ public class AppointmentBlocksPage extends Page {
 	}
 
 	public void clickOnAppointment() {
-		findElement(SERVICE_BLOCK).click();
+		clickOn(SERVICE_BLOCK);
 	}
 
 	/**

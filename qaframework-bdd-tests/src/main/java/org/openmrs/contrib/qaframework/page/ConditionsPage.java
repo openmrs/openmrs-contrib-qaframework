@@ -51,12 +51,14 @@ public class ConditionsPage extends Page {
 	}
 
 	public String getFirstConditionName() {
-		try {
+		//TODO fix this performance problem
+		/*try {
 			 waiter.until(ExpectedConditions.elementToBeClickable(FIRST_CONDITION_NAME));
 			return driver.findElement(FIRST_CONDITION_NAME).getAttribute("innerText");
 		} catch (Exception e) {
 			return null;
-		}
+		}*/
+		return null;
 	}
 
 	public void clickActiveTab() {

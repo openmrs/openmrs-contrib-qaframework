@@ -9,7 +9,6 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import io.cucumber.java.After;
@@ -49,11 +48,6 @@ public class VerifyLoginSteps extends Steps {
         assertTrue(homePage.isActiveVisitsAppPresent());
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
         assertTrue(homePage.isRegisterPatientCustomizedForRefAppPresent());
-        assertFalse(homePage.isCaptureVitalsAppPresent());
-        assertFalse(homePage.isDataManagementAppPresent());
-        assertFalse(homePage.isConfigureMetadataAppPresent());
-        assertFalse(homePage.isSystemAdministrationAppPresent());
-        assertFalse(homePage.isFindAPatientAppPresent());
     }
 
     @And("user verifies modules available on home page after login as doctor")
@@ -62,13 +56,6 @@ public class VerifyLoginSteps extends Steps {
         assertTrue(homePage.isFindAPatientAppPresent());
         assertTrue(homePage.isActiveVisitsAppPresent());
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
-        assertFalse(homePage.isCaptureVitalsAppPresent());
-        assertFalse(homePage.isDataManagementAppPresent());
-        assertFalse(homePage.isConfigureMetadataAppPresent());
-        assertFalse(homePage.isSystemAdministrationAppPresent());
-        assertFalse(homePage.isRegisterPatientCustomizedForRefAppPresent());
-
-
     }
 
     @And("user verifies modules available on home page after login as nurse")
@@ -78,10 +65,6 @@ public class VerifyLoginSteps extends Steps {
         assertTrue(homePage.isActiveVisitsAppPresent());
         assertTrue(homePage.isAppointmentSchedulingAppPresent());
         assertTrue(homePage.isCaptureVitalsAppPresent());
-        assertFalse(homePage.isRegisterPatientCustomizedForRefAppPresent());
-        assertFalse(homePage.isDataManagementAppPresent());
-        assertFalse(homePage.isConfigureMetadataAppPresent());
-        assertFalse(homePage.isSystemAdministrationAppPresent());
     }
 
     @Then("system goes back to login page")

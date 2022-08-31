@@ -71,8 +71,8 @@ import jakarta.ws.rs.core.Response;
  */
 public class TestBase {
 
-	public static final int MAX_WAIT_IN_SECONDS = 120;
-	public static final int MAX_PAGE_LOAD_IN_SECONDS = 120;
+	public static final int MAX_WAIT_IN_SECONDS = 15;
+	public static final int MAX_PAGE_LOAD_IN_SECONDS = 15;
 	public static final int MAX_SERVER_STARTUP_IN_MILLISECONDS = 10 * 60 * 1000;
 	private static volatile boolean serverFailure = false;
 	@Rule
@@ -136,7 +136,6 @@ public class TestBase {
 		driver.manage().timeouts().implicitlyWait(MAX_WAIT_IN_SECONDS, TimeUnit.SECONDS);
 		driver.manage().timeouts().pageLoadTimeout(MAX_PAGE_LOAD_IN_SECONDS, TimeUnit.SECONDS);
 
-		long start = System.currentTimeMillis();
 		boolean autoLoginAtStart = properties.automaticallyLoginAtStartup();
 		while (autoLoginAtStart & !driver.getCurrentUrl().endsWith("index.htm")) {
 			try {
@@ -150,12 +149,7 @@ public class TestBase {
 			} catch (ProcessingException e) {
 				failTest(testMethod, e);
 			} catch (Exception e) {
-				if (System.currentTimeMillis() > start + MAX_SERVER_STARTUP_IN_MILLISECONDS) {
-					failTest(testMethod, e);
-				} else {
-					// log that connection timed out, and try again in next iteration
-					System.out.println("Failed to login in " + testMethod + ", trying again...");
-				}
+				failTest(testMethod, e);
 			}
 		}
 	}
@@ -277,6 +271,8 @@ public class TestBase {
 		ChromeOptions chromeOptions = new ChromeOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
 			chromeOptions.addArguments("--headless");
+			chromeOptions.addArguments("--no-sandbox");
+			chromeOptions.addArguments("--disable-dev-shm-usage");
 		}
 		driver = new ChromeDriver(chromeOptions);
 		return driver;

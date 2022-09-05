@@ -71,8 +71,8 @@ import jakarta.ws.rs.core.Response;
  */
 public class TestBase {
 
-	public static final int MAX_WAIT_IN_SECONDS = 15;
-	public static final int MAX_PAGE_LOAD_IN_SECONDS = 15;
+	public static final int MAX_WAIT_IN_SECONDS = 5;
+	public static final int MAX_PAGE_LOAD_IN_SECONDS = 5;
 	public static final int MAX_SERVER_STARTUP_IN_MILLISECONDS = 10 * 60 * 1000;
 	private static volatile boolean serverFailure = false;
 	@Rule
@@ -137,7 +137,7 @@ public class TestBase {
 		driver.manage().timeouts().pageLoadTimeout(MAX_PAGE_LOAD_IN_SECONDS, TimeUnit.SECONDS);
 
 		boolean autoLoginAtStart = properties.automaticallyLoginAtStartup();
-		while (autoLoginAtStart & !driver.getCurrentUrl().endsWith("index.htm")) {
+		if (autoLoginAtStart & !driver.getCurrentUrl().endsWith("index.htm")) {
 			try {
 				page = login();
 				// wait for loading a page for MAX_PAGE_LOAD_IN_SECONDS + MAX_WAIT_IN_SECONDS and interpret no exception as successful connection
@@ -272,6 +272,8 @@ public class TestBase {
 		if ("true".equals(TestProperties.instance().getHeadless())) {
 			chromeOptions.addArguments("--headless");
 			chromeOptions.addArguments("--no-sandbox");
+			chromeOptions.addArguments("--disable-gpu");
+			chromeOptions.addArguments("--disable-extensions");
 			chromeOptions.addArguments("--disable-dev-shm-usage");
 		}
 		driver = new ChromeDriver(chromeOptions);

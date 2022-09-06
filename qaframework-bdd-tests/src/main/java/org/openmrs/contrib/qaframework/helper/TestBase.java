@@ -203,6 +203,9 @@ public class TestBase {
 			System.setProperty("webdriver.gecko.driver", Thread.currentThread().getContextClassLoader().getResource(TestProperties.instance().getFirefoxDriverLocation()).getPath());
 		}
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
+		if ("true".equals(TestProperties.instance().getHeadless())) {
+			firefoxOptions.addArguments("--headless");
+		}
 		driver = new FirefoxDriver(firefoxOptions);
 		return driver;
 	}

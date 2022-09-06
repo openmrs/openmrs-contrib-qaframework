@@ -71,8 +71,8 @@ import jakarta.ws.rs.core.Response;
  */
 public class TestBase {
 
-	public static final int MAX_WAIT_IN_SECONDS = 5;
-	public static final int MAX_PAGE_LOAD_IN_SECONDS = 5;
+	public static final int MAX_WAIT_IN_SECONDS = 20;
+	public static final int MAX_PAGE_LOAD_IN_SECONDS = 20;
 	public static final int MAX_SERVER_STARTUP_IN_MILLISECONDS = 10 * 60 * 1000;
 	private static volatile boolean serverFailure = false;
 	@Rule

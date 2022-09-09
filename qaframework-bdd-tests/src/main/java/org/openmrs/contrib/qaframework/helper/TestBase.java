@@ -271,8 +271,10 @@ public class TestBase {
 			chromeOptions.addArguments("--headless");
 			chromeOptions.addArguments("--no-sandbox");
 			chromeOptions.addArguments("--disable-gpu");
+			chromeOptions.addArguments("--single-process");
 			chromeOptions.addArguments("--disable-extensions");
 			chromeOptions.addArguments("--disable-dev-shm-usage");
+			chromeOptions.addArguments("--remote-debugging-port=9222");
 		}
 		driver = new ChromeDriver(chromeOptions);
 		return driver;

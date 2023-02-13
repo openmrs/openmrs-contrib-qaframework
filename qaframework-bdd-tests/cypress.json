@@ -6,9 +6,9 @@
   ],
   "video": true,
   "defaultCommandTimeout": 20000,
-  "baseUrl": "http://localhost/openmrs/spa",
+  "baseUrl": "http://localhost:8080/openmrs",
   "env": {
-    "API_BASE_URL": "http://localhost/openmrs/ws/rest/v1",
+    "API_BASE_URL": "http://localhost:8080/openmrs/ws/rest/v1",
     "ADMIN_USERNAME": "admin",
     "ADMIN_PASSWORD": "Admin123",
     "ADMIN_UUID": "82f18b44-6814-11e8-923f-e9a88dcb533f",

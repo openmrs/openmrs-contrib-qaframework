@@ -113,8 +113,6 @@ public class VisitNoteSteps extends Steps {
 
     @Then("the system displays the updated diagnosis cards")
     public void systemDisplaysUpdatedDiagnosisCards() {
-        // when primary diagnosis is removed, the secondary diagnosis becomes the
-        // primary diagnosis
         assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.primaryDiagnosis());
         assertEquals(DIAGNOSIS_SECONDARY_UPDATED, visitNotePage.secondaryDiagnosis());
     }

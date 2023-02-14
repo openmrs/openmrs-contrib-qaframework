@@ -11,6 +11,7 @@ Feature: Visit Note Management
   @visitNote
   Scenario: Adding a Visit Note
     When a user fills the visit note form
+    Then the system displays the diagnosis cards
     And a user clicks on save a visit note button
     Then the system saves the note into visit note table
 
@@ -18,12 +19,14 @@ Feature: Visit Note Management
   @visitNote
   Scenario: Editing a Visit Note
     When a user fills the visit note form
+    Then the system displays the diagnosis cards
     And a user clicks on save a visit note button
     Then the system saves the note into visit note table
     And a user clicks on the edit icon of a saved visit note
     Then the system loads the visit note page
     And a user edits the visit note
-    And  a user clicks on save a visit note button
+    Then the system displays the updated diagnosis cards
+    And a user clicks on save a visit note button
     Then the system saves the updated note into visit note table
 
   @selenium
@@ -31,7 +34,7 @@ Feature: Visit Note Management
   Scenario: Adding a Diagnosis to Visit Note
     When a user enters the diagnosis into the visit note form
     And a user clicks on save a visit note button
-    Then the system saves the diagnosis into the visit note table
+    Then the system saves the updated diagnosis into the visit note table
 
   @selenium
   @visitNote

@@ -31,7 +31,8 @@ public class VisitNoteSteps extends Steps {
     private static final String DIAGNOSIS_SECONDARY = "Malaria";
     private ActiveVisitsPage activeVisitsPage;
     private VisitNotePage visitNotePage;
-    private static final String DIAGNOSIS_SECONDARY_UPDATED = "Pneumonia";
+    private static final String DIAGNOSIS_PRIMARY_UPDATED = "Pneumonia";
+    private static final String DIAGNOSIS_SECONDARY_UPDATED = "Bleeding";
     private TestData.PatientInfo testPatient;
 
     @Before(RunTest.HOOK.SELENIUM_VISIT_NOTE)
@@ -82,6 +83,12 @@ public class VisitNoteSteps extends Steps {
         visitNotePage.addNote("This is a new visit note.");
     }
 
+    @Then("the system displays the diagnosis cards")
+    public void systemDisplaysDiagnosisCards() {
+        assertEquals(DIAGNOSIS_PRIMARY, visitNotePage.primaryDiagnosis());
+        assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.secondaryDiagnosis());
+    }
+
     @And("a user clicks on save a visit note button")
     public void addVisitNote() {
         visitNotePage.save();
@@ -89,8 +96,7 @@ public class VisitNoteSteps extends Steps {
 
     @Then("the system saves the note into visit note table")
     public void systemAddsVisitNote() {
-        assertEquals(DIAGNOSIS_PRIMARY, visitNotePage.primaryDiagnosis());
-        assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.secondaryDiagnosis());
+        assertEquals(DIAGNOSIS_PRIMARY, visitNotePage.savedPrimaryDiagnosis());
     }
 
     @And("a user clicks on the edit icon of a saved visit note")
@@ -105,9 +111,15 @@ public class VisitNoteSteps extends Steps {
         visitNotePage.addSecondaryDiagnosis(DIAGNOSIS_SECONDARY_UPDATED);
     }
 
+    @Then("the system displays the updated diagnosis cards")
+    public void systemDisplaysUpdatedDiagnosisCards() {
+        assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.primaryDiagnosis());
+        assertEquals(DIAGNOSIS_SECONDARY_UPDATED, visitNotePage.secondaryDiagnosis());
+    }
+
     @Then("the system saves the updated note into visit note table")
     public void systemAddsUpdatedVisitNote() {
-        assertEquals(DIAGNOSIS_SECONDARY_UPDATED, visitNotePage.secondaryDiagnosis());
+        assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.savedPrimaryDiagnosis());
     }
 
     @When("a user enters the diagnosis into the visit note form")
@@ -117,10 +129,9 @@ public class VisitNoteSteps extends Steps {
         visitNotePage.enterSecondaryDiagnosis("Bleed");
     }
 
-    @Then("the system saves the diagnosis into the visit note table")
+    @Then("the system saves the updated diagnosis into the visit note table")
     public void systemAddsDiagnosis() {
-        assertEquals(DIAGNOSIS_SECONDARY_UPDATED, visitNotePage.primaryDiagnosis());
-        assertEquals("Bleeding", visitNotePage.secondaryDiagnosis());
+        assertEquals(DIAGNOSIS_PRIMARY_UPDATED, visitNotePage.savedPrimaryDiagnosis());
     }
 
     @And("a user clicks on the delete icon of a saved visit note")
@@ -134,5 +145,5 @@ public class VisitNoteSteps extends Steps {
     public void systemDeletesVisitNotePage() {
         assertTrue(textExists("deleted"));
     }
-    
+
 }

@@ -22,6 +22,7 @@ public class VisitNotePage extends Page {
 	private static final By UI_MENU_ITEM = By.className("ui-menu-item");
 	private static final By PRIMARY_DIAGNOSIS_ELEMENT = By.xpath("//ul[1]/li/span/div/strong");
 	private static final By SECONDARY_DIAGNOSIS_ELEMENT = By.xpath("//ul[2]/li/span/div/strong");
+	private static final By SAVED_PRIMARY_DIAGNOSIS_ELEMENT = By.cssSelector("#visits-list > li > span.menu-title");
 	private static final By SAVE_VISIT_NOTE = By.cssSelector(".submitButton.confirm");
 	private static final By NOTE = By.id("w10");
 	private static final By PROVIDER = By.id("w1");
@@ -62,6 +63,7 @@ public class VisitNotePage extends Page {
 		findElement(NOTE).clear();
 		setText(NOTE, note);
 	}
+
 	public void editVisitNote() {
 		findElement(EDIT_VISIT_NOTE).click();
 	}
@@ -124,6 +126,10 @@ public class VisitNotePage extends Page {
 
 	public String secondaryDiagnosis() {
 		return findElement(SECONDARY_DIAGNOSIS_ELEMENT).getText().trim();
+	}
+
+	public String savedPrimaryDiagnosis() {
+		return findElement(SAVED_PRIMARY_DIAGNOSIS_ELEMENT).getText().trim();
 	}
 
 	public ClinicianFacingPatientDashboardPage save() {

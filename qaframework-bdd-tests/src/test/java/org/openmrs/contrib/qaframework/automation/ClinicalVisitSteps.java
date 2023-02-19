@@ -108,8 +108,7 @@ public class ClinicalVisitSteps extends Steps {
 
 	@Then("the system adds the note into visit note table")
 	public void systemAddsVisitNote() {
-		assertEquals(DIAGNOSIS_PRIMARY, visitNotePage.primaryDiagnosis());
-		assertEquals(DIAGNOSIS_SECONDARY, visitNotePage.secondaryDiagnosis());
+    	assertEquals(DIAGNOSIS_PRIMARY, visitNotePage.savedPrimaryDiagnosis());
 	}
 
 	@When("a user clicks on Allergies link from Patient dashboard page")

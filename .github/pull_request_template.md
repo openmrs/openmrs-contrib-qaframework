@@ -1,31 +1,47 @@
-## Description
+## Requirements
 
-[Describe what changes you have made and why you have made them]
+- [ ] This PR has a title that briefly describes the work done, including the ticket number if there is a ticket.
+- [ ] I have tested the changes locally and verified that they work as intended.
+- [ ] I have added comments to my code where necessary to help others understand my changes.
+- [ ] I have read and agree to the Contributing Guidelines of this project.
+
+
+## Summary
+
+<!--
+Required.
+Please describe what problems your PR addresses.
+-->
+
+
+## Screenshots
+
+*None.*
+<!--
+Optional.
+If possible, please insert any screenshots/videos of your changes here.
+Don't forget to remove the *None.* above if you do fill this section.
+-->
+
 
 ## Related Issue
 
-[Add the link to the issue you have addressed or created, if applicable]
+*None.*
+<!--
+Required if applicable.
+If present, please link any related issue here, e.g. "https://issues.openmrs.org/browse/123").
+Don't forget to remove the *None.* above if you do fill this section.
+-->
 
-## Checklist
-
-Please ensure that your pull request meets the following requirements:
-
-[ ] I have tested the changes locally and verified that they work as intended.
-
-[ ] I have updated the relevant documentation and/or tests to reflect the changes.
-
-[ ] I have added comments to my code where necessary to help others understand my changes.
-
-[ ] I have read and agree to the Contributing Guidelines of this project.
-
-## Screenshots (if applicable)
-
-[Add any relevant screenshots to help explain your changes]
 
 ## Other
 
-[Add any other informations that you want to include]
-
+*None.*
+<!--
+Optional.
+Anything else that isn't covered by one of the sections above.
+Don't forget to remove the *None.* above if you do fill this section.
+-->
 
 
 

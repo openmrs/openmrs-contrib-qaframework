@@ -42,6 +42,3 @@ Optional.
 Anything else that isn't covered by one of the sections above.
 Don't forget to remove the *None.* above if you do fill this section.
 -->
-
-
-

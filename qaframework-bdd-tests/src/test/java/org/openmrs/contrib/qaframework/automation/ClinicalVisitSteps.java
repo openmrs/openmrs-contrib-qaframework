@@ -100,6 +100,7 @@ public class ClinicalVisitSteps extends Steps {
 		visitNotePage.addSecondaryDiagnosis(DIAGNOSIS_SECONDARY);
 		visitNotePage.addNote("This is a visit note.");
 	}
+
 	@Then("the system displays diagnosis cards")
     	public void systemDisplaysTheDiagnosisCards() {
         	assertEquals(DIAGNOSIS_PRIMARY, visitNotePage.primaryDiagnosis());

@@ -39,7 +39,8 @@ Feature: Clinical Visit Management
     When a user clicks visit note link from the patient dashboard
     Then the system loads visit note page
     When a user fills the visit note
-    And a user clicks on save visit note button
+    Then the system displays diagnosis cards
+    When the user clicks on save visit note button
     Then the system adds the note into visit note table
     # User story: Attach supporting document
     When a user clicks on Attachments link from patient visits dashboard

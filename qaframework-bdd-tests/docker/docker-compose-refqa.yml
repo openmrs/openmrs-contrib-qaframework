@@ -15,7 +15,7 @@ services:
       - "3306:3306"
 
   openmrs-referenceapplication:
-    image: openmrs/openmrs-reference-application-distro:qa
+    image: openmrs/openmrs-reference-application-distro:uat
     depends_on:
       - openmrs-referenceapplication-mysql
     ports:
@@ -29,7 +29,7 @@ services:
       DB_AUTO_UPDATE: 'false'
       MODULE_WEB_ADMIN: 'false'
     healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8080/openmrs/"]
+      test: ["CMD", "curl", "-f", ""https://uat-refapp.openmrs.org/openmrs/""]
       timeout: 20s
     volumes:
       - openmrs-referenceapplication-data:/usr/local/tomcat/.OpenMRS

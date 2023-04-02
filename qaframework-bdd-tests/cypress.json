@@ -26,5 +26,7 @@
     "runMode": 2,
     "openMode": 0
   },
-  "chromeWebSecurity": false
+  "chromeWebSecurity": false,
+  "headless": true,  // Added this option to enable running tests in headless mode
+  "maxParallel": 5   // Added this option to limit maximum number of parallel tests to 5
 }

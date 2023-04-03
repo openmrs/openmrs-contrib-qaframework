@@ -97,7 +97,7 @@ public class LocationManagementSteps extends Steps {
     @Then("the user saves the form")
     public void userSavesForm() {
         manageLocationAttributeTypesPage.clickOnSaveButton();
-        assertTrue(textExists("Manage Location Attribute Types"));
+        assertTrue(textExists(LOCATION_ATTRIBUTE_TYPE_NAME));
     }
 
     @And("the user clicks on the edit icon")

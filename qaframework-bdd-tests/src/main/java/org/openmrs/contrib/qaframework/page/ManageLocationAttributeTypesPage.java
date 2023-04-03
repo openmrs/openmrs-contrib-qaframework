@@ -34,7 +34,7 @@ public class ManageLocationAttributeTypesPage extends Page {
 	private static final By CONFIRM_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationAttributeTypeForm button.confirm.right");
 	private static final By CANCEL_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationAttributeTypeForm button.cancel");
 	private static final By CANCEL_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationAttributeTypeForm button.cancel");
-	private static final By RESTORE_LOCATION_ATTRIBUTE_TYPE = By.cssSelector("#adminui-restore-form-46 i.icon-reply.edit-action");
+	private static final By RESTORE_LOCATION_ATTRIBUTE_TYPE = By.cssSelector("i.icon-reply.edit-action");
 
 	public ManageLocationAttributeTypesPage(Page configureMetadataPage) {
 		super(configureMetadataPage);

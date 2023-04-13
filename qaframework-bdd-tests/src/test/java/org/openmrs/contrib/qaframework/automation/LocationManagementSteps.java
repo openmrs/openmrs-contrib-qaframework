@@ -88,10 +88,10 @@ public class LocationManagementSteps extends Steps {
         manageLocationAttributeTypesPage.enterLocationAttributeTypeDescription(LOCATION_ATTRIBUTE_TYPE_DESCRIPTION);
         manageLocationAttributeTypesPage.enterMinimumOccurs(MINIMUM_OCCURS);
         manageLocationAttributeTypesPage.enterMaximumOccurs(MAXIMUM_OCCURS);
-        manageLocationAttributeTypesPage.selectDatatype("Location Datatype");
         manageLocationAttributeTypesPage.enterDatatypeConfiguration(DATATYPE_CONFIGURATION);
         manageLocationAttributeTypesPage.selectPreferredHandler("Location Field Gen Datatype Handler");
         manageLocationAttributeTypesPage.enterHandlerConfiguration(LOCATION_HANDLER_CONFIGURATION);
+        manageLocationAttributeTypesPage.selectDatatype("Location Datatype");
     }
 
     @Then("the user saves the form")

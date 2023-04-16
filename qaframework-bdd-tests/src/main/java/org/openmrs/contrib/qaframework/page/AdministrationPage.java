@@ -25,6 +25,7 @@ public class AdministrationPage extends Page {
 	private static final By MANAGE_HTMLFORMS_PAGE_LINK = By.cssSelector("#content a[href*='/module/htmlformentry/htmlForms.list']");
 	private static final By REPORT_ADMINISTRATION_LINK = By.cssSelector("#content a[href*='/module/reporting/reports/manageReports.form']");
 	private static final By MANAGE_ENCOUNTERS_LINK = By.linkText("Manage Encounters");
+	private static final By MANAGE_LOCATIONS_LINK = By.linkText("Manage Locations");
 
 	public AdministrationPage(Page page) {
 		super(page);
@@ -74,6 +75,11 @@ public class AdministrationPage extends Page {
 	public ManageEncountersPage clickOnManageEncounters() {
 		clickOn(MANAGE_ENCOUNTERS_LINK);
 		return new ManageEncountersPage(this);
+	}
+
+	public ManageLocationsOnAdminPage clickOnManageLocations() {
+		clickOn(MANAGE_LOCATIONS_LINK);
+		return new ManageLocationsOnAdminPage(this);
 	}
 
 	@Override

@@ -11,6 +11,7 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ManageLocationAttributeTypesPage extends Page {
 
@@ -33,6 +34,7 @@ public class ManageLocationAttributeTypesPage extends Page {
 	private static final By CONFIRM_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationAttributeTypeForm button.confirm.right");
 	private static final By CANCEL_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationAttributeTypeForm button.cancel");
 	private static final By CANCEL_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationAttributeTypeForm button.cancel");
+	private static final By RESTORE_LOCATION_ATTRIBUTE_TYPE = By.cssSelector("i.icon-reply.edit-action");
 
 	public ManageLocationAttributeTypesPage(Page configureMetadataPage) {
 		super(configureMetadataPage);
@@ -48,7 +50,8 @@ public class ManageLocationAttributeTypesPage extends Page {
 	}
 
 	public void goToEditLocationAttributeTypeForm() {
-		clickOn(EDIT_LOCATION_ATTRIBUTE_TYPE_ICON);
+		waitForElement(EDIT_LOCATION_ATTRIBUTE_TYPE_ICON);
+		clickOnLast(EDIT_LOCATION_ATTRIBUTE_TYPE_ICON);
 	}
 
 	public void enterLocationAttributeTypeName(String locationAttributeTypeName) {
@@ -82,8 +85,9 @@ public class ManageLocationAttributeTypesPage extends Page {
 		selectFrom(PREFERRED_HANDLER_FIELD, preferredHandler);
 	}
 
-	public void enterHandlerConfiguration(String handlerConfiguarion) {
-		selectFrom(HANDLER_CONFIGURATION_FILED, handlerConfiguarion);
+	public void enterHandlerConfiguration(String handlerConfiguration) {
+		findElement(HANDLER_CONFIGURATION_FILED).clear();
+		findElement(HANDLER_CONFIGURATION_FILED).sendKeys(handlerConfiguration);
 	}
 
 	public void clickOnSaveButton() {
@@ -105,12 +109,17 @@ public class ManageLocationAttributeTypesPage extends Page {
 	}
 
 	public void retireLocation() {
-		clickOn(RETIRE_LOCATION_ICON);
+		clickOnLast(RETIRE_LOCATION_ICON);
 		waitForElement(CONFIRM_RETIRE_LOCATION_BUTTON);
 		clickOn(CONFIRM_RETIRE_LOCATION_BUTTON);
 	}
 
 	public void cancelRetireLocation() {
 		clickOn(CANCEL_RETIRE_LOCATION_BUTTON);
+	}
+
+	public void restoreLocationAttributeType() {
+		waiter.until(ExpectedConditions.visibilityOfElementLocated(RESTORE_LOCATION_ATTRIBUTE_TYPE));
+		clickOnLast(RESTORE_LOCATION_ATTRIBUTE_TYPE);
 	}
 }

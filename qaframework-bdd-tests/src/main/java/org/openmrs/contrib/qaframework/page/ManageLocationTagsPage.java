@@ -23,7 +23,8 @@ public class ManageLocationTagsPage extends Page {
 	private static final By RETIRE_LOCATION_ICON = By.cssSelector("i.icon-remove.delete-action");
 	private static final By CONFIRM_RETIRE_LOCATION_BUTTON = By.cssSelector("#retireLocationTagForm button.confirm.right");
 	private static final By CANCEL_RETIRE_LOCATION_ICON = By.cssSelector("#retireLocationTagForm button.cancel");
-	private static final By CONFIRM_DELETE_LOCTION_BUTTON = By.cssSelector("#purgeLocationTagForm button.confirm.right");
+	private static final By RESTORE_RETIRE_LOCATION_ICON = By.cssSelector("i.icon-reply.edit-action");
+	private static final By CONFIRM_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationTagForm button.confirm.right");
 	private static final By CANCEL_DELETE_LOCATION_BUTTON = By.cssSelector("#purgeLocationTagForm button.cancel");
 	private static final By SAVE_LOCATION_BUTTON = By.cssSelector("#save-button");
 	private static final By CANCEL_LOCATION_BUTTON = By.cssSelector("input.cancel");
@@ -65,8 +66,8 @@ public class ManageLocationTagsPage extends Page {
 
 	public void deleteLocationTag() {
 		clickOn(DELETE_LOCATION_ICON);
-		waitForElement(CONFIRM_DELETE_LOCTION_BUTTON);
-		clickOn(CONFIRM_DELETE_LOCTION_BUTTON);
+		waitForElement(CONFIRM_DELETE_LOCATION_BUTTON);
+		clickOn(CONFIRM_DELETE_LOCATION_BUTTON);
 	}
 
 	public void cancelDeleteLocation() {
@@ -77,6 +78,10 @@ public class ManageLocationTagsPage extends Page {
 		clickOn(RETIRE_LOCATION_ICON);
 		waitForElement(CONFIRM_RETIRE_LOCATION_BUTTON);
 		clickOn(CONFIRM_RETIRE_LOCATION_BUTTON);
+	}
+
+	public void restoreLocation() {
+		clickOn(RESTORE_RETIRE_LOCATION_ICON);
 	}
 
 	public void cancelRetireLocation() {

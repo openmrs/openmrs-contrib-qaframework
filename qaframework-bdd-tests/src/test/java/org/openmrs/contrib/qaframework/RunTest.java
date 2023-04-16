@@ -58,6 +58,7 @@ public class RunTest {
 		public static final String VISIT_NOTE = "@visitNote";
 		public static final String SERVICE = "@service";
 		public static final String PATIENT_VISIT = "@patientVisit";
+		public static final String LOCATION = "@location";
 		public static final String SELENIUM_PERSON = SELENIUM + " and " + PERSON;
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
 		public static final String SELENIUM_MODULES = SELENIUM + " and " + MODULES;
@@ -78,7 +79,7 @@ public class RunTest {
 		public static final String SELENIUM_APPOINTMENT = SELENIUM + " and " + APPOINTMENT;
 		public static final String SELENIUM_PATIENT_DEMOGRAPHICS = SELENIUM + " and " + PATIENT_DEMOGRAPHICS;
 		public static final String SELENIUM_ROLES_AND_PRIVILEGES = SELENIUM + " and " + ROLES_AND_PRIVILEGES;
-		public static final String SELENIUM_ADD_USER_AND_ROLES  = SELENIUM + " and " + ADD_USER_AND_ROLES;
+		public static final String SELENIUM_ADD_USER_AND_ROLES = SELENIUM + " and " + ADD_USER_AND_ROLES;
 		public static final String SELENIUM_FORM = SELENIUM + " and " + FORM;
 		public static final String SELENIUM_ALLERGIES = SELENIUM + " and " + ALLERGIES;
 		public static final String SELENIUM_OPEN_CONCEPT_LAB = SELENIUM + " and " + OPEN_CONCEPT_LAB;
@@ -86,5 +87,6 @@ public class RunTest {
 		public static final String SELENIUM_DEFAULT_LOGIN = SELENIUM + " and " + DEFAULT_LOGIN;
 		public static final String SELENIUM_PHONE_NUMBER_VALIDATION = SELENIUM + " and " + PHONE_NUMBER_VALIDATION;
 		public static final String SELENIUM_SERVICE = SELENIUM + " and " + SERVICE;
+		public static final String SELENIUM_LOCATION_MANAGEMENT = SELENIUM + " and " + LOCATION;
 	}
 }

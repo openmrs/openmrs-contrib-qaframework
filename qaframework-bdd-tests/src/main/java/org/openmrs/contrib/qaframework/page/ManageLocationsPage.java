@@ -16,14 +16,13 @@ import org.openqa.selenium.TimeoutException;
 public class ManageLocationsPage extends Page {
 
 	protected static final String PAGE_URL = "/adminui/metadata/locations/manageLocations.page";
-	private static final String PARENT_LOCATION = "Pharmacy";
 	private static final By EDIT_LOCATION_LINK = By.cssSelector("i.icon-pencil.edit-action");
 	public static final By CONFIRM_PURGE_BUTTON = By.cssSelector("#adminui-purge-location-dialog button.confirm.right");
 	public static final By CONFIRM_RETIRE_BUTTON = By.cssSelector("#adminui-retire-location-dialog > div.dialog-content > form > button.confirm.right");
-	private static final By LOCATION_TAG_BUTTON = By.cssSelector("#locationForm fieldset table tbody tr:first-child td:first-child input[type=\"checkbox\"]");
+	private static final By LOCATION_TAG_BUTTON = By.cssSelector(".adminui-display-table tbody:nth-child(1) tr:nth-child(1) td:nth-child(1) input:nth-child(1)");
 	private static final By ADD_NEW_LOCATION_BUTTON = By.cssSelector("a.button");
 	private static final By LOCATION_NAME_FIELD = By.id("name-field");
-	private static final By ADD_EDIT_LOCATION = By.cssSelector("#content a[href='/openmrs/"+ AddEditLocationPage.PAGE_URL + "']");
+	private static final By ADD_EDIT_LOCATION = By.cssSelector("#content a[href='/openmrs/" + AddEditLocationPage.PAGE_URL + "']");
 	private static final By LOCATION_DESCRIPTION_FIELD = By.cssSelector("#description-field");
 	private static final By LOCATION_ADDRESS_FIELD_1 = By.cssSelector("#address1-field");
 	private static final By LOCATION_ADDRESS_FIELD_2 = By.cssSelector("#address2-field");
@@ -31,8 +30,9 @@ public class ManageLocationsPage extends Page {
 	private static final By STATE_FIELD = By.cssSelector("#stateProvince-field");
 	private static final By COUNTRY_FIELD = By.cssSelector("#country-field");
 	private static final By POSTAL_CODE_FIELD = By.cssSelector("#postalCode-field");
-	private static final By PARENT_LOCATION_FIELD = By.className("parentLocation");
+	private static final By PARENT_LOCATION_FIELD = By.cssSelector("select#fr9512-field");
 	private static final By SAVE_BUTTON = By.id("save-button");
+	private static final By RESTORE_LOCATION = By.cssSelector("#list-locations i.icon-reply.edit-action");
 
 	public ManageLocationsPage(Page parent) {
 		super(parent);
@@ -96,8 +96,8 @@ public class ManageLocationsPage extends Page {
 		findElement(POSTAL_CODE_FIELD).sendKeys(postalCode);
 	}
 
-	public void setParentLocation() {
-		selectFrom(PARENT_LOCATION_FIELD, PARENT_LOCATION);
+	public void selectParentLocation(String parentLocation) {
+		selectFrom(PARENT_LOCATION_FIELD, parentLocation);
 	}
 
 	public void selectLocationTag() {
@@ -109,21 +109,26 @@ public class ManageLocationsPage extends Page {
 	}
 
 	public void purgeLocation(String locationName) {
-		clickOn(By.xpath("//tr/td[preceding-sibling::td[contains(text(), '"+ locationName + "')]]/i[@class='icon-trash delete-action']"));
+		clickOn(By.xpath("//tr/td[preceding-sibling::td[contains(text(), '" + locationName + "')]]/i[@class='icon-trash delete-action']"));
 		waitForElement(CONFIRM_PURGE_BUTTON);
 		clickOn(CONFIRM_PURGE_BUTTON);
 	}
 
 	public void retireLocation(String locationName) {
-		clickOn(By.xpath("//tr/td[preceding-sibling::td[contains(text(), '"+ locationName + "')]]/i[@class='icon-remove delete-action']"));
+		clickOn(By.xpath("//tr/td[preceding-sibling::td[contains(text(), '" + locationName + "')]]/i[@class='icon-remove delete-action']"));
 		waitForElement(CONFIRM_RETIRE_BUTTON);
 		clickOn(CONFIRM_RETIRE_BUTTON);
 	}
 
 	public void assertRetired(String locationName) {
 		try {
-			findElement(By.xpath("//tr/td[preceding-sibling::td[contains(text(), '"+ locationName+ "')]]/i[@class='icon-reply edit-action']"));
-		} catch (TimeoutException e) { throw new RuntimeException("Couldn't find restore button, failed to retire location "+ locationName);
+			findElement(By.xpath("//tr/td[preceding-sibling::td[contains(text(), '" + locationName + "')]]/i[@class='icon-reply edit-action']"));
+		} catch (TimeoutException e) {
+			throw new RuntimeException("Couldn't find restore button, failed to retire location " + locationName);
 		}
+	}
+
+	public void restoreLocation() {
+		clickOn(RESTORE_LOCATION);
 	}
 }

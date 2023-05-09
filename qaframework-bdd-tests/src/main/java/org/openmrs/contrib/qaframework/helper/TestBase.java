@@ -267,6 +267,7 @@ public class TestBase {
 		System.setProperty(ChromeDriverService.CHROME_DRIVER_LOG_PROPERTY,
 				chromedriverFilesDir + "/chromedriver-" + getClass().getSimpleName() + ".log");
 		ChromeOptions chromeOptions = new ChromeOptions();
+		chromeOptions.addArguments("--remote-allow-origins=*");
 		if ("true".equals(TestProperties.instance().getHeadless())) {
 			chromeOptions.addArguments("--headless");
 			chromeOptions.addArguments("--no-sandbox");

@@ -3,7 +3,7 @@ ___
 ## Platform (core)
 
 [TRUNK](https://ci.openmrs.org/browse/TRUNK-MASTER) | [REST API](https://ci.openmrs.org/browse/RESTWS-RESTWS) | [FHIR API](https://ci.openmrs.org/browse/FHIR-FM2) | [SONAQUBE DASHBOARD](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs)
-
+------------ | ------------- | ------------- | -------------
 
 Install & Upgrade Tests |
 ------------- |

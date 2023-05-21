@@ -4,7 +4,7 @@ ___
 
 [TRUNK](https://ci.openmrs.org/browse/TRUNK-MASTER) | [REST API](https://ci.openmrs.org/browse/RESTWS-RESTWS) | [FHIR API](https://ci.openmrs.org/browse/FHIR-FM2) | [SONAQUBE DASHBOARD](https://sonar.openmrs.org/dashboard?id=org.openmrs%3Aopenmrs)
 ------------ | ------------- | ------------- | -------------
-![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/TRUNK-MASTER) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/RESTWS-RESTWS) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/FHIR-FM2) | ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/SON-OPENMRSCOREMASTER)
+![](https://shields.openmrs.org/plan/TRUNK/MASTER?style=plastic) | ![](https://shields.openmrs.org/plan/RESTWS/RESTWS?style=plastic) | ![Build Status](https://shields.openmrs.org/plan/FHIR/FM2?style=plastic) | ![](https://shields.openmrs.org/plan/SON/OPENMRSCOREMASTER?style=plastic)
 
 
 Install & Upgrade Tests |
@@ -19,7 +19,7 @@ Install & Upgrade Tests |
 
 2.x RefApp Workflow Tests |
 ------------- |
-[All Chrome Tests](https://ci.openmrs.org/browse/CONTRIB-QA) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)
+[All Chrome Tests](https://ci.openmrs.org/browse/CONTRIB-QA) ![](https://shields.openmrs.org/plan/CONTRIB/QA?style=plastic)
 [![All Firefox Tests](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml/badge.svg?branch=master)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/qa.yml)
 [![RefApp 2.x Clinical Visit](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-clinical-visit.yml)
 [![RefApp 2.x Patient Condition](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-condition.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-condition.yml)
@@ -51,9 +51,9 @@ Install & Upgrade Tests |
 
 2.x RefApp Feature-Specific Tests* |
 ------------- |
-[Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/REFAPP-UI)
+[Legacy Selenium Chrome](https://ci.openmrs.org/browse/REFAPP-UI) ![](https://shields.openmrs.org/plan/REFAPP/UI?style=plastic)
 [![Legacy Selenium Firefox](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-legacy.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/refapp-2x-legacy.yml)
-[Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/LU-LU) 
+[Legacy UI](https://ci.openmrs.org/browse/LU-LU) ![](https://shields.openmrs.org/plan/LU/LU?style=plastic) 
 ###### * Detailed list of Legacy Selenium Tests [here](https://github.com/openmrs/openmrs-contrib-qaframework/tree/master/qaframework-legacy-tests/src/test/java/org/openmrs/contrib/qaframework/legacy).
 
 ___

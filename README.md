@@ -66,10 +66,6 @@ OpenMRS Dictionary Manager|
 [![Basic Dictionary Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/basic-dictionary.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/basic-dictionary.yml) (Create, Edit, Copy, Version and Release)
 [![Organization Management](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml/badge.svg)](https://github.com/openmrs/openmrs-ocl-client/actions/workflows/organisation-management.yml)
 
-OCL Module (Subscription Module) |
------|
-[![OCL Subscription Module](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ocl-subscription-module.yml/badge.svg)](https://github.com/openmrs/openmrs-contrib-qaframework/actions/workflows/ocl-subscription-module.yml)
-
 ___
 # openmrs-contrib-qaframework
 

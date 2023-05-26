@@ -18,9 +18,6 @@ jobs:
         browser:
           - firefox
           - chrome
-    defaults:
-      run:
-        working-directory: qaframework-bdd-tests
     services:
       ${{ matrix.browser }}:
         image: selenium/node-${{ matrix.browser }}:3.141.59-gold

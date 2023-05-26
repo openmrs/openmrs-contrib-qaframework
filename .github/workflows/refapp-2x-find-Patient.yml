@@ -11,8 +11,8 @@ jobs:
   test-on-browsers:
     runs-on: ubuntu-latest
     defaults:
-    run:
-      working-directory: qaframework-bdd-tests
+      run:
+        working-directory: qaframework-bdd-tests
     strategy:
       matrix:
         browser:

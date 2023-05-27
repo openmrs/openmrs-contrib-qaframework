@@ -39,6 +39,6 @@ jobs:
       - name: Run qaframework on ${{ matrix.browser }}
         run: |
           mvn clean install -DskipTests=true
-          cp -f qaframework-legacy-tests/src/test/resources/org/openmrs/uitestframework/test-local.properties qaframework-legacy-tests/src/test/resources/org/openmrs/uitestframework/test.properties
+          cp -f qaframework-legacy-tests/src/test/resources/org/openmrs/uitestframework/test-local-${{ matrix.browser }}.properties qaframework-legacy-tests/src/test/resources/org/openmrs/uitestframework/test.properties
           cd qaframework-legacy-tests
           mvn clean install -DskipTests=false

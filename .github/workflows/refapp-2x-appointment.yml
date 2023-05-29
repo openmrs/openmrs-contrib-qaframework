@@ -8,14 +8,19 @@ on:
     types: [qa]
   workflow_dispatch:
 jobs:
-  build:
+  test-on-browsers:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: qaframework-bdd-tests
+    strategy:
+      matrix:
+        browser:
+          - firefox
+          - chrome
     services:
-      firefox:
-        image: selenium/node-firefox:3.141.59-gold
+      ${{ matrix.browser }}:
+        image: selenium/node-${{ matrix.browser }}:3.141.59-gold
         env:
           HUB_HOST: hub
           HUB_PORT: 4444
@@ -25,18 +30,19 @@ jobs:
         with:
           java-version: 1.8
       - name: Checkout qaframework
-        uses: actions/checkout@master
+        uses: actions/checkout@v2
         with:
-          repository: ${{github.repository}}
-      - name: run db and web containers
+          repository: ${{ github.repository }}
+      - name: Run db and web containers
         run: |
           docker-compose -f docker/docker-compose-refqa.yml up -d
-      - name: wait for openmrs instance to start
-        run: while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/login.htm)" != "200" ]]; do sleep 1; done
-      - name: Run qaframework on selenium
+      - name: Wait for OpenMRS instance to start
+        run: |
+          while [[ "$(curl -s -o /dev/null -w ''%{http_code}'' http://localhost:8080/openmrs/login.htm)" != "200" ]]; do sleep 1; done
+      - name: Run qaframework on ${{ matrix.browser }}
         run: |
           echo "cucumber.publish.enabled=true" > src/test/resources/cucumber.properties
           mvn clean install -DskipTests=true
-          cp -f src/test/resources/org/openmrs/uitestframework/test-local.properties src/test/resources/org/openmrs/uitestframework/test.properties
+          cp -f src/test/resources/org/openmrs/uitestframework/test-local-${{ matrix.browser }}.properties src/test/resources/org/openmrs/uitestframework/test.properties
           npm run refapp2Appointment
-          curl -sX POST -F messages=@target/cucumber.ndjson https://studio.cucumber.io/cucumber_project/results -H "project-access-token: ${{secrets.CUCUMBER_IO_TOKEN}}" -H "provider: github" -H "repo: ${{github.repository}}" -H "branch: master" -H "revision: ${{github.sha}}"
+          curl -sX POST -F messages=@target/cucumber.ndjson https://studio.cucumber.io/cucumber_project/results -H "project-access-token: ${{ secrets.CUCUMBER_IO_TOKEN }}" -H "provider: github" -H "repo: ${{ github.repository }}" -H "branch: master" -H "revision: ${{ github.sha }}"

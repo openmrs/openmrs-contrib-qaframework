@@ -14,20 +14,12 @@ import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
 import org.apache.commons.lang3.exception.ExceptionUtils;
-import org.apache.commons.vfs2.AllFileSelector;
-import org.apache.commons.vfs2.FileObject;
-import org.apache.commons.vfs2.FileSystemException;
-import org.apache.commons.vfs2.VFS;
 import org.junit.After;
-import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.rules.TestName;
@@ -199,9 +191,6 @@ public class TestBase {
 	}
 
 	WebDriver setupFirefoxDriver() {
-		if (StringUtils.isBlank(System.getProperty("webdriver.gecko.driver"))) {
-			System.setProperty("webdriver.gecko.driver", Thread.currentThread().getContextClassLoader().getResource(TestProperties.instance().getFirefoxDriverLocation()).getPath());
-		}
 		FirefoxOptions firefoxOptions = new FirefoxOptions();
 		if ("true".equals(TestProperties.instance().getHeadless())) {
 			firefoxOptions.addArguments("--headless");
@@ -211,53 +200,6 @@ public class TestBase {
 	}
 
 	WebDriver setupChromeDriver() {
-		URL chromedriverExecutable = null;
-		ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-
-		String chromedriverExecutableFilename = null;
-		if (SystemUtils.IS_OS_MAC_OSX) {
-			chromedriverExecutableFilename = "chromedriver";
-			chromedriverExecutable = classLoader.getResource("chromedriver/mac/chromedriver");
-		} else if (SystemUtils.IS_OS_LINUX) {
-			chromedriverExecutableFilename = "chromedriver";
-			chromedriverExecutable = classLoader.getResource("chromedriver/linux/chromedriver");
-		} else if (SystemUtils.IS_OS_WINDOWS) {
-			chromedriverExecutableFilename = "chromedriver.exe";
-			chromedriverExecutable = classLoader.getResource("chromedriver/windows/chromedriver.exe");
-		}
-		String errmsg = "cannot find chromedriver executable";
-		String chromedriverExecutablePath = null;
-		if (chromedriverExecutable == null) {
-			System.err.println(errmsg);
-			Assert.fail(errmsg);
-		} else {
-			chromedriverExecutablePath = chromedriverExecutable.getPath();
-			// This ugly bit checks to see if the chromedriver file is inside a
-			// jar, and if so
-			// uses VFS to extract it to a temp directory.
-			if (chromedriverExecutablePath.contains(".jar!")) {
-				FileObject chromedriver_vfs;
-				try {
-					chromedriver_vfs = VFS.getManager().resolveFile(
-							chromedriverExecutable.toExternalForm());
-					File chromedriver_fs = new File(FileUtils.getTempDirectory(),
-							chromedriverExecutableFilename);
-					FileObject chromedriverUnzipped = VFS.getManager().toFileObject(chromedriver_fs);
-					chromedriverUnzipped.delete();
-					chromedriverUnzipped.copyFrom(chromedriver_vfs, new AllFileSelector());
-					chromedriverExecutablePath = chromedriver_fs.getPath();
-					if (!SystemUtils.IS_OS_WINDOWS) {
-						chromedriver_fs.setExecutable(true);
-					}
-				} catch (FileSystemException e) {
-					System.err.println(errmsg + ": " + e);
-					e.printStackTrace();
-					Assert.fail(errmsg + ": " + e);
-				}
-			}
-		}
-		System.setProperty(ChromeDriverService.CHROME_DRIVER_EXE_PROPERTY,
-				chromedriverExecutablePath);
 		String chromedriverFilesDir = "target/chromedriverlogs";
 		try {
 			FileUtils.forceMkdir(new File(chromedriverFilesDir));

@@ -41,9 +41,6 @@
     "testingCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @testingInstall'",
     "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'"
   },
-  "devDependencies": {
-    "@types/uuid": "3.4.7"
-  },
   "description": "![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)",
   "main": "index.js",
   "repository": {

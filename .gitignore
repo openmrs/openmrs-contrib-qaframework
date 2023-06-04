@@ -7,8 +7,6 @@ qaframework.iml
 target/
 node/
 package-lock.json
-qaframework-bdd-tests/cypress/screenshots
-qaframework-bdd-tests/cypress/videos
 node_modules/
 openmrs.log
 .classpath

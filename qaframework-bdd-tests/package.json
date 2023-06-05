@@ -7,7 +7,6 @@
     "npm": ">=7.5.3"
   },
   "scripts": {
-    "refappCypress": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and not @microfrontend'",
     "refappSelenium": "mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup'",
     "refapp2VitalsAndTriaging": "mvn test -Dcucumber.filter.tags='@selenium and @vitals'",
     "refapp2Condition": "mvn test -Dcucumber.filter.tags='@selenium and @condition'",
@@ -25,14 +24,14 @@
     "refapp2Allergy": "mvn test -Dcucumber.filter.tags='@selenium and @allergies'",
     "refapp2Report": "mvn test -Dcucumber.filter.tags='@selenium and @report'",
     "refapp2Appointment": "mvn test -Dcucumber.filter.tags='@selenium and @appointment'",
-    "refapp2RolesAndPrivileges":"mvn test -Dcucumber.filter.tags='@selenium and @rolesAndPrivileges'",
+    "refapp2RolesAndPrivileges": "mvn test -Dcucumber.filter.tags='@selenium and @rolesAndPrivileges'",
     "refapp2Person": "mvn test -Dcucumber.filter.tags='@selenium and @person'",
     "refapp2PatientVisit": "mvn test -Dcucumber.filter.tags='@selenium and @patientVisit'",
     "refapp2FindPatient": "mvn test -Dcucumber.filter.tags='@selenium and @findPatient'",
     "refapp2Module": "mvn test -Dcucumber.filter.tags='@selenium and @modules'",
     "refapp2OpenConceptLab": "mvn test -Dcucumber.filter.tags='@selenium and @openConceptLab'",
-    "refapp2Provider":"mvn test -Dcucumber.filter.tags='@selenium and @provider'",
-    "refapp2PatientDemographics":"mvn test -Dcucumber.filter.tags='@selenium and @patientDemographics'",
+    "refapp2Provider": "mvn test -Dcucumber.filter.tags='@selenium and @provider'",
+    "refapp2PatientDemographics": "mvn test -Dcucumber.filter.tags='@selenium and @patientDemographics'",
     "refapp2VisitType": "mvn test -Dcucumber.filter.tags='@selenium and @visitType'",
     "refapp2AddUserAndRoles": "mvn test -Dcucumber.filter.tags='@selenium and @user'",
     "refapp2VisitNote": "mvn test -Dcucumber.filter.tags='@selenium and @visitNote'",
@@ -40,24 +39,10 @@
     "advancedCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @advancedInstall'",
     "postgresCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @postgresInstall'",
     "testingCoreInstall": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @testingInstall'",
-    "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'",
-    "ocl": "./node_modules/.bin/cypress-tags run -eTAGS='@cypress and @ocl'",
-    "microfrontend": "cypress-tags run -eTAGS='@cypress and @microfrontend'",
-    "refappOclSubscriptionModule": "cypress run --spec src/test/resources/features/ocl/ocl-subscription-module.feature"
-  },
-  "devDependencies": {
-    "@testing-library/cypress": "^8.0.0",
-    "@types/uuid": "3.4.7",
-    "cypress": "^9.5.3",
-    "cypress-cucumber-preprocessor": "^4.0.1",
-    "cypress-file-upload": "^5.0.8"
-  },
-  "cypress-cucumber-preprocessor": {
-    "step_definitions": "cypress/integration/cucumber/step_definitions"
+    "coreUpgrade": "mvn test -Dcucumber.filter.tags='@selenium and @initialSetup and @upgrade'"
   },
   "description": "![Build Status](https://ci.openmrs.org/plugins/servlet/wittified/build-status/CONTRIB-QA)",
   "main": "index.js",
-  "dependencies": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/openmrs/openmrs-contrib-qaframework.git"

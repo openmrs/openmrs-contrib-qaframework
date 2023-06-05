@@ -3,7 +3,6 @@ Feature: User Login
   Background:
     Given User visits login page
 
-  @cypress
   @selenium
   Scenario Outline: Failing or Succeeding to Login
     When User enters "<username>" username

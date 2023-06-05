@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "engines": {
-    "node": ">=14.15.5",
-    "npm": ">=7.5.3"
+    "node": ">=16.20.0",
+    "npm": ">=8.19.4"
   },
   "scripts": {
     "refappSelenium": "mvn test -Dcucumber.filter.tags='@selenium and not @initialSetup'",

@@ -84,7 +84,7 @@
                         </goals>
                         <phase>generate-resources</phase>
                         <configuration>
-                            <nodeVersion>v15.8.0</nodeVersion>
+                            <nodeVersion>v16.20.0</nodeVersion>
                             <installDirectory>./</installDirectory>
                         </configuration>
                     </execution>

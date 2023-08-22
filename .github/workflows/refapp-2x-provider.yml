@@ -1,5 +1,7 @@
 name: RefApp 2.x Provider
 on:
+  schedule:
+    - cron: '0 0 * * 1,3,5'
   push:
     branches: [master]
   pull_request:

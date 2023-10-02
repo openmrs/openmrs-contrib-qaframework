@@ -18,12 +18,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
-import org.openqa.selenium.Alert;
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -262,6 +257,14 @@ public abstract class Page {
 		waiter.until(ExpectedConditions.stalenessOf(webElement));
 	}
 
+	public boolean isDisplayed(By by) {
+		try {
+			WebElement element = driver.findElement(by);
+			return element.isDisplayed();
+		} catch (NoSuchElementException | StaleElementReferenceException ex) {
+			return false;
+		}
+	}
 	/**
 	 * @return the page path
 	 */

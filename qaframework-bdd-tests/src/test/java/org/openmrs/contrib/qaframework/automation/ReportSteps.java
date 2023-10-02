@@ -84,7 +84,7 @@ public class ReportSteps extends Steps {
 	}
 	
 	@Then("user clicks on view report link")
-	public void userClicksOnViewReport() {
+	public void userClicksOnViewReport() throws InterruptedException {
 		renderDefaultReportPage = reportHistoryPage.clickOnViewLink();
 	}
 }

@@ -21,8 +21,13 @@ public class ReportHistoryPage extends Page {
 		super(page);
 	}
 
-	public RenderDefaultReportPage clickOnViewLink() {
-		waiter.until(ExpectedConditions.visibilityOfElementLocated(VIEW_REPORT));
+	public RenderDefaultReportPage clickOnViewLink() throws InterruptedException {
+		while (!isDisplayed(VIEW_REPORT))
+		{
+			Thread.sleep(3000);
+			System.out.println("Element is not visible yet");
+		}
+
 		clickOn(VIEW_REPORT);
 		return new RenderDefaultReportPage(this);
 	}

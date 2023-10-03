@@ -1,6 +1,6 @@
 Feature: Roles & Privileges Management
 
-#  @selenium
+  @selenium
   @rolesAndPrivileges
   Scenario: Adding the privilege
     Given User clicks on configure metadata link from home page
@@ -10,7 +10,7 @@ Feature: Roles & Privileges Management
     And User clicks the save button
     Then Privilege is saved successfully
 
-#  @selenium
+  @selenium
   @rolesAndPrivileges
   Scenario: Editing the privilege
     Given User clicks on configure metadata link from home page

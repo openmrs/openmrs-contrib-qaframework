@@ -25,7 +25,6 @@ public class ReportHistoryPage extends Page {
 		while (!isDisplayed(VIEW_REPORT))
 		{
 			Thread.sleep(3000);
-			System.out.println("Element is not visible yet");
 		}
 
 		clickOn(VIEW_REPORT);

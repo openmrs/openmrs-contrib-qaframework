@@ -2,7 +2,7 @@ Feature: Add New Identifier
 
   Background:
     Given a user clicks on system administration link on the home page
-    Then the system loads administration page
+    Then the administration page is loaded
     And a user clicks on the manage Patients link on the administration page
     Then the system loads patient page
 

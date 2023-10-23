@@ -35,13 +35,12 @@ public class AddNewIdentifierSteps extends Steps {
         administrationPage = homePage.goToAdministration();
     }
 
-    @Then("the system loads administration page")
-    public void loadAdministrationPage() {
+    @Then("the administration page is loaded")
+    public void verifyAdministrationPageIsLoaded() {
         assertTrue(textExists("Administration"));
     }
 
-
-    @And("a user clicks on the Manage Patients link on the administration page")
+    @And("a user clicks on the manage Patients link on the administration page")
     public void clickManagePatientsLink() {
         patientPage = (PatientPage) administrationPage.clickOnManagePatients().waitForPage();
     }
@@ -73,4 +72,5 @@ public class AddNewIdentifierSteps extends Steps {
     public void clickOnSavePatient() {
         patientFormPage.savePatient();
     }
+
 }

@@ -23,4 +23,5 @@ public class PatientPage extends Page{
         findElement(SEARCH_ELEMENT).sendKeys(Keys.BACK_SPACE);
         waitForTextToBePresentInElement(SEARCH_STATUS,text.substring(0, text.length() - 1));
     }
+
 }

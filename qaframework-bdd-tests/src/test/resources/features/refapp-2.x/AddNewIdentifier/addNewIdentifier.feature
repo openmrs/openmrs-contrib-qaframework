@@ -10,6 +10,7 @@ Feature: Add New Identifier
   @addNewIdentifier
   Scenario: Adding New Identifier
     When a user searches for the patient
+    And user selects returned patient
     And a user clicks on add new identifier
-    And a user mentions preferred identifier, identifier type and location
+    And a user mentions preferred, identifier, identifier type and location
     Then the system adds the new identifier

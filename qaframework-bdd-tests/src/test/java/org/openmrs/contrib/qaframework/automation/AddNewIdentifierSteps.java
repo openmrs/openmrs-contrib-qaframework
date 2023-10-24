@@ -13,11 +13,12 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+
 public class AddNewIdentifierSteps extends Steps {
     private AdministrationPage administrationPage;
     private PatientPage patientPage;
     private PatientFormPage patientFormPage;
-    private static final String IDENTIFIER = "100397A";
+    private static final String IDENTIFIER = "1007A1";
 
 
     @Before(RunTest.HOOK.SELENIUM_ADD_NEW_IDENTIFIER)
@@ -55,12 +56,17 @@ public class AddNewIdentifierSteps extends Steps {
         patientPage.searchPatientIdentifierOrPatientName(firstPatientIdentifier);
     }
 
+    @And("user selects returned patient")
+    public void userSelectsReturnedPatient() {
+        dashboardPage = findPatientPage.clickOnFirstPatient();
+    }
+
     @And("a user clicks on add new identifier")
     public void ClickOnAddNewIdentifier() {
         patientFormPage.addNewIdentifier();
     }
 
-    @And("a user mentions preferred identifier, identifier type and location")
+    @And("a user mentions preferred, identifier, identifier type and location")
     public void fillNewIdentifierForm() {
         patientFormPage.selectPreferred();
         patientFormPage.setIdentifier(IDENTIFIER);

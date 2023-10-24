@@ -86,6 +86,7 @@ public class AdministrationPage extends Page {
 	public String getPageUrl() {
 		return URL;
 	}
+
 	public PatientPage clickOnManagePatients() {
 		findElement(MANAGE_PATIENTS_LINK).click();
 		return new PatientPage(this);

@@ -4,12 +4,12 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-public class PatientPage extends Page{
+public class ManagePatientPage extends Page{
 
     private static final By SEARCH_ELEMENT = By.id("inputNode");
     private static final By SEARCH_STATUS = By.id("pageInfo");
 
-    public PatientPage(Page parent) {
+    public ManagePatientPage(Page parent) {
         super(parent);
     }
 

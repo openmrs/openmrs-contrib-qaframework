@@ -87,8 +87,8 @@ public class AdministrationPage extends Page {
 		return URL;
 	}
 
-	public PatientPage clickOnManagePatients() {
+	public ManagePatientPage clickOnManagePatients() {
 		findElement(MANAGE_PATIENTS_LINK).click();
-		return new PatientPage(this);
+		return new ManagePatientPage(this);
 	}
 }

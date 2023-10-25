@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 public class PatientFormPage extends Page {
 
     private static final By ADD_NEW_IDENTIFIER = By.id("identifier");
-    private static final By PREFERRED_BUTTON = By.cssSelector("#preferred input[type=\"checkbox\"]");
+    private static final By PREFERRED_BUTTON = By.cssSelector("input[name='preferred'][type='checkbox']");
     private static final By IDENTIFIER_FIELD = By.name("identifiers[0].identifier");
     private static final By IDENTIFIER_TYPE_FIELD = By.id("identifierTypeBox2");
     private static final String IDENTIFIER_TYPE = "OpenMRS ID";

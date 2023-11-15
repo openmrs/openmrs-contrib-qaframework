@@ -8,7 +8,16 @@ public class ManagePatientPage extends Page{
 
     private static final By SEARCH_ELEMENT = By.id("inputNode");
     private static final By SEARCH_STATUS = By.id("pageInfo");
-
+    private static String ADD_NEW_IDENTIFIER_BUTTON = "//input[@type='button' and @onclick=\"return addNew('identifier');\" and @class='addNew' and @id='identifier']";
+    private static By ADD_NEW_IDENTIFIER_BUTTON_PATH;
+    private static final By PREFERRED_BUTTON = By.name("preferred");
+    private static final By IDENTIFIER_FIELD = By.name("identifier");
+    private static final By IDENTIFIER_TYPE_FIELD = By.id("identifierTypeBox2");
+    private static final String IDENTIFIER = "1007A1";
+    private static final String IDENTIFIER_TYPE = "OpenMRS ID";
+    private static final By LOCATION_FIELD = By.id("locationBox2");
+    private static final String LOCATION = "Amani Hospital";
+    private static final By SAVE_PATIENT_BUTTON = By.id("saveButton");
     public ManagePatientPage(Page parent) {
         super(parent);
     }
@@ -24,9 +33,33 @@ public class ManagePatientPage extends Page{
         waitForTextToBePresentInElement(SEARCH_STATUS,text.substring(0, text.length() - 1));
     }
 
-    public void clickOnFirstPatient(String text) {
+    public void clickOnReturnedPatient(String text) {
         setText(SEARCH_ELEMENT, text);
-        clickOn(By.cssSelector("#openmrsSearchTable > tbody > tr:nth-child(2)"));
+        clickOn(By.cssSelector("#openmrsSearchTable > tbody > tr:nth-child(1)"));
+    }
+    public void clickOnAddNewIdentifier() {
+        ADD_NEW_IDENTIFIER_BUTTON_PATH = By.xpath(ADD_NEW_IDENTIFIER_BUTTON);
+        clickOn(ADD_NEW_IDENTIFIER_BUTTON_PATH);
     }
 
+    public void selectPreferred() {
+        clickOn(PREFERRED_BUTTON);
+    }
+
+    public void setIdentifier(String identifier) {
+        findElement(IDENTIFIER_FIELD).clear();
+        findElement(IDENTIFIER_FIELD).sendKeys(IDENTIFIER);
+    }
+
+    public void setIdentifierType() {
+        selectFrom(IDENTIFIER_TYPE_FIELD, IDENTIFIER_TYPE);
+    }
+
+    public void setLocation() {
+        selectFrom(LOCATION_FIELD, LOCATION);
+    }
+
+    public void savePatient() {
+        clickOn(SAVE_PATIENT_BUTTON);
+    }
 }

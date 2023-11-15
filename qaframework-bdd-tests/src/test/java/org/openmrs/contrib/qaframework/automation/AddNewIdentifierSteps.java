@@ -4,7 +4,6 @@ import static org.junit.Assert.assertTrue;
 
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
-import org.openmrs.contrib.qaframework.page.PatientFormPage;
 import org.openmrs.contrib.qaframework.page.ManagePatientPage;
 
 import io.cucumber.java.After;
@@ -17,10 +16,7 @@ import io.cucumber.java.en.When;
 public class AddNewIdentifierSteps extends Steps {
     private AdministrationPage administrationPage;
     private ManagePatientPage managePatientPage;
-    private PatientFormPage patientFormPage;
-    private static final String IDENTIFIER = "1007A1";
-
-
+    private static final String IDENTIFIER = "100397A";
     @Before(RunTest.HOOK.SELENIUM_ADD_NEW_IDENTIFIER)
     public void setUp() {
         initiateWithLogin();
@@ -53,30 +49,30 @@ public class AddNewIdentifierSteps extends Steps {
 
     @When("a user searches for the patient")
     public void searchPatientIdentifierOrPatientName() {
-        managePatientPage.searchPatientIdentifierOrPatientName("john");
+        managePatientPage.searchPatientIdentifierOrPatientName("000");
     }
 
     @And("user selects returned patient")
     public void userSelectsReturnedPatient() {
-        managePatientPage.clickOnFirstPatient("john");
+        managePatientPage.clickOnReturnedPatient("");
     }
 
     @And("a user clicks on add new identifier")
     public void ClickOnAddNewIdentifier() {
-        patientFormPage.addNewIdentifier();
+        managePatientPage.clickOnAddNewIdentifier();
     }
 
     @And("a user mentions preferred, identifier, identifier type and location")
     public void fillNewIdentifierForm() {
-        patientFormPage.selectPreferred();
-        patientFormPage.setIdentifier(IDENTIFIER);
-        patientFormPage.setIdentifierType();
-        patientFormPage.setLocation();
+        managePatientPage.selectPreferred();
+        managePatientPage.setIdentifier(IDENTIFIER);
+        managePatientPage.setIdentifierType();
+        managePatientPage.setLocation();
     }
 
     @Then("the system adds the new identifier")
     public void clickOnSavePatient() {
-        patientFormPage.savePatient();
+        managePatientPage.savePatient();
     }
 
 }

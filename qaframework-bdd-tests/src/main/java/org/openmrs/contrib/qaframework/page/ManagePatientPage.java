@@ -37,6 +37,7 @@ public class ManagePatientPage extends Page{
         clickOn(By.cssSelector("#openmrsSearchTable > tbody > tr:nth-child(1)"));
     }
     public void clickOnAddNewIdentifier() {
+        waitForElement(ADD_NEW_IDENTIFIER);
         clickOn(ADD_NEW_IDENTIFIER);
     }
 

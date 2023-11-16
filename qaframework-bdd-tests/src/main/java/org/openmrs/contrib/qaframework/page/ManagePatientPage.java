@@ -4,8 +4,6 @@ import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 
-import java.time.Duration;
-
 public class ManagePatientPage extends Page{
 
     private static final By SEARCH_ELEMENT = By.id("inputNode");

@@ -8,8 +8,7 @@ public class ManagePatientPage extends Page{
 
     private static final By SEARCH_ELEMENT = By.id("inputNode");
     private static final By SEARCH_STATUS = By.id("pageInfo");
-    private static String ADD_NEW_IDENTIFIER_BUTTON = "//input[@type='button' and @onclick=\"return addNew('identifier');\" and @class='addNew' and @id='identifier']";
-    private static By ADD_NEW_IDENTIFIER_BUTTON_PATH;
+    private static final By ADD_NEW_IDENTIFIER = By.id("identifier");
     private static final By PREFERRED_BUTTON = By.name("preferred");
     private static final By IDENTIFIER_FIELD = By.name("identifier");
     private static final By IDENTIFIER_TYPE_FIELD = By.id("identifierTypeBox2");
@@ -38,8 +37,7 @@ public class ManagePatientPage extends Page{
         clickOn(By.cssSelector("#openmrsSearchTable > tbody > tr:nth-child(1)"));
     }
     public void clickOnAddNewIdentifier() {
-        ADD_NEW_IDENTIFIER_BUTTON_PATH = By.xpath(ADD_NEW_IDENTIFIER_BUTTON);
-        clickOn(ADD_NEW_IDENTIFIER_BUTTON_PATH);
+        clickOn(ADD_NEW_IDENTIFIER);
     }
 
     public void selectPreferred() {

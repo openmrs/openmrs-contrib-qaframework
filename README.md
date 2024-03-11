@@ -108,4 +108,4 @@ MySQL password should be the same for initialSetupTests as openmrs password
 
 * To get started contributing, start working on introductory issues in JIRA and check out  [OpenMRS Pull Request Tips](https://wiki.openmrs.org/display/docs/Pull+Request+Tips). 
 
-* There is a detailed guide for setting up the OpenMRS QA Framework locally, checkout the guide [here](https://wiki.openmrs.org/pages/viewpage.action?pageId=235277297).
+* There is a detailed guide for setting up the OpenMRS QA Framework locally, checkout the guide [here](https://openmrs.atlassian.net/wiki/spaces/docs/pages/25471783/QA+Framework+Technical+documentation+Cucumber-Selenium+Cucumber-Cypress+Set+up).

@@ -10,12 +10,12 @@
     <url>https://wiki.openmrs.org</url>
     <organization>
         <name>OpenMRS</name>
-        <url>http://openmrs.org</url>
+        <url>https://openmrs.org</url>
     </organization>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>1.8</java.version>
-        <cucumber.version>6.7.0</cucumber.version>
+        <cucumber.version>7.15.0</cucumber.version>
     </properties>
     <dependencies>
 

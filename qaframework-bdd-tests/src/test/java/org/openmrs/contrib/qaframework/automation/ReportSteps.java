@@ -75,6 +75,7 @@ public class ReportSteps extends Steps {
 	@And("user enters end date")
 	public void userEntersEndDate() {
 		runReportsPage.enterEndDate(END_DATE);
+		runReportsPage.clickOnEmptyForm();
 	}
 
 	@And("user clicks on request report button")
@@ -83,7 +84,7 @@ public class ReportSteps extends Steps {
 	}
 	
 	@Then("user clicks on view report link")
-	public void userClicksOnViewReport() {
+	public void userClicksOnViewReport() throws InterruptedException {
 		renderDefaultReportPage = reportHistoryPage.clickOnViewLink();
 	}
 }

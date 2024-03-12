@@ -2,7 +2,7 @@ Feature:Phone Number validation
 
   Background:
     Given user goes to find patient record app
-   
+
   @selenium
   @phoneNumberValidation
   Scenario: Phone Number validation

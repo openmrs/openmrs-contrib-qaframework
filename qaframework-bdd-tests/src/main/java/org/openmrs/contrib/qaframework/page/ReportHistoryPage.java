@@ -11,6 +11,7 @@ package org.openmrs.contrib.qaframework.page;
 
 import org.openmrs.contrib.qaframework.helper.Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ReportHistoryPage extends Page {
 
@@ -20,7 +21,12 @@ public class ReportHistoryPage extends Page {
 		super(page);
 	}
 
-	public RenderDefaultReportPage clickOnViewLink() {
+	public RenderDefaultReportPage clickOnViewLink() throws InterruptedException {
+		while (!isDisplayed(VIEW_REPORT))
+		{
+			Thread.sleep(3000);
+		}
+
 		clickOn(VIEW_REPORT);
 		return new RenderDefaultReportPage(this);
 	}

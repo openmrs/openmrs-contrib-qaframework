@@ -26,7 +26,7 @@ public class AdministrationPage extends Page {
 	private static final By REPORT_ADMINISTRATION_LINK = By.cssSelector("#content a[href*='/module/reporting/reports/manageReports.form']");
 	private static final By MANAGE_ENCOUNTERS_LINK = By.linkText("Manage Encounters");
 	private static final By MANAGE_LOCATIONS_LINK = By.linkText("Manage Locations");
-
+	private static final By MANAGE_PATIENTS_LINK = By.cssSelector("#content a[href='/openmrs/admin/patients/index.htm']");
 	public AdministrationPage(Page page) {
 		super(page);
 	}
@@ -85,5 +85,10 @@ public class AdministrationPage extends Page {
 	@Override
 	public String getPageUrl() {
 		return URL;
+	}
+
+	public ManagePatientPage clickOnManagePatients() {
+		findElement(MANAGE_PATIENTS_LINK).click();
+		return new ManagePatientPage(this);
 	}
 }

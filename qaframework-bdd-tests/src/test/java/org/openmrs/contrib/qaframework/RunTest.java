@@ -59,6 +59,7 @@ public class RunTest {
 		public static final String SERVICE = "@service";
 		public static final String PATIENT_VISIT = "@patientVisit";
 		public static final String LOCATION = "@location";
+		public static final String ADD_NEW_IDENTIFIER = "@addNewIdentifier";
 		public static final String SELENIUM_PERSON = SELENIUM + " and " + PERSON;
 		public static final String SELENIUM_LOGIN = SELENIUM + " and " + LOGIN;
 		public static final String SELENIUM_MODULES = SELENIUM + " and " + MODULES;
@@ -88,5 +89,6 @@ public class RunTest {
 		public static final String SELENIUM_PHONE_NUMBER_VALIDATION = SELENIUM + " and " + PHONE_NUMBER_VALIDATION;
 		public static final String SELENIUM_SERVICE = SELENIUM + " and " + SERVICE;
 		public static final String SELENIUM_LOCATION_MANAGEMENT = SELENIUM + " and " + LOCATION;
+		public static final String SELENIUM_ADD_NEW_IDENTIFIER = SELENIUM + " and " + ADD_NEW_IDENTIFIER;
 	}
 }

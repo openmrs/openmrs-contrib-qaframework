@@ -133,7 +133,6 @@ public class VitalsAndTriagingSteps extends Steps {
 	public void savePatientVitals() {
 		patientCaptureVitalsPage.confirm();
 		patientCaptureVitalsPage.save();
-		patientCaptureVitalsPage.waitForPage();
 	}
 
 	@Then("the system adds patient vitals into the vitals table")

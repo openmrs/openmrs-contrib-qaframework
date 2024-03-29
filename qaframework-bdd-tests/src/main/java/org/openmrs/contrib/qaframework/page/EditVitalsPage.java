@@ -24,7 +24,7 @@ public class EditVitalsPage extends Page {
     private static final By BLOOD_PRESSURE_FIELD_1 = By.id("w18");
     private static final By BLOOD_PRESSURE_FIELD_2 = By.id("w20");
     private static final By BLOOD_OXYGEN_SATURATION_FIELD = By.id("w22");
-    private static final By SAVE_CHANGES_BUTTON = By.xpath("//input[@type='button']");
+    private static final By SAVE_CHANGES_BUTTON = By.xpath("//input[@class='submitButton']");
 
     public EditVitalsPage(Page page) {
         super(page);

@@ -9,8 +9,6 @@
  */
 package org.openmrs.contrib.qaframework.automation;
 
-import static org.junit.Assert.assertTrue;
-
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -18,12 +16,17 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
+import static org.junit.Assert.assertTrue;
+
+import org.junit.Assert;
 import org.openmrs.contrib.qaframework.RunTest;
 import org.openmrs.contrib.qaframework.helper.TestData;
 import org.openmrs.contrib.qaframework.page.AdministrationPage;
 import org.openmrs.contrib.qaframework.page.EncounterFormPage;
 import org.openmrs.contrib.qaframework.page.ManageEncountersPage;
 import org.openmrs.contrib.qaframework.page.SystemAdministrationPage;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
 public class PatientEncounterSteps extends Steps {
 
@@ -81,11 +84,13 @@ public class PatientEncounterSteps extends Steps {
 	@And("a user clicks Save Encounter button")
 	public void clickOnSaveEncounterButton() {
 		encounterFormPage.clickOnSaveEncounter();
+		assertTrue(textExists("Encounter saved"));
 	}
 
 	@Then("the system saves encounter in the encounters table")
 	public void systemSavesEncounter() {
-		assertTrue(textExists("Encounter saved"));
+	    WebElement element = driver.findElement(By.xpath("//*[@id='openmrs_msg']"));
+	    Assert.assertEquals(element.getText(), "Encounter saved");
 	}
 
 	@When("a user clicks on deleted checkbox")

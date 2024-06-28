@@ -32,5 +32,5 @@ jobs:
       - name: Push changes
         uses: ad-m/github-push-action@v0.6.0
         with:
-          branch: temp
+          branch: keep-gh-actions-alive
           github_token: ${{ secrets.GITHUB_TOKEN }}

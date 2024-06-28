@@ -1,0 +1,34 @@
+name: Commit to keep-gh-actions-alive branch every 50 days
+
+on:
+  schedule:
+    - cron: '0 0 */50 * *'
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Update readme.txt
+        run: |
+          echo "writing a commit message every 50 days to keep the github actions alive because they automatically disable after 60 days. Last updated on: $(date -u '+%Y-%m-%d %H:%M:%S %Z')" > readme.txt
+
+      - name: Configure git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+      - name: Commit changes
+        run: |
+          git checkout -B temp
+          git add readme.txt
+          git commit -m "Update readme.txt to keep GitHub Actions alive"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.6.0
+        with:
+          branch: temp
+          github_token: ${{ secrets.GITHUB_TOKEN }}

@@ -3,6 +3,8 @@ name: Commit to keep-gh-actions-alive branch every 50 days
 on:
   schedule:
     - cron: '0 0 */50 * *'
+  push:
+    branches: [keep-gh-actions-alive]
 
 jobs:
   update-readme:
@@ -23,7 +25,7 @@ jobs:
 
       - name: Commit changes
         run: |
-          git checkout -B temp
+          git checkout -B keep-gh-actions-alive
           git add readme.txt
           git commit -m "Update readme.txt to keep GitHub Actions alive"
 

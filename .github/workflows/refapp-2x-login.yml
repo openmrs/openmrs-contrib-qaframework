@@ -34,6 +34,10 @@ jobs:
           java-version: '8'
       - name: Checkout qaframework
         uses: actions/checkout@v4
+        - name: Install Docker Compose
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker-compose
         with:
           repository: ${{ github.repository }}
       - name: Run db and web containers

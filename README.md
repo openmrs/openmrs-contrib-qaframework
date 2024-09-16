@@ -71,6 +71,24 @@ ___
 
 OpenMRS [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development) QA framework, Currently tracking;
 
+In order to test within a real desktop browser, you will need a webdriver to connect to your browser (either firefox or chrome).
+
+1.Download the webdriver version that matches your system and browser version.
+- [Chrome](https://chromedriver.chromium.org/downloads).
+- [Firefox](https://github.com/mozilla/geckodriver/releases).
+- [Others](https://www.selenium.dev/downloads/).
+
+2.Move your downloaded browser webdriver into the right locations as follows
+- Chrome:  src/test/resources/chromedriver/<linux/mac>/chromedriver or src/test/resources/chromedriver/windows/chromedriver
+- Firefox: src/test/resources/firefoxdriver/<linux/mac>/geckodriver or src/test/resources/firefoxdriver/windows/geckodriver
+
+3.Edit src/test/resources/org/openmrs/uitestframework/test.properties
+- Set  **webdriver=chrome** or  **webdriver=firefox**
+- Set **headless=false** to allow the web browser UI to appear during the test
+- Set the location of your webdriver within src/test/resources, for example
+  - **webdriver.gecko.driver=firefoxdriver/windows/geckodriver** or
+  - **webdriver.chrome.webdriver=chromedriver/mac/chromedriver**
+
 ## Installing dependencies
 - `mvn clean install -DskipTests=true`
 
